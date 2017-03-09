@@ -1,0 +1,179 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ILogger
+  id: ILogger
+  children:
+  - Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  - Microsoft.Build.Framework.ILogger.Parameters
+  - Microsoft.Build.Framework.ILogger.Shutdown
+  - Microsoft.Build.Framework.ILogger.Verbosity
+  langs:
+  - csharp
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Build.Framework.ILogger
+  type: Interface
+  summary: "Definierar en [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] transaktionsloggfiler som prenumererar på Skapa systemhändelser."
+  remarks: "Alla klasser för meddelandeloggfiler måste implementera gränssnittet ska kunna identifieras av den [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] motorn.       I stället för att implementera gränssnittet direkt kan du också härledas klassen från hjälpklass, <xref:Microsoft.Build.Utilities.Logger>, som innehåller standard implementeringar av vissa ILogger medlemmar.</xref:Microsoft.Build.Utilities.Logger>"
+  example:
+  - "The following example shows how to write a basic logger.  \n  \n [!code-cs[msbuild_BasicLogger#1](~/add/codesnippet/csharp/msbuild_BasicLogger/msbuild_BasicLogger.cs#1)]"
+  syntax:
+    content: >-
+      [System.Runtime.InteropServices.ComVisible(true)]
+
+      public interface ILogger
+  implements: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  id: Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Prenumererar loggar tangenttryckningar till specifika händelser. Den här metoden anropas när transaktionsloggfiler är registrerad med build-motorn innan händelser aktiveras."
+  syntax:
+    content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
+    parameters:
+    - id: eventSource
+      type: Microsoft.Build.Framework.IEventSource
+      description: "Händelser som är tillgängliga för loggar tangenttryckningar."
+  overload: Microsoft.Build.Framework.ILogger.Initialize*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  id: Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar eller anger transaktionsloggfiler användardefinierade parametrar."
+  remarks: "Parametrar kan representeras i den här egenskapen i valfritt format. För att representera två parametrar och värden, kan du till exempel använda strängen &quot;parameter1 = värde1, parameter2 = värde2&quot;.       Den här egenskapen kan vara en nullreferens (`Nothing` i [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
+  syntax:
+    content: public string Parameters { get; set; }
+    return:
+      type: System.String
+      description: "Parametrarna för loggning."
+  overload: Microsoft.Build.Framework.ILogger.Parameters*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  id: Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Frigör de resurser transaktionsloggfiler vid tidpunkten för initiering eller under genereringen. Den här metoden anropas när transaktionsloggfiler är avregistrera från motorn efter alla händelser aktiveras. En mängd [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] vanligtvis Avregistrerar loggar tangenttryckningar innan du avslutar."
+  syntax:
+    content: public void Shutdown ();
+    parameters: []
+  overload: Microsoft.Build.Framework.ILogger.Shutdown*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  id: Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar eller anger detaljnivån ska visas i händelseloggen."
+  remarks: "När en logg frihet att välja de händelser som loggas skapar följande riktlinjer för hur en enhetlig användarupplevelse."
+  syntax:
+    content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
+    return:
+      type: Microsoft.Build.Framework.LoggerVerbosity
+      description: "En av uppräkningsvärdena. Standardvärdet är <xref href=&quot;Microsoft.Build.Framework.LoggerVerbosity&quot;> </xref>."
+  overload: Microsoft.Build.Framework.ILogger.Verbosity*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+- uid: Microsoft.Build.Framework.IEventSource
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: IEventSource
+  nameWithType: IEventSource
+  fullName: Microsoft.Build.Framework.IEventSource
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+- uid: Microsoft.Build.Framework.LoggerVerbosity
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: LoggerVerbosity
+  nameWithType: LoggerVerbosity
+  fullName: Microsoft.Build.Framework.LoggerVerbosity
+- uid: Microsoft.Build.Framework.ILogger.Initialize*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize
+  nameWithType: ILogger.Initialize
+- uid: Microsoft.Build.Framework.ILogger.Parameters*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+- uid: Microsoft.Build.Framework.ILogger.Shutdown*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown
+  nameWithType: ILogger.Shutdown
+- uid: Microsoft.Build.Framework.ILogger.Verbosity*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
