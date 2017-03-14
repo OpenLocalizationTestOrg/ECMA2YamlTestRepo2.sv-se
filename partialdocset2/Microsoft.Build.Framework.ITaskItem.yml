@@ -1,0 +1,344 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ITaskItem
+  id: ITaskItem
+  children:
+  - Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata
+  - Microsoft.Build.Framework.ITaskItem.CopyMetadataTo(Microsoft.Build.Framework.ITaskItem)
+  - Microsoft.Build.Framework.ITaskItem.GetMetadata(System.String)
+  - Microsoft.Build.Framework.ITaskItem.ItemSpec
+  - Microsoft.Build.Framework.ITaskItem.MetadataCount
+  - Microsoft.Build.Framework.ITaskItem.MetadataNames
+  - Microsoft.Build.Framework.ITaskItem.RemoveMetadata(System.String)
+  - Microsoft.Build.Framework.ITaskItem.SetMetadata(System.String,System.String)
+  langs:
+  - csharp
+  name: ITaskItem
+  nameWithType: ITaskItem
+  fullName: Microsoft.Build.Framework.ITaskItem
+  type: Interface
+  summary: "Definierar en [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] objekt som kan användas och som släpps ut från uppgifter."
+  remarks: "Antalet ITaskItem objekt som skapats under en build kanske inte motsvarar exakt objekt som deklareras i en projektfilen av följande skäl:-uppgifter ibland skapa objekt som inte har deklarerats i projektfilen.      -Ett objektsamlingen kan deklareras i projektfilen med jokertecken, vilket skulle kunna skapa många objekt när inbyggd."
+  example:
+  - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
+  syntax:
+    content: >-
+      [System.Runtime.InteropServices.ComVisible(true)]
+
+      [System.Runtime.InteropServices.Guid("8661674F-2148-4F71-A92A-49875511C528")]
+
+      public interface ITaskItem
+  implements: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata
+  id: CloneCustomMetadata
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: CloneCustomMetadata()
+  nameWithType: ITaskItem.CloneCustomMetadata()
+  fullName: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar insamling av anpassade metadata."
+  remarks: "-Innehåller inte inbyggda metadata.      -Den här metoden ska returnera en klon av metadata.      -Skrivning till den här ordlistan bör inte återspeglas i de underliggande item."
+  syntax:
+    content: public System.Collections.IDictionary CloneCustomMetadata ();
+    parameters: []
+    return:
+      type: System.Collections.IDictionary
+      description: "Samling av anpassade metadata."
+  overload: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo(Microsoft.Build.Framework.ITaskItem)
+  id: CopyMetadataTo(Microsoft.Build.Framework.ITaskItem)
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: CopyMetadataTo(ITaskItem)
+  nameWithType: ITaskItem.CopyMetadataTo(ITaskItem)
+  fullName: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo(ITaskItem)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Kopierar posterna anpassade metadata till ett annat objekt."
+  remarks: "Följ riktlinjerna nedan när implementera den här metoden.      -Skriv inte över den <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>egenskapen.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      -Inte över den befintliga metadataposter.      -Kopiera inte metadataposter som inte särskilt meningsfullt på målobjektet som."
+  syntax:
+    content: public void CopyMetadataTo (Microsoft.Build.Framework.ITaskItem destinationItem);
+    parameters:
+    - id: destinationItem
+      type: Microsoft.Build.Framework.ITaskItem
+      description: "Det objekt du vill kopiera metadata transaktioner till."
+  overload: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.GetMetadata(System.String)
+  id: GetMetadata(System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: GetMetadata(String)
+  nameWithType: ITaskItem.GetMetadata(String)
+  fullName: Microsoft.Build.Framework.ITaskItem.GetMetadata(String)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar värdet för registerposten angivna metadata."
+  syntax:
+    content: public string GetMetadata (string metadataName);
+    parameters:
+    - id: metadataName
+      type: System.String
+      description: "Namnet på posten metadata."
+    return:
+      type: System.String
+      description: "Värdet för den <code> attributeName </code> metadata."
+  overload: Microsoft.Build.Framework.ITaskItem.GetMetadata*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.ItemSpec
+  id: ItemSpec
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: ItemSpec
+  nameWithType: ITaskItem.ItemSpec
+  fullName: Microsoft.Build.Framework.ITaskItem.ItemSpec
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar eller anger specifikationen objektet."
+  remarks: "Specifikationen objektet är en godtycklig sträng. Om objektet representerar en fil på disken, att specifikationen objekt sökvägen till filen.       ItemSpec för följande objekt deklarationen i en projektfilen är `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
+  example:
+  - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
+  syntax:
+    content: public string ItemSpec { get; set; }
+    return:
+      type: System.String
+      description: "Objekt-specifikation."
+  overload: Microsoft.Build.Framework.ITaskItem.ItemSpec*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataCount
+  id: MetadataCount
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: MetadataCount
+  nameWithType: ITaskItem.MetadataCount
+  fullName: Microsoft.Build.Framework.ITaskItem.MetadataCount
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar antalet metadataposter som är associerade med objektet."
+  syntax:
+    content: public int MetadataCount { get; }
+    return:
+      type: System.Int32
+      description: "Antalet metadataposter som är associerade med objektet."
+  overload: Microsoft.Build.Framework.ITaskItem.MetadataCount*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataNames
+  id: MetadataNames
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: MetadataNames
+  nameWithType: ITaskItem.MetadataNames
+  fullName: Microsoft.Build.Framework.ITaskItem.MetadataNames
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Hämtar namnen på metadataposter som är associerade med objektet."
+  syntax:
+    content: public System.Collections.ICollection MetadataNames { get; }
+    return:
+      type: System.Collections.ICollection
+      description: "Namnen på metadataposter som är associerade med objektet."
+  overload: Microsoft.Build.Framework.ITaskItem.MetadataNames*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.RemoveMetadata(System.String)
+  id: RemoveMetadata(System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: RemoveMetadata(String)
+  nameWithType: ITaskItem.RemoveMetadata(String)
+  fullName: Microsoft.Build.Framework.ITaskItem.RemoveMetadata(String)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Angivna metadata-posten tas bort från objektet."
+  syntax:
+    content: public void RemoveMetadata (string metadataName);
+    parameters:
+    - id: metadataName
+      type: System.String
+      description: "Namnet på posten metadata för att ta bort."
+  overload: Microsoft.Build.Framework.ITaskItem.RemoveMetadata*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ITaskItem.SetMetadata(System.String,System.String)
+  id: SetMetadata(System.String,System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  langs:
+  - csharp
+  name: SetMetadata(String,String)
+  nameWithType: ITaskItem.SetMetadata(String,String)
+  fullName: Microsoft.Build.Framework.ITaskItem.SetMetadata(String,String)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Lägger till eller ändrar en post för anpassade metadata till objektet."
+  syntax:
+    content: public void SetMetadata (string metadataName, string metadataValue);
+    parameters:
+    - id: metadataName
+      type: System.String
+      description: "Namnet på posten metadata."
+    - id: metadataValue
+      type: System.String
+      description: "Värdet för registerposten metadata."
+  overload: Microsoft.Build.Framework.ITaskItem.SetMetadata*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: CloneCustomMetadata()
+  nameWithType: ITaskItem.CloneCustomMetadata()
+  fullName: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata()
+- uid: System.Collections.IDictionary
+  parent: System.Collections
+  isExternal: true
+  name: IDictionary
+  nameWithType: IDictionary
+  fullName: System.Collections.IDictionary
+- uid: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo(Microsoft.Build.Framework.ITaskItem)
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: CopyMetadataTo(ITaskItem)
+  nameWithType: ITaskItem.CopyMetadataTo(ITaskItem)
+  fullName: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo(ITaskItem)
+- uid: Microsoft.Build.Framework.ITaskItem
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: ITaskItem
+  nameWithType: ITaskItem
+  fullName: Microsoft.Build.Framework.ITaskItem
+- uid: Microsoft.Build.Framework.ITaskItem.GetMetadata(System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: GetMetadata(String)
+  nameWithType: ITaskItem.GetMetadata(String)
+  fullName: Microsoft.Build.Framework.ITaskItem.GetMetadata(String)
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Framework.ITaskItem.ItemSpec
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: ItemSpec
+  nameWithType: ITaskItem.ItemSpec
+  fullName: Microsoft.Build.Framework.ITaskItem.ItemSpec
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataCount
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: MetadataCount
+  nameWithType: ITaskItem.MetadataCount
+  fullName: Microsoft.Build.Framework.ITaskItem.MetadataCount
+- uid: System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataNames
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: MetadataNames
+  nameWithType: ITaskItem.MetadataNames
+  fullName: Microsoft.Build.Framework.ITaskItem.MetadataNames
+- uid: System.Collections.ICollection
+  parent: System.Collections
+  isExternal: true
+  name: ICollection
+  nameWithType: ICollection
+  fullName: System.Collections.ICollection
+- uid: Microsoft.Build.Framework.ITaskItem.RemoveMetadata(System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: RemoveMetadata(String)
+  nameWithType: ITaskItem.RemoveMetadata(String)
+  fullName: Microsoft.Build.Framework.ITaskItem.RemoveMetadata(String)
+- uid: Microsoft.Build.Framework.ITaskItem.SetMetadata(System.String,System.String)
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: SetMetadata(String,String)
+  nameWithType: ITaskItem.SetMetadata(String,String)
+  fullName: Microsoft.Build.Framework.ITaskItem.SetMetadata(String,String)
+- uid: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: CloneCustomMetadata
+  nameWithType: ITaskItem.CloneCustomMetadata
+- uid: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: CopyMetadataTo
+  nameWithType: ITaskItem.CopyMetadataTo
+- uid: Microsoft.Build.Framework.ITaskItem.GetMetadata*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: GetMetadata
+  nameWithType: ITaskItem.GetMetadata
+- uid: Microsoft.Build.Framework.ITaskItem.ItemSpec*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: ItemSpec
+  nameWithType: ITaskItem.ItemSpec
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataCount*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: MetadataCount
+  nameWithType: ITaskItem.MetadataCount
+- uid: Microsoft.Build.Framework.ITaskItem.MetadataNames*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: MetadataNames
+  nameWithType: ITaskItem.MetadataNames
+- uid: Microsoft.Build.Framework.ITaskItem.RemoveMetadata*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: RemoveMetadata
+  nameWithType: ITaskItem.RemoveMetadata
+- uid: Microsoft.Build.Framework.ITaskItem.SetMetadata*
+  parent: Microsoft.Build.Framework.ITaskItem
+  isExternal: false
+  name: SetMetadata
+  nameWithType: ITaskItem.SetMetadata
