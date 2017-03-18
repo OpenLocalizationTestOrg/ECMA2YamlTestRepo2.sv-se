@@ -15,8 +15,8 @@ items:
   nameWithType: MissingSatelliteAssemblyException
   fullName: System.Resources.MissingSatelliteAssemblyException
   type: Class
-  summary: "The exception that is thrown when the satellite assembly for the resources of the default culture is missing."
-  remarks: "The default culture is the culture whose resources are loaded if the appropriate culture-specific resources cannot be found. By default, resources for the default culture are located in the main assembly, and a <xref:System.Resources.MissingManifestResourceException> is thrown if the resource manager tries to retrieve but cannot find a resource for the default culture. However, the .NET Framework will load the resources for an app&quot;s default culture from a satellite assembly if the <xref:System.Resources.NeutralResourcesLanguageAttribute> attribute specifies a value of <xref:System.Resources.UltimateResourceFallbackLocation?displayProperty=fullName> for the location parameter. When this is the case, the MissingSatelliteAssemblyException exception is thrown when the resource manager tries to retrieve a resource of the default culture and the satellite assembly for the culture specified in the <xref:System.Resources.NeutralResourcesLanguageAttribute> attribute is missing. Note that the exception is thrown by a resource retrieval method such as <xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName> or <xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName>, and not when the <xref:System.Resources.ResourceManager> object is instantiated.       MissingSatelliteAssemblyException uses the HRESULT COR_E_MISSINGSATELLITEASSEMBLY, which has the value 0x80131536.       MissingSatelliteAssemblyException uses the default <xref:System.Object.Equals%2A> implementation, which supports reference equality.       For a list of initial property values for an instance of the MissingSatelliteAssemblyException class, see the <xref:System.Resources.MissingSatelliteAssemblyException.%23ctor%2A> constructors.      > [!NOTE] >  You should always use the <xref:System.Resources.NeutralResourcesLanguageAttribute> attribute to define your app&quot;s default culture so that if a resource for a specific culture is unavailable, your application will display acceptable behavior."
+  summary: "Undantag som utlöses när satellitsammansättning för resurser av standardkulturen saknas."
+  remarks: "Standardkulturen är kulturen vars resurser läses om lämpliga kultur-specifika resurser inte kan hittas. Som standard finns resurser för standardkulturen i huvudsammansättningen, och en <xref:System.Resources.MissingManifestResourceException>genereras om med resource manager försöker hämta men det går inte att hitta en resurs för standardkulturen.</xref:System.Resources.MissingManifestResourceException> Dock .NET Framework läser in resurser för standardkulturen för en app från en satellitsammansättning om den <xref:System.Resources.NeutralResourcesLanguageAttribute>attributet anger värdet <xref:System.Resources.UltimateResourceFallbackLocation?displayProperty=fullName>för platsparametern.</xref:System.Resources.UltimateResourceFallbackLocation?displayProperty=fullName> </xref:System.Resources.NeutralResourcesLanguageAttribute> När så är fallet MissingSatelliteAssemblyException-undantag genereras när resurshanteraren försöker hämta en resurs för standardkulturen och satellitsammansättning för kulturen som anges i den <xref:System.Resources.NeutralResourcesLanguageAttribute>-attributet saknas.</xref:System.Resources.NeutralResourcesLanguageAttribute> Observera att den undantag med en metod för hämtning av resurs som <xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName>eller <xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName>, och inte när den <xref:System.Resources.ResourceManager>instans-objekt.</xref:System.Resources.ResourceManager> </xref:System.Resources.ResourceManager.GetObject%2A?displayProperty=fullName> </xref:System.Resources.ResourceManager.GetString%2A?displayProperty=fullName>       MissingSatelliteAssemblyException använder HRESULT COR_E_MISSINGSATELLITEASSEMBLY, som har värdet 0x80131536.       MissingSatelliteAssemblyException använder förvalet <xref:System.Object.Equals%2A>-implementering som stöder referenslikheten.</xref:System.Object.Equals%2A>       En lista över inledande egenskapsvärden för en instans av klassen MissingSatelliteAssemblyException, finns det <xref:System.Resources.MissingSatelliteAssemblyException.%23ctor%2A>konstruktorer.</xref:System.Resources.MissingSatelliteAssemblyException.%23ctor%2A>      > [!NOTE] > Bör du alltid använda den <xref:System.Resources.NeutralResourcesLanguageAttribute>attribut för att ange standardkulturen för din app så att om en resurs för en specifik kultur är tillgänglig, visas i programmet helt.</xref:System.Resources.NeutralResourcesLanguageAttribute>"
   example:
   - "The following example uses the <xref:System.Resources.NeutralResourcesLanguageAttribute> attribute to indicate that English is the app's default culture and that its resources are stored in a satellite assembly. The example itself includes resources in .txt files for the English and French cultures, as described in the following table:  \n  \n|Culture|Resource name/value|File name|  \n|-------------|--------------------------|---------------|  \n|English|Greet=Hello|Greet.en.txt|  \n|French|Greet=Bonjour|Greet.fr.txt|  \n  \n The following source code builds an app that changes the current UI culture first to French (France) and then to Russian (Russia) and displays an appropriate culture-specific resource in both cases.  \n  \n [!code-cs[System.Resources.MissingSatelliteAssemblyException#1](~/add/codesnippet/csharp/t-system.resources.missi_1.cs)]\n [!code-vb[System.Resources.MissingSatelliteAssemblyException#1](~/add/codesnippet/visualbasic/t-system.resources.missi_1.vb)]  \n  \n You can use the following batch file to build and execute the C# version of the example. If you're using Visual Basic, replace `csc` with `vbc`, and replace the `.cs` extension with `.vb`. When the example is executed, it displays a French language string but throws a MissingSatelliteAssemblyException exception when the current culture is Russian (Russia). This is because the satellite assembly en\\HelloWorld.dll that contains the resources of the default culture does not exist.  \n  \n```  \n  \nvbc HelloWorld.vb  \n  \nmd fr  \nresgen Greet.fr.txt  \nal /out:fr\\HelloWorld.resources.dll /culture:fr /embed:GreetResources.fr.resources  \n  \nHelloWorld  \n  \n```  \n  \n You can use the following batch file to build and execute the Visual Basic version of the example. If you're using C#, replace `vbc` with `csc`, and replace the `.vb` extension with `.cs`. When the example is executed, it displays a French language string when the current UI culture is French (France). When the current UI culture is Russia (Russian), it displays an English language string because Russian language resources do not exist, but the resource manager is able to load the resources of the default culture from the satellite assembly en\\HelloWorld2.dll.  \n  \n```  \n  \nvbc HelloWorld.vb /out:HelloWorld2.exe  \n  \nmd fr  \nresgen GreetResources.fr.txt  \nal /out:fr\\HelloWorld2.resources.dll /culture:fr /embed:GreetResources.fr.resources  \n  \nmd en  \nresgen GreetResources.en.txt  \nal /out:en\\HelloWorld2.resources.dll /culture:en /embed:GreetResources.en.resources  \n  \nHelloWorld2  \n  \n```"
   syntax:
@@ -43,8 +43,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Initializes a new instance of the <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;></xref> class with default properties."
-  remarks: "The following table shows the initial property values for an instance of the <xref:System.Resources.MissingSatelliteAssemblyException> class.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|`null`.|   |<xref:System.Exception.Message%2A>|The localized error message for <xref:System.Resources.MissingSatelliteAssemblyException>.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;> </xref> klass med standardegenskaper."
+  remarks: "I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.Resources.MissingSatelliteAssemblyException>klassen.</xref:System.Resources.MissingSatelliteAssemblyException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| `null`.|   | <xref:System.Exception.Message%2A>| Lokaliserade felmeddelandet för <xref:System.Resources.MissingSatelliteAssemblyException>. |</xref:System.Resources.MissingSatelliteAssemblyException> </xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public MissingSatelliteAssemblyException ();
     parameters: []
@@ -64,14 +64,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Initializes a new instance of the <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;></xref> class with the specified error message."
-  remarks: "The following table shows the initial property values for an instance of the <xref:System.Resources.MissingSatelliteAssemblyException> class.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|`null`.|   |<xref:System.Exception.Message%2A>|The `message` string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;> </xref> klass med angivna felmeddelandet."
+  remarks: "I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.Resources.MissingSatelliteAssemblyException>klassen.</xref:System.Resources.MissingSatelliteAssemblyException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| `null`.|   | <xref:System.Exception.Message%2A>| Den `message` sträng. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public MissingSatelliteAssemblyException (string message);
     parameters:
     - id: message
       type: System.String
-      description: "The error message that explains the reason for the exception."
+      description: "Felmeddelandet som förklarar orsaken till undantaget."
   overload: System.Resources.MissingSatelliteAssemblyException.#ctor*
   exceptions: []
   platform:
@@ -88,17 +88,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Initializes a new instance of the <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;></xref> class from serialized data."
-  remarks: "This constructor is called during deserialization to reconstitute the exception object transmitted over a stream."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;> </xref> klass från serialiserade data."
+  remarks: "Den här konstruktorn anropas under deserialisering till att fylla Undantagsobjektet som överförs via en dataström."
   syntax:
     content: protected MissingSatelliteAssemblyException (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The object that holds the serialized object data."
+      description: "Det objekt som innehåller objektdata som serialiserade."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The contextual information about the source or destination of the exception."
+      description: "Detaljerad information om käll- och målservrar för undantaget."
   overload: System.Resources.MissingSatelliteAssemblyException.#ctor*
   exceptions: []
   platform:
@@ -115,17 +115,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Initializes a new instance of the <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;></xref> class with a specified error message and a reference to the inner exception that is the cause of this exception."
-  remarks: "An exception that is thrown as a direct result of a previous exception should include a reference to the previous exception in the <xref:System.Exception.InnerException%2A> property. The <xref:System.Exception.InnerException%2A> property returns the same value that is passed into the constructor, or `null` if the <xref:System.Exception.InnerException%2A> property does not supply the inner exception value to the constructor.       The following table shows the initial property values for an instance of the <xref:System.Resources.MissingSatelliteAssemblyException> class.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|The inner exception reference.|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;> </xref> klass med ett angivet meddelande och en referens till det interna undantaget som är orsaken till det här undantaget."
+  remarks: "Ett undantag som utlöses när ett direkt resultat av ett tidigare undantag ska innehålla en referens till det tidigare undantaget i den <xref:System.Exception.InnerException%2A>egenskapen.</xref:System.Exception.InnerException%2A> Den <xref:System.Exception.InnerException%2A>-egenskap returnerar samma värde som överförs till konstruktorn eller `null` om den <xref:System.Exception.InnerException%2A>egenskapen tillhandahåller inte värdet i det interna undantaget för konstruktorn.</xref:System.Exception.InnerException%2A> </xref:System.Exception.InnerException%2A>       I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.Resources.MissingSatelliteAssemblyException>klassen.</xref:System.Resources.MissingSatelliteAssemblyException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| Referens för inre undantag. |   | <xref:System.Exception.Message%2A>| Meddelandet felsträng. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public MissingSatelliteAssemblyException (string message, Exception inner);
     parameters:
     - id: message
       type: System.String
-      description: "The error message that explains the reason for the exception."
+      description: "Felmeddelandet som förklarar orsaken till undantaget."
     - id: inner
       type: System.Exception
-      description: "The exception that is the cause of the current exception. If the `inner` parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the current exception is raised in a <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;></xref> block that handles the inner exception."
+      description: "Undantag som är orsaken till det aktuella undantaget. Om den `inner` parametern är inte <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, det aktuella undantaget utlöses i en <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;> </xref> block som hanterar det interna undantaget."
   overload: System.Resources.MissingSatelliteAssemblyException.#ctor*
   exceptions: []
   platform:
@@ -142,17 +142,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Initializes a new instance of the <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;></xref> class with a specified error message and the name of a neutral culture."
-  remarks: "The following table shows the initial property values for an instance of the <xref:System.Resources.MissingSatelliteAssemblyException> class.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|The inner exception reference.|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Resources.MissingSatelliteAssemblyException&quot;> </xref> klass med ett angivet meddelande och namnet på en neutral kultur."
+  remarks: "I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.Resources.MissingSatelliteAssemblyException>klassen.</xref:System.Resources.MissingSatelliteAssemblyException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| Referens för inre undantag. |   | <xref:System.Exception.Message%2A>| Meddelandet felsträng. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public MissingSatelliteAssemblyException (string message, string cultureName);
     parameters:
     - id: message
       type: System.String
-      description: "The error message that explains the reason for the exception."
+      description: "Felmeddelandet som förklarar orsaken till undantaget."
     - id: cultureName
       type: System.String
-      description: "The name of the neutral culture."
+      description: "Namnet på den neutrala kulturen."
   overload: System.Resources.MissingSatelliteAssemblyException.#ctor*
   exceptions: []
   platform:
@@ -169,13 +169,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Gets the name of the default culture."
-  remarks: "The app&quot;s default culture is defined by the <xref:System.Resources.NeutralResourcesLanguageAttribute> attribute. For a list of culture names, see the [National Language Support (NLS) API Reference](http://go.microsoft.com/fwlink/?LinkId=200048) at the Go Global Developer Center."
+  summary: "Hämtar namnet på standardkulturen."
+  remarks: "Appens standardkulturen definieras av den <xref:System.Resources.NeutralResourcesLanguageAttribute>attribut.</xref:System.Resources.NeutralResourcesLanguageAttribute> En lista över namnen, finns det [National Language Support (NLS) API-referens](http://go.microsoft.com/fwlink/?LinkId=200048) på Gå globala Developer Center."
   syntax:
     content: public string CultureName { get; }
     return:
       type: System.String
-      description: "The name of the default culture."
+      description: "Namnet på standardkulturen."
   overload: System.Resources.MissingSatelliteAssemblyException.CultureName*
   exceptions: []
   platform:
