@@ -13,8 +13,8 @@ items:
   nameWithType: SqlColumnEncryptionCngProvider
   fullName: System.Data.SqlClient.SqlColumnEncryptionCngProvider
   type: Class
-  summary: 'The CMK Store provider implementation for using the Microsoft Cryptography API: Next Generation (CNG) with [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).'
-  remarks: 'Enables storing Always Encrypted column master key keys in a store, such as a hardware security module (HSM), that supports the Microsoft Cryptography API: Next Generation (CNG).'
+  summary: 'Implementering av provider CMK lagring för användning av Microsoft Cryptography-API: CNG (Next Generation) med [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).'
+  remarks: 'Gör det möjligt att lagra Always Encrypted kolumnen huvudnyckeln nycklar i ett Arkiv, till exempel en maskinvarusäkerhetsmodul (HSM) som stöder Microsoft Cryptography-API: CNG (Next Generation).'
   syntax:
     content: 'public class SqlColumnEncryptionCngProvider : System.Data.SqlClient.SqlColumnEncryptionKeyStoreProvider'
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.SqlClient.SqlColumnEncryptionCngProvider&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.SqlClient.SqlColumnEncryptionCngProvider&quot;> </xref> klass."
   syntax:
     content: public SqlColumnEncryptionCngProvider ();
     parameters: []
@@ -56,22 +56,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Decrypts the given encrypted value using an asymmetric key specified by the key path and the specified algorithm. The key path will be in the format of [ProviderName]/KeyIdentifier and should be an asymmetric key stored in the specified CNG key store provider. The valid algorithm used to encrypt/decrypt the CEK is &quot;RSA_OAEP&quot;."
+  summary: "Dekrypterar de krypterade värdet med hjälp av en asymmetrisk nyckel som angetts av sökvägen till nyckeln och den angivna algoritmen. Sökvägen till nyckeln ska vara i formatet [ProviderName] / KeyIdentifier och ska vara en asymmetrisk nyckel som lagras i den angivna CNG KeyStore-providern. Ogiltig algoritm som används för att kryptera/dekryptera CEK är &quot;RSA_OAEP&quot;."
   syntax:
     content: public override byte[] DecryptColumnEncryptionKey (string masterKeyPath, string encryptionAlgorithm, byte[] encryptedColumnEncryptionKey);
     parameters:
     - id: masterKeyPath
       type: System.String
-      description: "The master key path."
+      description: "Kolumnhuvudnyckel-sökväg."
     - id: encryptionAlgorithm
       type: System.String
-      description: "The encryption algorithm."
+      description: "Krypteringsalgoritm."
     - id: encryptedColumnEncryptionKey
       type: System.Byte[]
-      description: "The encrypted column encryption key."
+      description: "Den kryptera kolumnkrypteringsnyckeln."
     return:
       type: System.Byte[]
-      description: "The decrypted column encryption key."
+      description: "Den dekryptera kolumnkrypteringsnyckeln."
   overload: System.Data.SqlClient.SqlColumnEncryptionCngProvider.DecryptColumnEncryptionKey*
   exceptions: []
   platform:
@@ -88,22 +88,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "Encrypts the given plain text column encryption key using an asymmetric key specified by the key path and the specified algorithm. The key path will be in the format of [ProviderName]/KeyIdentifier and should be an asymmetric key stored in the specified CNG key store provider. The valid algorithm used to encrypt/decrypt the CEK is &quot;RSA_OAEP&quot;."
+  summary: "Krypterar de angivna oformaterad text-kolumnkrypteringsnyckel med hjälp av en asymmetrisk nyckel som angetts av sökvägen till nyckeln och den angivna algoritmen. Sökvägen till nyckeln ska vara i formatet [ProviderName] / KeyIdentifier och ska vara en asymmetrisk nyckel som lagras i den angivna CNG KeyStore-providern. Ogiltig algoritm som används för att kryptera/dekryptera CEK är &quot;RSA_OAEP&quot;."
   syntax:
     content: public override byte[] EncryptColumnEncryptionKey (string masterKeyPath, string encryptionAlgorithm, byte[] columnEncryptionKey);
     parameters:
     - id: masterKeyPath
       type: System.String
-      description: "The master key path."
+      description: "Kolumnhuvudnyckel-sökväg."
     - id: encryptionAlgorithm
       type: System.String
-      description: "The encryption algorithm."
+      description: "Krypteringsalgoritm."
     - id: columnEncryptionKey
       type: System.Byte[]
-      description: "The encrypted column encryption key."
+      description: "Den kryptera kolumnkrypteringsnyckeln."
     return:
       type: System.Byte[]
-      description: "The encrypted column encryption key."
+      description: "Den kryptera kolumnkrypteringsnyckeln."
   overload: System.Data.SqlClient.SqlColumnEncryptionCngProvider.EncryptColumnEncryptionKey*
   exceptions: []
   platform:
@@ -120,12 +120,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.SqlClient
-  summary: "A constant string for the provider name &quot;MSSQL_CNG_STORE&quot;."
+  summary: "En konstantsträng för providernamn &quot;MSSQL_CNG_STORE&quot;."
   syntax:
     content: public const string ProviderName;
     return:
       type: System.String
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

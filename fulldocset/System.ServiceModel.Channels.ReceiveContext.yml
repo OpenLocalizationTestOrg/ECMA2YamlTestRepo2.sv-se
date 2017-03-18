@@ -34,8 +34,8 @@ items:
   nameWithType: ReceiveContext
   fullName: System.ServiceModel.Channels.ReceiveContext
   type: Class
-  summary: "Derive from this class to implement a custom state machine for receive context functionality."
-  remarks: "Receive context functionality is two-fold. When working with a queued channel, receive context allows you to lock a message prior to processing it. If a failure occurs, the message remains locked so that the service that is processing the message maintains ownership (another service cannot receive and process the same message) and may choose to perform some other action on it. When working with a one-way channel, receive context allows a service to control when it sends an acknowledgement message or it can indicate a problem by sending a negative acknowledgement message. The client can then choose to resend the message if it receives a negative acknowledgement or if it does not receive an acknowledgement within a certain period of time."
+  summary: "Härledd från den här klassen för att implementera en anpassad tillståndsdator får kontexten funktioner."
+  remarks: "Ta emot kontext är dubbla. När du arbetar med en köade kanalen får kan du låsa ett meddelande före bearbeta denna kontext. Om ett fel inträffar meddelandet förblir låst så att den tjänst som bearbetar meddelandet underhåller ägare (en annan tjänst inte kan ta emot och bearbeta samma meddelande) och du kan välja att utföra någon annan åtgärd på den. När du arbetar med en enkelriktad kanal får låter kontexten en tjänst att styra när den skickar ett bekräftelsemeddelande eller det kan tyda på ett problem genom att skicka ett negativt bekräftelsemeddelande. Klienten kan sedan välja att skicka meddelandet igen om den tar emot en negativ bekräftelse eller om den inte tar emot en bekräftelse inom en viss tidsperiod."
   syntax:
     content: public abstract class ReceiveContext
   inheritance:
@@ -56,7 +56,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Channels.ReceiveContext&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Channels.ReceiveContext&quot;> </xref> klass."
   syntax:
     content: protected ReceiveContext ();
     parameters: []
@@ -76,13 +76,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Causes the state machine to transition to the abandoned state with the specified timeout value."
+  summary: "Orsakar tillståndsdator övergår till tillståndet övergivna med det angivna tidsgränsvärdet."
   syntax:
     content: public virtual void Abandon (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
   overload: System.ServiceModel.Channels.ReceiveContext.Abandon*
   exceptions: []
   platform:
@@ -99,16 +99,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Causes the state machine to transition to the abandoned state with the specified exception and timeout value."
+  summary: "Gör tillståndsdator övergår till tillståndet övergivna med angivet undantag och timeout-värdet."
   syntax:
     content: public virtual void Abandon (Exception exception, TimeSpan timeout);
     parameters:
     - id: exception
       type: System.Exception
-      description: "The exception that causes the abandon operation."
+      description: "Undantaget som medför att avbryta åtgärden."
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
   overload: System.ServiceModel.Channels.ReceiveContext.Abandon*
   exceptions: []
   platform:
@@ -125,22 +125,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous abandon operation with the specified  timeout, asynchronous callback, and user-defined state data."
+  summary: "Börjar en asynkron avbryta åtgärden med angiven tidsgräns, asynkront motanrop och användardefinierade systemtillstånd."
   syntax:
     content: public virtual IAsyncResult BeginAbandon (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that references the asynchronous abandon operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona avbryta åtgärden.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.BeginAbandon*
   exceptions: []
   platform:
@@ -157,25 +157,25 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous abandon operation with the specified exception, timeout, asynchronous callback, and user-defined state data."
+  summary: "Börjar en asynkron avbryta åtgärden med angivet undantag, timeout, asynkront motanrop och användardefinierade systemtillstånd."
   syntax:
     content: public virtual IAsyncResult BeginAbandon (Exception exception, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: exception
       type: System.Exception
-      description: "An exception that contains the reason for the abandon operation."
+      description: "Ett undantag som innehåller orsaken till att avbryta åtgärden."
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "the user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that references the asynchronous abandon operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona avbryta åtgärden.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.BeginAbandon*
   exceptions: []
   platform:
@@ -192,22 +192,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous complete operation with the specified  timeout, asynchronous callback, and user-defined state data."
+  summary: "Börjar en asynkron åtgärd som är klar med angiven tidsgräns, asynkront motanrop och användardefinierade systemtillstånd."
   syntax:
     content: public virtual IAsyncResult BeginComplete (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the complete operation to complete."
+      description: "Tidsgränsen för att slutföra åtgärden att slutföra."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that references the asynchronous complete operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden som slutförts.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.BeginComplete*
   exceptions: []
   platform:
@@ -224,13 +224,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Causes the state machine to transition to the completed state with the specified timeout value."
+  summary: "Orsakar tillståndsdatorn att övergå till slutfört tillstånd med det angivna tidsgränsvärdet."
   syntax:
     content: public virtual void Complete (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the complete operation to complete."
+      description: "Tidsgränsen för att slutföra åtgärden att slutföra."
   overload: System.ServiceModel.Channels.ReceiveContext.Complete*
   exceptions: []
   platform:
@@ -247,13 +247,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes an asynchronous abandon operation."
+  summary: "Slutför en asynkron avbryta åtgärden."
   syntax:
     content: public virtual void EndAbandon (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to one of the <xref:System.ServiceModel.Activities.WorkflowControlClient.BeginAbandon*> methods."
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till en av de <xref:System.ServiceModel.Activities.WorkflowControlClient.BeginAbandon*>metoder.</xref:System.ServiceModel.Activities.WorkflowControlClient.BeginAbandon*> </xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.EndAbandon*
   exceptions: []
   platform:
@@ -270,13 +270,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes an asynchronous complete operation."
+  summary: "Slutför en asynkron slutföra åtgärden."
   syntax:
     content: public virtual void EndComplete (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the <xref:System.ServiceModel.Channels.ReceiveContext.BeginComplete*> method."
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till den <xref:System.ServiceModel.Channels.ReceiveContext.BeginComplete*>metoden.</xref:System.ServiceModel.Channels.ReceiveContext.BeginComplete*> </xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.EndComplete*
   exceptions: []
   platform:
@@ -293,7 +293,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Causes the state machine to transition to the faulted state."
+  summary: "Gör att du övergår till tillståndet felaktig tillståndsdatorn."
   syntax:
     content: protected virtual void Fault ();
     parameters: []
@@ -313,12 +313,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Defines the event to raised when an exception has occurred during the messaging process."
+  summary: "Definierar händelsen som ska aktiveras när ett undantag inträffade under meddelanden."
   syntax:
     content: public event EventHandler Faulted;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -334,12 +334,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "The name of the receive context."
+  summary: "Namnet på mottagarkontexten."
   syntax:
     content: public static readonly string Name;
     return:
       type: System.String
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -355,13 +355,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the abandoned state with the specified timeout value."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet övergivna med det angivna tidsgränsvärdet."
   syntax:
     content: protected abstract void OnAbandon (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
   overload: System.ServiceModel.Channels.ReceiveContext.OnAbandon*
   exceptions: []
   platform:
@@ -378,16 +378,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the abandoned state with the specified exception and timeout value."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet övergivna med angivet undantag och timeout-värdet."
   syntax:
     content: protected virtual void OnAbandon (Exception exception, TimeSpan timeout);
     parameters:
     - id: exception
       type: System.Exception
-      description: "An exception that contains the reason for the abandon operation."
+      description: "Ett undantag som innehåller orsaken till att avbryta åtgärden."
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
   overload: System.ServiceModel.Channels.ReceiveContext.OnAbandon*
   exceptions: []
   platform:
@@ -404,22 +404,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the abandoned state asynchronously with the specified timeout value, callback, and state data."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet övergivna asynkront med angivna timeout-värde, motringning och systemtillstånd."
   syntax:
     content: protected abstract IAsyncResult OnBeginAbandon (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "The user defined state data."
+      description: "Tillståndsdata för användardefinierad."
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.OnBeginAbandon*
   exceptions: []
   platform:
@@ -436,25 +436,25 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the abandoned state asynchronously with the specified exception, timeout value, callback, and state data."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet övergivna asynkront med angivet undantag, timeout-värde, motringning och systemtillstånd."
   syntax:
     content: protected virtual IAsyncResult OnBeginAbandon (Exception exception, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: exception
       type: System.Exception
-      description: "An exception that contains the reason for the abandon operation."
+      description: "Ett undantag som innehåller orsaken till att avbryta åtgärden."
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the abandon operation to complete."
+      description: "Tidsgräns för avbryta åtgärden är klar."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.OnBeginAbandon*
   exceptions: []
   platform:
@@ -471,22 +471,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the completed state asynchronously with the specified timeout, callback, and state data."
+  summary: "Anropas när tillståndsdatorn övergå till slutfört tillstånd asynkront med angiven tidsgräns, motringning och systemtillstånd."
   syntax:
     content: protected abstract IAsyncResult OnBeginComplete (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the complete operation to complete."
+      description: "Tidsgränsen för att slutföra åtgärden att slutföra."
     - id: callback
       type: System.AsyncCallback
-      description: "The asynchronous callback delegate that receives the notification of the asynchronous operation completion."
+      description: "Det asynkrona återanrop ombud som tar emot ett meddelande om genomförandet asynkron åtgärd."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "En <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.OnBeginComplete*
   exceptions: []
   platform:
@@ -503,13 +503,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the completed state with the specified timeout value."
+  summary: "Anropas när tillståndsdatorn övergå till slutfört tillstånd med det angivna tidsgränsvärdet."
   syntax:
     content: protected abstract void OnComplete (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The timeout for the complete operation to complete."
+      description: "Tidsgränsen för att slutföra åtgärden att slutföra."
   overload: System.ServiceModel.Channels.ReceiveContext.OnComplete*
   exceptions: []
   platform:
@@ -526,13 +526,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the abandoned state asynchronously."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet övergivna asynkront."
   syntax:
     content: protected abstract void OnEndAbandon (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to one of the <xref:System.ServiceModel.Channels.ReceiveContext.OnBeginAbandon*> methods."
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till en av de <xref:System.ServiceModel.Channels.ReceiveContext.OnBeginAbandon*>metoder.</xref:System.ServiceModel.Channels.ReceiveContext.OnBeginAbandon*> </xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.OnEndAbandon*
   exceptions: []
   platform:
@@ -549,13 +549,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the completed state asynchronously."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet slutfördes asynkront."
   syntax:
     content: protected abstract void OnEndComplete (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the <xref:System.ServiceModel.Channels.ReceiveContext.OnBeginComplete*>"
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till den <xref:System.ServiceModel.Channels.ReceiveContext.OnBeginComplete*></xref:System.ServiceModel.Channels.ReceiveContext.OnBeginComplete*> </xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.ReceiveContext.OnEndComplete*
   exceptions: []
   platform:
@@ -572,7 +572,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Called when the state machine is transitioning to the faulted state."
+  summary: "Anropas när tillståndsdatorn övergår till tillståndet felaktig."
   syntax:
     content: protected virtual void OnFaulted ();
     parameters: []
@@ -592,12 +592,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets or sets the state of the state machine."
+  summary: "Hämtar eller anger tillståndet för tillståndsdatorn."
   syntax:
     content: public System.ServiceModel.Channels.ReceiveContextState State { get; protected set; }
     return:
       type: System.ServiceModel.Channels.ReceiveContextState
-      description: "The current receive context state of the state machine."
+      description: "Aktuellt får kontexten tillståndet för tillståndsdatorn."
   overload: System.ServiceModel.Channels.ReceiveContext.State*
   exceptions: []
   platform:
@@ -614,12 +614,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "An object used for locking the <xref href=&quot;System.ServiceModel.Channels.ReceiveContext&quot;></xref> instance."
+  summary: "Ett objekt som används för att låsa den <xref href=&quot;System.ServiceModel.Channels.ReceiveContext&quot;> </xref> instans."
   syntax:
     content: protected object ThisLock { get; }
     return:
       type: System.Object
-      description: "<xref:System.Object>."
+      description: "<xref:System.Object>.</xref:System.Object>"
   overload: System.ServiceModel.Channels.ReceiveContext.ThisLock*
   exceptions: []
   platform:
@@ -636,19 +636,19 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Attempts to get the receive context from the specified message."
+  summary: "Försök att hämta mottagarkontexten från den angivna meddelandet."
   syntax:
     content: public static bool TryGet (System.ServiceModel.Channels.Message message, out System.ServiceModel.Channels.ReceiveContext property);
     parameters:
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The message."
+      description: "Meddelandet."
     - id: property
       type: System.ServiceModel.Channels.ReceiveContext
-      description: "The receive context."
+      description: "Mottagarkontexten."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the receive context is retrieved successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om mottagarkontexten har hämtats; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.ReceiveContext.TryGet*
   exceptions: []
   platform:
@@ -665,19 +665,19 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Attempts to get the receive context from the specified message properties collection."
+  summary: "Försök att hämta mottagarkontexten från egenskapssamlingen angivna meddelandet."
   syntax:
     content: public static bool TryGet (System.ServiceModel.Channels.MessageProperties properties, out System.ServiceModel.Channels.ReceiveContext property);
     parameters:
     - id: properties
       type: System.ServiceModel.Channels.MessageProperties
-      description: "The message properties collection."
+      description: "Gå till egenskapssamlingen."
     - id: property
       type: System.ServiceModel.Channels.ReceiveContext
-      description: "The receive context."
+      description: "Mottagarkontexten."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the receive context is retrieved successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om mottagarkontexten har hämtats; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.ReceiveContext.TryGet*
   exceptions: []
   platform:

@@ -16,8 +16,8 @@ items:
   nameWithType: ProcessModule
   fullName: System.Diagnostics.ProcessModule
   type: Class
-  summary: "Represents a.dll or .exe file that is loaded into a particular process."
-  remarks: "A module is an executable file or a dynamic link library (DLL). Each process consists of one or more modules. You can use this class to get information about the module.      > [!IMPORTANT] >  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic."
+  summary: "Representerar a.dll eller .exe-fil som läses in i en viss process."
+  remarks: "En modul är en körbar fil eller dynamiska länkbibliotek (DLL). Varje process består av en eller flera moduler. Du kan använda den här klassen för att få information om modulen.      > [!IMPORTANT] > Den här typen implementerar den <xref:System.IDisposable>gränssnitt.</xref:System.IDisposable> När du är klar med typ, ta bort den direkt eller indirekt. Om du vill ta bort av typen direkt, anropa dess <xref:System.IDisposable.Dispose%2A>metod i en `try` / `catch` block.</xref:System.IDisposable.Dispose%2A> Om du vill ta hand om den indirekt, använda en språk-konstruktion som `using` (i C#) eller `Using` (i Visual Basic). Mer information finns i avsnittet &quot;Med hjälp av ett objekt som implementerar IDisposable&quot; i den <xref:System.IDisposable>gränssnittet avsnittet.</xref:System.IDisposable>"
   example:
   - "The following code sample demonstrates how to use the ProcessModule class to get and display information about all the modules that are used by the Notepad.exe application.  \n  \n [!code-cpp[ProcessModule#1](~/add/codesnippet/cpp/t-system.diagnostics.pro_0_1.cpp)]\n [!code-cs[ProcessModule#1](~/add/codesnippet/csharp/t-system.diagnostics.pro_0_1.cs)]\n [!code-vb[ProcessModule#1](~/add/codesnippet/visualbasic/t-system.diagnostics.pro_0_1.vb)]"
   syntax:
@@ -58,7 +58,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the memory address where the module was loaded."
+  summary: "Hämtar minnesadressen som modulen lästes in."
   remarks: ''
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The <xref:System.Diagnostics.ProcessModule.ModuleName%2A> and  BaseAddress properties are used to display the module name and the memory address where each module was loaded.  \n  \n [!code-cpp[ProcessModule_BaseAddress#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_30_1.cpp)]\n [!code-vb[ProcessModule_BaseAddress#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_30_1.vb)]\n [!code-cs[ProcessModule_BaseAddress#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_30_1.cs)]"
@@ -66,7 +66,7 @@ items:
     content: public IntPtr BaseAddress { get; }
     return:
       type: System.IntPtr
-      description: "The load address of the module."
+      description: "Läs in adressen till modulen."
   overload: System.Diagnostics.ProcessModule.BaseAddress*
   exceptions: []
   platform:
@@ -83,15 +83,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the memory address for the function that runs when the system loads and runs the module."
-  remarks: "The module&quot;s entry point is the location of the function that is called during process startup, thread startup, process shutdown, and thread shutdown. While the entry point is not the address of the DllMain function, it should be close enough for most purposes.      > [!NOTE] >  Due to changes in the way that Windows loads assemblies, EntryPointAddress will always return 0 on [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)] or [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)] and should not be relied on for those platforms."
+  summary: "Hämtar minnesadressen för den funktion som körs när systemet läser in och kör modulen."
+  remarks: "Modulens startadressen är platsen för den funktion som anropas under processen startades, tråden startades, processavstängning och tråd avstängning. Startpunkten är inte adressen för funktionen DllMain, bör vara tillräckligt för de flesta ändamål nära.      > [!NOTE] > På grund av ändringar på sätt att laddas sammansättningar EntryPointAddress returnerar alltid 0 på [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)] eller [!INCLUDE[win81](~/add/includes/ajax-current-ext-md.md)] och bör inte förlita sig på för dessa plattformar."
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The <xref:System.Diagnostics.ProcessModule.ModuleName%2A> and EntryPointAddress properties are used to display the name and the entry point address for each module.  \n  \n [!code-cpp[ProcessModule_EntryPoint#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_4_1.cpp)]\n [!code-cs[ProcessModule_EntryPoint#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_4_1.cs)]\n [!code-vb[ProcessModule_EntryPoint#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_4_1.vb)]"
   syntax:
     content: public IntPtr EntryPointAddress { get; }
     return:
       type: System.IntPtr
-      description: "The entry point of the module."
+      description: "Startadress i modulen."
   overload: System.Diagnostics.ProcessModule.EntryPointAddress*
   exceptions: []
   platform:
@@ -108,15 +108,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the full path to the module."
-  remarks: "If the file name is longer than the maximum number of characters allowed, the file name is truncated."
+  summary: "Hämtar den fullständiga sökvägen till modulen."
+  remarks: "Om namnet är längre än det maximala antalet tillåtna tecken trunkeras filnamnet."
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The <xref:System.Diagnostics.ProcessModule.ModuleName%2A> and FileName properties are used to display the module name and the full path information for each module.  \n  \n [!code-cs[ProcessModule_FileName#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_5_1.cs)]\n [!code-cpp[ProcessModule_FileName#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_5_1.cpp)]\n [!code-vb[ProcessModule_FileName#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_5_1.vb)]"
   syntax:
     content: public string FileName { get; }
     return:
       type: System.String
-      description: "The fully qualified path that defines the location of the module."
+      description: "Den fullständiga sökvägen som anger var i modulen."
   overload: System.Diagnostics.ProcessModule.FileName*
   exceptions: []
   platform:
@@ -133,7 +133,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets version information about the module."
+  summary: "Hämtar versionsinformation om modulen."
   remarks: ''
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The <xref:System.Diagnostics.ProcessModule.ModuleName%2A> and FileVersionInfo properties are used to display the module name and the file version information for each module.  \n  \n [!code-cs[ProcessModule_FileVersionInfo#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_1_1.cs)]\n [!code-cpp[ProcessModule_FileVersionInfo#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_1_1.cpp)]\n [!code-vb[ProcessModule_FileVersionInfo#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_1_1.vb)]"
@@ -141,7 +141,7 @@ items:
     content: public System.Diagnostics.FileVersionInfo FileVersionInfo { get; }
     return:
       type: System.Diagnostics.FileVersionInfo
-      description: "A <xref href=&quot;System.Diagnostics.FileVersionInfo&quot;></xref> that contains the module&quot;s version information."
+      description: "En <xref href=&quot;System.Diagnostics.FileVersionInfo&quot;> </xref> som innehåller version modulinformation."
   overload: System.Diagnostics.ProcessModule.FileVersionInfo*
   exceptions: []
   platform:
@@ -158,15 +158,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the amount of memory that is required to load the module."
-  remarks: "ModuleMemorySize does not include any additional memory allocations that the module makes once it is running; it includes only the size of the static code and data in the module file."
+  summary: "Hämtar mängden minne som krävs för att läsa in modulen."
+  remarks: "ModuleMemorySize innehåller inte några ytterligare minnesallokering som modulen gör när den körs på. den innehåller endast storleken på statisk koden och data i modulfilen."
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The <xref:System.Diagnostics.ProcessModule.ModuleName%2A> and ModuleMemorySize properties are used to display the module name and the amount of memory needed for each module.  \n  \n [!code-vb[ProcessModule_ModuleMemorySize#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_16_1.vb)]\n [!code-cs[ProcessModule_ModuleMemorySize#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_16_1.cs)]\n [!code-cpp[ProcessModule_ModuleMemorySize#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_16_1.cpp)]"
   syntax:
     content: public int ModuleMemorySize { get; }
     return:
       type: System.Int32
-      description: "The size, in bytes, of the memory that the module occupies."
+      description: "Storlek i byte av minne som är inrymd i modulen."
   overload: System.Diagnostics.ProcessModule.ModuleMemorySize*
   exceptions: []
   platform:
@@ -183,15 +183,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the name of the process module."
-  remarks: "If the name is longer than the maximum number of characters allowed, it is truncated."
+  summary: "Hämtar namnet på processmodulen som."
+  remarks: "Om namnet är längre än det maximala antalet tillåtna tecken trunkeras."
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The ModuleName property is used to display the name of each module.  \n  \n [!code-vb[ProcessModule_ModuleName#1](~/add/codesnippet/visualbasic/p-system.diagnostics.pro_8_1.vb)]\n [!code-cs[ProcessModule_ModuleName#1](~/add/codesnippet/csharp/p-system.diagnostics.pro_8_1.cs)]\n [!code-cpp[ProcessModule_ModuleName#1](~/add/codesnippet/cpp/p-system.diagnostics.pro_8_1.cpp)]"
   syntax:
     content: public string ModuleName { get; }
     return:
       type: System.String
-      description: "The name of the module."
+      description: "Namnet på modulen."
   overload: System.Diagnostics.ProcessModule.ModuleName*
   exceptions: []
   platform:
@@ -208,7 +208,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Converts the name of the module to a string."
+  summary: "Konverterar modulens namn till en sträng."
   remarks: ''
   example:
   - "The following code example creates a new process for the Notepad.exe application. The code iterates through the <xref:System.Diagnostics.ProcessModuleCollection> class to obtain a <xref:System.Diagnostics.ProcessModule> object for each module in the collection. The ToString method is used to display the name for each module.  \n  \n [!code-cs[ProcessModule_ToString#1](~/add/codesnippet/csharp/m-system.diagnostics.pro_5_1.cs)]\n [!code-vb[ProcessModule_ToString#1](~/add/codesnippet/visualbasic/m-system.diagnostics.pro_5_1.vb)]\n [!code-cpp[ProcessModule_ToString#1](~/add/codesnippet/cpp/m-system.diagnostics.pro_5_1.cpp)]"
@@ -217,7 +217,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: "The value of the <xref:System.Diagnostics.ProcessModule.ModuleName*> property."
+      description: "Värdet för den <xref:System.Diagnostics.ProcessModule.ModuleName*>egenskapen.</xref:System.Diagnostics.ProcessModule.ModuleName*>"
   overload: System.Diagnostics.ProcessModule.ToString*
   exceptions: []
   platform:

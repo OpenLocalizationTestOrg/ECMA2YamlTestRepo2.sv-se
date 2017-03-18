@@ -17,8 +17,8 @@ items:
   nameWithType: IDataServiceStreamProvider
   fullName: System.Data.Services.Providers.IDataServiceStreamProvider
   type: Interface
-  summary: "Enables binary data to be accessed and changed as a media resource that belongs to an entity that is a media link entry."
-  remarks: "The Open Data Protocol (OData) enables a binary data property of an entity exposed by a data service to be defined independently of an entry in a data feed by using a mechanism based on the following constructs:      -   Media resource - the binary large object data that is binary data, such as a video, audio, image or other media resources.      -   Media link entry - an AtomPub entry in a data feed that represents an entity and that has a reference to a related media resource.       For more information, see [Streaming Provider](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Aktiverar binära data ska öppnas och ändras i en mediaresurs som hör till en entitet som är en media link entry."
+  remarks: "Open Data Protocol (OData) gör det möjligt för en egenskap för binära data för en entitet som exponeras av en datatjänst definieras oberoende av en post i en datafeed med hjälp av en mekanism som baseras på följande konstruktioner: - mediaresurs - binärt stort objektdata som är binära data, till exempel en video, ljud, bild eller andra resurser för media.      -Medielänkpost – en AtomPub-post i en datafeed som representerar en entitet och som har en referens till en relaterad resurs.       Mer information finns i [strömning providern](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public interface IDataServiceStreamProvider
   implements: []
@@ -36,17 +36,17 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Deletes the associated media resource when a media link entry is deleted."
-  remarks: "The DeleteStream method provides the implementation to delete a media resource when its associated media link entry is deleted from the data service. For more information, see [Streaming Provider](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Tar bort associerade medieresursen när en media link entry tas bort."
+  remarks: "Metoden DeleteStream innehåller implementeringen för att ta bort en mediaresurs när den associerade medieposten länken tas bort från datatjänsten. Mer information finns i [strömning providern](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public void DeleteStream (object entity, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The media link entry that is deleted."
+      description: "De medielänkpost som tas bort."
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance that processes the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som bearbetar begäran."
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.DeleteStream*
   exceptions:
   - type: System.ArgumentNullException
@@ -54,10 +54,10 @@ items:
     description: "When <code>entity</code> or <code>operationContext</code> are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "When <code>entity</code> is not an entity that has a binary property to stream."
+    description: "När <code> entity </code> är inte en entitet som har en binär egenskap till dataströmmen."
   - type: System.Data.Services.DataServiceException
     commentId: T:System.Data.Services.DataServiceException
-    description: "When the stream associated with the <code>entity</code> cannot be deleted."
+    description: "När dataströmmen som är associerade med den <code> entity </code> kan inte tas bort."
   platform:
   - net462
 - uid: System.Data.Services.Providers.IDataServiceStreamProvider.GetReadStream(System.Object,System.String,System.Nullable{System.Boolean},System.Data.Services.DataServiceOperationContext)
@@ -72,26 +72,26 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns a stream that contains the media resource data for the specified entity, which is a media link entry."
-  remarks: "`eTag` is the value of an If-Match or If-None-Match header. The following values are supported:      -   `true` - when the eTag represents an If-Match header.      -   `false` - when the eTag represents an If-None-Match header.      -   `null` - when an If-Match or If-None-Match header is not present in the request.       The GetReadStream method is called by the data service runtime to acquire the stream that the data service returns to the client when the client requests the media resource for the specified `entity`, which is a media link entry. For more information, see [Streaming Provider](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Returnerar en dataström som innehåller den angivna entiteten är en media link entry media resursdata."
+  remarks: "`eTag`är värdet för If-Match eller If-None-Match-huvud. Följande värden stöds:- `true` – när en eTag representerar en If-Match-sidhuvudet.      - `false` – när en eTag representerar en If-None-Match-sidhuvudet.      - `null` – när en If-Match eller If-None-Match-sidhuvudet inte finns i begäran.       GetReadStream-metoden anropas av körningen data service att förvärva dataströmmen som datatjänsten som returneras till klienten när klienten begär mediaresurs för den angivna `entity`, vilket är en länkpost. Mer information finns i [strömning providern](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.IO.Stream GetReadStream (object entity, string etag, Nullable<bool> checkETagForEquality, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity that is a media link entry with a related media resource."
+      description: "Den entitet som är ett medium länka posten med en relaterad resurs."
     - id: etag
       type: System.String
-      description: "The eTag value sent as part of the HTTP request that is sent to the data service."
+      description: "ETag-värdet skickas som en del av HTTP-begäran som skickas till datatjänsten."
     - id: checkETagForEquality
       type: System.Nullable{System.Boolean}
-      description: "A nullable <xref:System.Boolean> value that determines whether the data service must the type of eTag that is used."
+      description: "En nullbar <xref:System.Boolean>värde som avgör om datatjänsten måste typ av eTag som används.</xref:System.Boolean>"
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.IO.Stream
-      description: "The data <xref:System.IO.Stream> that contains the binary property data of the <code>entity</code>."
+      description: "Data <xref:System.IO.Stream>som innehåller den binära egenskapsdata av den <code> entity </code>.</xref:System.IO.Stream>"
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.GetReadStream*
   exceptions: []
   platform:
@@ -108,20 +108,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns the URI that is used to request the media resource that belongs to the specified entity."
-  remarks: "The GetReadStreamUri method is called by the data service runtime to obtain the URI that clients should use when they make retrieve (i.e., GET) requests for the media resource.       The <xref:System.Uri> value returned by the GetReadStreamUri method implementation is used as the edit-media link in the media link entry to references the location of the media resource.       When the method implementation returns null, the data service will construct a default <xref:System.Uri>, which is usually the URI of the entity appended with `/$value`."
+  summary: "Returnerar den URI som används för att begära medieresursen som hör till den angivna entiteten."
+  remarks: "GetReadStreamUri-metoden anropas av körningen data service att hämta den URI som klienter ska använda när de gör hämta (d.v.s. får) begäranden om medieresursen.       Den <xref:System.Uri>värdet som returneras av metodimplementering GetReadStreamUri används som edit-media länken i länkpost media referenser platsen för medieresursen.</xref:System.Uri>       När metodimplementering returnerar null datatjänsten ska konstruera standard <xref:System.Uri>, vilket är vanligtvis URI för entiteten läggas till med `/$value`.</xref:System.Uri>"
   syntax:
     content: public Uri GetReadStreamUri (object entity, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity that is a media link entry with a related media resource."
+      description: "Den entitet som är ett medium länka posten med en relaterad resurs."
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.Uri
-      description: "A <xref:System.Uri> value that is used to request the binary data stream."
+      description: "En <xref:System.Uri>värde som används för att begära binär dataström.</xref:System.Uri>"
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.GetReadStreamUri*
   exceptions: []
   platform:
@@ -138,20 +138,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns the content type of the media resource that belongs to the specified entity."
-  remarks: "The GetStreamContentType method is called by the data service runtime to retrieve the Content-Type of the media resource that belongs to the specified `entity`. Use the GetStreamContentType method implementation to set the Content-Type of the media resource. Do not directly set the Content-Type header in your <xref:System.Data.Services.Providers.IDataServiceStreamProvider> provider implementation."
+  summary: "Returnerar innehållstypen för mediaresurs som tillhör den angivna entiteten."
+  remarks: "GetStreamContentType-metoden anropas av körningen data service att hämta innehållstypen för mediaresurs som tillhör den angivna `entity`. Använda metodimplementering GetStreamContentType för att ange Content-Type för medieresursen. Inte direkt in Content-Type-huvudet i din <xref:System.Data.Services.Providers.IDataServiceStreamProvider>providerns implementering.</xref:System.Data.Services.Providers.IDataServiceStreamProvider>"
   syntax:
     content: public string GetStreamContentType (object entity, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity that is a media link entry with a related media resource."
+      description: "Den entitet som är ett medium länka posten med en relaterad resurs."
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.String
-      description: "A valid Content-Type of the binary data."
+      description: "En giltig Content-Type för binära data."
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.GetStreamContentType*
   exceptions: []
   platform:
@@ -168,20 +168,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns the eTag of the media resource that belongs to the specified media link entry."
-  remarks: "The GetStreamETag method is called by the data service runtime to retrieve the eTag of the media resource that is associated with the `entity`.       You must implement the GetStreamETag method to enable the data service to manage concurrency for the media resource."
+  summary: "Returnerar eTag av mediaresurs som tillhör länkpost mediet."
+  remarks: "GetStreamETag-metoden anropas av körningen data service att hämta eTag för resursen media som är associerad med den `entity`.       Du måste implementera metoden GetStreamETag för att aktivera datatjänsten att hantera samtidighet för medieresursen."
   syntax:
     content: public string GetStreamETag (object entity, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity that is a media link entry with a related media resource."
+      description: "Den entitet som är ett medium länka posten med en relaterad resurs."
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.String
-      description: "eTag of the media resource associated with the <code>entity</code>."
+      description: "eTag för resursen media som är associerade med den <code> entity </code>."
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.GetStreamETag*
   exceptions: []
   platform:
@@ -198,26 +198,26 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns the stream that the data service uses to write the binary data for the media resource received from the client that belongs to the specified entity."
-  remarks: "The GetWriteStream method is called by the data service runtime when an insert or update operation is being processed for the media resource that is associated with the `entity`.       The GetWriteStream method should never return a `null` value.       The `operationContext` is supplied as an argument because an implementer of this interface method will need information from the HTTP request headers to create a write stream. When you implement this method, you must perform concurrency checks as needed. If an If-Match or If-None-Match request header was included in the request, the `etag` will not be `null`. In this case, this method must perform the appropriate concurrency check. If the concurrency check passes, this method should return the requested stream. If the concurrency checks fail, the method should raise a <xref:System.Data.Services.DataServiceException> with the appropriate HTTP response code.       `eTag` is the value of an If-Match or If-None-Match header.       The following values of `checkETagForEquality` are supported:      -   `true` - when the eTag represents an If-Match header.      -   `false` - when the eTag represents an If-None-Match header.      -   `null` - when an If-Match or If-None-Match header is not present in the request.       When you implement this method, you must not set the Content-Type or eTag HTTP response headers because they are set by the data service runtime. You may set the remaining HTTP response headers by using the supplied `operationContext`.       When you implement this method, you should only set the properties on `operationContext` that are required for a successful response. Changing other properties on `operationContext` may corrupt the response from the data service.       The data service runtime closes the stream when all bytes have been successfully written to the stream. If an error occurs while writing to the stream, the data service generates an error response to the client.       When you implement the GetWriteStream method, you should raise the following exceptions as indicated:      |Exception type|Condition|   |--------------------|---------------|   |<xref:System.ArgumentNullException>|When `entity` or `operationContext` are `null`.|   |<xref:System.ArgumentException>|When `entity` does not have a binary property.|   |<xref:System.Data.Services.DataServiceException>|When a valid stream cannot be returned.|"
+  summary: "Returnerar den dataström som använder datatjänsten att skriva binära data för medieresursen togs emot från klienten som hör till den angivna entiteten."
+  remarks: "GetWriteStream-metoden anropas av körningen för tjänsten data när en insert eller update-åtgärden bearbetas för resursen media som är associerad med den `entity`.       Metoden GetWriteStream aldrig ska returnera ett `null` värde.       Den `operationContext` anges som ett argument eftersom en implementerare för den här gränssnittsmetoden måste information från HTTP-huvuden för begäran att skapa en skrivdataström. När du implementerar den här metoden måste du göra kontroller av samtidighet efter behov. Om en If-Match eller If-None-Match begäran-huvud ingår i begäran, den `etag` inte `null`. I det här fallet måste den här metoden Kontrollera lämplig samtidighet. Om simultankontroll skickar ska den här metoden returnera begärda dataströmmen. Om parallellkörning kontrollerar misslyckas, metoden ska generera en <xref:System.Data.Services.DataServiceException>med lämplig HTTP-svarskoden.</xref:System.Data.Services.DataServiceException>       `eTag`är värdet för If-Match eller If-None-Match-huvud.       Följande värden för `checkETagForEquality` stöds:- `true` – när en eTag representerar en If-Match-sidhuvudet.      - `false` – när en eTag representerar en If-None-Match-sidhuvudet.      - `null` – när en If-Match eller If-None-Match-sidhuvudet inte finns i begäran.       När du implementera den här metoden måste du inte ange Content-Type- eller eTag HTTP-svarshuvuden eftersom de har angetts av data service-körningen. Du kan ange återstående HTTP-svarshuvuden med den angivna `operationContext`.       När du implementerar den här metoden bör endast ange egenskaperna på `operationContext` som krävs för ett lyckat svar. Ändra egenskaperna på `operationContext` kan skadas svaret från datatjänsten.       Data service runtime stänger dataströmmen när alla byte har skrivits till dataströmmen. Ett fel vid skrivning till dataströmmen, genererar datatjänsten ett felsvar till klienten.       När du implementerar du metoden GetWriteStream, bör du öka följande undantag som anges: | Undantagstyp | Villkoret |   |--------------------|---------------|   | <xref:System.ArgumentNullException>| When `entity` or `operationContext` are `null`.|   | <xref:System.ArgumentException>| När `entity` har inte en binär egenskap. |   | <xref:System.Data.Services.DataServiceException>| När en giltig dataström kan inte returneras. |</xref:System.Data.Services.DataServiceException> </xref:System.ArgumentException> </xref:System.ArgumentNullException>"
   syntax:
     content: public System.IO.Stream GetWriteStream (object entity, string etag, Nullable<bool> checkETagForEquality, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity that is a media link entry with a related media resource."
+      description: "Den entitet som är ett medium länka posten med en relaterad resurs."
     - id: etag
       type: System.String
-      description: "The eTag value that is sent as part of the HTTP request that is sent to the data service."
+      description: "ETag-värdet som skickas som en del av HTTP-begäran som skickas till datatjänsten."
     - id: checkETagForEquality
       type: System.Nullable{System.Boolean}
-      description: "A nullable <xref:System.Boolean> value that indicates the type of concurrency check requested by the client."
+      description: "En nullbar <xref:System.Boolean>värde som anger vilken typ av simultankontroll som begärs av klienten.</xref:System.Boolean>"
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance that is used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.IO.Stream
-      description: "A valid <xref:System.Stream> the data service uses to write the contents of a binary data received from the client."
+      description: "En giltig <xref:System.Stream>data tjänsten använder för att skriva innehållet i en binära data som tagits emot från klienten.</xref:System.Stream>"
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream*
   exceptions: []
   platform:
@@ -234,20 +234,20 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Returns a namespace-qualified type name that represents the type that the data service runtime must create for the media link entry that is associated with the data stream for the media resource that is being inserted."
-  remarks: "The ResolveType method is called by the data service when a new entity that is a media link entry is being created together with its media resource. An implementer of this method must inspect the request headers in `operationContext` and return the namespace qualified type name that represents the type that the data service runtime must instantiate to create the media link entry that is associated with the new media resource. The string that represents this type name is passed to the <xref:System.Data.Services.IUpdatable.CreateResource%2A> method to create the media link entry.       When you implement the <xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A> method, you should raise the following exceptions as indicated:      |Exception type|Condition|   |--------------------|---------------|   |<xref:System.ArgumentNullException>|When `operationContext` is `null`.|   |<xref:System.Data.Services.DataServiceException>|When an entity type name cannot be resolved based on the `operationContext`.|"
+  summary: "Returnerar ett namnområde kvalificerade namn som motsvarar den typ som data service runtime måste skapa för länkpost för media som är kopplad till dataströmmen för medieresursen som infogas."
+  remarks: "ResolveType-metoden anropas av datatjänsten när en ny entitet som är en media link entry skapas tillsammans med dess mediaresurs. En implementerare för den här metoden måste granska begärandehuvuden i `operationContext` och returnera namnområde kvalificerade typnamnet som motsvarar den typ som data service runtime måste skapa en instans för att skapa media länkpost som är associerad med den nya media-resursen. Den sträng som representerar namnet på den här typen har överförts till den <xref:System.Data.Services.IUpdatable.CreateResource%2A>metod för att skapa media länkpost.</xref:System.Data.Services.IUpdatable.CreateResource%2A>       När du implementerar du metoden <xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A>, bör du öka följande undantag som anges: | Undantagstyp | Villkoret |   |--------------------|---------------|   | <xref:System.ArgumentNullException>| When `operationContext` is `null`.|   | <xref:System.Data.Services.DataServiceException>| När en entitetsnamn kan inte matchas baserat på den `operationContext`. |</xref:System.Data.Services.DataServiceException> </xref:System.ArgumentNullException> </xref:System.Data.Services.Providers.IDataServiceStreamProvider.GetWriteStream%2A>"
   syntax:
     content: public string ResolveType (string entitySetName, System.Data.Services.DataServiceOperationContext operationContext);
     parameters:
     - id: entitySetName
       type: System.String
-      description: "Fully-qualified entity set name."
+      description: "Fullständiga entitetsuppsättningen namn."
     - id: operationContext
       type: System.Data.Services.DataServiceOperationContext
-      description: "The <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;></xref> instance that is used by the data service to process the request."
+      description: "Den <xref href=&quot;System.Data.Services.DataServiceOperationContext&quot;> </xref> -instans som används av datatjänsten för att bearbeta begäran."
     return:
       type: System.String
-      description: "A namespace-qualified type name."
+      description: "Ett namnområde kvalificerat typnamn."
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.ResolveType*
   exceptions: []
   platform:
@@ -264,13 +264,13 @@ items:
   assemblies:
   - System.Data.Services
   namespace: System.Data.Services.Providers
-  summary: "Gets the size of the stream buffer."
-  remarks: "The default buffer size is 64K bytes."
+  summary: "Hämtar storleken på bufferten som dataström."
+  remarks: "Standardbuffertstorleken är 64 kB."
   syntax:
     content: public int StreamBufferSize { get; }
     return:
       type: System.Int32
-      description: "Integer that represents the size of buffer."
+      description: "Heltal som representerar storleken på bufferten."
   overload: System.Data.Services.Providers.IDataServiceStreamProvider.StreamBufferSize*
   exceptions: []
   platform:
