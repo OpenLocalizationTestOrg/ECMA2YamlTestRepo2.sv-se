@@ -13,8 +13,8 @@ items:
   nameWithType: IStackWalk
   fullName: System.Security.IStackWalk
   type: Interface
-  summary: "Manages the stack walk that determines whether all callers in the call stack have the required permissions to access a protected resource."
-  remarks: "Partially trusted code always presents a security risk. It can sometimes be manipulated to perform actions on behalf of malicious code that does not have permission to access a resource. In this way, malicious code can achieve higher security access than it should be allowed.       The common language runtime helps protect managed code from these attacks by running a stack walk on all calls. The stack walk requires that all code in the call stack has permission to access a protected resource. Because the code attempting the attack will always be somewhere in the call stack, it will be unable to exceed its own security permissions."
+  summary: "Hanterar stackstegningen som avgör om anropare i anropsstacken har behörigheterna som krävs för att få åtkomst till en skyddad resurs."
+  remarks: "Delvis betrodd kod utgör alltid en säkerhetsrisk. Det kan ibland hanteras för att utföra åtgärder för skadlig kod som inte har behörighet att komma åt en resurs. På så sätt kan kan skadlig kod uppnå högre säkerhetsåtkomst än ska tillåtas.       Common language runtime skyddar förvaltad kod från dessa attacker genom att köra en stackstegningen på alla anrop. Stackstegningen kräver att all kod i anropsstacken har behörighet att komma åt en skyddad resurs. Eftersom koden försöker angreppet kommer alltid att vara någonstans i anropsstacken, kan den inte överskrider sin egen säkerhetsbehörigheter."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Asserts that the calling code can access the resource identified by the current permission object, even if callers higher in the stack have not been granted permission to access the resource."
-  remarks: "Calling Assert stops the permission check on callers higher in the call stack. Therefore, even if these callers do not have the requisite permissions, they can still access resources. An assertion is effective only if the code that calls Assert passes the security check for the permission that it is asserting.       A call to Assert is effective until the calling code returns to its caller or until a subsequent call to Assert renders the previous assertion ineffective. Also, <xref:System.Security.CodeAccessPermission.RevertAssert%2A> or <xref:System.Security.CodeAccessPermission.RevertAll%2A> removes a pending Assert.       Assert is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack calls <xref:System.Security.IStackWalk.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call Assert. This happens because the code that called Assert has not been granted the permission, even though it tried to Assert it.      > [!CAUTION] >  Because calling Assert removes the requirement that all code in the call chain must be granted permission to access the specified resource, it can open up security vulnerabilities if used incorrectly or inappropriately. Therefore, it should be used with great caution."
+  summary: "Kontroller att den anropande koden har åtkomst till den resurs som identifieras av det aktuella objektet behörighet, även om anropare högre upp i stacken inte har beviljats behörighet att komma åt resursen."
+  remarks: "Anropa Assert stoppar behörighet Kontrollera anropare högre upp i anropsstacken. Därför även om dessa anropare inte har behörigheterna som krävs, de kan fortfarande komma åt resurser. Ett intyg fungerar bara om den kod som anropar Assert skickar säkerhetskontrollen för den behörighet som den garanterar.       Ett anrop till Assert börjar gälla förrän den anropande koden returnerar till den ursprungliga anroparen eller ett anrop till Assert återgivningar tidigare kontroll ineffektiv. Dessutom <xref:System.Security.CodeAccessPermission.RevertAssert%2A>eller <xref:System.Security.CodeAccessPermission.RevertAll%2A>tar bort en väntande Assert.</xref:System.Security.CodeAccessPermission.RevertAll%2A> </xref:System.Security.CodeAccessPermission.RevertAssert%2A>       Assert ignoreras för en behörighet inte eftersom en begäran om att behörighet kommer att misslyckas. Men om lägre i anropsstacken koden anropar <xref:System.Security.IStackWalk.Demand%2A>för den behörigheten, en <xref:System.Security.SecurityException>när stackstegningen når den kod som försökte anropa Assert.</xref:System.Security.SecurityException> </xref:System.Security.IStackWalk.Demand%2A> Detta beror på att den kod som kallas Assert inte har beviljats behörigheten, även om den försökte Assert den.      > [!CAUTION] > Eftersom anropa Assert undanröjer behovet att all kod i kedjan anrop måste ha behörighet att komma åt den angivna resursen, som kan öppnas av säkerhetsproblem om används på fel sätt felaktigt. Det bör därför användas med mycket försiktig."
   syntax:
     content: public void Assert ();
     parameters: []
@@ -44,7 +44,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The calling code does not have <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;></xref>."
+    description: "Den anropande koden inte har <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.IStackWalk.Demand
@@ -59,8 +59,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines at run time whether all callers in the call stack have been granted the permission specified by the current permission object."
-  remarks: "This method is typically used by secure libraries to ensure that callers have permission to access a resource. For example, a file class in a secure class library calls Demand for the necessary <xref:System.Security.Permissions.FileIOPermission> before performing a file operation requested by the caller.       The permissions of the code that calls this method are not examined; the check begins from the immediate caller of that code and proceeds up the stack. Demand succeeds only if no <xref:System.Security.SecurityException> is raised."
+  summary: "Anger under körning om anropare i anropsstacken har beviljats behörigheten som anges av det aktuella objektet behörighet."
+  remarks: "Den här metoden används vanligtvis av säker bibliotek för att säkerställa att anropare har behörighet att komma åt en resurs. Till exempel en fil klass i en säker klassbiblioteket anropar behovet av nödvändiga <xref:System.Security.Permissions.FileIOPermission>innan du utför en åtgärd för filen som angavs av anroparen.</xref:System.Security.Permissions.FileIOPermission>       Behörigheterna för den kod som anropar den här metoden är inte undersökas. kontrollen börjar från den omedelbara anroparen av koden och fortsätter uppåt i stapeln. Begäran fungerar endast om ingen <xref:System.Security.SecurityException>utlöses.</xref:System.Security.SecurityException>"
   syntax:
     content: public void Demand ();
     parameters: []
@@ -68,7 +68,7 @@ items:
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "A caller higher in the call stack does not have the permission specified by the current permission object.       -or-       A caller in the call stack has called <xref:System.Security.IStackWalk.Deny*> on the current permission object."
+    description: "En högre upp i anropsstacken anroparen har inte behörigheten som anges av det aktuella objektet behörighet.       - eller - kallas för en anropare i anropsstacken <xref:System.Security.IStackWalk.Deny*>i det aktuella objektet behörighet.</xref:System.Security.IStackWalk.Deny*>"
   platform:
   - net462
 - uid: System.Security.IStackWalk.Deny
@@ -83,8 +83,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes every <xref:System.Security.IStackWalk.Demand*> for the current object that passes through the calling code to fail."
-  remarks: "This method prevents callers higher in the call stack from accessing the protected resource through the code that calls this method, even if those callers have been granted permission to access it. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack.       Deny can limit the liability of the programmer or help prevent accidental security vulnerabilities because it helps prevent the method that calls Deny from being used to access the resource protected by the denied permission. If a method calls Deny on a permission, and if a <xref:System.Security.IStackWalk.Demand%2A> for that permission is invoked by a caller lower in the call stack, that security check will fail when it reaches the Deny.       Deny is ignored for a permission not granted because a demand for that permission will not succeed."
+  summary: "Gör att varje <xref:System.Security.IStackWalk.Demand*>för det aktuella objekt som passerar den anropande koden misslyckas.</xref:System.Security.IStackWalk.Demand*>"
+  remarks: "Den här metoden förhindrar anropare högre upp i anropsstacken från att komma åt den skyddade resursen via den kod som anropar den här metoden, även om de som har fått behörighet att komma åt den. Anropsstacken representeras vanligtvis växande ned, så att metoder högre upp i anropsstacken anropa metoder lägre i anropsstacken.       Neka kan begränsa programmeraren ansvar eller förhindra oavsiktliga säkerhetsrisker eftersom den förhindrar den metod som anropar neka används för åtkomst till resursen som skyddas av nekade behörigheten. Om ett metodanrop neka på en behörighet, och om en <xref:System.Security.IStackWalk.Demand%2A>för behörigheten anropas av en lägre i anropsstacken anropare som säkerhetskontrollen misslyckas när den når neka.</xref:System.Security.IStackWalk.Demand%2A>       Neka ignoreras för en behörighet inte eftersom en begäran om att behörighet kommer att misslyckas."
   syntax:
     content: public void Deny ();
     parameters: []
@@ -104,8 +104,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Causes every <xref:System.Security.IStackWalk.Demand*> for all objects except the current one that passes through the calling code to fail, even if code higher in the call stack has been granted permission to access other resources."
-  remarks: "PermitOnly is similar to <xref:System.Security.IStackWalk.Deny%2A>, in that both cause stack walks to fail when they would otherwise succeed. The difference is that <xref:System.Security.IStackWalk.Deny%2A> specifies permissions that will cause the stack walk to fail, but PermitOnly specifies the only permissions that do not cause the stack walk to fail. Call this method to ensure that your code can be used to access only the specified resources.       PermitOnly is ignored for a permission not granted because a demand for that permission will not succeed. However, if code lower on the call stack later calls <xref:System.Security.IStackWalk.Demand%2A> for that permission, a <xref:System.Security.SecurityException> is thrown when the stack walk reaches the code that tried to call PermitOnly. This is because the code that called PermitOnly has not been granted the permission, even though it called PermitOnly for that permission. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack."
+  summary: "Gör att varje <xref:System.Security.IStackWalk.Demand*>för alla objekt, men det aktuella som passerar den anropande koden misslyckas, även om koden högre upp i anropsstacken har beviljats behörighet att komma åt andra resurser.</xref:System.Security.IStackWalk.Demand*>"
+  remarks: "PermitOnly liknar <xref:System.Security.IStackWalk.Deny%2A>, att både orsaka stacken får inte fungerar när de annars skulle lyckas.</xref:System.Security.IStackWalk.Deny%2A> Skillnaden är att <xref:System.Security.IStackWalk.Deny%2A>anger behörigheter som gör att stacken beskriver misslyckas, men PermitOnly anger endast behörigheter som inte orsakar stackstegningen misslyckas.</xref:System.Security.IStackWalk.Deny%2A> Anropa den här metoden för att säkerställa att din kod kan användas för åtkomst till endast de angivna resurserna.       PermitOnly ignoreras för en behörighet inte eftersom en begäran om att behörighet kommer att misslyckas. Men om koden lägre på anropet stacken senare anrop <xref:System.Security.IStackWalk.Demand%2A>för den behörigheten, en <xref:System.Security.SecurityException>när stackstegningen når den kod som försökte anropa PermitOnly.</xref:System.Security.SecurityException> </xref:System.Security.IStackWalk.Demand%2A> Detta beror på att den kod som kallas PermitOnly inte har beviljats behörigheten, även om den anropas PermitOnly för den behörigheten. Anropsstacken representeras vanligtvis växande ned, så att metoder högre upp i anropsstacken anropa metoder lägre i anropsstacken."
   syntax:
     content: public void PermitOnly ();
     parameters: []
