@@ -35,8 +35,8 @@ items:
   nameWithType: OdbcConnection
   fullName: System.Data.Odbc.OdbcConnection
   type: Class
-  summary: "Represents an open connection to a data source."
-  remarks: "An OdbcConnection object represents a unique connection to a data source created by using a connection string or ODBC data source name (DSN). With a client/server database system, it is equivalent to a network connection to the server. Depending on the functionality supported by the native ODBC driver, some methods or properties of an OdbcConnection object may not be available.       The OdbcConnection object uses native resources such as ODBC environment and connection handles. You should always explicitly close any open OdbcConnection objects by calling <xref:System.Data.Odbc.OdbcConnection.Close%2A> or **Dispose** before the OdbcConnection object goes out of scope, or by placing the connection within a `Using` statement. Not doing this leaves the freeing of these native resources to garbage collection. It might not free them immediately. This, in turn, can eventually cause the underlying driver to run out of resources or reach a maximum limit. This has resulted in intermittent failures. For example, you might experience `Maximum Connections` -related errors while many connections are waiting to be deleted by the garbage collector. Explicitly closing the connections allows for a more efficient use of native resources, enhancing scalability and improving overall application performance.      > [!NOTE] >  To deploy high-performance applications, you frequently must use connection pooling. However, when you use the .NET Framework Data Provider for ODBC, you do not have to enable connection pooling because the provider manages this automatically.       If one of the `Execute` methods of the <xref:System.Data.Odbc.OdbcCommand> class causes a fatal <xref:System.Data.Odbc.OdbcException> (for example, a SQL Server severity level of 20 or greater), the OdbcConnection may close. However, the user can reopen the connection and continue.       An application that creates an instance of the OdbcConnection object can require all direct and indirect callers to have sufficient permission to the code by setting declarative or imperative security demands. OdbcConnection creates security demands by using the <xref:System.Data.Odbc.OdbcPermission> object. Users can verify that their code has sufficient permissions by using the <xref:System.Data.Odbc.OdbcPermissionAttribute> object. Users and administrators can also use the Code Access Security Policy Tool (Caspol.exe) to modify security policy at the computer, user, and enterprise levels. For more information, see [Code Access Security and ADO.NET](~/add/includes/ajax-current-ext-md.md).       For more information about handling warning and informational messages from the data source, see [Connection Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Representerar en öppen anslutning till en datakälla."
+  remarks: "En OdbcConnection-objektet representerar en unik anslutning till en datakälla som skapats med hjälp av en anslutningssträng eller namn på ODBC-datakälla (DSN). Med en klient/server-databas motsvarar den en nätverksanslutning till servern. Beroende på funktioner som stöds av den inbyggda ODBC-drivrutinen, kanske vissa metoder eller egenskaper för ett objekt OdbcConnection inte tillgänglig.       Objektet OdbcConnection använder interna resurser, till exempel ODBC-miljön och anslutningen referenser. Du bör alltid stänga alla öppna OdbcConnection objekt genom att anropa <xref:System.Data.Odbc.OdbcConnection.Close%2A>eller **ta bort** innan OdbcConnection objekt går utanför omfånget eller genom att anslutningen inom en `Using` instruktionen.</xref:System.Data.Odbc.OdbcConnection.Close%2A> Detta inte lämnar frigöra interna resurserna till skräpinsamling. Det kanske inte går att frigöra dem direkt. Detta, i sin tur kan eventuellt kan orsaka den underliggande drivrutinen till slut på resurser eller nå en maxgräns. Detta resulterade i återkommande fel. Du kan till exempel uppstå `Maximum Connections` -relaterade fel när antalet anslutningar som väntar på att tas bort av skräpinsamlingen. Explicit stängning av anslutningarna kan en effektivare användning av interna resurser, förbättrad skalbarhet och förbättra programprestanda.      > [!NOTE] > För att distribuera program med höga prestanda, ofta måste du använda anslutningspooler. Men när du använder .NET Framework-dataprovidern för ODBC, behöver du inte aktivera anslutningspoolen eftersom providern hanterar detta automatiskt.       Om en av de `Execute` metoder för den <xref:System.Data.Odbc.OdbcCommand>klass gör ett allvarligt <xref:System.Data.Odbc.OdbcException>(t.ex, en SQL Server-allvarlighetsgrad nivån 20 eller högre), OdbcConnection kan stänga.</xref:System.Data.Odbc.OdbcException> </xref:System.Data.Odbc.OdbcCommand> Dock kan användaren öppna anslutningen och fortsätta.       Ett program som skapar en instans av objektet OdbcConnection kan kräva direkta och indirekta anropare att ha behörighet att koden genom att inställningen deklarativ eller tvingande säkerhet krav. OdbcConnection skapar krav för säkerhet genom att använda den <xref:System.Data.Odbc.OdbcPermission>objekt.</xref:System.Data.Odbc.OdbcPermission> Användarna kan kontrollera att koden har behörighet genom att använda den <xref:System.Data.Odbc.OdbcPermissionAttribute>objekt.</xref:System.Data.Odbc.OdbcPermissionAttribute> Användare och administratörer kan också använda koden åtkomst säkerhetsverktyget Policy (Caspol.exe) för att ändra säkerhetsprinciper på datorn, användare och enterprise-nivåer. Mer information finns i [Code Access Security och ADO.NET](~/add/includes/ajax-current-ext-md.md).       Mer information om hur du hanterar varnings- och informativa meddelanden från datakällan finns [Anslutningshändelser](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcCommand> and an OdbcConnection. The OdbcConnection is opened and set as the <xref:System.Data.Odbc.OdbcCommand.Connection%2A> property. The example then calls <xref:System.Data.Odbc.OdbcCommand.ExecuteNonQuery%2A>, and closes the connection. To accomplish this, the <xref:System.Data.Odbc.OdbcCommand.ExecuteNonQuery%2A> is passed a connection string and a query string that is an SQL INSERT statement.  \n  \n [!code-vb[Classic WebData OdbcConnection#1](~/add/codesnippet/visualbasic/t-system.data.odbc.odbcc_3_1.vb)]\n [!code-cs[Classic WebData OdbcConnection#1](~/add/codesnippet/csharp/t-system.data.odbc.odbcc_3_1.cs)]"
   syntax:
@@ -87,8 +87,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> class."
-  remarks: "When a new instance of <xref:System.Data.Odbc.OdbcConnection> is created, the write-only and read-only properties are set to the following initial values unless they are specifically set using their associated keywords in the <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> property.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>|empty string (&quot;&quot;)|   |<xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A>|15|   |<xref:System.Data.Odbc.OdbcConnection.Database%2A>|empty string (&quot;&quot;)|       You can change the value for these properties only by using the <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> property."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> klass."
+  remarks: "När en ny instans av <xref:System.Data.Odbc.OdbcConnection>skapas den lässkyddad och skrivskyddade egenskaper anges till följande ursprungliga värden om de har angetts med hjälp av deras associerade nyckelord i den <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>egenskapen.</xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> </xref:System.Data.Odbc.OdbcConnection>      | Egenskaper | Ursprungligt värde |   |----------------|-------------------|   | <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>| tom sträng (&quot;&quot;) |   | <xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A>|&15; |   | <xref:System.Data.Odbc.OdbcConnection.Database%2A>| tom sträng (&quot;&quot;) |       Du kan ändra värdet för dessa egenskaper genom att använda den <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>egenskapen.</xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> </xref:System.Data.Odbc.OdbcConnection.Database%2A> </xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A> </xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>"
   example:
   - "The following example creates and opens an <xref:System.Data.Odbc.OdbcConnection>.  \n  \n [!code-cs[Classic WebData OdbcConnection.OdbcConnection#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_9_1.cs)]\n [!code-vb[Classic WebData OdbcConnection.OdbcConnection#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_9_1.vb)]"
   syntax:
@@ -110,8 +110,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> class with the specified connection string."
-  remarks: "When a new instance of <xref:System.Data.Odbc.OdbcConnection> is created, the write-only and read-only properties are set to the following initial values unless they are specifically set using their associated keywords in the <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> property.      |Properties|Initial value|   |----------------|-------------------|   |<xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>|`connectionString`|   |<xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A>|15|   |<xref:System.Data.Odbc.OdbcConnection.Database%2A>|empty string (&quot;&quot;)|       You can change the value for these properties only by using the <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> property."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> klass med den angivna anslutningssträngen."
+  remarks: "När en ny instans av <xref:System.Data.Odbc.OdbcConnection>skapas den lässkyddad och skrivskyddade egenskaper anges till följande ursprungliga värden om de har angetts med hjälp av deras associerade nyckelord i den <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>egenskapen.</xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> </xref:System.Data.Odbc.OdbcConnection>      | Egenskaper | Ursprungligt värde |   |----------------|-------------------|   | <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>| `connectionString`|   | <xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A>|&15; |   | <xref:System.Data.Odbc.OdbcConnection.Database%2A>| tom sträng (&quot;&quot;) |       Du kan ändra värdet för dessa egenskaper genom att använda den <xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>egenskapen.</xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A> </xref:System.Data.Odbc.OdbcConnection.Database%2A> </xref:System.Data.Odbc.OdbcConnection.ConnectionTimeout%2A> </xref:System.Data.Odbc.OdbcConnection.ConnectionString%2A>"
   example:
   - "The following example creates and opens an <xref:System.Data.Odbc.OdbcConnection>.  \n  \n [!code-vb[Classic WebData OdbcConnection.OdbcConnection1#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_3_1.vb)]\n [!code-cs[Classic WebData OdbcConnection.OdbcConnection1#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_3_1.cs)]"
   syntax:
@@ -119,7 +119,7 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "The connection used to open the data source."
+      description: "Anslutningen används för att öppna datakällan."
   overload: System.Data.Odbc.OdbcConnection.#ctor*
   exceptions: []
   platform:
@@ -141,10 +141,10 @@ items:
     parameters:
     - id: isolationLevel
       type: System.Data.IsolationLevel
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Data.Common.DbTransaction
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Odbc.OdbcConnection.BeginDbTransaction*
   exceptions: []
   platform:
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Starts a transaction at the data source."
-  remarks: "To commit or roll back the transaction, you must explicitly use the <xref:System.Data.Odbc.OdbcTransaction.Commit%2A> or <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> methods.       To make sure that the .NET Framework Data Provider for ODBC transaction management model performs correctly, avoid using other transaction management models, such as those provided by the data source.      > [!NOTE] >  If you do not specify an isolation level, the isolation level will be determined by the driver being used. To specify an isolation level with the BeginTransaction method, use the overload that takes the `isolevel` parameter."
+  summary: "Startar en transaktion i datakällan."
+  remarks: "Om du vill allokera eller återställa transaktionen, måste du uttryckligen använda den <xref:System.Data.Odbc.OdbcTransaction.Commit%2A>eller <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A>metoder.</xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> </xref:System.Data.Odbc.OdbcTransaction.Commit%2A>       Kontrollera att .NET Framework-dataprovidern för ODBC-transaktion Hanteringsmodellen utförs korrekt, Undvik att använda andra modeller för transaktion, till exempel de som tillhandahålls av datakällan.      > [!NOTE] > Om du inte anger en isoleringsnivå Isoleringsnivån bestäms av drivrutinen som används. Om du vill ange en isoleringsnivå med metoden BeginTransaction använda överlagring som tar den `isolevel` parameter."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and an <xref:System.Data.Odbc.OdbcTransaction>. It also demonstrates how to use the BeginTransaction, <xref:System.Data.Odbc.OdbcTransaction.Commit%2A>, and <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData OdbcConnection.BeginTransaction1#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_6_1.cs)]\n [!code-vb[Classic WebData OdbcConnection.BeginTransaction1#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_6_1.vb)]"
   syntax:
@@ -170,12 +170,12 @@ items:
     parameters: []
     return:
       type: System.Data.Odbc.OdbcTransaction
-      description: "An object representing the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Odbc.OdbcConnection.BeginTransaction*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A transaction is currently active. Parallel transactions are not supported."
+    description: "En transaktion är aktiv. Parallella transaktioner stöds inte."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.BeginTransaction(System.Data.IsolationLevel)
@@ -190,8 +190,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Starts a transaction at the data source with the specified <xref href=&quot;System.Data.IsolationLevel&quot;></xref> value."
-  remarks: "To commit or roll back the transaction, you must explicitly use the <xref:System.Data.Odbc.OdbcTransaction.Commit%2A> or <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> methods.       To make sure that the .NET Framework Data Provider for ODBC transaction management model performs correctly, avoid using other transaction management models, such as those provided by the data source."
+  summary: "Startar en transaktion i datakällan med det angivna <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> värde."
+  remarks: "Om du vill allokera eller återställa transaktionen, måste du uttryckligen använda den <xref:System.Data.Odbc.OdbcTransaction.Commit%2A>eller <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A>metoder.</xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> </xref:System.Data.Odbc.OdbcTransaction.Commit%2A>       Kontrollera att .NET Framework-dataprovidern för ODBC-transaktion Hanteringsmodellen utförs korrekt, Undvik att använda andra modeller för transaktion, till exempel de som tillhandahålls av datakällan."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and an <xref:System.Data.Odbc.OdbcTransaction>. It also demonstrates how to use the <xref:System.Data.Odbc.OdbcConnection.BeginTransaction%2A>, <xref:System.Data.Odbc.OdbcTransaction.Commit%2A>, and <xref:System.Data.Odbc.OdbcTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData OdbcConnection.BeginTransaction1#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_4_1.cs)]\n [!code-vb[Classic WebData OdbcConnection.BeginTransaction1#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_4_1.vb)]"
   syntax:
@@ -199,15 +199,15 @@ items:
     parameters:
     - id: isolevel
       type: System.Data.IsolationLevel
-      description: "The transaction isolation level for this connection. If you do not specify an isolation level, the default isolation level for the driver is used."
+      description: "Transaktionsisoleringsnivån för den här anslutningen. Om du inte anger en isoleringsnivå används standardisoleringsnivån för drivrutinen."
     return:
       type: System.Data.Odbc.OdbcTransaction
-      description: "An object representing the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Odbc.OdbcConnection.BeginTransaction*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A transaction is currently active. Parallel transactions are not supported."
+    description: "En transaktion är aktiv. Parallella transaktioner stöds inte."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.ChangeDatabase(System.String)
@@ -222,8 +222,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Changes the current database associated with an open <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref>."
-  remarks: "The `value` parameter must contain a valid database name, and cannot contain a null value, an empty string (&quot;&quot;), or a string with only blank characters."
+  summary: "Ändrar den aktuella databasen som är associerade med en öppen <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref>."
+  remarks: "Den `value` parameter måste innehålla ett giltigt databasnamn och får inte innehålla ett null-värde, en tom sträng (&quot;&quot;), eller en sträng med endast blanksteg."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and changes the current database.  \n  \n [!code-cs[Classic WebData OdbcConnection.Database#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_1_1.cs)]\n [!code-vb[Classic WebData OdbcConnection.Database#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_1_1.vb)]"
   syntax:
@@ -231,18 +231,18 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: "The database name."
+      description: "Databasnamnet."
   overload: System.Data.Odbc.OdbcConnection.ChangeDatabase*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The database name is not valid."
+    description: "Databasnamnet är inte giltigt."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection is not open."
+    description: "Anslutningen är inte öppen."
   - type: System.Data.Odbc.OdbcException
     commentId: T:System.Data.Odbc.OdbcException
-    description: "Cannot change the database."
+    description: "Det går inte att ändra databasen."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.Close
@@ -257,8 +257,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Closes the connection to the data source."
-  remarks: "The Close method rolls back any pending transactions. It then releases the connection to the connection pool, or closes the connection if connection pooling is disabled. If Close is called while handling a <xref:System.Data.Common.DbConnection.StateChange> event, no additional <xref:System.Data.Common.DbConnection.StateChange> events are fired.       An application can call Close more than one time without generating an exception.      > [!NOTE] >  When you use the .NET Framework Data Provider for ODBC, you do not have to enable connection pooling because the ODBC Driver Manager manages this automatically. For more information about how to enable and disabling connection pooling, see the Microsoft Open Database Connectivity (ODBC) documentation.      > [!CAUTION] >  Do not call Close or `Dispose` on a Connection, a DataReader, or any other managed object in the `Finalize` method of your class. In a finalizer, you should only release unmanaged resources that your class owns directly. If your class does not own any unmanaged resources, do not include a `Finalize` method in your class definition. For more information, see [Garbage Collection](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Stänger anslutningen till datakällan."
+  remarks: "Close-metoden återställer alla väntande transaktioner. Den sedan släpper anslutningen till anslutningspoolen eller stänger anslutningen om anslutningspooler är inaktiverad. Om Stäng anropas vid hantering av en <xref:System.Data.Common.DbConnection.StateChange>händelse, ingen ytterligare <xref:System.Data.Common.DbConnection.StateChange>händelser skickas.</xref:System.Data.Common.DbConnection.StateChange> </xref:System.Data.Common.DbConnection.StateChange>       Ett program kan anropa Stäng mer än en gång utan att generera ett undantag.      > [!NOTE] > När du använder .NET Framework-dataprovidern för ODBC, behöver du inte aktivera anslutningspoolen eftersom ODBC-drivrutinshanteraren hanteras det automatiskt. Mer information om hur du aktiverar och inaktiverar anslutningspooler finns i dokumentationen för Microsoft ODBC Open Database Connectivity ().      > [!CAUTION] > Inte anropar Close eller `Dispose` på en anslutning, en DataReader eller andra hanterat objekt i den `Finalize` -metoden i klassen. Du bör endast släpper ohanterade resurser som din klass äger direkt i en slutföraren. Om klassen inte äger ohanterade resurser innehåller inte en `Finalize` metod i klassdefinition. Mer information finns i [skräpinsamling](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection>, opens it, displays some of its properties, and then closes the connection.  \n  \n [!code-vb[Classic WebData OdbcConnection.Close#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_0_1.vb)]\n [!code-cs[Classic WebData OdbcConnection.Close#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_0_1.cs)]"
   syntax:
@@ -280,13 +280,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the string used to open a data source."
+  summary: "Hämtar eller anger den sträng som används för att öppna en datakälla."
   remarks: "The ConnectionString property is designed to match ODBC connection string format as closely as possible. The ConnectionString can be set only when the connection is closed, and as soon as it is set it is passed, unchanged, to the Driver Manager and the underlying driver. Therefore, the syntax for the ConnectionString must exactly match what the Driver Manager and underlying driver support.  \n  \n You can use the ConnectionString property to connect to a variety of data sources. This includes an ODBC data source name (DSN). The following example illustrates several possible connection strings.  \n  \n```  \n\"Driver={SQL Server};Server=(local);Trusted_Connection=Yes;Database=AdventureWorks;\"  \n  \n\"Driver={Microsoft ODBC for Oracle};Server=ORACLE8i7;Persist Security Info=False;Trusted_Connection=Yes\"  \n  \n\"Driver={Microsoft Access Driver (*.mdb)};DBQ=c:\\bin\\Northwind.mdb\"  \n  \n\"Driver={Microsoft Excel Driver (*.xls)};DBQ=c:\\bin\\book1.xls\"  \n  \n\"Driver={Microsoft Text Driver (*.txt; *.csv)};DBQ=c:\\bin\"  \n  \n\"DSN=dsnname\"  \n```  \n  \n> [!NOTE]\n>  The .NET Framework Data Provider for ODBC does not support the `Persist Security Info` keyword that is supported by other .NET Framework data providers. However, the ConnectionString property behaves as if `Persist Security Info` were set to `false`. This means that you cannot retrieve the password from the ConnectionString property if the connection has been opened. When the ConnectionString property is read from an <xref:System.Data.Odbc.OdbcConnection> object that has been opened, the connection string is returned minus the password. You cannot change this behavior; therefore, if the application requires the password, store it separately before calling <xref:System.Data.Odbc.OdbcConnection.Open%2A>.  \n  \n Many of the settings specified in the string have corresponding read-only properties (for example, `Server=(local)`, which corresponds to the <xref:System.Data.Odbc.OdbcConnection.DataSource%2A> property). These properties are updated after the connection is opened, except when an error is detected. In this case, none of the properties are updated. <xref:System.Data.Odbc.OdbcConnection> properties (such as <xref:System.Data.Odbc.OdbcConnection.Database%2A>) return only default settings or those settings specified in the ConnectionString.  \n  \n In the Microsoft .NET Framework version 1.0, validation of the connection string does not occur until an application calls the <xref:System.Data.Odbc.OdbcConnection.Open%2A> method. It is the responsibility of the underlying ODBC driver to validate the connection string. If the connection string contains invalid or unsupported properties, the driver may raise an <xref:System.Data.Odbc.OdbcException> at run time.  \n  \n However, in the .NET Framework version 1.1 and later versions, some basic validation of the connection string occurs as soon as you set the ConnectionString property. At that time, the data provider verifies that the connection string meets the \"keyword=value;...\" format, but it does not verify whether keywords or values are valid. The remaining verification is performed by the underlying ODBC driver when the application calls the <xref:System.Data.Odbc.OdbcConnection.Open%2A> method.  \n  \n An ODBC connection string has the following syntax:  \n  \n```  \nconnection-string ::= empty-string[;] | attribute[;] | attribute; connection-string  \nempty-string ::=  \nattribute ::= attribute-keyword=attribute-value | DRIVER=[{]attribute-value[}]  \nattribute-keyword ::= DSN | UID | PWD  \n | driver-defined-attribute-keyword  \nattribute-value ::= character-string  \ndriver-defined-attribute-keyword ::= identifier  \n```  \n  \n where `character-string` has zero or more characters; `identifier` has one or more characters; `attribute-keyword` is not case sensitive; `attribute-value` can be case sensitive; and the value of the DSN keyword does not consist only of blanks.  \n  \n Because of connection string and initialization file grammar, keywords and attribute values should be avoided that contain the characters []{}(),;?*=!@ not enclosed with braces. The value of the DSN keyword cannot consist only of blanks and should not contain leading blanks. Because of the grammar of the system information, keywords and data source names cannot contain the backslash (\\\\) character.  \n  \n Applications do not have to add braces around the attribute value after the Driver keyword unless the attribute contains a semicolon (;), in which case the braces are required. If the attribute value that the driver receives includes braces, the driver should not remove them but they should be part of the returned connection string.  \n  \n A DSN or connection string value enclosed with braces ({}) that contains any of the characters []{}(),;?*=!@ is passed intact to the driver. However, when you use these characters in a keyword, the Driver Manager returns an error when you work with file DSNs, but passes the connection string to the driver for regular connection strings. Avoid using embedded braces in a keyword value.  \n  \n The connection string may include any number of driver-defined keywords. Because the DRIVER keyword does not use information from the system, the driver must define enough keywords so that a driver can connect to a data source using only the information in the connection string. The driver defines which keywords are required to connect to the data source.  \n  \n If any keywords are repeated in the connection string, there is no guarantee which value will be selected.  \n  \n> [!NOTE]\n>  If an ODBC driver supports connection strings longer than 1024 characters, you can use a data source name (DSN) to exceed the maximum length limitation."
   syntax:
     content: public override string ConnectionString { get; set; }
     return:
       type: System.String
-      description: "The ODBC driver connection string that includes settings, such as the data source name, needed to establish the initial connection. The default value is an empty string (&quot;&quot;). The maximum length is 1024 characters."
+      description: "ODBC-drivrutinen anslutningssträngen som innehåller inställningar, till exempel namnet på datakällan, behövs för att skapa den första anslutningen. Standardvärdet är en tom sträng (&quot;&quot;). Den maximala längden är 1024 tecken."
   overload: System.Data.Odbc.OdbcConnection.ConnectionString*
   exceptions: []
   platform:
@@ -303,18 +303,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the time to wait while trying to establish a connection before terminating the attempt and generating an error."
-  remarks: "Unlike the .NET Framework data providers for SQL Server and OLE DB, the .NET Framework Data Provider for ODBC does not support setting this property as a connection string value, because it is not a valid ODBC connection keyword. To specify a connection time-out, set the ConnectionTimeout property before calling <xref:System.Data.Odbc.OdbcConnection.Open%2A>. This is equivalent to setting the ODBC `SQLSetConnectAttr` SQL_ATTR_LOGIN_TIMOUT attribute."
+  summary: "Hämtar eller anger väntetiden vid försök att upprätta en anslutning upprättas innan försöket avbryts och ett fel genereras."
+  remarks: "Till skillnad från .NET Framework data provider för SQL Server och OLE DB stöder .NET Framework-dataprovidern för ODBC inte den här egenskapen som ett strängvärde för anslutningen, eftersom den inte är ett giltigt ODBC-anslutning nyckelord. Om du vill ange en timeout för anslutning, anger du egenskapen ConnectionTimeout innan du anropar <xref:System.Data.Odbc.OdbcConnection.Open%2A>.</xref:System.Data.Odbc.OdbcConnection.Open%2A> Detta motsvarar att ange ODBC `SQLSetConnectAttr` SQL_ATTR_LOGIN_TIMOUT attribut."
   syntax:
     content: public int ConnectionTimeout { get; set; }
     return:
       type: System.Int32
-      description: "The time in seconds to wait for a connection to open. The default value is 15 seconds."
+      description: "Tid i sekunder för en anslutning för att öppna. Standardvärdet är 15 sekunder."
   overload: System.Data.Odbc.OdbcConnection.ConnectionTimeout*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value set is less than 0."
+    description: "Värdet är mindre än 0."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.CreateCommand
@@ -329,13 +329,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Creates and returns an <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object associated with the <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref>."
+  summary: "Skapar och returnerar ett <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> som är associerat med den <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref>."
   syntax:
     content: public System.Data.Odbc.OdbcCommand CreateCommand ();
     parameters: []
     return:
       type: System.Data.Odbc.OdbcCommand
-      description: "An <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;></xref> object."
+      description: "En <xref href=&quot;System.Data.Odbc.OdbcCommand&quot;> </xref> objekt."
   overload: System.Data.Odbc.OdbcConnection.CreateCommand*
   exceptions: []
   platform:
@@ -357,7 +357,7 @@ items:
     parameters: []
     return:
       type: System.Data.Common.DbCommand
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Odbc.OdbcConnection.CreateDbCommand*
   exceptions: []
   platform:
@@ -374,15 +374,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the name of the current database or the database to be used after a connection is opened."
-  remarks: "At first, the Database property is set in the connection string. The Database property can be updated by using the <xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A> method. If you change the current database using an SQL statement or the <xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A> method, an informational message is sent and then the property is updated.       Retrieving the Database property is equivalent to calling the ODBC function `SQLGetInfo` with the `Attribute` parameter set to SQL_ATTR_CURRENT_CATALOG."
+  summary: "Hämtar namnet på den aktuella databasen eller databas som ska användas när en anslutning har öppnats."
+  remarks: "Först anges egenskapen databasen i anslutningssträngen. Egenskapen databasen kan uppdateras med hjälp av den <xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A>metoden.</xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A> Om du ändrar den aktuella databasen använder en SQL-instruktion eller <xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A>-metoden skickas ett meddelande med information och sedan egenskapen uppdateras.</xref:System.Data.Odbc.OdbcConnection.ChangeDatabase%2A>       Hämtning av egenskapen databasen motsvarar att anropa funktionen ODBC `SQLGetInfo` med den `Attribute` parametern värdet SQL_ATTR_CURRENT_CATALOG."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and changes the current database.  \n  \n [!code-cs[Classic WebData OdbcConnection.Database#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcc_1_1.cs)]\n [!code-vb[Classic WebData OdbcConnection.Database#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcc_1_1.vb)]"
   syntax:
     content: public override string Database { get; }
     return:
       type: System.String
-      description: "The name of the current database. The default value is an empty string (&quot;&quot;) until the connection is opened."
+      description: "Namnet på den aktuella databasen. Standardvärdet är en tom sträng (&quot;&quot;) tills anslutningen öppnas."
   overload: System.Data.Odbc.OdbcConnection.Database*
   exceptions: []
   platform:
@@ -399,15 +399,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the server name or file name of the data source."
-  remarks: "Retrieving the DataSource property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_SERVER_NAME."
+  summary: "Hämtar namnet på servern och namnet på datakällan."
+  remarks: "Hämtning av egenskapen DataSource motsvarar att anropa funktionen ODBC `SQLGetInfo` med den `InfoType` parametern inställd på SQL-servernamn."
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnection> and displays the backend data source name.  \n  \n [!code-vb[Classic WebData OdbcConnection.DataSource#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcc_3_1.vb)]\n [!code-cs[Classic WebData OdbcConnection.DataSource#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcc_3_1.cs)]"
   syntax:
     content: public override string DataSource { get; }
     return:
       type: System.String
-      description: "The server name or file name of the data source. The default value is an empty string (&quot;&quot;) until the connection is opened."
+      description: "Servernamn eller namnet på datakällan. Standardvärdet är en tom sträng (&quot;&quot;) tills anslutningen öppnas."
   overload: System.Data.Odbc.OdbcConnection.DataSource*
   exceptions: []
   platform:
@@ -429,7 +429,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Odbc.OdbcConnection.Dispose*
   exceptions: []
   platform:
@@ -446,13 +446,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the name of the ODBC driver specified for the current connection."
-  remarks: "Retrieving the Driver property is equivalent to calling the ODBC function `SQLGetInfo` with the `InfoType` parameter set to SQL_DRIVER_NAME."
+  summary: "Hämtar namnet på den ODBC-drivrutin som angetts för den aktuella anslutningen."
+  remarks: "Hämtning av egenskapen för drivrutinen motsvarar att anropa funktionen ODBC `SQLGetInfo` med den `InfoType` parametern värdet SQL_DRIVER_NAME."
   syntax:
     content: public string Driver { get; }
     return:
       type: System.String
-      description: "The name of the ODBC driver. This typically is the DLL name (for example, Sqlsrv32.dll). The default value is an empty string (&quot;&quot;) until the connection is opened."
+      description: "Namnet på den ODBC-drivrutinen. Detta är vanligtvis DLL-namn (till exempel Sqlsrv32.dll). Standardvärdet är en tom sträng (&quot;&quot;) tills anslutningen öppnas."
   overload: System.Data.Odbc.OdbcConnection.Driver*
   exceptions: []
   platform:
@@ -469,14 +469,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Enlists in the specified transaction as a distributed transaction."
-  remarks: "New in ADO.NET 2.0 is support for using the <xref:System.Data.Common.DbConnection.EnlistTransaction%2A> method to enlist in a distributed transaction. Because it enlists a connection in a <xref:System.Transactions.Transaction> instance, **EnlistTransaction** takes advantage of functionality available in the <xref:System.Transactions> namespace for managing distributed transactions, making it preferable to **EnlistDistributedTransaction** for this purpose. For more information, see [Distributed Transactions](~/add/includes/ajax-current-ext-md.md).       You can continue to enlist in an existing distributed transaction using the <xref:System.Data.OdbcClient.OdbcConnection.EnlistDistributedTransaction%2A> method if auto-enlistment is disabled. Enlisting in an existing distributed transaction makes sure that, if the transaction is committed or rolled back, modifications made by the code at the data source are also committed or rolled back. For more information about distributed transactions, see [Distributed Transactions](../Topic/Distributed%20Transactions.md).       EnlistDistributedTransaction returns an exception if the <xref:System.Data.OdbcClient.OdbcConnection> has already started a transaction using <xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A>. However, if the transaction is a local transaction started at the data source (for example, by explicitly executing the BEGIN TRANSACTION statement using an <xref:System.Data.OdbcClient.OdbcCommand> object), EnlistDistributedTransaction rolls back the local transaction and enlists in the existing distributed transaction as requested. You will not receive notice that the local transaction was rolled back, and are responsible for managing any local transactions not started using <xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A>."
+  summary: "Att registrera sig i den angivna transaktionen som en distribuerad transaktion."
+  remarks: "Ny i ADO.NET 2.0 finns stöd för att använda den <xref:System.Data.Common.DbConnection.EnlistTransaction%2A>metod för att medverka i en distribuerad transaktion.</xref:System.Data.Common.DbConnection.EnlistTransaction%2A> Eftersom den anger en anslutning i en <xref:System.Transactions.Transaction>instansen **EnlistTransaction** drar nytta av funktionerna i den <xref:System.Transactions>namnområde för hantering av distribuerade transaktioner, vilket gör det bättre att **EnlistDistributedTransaction** för detta ändamål.</xref:System.Transactions> </xref:System.Transactions.Transaction> Mer information finns i [distribuerade transaktioner](~/add/includes/ajax-current-ext-md.md).       Du kan fortsätta att medverka i en befintlig distribuerad transaktion med den <xref:System.Data.OdbcClient.OdbcConnection.EnlistDistributedTransaction%2A>metoden om automatisk registrering har inaktiverats.</xref:System.Data.OdbcClient.OdbcConnection.EnlistDistributedTransaction%2A> Ta med i en befintlig distribuerad transaktion ser till att, om transaktionen bekräftats eller återställts, ändringar har gjorts av koden på datakällan är också bekräftats eller återställts. Mer information om distribuerade transaktioner finns [distribuerade transaktioner](../Topic/Distributed%20Transactions.md).       EnlistDistributedTransaction returnerar ett undantag om den <xref:System.Data.OdbcClient.OdbcConnection>redan har påbörjat en transaktion med <xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A>.</xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A> </xref:System.Data.OdbcClient.OdbcConnection> Men om det är en lokal transaktion som startades vid datakällan transaktionen (exempelvis genom att uttryckligen köra instruktionen BEGIN TRANSACTION med ett <xref:System.Data.OdbcClient.OdbcCommand>objekt), EnlistDistributedTransaction återställer lokala transaktionen och registrera sig i den befintliga distribuerade transaktionen som begärs.</xref:System.Data.OdbcClient.OdbcCommand> Observera att den lokala transaktionen återställdes och ansvarar för att hantera alla lokala transaktioner inte startas med hjälp av <xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A>.</xref:System.Data.OdbcClient.OdbcConnection.BeginTransaction%2A> visas inte"
   syntax:
     content: public void EnlistDistributedTransaction (System.EnterpriseServices.ITransaction transaction);
     parameters:
     - id: transaction
       type: System.EnterpriseServices.ITransaction
-      description: "A reference to an existing <xref href=&quot;System.EnterpriseServices.ITransaction&quot;></xref> in which to enlist."
+      description: "En referens till en befintlig <xref href=&quot;System.EnterpriseServices.ITransaction&quot;> </xref> där du vill registrera."
   overload: System.Data.Odbc.OdbcConnection.EnlistDistributedTransaction*
   exceptions: []
   platform:
@@ -493,14 +493,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Enlists in the specified transaction as a distributed transaction."
-  remarks: 'New in ADO.NET 2.0 is support for using the <xref:System.Data.Common.DbConnection.EnlistTransaction%2A> method to enlist in a distributed transaction. Because it enlists a connection in a <xref:System.Transactions.Transaction> instance, **EnlistTransaction** takes advantage of functionality available in the <xref:System.Transactions> namespace for managing distributed transactions, making it preferable to **EnlistDistributedTransaction**, which uses a **System.EnterpriseServices.ITransaction** object. It also has slightly different semantics: once a connection is explicitly enlisted on a transaction, it cannot be unenlisted or enlisted in another transaction until the first transaction finishes. For more information about distributed transactions, see [Distributed Transactions](~/add/includes/ajax-current-ext-md.md).'
+  summary: "Att registrera sig i den angivna transaktionen som en distribuerad transaktion."
+  remarks: 'Ny i ADO.NET 2.0 finns stöd för att använda den <xref:System.Data.Common.DbConnection.EnlistTransaction%2A>metod för att medverka i en distribuerad transaktion.</xref:System.Data.Common.DbConnection.EnlistTransaction%2A> Eftersom den anger en anslutning i en <xref:System.Transactions.Transaction>instansen **EnlistTransaction** drar nytta av funktionerna i den <xref:System.Transactions>namnområde för hantering av distribuerade transaktioner, vilket gör det bättre att **EnlistDistributedTransaction**, som använder en **System.EnterpriseServices.ITransaction** objekt.</xref:System.Transactions> </xref:System.Transactions.Transaction> Har något annorlunda semantik: när en anslutning är uttryckligen registrerad på en transaktion, inte unenlisted eller utför en annan transaktion tills den första transaktionen har slutförts. Mer information om distribuerade transaktioner finns [distribuerade transaktioner](~/add/includes/ajax-current-ext-md.md).'
   syntax:
     content: public override void EnlistTransaction (System.Transactions.Transaction transaction);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "A reference to an existing <xref href=&quot;System.Transactions.Transaction&quot;></xref> in which to enlist."
+      description: "En referens till en befintlig <xref href=&quot;System.Transactions.Transaction&quot;> </xref> där du vill registrera."
   overload: System.Data.Odbc.OdbcConnection.EnlistTransaction*
   exceptions: []
   platform:
@@ -517,13 +517,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref>."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref>."
   syntax:
     content: public override System.Data.DataTable GetSchema ();
     parameters: []
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Odbc.OdbcConnection.GetSchema*
   exceptions: []
   platform:
@@ -540,17 +540,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> using the specified name for the schema name."
-  remarks: "When `collectionName` is null, the <xref:System.Data.DataTable> contains information about all available metadata and any restrictions.      > [!NOTE] >  All restrictions that apply to the `SQLStatistics` method also apply to the `ODBCConnection.GetSchema(&quot;`indexes`&quot;)` collection."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> med det angivna namnet för schemanamnet."
+  remarks: "När `collectionName` är null, den <xref:System.Data.DataTable>innehåller information om alla tillgängliga metadata och eventuella begränsningar.</xref:System.Data.DataTable>      > [!NOTE] > Alla begränsningar som gäller för den `SQLStatistics` metoden gäller även för den `ODBCConnection.GetSchema(&quot;`index`&quot;)` samling."
   syntax:
     content: public override System.Data.DataTable GetSchema (string collectionName);
     parameters:
     - id: collectionName
       type: System.String
-      description: "Specifies the name of the schema to return."
+      description: "Anger namnet på scheman som ska returneras."
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Odbc.OdbcConnection.GetSchema*
   exceptions: []
   platform:
@@ -567,20 +567,20 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> using the specified string for the schema name and the specified string array for the restriction values."
-  remarks: "When `collectionName` is specified as null, the <xref:System.Data.DataTable> contains information about all the metadata that is available, and its restrictions.       The `restrictionValues` parameter can supply *n* depth of values which are specified by the restrictions collection for a specific collection. In order to set values on a given restriction, and not set the values of other restrictions, you must set the preceding restrictions to null and then put the appropriate value in for the restriction that you would like to specify a value for.       An example of this is the &quot;Tables&quot; collection. If the &quot;Tables&quot; collection has three restrictions (database, owner, and table name), and you want to get back only the tables associated with the owner &quot;Carl,&quot; then you would need to pass in at least the following values: null, &quot;Carl&quot;. If a restriction value is not passed in, the default values are used for that restriction. This is the same mapping as passing in null, which is different from passing in an empty string for the parameter value. In that case, the empty string (&quot;&quot;) is considered to be the value for the specified parameter.      > [!NOTE] >  All restrictions that apply to SQLStatistics method will apply to the ODBCConnection.GetSchema(&quot;indexes&quot;) collection."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> med den angivna strängen för schemanamnet och angivna Strängmatrisen för värdena som begränsning."
+  remarks: "När `collectionName` anges som null, den <xref:System.Data.DataTable>innehåller information om de metadata som är tillgänglig och dess begränsningar.</xref:System.Data.DataTable>       Den `restrictionValues` kan ange parametern *n* djup med värden som anges av begränsningssamlingen för en specifik samling. För att ange värden för en viss begränsning, och inte ange värden för andra begränsningar, måste du ange de här begränsningarna till null och publicera sedan lämpligt värde i för begränsningen som du vill ange ett värde för.       Ett exempel på detta är &quot;Tabeller&quot;-samling. Om samlingen &quot;Tabeller&quot; har tre begränsningar (databas, ägare och namn) och du vill få tillbaka endast tabeller som är kopplade till ägaren &quot;Carl&quot; och sedan måste du skicka in följande värden: null &quot;Carl&quot;. Om en begränsningsvärdet inte skickas, som standardvärden används för denna begränsning. Detta är samma mappning som passerar null, vilket skiljer sig från passerar i en tom sträng för parametervärdet. I så fall, en tom sträng (&quot;&quot;) betraktas som värdet för den angivna parametern.      > [!NOTE] > Alla begränsningar som gäller för SQLStatistics metoden gäller för samlingen ODBCConnection.GetSchema(&quot;indexes&quot;)."
   syntax:
     content: public override System.Data.DataTable GetSchema (string collectionName, string[] restrictionValues);
     parameters:
     - id: collectionName
       type: System.String
-      description: "Specifies the name of the schema to return."
+      description: "Anger namnet på scheman som ska returneras."
     - id: restrictionValues
       type: System.String[]
-      description: "Specifies a set of restriction values for the requested schema."
+      description: "Anger en begränsningsvärden för det begärda schemat."
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Odbc.OdbcConnection.GetSchema*
   exceptions: []
   platform:
@@ -597,13 +597,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Occurs when the ODBC driver sends a warning or an informational message."
-  remarks: "Clients that want to process warnings or informational messages sent by the server should create an <xref:System.Data.Odbc.OdbcInfoMessageEventHandler> delegate to listen to this event."
+  summary: "Inträffar när ODBC-drivrutinen skickar en varning eller ett informationsmeddelande."
+  remarks: "Klienter som vill bearbeta varningar och informationsmeddelanden som skickats av servern ska skapa en <xref:System.Data.Odbc.OdbcInfoMessageEventHandler>ombud för att lyssna på den här händelsen.</xref:System.Data.Odbc.OdbcInfoMessageEventHandler>"
   syntax:
     content: public event System.Data.Odbc.OdbcInfoMessageEventHandler InfoMessage;
     return:
       type: System.Data.Odbc.OdbcInfoMessageEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -619,8 +619,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Opens a connection to a data source with the property settings specified by the <xref:System.Data.Odbc.OdbcConnection.ConnectionString*>."
-  remarks: "The <xref:System.Data.Odbc.OdbcConnection> draws an open connection from the connection pool if one is available. Otherwise, it establishes a new connection to the data source.      > [!NOTE] >  If the <xref:System.Data.Odbc.OdbcConnection> goes out of scope, the connection it represents does not close automatically. Therefore, you must explicitly close the connection by calling <xref:System.Data.Odbc.OdbcConnection.Close%2A>, **Dispose**, or by placing the connection within a `Using` statement."
+  summary: "Öppnar en anslutning till en datakälla med egenskapsinställningar som anges av <xref:System.Data.Odbc.OdbcConnection.ConnectionString*>.</xref:System.Data.Odbc.OdbcConnection.ConnectionString*>"
+  remarks: "Den <xref:System.Data.Odbc.OdbcConnection>ritar en öppen anslutning från anslutningspoolen om det inte finns.</xref:System.Data.Odbc.OdbcConnection> I annat fall upprättar den en ny anslutning till datakällan.      > [!NOTE] > Om den <xref:System.Data.Odbc.OdbcConnection>går utanför den representerar anslutningen stängs inte automatiskt.</xref:System.Data.Odbc.OdbcConnection> Därför måste du uttryckligen stänga anslutningen genom att anropa <xref:System.Data.Odbc.OdbcConnection.Close%2A>, **ta bort**, eller genom att anslutningen inom en `Using` instruktionen.</xref:System.Data.Odbc.OdbcConnection.Close%2A>"
   syntax:
     content: public override void Open ();
     parameters: []
@@ -628,7 +628,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The functionality of this method is unsupported in the base class and must be implemented in a derived class instead."
+    description: "Funktionerna i den här metoden stöds inte i basklassen och måste implementeras i en härledd klass i stället."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.ReleaseObjectPool
@@ -643,8 +643,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Indicates that the ODBC Driver Manager environment handle can be released when the last underlying connection is released."
-  remarks: "`ReleaseObjectPool` can be called to release the ODBC environment handle. You might want to call this method if, for example, the connection object will not be used again. When all connections in the environment are closed, the environment can be disposed. Note that calling the method alone does not actually release the active connections that exist in the environment.       The following must occur before the environment is finally disposed:      1.  Call <xref:System.Data.Odbc.OdbcConnection.Close%2A> to release the <xref:System.Data.Odbc.OdbcConnection> object from the environment.      2.  Allow each connection object to time out.      3.  Call ReleaseObjectPool.      4.  Invoke garbage collection.       Conversely, if you call <xref:System.Data.Odbc.OdbcConnection.Close%2A> on all active connections, and invoke garbage collection, but do not call ReleaseObjectPool, the resources reserved for the environment remain available.       After an environment handle is released, a request for a new <xref:System.Data.Odbc.OdbcConnection> creates a new environment."
+  summary: "Anger att ODBC-drivrutinshanteraren miljöreferens kan frigöras när den senaste underliggande anslutningen släpps."
+  remarks: "`ReleaseObjectPool`kan användas för att frigöra referensen för ODBC-miljö. Du kanske vill anropa den här metoden om du till exempel connection-objektet inte ska användas igen. När alla anslutningar i miljön stängs kan miljön tas bort. Observera att anropa metoden enbart faktiskt inte frigör de aktiva anslutningarna som finns i miljön.       Följande måste inträffa innan miljön slutligt: 1.  Anropa <xref:System.Data.Odbc.OdbcConnection.Close%2A>att släppa den <xref:System.Data.Odbc.OdbcConnection>objekt från miljön.</xref:System.Data.Odbc.OdbcConnection> </xref:System.Data.Odbc.OdbcConnection.Close%2A>      2.  Tillåt varje anslutningsobjekt timeout.      3.  Anropa ReleaseObjectPool.      4.  Anropa skräpinsamling.       Å andra sidan om du anropar <xref:System.Data.Odbc.OdbcConnection.Close%2A>på alla aktiva anslutningar och anropa skräpinsamling, men inte anropa ReleaseObjectPool, de resurser som är reserverade för miljön finns kvar.</xref:System.Data.Odbc.OdbcConnection.Close%2A>       När en miljöreferens släpps, en begäran om en ny <xref:System.Data.Odbc.OdbcConnection>skapar en ny miljö.</xref:System.Data.Odbc.OdbcConnection>"
   syntax:
     content: public static void ReleaseObjectPool ();
     parameters: []
@@ -664,18 +664,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets a string that contains the version of the server to which the client is connected."
-  remarks: "If ServerVersion is not supported by the underlying ODBC driver, an empty string (&quot;&quot;) is returned.       The ServerVersion property takes the form &quot;*##.##.####*,&quot; where the first two digits are the major version, the next two digits are the minor version, and the last four digits are the release version. The driver must render the product version in this form but can also append the product-specific version as a string (for example, &quot;04.01.0000 Rdb 4.1&quot;). This string takes the form &quot;*major.minor.build*&quot; where *major* and *minor* are exactly two digits and *build* is exactly four digits."
+  summary: "Hämtar en sträng som innehåller versionen av den server som klienten är ansluten."
+  remarks: "Om ServerVersion inte stöds av den underliggande ODBC-drivrutinen en tom sträng (&quot;&quot;) returneras.       Egenskapen ServerVersion har formen &quot;*##. ##. ###*,&quot; där de två första siffrorna är den högre versionen av följande två siffror är den lägre versionen och de sista fyra siffrorna är den utgivna versionen. Drivrutinen måste återge produktversionen i det här formuläret men kan även lägga till den produktspecifika versionen som en sträng (till exempel &quot;04.01.0000 Rdb 4.1&quot;). Den här strängen har formatet &quot;*major.minor.build*&quot; där *större* och *mindre* är exakt två siffror och *skapa* är exakt fyra siffror."
   syntax:
     content: public override string ServerVersion { get; }
     return:
       type: System.String
-      description: "The version of the connected server."
+      description: "Versionen av den anslutna servern."
   overload: System.Data.Odbc.OdbcConnection.ServerVersion*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection is closed."
+    description: "Anslutningen är stängd."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnection.State
@@ -690,13 +690,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets the current state of the connection."
-  remarks: "The following are allowed state changes:      -   From `Closed` to `Open`, using the <xref:System.Data.Odbc.OdbcConnection.Open%2A> method.      -   From `Open` to `Closed`, using either the <xref:System.Data.Odbc.OdbcConnection.Close%2A> or **Dispose** method.      > [!NOTE] >  Calling the State property on an open connection increases application overhead because each such call causes a SQL_ATTR_CONNECTION_DEAD call to the underlying ODBC driver to determine whether the connection is still valid."
+  summary: "Hämtar aktuell status för anslutningen."
+  remarks: "Följande tillåts tillståndsändringar: – från `Closed` till `Open`med hjälp av den <xref:System.Data.Odbc.OdbcConnection.Open%2A>metoden.</xref:System.Data.Odbc.OdbcConnection.Open%2A>      -Från `Open` till `Closed`, antingen med hjälp av <xref:System.Data.Odbc.OdbcConnection.Close%2A>eller **avyttra** metod.</xref:System.Data.Odbc.OdbcConnection.Close%2A>      > [!NOTE] > Anropar egenskapen State för en öppen anslutning ökar programmet kostnader eftersom varje sådan anrop gör ett SQL_ATTR_CONNECTION_DEAD anrop till den underliggande ODBC-drivrutinen att avgöra om anslutningen är fortfarande giltigt."
   syntax:
     content: public override System.Data.ConnectionState State { get; }
     return:
       type: System.Data.ConnectionState
-      description: "A bitwise combination of the <xref href=&quot;System.Data.ConnectionState&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Closed&quot; name=&quot;Closed&quot; href=&quot;&quot;></xref>."
+      description: "En binär kombination av den <xref href=&quot;System.Data.ConnectionState&quot;> </xref> värden. Standardvärdet är <xref uid=&quot;langword_csharp_Closed&quot; name=&quot;Closed&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcConnection.State*
   exceptions: []
   platform:
@@ -714,14 +714,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "For a description of this member, see &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Odbc.OdbcConnection> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "En beskrivning av den här medlemmen finns &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
+  remarks: "Den här medlemmen är en implementering för medlem av explicit gränssnitt. Det kan användas endast när den <xref:System.Data.Odbc.OdbcConnection>instans omvandlas till ett <xref:System.ICloneable>gränssnitt.</xref:System.ICloneable> </xref:System.Data.Odbc.OdbcConnection>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new <xref:System.Object> that is a copy of this instance."
+      description: "En ny <xref:System.Object>som är en kopia av den här instansen.</xref:System.Object>"
   overload: System.Data.Odbc.OdbcConnection.System#ICloneable#Clone*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: EventRoute
   fullName: System.Windows.EventRoute
   type: Class
-  summary: "Represents the container for the route to be followed by a routed event."
-  remarks: "This class corresponds to a valid <xref:System.Windows.RoutedEvent>, and contains an ordered list of target object and handler list pairs that refer to the event route for that event. EventRoute supports adding new entries to the list and also allows for the handlers in the list to be invoked.       Most normal operations for adding handlers for [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] events do not require working with this class (for instance, use <xref:System.Windows.EventManager> methods to add class handling, or query for existing handlers of an event). This class is mainly for use when elements have particular knowledge about child elements or parent elements that make it practical to either add elements to or remove elements from the default calculated event route."
+  summary: "Representerar behållaren för vägen som ska följas av en routade händelse."
+  remarks: "Den här klassen som motsvarar en giltig <xref:System.Windows.RoutedEvent>, och innehåller en sorterad lista över mål objektet och hanterare listan par som refererar till händelsen vägen för händelsen.</xref:System.Windows.RoutedEvent> Eventroute matchar stöder lägger till nya poster i listan och kan också för hanterarna i listan som ska startas.       De flesta vanliga åtgärder för att lägga till hanterare för [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] händelser inte behöver arbeta med den här klassen (till exempel använda <xref:System.Windows.EventManager>metoder för att lägga till klassen hantering eller fråga efter befintliga hanterare av en händelse).</xref:System.Windows.EventManager> Den här klassen är främst för användning när element har särskilda kunskaper om underordnade element eller överordnade element som gör det praktiskt att lägga till element till eller ta bort element från beräknade händelse standardväg."
   syntax:
     content: public sealed class EventRoute
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Initializes an instance of the <xref href=&quot;System.Windows.EventRoute&quot;></xref> class."
+  summary: "Initierar en instans av den <xref href=&quot;System.Windows.EventRoute&quot;> </xref> klass."
   syntax:
     content: public EventRoute (System.Windows.RoutedEvent routedEvent);
     parameters:
     - id: routedEvent
       type: System.Windows.RoutedEvent
-      description: "The non-NULL event identifier to be associated with this event route."
+      description: "Icke-NULL-händelse-ID som ska associeras med den här händelsen vägen."
   overload: System.Windows.EventRoute.#ctor*
   exceptions: []
   platform:
@@ -60,20 +60,20 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Adds the specified handler for the specified target to the route."
-  remarks: "It is not an error to add a handler for a particular target instance twice. In such a case, the handler will be called twice."
+  summary: "Lägger till den angivna hanteraren för det angivna målet för vägen."
+  remarks: "Det är inte tillåtet att lägga till en hanterare för en viss målinstans två gånger. I så fall, kommer hanteraren anropas två gånger."
   syntax:
     content: public void Add (object target, Delegate handler, bool handledEventsToo);
     parameters:
     - id: target
       type: System.Object
-      description: "Specifies the target object of which the handler is to be added to the route."
+      description: "Anger målobjekt som hanteraren är att lägga till flödet."
     - id: handler
       type: System.Delegate
-      description: "Specifies the handler to be added to the route."
+      description: "Anger hanteraren som ska läggas till flödet."
     - id: handledEventsToo
       type: System.Boolean
-      description: "Indicates whether or not the listener detects events that have already been handled."
+      description: "Anger huruvida lyssnaren identifierar händelser som redan har hanterats."
   overload: System.Windows.EventRoute.Add*
   exceptions: []
   platform:
@@ -90,13 +90,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns the top-most element on the event route stack at which two logical trees diverge."
+  summary: "Returnerar det översta elementet i händelsen väg stacken då två logiska träd avvika."
   syntax:
     content: public object PeekBranchNode ();
     parameters: []
     return:
       type: System.Object
-      description: "The top-most element on the event route stack at which two logical trees diverge."
+      description: "Översta elementet i händelsen väg stacken då två logiska träd avvika."
   overload: System.Windows.EventRoute.PeekBranchNode*
   exceptions: []
   platform:
@@ -113,13 +113,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns the source for the top-most element on the event route stack at which two logical trees diverge."
+  summary: "Returnerar källan för det översta elementet i händelsen väg stacken då två logiska träd avvika."
   syntax:
     content: public object PeekBranchSource ();
     parameters: []
     return:
       type: System.Object
-      description: "The source for the top-most element on the event route stack at which two logical trees diverge."
+      description: "Källan för översta elementet i händelsen väg stacken då två logiska träd avvika."
   overload: System.Windows.EventRoute.PeekBranchSource*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns the top-most node on the event route stack at which two logical trees diverge."
+  summary: "Returnerar den översta noden i händelsen väg stacken då två logiska träd avvika."
   syntax:
     content: public object PopBranchNode ();
     parameters: []
     return:
       type: System.Object
-      description: "The top-most node on the event route stack at which two logical trees diverge."
+      description: "Översta noden i händelsen väg stacken då två logiska träd avvika."
   overload: System.Windows.EventRoute.PopBranchNode*
   exceptions: []
   platform:
@@ -159,16 +159,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Adds the top-most node to the event route stack at which two logical trees diverge."
+  summary: "Lägger till den översta noden händelse väg stacken då två logiska träd avvika."
   syntax:
     content: public void PushBranchNode (object node, object source);
     parameters:
     - id: node
       type: System.Object
-      description: "The top-most element on the event route stack at which two logical trees diverge."
+      description: "Översta elementet i händelsen väg stacken då två logiska träd avvika."
     - id: source
       type: System.Object
-      description: "The source for the top-most element on the event route stack at which two logical trees diverge."
+      description: "Källan för översta elementet i händelsen väg stacken då två logiska träd avvika."
   overload: System.Windows.EventRoute.PushBranchNode*
   exceptions: []
   platform:
