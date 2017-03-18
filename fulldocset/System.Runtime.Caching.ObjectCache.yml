@@ -36,8 +36,8 @@ items:
   nameWithType: ObjectCache
   fullName: System.Runtime.Caching.ObjectCache
   type: Class
-  summary: "Represents an object cache and provides the base methods and properties for accessing the object cache."
-  remarks: "The ObjectCache type is the primary type for the in-memory object cache. To develop a custom cache implementation, you derive from the ObjectCache class.      > [!NOTE] >  The ObjectCache class is new as of the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)].       The built-in <xref:System.Runtime.Caching.MemoryCache> class derives from the ObjectCache class. The <xref:System.Runtime.Caching.MemoryCache> class is the only concrete object cache implementation in the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] that derives from the ObjectCache class."
+  summary: "Representerar ett objekt i cache och ger grundläggande metoder och egenskaper för åtkomst till objekt."
+  remarks: "ObjectCache-typen är den primära typen för InMemory-objekt. För att utveckla en anpassad cache-implementering härleds från klassen ObjectCache.      > [!NOTE] > I ObjectCache klassen är ny med den [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)].       Den inbyggda <xref:System.Runtime.Caching.MemoryCache>klassen härleds från klassen ObjectCache.</xref:System.Runtime.Caching.MemoryCache> Den <xref:System.Runtime.Caching.MemoryCache>klassen är endast konkreta object cache-implementering i den [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] som härleds från klassen ObjectCache.</xref:System.Runtime.Caching.MemoryCache>"
   syntax:
     content: 'public abstract class ObjectCache : System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,object>>'
   inheritance:
@@ -59,7 +59,7 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Called from constructors in derived classes in order to initialize the <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> class."
+  summary: "Anropas från konstruktorer i härledda klasser för att initiera den <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> klass."
   syntax:
     content: protected ObjectCache ();
     parameters: []
@@ -79,20 +79,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, tries to insert a cache entry into the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance, and adds details about how the entry should be evicted."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "När åsidosätts i en härledd klass, försök att infoga en cachepost i cacheminnet som en <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> instansen och lägger till information om hur du ska avlägsnas transaktionen."
+  remarks: "Den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metoden överlagringar är virtuella (inte abstract) på den <xref:System.Runtime.Caching.ObjectCache>class, eftersom <xref:System.Runtime.Caching.ObjectCache.Add%2A> <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> metodanrop internt</xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Detta minskar antalet metoden överlagringar som en cache-implementerare måste ange. Om en cache-implementering kräver några särskilda beteenden för den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metod, den kan bara implementera den <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>metoden överlagringar.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (System.Runtime.Caching.CacheItem item, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: item
       type: System.Runtime.Caching.CacheItem
-      description: "The object to add."
+      description: "Att lägga till objektet."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if insertion succeeded, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache that has the same key as <code>item</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om infogning lyckades eller <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om det finns en redan en post i cacheminnet som har samma nyckel som <code> item </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -109,26 +109,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache without overwriting any existing cache entry."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "När åsidosätts i en härledd klass infogar en cachepost i cacheminnet utan att skriva över en befintlig cachepost."
+  remarks: "Den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metoden överlagringar är virtuella (inte abstract) på den <xref:System.Runtime.Caching.ObjectCache>class, eftersom <xref:System.Runtime.Caching.ObjectCache.Add%2A> <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> metodanrop internt</xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Detta minskar antalet metoden överlagringar som en cache-implementerare måste ange. Om en cache-implementering kräver några särskilda beteenden för den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metod, den kan bara implementera den <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>metoden överlagringar.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire. This parameter is required when the <xref:System.Runtime.Caching.ObjectCache.Add*> method is called."
+      description: "Fast datum och tid då cacheposten upphör att gälla. Den här parametern är obligatorisk när den <xref:System.Runtime.Caching.ObjectCache.Add*>metoden anropas.</xref:System.Runtime.Caching.ObjectCache.Add*>"
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Eftersom regioner inte har implementerats i [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], standardvärdet är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if insertion succeeded, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache that has the same key as <code>key</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om infogning lyckades eller <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om det finns en redan en post i cacheminnet som har samma nyckel som <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -145,26 +145,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying information about how the entry will be evicted."
-  remarks: "The <xref:System.Runtime.Caching.ObjectCache.Add%2A> method overloads are virtual (not abstract) on the <xref:System.Runtime.Caching.ObjectCache> class, because the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method internally calls <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>. This reduces the number of method overloads that a cache implementer has to provide. If a cache implementation does not require any special behavior for the <xref:System.Runtime.Caching.ObjectCache.Add%2A> method, it can just implement the <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> method overloads."
+  summary: "Infogar en cachepost till cachen, att ange information om hur posten kommer att avlägsnas när åsidosätts i en härledd klass."
+  remarks: "Den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metoden överlagringar är virtuella (inte abstract) på den <xref:System.Runtime.Caching.ObjectCache>class, eftersom <xref:System.Runtime.Caching.ObjectCache.Add%2A> <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> metodanrop internt</xref:System.Runtime.Caching.ObjectCache.Add%2A> </xref:System.Runtime.Caching.ObjectCache> </xref:System.Runtime.Caching.ObjectCache.Add%2A> Detta minskar antalet metoden överlagringar som en cache-implementerare måste ange. Om en cache-implementering kräver några särskilda beteenden för den <xref:System.Runtime.Caching.ObjectCache.Add%2A>metod, den kan bara implementera den <xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A>metoden överlagringar.</xref:System.Runtime.Caching.ObjectCache.AddOrGetExisting%2A> </xref:System.Runtime.Caching.ObjectCache.Add%2A>"
   syntax:
     content: public virtual bool Add (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the insertion try succeeds, or <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if there is an already an entry in the cache with the same key as <code>key</code>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om infogning försök lyckas, eller <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om det finns en redan en post i cachen med samma nyckel som <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Add*
   exceptions: []
   platform:
@@ -181,19 +181,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts the specified <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> object into the cache, specifying information about how the entry will be evicted."
+  summary: "När åsidosätts i en härledd klass infogar den angivna <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> objekt till cachen, och anger information om hur posten kommer att avlägsnas."
   syntax:
     content: public abstract System.Runtime.Caching.CacheItem AddOrGetExisting (System.Runtime.Caching.CacheItem value, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: value
       type: System.Runtime.Caching.CacheItem
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
     return:
       type: System.Runtime.Caching.CacheItem
-      description: "If a cache entry with the same key exists, the specified cache entry; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Om en cachepost med samma nyckel finns angivna cacheposten; Annars <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -210,26 +210,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, by using a key, an object for the cache entry, an absolute expiration value, and an optional region to add the cache into."
-  remarks: "This AddOrGetExisting method overload returns an object value, not a <xref:System.Runtime.Caching.CacheItem> object."
+  summary: "När åsidosätts i en härledd klass infogar en cachepost till cachen, med hjälp av en nyckel, ett objekt för cacheposten, ett absolut förfallodatum värde och en valfri region att lägga till i cacheminnet."
+  remarks: "Den här metodöverlagringen AddOrGetExisting returnerar ett Objektvärde inte en <xref:System.Runtime.Caching.CacheItem>objektet.</xref:System.Runtime.Caching.CacheItem>"
   syntax:
     content: public abstract object AddOrGetExisting (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire."
+      description: "Fast datum och tid då cacheposten upphör att gälla."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "If a cache entry with the same key exists, the specified cache entry&quot;s value; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Om en cachepost med samma nyckel finns det angivna cacheposten värde. Annars <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -246,26 +246,26 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying a key and a value for the cache entry, and information about how the entry will be evicted."
-  remarks: "The AddOrGetExisting method returns an object value, not a <xref:System.Runtime.Caching.CacheItem> object."
+  summary: "Infogar en cachepost till cachen, ange en nyckel och ett värde för cache-post och information om hur posten kommer att avlägsnas när åsidosätts i en härledd klass."
+  remarks: "Metoden AddOrGetExisting returnerar ett Objektvärde inte en <xref:System.Runtime.Caching.CacheItem>objektet.</xref:System.Runtime.Caching.CacheItem>"
   syntax:
     content: public abstract object AddOrGetExisting (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "If a cache entry with the same key exists, the specified cache entry&quot;s value; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Om en cachepost med samma nyckel finns det angivna cacheposten värde. Annars <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.AddOrGetExisting*
   exceptions: []
   platform:
@@ -282,19 +282,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, checks whether the cache entry already exists in the cache."
+  summary: "När åsidosätts i en härledd klass, kontrollerar du om cacheposten redan finns i cacheminnet."
   syntax:
     content: public abstract bool Contains (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache where the cache can be found, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet där cachen finns, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the cache contains a cache entry with the same key value as <code>key</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om cachen innehåller en cachepost med samma nyckelvärde som <code> key </code>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Contains*
   exceptions: []
   platform:
@@ -311,20 +311,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, creates a <xref href=&quot;System.Runtime.Caching.CacheEntryChangeMonitor&quot;></xref> object that can trigger events in response to changes to specified cache entries."
-  remarks: "When a derived <xref:System.Runtime.Caching.ObjectCache> class overrides the base CreateCacheEntryChangeMonitor method, the cache implementation must create a <xref:System.Runtime.Caching.CacheEntryChangeMonitor> object. This specialized change monitor notifies callers when there are changes to the cache entries that are specified in the `keys` parameter. For example, if a monitored item in the `keys` parameter is updated or removed from the cache, the change monitor created by this method triggers an event.       If a cache implementation supports named cache regions, a string value can be specified as the `regionName` parameter. Otherwise, the parameter defaults to `null`.      > [!NOTE] >  Not all cache implementations support cache-entry change monitors. To determine whether your cache implementation supports <xref:System.Runtime.Caching.CacheEntryChangeMonitor> objects, see the documentation for the specific cache implementation."
+  summary: "När åsidosätts i en härledd klass, skapas en <xref href=&quot;System.Runtime.Caching.CacheEntryChangeMonitor&quot;> </xref> objekt som kan utlösa händelser som svar på ändringar i angivna cacheposter."
+  remarks: "När en härledd <xref:System.Runtime.Caching.ObjectCache>klassen åsidosätter metoden grundläggande CreateCacheEntryChangeMonitor, cache-implementering måste skapa en <xref:System.Runtime.Caching.CacheEntryChangeMonitor>objektet.</xref:System.Runtime.Caching.CacheEntryChangeMonitor> </xref:System.Runtime.Caching.ObjectCache> Övervakaren specialiserade ändra meddelar anropare när ändringar i cacheposter som anges i den `keys` parameter. Om exempelvis ett övervakade objekt i den `keys` parametern uppdateras eller tas bort från cache, ändra övervakaren som skapats av den här metoden utlöser en händelse.       Om en cache-implementeringen stöder namngivna cache regioner, ett strängvärde som kan anges som den `regionName` parameter. Annars parametern som standard `null`.      > [!NOTE] > Inte alla cache-implementeringar stöder cacheposten ändra Övervakare. Att avgöra om din cache-implementeringen stöder <xref:System.Runtime.Caching.CacheEntryChangeMonitor>objekt, finns i dokumentationen för den specifika cache-implementeringen.</xref:System.Runtime.Caching.CacheEntryChangeMonitor>"
   syntax:
     content: public abstract System.Runtime.Caching.CacheEntryChangeMonitor CreateCacheEntryChangeMonitor (System.Collections.Generic.IEnumerable<string> keys, string regionName = null);
     parameters:
     - id: keys
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "The unique identifiers for cache entries to monitor."
+      description: "De unika identifierarna att övervaka-cacheposter."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache where the cache keys in the `keys` parameter exist, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet där cachen nycklar i den `keys` parametern finns, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Runtime.Caching.CacheEntryChangeMonitor
-      description: "A change monitor that monitors cache entries in the cache."
+      description: "En Övervakare för ändring som övervakar cacheposter i cacheminnet."
   overload: System.Runtime.Caching.ObjectCache.CreateCacheEntryChangeMonitor*
   exceptions: []
   platform:
@@ -341,12 +341,12 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets a description of the features that a cache implementation provides."
+  summary: "Hämtar en beskrivning av de funktioner som innehåller en cache-implementering när åsidosätts i en härledd klass."
   syntax:
     content: public abstract System.Runtime.Caching.DefaultCacheCapabilities DefaultCacheCapabilities { get; }
     return:
       type: System.Runtime.Caching.DefaultCacheCapabilities
-      description: "A bitwise combination of flags that indicate the default capabilities of a cache implementation."
+      description: "En binär kombination av flaggor som anger standard-funktionerna i en cache-implementering."
   overload: System.Runtime.Caching.ObjectCache.DefaultCacheCapabilities*
   exceptions: []
   platform:
@@ -363,19 +363,19 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the specified cache entry from the cache as an object."
+  summary: "När åsidosätts i en härledd klass, får den angivna cacheposten från cachen som ett objekt."
   syntax:
     content: public abstract object Get (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry to get."
+      description: "En unik identifierare för cacheposten ska hämtas."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry was added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som cacheposten har lagts till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "The cache entry that is identified by <code>key</code>."
+      description: "Cacheposten som identifieras av <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.Get*
   exceptions: []
   platform:
@@ -392,20 +392,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the specified cache entry from the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance."
-  remarks: "This method overload exists because some cache implementations might extend the <xref:System.Runtime.Caching.CacheItem> class. In that case, the <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> method overload will not necessarily return all the information about cached data. However, the GetCacheItem method overload enables custom caches to return more than just the cache value.       The GetCacheItem method is like the <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> method, except that the GetCacheItem method returns return the cache entry as a <xref:System.Runtime.Caching.CacheItem> instance."
+  summary: "När åsidosätts i en härledd klass, får den angivna cacheposten från cachen som en <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> instans."
+  remarks: "Den här metodöverlagringen finns eftersom vissa cache-implementeringar kan utöka <xref:System.Runtime.Caching.CacheItem>klass.</xref:System.Runtime.Caching.CacheItem> I så fall den <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>metodöverlagringen återgår inte nödvändigtvis all information om cachelagrade data.</xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29> GetCacheItem metodöverlagringen kan dock anpassade cacheminnet att returnera mer än bara cache-värdet.       Metoden GetCacheItem fungerar som den <xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>metod, förutom att GetCacheItem returnerar-metoden returnerar cacheposten som en <xref:System.Runtime.Caching.CacheItem>instans.</xref:System.Runtime.Caching.CacheItem> </xref:System.Runtime.Caching.ObjectCache.Get%28System.String%2CSystem.String%29>"
   syntax:
     content: public abstract System.Runtime.Caching.CacheItem GetCacheItem (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry to get."
+      description: "En unik identifierare för cacheposten ska hämtas."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache was added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som cacheminnet har lagts till, om regioner implementeras. Eftersom regioner inte har implementerats i [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], standard är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Runtime.Caching.CacheItem
-      description: "The cache entry that is identified by <code>key</code>."
+      description: "Cacheposten som identifieras av <code> key </code>."
   overload: System.Runtime.Caching.ObjectCache.GetCacheItem*
   exceptions: []
   platform:
@@ -422,16 +422,16 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets the total number of cache entries in the cache."
+  summary: "Hämtar det totala antalet poster i cacheminnet när åsidosätts i en härledd klass."
   syntax:
     content: public abstract long GetCount (string regionName = null);
     parameters:
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache for which the cache entry count should be computed, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som antal för cache-post ska beräknas om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Int64
-      description: "The number of cache entries in the cache. If <code>regionName</code> is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the count indicates the number of entries that are in the specified cache region."
+      description: "Antalet poster i cacheminnet. Om <code> regionName </code> är inte <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, antalet anger antalet poster som finns i den angivna regionen."
   overload: System.Runtime.Caching.ObjectCache.GetCount*
   exceptions: []
   platform:
@@ -448,14 +448,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, creates an enumerator that can be used to iterate through a collection of cache entries."
-  remarks: "Cache implementers can override and extend this method to provide a custom means of iterating through a collection of cache entries.      > [!NOTE] >  Returning an enumerator is typically a more expensive operation than returning the entire cache entry.       This method is called by the explicit interface implementations that the <xref:System.Runtime.Caching.ObjectCache> class has for the <xref:System.Collections.IEnumerable.GetEnumerator%2A> and <xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A> methods."
+  summary: "När åsidosätts i en härledd klass, skapar du en uppräknare som kan användas för att söka igenom en samling av cacheposter."
+  remarks: "Cache-implementerare kan åsidosätta och utöka den här metoden för att ge ett anpassat sätt att söka igenom en samling av cacheposter.      > [!NOTE] > Returnerar en uppräknare är vanligtvis dyrare än att returnera hela cacheposten.       Den här metoden anropas av implementering av explicit gränssnitt som den <xref:System.Runtime.Caching.ObjectCache>klassen har för de <xref:System.Collections.IEnumerable.GetEnumerator%2A>och <xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A>metoder.</xref:System.Collections.Generic.IEnumerable%601.GetEnumerator%2A> </xref:System.Collections.IEnumerable.GetEnumerator%2A> </xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: protected abstract System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string,object>> GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
-      description: "The enumerator object that provides access to the cache entries in the cache."
+      description: "Uppräknaren-objektet som ger åtkomst till cacheposter i cacheminnet."
   overload: System.Runtime.Caching.ObjectCache.GetEnumerator*
   exceptions: []
   platform:
@@ -472,20 +472,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, gets a set of cache entries that correspond to the specified keys."
-  remarks: "The GetValues method overload is a performance optimization for distributed caches that support fetching multiple cache entries from the cache during a single network call.       Although a caller can pass one or more keys to the method, there is no guarantee that all keys represent entries in the cache. Therefore, the returned dictionary might contain fewer items than the number of keys that were passed to the method."
+  summary: "Hämtar en uppsättning poster som motsvarar de angivna nycklarna när åsidosätts i en härledd klass."
+  remarks: "Metodöverlagringen GetValues är en prestandaoptimering för distribuerad cache som har stöd för hämtning av flera cacheposter från cachen under ett enda nätverk-anrop.       En anropare kan skicka en eller flera nycklar till metoden, finns men det ingen garanti för att alla nycklar representerar poster i cacheminnet. Därför kan returnerade ordlistan innehåller färre objekt än antalet nycklar som skickades till metoden."
   syntax:
     content: public abstract System.Collections.Generic.IDictionary<string,object> GetValues (System.Collections.Generic.IEnumerable<string> keys, string regionName = null);
     parameters:
     - id: keys
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "A collection of unique identifiers for the cache entries to get."
+      description: "En uppsättning unika identifierare för cacheposter ska hämtas."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry or entries were added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som cache-post eller transaktioner har lagts till om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A dictionary of key/value pairs that represent cache entries."
+      description: "En ordlista med nyckel/värde-par som representerar cacheposter."
   overload: System.Runtime.Caching.ObjectCache.GetValues*
   exceptions: []
   platform:
@@ -502,20 +502,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets a set of cache entries that correspond to the specified keys."
-  remarks: "The GetValues method overload is like the <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> method overload, but lets you pass the named region by using optional parameter syntax that is supported by managed languages such as C#.       This method is a virtual method because the <xref:System.Runtime.Caching.ObjectCache> class provides a default implementation that passes the `params` array to the <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> method overload."
+  summary: "Hämtar en uppsättning poster som motsvarar de angivna nycklarna."
+  remarks: "Metodöverlagringen GetValues är som den <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>överlagring för metoden, men kan du skicka den namngivna regionen med hjälp av syntaxen för valfria parametrar som stöds av hanterade språk, till exempel C#.</xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>       Den här metoden är en virtuell metod eftersom den <xref:System.Runtime.Caching.ObjectCache>klassen innehåller en standardimplementering som passerar den `params` matris till den <xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29>metodöverlagringen.</xref:System.Runtime.Caching.ObjectCache.GetValues%28System.Collections.Generic.IEnumerable%7BSystem.String%7D%2CSystem.String%29> </xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: public virtual System.Collections.Generic.IDictionary<string,object> GetValues (string regionName, string[] keys);
     parameters:
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry or entries were added, if regions are implemented. Because regions are not implemented in [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], the default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som cache-post eller transaktioner har lagts till om regioner implementeras. Eftersom regioner inte har implementerats i [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], standard är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: keys
       type: System.String[]
-      description: "A collection of unique identifiers for the cache entries to get."
+      description: "En uppsättning unika identifierare för cacheposter ska hämtas."
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A dictionary of key/value pairs that represent cache entries."
+      description: "En ordlista med nyckel/värde-par som representerar cacheposter."
   overload: System.Runtime.Caching.ObjectCache.GetValues*
   exceptions: []
   platform:
@@ -532,21 +532,21 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets or set a reference to a managed hosting environment that is available to <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> implementations and that can provide host-specific services to <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> implementations."
-  remarks: "The Host property is intended for use by [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] host environments and by cache implementations that implement behavior that depends on the .NET Framework host environment.       The following table lists the set of host environment services that might be available from a managed hosting environment and that are available to <xref:System.Runtime.Caching.ObjectCache> implementations through the Host property:      |Service|Description|   |-------------|-----------------|   |<xref:System.Runtime.Caching.Hosting.IApplicationIdentifier>|Lets host environments provide application domain identifiers that might be needed by a cache implementation for features such as identifying performance counters.|   |<xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem>|Lets host environments provide a custom file-change notification system, instead of using the one provided in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].|   |<xref:System.Runtime.Caching.Hosting.IMemoryCacheManager>|Lets cache implementations report cache memory consumption to the host environment. This enables host environments to centrally manage memory consumption across multiple cache implementations.|      > [!NOTE] >  Callers of this property value require unrestricted code access security permissions."
+  summary: "Hämtar eller anger en referens till en hanterad värdmiljö som är tillgänglig för <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> implementeringar och som kan tillhandahålla värden specifika för <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> implementeringar."
+  remarks: "Egenskapen värden är avsedd att användas av [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] värd miljöer och i cache-implementeringar som implementerar beteende som beror på .NET Framework värd för miljön.       I följande tabell visas en uppsättning värden miljö tjänster som kan vara tillgänglig från en hanterad värd miljö och som är tillgängliga för <xref:System.Runtime.Caching.ObjectCache>implementeringar via egenskapen värden: | Tjänsten | Beskrivning |   |-------------|-----------------|   | <xref:System.Runtime.Caching.Hosting.IApplicationIdentifier>| Låter värdmiljöer ger programmet domän-ID: n som kan behövas genom en cache-implementering för funktioner, till exempel identifiera prestandaräknare. |   | <xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem>| Låter värdmiljöer ger ett anpassat Arkiv-ändra system, istället för att använda en som tillhandahålls i den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]. |   | <xref:System.Runtime.Caching.Hosting.IMemoryCacheManager>| Gör att cache-implementeringar rapportera cacheminne förbrukning till värdmiljön.</xref:System.Runtime.Caching.Hosting.IMemoryCacheManager> </xref:System.Runtime.Caching.Hosting.IFileChangeNotificationSystem> </xref:System.Runtime.Caching.Hosting.IApplicationIdentifier> </xref:System.Runtime.Caching.ObjectCache> Detta gör att värdmiljöer att centralt hantera minnesförbrukning över flera cache-implementeringar. |      > [!NOTE] > Anropare egenskapsvärdet kräver säkerhetsbehörigheter för obegränsad kod åtkomst."
   syntax:
     content: public static IServiceProvider Host { get; set; }
     return:
       type: System.IServiceProvider
-      description: "A reference to a cache-aware managed hosting environment."
+      description: "En referens till en cache-medvetna hanterade värdmiljö."
   overload: System.Runtime.Caching.ObjectCache.Host*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value being assigned to the property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Värdet som tilldelats egenskapen är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt was made to set the property value more than one time."
+    description: "Ett försök gjordes att ange egenskapsvärdet mer än en gång."
   platform:
   - net462
 - uid: System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration
@@ -561,13 +561,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets a value that indicates that a cache entry has no absolute expiration."
-  remarks: "A cache entry that is inserted into the cache with the InfiniteAbsoluteExpiration field value set as the expiration value should never expire based on an absolute point in time. However, a cache entry with this setting can be evicted from the cache for other reasons that are determined by a particular cache implementation, such as a change-monitor event eviction caused by memory pressure."
+  summary: "Hämtar ett värde som anger att en cachepost har inget absolut förfallodatum."
+  remarks: "En cachepost som infogas i cachen med värdet för fältet InfiniteAbsoluteExpiration som värdet för förfallotid bör aldrig går ut baserat på en absolut punkt i tiden. En cachepost med den här inställningen kan dock avlägsnas från cache av andra orsaker som bestäms av en viss cache-implementering, till exempel en Övervakare för ändring händelsen Borttagning på grund av minnesbelastning."
   syntax:
     content: public static readonly DateTimeOffset InfiniteAbsoluteExpiration;
     return:
       type: System.DateTimeOffset
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -583,17 +583,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets or sets the default indexer for the <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> class."
-  remarks: "The behavior of the set accessor of this property is like the <xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29> method. Internally, a cache implementation could set the absolute expiration of the specified value to the <xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration> method. However this behavior is ultimately up to the cache implementation.       The behavior of get accessor is like calling the <xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29> method and using `null` for the region name."
+  summary: "Hämtar eller anger standard indexeraren för den <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> klass."
+  remarks: "Beteendet för set-accessorn för den här egenskapen är som den <xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29>metoden.</xref:System.Runtime.Caching.MemoryCache.Set%28System.String%2CSystem.Object%2CSystem.DateTimeOffset%2CSystem.String%29> Internt, en cache-implementering kan ange absolut förfallotiden för det angivna värdet till den <xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration>metoden.</xref:System.Runtime.Caching.ObjectCache.InfiniteAbsoluteExpiration> Men det här beteendet är slutligen upp till cache-implementering.       Beteendet för get-accessorn är som anropar den <xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29>metoden och använder `null` för regionsnamnet på.</xref:System.Collections.Specialized.NameValueCollection.Get%28System.String%29>"
   syntax:
     content: public abstract object this[string key] { get; set; }
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for a cache entry in the cache."
+      description: "En unik identifierare för en cachepost i cacheminnet."
     return:
       type: System.Object
-      description: "A key that serves as an indexer into the cache instance."
+      description: "En nyckel som fungerar som en indexerare i cache-instansen."
   overload: System.Runtime.Caching.ObjectCache.Item*
   exceptions: []
   platform:
@@ -610,13 +610,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Gets the name of a specific <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;></xref> instance."
-  remarks: "Some cache implementations might support multiple instances of the cache that is running in a single application. This property lets cache implementers return a name that identifies a specific cache instance."
+  summary: "Hämtar namnet på en specifik <xref href=&quot;System.Runtime.Caching.ObjectCache&quot;> </xref> instans."
+  remarks: "Vissa cache-implementeringar kan stödja flera instanser av cachen som körs i ett enda program. Den här egenskapen kan cache implementerare returnera ett namn som identifierar en specifik cache-instans."
   syntax:
     content: public abstract string Name { get; }
     return:
       type: System.String
-      description: "The name of a specific cache instance."
+      description: "Namnet på en specifik cache-instans."
   overload: System.Runtime.Caching.ObjectCache.Name*
   exceptions: []
   platform:
@@ -633,13 +633,13 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Indicates that a cache entry has no sliding expiration time."
-  remarks: "Expiration that is based on duration or a defined window of time is also referred to as sliding expiration. Normally, a cache implementation that evicts items that are based on sliding expiration will remove an item that has not been accessed in the specified window of time.       A cache entry that is inserted into the cache with the NoSlidingExpiration field value set as the expiration value should never be evicted because of non-activity in a sliding time window. However, a cache item can be evicted if it has an absolute expiration, or if some other eviction event occurs, such a change monitor or memory pressure."
+  summary: "Anger att en cachepost har ingen glidande förfallotid."
+  remarks: "Förfallodatum baserat på varaktigheten eller en angiven tidsperiod som också kallas glidande förfallodatum. Normalt sett tar en cache-implementering som avlägsnar objekt som är baserade på glidande förfallodatum bort ett objekt som inte har öppnats i fönstret angiven tid.       En cachepost som infogas i cachen med värdet i NoSlidingExpiration anges som värdet för förfallotid avlägsna aldrig på grund av icke-aktivitet i ett skjutfönster tid. En cacheobjektet kan tas bort om den har en absolut förfallodatum, eller om vissa andra av händelse inträffar sådan ändring övervakaren eller minne trycket."
   syntax:
     content: public static readonly TimeSpan NoSlidingExpiration;
     return:
       type: System.TimeSpan
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -655,20 +655,20 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, removes the cache entry from the cache."
-  remarks: "If you override this method in a custom cache implementation, if there is a cache entry in the cache that corresponds to `key`, the value of the removed item should be returned. If nothing was removed from the cache, the method should return `null`.      > [!NOTE] >  Some distributed cache implementations might not support the ability to return the value that was removed from the cache. This might be because the cache implementation does not support returning the value of a removed cache item. It might also be because marshaling the object as a return value is too expensive. In such cases, cache implementations can return `null`."
+  summary: "När åsidosätts i en härledd klass, tar du bort cacheposten från cacheminnet."
+  remarks: "Om du åsidosätta den här metoden i en anpassad cache-implementering, om det finns en cachepost i cacheminnet som motsvarar `key`, värdet för det borttagna objektet ska returneras. Om inget togs bort från cache, metoden ska returnera `null`.      > [!NOTE] > Vissa distribuerad cache-implementeringar kanske inte stöder möjligheten att returnera värdet som har tagits bort från cachen. Detta kan bero på att cache-implementeringen inte stöder returnerar värdet för en borttagen cacheobjektet. Det kan också bero på att konvertera objektet som ett returvärde för dyrt. I sådana fall cache-implementeringar kan returnera `null`."
   syntax:
     content: public abstract object Remove (string key, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry was added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. Ett namngivet område i cacheminnet som cacheposten har lagts till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Object
-      description: "An object that represents the value of the removed cache entry that was specified by the key, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the specified entry was not found."
+      description: "Ett objekt som representerar värdet för borttagna cacheposten som angavs av nyckeln, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om den angivna posten inte hittades."
   overload: System.Runtime.Caching.ObjectCache.Remove*
   exceptions: []
   platform:
@@ -685,17 +685,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts the cache entry into the cache as a <xref href=&quot;System.Runtime.Caching.CacheItem&quot;></xref> instance, specifying information about how the entry will be evicted."
-  remarks: "If the key for `item` does not exist, `item` is inserted as a new cache entry. If an item with a key that matches `item` exists, the value from `item` is used to update or overwrite the value of the existing cache entry."
+  summary: "När åsidosätts i en härledd klass infogar cacheposten i cacheminnet som en <xref href=&quot;System.Runtime.Caching.CacheItem&quot;> </xref> instans, ange information om hur posten kommer att avlägsnas."
+  remarks: "Om nyckeln för `item` finns inte, `item` läggas till som en ny cachepost. Om ett objekt med en nyckel som matchar `item` finns värdet från `item` används för att uppdatera eller ersätta värdet för den befintliga cacheposten."
   syntax:
     content: public abstract void Set (System.Runtime.Caching.CacheItem item, System.Runtime.Caching.CacheItemPolicy policy);
     parameters:
     - id: item
       type: System.Runtime.Caching.CacheItem
-      description: "The cache item to add."
+      description: "Cacheobjekt att lägga till."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -712,23 +712,23 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache, specifying time-based expiration details."
-  remarks: "If an item that matches `key` does not exist in the cache, `value` and `key` are used to insert as a new cache entry. If an item with a key that matches `item` exists, the cache entry is updated or overwritten by using `value`."
+  summary: "Infogar en cachepost till cachen, ange tidsbegränsad giltighet information när åsidosätts i en härledd klass."
+  remarks: "Om ett objekt som matchar `key` finns inte i cache, `value` och `key` används för att infoga som en ny cachepost. Om ett objekt med en nyckel som matchar `item` finns cacheposten uppdateras eller skrivs över med hjälp av `value`."
   syntax:
     content: public abstract void Set (string key, object value, DateTimeOffset absoluteExpiration, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: absoluteExpiration
       type: System.DateTimeOffset
-      description: "The fixed date and time at which the cache entry will expire."
+      description: "Fast datum och tid då cacheposten upphör att gälla."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -745,23 +745,23 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "When overridden in a derived class, inserts a cache entry into the cache."
-  remarks: "This method overload lets you provide more eviction or expiration details than those that are available in time-based absolute expiration.       If an item that matches `key` does not exist in the cache, `value` and `key` are used to insert as a new cache entry. If an item with a key that matches `item` exists, the cache entry is updated or overwritten by using `value`."
+  summary: "Infogar en cachepost till cachen när åsidosätts i en härledd klass."
+  remarks: "Den här metodöverlagringen kan du ange mer information om borttagning eller giltighetstid än de som är tillgängliga i tidsbaserade absolut förfallodatum.       Om ett objekt som matchar `key` finns inte i cache, `value` och `key` används för att infoga som en ny cachepost. Om ett objekt med en nyckel som matchar `item` finns cacheposten uppdateras eller skrivs över med hjälp av `value`."
   syntax:
     content: public abstract void Set (string key, object value, System.Runtime.Caching.CacheItemPolicy policy, string regionName = null);
     parameters:
     - id: key
       type: System.String
-      description: "A unique identifier for the cache entry."
+      description: "En unik identifierare för cacheposten."
     - id: value
       type: System.Object
-      description: "The object to insert."
+      description: "Objekt som ska infogas."
     - id: policy
       type: System.Runtime.Caching.CacheItemPolicy
-      description: "An object that contains eviction details for the cache entry. This object provides more options for eviction than a simple absolute expiration."
+      description: "Ett objekt som innehåller information om borttagning för cacheposten. Det här objektet innehåller fler alternativ för borttagning än en enkel absolut förfallodatum."
     - id: regionName
       type: System.String
-      description: "Optional. A named region in the cache to which the cache entry can be added, if regions are implemented. The default value for the optional parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Valfritt. En namngiven region i cacheminnet cacheposten kan läggas till, om regioner implementeras. Standardvärdet för parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Caching.ObjectCache.Set*
   exceptions: []
   platform:
@@ -784,7 +784,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Runtime.Caching.ObjectCache.System#Collections#Generic#IEnumerable<System#Collections#Generic#KeyValuePair<System#String,System#Object>>#GetEnumerator*
   exceptions: []
   platform:
@@ -802,14 +802,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching
-  summary: "Supports iteration over a generic collection."
-  remarks: "This member is an explicit interface member implementation. It can be used only when a derived <xref:System.Runtime.Caching.ObjectCache> instance is cast to an <xref:System.Collections.IEnumerable> interface.       Developers can use this method to iterate through a generic collection of cache entries.       This is the default <xref:System.Collections.IEnumerable.GetEnumerator%2A> implementation that internally calls the <xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A> method."
+  summary: "Stöder iteration via en generiska mängden."
+  remarks: "Den här medlemmen är en implementering för medlem av explicit gränssnitt. Det kan endast användas när en härledd <xref:System.Runtime.Caching.ObjectCache>instans omvandlas till ett <xref:System.Collections.IEnumerable>gränssnitt.</xref:System.Collections.IEnumerable> </xref:System.Runtime.Caching.ObjectCache>       Utvecklare kan använda den här metoden för att gå igenom en allmän uppsättning cacheposter.       Detta är standard <xref:System.Collections.IEnumerable.GetEnumerator%2A>implementering som internt anropar den <xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A>metoden.</xref:System.Runtime.Caching.ObjectCache.GetEnumerator%2A> </xref:System.Collections.IEnumerable.GetEnumerator%2A>"
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "The enumerator object that provides access to the items in the cache."
+      description: "Uppräknaren-objektet som ger åtkomst till objekt i cacheminnet."
   overload: System.Runtime.Caching.ObjectCache.System#Collections#IEnumerable#GetEnumerator*
   exceptions: []
   platform:

@@ -10,8 +10,8 @@ items:
   nameWithType: IContributeEnvoySink
   fullName: System.Runtime.Remoting.Contexts.IContributeEnvoySink
   type: Interface
-  summary: "Contributes an envoy message sink on the client end."
-  remarks: "The IContributeEnvoySink interface is implemented by context properties in the server <xref:System.Runtime.Remoting.Contexts.Context> class that want to contribute an envoy message sink on the client end. The server envoy chain is composed from those context properties that implement IContributeEnvoySink. The envoy chain resides on the client end and acts as a representative of the corresponding message sinks from the server context properties."
+  summary: "Bidrar till en mottagare meddelandet på klientdelen."
+  remarks: "IContributeEnvoySink-gränssnittet implementeras av kontextegenskaper i servern <xref:System.Runtime.Remoting.Contexts.Context>klass vill bidra med en mottagare meddelandet på klientdelen.</xref:System.Runtime.Remoting.Contexts.Context> Servern envoy kedjan består från dessa kontextegenskaper som implementerar IContributeEnvoySink. Kedjan envoy finns på klientdelen och fungerar som en representativ för motsvarande meddelandet egenskaperna från egenskaperna för server-kontexten."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -32,20 +32,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Contexts
-  summary: "Takes the first sink in the chain of sinks composed so far, and then chains its message sink in front of the chain already formed."
-  remarks: "The GetEnvoySink method is used as an optimization to create an envoy sink when the destination is a different context in the same application domain and is used by the Wrap operation."
+  summary: "Tar första sink i kedjan med sänkor består hittills och länkar sedan dess meddelande sink framför kedjan redan format."
+  remarks: "Metoden GetEnvoySink används som en optimering för att skapa en mottagare när målet är en annan kontext i samma programdomän och används av omslutning igen."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink GetEnvoySink (MarshalByRefObject obj, System.Runtime.Remoting.Messaging.IMessageSink nextSink);
     parameters:
     - id: obj
       type: System.MarshalByRefObject
-      description: "The server object for which the chain is being created."
+      description: "Server-objektet som kedjan skapas."
     - id: nextSink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The chain of sinks composed so far."
+      description: "Kedjan av sänkor består hittills."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The composite sink chain."
+      description: "Sammansatta sink-kedja."
   overload: System.Runtime.Remoting.Contexts.IContributeEnvoySink.GetEnvoySink*
   exceptions: []
   platform:

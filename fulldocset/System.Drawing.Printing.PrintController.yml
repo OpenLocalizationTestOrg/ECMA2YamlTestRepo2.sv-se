@@ -15,8 +15,8 @@ items:
   nameWithType: PrintController
   fullName: System.Drawing.Printing.PrintController
   type: Class
-  summary: "Controls how a document is printed, when printing from a Windows Forms application."
-  remarks: "When implemented in a derived class, PrintController controls how a <xref:System.Drawing.Printing.PrintDocument> is printed. <xref:System.Drawing.Printing.PrintDocument.Print%2A?displayProperty=fullName> invokes the print controller&quot;s <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>, <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A>, <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>, and <xref:System.Drawing.Printing.PrintController.OnEndPage%2A> methods, which in turn tell the printer how to print the document. Print preview uses a specialized PrintController. For an example of a print controller that is specialized for print preview, see the <xref:System.Drawing.Printing.PreviewPrintController>.       PrintController is used by <xref:System.Drawing.Printing.PrintDocument>, and not typically used directly.       The .NET Framework includes three print controllers that are derived from PrintController that help accomplish common tasks. The <xref:System.Drawing.Printing.StandardPrintController> prints a document to a printer. The <xref:System.Drawing.Printing.PreviewPrintController> generates a preview of what the document will look like when printed and is used by the <xref:System.Windows.Forms.PrintPreviewControl> and <xref:System.Windows.Forms.PrintPreviewDialog> classes. The <xref:System.Windows.Forms.PrintControllerWithStatusDialog> provides a printing status dialog during the printing process.       For more information about printing with Windows Forms, see the <xref:System.Drawing.Printing> namespace overview. If you wish to print from a Windows Presentation Foundation application, see the <xref:System.Printing> namespace."
+  summary: "Styr hur ett dokument skrivs ut, när du skriver ut från en Windows Forms-program."
+  remarks: "Implementeras i en härledd klass PrintController styr hur en <xref:System.Drawing.Printing.PrintDocument>skrivs ut.</xref:System.Drawing.Printing.PrintDocument> <xref:System.Drawing.Printing.PrintDocument.Print%2A?displayProperty=fullName>anropar ut controller <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>, <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A>, <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>, och <xref:System.Drawing.Printing.PrintController.OnEndPage%2A>metoder som i sin tur hur skrivaren skriva ut dokumentet.</xref:System.Drawing.Printing.PrintController.OnEndPage%2A> </xref:System.Drawing.Printing.PrintController.OnStartPage%2A> </xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> </xref:System.Drawing.Printing.PrintController.OnStartPrint%2A></xref:System.Drawing.Printing.PrintDocument.Print%2A?displayProperty=fullName> Förhandsgranskningen använder en särskild PrintController. Ett exempel på en utskrift domänkontrollant som är specialiserat för förhandsgranskning finns i <xref:System.Drawing.Printing.PreviewPrintController>.</xref:System.Drawing.Printing.PreviewPrintController>       PrintController används av <xref:System.Drawing.Printing.PrintDocument>, och normalt inte användas direkt.</xref:System.Drawing.Printing.PrintDocument>       .NET Framework innehåller tre ut domänkontrollanter som är härledda från PrintController att utföra vanliga uppgifter. Den <xref:System.Drawing.Printing.StandardPrintController>skriver ut ett dokument till en skrivare.</xref:System.Drawing.Printing.StandardPrintController> Den <xref:System.Drawing.Printing.PreviewPrintController>genererar en förhandsgranskning av hur dokumentet ser ut när ut och används av den <xref:System.Windows.Forms.PrintPreviewControl>och <xref:System.Windows.Forms.PrintPreviewDialog>klasser.</xref:System.Windows.Forms.PrintPreviewDialog> </xref:System.Windows.Forms.PrintPreviewControl> </xref:System.Drawing.Printing.PreviewPrintController> Den <xref:System.Windows.Forms.PrintControllerWithStatusDialog>ger en utskrift statusdialogrutan under processen för utskrift.</xref:System.Windows.Forms.PrintControllerWithStatusDialog>       Mer information om utskrifter med Windows Forms finns i <xref:System.Drawing.Printing>namnområde Översikt.</xref:System.Drawing.Printing> Om du vill skriva ut från ett Windows Presentation Foundation-program finns i <xref:System.Printing>namnområde.</xref:System.Printing>"
   syntax:
     content: public abstract class PrintController
   inheritance:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "Initializes a new instance of the <xref href=&quot;System.Drawing.Printing.PrintController&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Drawing.Printing.PrintController&quot;> </xref> klass."
   syntax:
     content: protected PrintController ();
     parameters: []
@@ -57,12 +57,12 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "Gets a value indicating whether the <xref href=&quot;System.Drawing.Printing.PrintController&quot;></xref> is used for print preview."
+  summary: "Hämtar ett värde som anger om den <xref href=&quot;System.Drawing.Printing.PrintController&quot;> </xref> används för förhandsgranskning."
   syntax:
     content: public virtual bool IsPreview { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> in all cases."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>i samtliga fall."
   overload: System.Drawing.Printing.PrintController.IsPreview*
   exceptions: []
   platform:
@@ -79,17 +79,17 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "When overridden in a derived class, completes the control sequence that determines when and how to print a page of a document."
-  remarks: "OnEndPage is called immediately after the <xref:System.Drawing.Printing.PrintDocument> raises the <xref:System.Drawing.Printing.PrintDocument.PrintPage> event. If an exception is thrown inside a <xref:System.Drawing.Printing.PrintDocument.PrintPage> event of a <xref:System.Drawing.Printing.PrintDocument>, OnEndPage is not called.       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> creates the <xref:System.Drawing.Graphics> that is sent to the printer. After <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> is called, the <xref:System.Drawing.Printing.PrintController.OnStartPage%2A> method sets the <xref:System.Drawing.Graphics> to a graphic of a single page. (Use the <xref:System.Drawing.Printing.PrintController.OnStartPage%2A> method to set how to print a page in a document. For example, you can adjust page settings separately for each page.) The OnEndPage method clears the <xref:System.Drawing.Graphics>, while the <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> method deallocates the object."
+  summary: "Slutför kontroll-sekvensen som bestämmer när och hur du skriver ut en sida i dokumentet när åsidosätts i en härledd klass."
+  remarks: "OnEndPage anropas omedelbart efter den <xref:System.Drawing.Printing.PrintDocument>genererar den <xref:System.Drawing.Printing.PrintDocument.PrintPage>händelse.</xref:System.Drawing.Printing.PrintDocument.PrintPage> </xref:System.Drawing.Printing.PrintDocument> Om ett undantag i en <xref:System.Drawing.Printing.PrintDocument.PrintPage>händelsen för en <xref:System.Drawing.Printing.PrintDocument>, anropas inte OnEndPage.</xref:System.Drawing.Printing.PrintDocument> </xref:System.Drawing.Printing.PrintDocument.PrintPage>       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>skapar den <xref:System.Drawing.Graphics>som skickas till skrivaren.</xref:System.Drawing.Graphics></xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> Efter <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>anropas, den <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>metoden anger det <xref:System.Drawing.Graphics>till en bild av en enstaka sida.</xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnStartPage%2A> </xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> (Använd det <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>metod för att ange hur du skriver ut en sida i dokumentet.</xref:System.Drawing.Printing.PrintController.OnStartPage%2A> Du kan till exempel justera inställningar separat för varje sida.) Metoden OnEndPage rensar den <xref:System.Drawing.Graphics>, medan den <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A>metoden tar bort objektet.</xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> </xref:System.Drawing.Graphics>"
   syntax:
     content: public virtual void OnEndPage (System.Drawing.Printing.PrintDocument document, System.Drawing.Printing.PrintPageEventArgs e);
     parameters:
     - id: document
       type: System.Drawing.Printing.PrintDocument
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;></xref> that represents the document currently being printed."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;> </xref> som representerar dokumentet skrivs ut."
     - id: e
       type: System.Drawing.Printing.PrintPageEventArgs
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintPageEventArgs&quot;></xref> that contains the event data."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintPageEventArgs&quot;> </xref> som innehåller informationen om händelsen."
   overload: System.Drawing.Printing.PrintController.OnEndPage*
   exceptions: []
   platform:
@@ -106,17 +106,17 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "When overridden in a derived class, completes the control sequence that determines when and how to print a document."
-  remarks: "OnEndPrint is called immediately after the <xref:System.Drawing.Printing.PrintDocument> raises the <xref:System.Drawing.Printing.PrintDocument.EndPrint> event.       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> creates the <xref:System.Drawing.Graphics> that is sent to the printer. After <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> is called, the <xref:System.Drawing.Printing.PrintController.OnStartPage%2A> method sets the <xref:System.Drawing.Graphics> to a graphic of a single page. (Use the <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> method to determine when and how to print a document. For example, you can delay printing for 30 minutes or adjust the printer settings for the document.) The <xref:System.Drawing.Printing.PrintController.OnEndPage%2A> method clears the <xref:System.Drawing.Graphics>, while the OnEndPrint method deallocates the object."
+  summary: "Slutför kontroll-sekvensen som bestämmer när och hur du skriver ut ett dokument när åsidosätts i en härledd klass."
+  remarks: "OnEndPrint anropas omedelbart efter den <xref:System.Drawing.Printing.PrintDocument>genererar den <xref:System.Drawing.Printing.PrintDocument.EndPrint>händelse.</xref:System.Drawing.Printing.PrintDocument.EndPrint> </xref:System.Drawing.Printing.PrintDocument>       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>skapar den <xref:System.Drawing.Graphics>som skickas till skrivaren.</xref:System.Drawing.Graphics></xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> Efter <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>anropas, den <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>metoden anger det <xref:System.Drawing.Graphics>till en bild av en enstaka sida.</xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnStartPage%2A> </xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> (Använd det <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>metod för att avgöra när och hur du skriver ut ett dokument.</xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> T.ex, kan du fördröja utskrift i 30 minuter eller ändra skrivarinställningar för dokumentet.) Den <xref:System.Drawing.Printing.PrintController.OnEndPage%2A>metoden raderar den <xref:System.Drawing.Graphics>, medan metoden OnEndPrint tar bort objektet.</xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnEndPage%2A>"
   syntax:
     content: public virtual void OnEndPrint (System.Drawing.Printing.PrintDocument document, System.Drawing.Printing.PrintEventArgs e);
     parameters:
     - id: document
       type: System.Drawing.Printing.PrintDocument
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;></xref> that represents the document currently being printed."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;> </xref> som representerar dokumentet skrivs ut."
     - id: e
       type: System.Drawing.Printing.PrintEventArgs
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintEventArgs&quot;></xref> that contains the event data."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintEventArgs&quot;> </xref> som innehåller informationen om händelsen."
   overload: System.Drawing.Printing.PrintController.OnEndPrint*
   exceptions: []
   platform:
@@ -133,20 +133,20 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "When overridden in a derived class, begins the control sequence that determines when and how to print a page of a document."
-  remarks: "OnStartPage is called immediately before the <xref:System.Drawing.Printing.PrintDocument> raises the <xref:System.Drawing.Printing.PrintDocument.PrintPage> event.       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> creates the <xref:System.Drawing.Graphics> that is sent to the printer. After <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> is called, the OnStartPage method sets the <xref:System.Drawing.Graphics> to a graphic of a single page. The <xref:System.Drawing.Printing.PrintController.OnEndPage%2A> method clears the <xref:System.Drawing.Graphics>, while the <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> method deallocates the object.       Use the OnStartPage method to set how to print a page in a document. For example, you can adjust page settings separately for each page."
+  summary: "När åsidosätts i en härledd klass börjar kontroll-sekvensen som bestämmer när och hur du skriver ut en sida i dokumentet."
+  remarks: "OnStartPage anropas omedelbart före den <xref:System.Drawing.Printing.PrintDocument>genererar den <xref:System.Drawing.Printing.PrintDocument.PrintPage>händelse.</xref:System.Drawing.Printing.PrintDocument.PrintPage> </xref:System.Drawing.Printing.PrintDocument>       <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>skapar den <xref:System.Drawing.Graphics>som skickas till skrivaren.</xref:System.Drawing.Graphics></xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> Efter <xref:System.Drawing.Printing.PrintController.OnStartPrint%2A>anropas metoden OnStartPage metoden anger det <xref:System.Drawing.Graphics>till en bild av en enstaka sida.</xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnStartPrint%2A> Den <xref:System.Drawing.Printing.PrintController.OnEndPage%2A>metoden raderar den <xref:System.Drawing.Graphics>, medan den <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A>metoden tar bort objektet.</xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> </xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnEndPage%2A>       Använd metoden OnStartPage om du vill ange hur du skriver ut en sida i dokumentet. Du kan till exempel justera inställningar separat för varje sida."
   syntax:
     content: public virtual System.Drawing.Graphics OnStartPage (System.Drawing.Printing.PrintDocument document, System.Drawing.Printing.PrintPageEventArgs e);
     parameters:
     - id: document
       type: System.Drawing.Printing.PrintDocument
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;></xref> that represents the document currently being printed."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;> </xref> som representerar dokumentet skrivs ut."
     - id: e
       type: System.Drawing.Printing.PrintPageEventArgs
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintPageEventArgs&quot;></xref> that contains the event data."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintPageEventArgs&quot;> </xref> som innehåller informationen om händelsen."
     return:
       type: System.Drawing.Graphics
-      description: "A <xref href=&quot;System.Drawing.Graphics&quot;></xref> that represents a page from a <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;></xref>."
+      description: "En <xref href=&quot;System.Drawing.Graphics&quot;> </xref> som representerar en sida från en <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;> </xref>."
   overload: System.Drawing.Printing.PrintController.OnStartPage*
   exceptions: []
   platform:
@@ -163,17 +163,17 @@ items:
   assemblies:
   - System.Drawing
   namespace: System.Drawing.Printing
-  summary: "When overridden in a derived class, begins the control sequence that determines when and how to print a document."
-  remarks: "OnStartPrint is called immediately after the <xref:System.Drawing.Printing.PrintDocument> raises the <xref:System.Drawing.Printing.PrintDocument.BeginPrint> event.       Use the OnStartPrint method to determine when and how to print a document. For example, you can delay printing for 30 minutes or adjust the printer settings for the document. OnStartPrint creates the <xref:System.Drawing.Graphics> that is sent to the printer. After OnStartPrint is called, the <xref:System.Drawing.Printing.PrintController.OnStartPage%2A> method sets the <xref:System.Drawing.Graphics> to one of a single page. The <xref:System.Drawing.Printing.PrintController.OnEndPage%2A> method clears the <xref:System.Drawing.Graphics>, while the <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> method deallocates the object.       The OnStartPrint method is a good place to verify that <xref:System.Drawing.Printing.PrinterSettings> are valid."
+  summary: "När åsidosätts i en härledd klass börjar kontroll-sekvensen som bestämmer när och hur du skriver ut ett dokument."
+  remarks: "OnStartPrint anropas omedelbart efter den <xref:System.Drawing.Printing.PrintDocument>genererar den <xref:System.Drawing.Printing.PrintDocument.BeginPrint>händelse.</xref:System.Drawing.Printing.PrintDocument.BeginPrint> </xref:System.Drawing.Printing.PrintDocument>       Använd metoden OnStartPrint för att avgöra när och hur du skriver ut ett dokument. Du kan till exempel fördröjning utskrift i 30 minuter eller ändra skrivarinställningar för dokumentet. OnStartPrint skapar den <xref:System.Drawing.Graphics>som skickas till skrivaren.</xref:System.Drawing.Graphics> När OnStartPrint kallas den <xref:System.Drawing.Printing.PrintController.OnStartPage%2A>metoden anger det <xref:System.Drawing.Graphics>av en enstaka sida.</xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnStartPage%2A> Den <xref:System.Drawing.Printing.PrintController.OnEndPage%2A>metoden raderar den <xref:System.Drawing.Graphics>, medan den <xref:System.Drawing.Printing.PrintController.OnEndPrint%2A>metoden tar bort objektet.</xref:System.Drawing.Printing.PrintController.OnEndPrint%2A> </xref:System.Drawing.Graphics> </xref:System.Drawing.Printing.PrintController.OnEndPage%2A>       Metoden OnStartPrint är en bra plats att kontrollera att <xref:System.Drawing.Printing.PrinterSettings>är giltiga.</xref:System.Drawing.Printing.PrinterSettings>"
   syntax:
     content: public virtual void OnStartPrint (System.Drawing.Printing.PrintDocument document, System.Drawing.Printing.PrintEventArgs e);
     parameters:
     - id: document
       type: System.Drawing.Printing.PrintDocument
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;></xref> that represents the document currently being printed."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintDocument&quot;> </xref> som representerar dokumentet skrivs ut."
     - id: e
       type: System.Drawing.Printing.PrintEventArgs
-      description: "A <xref href=&quot;System.Drawing.Printing.PrintEventArgs&quot;></xref> that contains the event data."
+      description: "En <xref href=&quot;System.Drawing.Printing.PrintEventArgs&quot;> </xref> som innehåller informationen om händelsen."
   overload: System.Drawing.Printing.PrintController.OnStartPrint*
   exceptions: []
   platform:
