@@ -10,8 +10,8 @@ items:
   nameWithType: ExtensibleClassFactory
   fullName: System.Runtime.InteropServices.ExtensibleClassFactory
   type: Class
-  summary: "Enables customization of managed objects that extend from unmanaged objects during creation."
-  remarks: "The `ExtensibleClassFactory` allows users to specify a `delegate` that is called during construction of a runtime callable wrapper (RCW) that provides an instance of the underlying COM object. In effect, the callback acts as the class factory for the COM object wrapped by the RCW. Without the callback, the common language runtime creates the underlying COM object by calling `CoCreateInstance`. This callback provides an alternative way of activating the underlying object, such as with a COM moniker or by providing a singleton object. The <xref:System.Runtime.InteropServices.ExtensibleClassFactory.RegisterObjectCreationCallback%2A> method must be called in the `static` initializer of the class that is extending the RCW. Only one object creation callback is permitted per object type. When the extensible RCW is activated, the callback is registered. When the underlying COM object needs to be created, the callback is called to provide a reference to the object. The callback must return an `IUnknown` interface pointer for the base object."
+  summary: "För anpassning av hanterade objekt som sträcker sig från ohanterade objekt när du skapar."
+  remarks: "Den `ExtensibleClassFactory` tillåter användare att ange en `delegate` som anropas under konstruktion av en körning callable wrapper (RCW) som tillhandahåller en instans av det underliggande COM-objektet. Återanropet fungerar i praktiken som Klassfabriken för COM-objekt av RCW. Utan motringning, skapar common language runtime underliggande COM-objektet genom att anropa `CoCreateInstance`. Den här motringning ger ett sätt som för det underliggande objektet med en COM-moniker eller genom att tillhandahålla en singletonobjekt. Den <xref:System.Runtime.InteropServices.ExtensibleClassFactory.RegisterObjectCreationCallback%2A>metoden måste anropas i den `static` initieraren för den klass som utökar RCW.</xref:System.Runtime.InteropServices.ExtensibleClassFactory.RegisterObjectCreationCallback%2A> Endast ett objekt ett återanrop som skapar tillåts per objekttyp. När den utökningsbara RCW aktiveras har återanropet registrerats. När det underliggande COM-objektet måste skapas, kallas återanropet för att ge en referens till objektet. Återanropet måste returnera ett `IUnknown` gränssnittspekare för av basobjektet."
   example:
   - "Registers a `delegate` that will be called whenever an instance of a managed type that extends from an unmanaged type needs to allocate the aggregated unmanaged object. This `delegate` is expected to allocate and aggregate the unmanaged object and is called in place of a `CoCreateInstance`. This routine must be called in the context of the `static` initializer for the class for which the callbacks will be made.  \n  \n [!code-cs[Classic ExtensibleClassFactory Example#1](~/add/codesnippet/csharp/t-system.runtime.interop_2_1.cs)]\n [!code-cpp[Classic ExtensibleClassFactory Example#1](~/add/codesnippet/cpp/t-system.runtime.interop_2_1.cpp)]\n [!code-vb[Classic ExtensibleClassFactory Example#1](~/add/codesnippet/visualbasic/t-system.runtime.interop_2_1.vb)]"
   syntax:
@@ -37,14 +37,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Registers a <xref uid=&quot;langword_csharp_delegate&quot; name=&quot;delegate&quot; href=&quot;&quot;></xref> that is called when an instance of a managed type, that extends from an unmanaged type, needs to allocate the aggregated unmanaged object."
-  remarks: "This `delegate` allocates and aggregates the unmanaged object and is called in place of `CoCreateInstance`. This `delegate` must be registered in the context of the `static` class initializer for which the callbacks will be made.       Only one class in an hierarchy should register a `delegate` callback."
+  summary: "Registrerar en <xref uid=&quot;langword_csharp_delegate&quot; name=&quot;delegate&quot; href=&quot;&quot;> </xref> som anropas när en instans av en hanterad typ, som sträcker sig från en ohanterad typ, behöver allokera aggregerade ohanterad objektreferens."
+  remarks: "Detta `delegate` allokerar och sammanställer ohanterade objektet och anropas i stället för `CoCreateInstance`. Detta `delegate` måste registreras i samband med den `static` klassen initieraren som återanrop kommer att göras.       Endast en klass i en hierarki bör registrera en `delegate` återanrop."
   syntax:
     content: public static void RegisterObjectCreationCallback (System.Runtime.InteropServices.ObjectCreationDelegate callback);
     parameters:
     - id: callback
       type: System.Runtime.InteropServices.ObjectCreationDelegate
-      description: "A <xref uid=&quot;langword_csharp_delegate&quot; name=&quot;delegate&quot; href=&quot;&quot;></xref> that is called in place of <xref uid=&quot;langword_csharp_CoCreateInstance&quot; name=&quot;CoCreateInstance&quot; href=&quot;&quot;></xref>."
+      description: "En <xref uid=&quot;langword_csharp_delegate&quot; name=&quot;delegate&quot; href=&quot;&quot;> </xref> som kallas i stället för <xref uid=&quot;langword_csharp_CoCreateInstance&quot; name=&quot;CoCreateInstance&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.InteropServices.ExtensibleClassFactory.RegisterObjectCreationCallback*
   exceptions: []
   platform:

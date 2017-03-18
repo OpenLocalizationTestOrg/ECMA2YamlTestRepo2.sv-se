@@ -15,8 +15,8 @@ items:
   nameWithType: DataServiceQuery
   fullName: System.Data.Services.Client.DataServiceQuery
   type: Class
-  summary: "An abstract class that represents a single query request to [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
-  remarks: "No public constructors are defined on this class. Object instances are created by using <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A> or <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A> on the <xref:System.Data.Services.Client.DataServiceContext> class."
+  summary: "En abstrakt klass som representerar en enskild fråga begäran till [!INCLUDE[ssAstoria](~/add/includes/ssastoria-md.md)]."
+  remarks: "Inga offentliga konstruktorer har definierats på den här klassen. Objektinstanser skapas med hjälp av <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A>eller <xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A>på <xref:System.Data.Services.Client.DataServiceContext>klass.</xref:System.Data.Services.Client.DataServiceContext> </xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A> </xref:System.Data.Services.Client.DataServiceContext.CreateQuery%2A>"
   syntax:
     content: 'public abstract class DataServiceQuery : System.Data.Services.Client.DataServiceRequest, System.Collections.IEnumerable, System.Linq.IQueryable'
   inheritance:
@@ -43,20 +43,20 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Asynchronously sends a request to execute the data service query."
-  remarks: "The returned <xref:System.IAsyncResult> object is used to determine when the asynchronous operation has completed. For more information, see [Asynchronous Operations](~/add/includes/ajax-current-ext-md.md).       The BeginExecute method uses the same semantics as the <xref:System.Data.Services.Client.DataServiceQuery.Execute%2A> method, however BeginExecute asynchronously sends the request so that the call does not block processing while waiting for the results from the service. According to the standard begin-end asynchronous pattern, the provided callback is invoked when query results are retrieved."
+  summary: "Skickar en begäran om att köra tjänsten datafrågor asynkront."
+  remarks: "Den returnerade <xref:System.IAsyncResult>objektet används för att avgöra när den asynkrona åtgärden har slutförts.</xref:System.IAsyncResult> Mer information finns i [asynkrona åtgärder](~/add/includes/ajax-current-ext-md.md).       Metoden BeginExecute använder samma semantik som den <xref:System.Data.Services.Client.DataServiceQuery.Execute%2A>metoden, men BeginExecute asynkront skickar en begäran så att anropet inte blockerar bearbetning under väntan på resultat från tjänsten.</xref:System.Data.Services.Client.DataServiceQuery.Execute%2A> Enligt asynkront mönster standard börjar slutpunkt anropas angivna återanropet när frågeresultat hämtas."
   syntax:
     content: public IAsyncResult BeginExecute (AsyncCallback callback, object state);
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "Delegate to invoke when results are available for client consumption."
+      description: "Delegera till anropa när resultat är tillgängliga för användning av klienten."
     - id: state
       type: System.Object
-      description: "User-defined state object passed to the callback."
+      description: "Användardefinierat tillstånd objekt skickades till återanropet."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> object that is used to track the status of the asynchronous operation."
+      description: "En <xref:System.IAsyncResult>objekt som används för att spåra statusen för den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.Data.Services.Client.DataServiceQuery.BeginExecute*
   exceptions: []
   platform:
@@ -73,21 +73,21 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Called to complete the asynchronous operation of executing a data service query."
+  summary: "Anropas för att slutföra den asynkrona åtgärden för att köra en fråga för tjänsten."
   syntax:
     content: public System.Collections.IEnumerable EndExecute (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "The result from the <xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*> operation that contains the query results."
+      description: "Resultatet från den <xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*>åtgärden som innehåller resultatet av frågan.</xref:System.Data.Services.Client.DataServiceQuery.BeginExecute*>"
     return:
       type: System.Collections.IEnumerable
-      description: "An &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains the results of the query operation."
+      description: "En &lt;xref:System.Collections.Generic.IEnumerable%601&gt; som innehåller resultatet av frågan igen."
   overload: System.Data.Services.Client.DataServiceQuery.EndExecute*
   exceptions:
   - type: System.Data.Services.Client.DataServiceQueryException
     commentId: T:System.Data.Services.Client.DataServiceQueryException
-    description: 'When the data service returns an HTTP 404: Resource Not Found error.'
+    description: 'När datatjänsten returnerar en HTTP 404: fel inte att hitta resursen.'
   platform:
   - net462
 - uid: System.Data.Services.Client.DataServiceQuery.Execute
@@ -102,19 +102,19 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Executes the query against the data service."
-  remarks: "The Execute method is used to execute the given data service query.       The Execute method generates an HTTP GET request that is set to the data service."
+  summary: "Kör frågan mot datatjänsten."
+  remarks: "Metoden Execute används för att köra givna data service-frågan.       Execute-metoden genererar en HTTP GET-begäran som har angetts till datatjänsten."
   syntax:
     content: public System.Collections.IEnumerable Execute ();
     parameters: []
     return:
       type: System.Collections.IEnumerable
-      description: "An &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains the results of the query operation."
+      description: "En &lt;xref:System.Collections.Generic.IEnumerable%601&gt; som innehåller resultatet av frågan igen."
   overload: System.Data.Services.Client.DataServiceQuery.Execute*
   exceptions:
   - type: System.Data.Services.Client.DataServiceQueryException
     commentId: T:System.Data.Services.Client.DataServiceQueryException
-    description: 'When the data service returns an HTTP 404: Resource Not Found error.'
+    description: 'När datatjänsten returnerar en HTTP 404: fel inte att hitta resursen.'
   platform:
   - net462
 - uid: System.Data.Services.Client.DataServiceQuery.Expression
@@ -129,12 +129,12 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Represents an expression that contains the query to the data service."
+  summary: "Representerar ett uttryck som innehåller frågan till datatjänsten."
   syntax:
     content: public abstract System.Linq.Expressions.Expression Expression { get; }
     return:
       type: System.Linq.Expressions.Expression
-      description: "An <xref:System.Linq.Expressions.Expression> object that represents the query."
+      description: "En <xref:System.Linq.Expressions.Expression>objekt som representerar frågan.</xref:System.Linq.Expressions.Expression>"
   overload: System.Data.Services.Client.DataServiceQuery.Expression*
   exceptions: []
   platform:
@@ -151,12 +151,12 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Represents the query provider instance."
+  summary: "Representerar providerinstans för frågan."
   syntax:
     content: public abstract System.Linq.IQueryProvider Provider { get; }
     return:
       type: System.Linq.IQueryProvider
-      description: "An <xref:System.Linq.IQueryProvider> representing the data source provider."
+      description: "En <xref:System.Linq.IQueryProvider>som representerar providern.</xref:System.Linq.IQueryProvider>"
   overload: System.Data.Services.Client.DataServiceQuery.Provider*
   exceptions: []
   platform:
@@ -174,14 +174,14 @@ items:
   assemblies:
   - System.Data.Services.Client
   namespace: System.Data.Services.Client
-  summary: "Gets the <xref:System.Collections.IEnumerator> object that can be used to iterate through the collection returned by the query."
-  remarks: "Enumerators can be used to read the data in the collection, but they cannot be used to modify the underlying collection."
+  summary: "Hämtar den <xref:System.Collections.IEnumerator>objekt som kan användas för att söka igenom den samling som returneras av frågan.</xref:System.Collections.IEnumerator>"
+  remarks: "Uppräknare kan användas för att läsa data i samlingen, men de kan inte användas för att ändra den underliggande mängden."
   syntax:
     content: System.Collections.IEnumerator IEnumerable.GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "An enumerator over the query results."
+      description: "En uppräknare över resultatet av frågan."
   overload: System.Data.Services.Client.DataServiceQuery.System#Collections#IEnumerable#GetEnumerator*
   exceptions: []
   platform:

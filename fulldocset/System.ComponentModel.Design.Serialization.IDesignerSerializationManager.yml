@@ -22,8 +22,8 @@ items:
   nameWithType: IDesignerSerializationManager
   fullName: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
   type: Interface
-  summary: "Provides an interface that can manage design-time serialization."
-  remarks: "A designer can utilize IDesignerSerializationManager to access services useful to managing design-time serialization processes. For example, a class that implements the designer serialization manager can use this interface to create objects, look up types, identify objects, and customize the serialization of particular types."
+  summary: "Tillhandahåller ett gränssnitt som kan hantera designläge serialisering."
+  remarks: "En designer kan använda IDesignerSerializationManager åtkomst till tjänster som är användbar för att hantera designläge serialisering processer. En klass som implementerar designer serialiseringshanteraren kan till exempel använda det här gränssnittet för att skapa objekt, leta upp typer, identifiera objekt och anpassa serialisering av särskilda typer."
   example:
   - "The following example illustrates how to use IDesignerSerializationManager to serialize and deserialize Code DOM statements.  \n  \n [!code-cs[IDesignerSerializationManagerSample#1](~/add/codesnippet/csharp/t-system.componentmodel._71_1.cs)]\n [!code-cpp[IDesignerSerializationManagerSample#1](~/add/codesnippet/cpp/t-system.componentmodel._71_1.cpp)]\n [!code-vb[IDesignerSerializationManagerSample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._71_1.vb)]"
   syntax:
@@ -44,14 +44,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Adds the specified serialization provider to the serialization manager."
-  remarks: "This method adds a custom serialization provider to the serialization manager. Serialization providers can provide custom serializers for a particular type of object or set of types of objects. During serialization, each custom serialization provider is queried to return a serializer for a specific data type, if it can provide one. The serialization manager uses the custom serializer provided by this method before using the default serializer for a particular type."
+  summary: "Lägger till angivna serialisering providern serialiseringshanteraren."
+  remarks: "Den här metoden lägger till en anpassad serialisering provider serialiseringshanteraren. Serialisering leverantörer kan ange anpassade serializers för en viss typ av objekt eller en uppsättning typer av objekt. Under serialisering efterfrågas varje anpassad serialisering provider för att returnera en serialisering för en viss datatyp, om den kan ge en. Serialiseringshanteraren använder anpassad serialisering som tillhandahålls av den här metoden innan du använder standard serialiseraren för en viss typ."
   syntax:
     content: public void AddSerializationProvider (System.ComponentModel.Design.Serialization.IDesignerSerializationProvider provider);
     parameters:
     - id: provider
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationProvider
-      description: "The serialization provider to add."
+      description: "Serialisering provider att lägga till."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider*
   exceptions: []
   platform:
@@ -68,13 +68,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a stack-based, user-defined storage area that is useful for communication between serializers."
-  remarks: "This storage area provides communication of object context information to serializers. Context information about objects that are being serialized can be stored and accessed through this <xref:System.ComponentModel.Design.Serialization.ContextStack>."
+  summary: "Hämtar en stack-baserad, användardefinierade lagringsplats som är användbar för kommunikation mellan serializers."
+  remarks: "Detta lagringsområde kan serializers överföring av information om kontexten. Kontextinformation om objekt som ska serialiseras kan lagras och kan nås via denna <xref:System.ComponentModel.Design.Serialization.ContextStack>.</xref:System.ComponentModel.Design.Serialization.ContextStack>"
   syntax:
     content: public System.ComponentModel.Design.Serialization.ContextStack Context { get; }
     return:
       type: System.ComponentModel.Design.Serialization.ContextStack
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;></xref> that stores data."
+      description: "En <xref href=&quot;System.ComponentModel.Design.Serialization.ContextStack&quot;> </xref> som lagrar data."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Context*
   exceptions: []
   platform:
@@ -91,26 +91,26 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates an instance of the specified type and adds it to a collection of named instances."
-  remarks: "Objects that implement <xref:System.ComponentModel.IComponent> are added to the design-time container if the `addToContainer` parameter is `true`."
+  summary: "Skapar en instans av den angivna typen och lägger till en samling med namngivna instanser."
+  remarks: "Objekt att implementera <xref:System.ComponentModel.IComponent>läggs till i behållaren designläge om den `addToContainer` parametern är `true`.</xref:System.ComponentModel.IComponent>"
   syntax:
     content: public object CreateInstance (Type type, System.Collections.ICollection arguments, string name, bool addToContainer);
     parameters:
     - id: type
       type: System.Type
-      description: "The data type to create."
+      description: "Datatypen för att skapa."
     - id: arguments
       type: System.Collections.ICollection
-      description: "The arguments to pass to the constructor for this type."
+      description: "Argument att skicka vidare till konstruktorn för den här typen."
     - id: name
       type: System.String
-      description: "The name of the object. This name can be used to access the object later through <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*>. If <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is passed, the object is still created but cannot be accessed by name."
+      description: "Namnet på objektet. Det här namnet kan användas för att komma åt objektet senare via <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*> Om <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> har gått ut, objektet skapas fortfarande men inte kan nås av namn."
     - id: addToContainer
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, this object is added to the design container. The object must implement <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> for this to have any effect."
+      description: "Om <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, det här objektet har lagts till i behållaren design. Objektet måste implementera <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> för att det ska ha någon effekt."
     return:
       type: System.Object
-      description: "The newly created object instance."
+      description: "Nyligen skapade objektinstansen."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance*
   exceptions: []
   platform:
@@ -127,17 +127,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets an instance of a created object of the specified name, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if that object does not exist."
-  remarks: "The name of the object to retrieve must have been set through a prior call to <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>."
+  summary: "Hämtar en instans av ett skapat objekt för det angivna namnet eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om objektet inte finns."
+  remarks: "Namnet på objektet som ska hämtas måste ha angetts via ett tidigare anrop till <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>"
   syntax:
     content: public object GetInstance (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the object to retrieve."
+      description: "Namnet på objektet som ska hämtas."
     return:
       type: System.Object
-      description: "An instance of the object with the given name, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no object by that name can be found."
+      description: "En instans av objektet med det angivna namnet eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om det finns inget objekt med det namnet."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance*
   exceptions: []
   platform:
@@ -154,16 +154,16 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the name of the specified object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the object has no name."
+  summary: "Hämtar namnet på det angivna objektet eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om objektet har inget namn."
   syntax:
     content: public string GetName (object value);
     parameters:
     - id: value
       type: System.Object
-      description: "The object to retrieve the name for."
+      description: "Att hämta namnet för objektet."
     return:
       type: System.String
-      description: "The name of the object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the object is unnamed."
+      description: "Namnet på objektet eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om objektet är namnlösa."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName*
   exceptions: []
   platform:
@@ -180,19 +180,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a serializer of the requested type for the specified object type."
+  summary: "Hämtar en serialiserare av den begärda typen för den angivna objekttypen."
   syntax:
     content: public object GetSerializer (Type objectType, Type serializerType);
     parameters:
     - id: objectType
       type: System.Type
-      description: "The type of the object to get the serializer for."
+      description: "Den typ av objekt för att hämta serialiseraren för."
     - id: serializerType
       type: System.Type
-      description: "The type of the serializer to retrieve."
+      description: "Typ av serialiseraren för hämtning."
     return:
       type: System.Object
-      description: "An instance of the requested serializer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no appropriate serializer can be located."
+      description: "En instans av den begärda serialiseraren eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om ingen lämplig serialisering kan placeras."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer*
   exceptions: []
   platform:
@@ -209,16 +209,16 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a type of the specified name."
+  summary: "Hämtar en typ av det angivna namnet."
   syntax:
     content: public Type GetType (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The fully qualified name of the type to load."
+      description: "Det fullständigt kvalificerade namnet av typen för att läsa in."
     return:
       type: System.Type
-      description: "An instance of the type, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the type cannot be loaded."
+      description: "En instans av typen, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om typen inte kan läsas in."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetType*
   exceptions: []
   platform:
@@ -235,13 +235,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Indicates custom properties that can be serializable with available serializers."
-  remarks: "This property can contain an empty collection. A serializer should never assume that such properties exist. A derived class or implementation of <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> defines the set of properties that are exposed here."
+  summary: "Anger anpassade egenskaper som kan vara serialiserbara med tillgängliga serializers."
+  remarks: "Den här egenskapen kan innehålla en tom samling. En serialiserare bör aldrig förutsätter att det finns sådana egenskaper. En härledd klass eller en implementering av <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>definierar en uppsättning egenskaper som visas här.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>"
   syntax:
     content: public System.ComponentModel.PropertyDescriptorCollection Properties { get; }
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "A <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;></xref> containing the properties to be serialized."
+      description: "En <xref href=&quot;System.ComponentModel.PropertyDescriptorCollection&quot;> </xref> som innehåller egenskaperna serialiseras."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties*
   exceptions: []
   platform:
@@ -258,13 +258,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Removes a custom serialization provider from the serialization manager."
+  summary: "Tar bort en anpassad serialisering-provider från serialiseringshanteraren."
   syntax:
     content: public void RemoveSerializationProvider (System.ComponentModel.Design.Serialization.IDesignerSerializationProvider provider);
     parameters:
     - id: provider
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationProvider
-      description: "The provider to remove. This object must have been added using <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider*>."
+      description: "Providern ska tas bort. Det här objektet måste ha lagts till med <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider*>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.AddSerializationProvider*>"
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.RemoveSerializationProvider*
   exceptions: []
   platform:
@@ -281,14 +281,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reports an error in serialization."
-  remarks: "If the serialization manager supports logging multiple errors in its implementation of ReportError, it can store the error information object for a future report where all the errors encountered can be displayed at once. If this method stores multiple errors, serialization can continue after a call to this method. If this method does not support logging multiple errors, this method should throw an exception, which aborts serialization.      > [!NOTE] >  The serialization manager should never throw an exception for errors encountered during serialization. It should only throw an exception during deserialization. Otherwise, users become confused because saving the document should never fail."
+  summary: "Rapporterar ett fel i serialisering."
+  remarks: "Om serialiseringshanteraren stöder loggning av flera fel i implementeringen av ReportError, kan den lagra information felobjektet för en framtida där alla fel som inträffar kan visas på samma gång. Om den här metoden lagrar flera fel, kan serialisering fortsätta efter ett anrop till den här metoden. Om den här metoden inte har stöd för loggning av flera fel, utlösa den här metoden ett undantag som avbryter serialisering.      > [!NOTE] > Serialiseringshanteraren aldrig utlösa ett undantag för fel som uppstod under serialiseringen. Den bara utlösa ett undantag under deserialisering. Annars misslyckas bör aldrig användare bli förvirrande eftersom spara dokumentet."
   syntax:
     content: public void ReportError (object errorInformation);
     parameters:
     - id: errorInformation
       type: System.Object
-      description: "The error to report. This information object can be of any object type. If it is an exception, the message of the exception is extracted and reported to the user. If it is any other type, <xref:System.Object.ToString*> is called to display the information to the user."
+      description: "Fel i rapporten. Informationsobjektet kan vara av valfri objekttyp. Om det är ett undantag extraheras meddelandet för undantaget och rapporteras till användaren. Om det är en annan typ <xref:System.Object.ToString*>anropas för att visa informationen för användaren.</xref:System.Object.ToString*>"
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.ReportError*
   exceptions: []
   platform:
@@ -305,13 +305,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Occurs when <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName*> cannot locate the specified name in the serialization manager&quot;s name table."
-  remarks: "This event provides a way for a serializer to create an object on demand, so that the serializer does not have to order object creation by dependency. The delegate for this event is cleared immediately after serialization or deserialization is complete."
+  summary: "Inträffar när <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName*>går inte att hitta det angivna namnet i den serialiseringshanteraren namntabell.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName*>"
+  remarks: "Den här händelsen är ett sätt för en serialisering att skapa ett objekt på begäran, så att serialiseraren inte behöver skapa objekt av beroende. Delegaten för händelsen rensas omedelbart efter serialisering eller deserialisering är klar."
   syntax:
     content: public event System.ComponentModel.Design.Serialization.ResolveNameEventHandler ResolveName;
     return:
       type: System.ComponentModel.Design.Serialization.ResolveNameEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -327,13 +327,13 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Occurs when serialization is complete."
-  remarks: "This event is raised when serialization or deserialization is complete.       Generally, serialization code is written to emit serialization data and does not typically require state-related checking and processing. If it is necessary to maintain state data throughout serialization, data can be set and accessed by a serializer, which can listen to the SerializationComplete event, and clear the data after serialization. Restoring the proper state after serialization can be important because serializers can be reused during serialization, and leftover state data or open streams might not be correct.       For example, if a serializer needs to write to another file, such as a resource file, it is inefficient to design the serializer to close the file when finished. Serializing an object graph usually requires several serializers. The resource file would be opened and closed many times. Instead, the resource file can be closed at the end of serialization by an object that listened to the SerializationComplete event."
+  summary: "Inträffar när serialisering har slutförts."
+  remarks: "Den här händelsen utlöses när serialisering eller deserialisering är klar.       I allmänhet kod för serialisering skrivs att generera serialiseringsdata och vanligtvis kräver inte tillståndet-kontroll och bearbetning. Om det är nödvändigt att upprätthålla tillståndsdata i hela serialisering data ange och komma åt en serialiserare, som kan lyssna på händelsen SerializationComplete och ta bort data efter serialisering. Återställer rätt tillstånd när serialisering kan vara viktiga eftersom serializers kan återanvändas under serialisering och överblivna systemtillstånd eller öppna dataströmmar kanske inte korrekt.       Till exempel om en serialiserare behöver skriva till en annan fil, till exempel en resursfil är den ineffektiv utforma serialiseraren för att stänga filen när du är klar. Serialisering av ett objektdiagram vanligtvis kräver flera serializers. Resursfilen skulle öppnas och stängas många gånger. I stället stängas resursfilen i slutet av serialisering av ett objekt som har lyssnat på händelsen SerializationComplete."
   syntax:
     content: public event EventHandler SerializationComplete;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -349,17 +349,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Sets the name of the specified existing object."
-  remarks: "This method is useful when it is necessary to create and then name an instance of an object without using <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>. An exception is thrown if you try to rename an existing object or if you try to give a new object a name that is already taken."
+  summary: "Anger namnet på det angivna befintliga objektet."
+  remarks: "Den här metoden är användbar när det är nödvändigt att skapa och Byt namn på en instans av ett objekt utan att använda <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A> Ett undantag vid försök att byta namn på ett befintligt objekt eller om du försöker att namnge ett nytt objekt som redan är upptaget."
   syntax:
     content: public void SetName (object instance, string name);
     parameters:
     - id: instance
       type: System.Object
-      description: "The object instance to name."
+      description: "Objektinstansen namn."
     - id: name
       type: System.String
-      description: "The name to give the instance."
+      description: "Namnet på instansen."
   overload: System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName*
   exceptions: []
   platform:

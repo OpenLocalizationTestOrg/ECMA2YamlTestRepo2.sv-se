@@ -23,8 +23,8 @@ items:
   nameWithType: UndoEngine
   fullName: System.ComponentModel.Design.UndoEngine
   type: Class
-  summary: "Specifies generic undo/redo functionality at design time."
-  remarks: "The UndoEngine abstract class provides a default implementation of undo functionality at design time. An undo unit represents a single unit of undoable work. This unit is added to a stack and the user can then walk the stack to undo each action. Undo units typically are designed to toggle, which means that calling undo twice returns the application to its starting state.       The UndoEngine class takes advantage of the following characteristics of objects running within the designer:      -   All interesting objects can be persisted to some format by the designer loader.      -   All objects raise property-change notifications when a property is changed.      -   <xref:System.ComponentModel.Design.IDesignerHost> offers the idea of transactions, which can be used to fabricate an undo action that spans multiple smaller actions.       With these features, UndoEngine can fabricate any undo units it needs automatically.      > [!NOTE] >  Do not change property values directly. The UndoEngine class requires you to use the appropriate <xref:System.ComponentModel.TypeDescriptor> to change property values.       UndoEngine monitors for change notifications to create undo units, and the units themselves consist of serialized object states. The following table shows the services that must be available when UndoEngine is created.      |Service|Description|   |-------------|-----------------|   |<xref:System.ComponentModel.Design.Serialization.ComponentSerializationService>|Saves property and object values for a component before and after a change is made.|   |<xref:System.ComponentModel.Design.IComponentChangeService>|Notifies the undo engine of changes made to components.|   |<xref:System.ComponentModel.Design.IDesignerHost>|Used to track transactions.|      > [!NOTE] >  Because the UndoEngine class requires <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService> and <xref:System.ComponentModel.Design.IComponentChangeService>, it is available only at design time.       The undo engine tracks transactions and creates a single undo unit that encompasses a transaction. As a result, the undo engine has control over the duration of an undoable action. Also, because transactions can be named, undoable actions inherit their names from the current transaction. If no transaction is available and a change is reported, the undo engine creates an undo name based on the type of change (for example, &quot;Change property &quot;Text&quot;&quot;)."
+  summary: "Anger allmän Ångra/Gör om funktionerna i designläge."
+  remarks: "Den abstrakta klassen UndoEngine innehåller en standardimplementering Ångra funktioner i designläge. En enhet för Ångra representerar en enda arbetsenhet inte kan ångras. Den här enheten har lagts till i en grupp och användaren kan sedan gå grupp om du vill ångra varje åtgärd. Ångra enheter är vanligtvis utformade för att växla, vilket innebär att anropa Ångra returnerar två gånger programmet till dess första tillstånd.       Klassen UndoEngine drar nytta av följande egenskaper för objekt som körs inom designern: – alla intressanta objekt kan sparas till vissa format av Designerinläsaren.      -Alla objekt öka egenskapen ändringsmeddelanden när en egenskap ändras.      - <xref:System.ComponentModel.Design.IDesignerHost>erbjuder uppfattning om transaktioner som kan användas för att detaljritningar åtgärden Ångra som sträcker sig över flera mindre åtgärder.</xref:System.ComponentModel.Design.IDesignerHost>       Med dessa funktioner detaljritningar UndoEngine några Ångra-enheter måste automatiskt.      > [!NOTE] > Inte ändra egenskapsvärden direkt. Klassen UndoEngine måste du använda rätt <xref:System.ComponentModel.TypeDescriptor>att ändra egenskapsvärden.</xref:System.ComponentModel.TypeDescriptor>       UndoEngine Övervakare för meddelanden att skapa om ångra enheter och enheter själva består av det serialiserade objektet tillstånd. I följande tabell visas de tjänster som måste vara tillgänglig när UndoEngine skapas.      | Tjänsten | Beskrivning |   |-------------|-----------------|   | <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService>| Sparar egenskapen och objekt värden för en komponent före och efter att en ändring görs. |   | <xref:System.ComponentModel.Design.IComponentChangeService>| Meddelar motorn ångra ändringar komponenter. |   | <xref:System.ComponentModel.Design.IDesignerHost>| Används för att spåra transaktioner. |      > [!NOTE] > Eftersom klassen UndoEngine kräver <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService>och <xref:System.ComponentModel.Design.IComponentChangeService>, den är tillgänglig endast i designläge.</xref:System.ComponentModel.Design.IComponentChangeService> </xref:System.ComponentModel.Design.Serialization.ComponentSerializationService> </xref:System.ComponentModel.Design.IDesignerHost> </xref:System.ComponentModel.Design.IComponentChangeService> </xref:System.ComponentModel.Design.Serialization.ComponentSerializationService>       Ångra motorn spårar transaktioner och skapar en enhet för enkel Ångra som omfattar en transaktion. Därför kan har Ångra-motorn kontroll över varaktigheten för en åtgärd som inte kan ångras. Dessutom eftersom transaktioner kan namnges ärver Ångra deras namn från den aktuella transaktionen. Om ingen transaktion är tillgänglig och en ändring rapporteras skapar Ångra motorn ett Ångra namn baserat på vilken typ av ändring (till exempel &quot;ändra egenskapen &quot;Text&quot;&quot;)."
   syntax:
     content: 'public abstract class UndoEngine : IDisposable'
   inheritance:
@@ -46,22 +46,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref> class."
-  remarks: "The <xref:System.ComponentModel.Design.UndoEngine> requires several services from the `provider` parameter to be useful."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref> klass."
+  remarks: "Den <xref:System.ComponentModel.Design.UndoEngine>kräver flera tjänster från den `provider` parameter ska vara användbar.</xref:System.ComponentModel.Design.UndoEngine>"
   syntax:
     content: protected UndoEngine (IServiceProvider provider);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "A parenting service provider."
+      description: "En överordnande tjänstprovider."
   overload: System.ComponentModel.Design.UndoEngine.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>provider</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>provider</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "A required service cannot be found. See <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref> for required services. If you have removed this service, ensure that you provide a replacement."
+    description: "En tjänst som krävs kan inte hittas. Se <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref> för tjänster som krävs. Om du har tagit bort den här tjänsten måste du ersätta."
   platform:
   - net462
 - uid: System.ComponentModel.Design.UndoEngine.AddUndoUnit(System.ComponentModel.Design.UndoEngine.UndoUnit)
@@ -81,7 +81,7 @@ items:
     parameters:
     - id: unit
       type: System.ComponentModel.Design.UndoEngine.UndoUnit
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.ComponentModel.Design.UndoEngine.AddUndoUnit*
   exceptions: []
   platform:
@@ -98,20 +98,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates a new <xref:System.ComponentModel.Design.UndoEngine.UndoUnit>."
-  remarks: "The default implementation of the CreateUndoUnit method simply returns a new <xref:System.ComponentModel.Design.UndoEngine.UndoUnit>.       By default, <xref:System.ComponentModel.Design.UndoEngine> does nothing with the `primary` parameter, but some implementations of undo, such as those involving the COM `Microsoft.VisualStudio.OLE.Interop.IOleParentUndoUnit` design pattern, may need to identify the difference between a primary unit and its children."
+  summary: "Skapar en ny <xref:System.ComponentModel.Design.UndoEngine.UndoUnit>.</xref:System.ComponentModel.Design.UndoEngine.UndoUnit>"
+  remarks: "Standardimplementering av metoden CreateUndoUnit returnerar bara en ny <xref:System.ComponentModel.Design.UndoEngine.UndoUnit>.</xref:System.ComponentModel.Design.UndoEngine.UndoUnit>       Som standard <xref:System.ComponentModel.Design.UndoEngine>händer ingenting med den `primary` parameter, men vissa implementeringar av Ångra, till exempel sådana som omfattar COM `Microsoft.VisualStudio.OLE.Interop.IOleParentUndoUnit` utforma mönster kan behöva identifiera skillnaden mellan en primär enhet och dess underordnade.</xref:System.ComponentModel.Design.UndoEngine>"
   syntax:
     content: protected virtual System.ComponentModel.Design.UndoEngine.UndoUnit CreateUndoUnit (string name, bool primary);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the unit to create."
+      description: "Namnet på enheten som du skapar."
     - id: primary
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to create the first of a series of nested units; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to create subsequent nested units."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att skapa först i en serie av kapslade enheter. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> att skapa efterföljande kapslade enheter."
     return:
       type: System.ComponentModel.Design.UndoEngine.UndoUnit
-      description: "A new <xref:System.ComponentModel.Design.UndoEngine.UndoUnit> with a specified name."
+      description: "En ny <xref:System.ComponentModel.Design.UndoEngine.UndoUnit>med ett angivet namn.</xref:System.ComponentModel.Design.UndoEngine.UndoUnit>"
   overload: System.ComponentModel.Design.UndoEngine.CreateUndoUnit*
   exceptions: []
   platform:
@@ -133,7 +133,7 @@ items:
     parameters:
     - id: unit
       type: System.ComponentModel.Design.UndoEngine.UndoUnit
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.ComponentModel.Design.UndoEngine.DiscardUndoUnit*
   exceptions: []
   platform:
@@ -150,7 +150,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases all resources used by the <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref>."
+  summary: "Frigör alla resurser som används av den <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -170,13 +170,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref> and optionally releases the managed resources."
+  summary: "Släpper de ohanterade resurser som används av den <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref> och släpper du de hantera resurserna."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Frisläpp både hanterade och ohanterade resurser. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> att släppa endast resurser som inte hanteras."
   overload: System.ComponentModel.Design.UndoEngine.Dispose*
   exceptions: []
   platform:
@@ -193,12 +193,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Enables or disables the <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref>."
+  summary: "Aktiverar eller inaktiverar det <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref>."
   syntax:
     content: public bool Enabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;></xref> is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den <xref href=&quot;System.ComponentModel.Design.UndoEngine&quot;> </xref> är aktiverade, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.UndoEngine.Enabled*
   exceptions: []
   platform:
@@ -215,24 +215,24 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the requested service."
+  summary: "Hämtar den begärda tjänsten."
   syntax:
     content: protected object GetRequiredService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to retrieve."
+      description: "Typ av tjänst för att hämta."
     return:
       type: System.Object
-      description: "The requested service, if found."
+      description: "Den begärda tjänsten om hittades."
   overload: System.ComponentModel.Design.UndoEngine.GetRequiredService*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "<code>serviceType</code> is required but cannot be found. If you have removed this service, ensure that you provide a replacement."
+    description: "<code>serviceType</code>är obligatorisk, men kan inte hittas. Om du har tagit bort den här tjänsten måste du ersätta."
   platform:
   - net462
 - uid: System.ComponentModel.Design.UndoEngine.GetService(System.Type)
@@ -247,21 +247,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the requested service."
+  summary: "Hämtar den begärda tjänsten."
   syntax:
     content: protected object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to retrieve."
+      description: "Typ av tjänst för att hämta."
     return:
       type: System.Object
-      description: "The requested service, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the requested service is not found."
+      description: "Den begärda tjänsten eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om det gick inte att hitta den begärda tjänsten."
   overload: System.ComponentModel.Design.UndoEngine.GetService*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.UndoEngine.OnUndoing(System.EventArgs)
@@ -276,13 +276,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.UndoEngine.Undoing&quot;></xref> event."
+  summary: "Genererar den <xref href=&quot;System.ComponentModel.Design.UndoEngine.Undoing&quot;> </xref> händelse."
   syntax:
     content: protected virtual void OnUndoing (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "En <xref:System.EventArgs>som innehåller informationen om händelsen.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.UndoEngine.OnUndoing*
   exceptions: []
   platform:
@@ -299,13 +299,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Raises the <xref href=&quot;System.ComponentModel.Design.UndoEngine.Undone&quot;></xref> event."
+  summary: "Genererar den <xref href=&quot;System.ComponentModel.Design.UndoEngine.Undone&quot;> </xref> händelse."
   syntax:
     content: protected virtual void OnUndone (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains the event data."
+      description: "En <xref:System.EventArgs>som innehåller informationen om händelsen.</xref:System.EventArgs>"
   overload: System.ComponentModel.Design.UndoEngine.OnUndone*
   exceptions: []
   platform:
@@ -322,12 +322,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs immediately before an undo action is performed."
+  summary: "Inträffar innan en Ångra-åtgärd utförs."
   syntax:
     content: public event EventHandler Undoing;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -343,12 +343,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Indicates if an undo action is in progress."
+  summary: "Anger om en Ångra-åtgärd pågår."
   syntax:
     content: public bool UndoInProgress { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an undo action is in progress; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om en Ångra-åtgärd pågår; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.UndoEngine.UndoInProgress*
   exceptions: []
   platform:
@@ -365,13 +365,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Occurs immediately after an undo action is performed."
-  remarks: "The Undone event is always raised, even if an exception is thrown."
+  summary: "Inträffar omedelbart efter en Ångra-åtgärd utförs."
+  remarks: "Ångra händelsen inträffar alltid, även om ett undantag."
   syntax:
     content: public event EventHandler Undone;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

@@ -15,8 +15,8 @@ items:
   nameWithType: MemberRelationshipService
   fullName: System.ComponentModel.Design.Serialization.MemberRelationshipService
   type: Class
-  summary: "Provides the base class for relating one member to another."
-  remarks: "Designers serialize themselves to code through an engine that searches through the live property values of objects and generates those values as code. So, for example, the text of a button is generated in the following format.      ```c#   this.okButton.Text = &quot;OK&quot;;   ```       One of the limitations of this scheme is that it is difficult to retrieve a property from another location. For example, it is very difficult to emit code in the following format, because the only thing the code generator can rely on is the value in the property.      ```c#   this.titleLabel.Text = this.Text;   ```"
+  summary: "Innehåller basklassen för om en medlem till en annan."
+  remarks: "Designers serialisera själva kod via ett verktyg som söker igenom live värden för objekt och genererar dessa värden som kod. Så, till exempel texten på en knapp genereras i följande format.      ```c#   this.okButton.Text = &quot;OK&quot;;   ```En av begränsningarna för dessa regler är att det är svårt att hämta en egenskap från en annan plats. Till exempel är väldigt svårt att generera kod i följande format, eftersom enda kodgenerator kan utgå ifrån är värdet i egenskapen.      ```c#   this.titleLabel.Text = this.Text;   ```"
   example:
   - "The MemberRelationshipService simplifies retrieval of a property value from another location. A designer can access this service to dictate that one member is assigned the value of another. The code generator searches for such relationships when generating code, and if a relationship between two members is found the code generator, it emits code for the relationship rather than searching for the property value. Using the previous text assignment as an example, the following code example shows design time code used to establish a relationship.  \n  \n```c#  \nobject titleLabel, form;  \nPropertyDescriptor titleLabelText = TypeDescriptor.GetProperties(titleLabel)[\"Text\"];  \nPropertyDescriptor formText = TypeDescriptor.GetProperties(form)[\"Text\"];  \nMemberRelationshipService ms = GetService(typeof(MemberRelationshipService);  \nms[titleLabel, titleLabelText] = new MemberRelationship(form, formText);  \n```"
   syntax:
@@ -39,7 +39,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationshipService&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationshipService&quot;> </xref> klass."
   syntax:
     content: protected MemberRelationshipService ();
     parameters: []
@@ -59,17 +59,17 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a relationship to the given source relationship."
-  remarks: "The default implementation stores relationships in a dictionary using weak references, so the relationship table does not keep objects alive."
+  summary: "Hämtar en relation till den angivna källa relationen."
+  remarks: "Standardimplementering lagrar relationer i en ordlista med svaga referenser, så att tabellen relationen inte behålls objekt alive."
   syntax:
     content: protected virtual System.ComponentModel.Design.Serialization.MemberRelationship GetRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "Käll-relation."
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "A relationship to <code>source</code>, or <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> if no relationship exists."
+      description: "En relation till <code> source </code>, eller <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;> </xref> om ingen relation."
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.GetRelationship*
   exceptions: []
   platform:
@@ -86,25 +86,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Establishes a relationship between a source and target object."
-  remarks: "If <xref:System.ComponentModel.Design.Serialization.MemberRelationship> is assigned to the source, any existing relationship is removed."
+  summary: "Upprättar ett förhållande mellan en källa och mål-objektet."
+  remarks: "Om <xref:System.ComponentModel.Design.Serialization.MemberRelationship>är tilldelad till källan, en befintlig relation tas bort.</xref:System.ComponentModel.Design.Serialization.MemberRelationship>"
   syntax:
     content: public System.ComponentModel.Design.Serialization.MemberRelationship this[System.ComponentModel.Design.Serialization.MemberRelationship source] { get; set; }
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship. This is the left-hand side of a relationship assignment."
+      description: "Käll-relation. Det här är den vänstra sidan av en tilldelning av relation."
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The current relationship associated with <code>source</code>, or <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> if there is no relationship."
+      description: "Den aktuella relation som är associerade med <code> source </code>, eller <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;> </xref> om det finns ingen relation."
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>source</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>source</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>source</code> is empty, or the relationship is not supported by the service."
+    description: "<code>source</code>är tomt, eller relationen stöds inte av tjänsten."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item(System.Object,System.ComponentModel.MemberDescriptor)
@@ -119,27 +119,27 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Establishes a relationship between a source and target object."
+  summary: "Upprättar ett förhållande mellan en källa och mål-objektet."
   syntax:
     content: public System.ComponentModel.Design.Serialization.MemberRelationship this[object sourceOwner, System.ComponentModel.MemberDescriptor sourceMember] { get; set; }
     parameters:
     - id: sourceOwner
       type: System.Object
-      description: "The owner of a source relationship."
+      description: "Ägaren av en käll-relation."
     - id: sourceMember
       type: System.ComponentModel.MemberDescriptor
-      description: "The member of a source relationship."
+      description: "Medlem av en käll-relation."
     return:
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;></xref> structure encapsulating the relationship between a source and target object, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no relationship."
+      description: "En <xref href=&quot;System.ComponentModel.Design.Serialization.MemberRelationship&quot;> </xref> struktur som kapslar in relationen mellan en källa och mål-objektet, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om det finns ingen relation."
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.Item*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sourceOwner</code> or <code>sourceMember</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sourceOwner</code>or <code>sourceMember</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>sourceOwner</code> or <code>sourceMember</code> is empty, or the relationship is not supported by the service."
+    description: "<code>sourceOwner</code>eller <code>sourceMember</code> är tomt, eller relationen stöds inte av tjänsten."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.SetRelationship(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)
@@ -154,22 +154,22 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates a relationship between the source object and target relationship."
-  remarks: "The SetRelationship method clears any existing relationship if the relationship parameter is <xref:System.ComponentModel.Design.Serialization.MemberRelationship>. The default implementation stores relationships in a dictionary using weak references so the relationship table does not keep objects alive."
+  summary: "Skapar en relation mellan källa och mål för objektet relationen."
+  remarks: "Metoden SetRelationship tar bort alla befintliga relationen om parametern relationen <xref:System.ComponentModel.Design.Serialization.MemberRelationship>.</xref:System.ComponentModel.Design.Serialization.MemberRelationship> Standardimplementering lagrar relationer i en ordlista med svaga referenser så att tabellen relationen inte behålls objekt alive."
   syntax:
     content: protected virtual void SetRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source, System.ComponentModel.Design.Serialization.MemberRelationship relationship);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "Käll-relation."
     - id: relationship
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The relationship to set into the source."
+      description: "Relationen ska anges i källan."
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.SetRelationship*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The relationship is not supported by the service."
+    description: "Relationen stöds inte av tjänsten."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.MemberRelationshipService.SupportsRelationship(System.ComponentModel.Design.Serialization.MemberRelationship,System.ComponentModel.Design.Serialization.MemberRelationship)
@@ -184,19 +184,19 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether the given relationship is supported."
+  summary: "Hämtar ett värde som anger om relationen stöds."
   syntax:
     content: public abstract bool SupportsRelationship (System.ComponentModel.Design.Serialization.MemberRelationship source, System.ComponentModel.Design.Serialization.MemberRelationship relationship);
     parameters:
     - id: source
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The source relationship."
+      description: "Käll-relation."
     - id: relationship
       type: System.ComponentModel.Design.Serialization.MemberRelationship
-      description: "The relationship to set into the source."
+      description: "Relationen ska anges i källan."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a relationship between the given two objects is supported; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om en relation mellan de två angivna objekt stöds. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.MemberRelationshipService.SupportsRelationship*
   exceptions: []
   platform:
