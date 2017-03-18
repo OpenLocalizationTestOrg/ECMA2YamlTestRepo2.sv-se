@@ -38,8 +38,8 @@ items:
   nameWithType: TextPointer
   fullName: System.Windows.Documents.TextPointer
   type: Class
-  summary: "Represents a position within a <xref href=&quot;System.Windows.Documents.FlowDocument&quot;></xref> or <xref href=&quot;System.Windows.Controls.TextBlock&quot;></xref>."
-  remarks: "The TextPointer class introduces the following terminology:      -   Position - Inherently, a TextPointer always points to a *position* in content.  Such positions either fall between characters in the content, or between flow content element tags that define structure for the content.      -   Current Position - Because a TextPointer always indicates a position, and because many of the operations that can be performed through a TextPointer are relative to the position currently pointed to by the TextPointer, it makes sense to simply refer to the position indicated by a TextPointer as the *current position*.      -   Insertion Position - An *insertion position* is a position where new content may be added without breaking any semantic rules for the associated content.  In practice, an insertion position is anywhere in content where a caret may be positioned.  An example of a valid TextPointer position that is not an insertion position is the position between two adjacent <xref:System.Windows.Documents.Paragraph> tags (that is, between the closing tag of the preceding paragraph and the opening tag of the next paragraph).      -   Symbol - For the purposes of TextPointer operations that involve symbols, any of the following is considered to be a *symbol*:          -   An opening or closing tag for a <xref:System.Windows.Documents.TextElement> element.          -   A <xref:System.Windows.UIElement> element contained within an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.          -   Each 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element.      -   Text Container - A *text container* is the element that forms the ultimate border for the flow content at hand; the position indicated by a TextPointer always falls within a text container.  Currently, a text container must be either a <xref:System.Windows.Documents.FlowDocument> or a <xref:System.Windows.Controls.TextBlock>.  Generally speaking, operations between TextPointer instances in different text containers are not supported.      -   Document - The content in a text container is referred to as a *document*, as in the <xref:System.Windows.Documents.TextPointer.IsInSameDocument%2A> method and the <xref:System.Windows.Documents.TextPointer.DocumentStart%2A> and <xref:System.Windows.Documents.TextPointer.DocumentEnd%2A> properties.       The TextPointer class is intended to facilitate traversal and manipulation of content that is represented by [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] flow content elements; in general, such elements derive from <xref:System.Windows.Documents.TextElement>.  Some of the operations that TextPointer facilitates include the following:      -   Perform an ordinal comparison of the current position with a second specified position.  See the <xref:System.Windows.Documents.TextPointer.CompareTo%2A> method.      -   Determine the type of content adjacent to the current position in a specified direction.  See the <xref:System.Windows.Documents.TextPointer.GetPointerContext%2A> method and <xref:System.Windows.Documents.TextPointerContext> enumeration.      -   Get the <xref:System.Windows.Documents.TextElement> that scopes or is adjacent to the current position.  See <xref:System.Windows.Documents.Paragraph> and the <xref:System.Windows.Documents.TextPointer.GetAdjacentElement%2A> method.      -   Get the text container that scopes the current document.  See the <xref:System.Windows.Documents.TextPointer.Parent%2A> property.      -   Get a specified number of characters preceding or following the current position.  See the <xref:System.Windows.Documents.TextPointer.GetTextInRun%2A> method.      -   Insert a string of characters at the current position.  See the <xref:System.Windows.Documents.TextPointer.InsertTextInRun%2A> method.      -   Find line boundaries in content.  See the <xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A> method and <xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A> property.      -   Translate between TextPointer positions and symbol offsets into content.  See the <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A> and <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A> methods.      -   Perform visual hit testing by translating between a TextPointer position and a <xref:System.Windows.Point> representing relative coordinates.      -   Find a nearby insertion position, or check whether the current position is an insertion position.  See the <xref:System.Windows.Documents.TextPointer.GetInsertionPosition%2A> and <xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A> methods and the <xref:System.Windows.Documents.TextPointer.IsAtInsertionPosition%2A> property.       The position and <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> indicated by a TextPointer object are immutable.  When content is edited or modified, the position indicated by a TextPointer does not change relative to the surrounding text; rather the offset of that position from the beginning of content is adjusted correspondingly to reflect the new relative position in content.  For example, a TextPointer that indicates a position at the beginning of a given paragraph continues to point to the beginning of that paragraph even when content is inserted or deleted before or after the paragraph.       The TextPointer class does not provide any public constructors.  An instance of TextPointer is created by using properties or methods of other objects (including other TextPointer objects). The following list provides a few examples of methods and properties that create and return a TextPointer.  This list is not exhaustive:      -   From a <xref:System.Windows.Documents.TextRange>: <xref:System.Windows.Documents.TextRange.Start%2A> and <xref:System.Windows.Documents.TextRange.End%2A>.      -   From a <xref:System.Windows.Documents.TextElement>:  <xref:System.Windows.Documents.TextElement.ContentStart%2A>, <xref:System.Windows.Documents.TextElement.ContentEnd%2A>, <xref:System.Windows.Documents.TextElement.ElementStart%2A>, and <xref:System.Windows.Documents.TextElement.ElementEnd%2A>.      -   From a <xref:System.Windows.Controls.TextBlock> (text container): <xref:System.Windows.Controls.TextBlock.ContentStart%2A>, <xref:System.Windows.Controls.TextBlock.ContentEnd%2A>, and <xref:System.Windows.Controls.TextBlock.GetPositionFromPoint%2A>.      -   From a <xref:System.Windows.Documents.FlowDocument> (text container): <xref:System.Windows.Documents.FlowDocument.ContentStart%2A>, and <xref:System.Windows.Documents.FlowDocument.ContentEnd%2A>      -   From an existing TextPointer: <xref:System.Windows.Documents.TextPointer.DocumentStart%2A>, <xref:System.Windows.Documents.TextPointer.DocumentEnd%2A>, <xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A>, and <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A>."
+  summary: "Representerar en plats i en <xref href=&quot;System.Windows.Documents.FlowDocument&quot;> </xref> eller <xref href=&quot;System.Windows.Controls.TextBlock&quot;> </xref>."
+  remarks: "Klassen TextPointer introducerar till följande terminologi: - Position - kombination, en TextPointer alltid pekar mot en *position* i innehåll.  Sådana positioner antingen faller mellan tecken i innehållet eller flödet innehåll elementet taggar som definierar strukturen för innehållet.      -Aktuella Position - eftersom en TextPointer alltid anger en plats och eftersom många av de åtgärder som kan utföras via en TextPointer är i förhållande till den plats som anges för närvarande av TextPointer är det klokt att bara referera till den position som en TextPointer som den *aktuella position*.      -Position infogning - en *infogning position* är en plats där nytt innehåll kan läggas till utan att någon semantisk regler för associerat innehåll.  I praktiken är en infogning position som helst innehåll där en hatt kan placeras.  Ett exempel på en giltig TextPointer position som inte är en infogning position är positionen mellan två på varandra följande <xref:System.Windows.Documents.Paragraph>taggar (det vill säga mellan sluttagg styckets föregående och nästa stycke starttagg).</xref:System.Windows.Documents.Paragraph>      -Symbol - enligt TextPointer åtgärder som innefattar symboler, något av följande anses vara en *symbol*: – ett inledande eller avslutande tagg för en <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>          -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>          -Varje 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>      -Text behållare – en *textbehållaren* är det element som utgör ultimate kantlinjen för flöde innehållet till hands; position som en TextPointer alltid faller inom en textbehållare.  För närvarande är måste en textbehållare vara antingen en <xref:System.Windows.Documents.FlowDocument>eller ett <xref:System.Windows.Controls.TextBlock>.</xref:System.Windows.Controls.TextBlock> </xref:System.Windows.Documents.FlowDocument>  Generellt sett stöds åtgärder mellan instanser av TextPointer i behållare med annan text inte.      -Dokument - innehållet i en text container kallas en *dokument*, som i den <xref:System.Windows.Documents.TextPointer.IsInSameDocument%2A>metoden och <xref:System.Windows.Documents.TextPointer.DocumentStart%2A>och <xref:System.Windows.Documents.TextPointer.DocumentEnd%2A>Egenskaper.</xref:System.Windows.Documents.TextPointer.DocumentEnd%2A> </xref:System.Windows.Documents.TextPointer.DocumentStart%2A> </xref:System.Windows.Documents.TextPointer.IsInSameDocument%2A>       Klassen TextPointer är avsedd för att underlätta traversal och hantering av innehåll som representeras av [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] flöda innehållselement; i allmänhet sådana element är härledd från <xref:System.Windows.Documents.TextElement>.</xref:System.Windows.Documents.TextElement>  Några av de åtgärder som underlättar TextPointer är följande:-utför en ordningstal jämförelse av den aktuella platsen med en andra angiven position.  Finns det <xref:System.Windows.Documents.TextPointer.CompareTo%2A>metod.</xref:System.Windows.Documents.TextPointer.CompareTo%2A>      – Avgör vilken typ av innehåll vid aktuell position i en angiven riktning.  Finns det <xref:System.Windows.Documents.TextPointer.GetPointerContext%2A>metoden och <xref:System.Windows.Documents.TextPointerContext>uppräkningen.</xref:System.Windows.Documents.TextPointerContext> </xref:System.Windows.Documents.TextPointer.GetPointerContext%2A>      -Få den <xref:System.Windows.Documents.TextElement>som scope eller angränsar till den aktuella positionen.</xref:System.Windows.Documents.TextElement>  Se <xref:System.Windows.Documents.Paragraph>och <xref:System.Windows.Documents.TextPointer.GetAdjacentElement%2A>metod.</xref:System.Windows.Documents.TextPointer.GetAdjacentElement%2A> </xref:System.Windows.Documents.Paragraph>      -Hämta textbehållaren som scope i det aktuella dokumentet.  Finns det <xref:System.Windows.Documents.TextPointer.Parent%2A>egenskap.</xref:System.Windows.Documents.TextPointer.Parent%2A>      -Hämta ett angivet antal tecken före eller efter den aktuella positionen.  Finns det <xref:System.Windows.Documents.TextPointer.GetTextInRun%2A>metod.</xref:System.Windows.Documents.TextPointer.GetTextInRun%2A>      -Infoga en sträng med tecken i den aktuella positionen.  Finns det <xref:System.Windows.Documents.TextPointer.InsertTextInRun%2A>metod.</xref:System.Windows.Documents.TextPointer.InsertTextInRun%2A>      -Hitta raden gränser i innehåll.  Finns det <xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A>metoden och <xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A>egenskap.</xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A> </xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A>      -Översätta mellan TextPointer och symbolen förskjutningar till innehåll.  Finns det <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A>och <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A>metoder.</xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A> </xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A>      -Utför visual träffar testning genom att översätta mellan TextPointer position och en <xref:System.Windows.Point>som representerar relativa koordinater.</xref:System.Windows.Point>      -Hitta Närliggande infogning position, eller kontrollera om den aktuella positionen är en infogning position.  Finns det <xref:System.Windows.Documents.TextPointer.GetInsertionPosition%2A>och <xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A>metoder och <xref:System.Windows.Documents.TextPointer.IsAtInsertionPosition%2A>egenskap.</xref:System.Windows.Documents.TextPointer.IsAtInsertionPosition%2A> </xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A> </xref:System.Windows.Documents.TextPointer.GetInsertionPosition%2A>       Positionen och <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A>anges med ett TextPointer-objekt är oföränderliga.</xref:System.Windows.Documents.TextPointer.LogicalDirection%2A>  När innehåll redigeras eller ändras, ändras inte den position som en TextPointer i förhållande till den omgivande texten; i stället justeras förskjutningen för den positionen från början av innehåll på motsvarande sätt för att återspegla den nya relativa positionen i innehåll.  Till exempel fortsätter en TextPointer som anger en position i början av en viss punkt att peka till början av den punkten även när innehållet infogas eller tas bort före eller efter punkt.       Klassen TextPointer ger inte några offentliga konstruktorer.  En instans av TextPointer skapas med hjälp av egenskaper och metoder för andra objekt (inklusive andra TextPointer objekt). Följande lista innehåller några exempel på metoder och egenskaper som skapar och returnera ett TextPointer.  Den här listan är inte komplett: – från en <xref:System.Windows.Documents.TextRange>: <xref:System.Windows.Documents.TextRange.Start%2A>och <xref:System.Windows.Documents.TextRange.End%2A>.</xref:System.Windows.Documents.TextRange.End%2A> </xref:System.Windows.Documents.TextRange.Start%2A> </xref:System.Windows.Documents.TextRange>      -   From a <xref:System.Windows.Documents.TextElement>:  <xref:System.Windows.Documents.TextElement.ContentStart%2A>, <xref:System.Windows.Documents.TextElement.ContentEnd%2A>, <xref:System.Windows.Documents.TextElement.ElementStart%2A>, and <xref:System.Windows.Documents.TextElement.ElementEnd%2A>.</xref:System.Windows.Documents.TextElement.ElementEnd%2A></xref:System.Windows.Documents.TextElement.ElementStart%2A></xref:System.Windows.Documents.TextElement.ContentEnd%2A></xref:System.Windows.Documents.TextElement.ContentStart%2A></xref:System.Windows.Documents.TextElement>      -Från en <xref:System.Windows.Controls.TextBlock>(textbehållaren): <xref:System.Windows.Controls.TextBlock.ContentStart%2A>, <xref:System.Windows.Controls.TextBlock.ContentEnd%2A>, och <xref:System.Windows.Controls.TextBlock.GetPositionFromPoint%2A>.</xref:System.Windows.Controls.TextBlock.GetPositionFromPoint%2A> </xref:System.Windows.Controls.TextBlock.ContentEnd%2A> </xref:System.Windows.Controls.TextBlock.ContentStart%2A> </xref:System.Windows.Controls.TextBlock>      -Från en <xref:System.Windows.Documents.FlowDocument>(textbehållaren): <xref:System.Windows.Documents.FlowDocument.ContentStart%2A>, och <xref:System.Windows.Documents.FlowDocument.ContentEnd%2A>– från en befintlig TextPointer: <xref:System.Windows.Documents.TextPointer.DocumentStart%2A>, <xref:System.Windows.Documents.TextPointer.DocumentEnd%2A>, <xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A>, och <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A>.</xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A> </xref:System.Windows.Documents.TextPointer.GetNextInsertionPosition%2A> </xref:System.Windows.Documents.TextPointer.DocumentEnd%2A> </xref:System.Windows.Documents.TextPointer.DocumentStart%2A> </xref:System.Windows.Documents.FlowDocument.ContentEnd%2A> </xref:System.Windows.Documents.FlowDocument.ContentStart%2A> </xref:System.Windows.Documents.FlowDocument>"
   example:
   - "The following example demonstrates how to use a TextPointer to find a position just inside of the first <xref:System.Windows.Documents.Run> element in a specified text container.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_TextPointer1](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_textpointer1)]\n [!code-vb[TextPointer_Snippets#_TextPointer_TextPointer1](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_textpointer1)]  \n  \n The following example implements a simplistic find algorithm using TextPointer facilities.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_TextPointer2](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_textpointer2)]\n [!code-vb[TextPointer_Snippets#_TextPointer_TextPointer2](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_textpointer2)]"
   syntax:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Performs an ordinal comparison between the positions specified by the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and a second specified <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
-  remarks: "A value of –1 indicates that the position specified by the current <xref:System.Windows.Documents.TextPointer> precedes the position specified by `position`.  A value of 0 indicates that the indicated positions are equal.  A value of positive +1 indicates that the position specified by the current <xref:System.Windows.Documents.TextPointer> follows the position specified by `position`."
+  summary: "Utför en ordningstal jämförelse mellan platserna som anges av aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och en andra angetts <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
+  remarks: "Värdet –&1; anger att positionen som anges av aktuellt <xref:System.Windows.Documents.TextPointer>föregår det läge som anges av `position`.</xref:System.Windows.Documents.TextPointer>  Värdet 0 anger att de angivna positionerna är lika.  Värdet positivt +&1; anger att positionen som anges av aktuellt <xref:System.Windows.Documents.TextPointer>följer positionen som anges av `position`.</xref:System.Windows.Documents.TextPointer>"
   example:
   - "The following example demonstrates a use for this method.  In the example, the CompareTo method is used in conjunction with the <xref:System.Windows.Documents.TextPointer.GetInsertionPosition%2A> method to test whether a specified <xref:System.Windows.Documents.TextElement> is empty.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetInsertionPosition](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getinsertionposition)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetInsertionPosition](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getinsertionposition)]"
   syntax:
@@ -73,15 +73,15 @@ items:
     parameters:
     - id: position
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> that specifies a position to compare to the current position."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> som anger möjlighet att jämföra med den aktuella positionen."
     return:
       type: System.Int32
-      description: "–1 if the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> precedes <code>position</code>; 0 if the locations are the same; +1 if the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> follows <code>position</code>."
+      description: "– 1 om aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> föregår <code> position </code>; 0 om samma platser; + 1 om aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> följer <code> position </code>."
   overload: System.Windows.Documents.TextPointer.CompareTo*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>position</code> specifies a position outside of the text container associated with the current position."
+    description: "<code>position</code>Anger en position utanför textbehållaren som är associerade med den aktuella positionen."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.DeleteTextInRun(System.Int32)
@@ -96,22 +96,22 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Deletes the specified number of characters from the position indicated by the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
-  remarks: "Specify a positive value to delete characters that follow the current position (as in <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>); specify a negative value to delete characters that precede the current position (as in <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>).       The number of characters actually deleted may be less than the number specified by `count`.  This happens in cases where `count` specifies more characters than exist to be deleted."
+  summary: "Tar bort det angivna antalet tecken från position som aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
+  remarks: "Ange ett positivt värde för att ta bort tecken som följer den aktuella positionen (som i <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>); Ange ett negativt värde för att ta bort tecken som före den aktuella positionen (som i <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>).</xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName> </xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>       Antalet tecken som tas bort kan vara mindre än det antal som anges av `count`.  Detta sker i fall där `count` anger fler tecken än finns tas bort."
   syntax:
     content: public int DeleteTextInRun (int count);
     parameters:
     - id: count
       type: System.Int32
-      description: "The number of characters to delete, starting at the current position. Specify a positive value to delete characters that follow the current position; specify a negative value to delete characters that precede the current position."
+      description: "Antalet tecken för att ta bort, början vid den aktuella positionen. Ange ett positivt värde för att ta bort tecken som följer den aktuella positionen; Ange ett negativt värde för att ta bort tecken som före den aktuella positionen."
     return:
       type: System.Int32
-      description: "The number of characters actually deleted."
+      description: "Antalet tecken som tas bort."
   overload: System.Windows.Documents.TextPointer.DeleteTextInRun*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The method is called at a position where text is not allowed."
+    description: "Metoden anropas på en plats där text inte tillåts."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.DocumentEnd
@@ -126,13 +126,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> at the end of content in the text container associated with the current position."
-  remarks: "The <xref:System.Windows.Documents.TextPointer.Parent%2A> for the returned <xref:System.Windows.Documents.TextPointer> is always a text container (<xref:System.Windows.Controls.TextBlock> or <xref:System.Windows.Documents.FlowDocument>), rather than a <xref:System.Windows.Documents.TextElement>."
+  summary: "Hämtar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i slutet av innehållet i textbehållaren som är associerade med den aktuella positionen."
+  remarks: "Den <xref:System.Windows.Documents.TextPointer.Parent%2A>för den returnerade <xref:System.Windows.Documents.TextPointer>alltid är en textbehållare (<xref:System.Windows.Controls.TextBlock> eller <xref:System.Windows.Documents.FlowDocument>), i stället för en <xref:System.Windows.Documents.TextElement>.</xref:System.Windows.Documents.TextElement> </xref:System.Windows.Documents.FlowDocument> </xref:System.Windows.Controls.TextBlock> </xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer.Parent%2A>"
   syntax:
     content: public System.Windows.Documents.TextPointer DocumentEnd { get; }
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> at the end of content in the text container associated with the current position."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i slutet av innehållet i textbehållaren som är associerade med den aktuella positionen."
   overload: System.Windows.Documents.TextPointer.DocumentEnd*
   exceptions: []
   platform:
@@ -149,13 +149,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> at the beginning of content in the text container associated with the current position."
-  remarks: "Use the position returned by this property as a baseline position from which to work with relative offsets to other positions.  The <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A> and <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A> methods provide a way to translate between positions and position offsets.       The <xref:System.Windows.Documents.TextPointer.Parent%2A> for the returned <xref:System.Windows.Documents.TextPointer> is always a text container (<xref:System.Windows.Controls.TextBlock> or <xref:System.Windows.Documents.FlowDocument>), rather than a <xref:System.Windows.Documents.TextElement>."
+  summary: "Hämtar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i början av innehållet i textbehållaren som är associerade med den aktuella positionen."
+  remarks: "Använd positionen som returneras av den här egenskapen som en baslinje-plats där du kan arbeta med relativa förskjutningar till andra platser.  Den <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A>och <xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A>metoder ger dig ett sätt att översätta mellan och position förskjuts.</xref:System.Windows.Documents.TextPointer.GetPositionAtOffset%2A> </xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A>       Den <xref:System.Windows.Documents.TextPointer.Parent%2A>för den returnerade <xref:System.Windows.Documents.TextPointer>alltid är en textbehållare (<xref:System.Windows.Controls.TextBlock> eller <xref:System.Windows.Documents.FlowDocument>), i stället för en <xref:System.Windows.Documents.TextElement>.</xref:System.Windows.Documents.TextElement> </xref:System.Windows.Documents.FlowDocument> </xref:System.Windows.Controls.TextBlock> </xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer.Parent%2A>"
   syntax:
     content: public System.Windows.Documents.TextPointer DocumentStart { get; }
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> at the beginning of content in the text container associated with the current position."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i början av innehållet i textbehållaren som är associerade med den aktuella positionen."
   overload: System.Windows.Documents.TextPointer.DocumentStart*
   exceptions: []
   platform:
@@ -172,17 +172,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns the element, if any, that borders the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> in the specified logical direction."
-  remarks: "The returned element is typically a <xref:System.Windows.Documents.TextElement>.  A <xref:System.Windows.UIElement> can be returned when the <xref:System.Windows.Documents.TextPointer> indicates a position inside a <xref:System.Windows.Documents.BlockUIContainer> element or an <xref:System.Windows.Documents.InlineUIContainer> element."
+  summary: "Returnerar elementet, om sådant finns, som avgränsar du aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i den angivna logiska riktningen."
+  remarks: "Returnerade element är vanligtvis ett <xref:System.Windows.Documents.TextElement>.</xref:System.Windows.Documents.TextElement>  En <xref:System.Windows.UIElement>kan returneras när den <xref:System.Windows.Documents.TextPointer>anger en plats i en <xref:System.Windows.Documents.BlockUIContainer>element eller ett <xref:System.Windows.Documents.InlineUIContainer>element.</xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.TextPointer> </xref:System.Windows.UIElement>"
   syntax:
     content: public System.Windows.DependencyObject GetAdjacentElement (System.Windows.Documents.LogicalDirection direction);
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to search for an adjacent element."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att söka efter ett angränsande element."
     return:
       type: System.Windows.DependencyObject
-      description: "The adjacent element in the specified <code>direction</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no adjacent element exists."
+      description: "Närliggande element i den angivna <code> direction </code>, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om det inte finns några angränsande element."
   overload: System.Windows.Documents.TextPointer.GetAdjacentElement*
   exceptions: []
   platform:
@@ -199,17 +199,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a bounding box (<xref href=&quot;System.Windows.Rect&quot;></xref>) for content that borders the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> in the specified logical direction."
-  remarks: "<xref:System.Windows.Documents.TextElement> edges are not considered content for the purposes of this method.  If the <xref:System.Windows.Documents.TextPointer> is positioned before a <xref:System.Windows.Documents.TextElement> edge, the return value is a bounding box for the next non-<xref:System.Windows.Documents.TextElement> content in the specified direction.  If there is no content in the specified direction, a zero-width <xref:System.Windows.Rect> is returned with a height matching the height of any preceding content.       The operation performed by this method depends on a valid layout.  When necessary, this method attempts to automatically regenerate a valid layout before proceeding with the operation.  Regenerating a layout can be a relatively expensive operation.  Use the <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A> property to check for a valid layout before performing operations that may regenerate the layout.  For more information, see [Layout](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Returnerar en avgränsningsram (<xref href=&quot;System.Windows.Rect&quot;></xref>) för innehåll som avgränsar du aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i den angivna logiska riktningen."
+  remarks: "<xref:System.Windows.Documents.TextElement>kanter anses inte innehållet för den här metoden.</xref:System.Windows.Documents.TextElement>  Om den <xref:System.Windows.Documents.TextPointer>är placerad före en <xref:System.Windows.Documents.TextElement>kant returvärdet är avgränsningsram för nästa icke -<xref:System.Windows.Documents.TextElement> innehåll i den angivna riktningen.</xref:System.Windows.Documents.TextElement> </xref:System.Windows.Documents.TextElement> </xref:System.Windows.Documents.TextPointer>  Om det finns inget innehåll i den angivna riktningen noll bredd <xref:System.Windows.Rect>returneras med en höjd matchar höjden för alla föregående innehåll.</xref:System.Windows.Rect>       Åtgärden som utförs av den här metoden är beroende av en giltig layout.  Vid behov, försöker den här metoden att automatiskt återskapa en giltig layout innan du fortsätter med åtgärden.  Återskapande av en layout kan vara ett relativt kostsam åtgärd.  Använd den <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>egenskapen att söka efter en giltigt layout innan du utför åtgärder som kan återskapa layouten.</xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>  Mer information finns i [Layout](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Windows.Rect GetCharacterRect (System.Windows.Documents.LogicalDirection direction);
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to find a content bounding box."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktning som innehåller en innehåll angränsande ruta."
     return:
       type: System.Windows.Rect
-      description: "A bounding box for content that borders the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> in the specified direction, or &lt;xref:System.Windows.Rect.Empty%2A?displayProperty=fullName&gt; if current, valid layout information is unavailable."
+      description: "Avgränsningsram för innehåll som avgränsar du aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i den angivna riktningen eller &lt;xref:System.Windows.Rect.Empty%2A?displayProperty=fullName&gt; om aktuell, giltig layoutinformation är inte tillgänglig."
   overload: System.Windows.Documents.TextPointer.GetCharacterRect*
   exceptions: []
   platform:
@@ -226,8 +226,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the closest insertion position in the specified logical direction."
-  remarks: "An insertion position is a position where new content may be added without breaking any semantic rules for the associated content.  In practice, an insertion position is anywhere in content where a caret may be positioned.  An example of a valid <xref:System.Windows.Documents.TextPointer> position that is not an insertion position is the position between two adjacent <xref:System.Windows.Documents.Paragraph> tags (that is, between the closing tag of the preceding paragraph and the opening tag of the next paragraph).       If the <xref:System.Windows.Documents.TextPointer> already points to a valid insertion position, but the closing tag for a non-empty formatting sequence directly follows that position in the given direction, then the <xref:System.Windows.Documents.TextPointer> returned by this method is adjusted to point to the insertion position just after the close of the formatting sequence.    For example, consider the markup sequence `<Bold>``a``</Bold>``b`.  Note that there are two insertion positions between the letters `a` and `b`—one that precedes the closing `Bold` tag, and one directly following the closing `Bold` tag.  If GetInsertionPosition is called on a <xref:System.Windows.Documents.TextPointer> to the position directly after the letter `a` and before of the closing `Bold` tag, and with a `direction` of <xref:System.Windows.Documents.LogicalDirection>, the returned <xref:System.Windows.Documents.TextPointer> is adjusted to point to the position just before the letter `b`, after the closing `Bold` tag.  A similar adjustment is made for opening formatting tags when working in the opposite logical direction.  This method is intended to provide a means of disambiguation between insertion positions in similar cases.       This method can also be used to be selective about insertion points when a sequence of structural tags is involved. For example, when at a position between closing and opening paragraph tags, the direction parameter can be used to select the closest insertion point at the beginning of the following paragraph (by specifying <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>) or at the end of the preceding paragraph (by specifying <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>).       If the pointer is already at insertion position, and there are no adjacent formatting tags in the specified `direction`, the returned <xref:System.Windows.Documents.TextPointer> points to the same position as the calling <xref:System.Windows.Documents.TextPointer>.       It is possible that no valid insertion position exists relative to the position pointed to by a <xref:System.Windows.Documents.TextPointer>.  This can happen if the referenced content is structurally incomplete, as in an empty table or list.  In such cases, this method simply returns a <xref:System.Windows.Documents.TextPointer> to the same position as the <xref:System.Windows.Documents.TextPointer> from which this method was called.  This method always returns a valid <xref:System.Windows.Documents.TextPointer>."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den närmaste infogning positionen i den angivna logiska riktningen."
+  remarks: "En infogning position är en plats där nytt innehåll kan läggas till utan att någon semantisk regler för associerat innehåll.  I praktiken är en infogning position som helst innehåll där en hatt kan placeras.  Ett exempel på en giltig <xref:System.Windows.Documents.TextPointer>tjänst som inte är en infogning position är positionen mellan två på varandra följande <xref:System.Windows.Documents.Paragraph>taggar (det vill säga mellan sluttagg styckets föregående och nästa stycke starttagg).</xref:System.Windows.Documents.Paragraph> </xref:System.Windows.Documents.TextPointer>       Om den <xref:System.Windows.Documents.TextPointer>redan pekar på en giltig infogning position, men den avslutande taggen för en icke-tom formatering sekvens direkt efter den positionen i den angivna riktningen sedan <xref:System.Windows.Documents.TextPointer>returneras av den här metoden justeras för att peka mot infogning positionen precis efter formatering sekvensen.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer>    Anta exempelvis att markup sekvensen `<Bold>``a``</Bold>``b`.  Observera att det finns två infogningspositioner mellan bokstäverna `a` och `b`– en som visas före avslutande `Bold` taggen och ett direkt efter avslutande `Bold` tagg.  Om GetInsertionPosition anropas på en <xref:System.Windows.Documents.TextPointer>till plats direkt efter bokstaven `a` och innan om stängning `Bold` tagg, och med en `direction` av <xref:System.Windows.Documents.LogicalDirection>, den returnerade <xref:System.Windows.Documents.TextPointer>justeras så att den pekar till plats innan bokstaven `b`, efter avslutningen `Bold` tagg.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.LogicalDirection> </xref:System.Windows.Documents.TextPointer>  En liknande justering görs för att öppna formatering taggar när du arbetar i motsatt logiskt riktning.  Den här metoden är avsedd att ge ett sätt att disambiguation mellan infogningspositioner i liknande fall.       Den här metoden kan även användas för att vara noggrann om infogning punkter när en sekvens med strukturella taggar är inblandad. Exempelvis när de är på en plats mellan stänga och öppna styckestaggar riktning-parametern kan användas att välja den närmaste insättningspunkten i början av följande punkt (genom att ange <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>) eller längst ned i föregående stycke (genom att ange <xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>).</xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName> </xref:System.Windows.Documents.LogicalDirection?displayProperty=fullName>       Om pekaren är redan vid infogning position och det finns ingen formatering taggarna i den angivna `direction`, returnerade <xref:System.Windows.Documents.TextPointer>pekar på samma plats som anropar <xref:System.Windows.Documents.TextPointer>.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer>       Det är möjligt att det finns ingen giltig infogning placering i förhållande till den plats som anges av <xref:System.Windows.Documents.TextPointer>.</xref:System.Windows.Documents.TextPointer>  Detta kan inträffa om det refererade innehållet är strukturellt ofullständig, som i en tom tabell eller en lista.  I sådana fall kan den här metoden returnerar bara en <xref:System.Windows.Documents.TextPointer>till samma plats som den <xref:System.Windows.Documents.TextPointer>från den här metoden har anropats.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer>  Den här metoden returnerar alltid en giltig <xref:System.Windows.Documents.TextPointer>.</xref:System.Windows.Documents.TextPointer>"
   example:
   - "This example shows how to use the GetInsertionPosition method to check whether a specified <xref:System.Windows.Documents.TextElement> is empty of printable content.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetInsertionPosition](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getinsertionposition)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetInsertionPosition](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getinsertionposition)]"
   syntax:
@@ -235,10 +235,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to search for the closest insertion position."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att söka efter den närmaste infogning positionen."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the closest insertion position in the specified direction."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den närmaste infogning positionen i den angivna riktningen."
   overload: System.Windows.Documents.TextPointer.GetInsertionPosition*
   exceptions: []
   platform:
@@ -255,17 +255,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the beginning of a line that is specified relative to the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
-  remarks: "If the <xref:System.Windows.Documents.TextPointer> points to an ambiguous position, for example, between two lines, the line in the direction specified by <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> is selected as the relative starting line.       The operation performed by this method depends on a valid layout.  When necessary, this method attempts to automatically regenerate a valid layout before proceeding with the operation.  Regenerating a layout can be a relatively expensive operation.  Use <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A> to check for a valid layout before performing operations that may regenerate the layout.  For more information, see [Layout](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till början av en rad som anges i förhållande till aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
+  remarks: "Om den <xref:System.Windows.Documents.TextPointer>pekar på ett tvetydigt läge, till exempel mellan två rader raden i vilken riktning som anges av <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A>är markerad som relativa Start raden.</xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> </xref:System.Windows.Documents.TextPointer>       Åtgärden som utförs av den här metoden är beroende av en giltig layout.  Vid behov, försöker den här metoden att automatiskt återskapa en giltig layout innan du fortsätter med åtgärden.  Återskapande av en layout kan vara ett relativt kostsam åtgärd.  Använd <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>att söka efter en giltigt layout innan du utför åtgärder som kan återskapa layouten.</xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>  Mer information finns i [Layout](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Windows.Documents.TextPointer GetLineStartPosition (int count);
     parameters:
     - id: count
       type: System.Int32
-      description: "The number of start-of-line markers to skip when determining the line for which to return the starting position. Negative values specify preceding lines, 0 specifies the current line, and positive values specify following lines."
+      description: "Antal markörer början av raden ska hoppas över när du fastställer raden som du vill returnera startpositionen. Negativa värden anger föregående rader, 0 anger den aktuella raden och positiva värden som anger följande rader."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> pointing to the beginning of the specified line (with the <xref:System.Windows.Documents.TextPointer.LogicalDirection*> set to <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref>), or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the specified line is out of range or otherwise cannot be located."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> pekar till början av den angivna raden (med den <xref:System.Windows.Documents.TextPointer.LogicalDirection*>inställd på <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref>), eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om den angivna raden är utanför giltigt intervall eller på annat sätt går inte att hitta.</xref:System.Windows.Documents.TextPointer.LogicalDirection*>"
   overload: System.Windows.Documents.TextPointer.GetLineStartPosition*
   exceptions: []
   platform:
@@ -282,20 +282,20 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the beginning of a line that is specified relative to the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>, and reports how many lines were skipped."
-  remarks: "If the <xref:System.Windows.Documents.TextPointer> points to an ambiguous position, for example, between two lines, the line in the direction specified by the <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> property is selected as the relative starting line."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till början av en rad som anges i förhållande till aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>, och rapporterar hoppades över hur många rader."
+  remarks: "Om den <xref:System.Windows.Documents.TextPointer>pekar på ett tvetydigt läge, till exempel mellan två rader raden i vilken riktning som anges av den <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A>egenskapen markeras som relativa Start linje.</xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> </xref:System.Windows.Documents.TextPointer>"
   syntax:
     content: public System.Windows.Documents.TextPointer GetLineStartPosition (int count, out int actualCount);
     parameters:
     - id: count
       type: System.Int32
-      description: "The number of start-of-line markers to skip when determining the line for which to return the starting position. Negative values specify preceding lines, 0 specifies the current line, and positive values specify following lines."
+      description: "Antal markörer början av raden ska hoppas över när du fastställer raden som du vill returnera startpositionen. Negativa värden anger föregående rader, 0 anger den aktuella raden och positiva värden som anger följande rader."
     - id: actualCount
       type: System.Int32
-      description: "When this method returns, contains the actual number of start-of-line markers that were skipped when determining the line for which to return the starting position.  This value may be less than `count` if the beginning or end of content is encountered before the specified number of lines are skipped. This parameter is passed uninitialized."
+      description: "När den här metoden returnerar innehåller det faktiska antalet markörer i början av raden som hoppades över när du fastställer raden som du vill returnera startpositionen.  Det här värdet kan vara mindre än `count` om början eller slutet av innehåll har påträffats innan det angivna antalet rader hoppas över. Den här parametern skickas inte initierats."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> pointing to the beginning of the specified line (with the <xref:System.Windows.Documents.TextPointer.LogicalDirection*> set to <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref>), or to the beginning of the line closest to the specified line if the specified line is out of range."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> pekar till början av den angivna raden (med den <xref:System.Windows.Documents.TextPointer.LogicalDirection*>inställd på <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref>), eller till början av raden som är närmast den angivna raden om den angivna raden är utanför intervallet.</xref:System.Windows.Documents.TextPointer.LogicalDirection*>"
   overload: System.Windows.Documents.TextPointer.GetLineStartPosition*
   exceptions: []
   platform:
@@ -312,8 +312,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a pointer to the next symbol in the specified logical direction."
-  remarks: "Any of the following is considered to be a symbol:      -   An opening or closing tag for a <xref:System.Windows.Documents.TextElement> element.      -   A <xref:System.Windows.UIElement> element contained in an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.      -   A 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element.       If the next symbol is categorized as <xref:System.Windows.Documents.TextPointerContext>, <xref:System.Windows.Documents.TextPointerContext>, or <xref:System.Windows.Documents.TextPointerContext> (as identified by the <xref:System.Windows.Documents.TextPointer.GetPointerContext%2A> method), then the <xref:System.Windows.Documents.TextPointer> returned by this method is advanced by exactly one symbol from the current position.       If the next symbol is categorized as <xref:System.Windows.Documents.TextPointerContext>, then the <xref:System.Windows.Documents.TextPointer> returned by this method is advanced past the text to the next non-text symbol (that is, the next position where the <xref:System.Windows.Documents.TextPointerContext> is not <xref:System.Windows.Documents.TextPointerContext>).  The exact symbol count crossed can be calculated in advance by calling the <xref:System.Windows.Documents.TextPointer.GetTextRunLength%2A> method."
+  summary: "Returnerar en pekare till nästa symbol i den angivna logiska riktningen."
+  remarks: "Något av följande anses vara en symbol: – ett inledande eller avslutande tagg för en <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>      -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>      -En 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>       Om symbolen nästa kategoriseras som <xref:System.Windows.Documents.TextPointerContext>, <xref:System.Windows.Documents.TextPointerContext>, eller <xref:System.Windows.Documents.TextPointerContext>(som identifieras av den <xref:System.Windows.Documents.TextPointer.GetPointerContext%2A>metod), sedan <xref:System.Windows.Documents.TextPointer>returneras av det här metoden är en avancerad med exakt ett tecken från den aktuella positionen.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer.GetPointerContext%2A> </xref:System.Windows.Documents.TextPointerContext> </xref:System.Windows.Documents.TextPointerContext> </xref:System.Windows.Documents.TextPointerContext>       Om symbolen nästa kategoriseras som <xref:System.Windows.Documents.TextPointerContext>, sedan <xref:System.Windows.Documents.TextPointer>returneras av detta metoden har Avancerat förbi texten till nästa symbolen-text (som är nästa position var den <xref:System.Windows.Documents.TextPointerContext>är inte <xref:System.Windows.Documents.TextPointerContext>).</xref:System.Windows.Documents.TextPointerContext> </xref:System.Windows.Documents.TextPointerContext> </xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointerContext>  Antalet exakt symbolen korsade kan beräknas i förväg genom att anropa den <xref:System.Windows.Documents.TextPointer.GetTextRunLength%2A>metoden.</xref:System.Windows.Documents.TextPointer.GetTextRunLength%2A>"
   example:
   - "The following example demonstrates a use for this method.  The example uses the GetNextContextPosition method in conjunction with the <xref:System.Windows.Documents.TextPointer.GetPointerContext%2A> method to traverse and extract the symbols in a specified <xref:System.Windows.Documents.TextElement>.  \n  \n While the example can be used to extract a [!INCLUDE[TLA#tla_titlexaml](~/add/includes/ajax-current-ext-md.md)] structure for the contents of a given <xref:System.Windows.Documents.TextElement>, it is intended for illustrative purposes only, and should not be used in production code.  See the <xref:System.Xml> namespace for a rich set of types designed for working with and processing XML.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetNextContextPosition](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getnextcontextposition)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetNextContextPosition](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getnextcontextposition)]"
   syntax:
@@ -321,10 +321,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to search for the next symbol."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att söka efter nästa symbolen."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the next symbol in the requested direction, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> borders the start or end of content."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till nästa symbol i den begärda riktningen eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> kanter i början eller slutet av innehåll."
   overload: System.Windows.Documents.TextPointer.GetNextContextPosition*
   exceptions: []
   platform:
@@ -341,8 +341,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the next insertion position in the specified logical direction."
-  remarks: "An *insertion position* is a position where new content may be added without breaking any semantic rules for the associated content.  In practice, an insertion position is anywhere in content where a caret may be positioned.  An example of a valid <xref:System.Windows.Documents.TextPointer> position that is not an insertion position is the position between two adjacent <xref:System.Windows.Documents.Paragraph> tags (that is, between the closing tag of the preceding paragraph and the opening tag of the next paragraph)."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till nästa infogning position i den angivna logiska riktningen."
+  remarks: "En *infogning position* är en plats där nytt innehåll kan läggas till utan att någon semantisk regler för associerat innehåll.  I praktiken är en infogning position som helst innehåll där en hatt kan placeras.  Ett exempel på en giltig <xref:System.Windows.Documents.TextPointer>tjänst som inte är en infogning position är positionen mellan två på varandra följande <xref:System.Windows.Documents.Paragraph>taggar (det vill säga mellan sluttagg styckets föregående och nästa stycke starttagg).</xref:System.Windows.Documents.Paragraph> </xref:System.Windows.Documents.TextPointer>"
   example:
   - "The following example demonstrates a use for this method. The example uses the GetNextInsertionPosition method to traverse content element boundaries in order to count the number of <xref:System.Windows.Documents.Paragraph> elements present between two specified <xref:System.Windows.Documents.TextPointer> instances.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetNextInsertionPosition](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getnextinsertionposition)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetNextInsertionPosition](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getnextinsertionposition)]"
   syntax:
@@ -350,10 +350,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to search for the next insertion position."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att söka efter nästa infogning positionen."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> that identifies the next insertion position in the requested direction, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no next insertion position can be found."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> som identifierar nästa infogning placering i den begärda riktningen eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om inga nästa infogning position kan hittas."
   overload: System.Windows.Documents.TextPointer.GetNextInsertionPosition*
   exceptions: []
   platform:
@@ -370,8 +370,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns the count of symbols between the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and a second specified <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
-  remarks: "Any of the following is considered to be a symbol:      -   An opening or closing tag for a <xref:System.Windows.Documents.TextElement> element.      -   A <xref:System.Windows.UIElement> element contained in an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.      -   A 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element."
+  summary: "Returnerar antalet symboler mellan aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och en andra angetts <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
+  remarks: "Något av följande anses vara en symbol: – ett inledande eller avslutande tagg för en <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>      -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>      -En 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>"
   example:
   - "The following example demonstrates a use for this method. The example uses the GetOffsetToPosition method to find the offsets for two <xref:System.Windows.Documents.TextPointer> instances, and then uses this information to save and restore the selection in a <xref:System.Windows.Controls.RichTextBox>.  The example assumes that the contents of the <xref:System.Windows.Controls.RichTextBox> have not changed between a selection save and a selection restore.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetOffsetToPosition](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getoffsettoposition)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetOffsetToPosition](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getoffsettoposition)]"
   syntax:
@@ -379,15 +379,15 @@ items:
     parameters:
     - id: position
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> that specifies a position to find the distance (in symbols) to."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> som anger kunna hitta avståndet (i symboler) till."
     return:
       type: System.Int32
-      description: "The relative number of symbols between the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and <code>position</code>.  A negative value indicates that the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> follows the position specified by <code>position</code>, 0 indicates that the positions are equal, and a positive value indicates that the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> precedes the position specified by <code>position</code>."
+      description: "Relativa antalet symboler mellan aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och <code> position </code>.  Ett negativt värde indikerar att aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> följer positionen som anges av <code> position </code>, 0 anger att positioner är lika, och ett positivt värde indikerar att aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> föregår det läge som anges av <code> position </code>."
   overload: System.Windows.Documents.TextPointer.GetOffsetToPosition*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>position</code> specifies a position outside of the text container associated with the current position."
+    description: "<code>position</code>Anger en position utanför textbehållaren som är associerade med den aktuella positionen."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.GetPointerContext(System.Windows.Documents.LogicalDirection)
@@ -402,7 +402,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a category indicator for the content adjacent to the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> in the specified logical direction."
+  summary: "Returnerar en kategori indikator för innehållet intill aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i den angivna logiska riktningen."
   remarks: ''
   example:
   - "The following example demonstrates a use for this method. The example uses the GetPointerContext method to implement an algorithm for calculating the balance of opening and closing element tags between two specified <xref:System.Windows.Documents.TextPointer> positions.  Each opening element tag is counted as +1, and each closing element tag is counted as –1.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetOffsetToPosition2](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getoffsettoposition2)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetOffsetToPosition2](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getoffsettoposition2)]"
@@ -411,10 +411,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to determine the category for adjacent content."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att fastställa kategorin för intilliggande innehåll."
     return:
       type: System.Windows.Documents.TextPointerContext
-      description: "One of the <xref href=&quot;System.Windows.Documents.TextPointerContext&quot;></xref> values that indicates the category for adjacent content in the specified logical direction."
+      description: "En av de <xref href=&quot;System.Windows.Documents.TextPointerContext&quot;> </xref> värden som anger kategorin för intilliggande innehållet i den angivna logiska riktningen."
   overload: System.Windows.Documents.TextPointer.GetPointerContext*
   exceptions: []
   platform:
@@ -431,8 +431,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the position indicated by the specified offset, in symbols, from the beginning of the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
-  remarks: "Any of the following is considered to be a symbol:      -   An opening or closing tag for the <xref:System.Windows.Documents.TextElement> element.      -   A <xref:System.Windows.UIElement> element contained in an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.      -   A 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den position som den angivna förskjutningen i symboler från början av aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
+  remarks: "Något av följande anses vara en symbol: – ett inledande eller avslutande tagg för den <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>      -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>      -En 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>"
   example:
   - "The following example demonstrates a use for this method. The example uses the GetPositionAtOffset method to implement a pair of methods, one to calculate the offset to a specified position relative to any hosting paragraph, and the other to return a <xref:System.Windows.Documents.TextPointer> to a specified offset in a specified paragraph.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetPositionAtOffset](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_getpositionatoffset)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetPositionAtOffset](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_getpositionatoffset)]"
   syntax:
@@ -440,10 +440,10 @@ items:
     parameters:
     - id: offset
       type: System.Int32
-      description: "An offset, in symbols, for which to calculate and return the position.  If the offset is negative, the position is calculated in the logical direction opposite of that indicated by the <xref:System.Windows.Documents.TextPointer.LogicalDirection*> property."
+      description: "En förskjutning i symboler som du vill beräkna och returnera positionen.  Om förskjutningen är negativt beräknas i logiska riktning motsatt som anges av den <xref:System.Windows.Documents.TextPointer.LogicalDirection*>egenskapen.</xref:System.Windows.Documents.TextPointer.LogicalDirection*>"
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the position indicated by the specified offset, or<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>if no corresponding position can be found."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den position som den angivna förskjutningen eller<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>om ingen motsvarande plats kan hittas."
   overload: System.Windows.Documents.TextPointer.GetPositionAtOffset*
   exceptions: []
   platform:
@@ -460,20 +460,20 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the position indicated by the specified offset, in symbols, from the beginning of the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and in the specified direction."
-  remarks: "Any of the following is considered to be a symbol:      -   An opening or closing tag for the <xref:System.Windows.Documents.TextElement> element.      -   A <xref:System.Windows.UIElement> element contained in an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.      -   A 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element."
+  summary: "Returnerar en <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den position som den angivna förskjutningen i symboler från början av aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och i den angivna riktningen."
+  remarks: "Något av följande anses vara en symbol: – ett inledande eller avslutande tagg för den <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>      -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>      -En 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>"
   syntax:
     content: public System.Windows.Documents.TextPointer GetPositionAtOffset (int offset, System.Windows.Documents.LogicalDirection direction);
     parameters:
     - id: offset
       type: System.Int32
-      description: "An offset, in symbols, for which to calculate and return the position.  If the offset is negative, the returned <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> precedes the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>; otherwise, it follows."
+      description: "En förskjutning i symboler som du vill beräkna och returnera positionen.  Om förskjutningen är negativt, den returnerade <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> före aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>, annars följer."
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction of the returned <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref>."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen för den returnerade <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref>."
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the position indicated by the specified offset, or<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>if the offset extends past the end of the content."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till den position som den angivna förskjutningen eller<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>om förskjutningen överskrider dataströmmens slut av innehållet."
   overload: System.Windows.Documents.TextPointer.GetPositionAtOffset*
   exceptions: []
   platform:
@@ -490,8 +490,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a string containing any text adjacent to the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> in the specified logical direction."
-  remarks: "This method returns only uninterrupted runs of text.  Nothing is returned if any symbol type other than <xref:System.Windows.Documents.TextPointerContext> is adjacent to the current <xref:System.Windows.Documents.TextPointer> in the specified direction.  Similarly, text is returned only up to the next non-text symbol."
+  summary: "Returnerar en sträng som innehåller text intill aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> i den angivna logiska riktningen."
+  remarks: "Den här metoden returnerar endast oavbrutet körningar av text.  Ingenting returneras om något annat än symbol typen <xref:System.Windows.Documents.TextPointerContext>angränsar till aktuellt <xref:System.Windows.Documents.TextPointer>i den angivna riktningen.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointerContext>  På liknande sätt returneras bara upp till nästa icke-text-symbolen."
   example:
   - "The following example demonstrates a use for this method. The example uses the GetTextInRun method to implement a simple text extractor.  The method returns a string concatenation of all text between two specified <xref:System.Windows.Documents.TextPointer> instances.  \n  \n While the example can be used to extract any text between two <xref:System.Windows.Documents.TextPointer> instances, it is intended for illustrative purposes only, and should not be used in production code.  Use the <xref:System.Windows.Documents.TextRange.Text%2A?displayProperty=fullName> property instead.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_GetTextInRun](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_gettextinrun)]\n [!code-vb[TextPointer_Snippets#_TextPointer_GetTextInRun](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_gettextinrun)]"
   syntax:
@@ -499,10 +499,10 @@ items:
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to find and return any adjacent text."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att hitta och returnera intilliggande text."
     return:
       type: System.String
-      description: "A string containing any adjacent text in the specified logical direction, or &lt;xref:System.String?displayProperty=fullName&gt; if no adjacent text can be found."
+      description: "En sträng som innehåller alla intilliggande text i den angivna logiska riktningen eller &lt;xref:System.String?displayProperty=fullName&gt; om ingen intilliggande text kan hittas."
   overload: System.Windows.Documents.TextPointer.GetTextInRun*
   exceptions: []
   platform:
@@ -519,31 +519,31 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Copies the specified maximum number of characters from any adjacent text in the specified direction into a caller-supplied character array."
-  remarks: "This method returns only uninterrupted runs of text.  Nothing is returned if any symbol type other than <xref:System.Windows.Documents.TextPointerContext> is adjacent to the current <xref:System.Windows.Documents.TextPointer> in the specified direction.  Similarly, text is returned only up to the next non-text symbol."
+  summary: "Kopierar det angivna antalet tecken från angränsande text i den angivna riktningen i en matris med anropsangiven tecken."
+  remarks: "Den här metoden returnerar endast oavbrutet körningar av text.  Ingenting returneras om något annat än symbol typen <xref:System.Windows.Documents.TextPointerContext>angränsar till aktuellt <xref:System.Windows.Documents.TextPointer>i den angivna riktningen.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointerContext>  På liknande sätt returneras bara upp till nästa icke-text-symbolen."
   syntax:
     content: public int GetTextInRun (System.Windows.Documents.LogicalDirection direction, char[] textBuffer, int startIndex, int count);
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to find and copy any adjacent text."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att hitta och kopiera alla intilliggande text."
     - id: textBuffer
       type: System.Char[]
-      description: "A buffer into which any text is copied."
+      description: "En buffert som text kopieras."
     - id: startIndex
       type: System.Int32
-      description: "An index into `textBuffer` at which to begin writing copied text."
+      description: "Ett index i `textBuffer` som du vill börja skriva kopierade texten."
     - id: count
       type: System.Int32
-      description: "The maximum number of characters to copy."
+      description: "Maximalt antal tecken som ska kopieras."
     return:
       type: System.Int32
-      description: "The number of characters actually copied into <code>textBuffer</code>."
+      description: "Antalet tecken som faktiskt kopieras till <code> textBuffer </code>."
   overload: System.Windows.Documents.TextPointer.GetTextInRun*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>startIndex</code> is less than 0 or greater than the <xref:System.Array.Length*> property of <code>textBuffer</code>.       -or-       <code>count</code> is less than 0 or greater than the remaining space in <code>textBuffer</code> (<code>textBuffer</code>.<xref:System.Array.Length*> minus <code>startIndex</code>)."
+    description: "<code>startIndex</code>är mindre än 0 eller större än den <xref:System.Array.Length*> -egenskapen för <code>textBuffer</code>.       - eller - <code>count</code> är mindre än 0 eller större än det återstående utrymmet i <code>textBuffer</code> (<code>textBuffer</code>.<xref:System.Array.Length*> minus <code>startIndex</code>)."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.GetTextRunLength(System.Windows.Documents.LogicalDirection)
@@ -558,17 +558,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns the number of Unicode characters between the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and the next non-text symbol, in the specified logical direction."
-  remarks: "Any of the following is considered to be a symbol:      -   An opening or closing tag for the <xref:System.Windows.Documents.TextElement> element.      -   A <xref:System.Windows.UIElement> element contained in an <xref:System.Windows.Documents.InlineUIContainer> or <xref:System.Windows.Documents.BlockUIContainer>.  Note that such a <xref:System.Windows.UIElement> is always counted as exactly one symbol; any additional content or elements contained by the <xref:System.Windows.UIElement> are not counted as symbols.      -   A 16-bit [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] character inside of a text <xref:System.Windows.Documents.Run> element."
+  summary: "Returnerar antalet Unicode-tecken mellan aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och nästa-text symbolen, i den angivna logiska riktningen."
+  remarks: "Något av följande anses vara en symbol: – ett inledande eller avslutande tagg för den <xref:System.Windows.Documents.TextElement>element.</xref:System.Windows.Documents.TextElement>      -Ett <xref:System.Windows.UIElement>element som ingår i en <xref:System.Windows.Documents.InlineUIContainer>eller <xref:System.Windows.Documents.BlockUIContainer>.</xref:System.Windows.Documents.BlockUIContainer> </xref:System.Windows.Documents.InlineUIContainer> </xref:System.Windows.UIElement>  Observera att detta en <xref:System.Windows.UIElement>räknas alltid som exakt en symbol; eventuella ytterligare innehåll eller element som innehåller den <xref:System.Windows.UIElement>räknas inte som symboler.</xref:System.Windows.UIElement> </xref:System.Windows.UIElement>      -En 16-bitars [!INCLUDE[TLA#tla_unicode](~/add/includes/ajax-current-ext-md.md)] tecken inuti en text <xref:System.Windows.Documents.Run>element.</xref:System.Windows.Documents.Run>"
   syntax:
     content: public int GetTextRunLength (System.Windows.Documents.LogicalDirection direction);
     parameters:
     - id: direction
       type: System.Windows.Documents.LogicalDirection
-      description: "One of the <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> values that specifies the logical direction in which to count the number of characters."
+      description: "En av de <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värden som anger logiska riktningen att räkna antalet tecken."
     return:
       type: System.Int32
-      description: "The number of Unicode characters between the current <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> and the next non-text symbol.  This number may be 0 if there is no adjacent text."
+      description: "Antalet Unicode-tecken mellan aktuellt <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> och symbolen nästa-text.  Det här antalet kan vara 0 om det finns ingen intilliggande text."
   overload: System.Windows.Documents.TextPointer.GetTextRunLength*
   exceptions: []
   platform:
@@ -585,13 +585,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets a value that indicates whether the text container associated with the current position has a valid (up-to-date) layout."
-  remarks: "When necessary, operations that depend on a valid layout (such as the <xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A> method, <xref:System.Windows.Documents.TextPointer.GetCharacterRect%2A> method, and <xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A> property) attempt to automatically regenerate a valid layout before proceeding with the operation.  Regenerating a layout can be a relatively expensive operation.  Use this property to check for a valid layout before performing operations that may regenerate the layout.  For more information, see [Layout](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hämtar ett värde som anger om textbehållaren som är associerade med den aktuella positionen har en giltig (inaktuell) layout."
+  remarks: "Vid behov, åtgärder som är beroende av en giltig layout (som den <xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A>metoden <xref:System.Windows.Documents.TextPointer.GetCharacterRect%2A>-metoden och <xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A>egenskapen) försöker automatiskt återskapa en giltig layout innan du fortsätter med åtgärden.</xref:System.Windows.Documents.TextPointer.IsAtLineStartPosition%2A> </xref:System.Windows.Documents.TextPointer.GetCharacterRect%2A> </xref:System.Windows.Documents.TextPointer.GetLineStartPosition%2A>  Återskapande av en layout kan vara ett relativt kostsam åtgärd.  Använd den här egenskapen om du vill söka efter en giltigt layout innan du utför åtgärder som kan återskapa layouten.  Mer information finns i [Layout](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool HasValidLayout { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the layout is current and valid; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om layouten är aktuell och giltig; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.TextPointer.HasValidLayout*
   exceptions: []
   platform:
@@ -608,13 +608,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Inserts a line break at the current position."
+  summary: "Infogar en radbrytning vid aktuell position."
   syntax:
     content: public System.Windows.Documents.TextPointer InsertLineBreak ();
     parameters: []
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> positioned immediately after the <xref href=&quot;System.Windows.Documents.LineBreak&quot;></xref> element inserted by this method."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> positionerade omedelbart efter den <xref href=&quot;System.Windows.Documents.LineBreak&quot;> </xref> element som infogas av den här metoden."
   overload: System.Windows.Documents.TextPointer.InsertLineBreak*
   exceptions: []
   platform:
@@ -631,19 +631,19 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Inserts a paragraph break at the current position."
-  remarks: "If this method is called when the current position is inside of an existing <xref:System.Windows.Documents.Paragraph> element, the existing paragraph and any content it contains are split into two paragraphs at the current position.  If this method is called when the current position is not inside of an existing paragraph, a new, empty paragraph is inserted.  If this method is called at a position unsuitable for splitting or inserting a paragraph (for example, if the current position is inside of a <xref:System.Windows.Documents.Hyperlink> element), an exception is thrown."
+  summary: "Infogar ett nytt stycke vid aktuell position."
+  remarks: "Om den här metoden anropas när den aktuella positionen är inuti en befintlig <xref:System.Windows.Documents.Paragraph>element, befintligt stycke och innehåll i den delas upp i två stycken vid aktuell position.</xref:System.Windows.Documents.Paragraph>  Om den här metoden anropas när den aktuella positionen inte är i ett befintligt stycke, infogas en ny, tom punkt.  Om den här metoden anropas på en plats lämpar sig inte för delning eller lägga till en punkt (till exempel om den aktuella positionen är inuti en <xref:System.Windows.Documents.Hyperlink>element), genereras ett undantag.</xref:System.Windows.Documents.Hyperlink>"
   syntax:
     content: public System.Windows.Documents.TextPointer InsertParagraphBreak ();
     parameters: []
     return:
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> to the beginning (<xref:System.Windows.Documents.TextElement.ContentStart*>) of the new paragraph."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> till början (<xref:System.Windows.Documents.TextElement.ContentStart*>) för det nya stycket.</xref:System.Windows.Documents.TextElement.ContentStart*>"
   overload: System.Windows.Documents.TextPointer.InsertParagraphBreak*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This method is called on a position that cannot be split to accommodate a new paragraph, such as in the scope of a <xref href=&quot;System.Windows.Documents.Hyperlink&quot;></xref> or <xref href=&quot;System.Windows.Documents.InlineUIContainer&quot;></xref>."
+    description: "Den här metoden anropas på en plats som inte kan delas om du vill hantera ett nytt stycke som omfattas av en <xref href=&quot;System.Windows.Documents.Hyperlink&quot;> </xref> eller <xref href=&quot;System.Windows.Documents.InlineUIContainer&quot;> </xref>."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.InsertTextInRun(System.String)
@@ -658,22 +658,22 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Inserts the specified text into the text <xref href=&quot;System.Windows.Documents.Run&quot;></xref> at the current position."
-  remarks: "If the <xref:System.Windows.Documents.TextPointer> is not scoped by a <xref:System.Windows.Documents.Run> element, a <xref:System.Windows.Documents.Run> is inserted along with the `textData`."
+  summary: "Infogar den angivna texten i texten <xref href=&quot;System.Windows.Documents.Run&quot;> </xref> vid aktuell position."
+  remarks: "Om den <xref:System.Windows.Documents.TextPointer>omfattas inte av en <xref:System.Windows.Documents.Run>element, en <xref:System.Windows.Documents.Run>infogas tillsammans med den `textData`.</xref:System.Windows.Documents.Run> </xref:System.Windows.Documents.Run> </xref:System.Windows.Documents.TextPointer>"
   syntax:
     content: public void InsertTextInRun (string textData);
     parameters:
     - id: textData
       type: System.String
-      description: "The text to insert."
+      description: "Texten som ska infogas."
   overload: System.Windows.Documents.TextPointer.InsertTextInRun*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current position is not within a <xref href=&quot;System.Windows.Documents.Run&quot;></xref> element."
+    description: "Den aktuella positionen ligger inte inom en <xref href=&quot;System.Windows.Documents.Run&quot;> </xref> element."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>textData</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>textData</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.IsAtInsertionPosition
@@ -688,13 +688,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets a value that indicates whether the current position is an insertion position."
-  remarks: "An insertion position is a position where new content may be added without breaking any semantic rules for the associated content.  In practice, an insertion position is anywhere in content where a caret may be positioned.  An example of a valid <xref:System.Windows.Documents.TextPointer> position that is not an insertion position is the position between two adjacent <xref:System.Windows.Documents.Paragraph> tags (that is, between the closing tag of the preceding paragraph and the opening tag of the next paragraph)."
+  summary: "Hämtar ett värde som anger om den aktuella positionen är en infogning position."
+  remarks: "En infogning position är en plats där nytt innehåll kan läggas till utan att någon semantisk regler för associerat innehåll.  I praktiken är en infogning position som helst innehåll där en hatt kan placeras.  Ett exempel på en giltig <xref:System.Windows.Documents.TextPointer>tjänst som inte är en infogning position är positionen mellan två på varandra följande <xref:System.Windows.Documents.Paragraph>taggar (det vill säga mellan sluttagg styckets föregående och nästa stycke starttagg).</xref:System.Windows.Documents.Paragraph> </xref:System.Windows.Documents.TextPointer>"
   syntax:
     content: public bool IsAtInsertionPosition { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current position is an insertion position; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den aktuella positionen är en infogning position. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.TextPointer.IsAtInsertionPosition*
   exceptions: []
   platform:
@@ -711,13 +711,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets a value that indicates whether the current position is at the beginning of a line."
-  remarks: "If the <xref:System.Windows.Documents.TextPointer> points to an ambiguous position, for example, between two lines, the line in the direction specified by the <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> property is selected as the relative starting line.       The operation performed by this property depends on a valid layout.  When necessary, this method attempts to automatically regenerate a valid layout before proceeding with the operation.  Regenerating a layout can be a relatively expensive operation.  Use the <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A> property to check for a valid layout before performing operations that may regenerate the layout.  For more information, see [Layout](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hämtar ett värde som anger om den aktuella positionen är i början av en rad."
+  remarks: "Om den <xref:System.Windows.Documents.TextPointer>pekar på ett tvetydigt läge, till exempel mellan två rader raden i vilken riktning som anges av den <xref:System.Windows.Documents.TextPointer.LogicalDirection%2A>egenskapen markeras som relativa Start linje.</xref:System.Windows.Documents.TextPointer.LogicalDirection%2A> </xref:System.Windows.Documents.TextPointer>       Åtgärden som utförs av den här egenskapen är beroende av en giltig layout.  Vid behov, försöker den här metoden att automatiskt återskapa en giltig layout innan du fortsätter med åtgärden.  Återskapande av en layout kan vara ett relativt kostsam åtgärd.  Använd den <xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>egenskapen att söka efter en giltigt layout innan du utför åtgärder som kan återskapa layouten.</xref:System.Windows.Documents.TextPointer.HasValidLayout%2A>  Mer information finns i [Layout](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool IsAtLineStartPosition { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current position is at the beginning of a line; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den aktuella positionen är i början av en rad. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.TextPointer.IsAtLineStartPosition*
   exceptions: []
   platform:
@@ -734,8 +734,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Indicates whether the specified position is in the same text container as the current position."
-  remarks: "Most operations that involve multiple <xref:System.Windows.Documents.TextPointer> instances are only valid if the instances in question indicate positions that are in the same text container scope.  For example the <xref:System.Windows.Documents.TextPointer.CompareTo%2A> and <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A> methods cannot be used with a <xref:System.Windows.Documents.TextPointer> to a position outside of the text container associated with the current position.  Use this method to verify that a specified <xref:System.Windows.Documents.TextPointer> is compatible with the current position for such operations."
+  summary: "Anger om den angivna positionen är i samma textbehållare som den aktuella positionen."
+  remarks: "De flesta åtgärder som innefattar flera <xref:System.Windows.Documents.TextPointer>instanser är endast giltiga om instanser i fråga visar positioner som ingår i samma text container omfånget.</xref:System.Windows.Documents.TextPointer>  Till exempel den <xref:System.Windows.Documents.TextPointer.CompareTo%2A>och <xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A>metoder kan inte användas med en <xref:System.Windows.Documents.TextPointer>till en plats utanför textbehållaren som är associerade med den aktuella positionen.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.TextPointer.GetOffsetToPosition%2A> </xref:System.Windows.Documents.TextPointer.CompareTo%2A>  Använd den här metoden för att kontrollera att en angiven <xref:System.Windows.Documents.TextPointer>är kompatibel med den aktuella positionen för dessa åtgärder.</xref:System.Windows.Documents.TextPointer>"
   example:
   - "The following example demonstrates a use for this method.  The example uses the IsInSameDocument method to check whether a specified <xref:System.Windows.Documents.TextPointer> is positioned between two other specified <xref:System.Windows.Documents.TextPointer> instances in a situation when there is no guarantee that all three positions belong to the same text container.  \n  \n [!code-cs[TextPointer_Snippets#_TextPointer_IsInSameDocument](~/add/codesnippet/csharp/TextPointer_Snippets/Window1.xaml.cs#_textpointer_isinsamedocument)]\n [!code-vb[TextPointer_Snippets#_TextPointer_IsInSameDocument](~/add/codesnippet/visualbasic/textpointer_snippets/window1.xaml.vb#_textpointer_isinsamedocument)]"
   syntax:
@@ -743,15 +743,15 @@ items:
     parameters:
     - id: textPosition
       type: System.Windows.Documents.TextPointer
-      description: "A <xref href=&quot;System.Windows.Documents.TextPointer&quot;></xref> that specifies a position to compare to the current position."
+      description: "En <xref href=&quot;System.Windows.Documents.TextPointer&quot;> </xref> som anger möjlighet att jämföra med den aktuella positionen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>textPosition</code> indicates a position that is in the same text container as the current position; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> textPosition </code> anger en plats som är i samma textbehållare som den aktuella positionen; annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.TextPointer.IsInSameDocument*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>textPosition</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>textPosition</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Documents.TextPointer.LogicalDirection
@@ -766,13 +766,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets the logical direction associated with the current position which is used to disambiguate content associated with the current position."
-  remarks: "As an example of how this property is used, the <xref:System.Windows.Documents.LogicalDirection> of the <xref:System.Windows.Documents.TextPointer> returned by a hit test method gives a hit that is between two characters of text. The logical direction specifies which of the two characters was actually hit—the left or the right."
+  summary: "Hämtar logiska riktning som är associerade med den aktuella positionen som används för att undvika tvetydigheten innehåll har associerats med den aktuella positionen."
+  remarks: "Som ett exempel på hur den här egenskapen används den <xref:System.Windows.Documents.LogicalDirection>av den <xref:System.Windows.Documents.TextPointer>returnerades av ett träffar test metoden ger ett träffar mellan två tecknen i texten.</xref:System.Windows.Documents.TextPointer> </xref:System.Windows.Documents.LogicalDirection> Den logiska riktningen anger vilken av de två tecken träffades faktiskt – till vänster eller höger."
   syntax:
     content: public System.Windows.Documents.LogicalDirection LogicalDirection { get; }
     return:
       type: System.Windows.Documents.LogicalDirection
-      description: "The <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;></xref> value that is associated with the current position."
+      description: "Den <xref href=&quot;System.Windows.Documents.LogicalDirection&quot;> </xref> värde som är associerade med den aktuella positionen."
   overload: System.Windows.Documents.TextPointer.LogicalDirection*
   exceptions: []
   platform:
@@ -789,12 +789,12 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets the paragraph that scopes the current position, if any."
+  summary: "Hämtar den punkt som scope i den aktuella positionen eventuella."
   syntax:
     content: public System.Windows.Documents.Paragraph Paragraph { get; }
     return:
       type: System.Windows.Documents.Paragraph
-      description: "The <xref href=&quot;System.Windows.Documents.Paragraph&quot;></xref> that scopes the current position, or<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>if no such paragraph exists."
+      description: "Den <xref href=&quot;System.Windows.Documents.Paragraph&quot;> </xref> som scope i den aktuella positionen eller<xref uid=&quot;langword_csharp_ null &quot; name=&quot; null &quot; href=&quot;&quot;></xref>om det finns ingen sådan punkt."
   overload: System.Windows.Documents.TextPointer.Paragraph*
   exceptions: []
   platform:
@@ -811,12 +811,12 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets the logical parent that scopes the current position."
+  summary: "Hämtar den logiska överordnade scope i den aktuella positionen."
   syntax:
     content: public System.Windows.DependencyObject Parent { get; }
     return:
       type: System.Windows.DependencyObject
-      description: "The logical parent that scopes the current position."
+      description: "Den logiska överordnade som scope i den aktuella positionen."
   overload: System.Windows.Documents.TextPointer.Parent*
   exceptions: []
   platform:
@@ -833,13 +833,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "This type or member supports the [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastructure and is not intended to be used directly from your code."
+  summary: "Den här typen eller medlemmen stöder den [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] infrastrukturen och är inte avsedd att användas direkt från din kod."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The string that represents the object."
+      description: "Den sträng som representerar objektet."
   overload: System.Windows.Documents.TextPointer.ToString*
   exceptions: []
   platform:

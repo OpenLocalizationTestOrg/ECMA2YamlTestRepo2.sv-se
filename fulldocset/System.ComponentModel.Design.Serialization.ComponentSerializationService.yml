@@ -21,8 +21,8 @@ items:
   nameWithType: ComponentSerializationService
   fullName: System.ComponentModel.Design.Serialization.ComponentSerializationService
   type: Class
-  summary: "Provides the base class for serializing a set of components or serializable objects into a serialization store."
-  remarks: "The ComponentSerializationService serializes a set of components or serializable objects into a serialization store. The store can then be deserialized later. The ComponentSerializationService class differs from other serialization schemes in that the serialization format is opaque, and it allows for partial serialization of objects. For example, you can choose to serialize only selected properties for an object.       This class is `abstract`. Typically, a <xref:System.ComponentModel.Design.Serialization.DesignerLoader> will provide a concrete implementation of this class and add it as a service to its <xref:System.ComponentModel.Design.DesignSurface>. This allows objects to be serialized in the format best suited for them.       The ComponentSerializationService class replaces the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService> interface from the .NET Framework version 1.0, although the latter is retained for backward compatibility."
+  summary: "Innehåller basklassen för serialisering av en uppsättning komponenter eller serialiserbara objekt till en serialisering-arkivet."
+  remarks: "ComponentSerializationService Serialiserar en uppsättning komponenter eller serialiserbara objekt till en serialisering-arkivet. Arkivet kan sedan avserialiseras senare. Klassen ComponentSerializationService till skillnad från andra system för serialisering av att serialiseringsformatet är täckande och den kan användas för partiellt serialisering av objekt. Du kan till exempel välja att serialisera endast valda egenskaper för ett objekt.       Den här klassen är `abstract`. Normalt en <xref:System.ComponentModel.Design.Serialization.DesignerLoader>ska ange en konkret implementering av den här klassen och Lägg till den som en tjänst till dess <xref:System.ComponentModel.Design.DesignSurface>.</xref:System.ComponentModel.Design.DesignSurface> </xref:System.ComponentModel.Design.Serialization.DesignerLoader> Detta gör att objekt som ska serialiseras i det format som passar bäst för dem.       ComponentSerializationService klassen ersätter den <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService>gränssnitt från .NET Framework version 1.0, även om bevaras för bakåtkompatibilitet.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService>"
   syntax:
     content: public abstract class ComponentSerializationService
   inheritance:
@@ -43,7 +43,7 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.ComponentSerializationService&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ComponentModel.Design.Serialization.ComponentSerializationService&quot;> </xref> klass."
   syntax:
     content: protected ComponentSerializationService ();
     parameters: []
@@ -63,14 +63,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Creates a new <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref>."
-  remarks: "Multiple objects can be serialized into the same serialization store. When you are finished with the store, you can call its <xref:System.ComponentModel.Design.Serialization.SerializationStore.System%23IDisposable%23Dispose%2A> or <xref:System.ComponentModel.Design.Serialization.SerializationStore.Close%2A> method. Once closed, a serialization store can be used for deserialization, or it can be saved into a stream.       The serialization store can be passed to any of the various serializing methods to build up serialization state for a group of objects."
+  summary: "Skapar en ny <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref>."
+  remarks: "Flera objekt kan serialiseras till samma Arkiv för serialisering. När du är klar med store kan du anropa dess <xref:System.ComponentModel.Design.Serialization.SerializationStore.System%23IDisposable%23Dispose%2A>eller <xref:System.ComponentModel.Design.Serialization.SerializationStore.Close%2A>metod.</xref:System.ComponentModel.Design.Serialization.SerializationStore.Close%2A> </xref:System.ComponentModel.Design.Serialization.SerializationStore.System%23IDisposable%23Dispose%2A> När stängts, en Serialiseringslagret kan användas för deserialisering eller den kan sparas till en dataström.       Serialiseringslagret kan skickas till någon av metoderna för olika serialisering för att bygga upp serialisering tillstånd för en grupp med objekt."
   syntax:
     content: public abstract System.ComponentModel.Design.Serialization.SerializationStore CreateStore ();
     parameters: []
     return:
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "A new created serialization store."
+      description: "En ny skapade Serialiseringslagret."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.CreateStore*
   exceptions: []
   platform:
@@ -87,25 +87,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given store to produce a collection of objects."
-  remarks: "This method deserializes `store` to produce a collection of objects contained within it. Objects are deserialized in the same order in which they were serialized."
+  summary: "Deserializes angivna store för att skapa en samling objekt."
+  remarks: "Den här metoden deserializes `store` att skapa en samling objekt som finns i den. Objekt avserialiseras i samma ordning som de serialiserades."
   syntax:
     content: public abstract System.Collections.ICollection Deserialize (System.ComponentModel.Design.Serialization.SerializationStore store);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to deserialize."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> skulle deserialiseras."
     return:
       type: System.Collections.ICollection
-      description: "A collection of objects created according to the stored state."
+      description: "En samling objekt som har skapats enligt sparade tillstånd."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> does not contain data in a format the serialization container can process."
+    description: "<code>store</code>innehåller inte data i ett format som kan bearbeta behållaren serialisering."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)
@@ -120,28 +120,28 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given store and populates the given <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> with deserialized <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> objects."
-  remarks: "This method deserializes `store` to produce a collection of objects contained within it. Objects are deserialized in the same order in which they were serialized.       Created objects that implement <xref:System.ComponentModel.IComponent> are added to `container`."
+  summary: "Deserializes angivna store och fyller den angivna <xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> med avserialiseras <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> objekt."
+  remarks: "Den här metoden deserializes `store` att skapa en samling objekt som finns i den. Objekt avserialiseras i samma ordning som de serialiserades.       Skapa objekt som implementerar <xref:System.ComponentModel.IComponent>läggs till i `container`.</xref:System.ComponentModel.IComponent>"
   syntax:
     content: public abstract System.Collections.ICollection Deserialize (System.ComponentModel.Design.Serialization.SerializationStore store, System.ComponentModel.IContainer container);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to deserialize."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> skulle deserialiseras."
     - id: container
       type: System.ComponentModel.IContainer
-      description: "The <xref href=&quot;System.ComponentModel.IContainer&quot;></xref> to which <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> objects will be added."
+      description: "Den <xref href=&quot;System.ComponentModel.IContainer&quot;> </xref> som <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> objekt kommer att läggas till."
     return:
       type: System.Collections.ICollection
-      description: "A collection of objects created according to the stored state."
+      description: "En samling objekt som har skapats enligt sparade tillstånd."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> does not contain data in a format the serialization container can process."
+    description: "<code>store</code>innehåller inte data i ett format som kan bearbeta behållaren serialisering."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer)
@@ -156,25 +156,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to the given container."
-  remarks: "The DeserializeTo method deserializes `store`, but instead of producing new objects, it applies the data in the store to an existing set of objects that are taken from the provided container. As a result, the caller can create in advance an object however it sees fit. If an object has a deserialization state and the object is not named in the set of existing objects, a new object will be created. If that object also implements <xref:System.ComponentModel.IComponent>, it will be added to `container`. Objects in the container must have names and types that match objects in the serialization store in order for an existing object to be used."
+  summary: "Deserializes den angivna <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> till den angivna behållaren."
+  remarks: "Metoden DeserializeTo deserializes `store`, men i stället för att skapa nya objekt, det gäller data i arkivet för en befintlig uppsättning objekt som hämtas från den angivna behållaren. Därför kan anroparen skapa i förväg ett objekt men den anser lämpliga. Om ett objekt har tillståndet deserialisering och objektet har inte namnet i uppsättningen av befintliga objekt, skapas ett nytt objekt. Om objektet implementerar också <xref:System.ComponentModel.IComponent>, kommer att läggas till `container`.</xref:System.ComponentModel.IComponent> Objekt i behållaren måste ha namn och typer som matchar objekt i Serialiseringslagret för ett befintligt objekt som ska användas."
   syntax:
     content: public void DeserializeTo (System.ComponentModel.Design.Serialization.SerializationStore store, System.ComponentModel.IContainer container);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to deserialize."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> skulle deserialiseras."
     - id: container
       type: System.ComponentModel.IContainer
-      description: "The container to which <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> objects will be added."
+      description: "Behållaren som <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> objekt kommer att läggas till."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> does not contain data in a format the serialization container can process."
+    description: "<code>store</code>innehåller inte data i ett format som kan bearbeta behållaren serialisering."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,System.Boolean)
@@ -189,28 +189,28 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to the given container, optionally validating recycled types."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A> method deserializes `store`, but instead of producing new objects, it applies the data in the store to an existing set of objects that are taken from the provided container. As a result, the caller can create in advance an object however it sees fit. If an object has a deserialization state and the object is not named in the set of existing objects, a new object will be created. If that object also implements <xref:System.ComponentModel.IComponent>, it will be added to `container`. Objects in the container must have names and types that match objects in the serialization store in order for an existing object to be used."
+  summary: "Deserializes den angivna <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> till den angivna behållaren om du vill verifiera återvinns typer."
+  remarks: "Den <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A>metoden deserializes `store`, men i stället för att skapa nya objekt, det gäller data i arkivet för en befintlig uppsättning objekt som hämtas från den angivna behållaren.</xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A> Därför kan anroparen skapa i förväg ett objekt men den anser lämpliga. Om ett objekt har tillståndet deserialisering och objektet har inte namnet i uppsättningen av befintliga objekt, skapas ett nytt objekt. Om objektet implementerar också <xref:System.ComponentModel.IComponent>, kommer att läggas till `container`.</xref:System.ComponentModel.IComponent> Objekt i behållaren måste ha namn och typer som matchar objekt i Serialiseringslagret för ett befintligt objekt som ska användas."
   syntax:
     content: public void DeserializeTo (System.ComponentModel.Design.Serialization.SerializationStore store, System.ComponentModel.IContainer container, bool validateRecycledTypes);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to deserialize."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> skulle deserialiseras."
     - id: container
       type: System.ComponentModel.IContainer
-      description: "The container to which <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> objects will be added."
+      description: "Behållaren som <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> objekt kommer att läggas till."
     - id: validateRecycledTypes
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to guarantee that the deserialization will only work if applied to an object of the same type."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att garantera att deserialiseringen fungerar bara om används på ett objekt av samma typ."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> does not contain data in a format the serialization container can process."
+    description: "<code>store</code>innehåller inte data i ett format som kan bearbeta behållaren serialisering."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo(System.ComponentModel.Design.Serialization.SerializationStore,System.ComponentModel.IContainer,System.Boolean,System.Boolean)
@@ -225,31 +225,31 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to the given container, optionally applying default property values."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A> method deserializes `store`, but instead of producing new objects, it applies the data in the store to an existing set of objects that are taken from the provided container. As a result, the caller can create in advance an object however it sees fit. If an object has a deserialization state and the object is not named in the set of existing objects, a new object will be created. If that object also implements <xref:System.ComponentModel.IComponent>, it will be added to `container`. Objects in the container must have names and types that match objects in the serialization store in order for an existing object to be used."
+  summary: "Deserializes den angivna <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> till den angivna behållaren om du vill använda standardvärdena för egenskapen."
+  remarks: "Den <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A>metoden deserializes `store`, men i stället för att skapa nya objekt, det gäller data i arkivet för en befintlig uppsättning objekt som hämtas från den angivna behållaren.</xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo%2A> Därför kan anroparen skapa i förväg ett objekt men den anser lämpliga. Om ett objekt har tillståndet deserialisering och objektet har inte namnet i uppsättningen av befintliga objekt, skapas ett nytt objekt. Om objektet implementerar också <xref:System.ComponentModel.IComponent>, kommer att läggas till `container`.</xref:System.ComponentModel.IComponent> Objekt i behållaren måste ha namn och typer som matchar objekt i Serialiseringslagret för ett befintligt objekt som ska användas."
   syntax:
     content: public abstract void DeserializeTo (System.ComponentModel.Design.Serialization.SerializationStore store, System.ComponentModel.IContainer container, bool validateRecycledTypes, bool applyDefaults);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to deserialize."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> skulle deserialiseras."
     - id: container
       type: System.ComponentModel.IContainer
-      description: "The container to which <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> objects will be added."
+      description: "Behållaren som <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> objekt kommer att läggas till."
     - id: validateRecycledTypes
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to guarantee that the deserialization will only work if applied to an object of the same type."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att garantera att deserialiseringen fungerar bara om används på ett objekt av samma typ."
     - id: applyDefaults
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the default property values should be applied."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att ange standardvärden för egenskapen ska användas."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.DeserializeTo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>container</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> does not contain data in a format the serialization container can process."
+    description: "<code>store</code>innehåller inte data i ett format som kan bearbeta behållaren serialisering."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.LoadStore(System.IO.Stream)
@@ -264,25 +264,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Loads a <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> from a stream."
-  remarks: "You can use the returned store to deserialize objects by passing it to one of the <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize%2A> methods."
+  summary: "Belastningar en <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> från en dataström."
+  remarks: "Du kan använda arkivet returnerade för att deserialisera objekt genom att skicka den till en av de <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize%2A>metoder.</xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Deserialize%2A>"
   syntax:
     content: public abstract System.ComponentModel.Design.Serialization.SerializationStore LoadStore (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> from which the store will be loaded."
+      description: "Den <xref:System.IO.Stream>från som arkivet ska läsas.</xref:System.IO.Stream>"
     return:
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "A new <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> instance."
+      description: "En ny <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> instans."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.LoadStore*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>stream</code> does not contain data saved by a previous call to <xref:System.ComponentModel.Design.Serialization.SerializationStore.Save*>."
+    description: "<code>stream</code>innehåller inte data som sparas av ett tidigare anrop till <xref:System.ComponentModel.Design.Serialization.SerializationStore.Save*>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.Serialize(System.ComponentModel.Design.Serialization.SerializationStore,System.Object)
@@ -297,25 +297,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object to the given <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref>."
-  remarks: "The store can be used to serialize more than one object by calling this method more than once."
+  summary: "Serialiserar det angivna objektet till den angivna <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref>."
+  remarks: "Store kan användas för att serialisera fler än ett objekt av den här metoden anropas mer än en gång."
   syntax:
     content: public abstract void Serialize (System.ComponentModel.Design.Serialization.SerializationStore store, object value);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to which the state of `value` will be written."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> som tillståndet för `value` ska skrivas."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "Att serialisera objektet."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.Serialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> is closed, or <code>store</code> is not a supported type of serialization store. Use a store returned by <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
+    description: "<code>store</code>är stängt eller <code>store</code> är inte en typ av serialiseringslager som stöds. Använd ett lager som returneras av <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,System.Object)
@@ -330,25 +330,25 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object, accounting for default property values."
-  remarks: "Standard serialization, as implemented through the <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Serialize%2A> method, only serializes values that differ from the component&quot;s default state. This provides the most compact serialization mechanism but assumes that a newly created object will be used during deserialization. If an existing object is used, the resulting deserialized object is not guaranteed to duplicate the original state of the serialized object; the properties that contained default values during serialization will not be reset back to their defaults during deserialization.       The SerializeAbsolute method does not use this shortcut. It serializes all properties of the source object so that deserialization can restore all the object&quot;s properties, regardless of default state.       This method is particularly useful for serializing collections, because the order of the constituent items within the collection can change. In this circumstance, the safest process to restore the original state of the entire collection is to overwrite all the items with all their original property values."
+  summary: "Serialiserar det angivna objektet för egenskapen standardvärden."
+  remarks: "Standard serialisering som implementerade via den <xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Serialize%2A>metoden Serialiserar endast värden som skiljer sig från komponentens standardtillstånd.</xref:System.ComponentModel.Design.Serialization.ComponentSerializationService.Serialize%2A> Detta ger den mest kompakta serialiseringsmekanismen men förutsätter att en nyligen skapade objektet kommer att användas under avserialisering. Om ett befintligt objekt används är det resulterande avserialiserat objektet inte säkert att duplicera det ursprungliga tillståndet för det serialiserade objektet. de egenskaper som innehöll standardvärden under serialiseringen återställs inte tillbaka till sina standardvärden under deserialisering.       Metoden SerializeAbsolute använder inte den här genvägen. Den Serialiserar alla egenskaper för källobjektet så att deserialisering kan återställa alla objektets egenskaper, oavsett standardläget.       Den här metoden är särskilt användbart för att serialisera samlingar, eftersom du kan ändra ordningen på objekt i samlingen. I en sådan situation är säkraste processen för att återställa det ursprungliga tillståndet för hela samlingen att skriva över alla objekt med sina ursprungliga egenskapsvärden."
   syntax:
     content: public abstract void SerializeAbsolute (System.ComponentModel.Design.Serialization.SerializationStore store, object value);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to which the state of `value` will be serialized."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> som tillståndet för `value` serialiseras."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "Att serialisera objektet."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeAbsolute*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> is closed, or <code>store</code> is not a supported type of serialization store. Use a store returned by <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
+    description: "<code>store</code>är stängt eller <code>store</code> är inte en typ av serialiseringslager som stöds. Använd ett lager som returneras av <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeMember(System.ComponentModel.Design.Serialization.SerializationStore,System.Object,System.ComponentModel.MemberDescriptor)
@@ -363,28 +363,28 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given member on the given object."
-  remarks: "The SerializeMember method can be invoked multiple times for the same object to build up a list of serialized members within the serialization store. In general, the member should be a property or an event."
+  summary: "Serialiserar den angivna medlemmen på det angivna-objektet."
+  remarks: "SerializeMember-metod kan anropas flera gånger för samma objekt att bygga upp en lista över serialiserade medlemmar i arkivet för serialisering. I allmänhet ska medlemmen vara en egenskap eller en händelse."
   syntax:
     content: public abstract void SerializeMember (System.ComponentModel.Design.Serialization.SerializationStore store, object owningObject, System.ComponentModel.MemberDescriptor member);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to which the state of `member` will be serialized."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> som tillståndet för `member` serialiseras."
     - id: owningObject
       type: System.Object
-      description: "The object to which `member` is attached."
+      description: "Objektet som `member` är ansluten."
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "A <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;></xref> specifying the member to serialize."
+      description: "En <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;> </xref> anger att serialisera medlemmen."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeMember*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> is closed, or <code>store</code> is not a supported type of serialization store. Use a store returned by <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
+    description: "<code>store</code>är stängt eller <code>store</code> är inte en typ av serialiseringslager som stöds. Använd ett lager som returneras av <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeMemberAbsolute(System.ComponentModel.Design.Serialization.SerializationStore,System.Object,System.ComponentModel.MemberDescriptor)
@@ -399,28 +399,28 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given member on the given object, accounting for the default property value."
-  remarks: "The SerializeMemberAbsolute method serializes the `member` on `owningObject`, even if `member` contains the default property value.       Note that for some members, containing the default value and restoring the setting of the same value to the member are different concepts. For example, if a property inherits its value from a parent object when no local value is set, setting the value back to the property may not be what is desired. The SerializeMemberAbsolute method takes this into account and would clear the state of the property in this case."
+  summary: "Serialiserar den angivna medlemmen på det angivna-objektet för standardvärdet för egenskapen."
+  remarks: "Metoden SerializeMemberAbsolute Serialiserar den `member` på `owningObject`, även om `member` innehåller standardvärdet för egenskapen.       Observera att för vissa medlemmar som innehåller standardvärdet och återställer inställningen för samma värde till medlemmen är olika begrepp. Till exempel om en egenskap ärver sitt värde från ett överordnat objekt när inget lokala värde har angetts, kanske ange värdet på egenskapen inte vad önskas. Metoden SerializeMemberAbsolute tar hänsyn till och avmarkerar tillståndet för egenskapen i det här fallet."
   syntax:
     content: public abstract void SerializeMemberAbsolute (System.ComponentModel.Design.Serialization.SerializationStore store, object owningObject, System.ComponentModel.MemberDescriptor member);
     parameters:
     - id: store
       type: System.ComponentModel.Design.Serialization.SerializationStore
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;></xref> to which the state of `member` will be serialized."
+      description: "Den <xref href=&quot;System.ComponentModel.Design.Serialization.SerializationStore&quot;> </xref> som tillståndet för `member` serialiseras."
     - id: owningObject
       type: System.Object
-      description: "The object to which `member` is attached."
+      description: "Objektet som `member` är ansluten."
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "The member to serialize."
+      description: "Att serialisera medlemmen."
   overload: System.ComponentModel.Design.Serialization.ComponentSerializationService.SerializeMemberAbsolute*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>store</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>store</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>store</code> is closed, or <code>store</code> is not a supported type of serialization store. Use a store returned by <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
+    description: "<code>store</code>är stängt eller <code>store</code> är inte en typ av serialiseringslager som stöds. Använd ett lager som returneras av <xref:System.ComponentModel.Design.Serialization.CodeDomComponentSerializationService.CreateStore*>."
   platform:
   - net462
 references:
