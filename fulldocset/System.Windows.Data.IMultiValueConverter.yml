@@ -11,8 +11,8 @@ items:
   nameWithType: IMultiValueConverter
   fullName: System.Windows.Data.IMultiValueConverter
   type: Interface
-  summary: "Provides a way to apply custom logic in a <xref href=&quot;System.Windows.Data.MultiBinding&quot;></xref>."
-  remarks: "To associate a converter with a <xref:System.Windows.Data.MultiBinding>, create a class that implements the IMultiValueConverter interface, and then implement the <xref:System.Windows.Data.IMultiValueConverter.Convert%2A> and <xref:System.Windows.Data.IMultiValueConverter.ConvertBack%2A> methods.       Individual bindings in the collection can have their own value converters. For more information, see <xref:System.Windows.Data.IValueConverter>."
+  summary: "Ett sätt att använda anpassade logiken i en <xref href=&quot;System.Windows.Data.MultiBinding&quot;> </xref>."
+  remarks: "Associera en konverterare med en <xref:System.Windows.Data.MultiBinding>, skapa en klass som implementerar gränssnittet IMultiValueConverter och sedan implementera den <xref:System.Windows.Data.IMultiValueConverter.Convert%2A>och <xref:System.Windows.Data.IMultiValueConverter.ConvertBack%2A>metoder.</xref:System.Windows.Data.IMultiValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IMultiValueConverter.Convert%2A> </xref:System.Windows.Data.MultiBinding>       Enskilda bindningar i mängden kan ha sina egna konverterare för värdet. Mer information finns i <xref:System.Windows.Data.IValueConverter>.</xref:System.Windows.Data.IValueConverter>"
   syntax:
     content: public interface IMultiValueConverter
   implements: []
@@ -30,26 +30,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts source values to a value for the binding target. The data binding engine calls this method when it propagates the values from source bindings to the binding target."
-  remarks: "The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the Convert method, or any uncaught exceptions that are thrown by methods that the Convert method calls, are treated as run-time errors. Handle anticipated problems by returning <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>."
+  summary: "Konverterar källvärden till ett värde för bindning målet. Data bindande motorn anropar den här metoden när den sprider värden från källan bindningar till mål-bindning."
+  remarks: "Data bindande motorn fånga inte undantag som utlöses av en konverterare som anges av användaren. Alla undantag som genereras av Convert-metoden eller utan felhantering undantag som utlösts av metoder som konvertera metodanrop behandlas som körningsfel. Hantera förväntade problem genom att returnera <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>.</xref:System.Windows.DependencyProperty.UnsetValue> </xref:System.Windows.DependencyProperty>"
   syntax:
     content: public object Convert (object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: values
       type: System.Object[]
-      description: "The array of values that the source bindings in the <xref href=&quot;System.Windows.Data.MultiBinding&quot;></xref> produces. The value <xref href=&quot;System.Windows.DependencyProperty.UnsetValue&quot;></xref> indicates that the source binding has no value to provide for conversion."
+      description: "Matris med värden som käll-bindningar i den <xref href=&quot;System.Windows.Data.MultiBinding&quot;> </xref> producerar. Värdet <xref href=&quot;System.Windows.DependencyProperty.UnsetValue&quot;> </xref> anger att bindningen källa har inte något värde för att tillhandahålla för konvertering."
     - id: targetType
       type: System.Type
-      description: "The type of the binding target property."
+      description: "Typ av egenskapen target för bindningen."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "Parametern konverterare för att använda."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "Kulturen som ska användas i konverteraren."
     return:
       type: System.Object
-      description: "A converted value.       If the method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the valid <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> value is used.       A return value of <xref href=&quot;System.Windows.DependencyProperty&quot;></xref>.<xref href=&quot;System.Windows.DependencyProperty.UnsetValue&quot;></xref> indicates that the converter did not produce a value, and that the binding will use the <xref:System.Windows.Data.BindingBase.FallbackValue*> if it is available, or else will use the default value.       A return value of <xref href=&quot;System.Windows.Data.Binding&quot;></xref>.<xref href=&quot;System.Windows.Data.Binding.DoNothing&quot;></xref> indicates that the binding does not transfer the value or use the <xref:System.Windows.Data.BindingBase.FallbackValue*> or the default value."
+      description: "Ett konverterat värde.       Om metoden returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, det giltiga <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> värdet används.       Ett returvärde av <xref href=&quot;System.Windows.DependencyProperty&quot;> </xref>.<xref href=&quot;System.Windows.DependencyProperty.UnsetValue&quot;></xref> Anger att konverteraren inte kunde returnera ett värde och att bindningen ska använda den <> </> *> om den är tillgänglig, annars används standardvärdet.       Ett returvärde av <xref href=&quot;System.Windows.Data.Binding&quot;> </xref>.<xref href=&quot;System.Windows.Data.Binding.DoNothing&quot;> </xref> anger att bindningen inte överföra det eller Använd den <> </> *> eller standardvärdet."
   overload: System.Windows.Data.IMultiValueConverter.Convert*
   exceptions: []
   platform:
@@ -66,26 +66,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts a binding target value to the source binding values."
-  remarks: "If there are more return values than there are bindings in the <xref:System.Windows.Data.MultiBinding>, the excess return values are ignored. If there are more source bindings than there are return values, the remaining source bindings do not have any values set on them. Types of return values are not verified against `targetTypes`; the values are set on the source bindings directly.       Return <xref:System.Windows.Data.Binding.DoNothing> at position `i` to indicate that no value is to be set on the source binding at index `i`.       Return <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue> at position `i` to indicate that the converter is unable to provide a value for the source binding at index `i`, and that no value is to be set on it.       Return `null` to indicate that the converter cannot perform the conversion or that it does not support conversion in this direction.       The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the ConvertBack method or any uncaught exceptions that are thrown by methods that the ConvertBack method calls are treated as run-time errors. Handle anticipated problems by returning `null`."
+  summary: "Konverterar ett målvärde för bindning till bindning källvärden."
+  remarks: "Om det finns flera returvärden än bindningar i den <xref:System.Windows.Data.MultiBinding>, överdriven returvärden ignoreras.</xref:System.Windows.Data.MultiBinding> Om det finns flera bindningar källa än returvärden, har inte alla värden som anges på dem. återstående käll-bindningar. Typer av returvärden inte verifieras mot `targetTypes`; värdet ställs in på käll-bindningar direkt.       Returnera <xref:System.Windows.Data.Binding.DoNothing>vid position `i` att ange att det är inget värde anges för källbindning vid index `i`.</xref:System.Windows.Data.Binding.DoNothing>       Returnera <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue> vid position `i` att indikera att konverteraren kan inte ange ett värde för källbindning vid index `i`, och inget värde anges för den.</xref:System.Windows.DependencyProperty.UnsetValue> </xref:System.Windows.DependencyProperty>       Returnera `null` att indikera att konverteraren inte kan utföra konverteringen eller att den inte stöder konvertering i den här riktningen.       Data bindande motorn fånga inte undantag som utlöses av en konverterare som anges av användaren. Alla undantag som genereras av metoden ConvertBack eller undantag utan felhantering som har genererats av metoder som anropar metoden ConvertBack behandlas som körningsfel. Hantera förväntade problem genom att returnera `null`."
   syntax:
     content: public object[] ConvertBack (object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The value that the binding target produces."
+      description: "Det värde som producerar bindning målet."
     - id: targetTypes
       type: System.Type[]
-      description: "The array of types to convert to. The array length indicates the number and types of values that are suggested for the method to return."
+      description: "Matris med typer att konvertera till. Matrislängden anger du antalet och typerna av värden som föreslås för att metoden ska returnera."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "Parametern konverterare för att använda."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "Kulturen som ska användas i konverteraren."
     return:
       type: System.Object[]
-      description: "An array of values that have been converted from the target value back to the source values."
+      description: "En matris med värden som har konverterats från målvärdet tillbaka till källvärden."
   overload: System.Windows.Data.IMultiValueConverter.ConvertBack*
   exceptions: []
   platform:

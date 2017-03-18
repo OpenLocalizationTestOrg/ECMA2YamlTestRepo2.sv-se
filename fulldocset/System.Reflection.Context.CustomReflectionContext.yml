@@ -18,8 +18,8 @@ items:
   nameWithType: CustomReflectionContext
   fullName: System.Reflection.Context.CustomReflectionContext
   type: Class
-  summary: "Represents a customizable reflection context."
-  remarks: "CustomReflectionContext provides a way for you to add or remove custom attributes from reflection objects, or add dummy properties to those objects, without re-implementing the complete reflection model. The default CustomReflectionContext simply wraps reflection objects without making any changes, but by subclassing and overriding the relevant methods, you can add, remove, or change the attributes that apply to any reflected parameter or member, or add new properties to a reflected type.       For example, suppose that your code follows the convention of applying a particular attribute to factory methods, but you are now required to work with third-party code that lacks attributes. You can use CustomReflectionContext to specify a rule for identifying the objects that should have attributes and to supply the objects with those attributes when they are viewed from your code.       To use CustomReflectionContext effectively, the code that uses the reflected objects must support the notion of specifying a reflection context, instead of assuming that all reflected objects are associated with the runtime reflection context. Many reflection methods in the .NET Framework provide a <xref:System.Reflection.ReflectionContext> parameter for this purpose.       To modify the attributes that are applied to a reflected parameter or member, override the <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.ParameterInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29> or <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.MemberInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29> method. These methods take the reflected object and the list of attributes under its current reflection context, and return the list of attributes it should have under the custom reflection context.      > [!WARNING] >  CustomReflectionContext methods should not access the list of attributes of a reflected object or method directly by calling the <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> method on the provided <xref:System.Reflection.MemberInfo> or <xref:System.Reflection.ParameterInfo> instance, but should instead use the `declaredAttributes` list, which is passed as a parameter to the <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%2A> method overloads.       To add properties to a reflected type, override the <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> method. The method accepts a parameter that specifies the reflected type, and returns a list of additional properties. You should use the <xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A> method to create property objects to return. You can specify delegates when creating the property that will serve as the property accessor, and you can omit one of the accessors to create a read-only or write-only property. Note that such dummy properties have no metadata or Common Intermediate Language (CIL) backing.      > [!WARNING] >  Be cautious about equality among reflected objects when you work with reflection contexts, because objects may represent the same reflected object in multiple contexts. You can use the <xref:System.Reflection.Context.CustomReflectionContext.MapType%2A> method to obtain a particular reflection context&quot;s version of a reflected object.      > [!WARNING] >  A CustomReflectionContext object alters the attributes returned by a particular reflection object, such as those obtained by the <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> method. It does not alter the custom attribute data returned by the <xref:System.Reflection.MemberInfo.GetCustomAttributesData%2A> method, and these two lists will not match when you use a custom reflection context."
+  summary: "Representerar en anpassningsbara reflection-kontexten."
+  remarks: "CustomReflectionContext kan du lägga till eller ta bort anpassade attribut från reflection-objekt eller lägga till dummy egenskaper till dessa objekt, utan nytt implementera fullständig reflection-modellen. Standard CustomReflectionContext radbryts bara reflection-objekt utan ändringar, men genom att tillämpa subclassing och åsidosätta relevanta metoder du kan lägga till, ta bort, ändra attributen som gäller för alla reflekterade parameter eller en medlem eller lägga till nya egenskaper till en reflekterad typ..       Anta exempelvis att din kod följer reglerna för att använda ett visst attribut på fabriksmetoder, men du måste nu arbeta med tredjeparts-kod som saknar attribut. Du kan använda CustomReflectionContext för att ange en regel för att identifiera de objekt som ska ha attribut och för att ange objekt med dessa attribut när de visas från din kod.       Om du vill använda CustomReflectionContext effektivt stöder kod som använder de reflekterade objekt begreppet att ange en reflection-kontexten i stället för förutsatt att alla reflekterade objekt är kopplade till runtime reflection-kontexten. Många reflektion metoder i .NET Framework ger en <xref:System.Reflection.ReflectionContext>parameter för detta ändamål.</xref:System.Reflection.ReflectionContext>       Om du vill ändra de attribut som tillämpas på en reflekterade parametern eller medlem åsidosätter den <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.ParameterInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29>eller <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.MemberInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29>metod.</xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.MemberInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29> </xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%28System.Reflection.ParameterInfo%2CSystem.Collections.Generic.IEnumerable%7BSystem.Object%7D%29> Dessa metoder ta reflekterade objektet och i attributlistan under den aktuella reflection-kontexten och returnera lista över attribut som ska finnas under anpassade reflection-kontexten.      > [!WARNING] > CustomReflectionContext metoder bör inte att komma åt listan över reflekterade objektet eller metoden attribut direkt genom att anropa den <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A>metoden på den angivna <xref:System.Reflection.MemberInfo>eller <xref:System.Reflection.ParameterInfo>instans, men i stället bör använda den `declaredAttributes` listan som skickas som en parameter för den <xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%2A>metoden överlagringar.</xref:System.Reflection.Context.CustomReflectionContext.GetCustomAttributes%2A> </xref:System.Reflection.ParameterInfo> </xref:System.Reflection.MemberInfo> </xref:System.Reflection.MemberInfo.GetCustomAttributes%2A>       Om du vill lägga till egenskaper till en reflekterad typ. åsidosätta den <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A>metoden.</xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> Metoden tar en parameter som anger den reflekterade typ och returnerar en lista över ytterligare egenskaper. Du bör använda den <xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A>metoden för att skapa egenskapen objekt att returnera.</xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A> Du kan ange delegater när du skapar egenskapen som ska användas som accessorn för egenskapen och kan du utelämna en accessorer att skapa en skrivskyddad eller lässkyddad egenskap. Observera att egenskaper, till exempel dummy har inga metadata eller vanliga mellanliggande språk (CIL) säkerhetskopiering.      > [!WARNING] > Bör du överväga likheten mellan reflekterade objekt när du arbetar med reflektion kontexter eftersom objekten kan vara samma reflekterade objekt i flera kontexter. Du kan använda den <xref:System.Reflection.Context.CustomReflectionContext.MapType%2A>metod för att hämta en viss reflection-kontexten version av ett reflekterade objekt.</xref:System.Reflection.Context.CustomReflectionContext.MapType%2A>      > [!WARNING] > A CustomReflectionContext objektet ändrar attributen som returneras av en viss reflection-objekt, t.ex de som erhålls med den <xref:System.Reflection.MemberInfo.GetCustomAttributes%2A>metoden.</xref:System.Reflection.MemberInfo.GetCustomAttributes%2A> Ändrar inte attributdata som returneras av den <xref:System.Reflection.MemberInfo.GetCustomAttributesData%2A>metoden och de här två listorna matchar inte när du använder en anpassad reflection-kontexten.</xref:System.Reflection.MemberInfo.GetCustomAttributesData%2A>"
   example:
   - "The following example demonstrates how to subclass  CustomReflectionContext to add a custom attribute to all the members of a given type whose names begin with \"To\". To run this code, paste it into an empty console project, and make sure to include a reference to System.Reflection.Context.dll.  \n  \n [!code-cs[System.Reflection.Context.CustomReflectionContext#1](~/add/codesnippet/csharp/system.reflection.context.customreflectioncontext.consoleapplication1/program.cs#1)]"
   syntax:
@@ -42,7 +42,7 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Initializes a new instance of the <xref href=&quot;System.Reflection.Context.CustomReflectionContext&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Reflection.Context.CustomReflectionContext&quot;> </xref> klass."
   syntax:
     content: protected CustomReflectionContext ();
     parameters: []
@@ -62,13 +62,13 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Initializes a new instance of the <xref href=&quot;System.Reflection.Context.CustomReflectionContext&quot;></xref> class with the specified reflection context as a base."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Reflection.Context.CustomReflectionContext&quot;> </xref> klass med angivna reflection-kontexten som bas."
   syntax:
     content: protected CustomReflectionContext (System.Reflection.ReflectionContext source);
     parameters:
     - id: source
       type: System.Reflection.ReflectionContext
-      description: "The reflection context to use as a base."
+      description: "Reflection-kontexten ska användas som bas."
   overload: System.Reflection.Context.CustomReflectionContext.#ctor*
   exceptions: []
   platform:
@@ -85,17 +85,17 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "When overridden in a derived class, provides a collection of additional properties for the specified type, as represented in this reflection context."
-  remarks: "Override this method to specify which properties should be added to a given type. To create the properties, use the <xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A> method."
+  summary: "När åsidosätts i en härledd klass innehåller en mängd ytterligare egenskaper för den angivna typen, vilket visas i den här reflection-kontexten."
+  remarks: "Åsidosätta den här metoden om du vill ange vilka egenskaper som ska läggas till en viss typ. Så här skapar du egenskaperna för den <xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A>metoden.</xref:System.Reflection.Context.CustomReflectionContext.CreateProperty%2A>"
   syntax:
     content: protected virtual System.Collections.Generic.IEnumerable<System.Reflection.PropertyInfo> AddProperties (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "The type to add properties to."
+      description: "Att lägga till egenskaper till typ."
     return:
       type: System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo}
-      description: "A collection of additional properties for the specified type."
+      description: "En samling med ytterligare egenskaper för den angivna typen."
   overload: System.Reflection.Context.CustomReflectionContext.AddProperties*
   exceptions: []
   platform:
@@ -112,26 +112,26 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Creates an object that represents a property to be added to a type, to be used with the <xref:System.Reflection.Context.CustomReflectionContext.AddProperties*> method."
-  remarks: "Objects that are returned by this method are not complete <xref:System.Reflection.PropertyInfo> objects, and should be used only in the context of the <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> method."
+  summary: "Skapar ett objekt som representerar en egenskap som ska läggas till en typ som ska användas med den <xref:System.Reflection.Context.CustomReflectionContext.AddProperties*>metoden.</xref:System.Reflection.Context.CustomReflectionContext.AddProperties*>"
+  remarks: "Objekt som returneras av den här metoden är inte klar <xref:System.Reflection.PropertyInfo>objekt och bör endast användas i kontexten för den <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A>metoden.</xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> </xref:System.Reflection.PropertyInfo>"
   syntax:
     content: protected System.Reflection.PropertyInfo CreateProperty (Type propertyType, string name, Func<object,object> getter, Action<object,object> setter);
     parameters:
     - id: propertyType
       type: System.Type
-      description: "The type of the property to create."
+      description: "Typ av egenskapen för att skapa."
     - id: name
       type: System.String
-      description: "The name of the property to create."
+      description: "Namnet på egenskapen för att skapa."
     - id: getter
       type: System.Func{System.Object,System.Object}
-      description: "An object that represents the property&quot;s <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
+      description: "Ett objekt som representerar egenskapen <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> accessor."
     - id: setter
       type: System.Action{System.Object,System.Object}
-      description: "An object that represents the property&quot;s <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor."
+      description: "Ett objekt som representerar egenskapen <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> accessor."
     return:
       type: System.Reflection.PropertyInfo
-      description: "An object that represents the property."
+      description: "Ett objekt som representerar egenskapen."
   overload: System.Reflection.Context.CustomReflectionContext.CreateProperty*
   exceptions: []
   platform:
@@ -148,35 +148,35 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Creates an object that represents a property to be added to a type, to be used with the <xref:System.Reflection.Context.CustomReflectionContext.AddProperties*> method and using the specified custom attributes."
-  remarks: "Objects that are returned by this method are not complete <xref:System.Reflection.PropertyInfo> objects, and should be used only in the context of the <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> method."
+  summary: "Skapar ett objekt som representerar en egenskap som ska läggas till en typ som ska användas med den <xref:System.Reflection.Context.CustomReflectionContext.AddProperties*>metoden och använda de angivna anpassade attribut.</xref:System.Reflection.Context.CustomReflectionContext.AddProperties*>"
+  remarks: "Objekt som returneras av den här metoden är inte klar <xref:System.Reflection.PropertyInfo>objekt och bör endast användas i kontexten för den <xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A>metoden.</xref:System.Reflection.Context.CustomReflectionContext.AddProperties%2A> </xref:System.Reflection.PropertyInfo>"
   syntax:
     content: protected System.Reflection.PropertyInfo CreateProperty (Type propertyType, string name, Func<object,object> getter, Action<object,object> setter, System.Collections.Generic.IEnumerable<Attribute> propertyCustomAttributes, System.Collections.Generic.IEnumerable<Attribute> getterCustomAttributes, System.Collections.Generic.IEnumerable<Attribute> setterCustomAttributes);
     parameters:
     - id: propertyType
       type: System.Type
-      description: "The type of the property to create."
+      description: "Typ av egenskapen för att skapa."
     - id: name
       type: System.String
-      description: "The name of the property to create."
+      description: "Namnet på egenskapen för att skapa."
     - id: getter
       type: System.Func{System.Object,System.Object}
-      description: "An object that represents the property&quot;s <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
+      description: "Ett objekt som representerar egenskapen <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> accessor."
     - id: setter
       type: System.Action{System.Object,System.Object}
-      description: "An object that represents the property&quot;s <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor."
+      description: "Ett objekt som representerar egenskapen <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> accessor."
     - id: propertyCustomAttributes
       type: System.Collections.Generic.IEnumerable{System.Attribute}
-      description: "A collection of custom attributes to apply to the property."
+      description: "En samling med anpassade attribut som ska gälla för egenskapen."
     - id: getterCustomAttributes
       type: System.Collections.Generic.IEnumerable{System.Attribute}
-      description: "A collection of custom attributes to apply to the property&quot;s <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
+      description: "En samling av anpassade attribut i egenskapen <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> accessor."
     - id: setterCustomAttributes
       type: System.Collections.Generic.IEnumerable{System.Attribute}
-      description: "A collection of custom attributes to apply to the property&quot;s <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor."
+      description: "En samling av anpassade attribut i egenskapen <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> accessor."
     return:
       type: System.Reflection.PropertyInfo
-      description: "An object that represents the property."
+      description: "Ett objekt som representerar egenskapen."
   overload: System.Reflection.Context.CustomReflectionContext.CreateProperty*
   exceptions: []
   platform:
@@ -193,19 +193,19 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "When overridden in a derived class, provides a list of custom attributes for the specified member, as represented in this reflection context."
+  summary: "När åsidosätts i en härledd klass, ger du en lista över anpassade attribut för den angivna medlemmen som representeras i den här reflection-kontexten."
   syntax:
     content: protected virtual System.Collections.Generic.IEnumerable<object> GetCustomAttributes (System.Reflection.MemberInfo member, System.Collections.Generic.IEnumerable<object> declaredAttributes);
     parameters:
     - id: member
       type: System.Reflection.MemberInfo
-      description: "The member whose custom attributes will be returned."
+      description: "Den medlem vars anpassade attribut som ska returneras."
     - id: declaredAttributes
       type: System.Collections.Generic.IEnumerable{System.Object}
-      description: "A collection of the member&quot;s attributes in its current context."
+      description: "En samling Medlemsattribut i den aktuella kontexten."
     return:
       type: System.Collections.Generic.IEnumerable{System.Object}
-      description: "A collection that represents the custom attributes of the specified member in this reflection context."
+      description: "En samling som representerar de anpassade attributen för den angivna medlemmen i den här reflection-kontexten."
   overload: System.Reflection.Context.CustomReflectionContext.GetCustomAttributes*
   exceptions: []
   platform:
@@ -222,19 +222,19 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "When overridden in a derived class, provides a list of custom attributes for the specified parameter, as represented in this reflection context."
+  summary: "När åsidosätts i en härledd klass, ger du en lista över anpassade attribut för den angivna parametern som visas i den här reflection-kontexten."
   syntax:
     content: protected virtual System.Collections.Generic.IEnumerable<object> GetCustomAttributes (System.Reflection.ParameterInfo parameter, System.Collections.Generic.IEnumerable<object> declaredAttributes);
     parameters:
     - id: parameter
       type: System.Reflection.ParameterInfo
-      description: "The parameter whose custom attributes will be returned."
+      description: "Parametern vars anpassade attribut som ska returneras."
     - id: declaredAttributes
       type: System.Collections.Generic.IEnumerable{System.Object}
-      description: "A collection of the parameter&quot;s attributes in its current context."
+      description: "En samling parameterns attribut i den aktuella kontexten."
     return:
       type: System.Collections.Generic.IEnumerable{System.Object}
-      description: "A collection that represents the custom attributes of the specified parameter in this reflection context."
+      description: "En samling som representerar de anpassade attributen för den angivna parametern i den här reflection-kontexten."
   overload: System.Reflection.Context.CustomReflectionContext.GetCustomAttributes*
   exceptions: []
   platform:
@@ -251,16 +251,16 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Gets the representation, in this reflection context, of an assembly that is represented by an object from another reflection context."
+  summary: "Hämtar representationen i den här reflection-kontexten för en sammansättning som representeras av ett objekt från en annan reflection-kontexten."
   syntax:
     content: public override System.Reflection.Assembly MapAssembly (System.Reflection.Assembly assembly);
     parameters:
     - id: assembly
       type: System.Reflection.Assembly
-      description: "The external representation of the assembly to represent in this context."
+      description: "Externa representation av sammansättningen som ska representera i den här kontexten."
     return:
       type: System.Reflection.Assembly
-      description: "The representation of the assembly in this reflection context."
+      description: "Representation av sammansättningen i den här reflection-kontexten."
   overload: System.Reflection.Context.CustomReflectionContext.MapAssembly*
   exceptions: []
   platform:
@@ -277,16 +277,16 @@ items:
   assemblies:
   - System.Reflection.Context
   namespace: System.Reflection.Context
-  summary: "Gets the representation, in this reflection context, of a type represented by an object from another reflection context."
+  summary: "Hämtar representationen i den här reflection-kontexten för en typ som representeras av ett objekt från en annan reflection-kontexten."
   syntax:
     content: public override System.Reflection.TypeInfo MapType (System.Reflection.TypeInfo type);
     parameters:
     - id: type
       type: System.Reflection.TypeInfo
-      description: "The external representation of the type to represent in this context."
+      description: "Externa representation av den typ som representerar i den här kontexten."
     return:
       type: System.Reflection.TypeInfo
-      description: "The representation of the type in this reflection context."
+      description: "Representation av typen i den här reflection-kontexten."
   overload: System.Reflection.Context.CustomReflectionContext.MapType*
   exceptions: []
   platform:

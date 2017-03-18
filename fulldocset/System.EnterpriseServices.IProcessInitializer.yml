@@ -11,8 +11,8 @@ items:
   nameWithType: IProcessInitializer
   fullName: System.EnterpriseServices.IProcessInitializer
   type: Interface
-  summary: "Supports methods that can be called when a COM component starts up or shuts down."
-  remarks: "Implement the IProcessInitializer interface methods on serviced components if you want to run initialization or shutdown code when a server process (Dllhost.exe) starts up or shuts down, respectively.       COM+ provides `Startup` and `Shutdown` events when Dllhost.exe starts and ends. This feature enables any COM+ components that are installed in a COM+ server application (referred to as server components hereafter) to run custom initialization and clean up code. An instance of each component that implements the IProcessInitializer interface will be created and stored for the duration of the process, and called on the interface methods during startup and shutdown. When implemented on a <xref:System.EnterpriseServices.ServicedComponent>, during registration of the component, the `InitializesServerApplication` parameter in the `COMAdminCatalogObject` within the Components collection is set to `true`.       Using the `Startup` and `Shutdown` events, you can initialize resources, create connections, initialize shared data, and run cleanup code. However, you must not access states that are specific to COM+ because instances of server components have not yet been created. In addition, the code in the `Startup` and `Shutdown` events should return as quickly as possible, because the system waits only 90 seconds for Dllhost.exe to prepare to accept activations after the system starts the process. If Dllhost.exe does not signal that it is ready within 90 seconds, the system ends the process; thus, all initialization processing needs to be completed within this time frame. Each server component that participates in initialization must support the IProcessInitializer interface. On DllHost.exe startup, COM+ creates all server components that requested this service, calls `QueryInterface` for the IProcessInitializer interface, and calls the <xref:System.EnterpriseServices.IProcessInitializer.Startup%2A> function. Similarly, when the DllHost.exe process is shut down, it calls the <xref:System.EnterpriseServices.IProcessInitializer.Shutdown%2A> function on those previously stored interface pointers."
+  summary: "Har stöd för metoder som kan anropas när en COM-komponent startas eller stängs av."
+  remarks: "Implementera gränssnittsmetoder IProcessInitializer på underhållna komponenter om du vill köra start eller avstängning när en server-processen (Dllhost.exe) startas eller stängs av respektive.       COM + tillhandahåller `Startup` och `Shutdown` händelser när Dllhost.exe börjar och slutar. Den här funktionen gör att alla COM +-komponenter som är installerade i en COM +-tillämpning (kallas serverkomponenter nedan) för att köra anpassade initieringen och rensa kod. En instans av varje komponent som implementerar gränssnittet IProcessInitializer skapas och lagras under hela processen, och namnet på gränssnittsmetoder under start och stopp. Implementeras på en <xref:System.EnterpriseServices.ServicedComponent>, under registrering av komponenten, den `InitializesServerApplication` parametern i den `COMAdminCatalogObject` i komponenterna samlingen är inställd på `true`.</xref:System.EnterpriseServices.ServicedComponent>       Med hjälp av den `Startup` och `Shutdown` händelser, du kan initiera resurser, skapa anslutningar, initiera delade data och köra rensning kod. Du måste inte komma åt tillstånd som är specifika för COM + eftersom instanser av serverkomponenter som ännu inte har skapats. Dessutom koden i den `Startup` och `Shutdown` händelser ska returnera så snabbt som möjligt, eftersom datorn väntar endast 90 sekunder för Dllhost.exe att förbereda att acceptera aktiveringar när systemet startar processen. Om Dllhost.exe ogiltig indikation på att den är klar inom 90 sekunder, slutar systemet process. därför alla initiering bearbetning måste slutföras inom denna tidsperiod. Varje serverkomponent som deltar i initieringen måste stödja IProcessInitializer-gränssnittet. DllHost.exe startas, COM + skapar alla serverkomponenter som den här tjänsten anrop har begärt `QueryInterface` för IProcessInitializer-gränssnittet och anrop i <xref:System.EnterpriseServices.IProcessInitializer.Startup%2A>funktion.</xref:System.EnterpriseServices.IProcessInitializer.Startup%2A> På liknande sätt när DllHost.exe processen avslutas anropar den <xref:System.EnterpriseServices.IProcessInitializer.Shutdown%2A>fungerar på de lagrade tidigare gränssnittspekare.</xref:System.EnterpriseServices.IProcessInitializer.Shutdown%2A>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.Guid("1113f52d-dc7f-4943-aed6-88d04027e32a")]
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices
-  summary: "Performs shutdown actions. Called when Dllhost.exe is shut down."
-  remarks: "Shutdown is not called during a failfast or other catastrophic shutdown events."
+  summary: "Utför åtgärder som avstängning. Anropas när Dllhost.exe är avstängd."
+  remarks: "Stäng anropas inte under en failfast eller andra oåterkalleligt avstängning."
   syntax:
     content: public void Shutdown ();
     parameters: []
@@ -56,14 +56,14 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices
-  summary: "Performs initialization at startup. Called when Dllhost.exe is started."
-  remarks: "The object referenced by `punkProcessControl` implements an <xref:System.EnterpriseServices.IProcessInitControl> interface. <xref:System.EnterpriseServices.IProcessInitControl> supports the single method <xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A>.       The initialization code in Startup can call the <xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A>, with the time-out set equal to the number of seconds remaining before the startup of the component times out."
+  summary: "Utför initieringen vid start. Anropas när Dllhost.exe har startats."
+  remarks: "Objektet som refereras av `punkProcessControl` implementerar en <xref:System.EnterpriseServices.IProcessInitControl>gränssnitt.</xref:System.EnterpriseServices.IProcessInitControl> <xref:System.EnterpriseServices.IProcessInitControl>stöder den enda metoden <xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A>.</xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A></xref:System.EnterpriseServices.IProcessInitControl>       Av initieringskoden i Start kan anropa den <xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A>, med timeout-värde som är lika med antalet sekunder kvar innan komponenten gånger ut startas.</xref:System.EnterpriseServices.IProcessInitControl.ResetInitializerTimeout%2A>"
   syntax:
     content: public void Startup (object punkProcessControl);
     parameters:
     - id: punkProcessControl
       type: System.Object
-      description: "In Microsoft Windows XP, a pointer to the <xref uid=&quot;langword_csharp_IUnknown&quot; name=&quot;IUnknown&quot; href=&quot;&quot;></xref> interface of the COM component starting up. In Microsoft Windows 2000, this argument is always <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "I Microsoft Windows XP, en pekare till den <xref uid=&quot;langword_csharp_IUnknown&quot; name=&quot;IUnknown&quot; href=&quot;&quot;> </xref> gränssnittet för COM-komponenten startades. I Microsoft Windows 2000, det här argumentet är alltid <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.EnterpriseServices.IProcessInitializer.Startup*
   exceptions: []
   platform:

@@ -33,8 +33,8 @@ items:
   nameWithType: OracleParameter
   fullName: System.Data.OracleClient.OracleParameter
   type: Class
-  summary: "Represents a parameter to an <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;></xref> and optionally its mapping to a <xref href=&quot;System.Data.DataColumn&quot;></xref>. This class cannot be inherited."
-  remarks: "Parameter names are not case-sensitive.       When querying an Oracle database using the Microsoft OLE DB Provider for Oracle (MSDAORA) and the ODBC.NET Framework Data Provider, using the `LIKE` clause to query values in fixed-length fields may not return all expected matches. The reason is that when Oracle matches values for fixed-length fields in a `LIKE` clause, it matches the entire length of the string, including any padding trailing spaces. For example, if a table in an Oracle database contains a field named &quot;Field1&quot; that is defined as `char(3)`, and you enter the value &quot;a&quot; into a row of that table, the following code will not return the row.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```       This is because Oracle stores the column value as &quot;a  &quot; (padding &quot;a&quot;, with trailing spaces, to the fixed field length of 3), which Oracle does not treat as a match for the parameter value of &quot;a&quot; in the case of a `LIKE` comparison of fixed-length fields.       To resolve this problem, append a percentage (&quot;%&quot;) wildcard character to the parameter value (`&quot;a%&quot;`), or use an SQL `=` comparison instead."
+  summary: "Representerar en parameter till en <xref href=&quot;System.Data.OracleClient.OracleCommand&quot;> </xref> och eventuellt dess mappning till en <xref href=&quot;System.Data.DataColumn&quot;> </xref>. Den här klassen kan inte ärvas."
+  remarks: "Parameternamn är inte skiftlägeskänsliga.       När du frågar en Oracle-databas som använder Microsoft OLE DB Provider för Oracle (MSDAORA) och ODBC.NET Framework-dataprovidern med hjälp av den `LIKE` -sats för att fråga värden i fälten för fast längd kan inte returnera alla förväntade matchar. Anledningen är att när Oracle matchar för fast längd fält i en `LIKE` -sats matchar hela längden på strängen, inklusive eventuella utfyllnad avslutande blanksteg. Till exempel om en tabell i en Oracle-databas innehåller ett fält med namnet &quot;Fält1&quot; som definierats i `char(3)`, och du anger värdet &quot;a&quot; i en rad i tabellen och följande kod returnerar inte raden.      ```vb#   Dim queryString As String = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;   Dim command As OleDbCommand = New OleDbCommand(queryString, connection)   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;   Dim reader As OleDbDataReader = command.ExecuteReader()   ```      ```c#   string queryString = &quot;SELECT * FROM Table1 WHERE Field1 LIKE ?&quot;;   OleDbCommand command = new OleDbCommand(queryString, connection);   command.Parameters.Add(&quot;@p1&quot;, OleDbType.Char, 3).Value = &quot;a&quot;;   OleDbDataReader reader = command.ExecuteReader();   ```Detta beror på att Oracle lagrar värdet i kolumnen som &quot;a&quot; (utfyllnad &quot;a&quot;, med efterföljande blanksteg till fältet fast längd på 3), som Oracle behandlar inte som en matchning för parametervärde av &quot;a&quot; för en `LIKE` jämförelse av fält med fast bredd.       Lös problemet genom att lägga till ett jokertecken i procent (&quot;%&quot;) till parametervärdet (`&quot;a%&quot;`), eller Använd en SQL `=` jämförelse i stället."
   example:
   - "The following example creates multiple instances of OracleParameter through the <xref:System.Data.OracleClient.OracleParameterCollection> within the <xref:System.Data.OracleClient.OracleDataAdapter>. These parameters are used to select data from the database and place the data in the <xref:System.Data.DataSet>. This example assumes that a <xref:System.Data.DataSet> and an <xref:System.Data.OracleClient.OracleDataAdapter> have already been created by using the appropriate schema, commands, and connection.  \n  \n [!code-vb[Classic WebData OracleParameter#1](~/add/codesnippet/visualbasic/t-system.data.oracleclie_2_1.vb)]\n [!code-cs[Classic WebData OracleParameter#1](~/add/codesnippet/csharp/t-system.data.oracleclie_2_1.cs)]"
   syntax:
@@ -69,7 +69,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass."
   syntax:
     content: public OracleParameter ();
     parameters: []
@@ -89,7 +89,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name and data type."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parametern namn och datatyp."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OracleParameter.OracleParameter1#1](~/add/codesnippet/csharp/4202d6e7-f1be-40ac-b42b-_1.cs)]\n [!code-vb[Classic WebData OracleParameter.OracleParameter1#1](~/add/codesnippet/visualbasic/4202d6e7-f1be-40ac-b42b-_1.vb)]"
@@ -98,15 +98,15 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Parameterns namn."
     - id: oracleType
       type: System.Data.OracleClient.OracleType
-      description: "One of the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värden."
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>oracleType</code> parameter is an invalid back-end data type."
+    description: "Värdet som angetts i den <code> oracleType </code> parametern är en ogiltig datatyp för serverdel."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.#ctor(System.String,System.Object)
@@ -121,17 +121,17 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name and an <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> object."
-  remarks: "When you specify an <xref:System.Object> in the `value` parameter, the <xref:System.Data.DbType> is inferred from the Microsoft .NET Framework type of the <xref:System.Object>.       Use caution when you are using this overload of the <xref:System.Data.OracleClient.OracleParameter> constructor. Because this overload takes a `value` of type <xref:System.Object>, you must convert the integral value to an <xref:System.Object> type when the value is zero, as the following Microsoft Visual C# example demonstrates.      ```   Parameter = new OracleParameter(&quot;pname&quot;, Convert.ToInt32(0));   ```       If you do not perform this conversion, the compiler will assume that you are trying to call the `OracleParameter`(`string`, `OracleType`) constructor overload."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parameternamnet och en <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> objekt."
+  remarks: "När du anger en <xref:System.Object>i den `value` parametern, <xref:System.Data.DbType>härledas från typen Microsoft .NET Framework i <xref:System.Object>.</xref:System.Object> </xref:System.Data.DbType> </xref:System.Object>       Var försiktig när du använder den här överlagring för den <xref:System.Data.OracleClient.OracleParameter>konstruktor.</xref:System.Data.OracleClient.OracleParameter> Eftersom denna överlagring som tar en `value` av typen <xref:System.Object>, måste du konvertera integrerad värdet till ett <xref:System.Object>Skriv när värdet är noll, som Microsoft Visual C# exemplet nedan visar.</xref:System.Object> </xref:System.Object>      ```   Parameter = new OracleParameter(&quot;pname&quot;, Convert.ToInt32(0));   ```Om du inte utför konverteringen kompileraren antar att du försöker anropa den `OracleParameter`(`string`, `OracleType`) konstruktorn överlagring."
   syntax:
     content: public OracleParameter (string name, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Parameterns namn."
     - id: value
       type: System.Object
-      description: "An <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> object."
+      description: "En <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> objekt."
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions: []
   platform:
@@ -148,7 +148,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name, data type, and length."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parameternamn, datatyp och längd."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OracleParameter.OracleParameter2#1](~/add/codesnippet/visualbasic/e290d01f-44fd-4bfb-9cfc-_1.vb)]\n [!code-cs[Classic WebData OracleParameter.OracleParameter2#1](~/add/codesnippet/csharp/e290d01f-44fd-4bfb-9cfc-_1.cs)]"
@@ -157,18 +157,18 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Parameterns namn."
     - id: oracleType
       type: System.Data.OracleClient.OracleType
-      description: "One of the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Längden på parametern."
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>oracleType</code> parameter is an invalid back-end data type."
+    description: "Värdet som angetts i den <code> oracleType </code> parametern är en ogiltig datatyp för serverdel."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.#ctor(System.String,System.Data.OracleClient.OracleType,System.Int32,System.String)
@@ -183,7 +183,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name, data type, length, and source column name."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parameternamn, datatyp, längd och källkolumnsnamnet."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n [!code-vb[Classic WebData OracleParameter.OracleParameter3#1](~/add/codesnippet/visualbasic/616cc418-c91f-4910-b819-_1.vb)]\n [!code-cs[Classic WebData OracleParameter.OracleParameter3#1](~/add/codesnippet/csharp/616cc418-c91f-4910-b819-_1.cs)]"
@@ -192,21 +192,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Parameterns namn."
     - id: oracleType
       type: System.Data.OracleClient.OracleType
-      description: "One of the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Längden på parametern."
     - id: srcColumn
       type: System.String
-      description: "The name of the source column."
+      description: "Namnet på kolumnen källa."
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>oracleType</code> parameter is an invalid back-end data type."
+    description: "Värdet som angetts i den <code> oracleType </code> parametern är en ogiltig datatyp för serverdel."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.#ctor(System.String,System.Data.OracleClient.OracleType,System.Int32,System.Data.ParameterDirection,System.String,System.Data.DataRowVersion,System.Boolean,System.Object)
@@ -221,39 +221,39 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name, data type, size, direction, source column, source version, and other properties."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parameternamn, datatyp, storlek, riktning, källkolumnen, Källversion och andra egenskaper."
   syntax:
     content: public OracleParameter (string name, System.Data.OracleClient.OracleType oracleType, int size, System.Data.ParameterDirection direction, string sourceColumn, System.Data.DataRowVersion sourceVersion, bool sourceColumnNullMapping, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter to map."
+      description: "Namnet på parametern för att mappa."
     - id: oracleType
       type: System.Data.OracleClient.OracleType
-      description: "One of the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Längden på parametern."
     - id: direction
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> värden."
     - id: sourceColumn
       type: System.String
-      description: "The name of the source column."
+      description: "Namnet på kolumnen källa."
     - id: sourceVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> värden."
     - id: sourceColumnNullMapping
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the source column is nullable, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om källkolumnen är null, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>."
+      description: "En <xref:System.Object>som värdet för den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>oracleType</code> parameter is an invalid back-end data type."
+    description: "Värdet som angetts i den <code> oracleType </code> parametern är en ogiltig datatyp för serverdel."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.#ctor(System.String,System.Data.OracleClient.OracleType,System.Int32,System.Data.ParameterDirection,System.Boolean,System.Byte,System.Byte,System.String,System.Data.DataRowVersion,System.Object)
@@ -268,7 +268,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref> class that uses the parameter name, data type, length, source column name, parameter direction, numeric precision, and other properties."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref> klass som använder parameternamn, datatyp, längd, källkolumnsnamnet, Parameterriktningen, numerisk precision och andra egenskaper."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleParameter> and displays the <xref:System.Data.OracleClient.OracleParameter.ParameterName%2A>.  \n  \n [!code-vb[Classic WebData OracleParameter.OracleParameter4#1](~/add/codesnippet/visualbasic/63c3318b-3b11-40ab-a729-_1.vb)]\n [!code-cs[Classic WebData OracleParameter.OracleParameter4#1](~/add/codesnippet/csharp/63c3318b-3b11-40ab-a729-_1.cs)]"
@@ -277,39 +277,39 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the parameter."
+      description: "Parameterns namn."
     - id: oracleType
       type: System.Data.OracleClient.OracleType
-      description: "One of the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värden."
     - id: size
       type: System.Int32
-      description: "The length of the parameter."
+      description: "Längden på parametern."
     - id: direction
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> värden."
     - id: isNullable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of the field can be null, otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om värdet för fältet kan vara null, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: precision
       type: System.Byte
-      description: "The total number of digits to the left and right of the decimal point to which <xref:System.Data.OracleClient.OracleParameter.Value*> is resolved."
+      description: "Det totala antalet siffror till vänster och höger om decimaltecknet som <xref:System.Data.OracleClient.OracleParameter.Value*>har lösts.</xref:System.Data.OracleClient.OracleParameter.Value*>"
     - id: scale
       type: System.Byte
-      description: "The total number of decimal places to which <xref:System.Data.OracleClient.OracleParameter.Value*> is resolved."
+      description: "Det totala antalet decimaler som <xref:System.Data.OracleClient.OracleParameter.Value*>har lösts.</xref:System.Data.OracleClient.OracleParameter.Value*>"
     - id: srcColumn
       type: System.String
-      description: "The name of the source column."
+      description: "Namnet på kolumnen källa."
     - id: srcVersion
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> värden."
     - id: value
       type: System.Object
-      description: "An <xref:System.Object> that is the value of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>."
+      description: "En <xref:System.Object>som värdet för den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>.</xref:System.Object>"
   overload: System.Data.OracleClient.OracleParameter.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value supplied in the <code>oracleType</code> parameter is an invalid back-end data type."
+    description: "Värdet som angetts i den <code> oracleType </code> parametern är en ogiltig datatyp för serverdel."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.DbType
@@ -324,20 +324,20 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the <xref href=&quot;System.Data.DbType&quot;></xref> of the parameter."
-  remarks: "The <xref:System.Data.OracleClient.OracleParameter.OracleType%2A> and DbType are linked. Therefore, setting the DbType changes the <xref:System.Data.OracleClient.OracleParameter.OracleType%2A> to a supporting <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>.       The DbType, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, and <xref:System.Data.OracleClient.OracleParameter.Size%2A> properties of a parameter can be inferred by setting <xref:System.Data.OracleClient.OracleParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.OracleClient.OracleParameter> property settings. For example, if the size of the parameter has been inferred, <xref:System.Data.OracleClient.OracleParameter.Size%2A> does not contain inferred value after statement execution. For `String` data types the default is <xref:System.Data.DbType>.       For a list of the supported data types, see the appropriate <xref:System.Data.OracleClient.OracleParameter.OracleType%2A> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hämtar eller anger den <xref href=&quot;System.Data.DbType&quot;> </xref> för parametern."
+  remarks: "Den <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>och DbType kopplas.</xref:System.Data.OracleClient.OracleParameter.OracleType%2A> Därför kan ändras inställningen DbType <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>till en stödjande <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>.</xref:System.Data.OracleClient.OracleParameter.OracleType%2A> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A>       DbType, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, och <xref:System.Data.OracleClient.OracleParameter.Size%2A>egenskaperna för en parameter kan härledas genom att ange <xref:System.Data.OracleClient.OracleParameter.Value%2A>.</xref:System.Data.OracleClient.OracleParameter.Value%2A> </xref:System.Data.OracleClient.OracleParameter.Size%2A> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A> Därför kan behöver du inte ange dem. Men de inte visas i <xref:System.Data.OracleClient.OracleParameter>egenskapsinställningar.</xref:System.Data.OracleClient.OracleParameter> Om storleken på parametern som har härletts, till exempel <xref:System.Data.OracleClient.OracleParameter.Size%2A>innehåller inte antydda värde efter körning av instruktionen.</xref:System.Data.OracleClient.OracleParameter.Size%2A> För `String` datatyperna standardvärdet är <xref:System.Data.DbType>.</xref:System.Data.DbType>       En lista över datatyperna som stöds finns i <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>medlem.</xref:System.Data.OracleClient.OracleParameter.OracleType%2A> Mer information finns i [DataAdapter parametrar](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n [!code-cs[Classic WebData OracleParameter.DbType#1](~/add/codesnippet/csharp/p-system.data.oracleclie_8_1.cs)]\n [!code-vb[Classic WebData OracleParameter.DbType#1](~/add/codesnippet/visualbasic/p-system.data.oracleclie_8_1.vb)]"
   syntax:
     content: public override System.Data.DbType DbType { get; set; }
     return:
       type: System.Data.DbType
-      description: "One of the <xref href=&quot;System.Data.DbType&quot;></xref> values. The default is <xref href=&quot;System.Data.DbType&quot;></xref>."
+      description: "En av de <xref href=&quot;System.Data.DbType&quot;> </xref> värden. Standardvärdet är <xref href=&quot;System.Data.DbType&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.DbType*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The property was not set to a valid <xref href=&quot;System.Data.DbType&quot;></xref>."
+    description: "Egenskapen har inte angetts på en giltig <xref href=&quot;System.Data.DbType&quot;> </xref>."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.Direction
@@ -352,20 +352,20 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets a value that indicates whether the parameter is input-only, output-only, bidirectional, or a stored procedure return value parameter."
-  remarks: "If the <xref:System.Data.ParameterDirection> is output, and execution of the associated <xref:System.Data.OracleClient.OracleCommand> does not return a value, the <xref:System.Data.OracleClient.OracleParameter> contains a null value.       `Output`, `InputOut`, and `ReturnValue` parameters returned by calling <xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A> cannot be accessed until you call <xref:System.Data.OracleClient.OracleDataReader.Close%2A> on the <xref:System.Data.OracleClient.OracleDataReader>."
+  summary: "Hämtar eller anger ett värde som anger om parametern är krypteringen, endast utgående, dubbelriktad eller en lagrad procedur returvärdet parameter."
+  remarks: "Om den <xref:System.Data.ParameterDirection>är utdata och körningen av den associerade <xref:System.Data.OracleClient.OracleCommand>returnerar inte ett värde i <xref:System.Data.OracleClient.OracleParameter>innehåller ett null-värde.</xref:System.Data.OracleClient.OracleParameter> </xref:System.Data.OracleClient.OracleCommand> </xref:System.Data.ParameterDirection>       `Output`, `InputOut`, och `ReturnValue` parametrar som returneras genom att anropa <xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A>kan inte användas förrän du anropa <xref:System.Data.OracleClient.OracleDataReader.Close%2A> <xref:System.Data.OracleClient.OracleDataReader>.</xref:System.Data.OracleClient.OracleDataReader> </xref:System.Data.OracleClient.OracleDataReader.Close%2A> </xref:System.Data.OracleClient.OracleCommand.ExecuteReader%2A>"
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleDbParameter()  \n   Dim parameter As New OracleParameter()  \n   parameter.ParameterName = \"pDName\"  \n   parameter.DbType = DbType.String  \n   parameter.Value = \"ENGINEERING\"  \n   parameter.SourceColumn = \"DName\"  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleDbParameter()   \n{  \n   OracleParameter parameter = new OracleParameter();  \n   parameter.ParameterName = \"pDName\";  \n   parameter.DbType = DbType.String;  \n   parameter.Value = \"ENGINEERING\";  \n   parameter.SourceColumn = \"DName\";  \n}  \n```"
   syntax:
     content: public override System.Data.ParameterDirection Direction { get; set; }
     return:
       type: System.Data.ParameterDirection
-      description: "One of the <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;></xref>."
+      description: "En av de <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> värden. Standardvärdet är <xref uid=&quot;langword_csharp_Input&quot; name=&quot;Input&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.Direction*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The property was not set to one of the valid <xref href=&quot;System.Data.ParameterDirection&quot;></xref> values."
+    description: "Egenskapen har inte angetts till en av de giltiga <xref href=&quot;System.Data.ParameterDirection&quot;> </xref> värden."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleParameter.IsNullable
@@ -380,15 +380,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets a value that indicates whether the parameter accepts null values."
-  remarks: "Null values are handled using the <xref:System.DBNull> class."
+  summary: "Hämtar eller anger ett värde som anger om parametern accepterar null-värden."
+  remarks: "Null-värden ska hanteras med hjälp av <xref:System.DBNull>klassen.</xref:System.DBNull>"
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleParameter()  \n   Dim parameter As New OracleParameter(\"DName\", OracleType.VarChar, 14)  \n   parameter.IsNullable = True  \n   parameter.Direction = ParameterDirection.Output  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleParameter()   \n{  \n   OracleParameter parameter = new OracleParameter(\"DName\", OracleType.VarChar, 14);  \n   parameter.IsNullable = true;  \n   parameter.Direction = ParameterDirection.Output;  \n}  \n```"
   syntax:
     content: public override bool IsNullable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if null values are accepted, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om null-värden är godkända annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.IsNullable*
   exceptions: []
   platform:
@@ -405,15 +405,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the offset to the <xref:System.Data.OracleClient.OracleParameter.Value*> property."
-  remarks: "The `Offset` property is used for client-side chunking of binary and string data. For example, in order to insert 10MB of text into a column on a server, a user might execute 10 parameterized inserts of 1MB chunks, shifting the value of `Offset` on each iteration by 1MB.       `Offset` specifies the number of bytes for binary types, and the number of characters for strings. The count for strings does not include the terminating character."
+  summary: "Hämtar eller anger förskjutningen för den <xref:System.Data.OracleClient.OracleParameter.Value*>egenskapen.</xref:System.Data.OracleClient.OracleParameter.Value*>"
+  remarks: "Den `Offset` egenskapen används för klientsidan högoptimerat binär och strängen data. Till exempel för att infoga 10 MB text i en kolumn på en server, en användare kan köra 10 parametriserade infogningar av 1 MB segment, ändra värdet för `Offset` för varje iteration av 1 MB.       `Offset`Anger antalet byte för binära typer och antal tecken för strängar. Antalet för strängar som innehåller inte det avslutande tecknet."
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleParameter()  \n   Dim parameter As New OracleParameter(\"pDName\", OracleType.VarChar)  \n   parameter.IsNullable = True  \n   parameter.Offset = 3  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleParameter()   \n{  \n   OracleParameter parameter = new OracleParameter(\"pDName\", OracleType.VarChar);  \n   parameter.IsNullable = true;  \n   parameter.Offset = 3;  \n}  \n```"
   syntax:
     content: public int Offset { get; set; }
     return:
       type: System.Int32
-      description: "The offset to the <xref:System.Data.OracleClient.OracleParameter.Value*>. The default is 0."
+      description: "Förskjutningen till <xref:System.Data.OracleClient.OracleParameter.Value*>.</xref:System.Data.OracleClient.OracleParameter.Value*> Standardvärdet är 0."
   overload: System.Data.OracleClient.OracleParameter.Offset*
   exceptions: []
   platform:
@@ -430,13 +430,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> of the parameter."
-  remarks: "The OracleType and <xref:System.Data.OracleClient.OracleParameter.DbType%2A> are linked. Therefore, setting the <xref:System.Data.OracleClient.OracleParameter.DbType%2A> changes the OracleType to a supporting <xref:System.Data.OracleClient.OracleType>.       The <xref:System.Data.OracleClient.OracleParameter.DbType%2A>, OracleType, and <xref:System.Data.OracleClient.OracleParameter.Size%2A> properties of a parameter can be inferred by setting <xref:System.Data.OracleClient.OracleParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.OracleClient.OracleParameter> property settings. For example, if the size of the parameter has been inferred, <xref:System.Data.OracleClient.OracleParameter.Size%2A> does not contain inferred value after statement execution. For `String` data types the default is <xref:System.Data.OracleClient.OracleType>.       For a list of the supported data types, see the appropriate <xref:System.Data.OracleClient.OracleType> member. For more information, see [DataAdapter Parameters](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hämtar eller anger den <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> för parametern."
+  remarks: "OracleType och <xref:System.Data.OracleClient.OracleParameter.DbType%2A>är länkade.</xref:System.Data.OracleClient.OracleParameter.DbType%2A> Därför kan inställningen <xref:System.Data.OracleClient.OracleParameter.DbType%2A>ändringar OracleType till en stödjande <xref:System.Data.OracleClient.OracleType>.</xref:System.Data.OracleClient.OracleType> </xref:System.Data.OracleClient.OracleParameter.DbType%2A>       Den <xref:System.Data.OracleClient.OracleParameter.DbType%2A>OracleType, och <xref:System.Data.OracleClient.OracleParameter.Size%2A>egenskaperna för en parameter kan härledas genom att ange <xref:System.Data.OracleClient.OracleParameter.Value%2A>.</xref:System.Data.OracleClient.OracleParameter.Value%2A> </xref:System.Data.OracleClient.OracleParameter.Size%2A> </xref:System.Data.OracleClient.OracleParameter.DbType%2A> Därför kan behöver du inte ange dem. Men de inte visas i <xref:System.Data.OracleClient.OracleParameter>egenskapsinställningar.</xref:System.Data.OracleClient.OracleParameter> Om storleken på parametern som har härletts, till exempel <xref:System.Data.OracleClient.OracleParameter.Size%2A>innehåller inte antydda värde efter körning av instruktionen.</xref:System.Data.OracleClient.OracleParameter.Size%2A> För `String` datatyperna standardvärdet är <xref:System.Data.OracleClient.OracleType>.</xref:System.Data.OracleClient.OracleType>       En lista över datatyperna som stöds finns i <xref:System.Data.OracleClient.OracleType>medlem.</xref:System.Data.OracleClient.OracleType> Mer information finns i [DataAdapter parametrar](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Data.OracleClient.OracleType OracleType { get; set; }
     return:
       type: System.Data.OracleClient.OracleType
-      description: "An <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> value that is the <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref> of the parameter. The default is <xref href=&quot;System.Data.OracleClient.OracleType&quot;></xref>."
+      description: "En <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> värde som är den <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref> för parametern. Standardvärdet är <xref href=&quot;System.Data.OracleClient.OracleType&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.OracleType*
   exceptions: []
   platform:
@@ -453,15 +453,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the name of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>."
-  remarks: "The .NET Framework Data Provider for Oracle does not support positional parameters that are marked with a question mark (?)."
+  summary: "Hämtar eller anger namnet på den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>."
+  remarks: ".NET Framework-dataprovider för Oracle stöder inte namngivna parametrar som markerats med ett frågetecken (?)."
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleDbParameter()  \n   Dim parameter As New OracleParameter()  \n   parameter.ParameterName = \"pDName\"  \n   parameter.DbType = DbType.String  \n   parameter.Value = \"ENGINEERING\"  \n   parameter.SourceColumn = \"DName\"  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleDbParameter()   \n{  \n   OracleParameter parameter = new OracleParameter();  \n   parameter.ParameterName = \"pDName\";  \n   parameter.DbType = DbType.String;  \n   parameter.Value = \"ENGINEERING\";  \n   parameter.SourceColumn = \"DName\";  \n}  \n```"
   syntax:
     content: public override string ParameterName { get; set; }
     return:
       type: System.String
-      description: "The name of the <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>. The default is an empty string."
+      description: "Namnet på den <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>. Standardvärdet är en tom sträng."
   overload: System.Data.OracleClient.OracleParameter.ParameterName*
   exceptions: []
   platform:
@@ -478,13 +478,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the maximum number of digits used to represent the <xref:System.Data.OracleClient.OracleParameter.Value*> property."
-  remarks: "Setting the Precision or <xref:System.Data.OracleClient.OracleParameter.Scale%2A> properties has no effect."
+  summary: "Hämtar eller anger det maximala antalet siffror som används för att representera den <xref:System.Data.OracleClient.OracleParameter.Value*>egenskapen.</xref:System.Data.OracleClient.OracleParameter.Value*>"
+  remarks: "Ange precisionen eller <xref:System.Data.OracleClient.OracleParameter.Scale%2A>Egenskaper har ingen effekt.</xref:System.Data.OracleClient.OracleParameter.Scale%2A>"
   syntax:
     content: public byte Precision { get; set; }
     return:
       type: System.Byte
-      description: "The maximum number of digits used to represent the <xref:System.Data.OracleClient.OracleParameter.Value*> property. The default value is 0, which indicates that the data provider sets the precision for <xref:System.Data.OracleClient.OracleParameter.Value*>."
+      description: "Det maximala antalet siffror som används för att representera den <> </> *> egenskapen. Standardvärdet är 0, vilket indikerar att dataprovidern anger precisionen för <> </> *>."
   overload: System.Data.OracleClient.OracleParameter.Precision*
   exceptions: []
   platform:
@@ -501,8 +501,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> and <xref:System.Data.OracleClient.OracleParameter.OracleType%2A> properties of the <xref:System.Data.OracleClient.OracleParameter>."
+  summary: "Återställer den typ som är associerade med den här <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>."
+  remarks: "När ett kommando körs som innehåller värden, kod kan antingen ange en parametertyp explicit eller parametern kan härleda typen från sitt värde. Anropar den här metoden återställer parametern så att den kan igen härleda typen från värdet som skickas i parametern. Den här metoden anropas påverkar både den <xref:System.Data.Odbc.OdbcParameter.DbType%2A>och <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>Egenskaper i <xref:System.Data.OracleClient.OracleParameter>.</xref:System.Data.OracleClient.OracleParameter> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A> </xref:System.Data.Odbc.OdbcParameter.DbType%2A>"
   syntax:
     content: public override void ResetDbType ();
     parameters: []
@@ -522,8 +522,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Resets the type associated with this <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;></xref>."
-  remarks: "When executing a command that includes parameter values, code can either set the type of a parameter explicitly, or the parameter can infer its type from its value. Calling this method resets the parameter so that it can again infer its type from the value passed in the parameter. Calling this method affects both the <xref:System.Data.Odbc.OdbcParameter.DbType%2A> and <xref:System.Data.OracleClient.OracleParameter.OracleType%2A> properties of the <xref:System.Data.OracleClient.OracleParameter>."
+  summary: "Återställer den typ som är associerade med den här <xref href=&quot;System.Data.OracleClient.OracleParameter&quot;> </xref>."
+  remarks: "När ett kommando körs som innehåller värden, kod kan antingen ange en parametertyp explicit eller parametern kan härleda typen från sitt värde. Anropar den här metoden återställer parametern så att den kan igen härleda typen från värdet som skickas i parametern. Den här metoden anropas påverkar både den <xref:System.Data.Odbc.OdbcParameter.DbType%2A>och <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>Egenskaper i <xref:System.Data.OracleClient.OracleParameter>.</xref:System.Data.OracleClient.OracleParameter> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A> </xref:System.Data.Odbc.OdbcParameter.DbType%2A>"
   syntax:
     content: public void ResetOracleType ();
     parameters: []
@@ -543,13 +543,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the number of decimal places to which <xref:System.Data.OracleClient.OracleParameter.Value*> is resolved."
-  remarks: "Setting the <xref:System.Data.OracleClient.OracleParameter.Precision%2A> or Scale properties has no effect."
+  summary: "Hämtar eller anger antalet decimaler som <xref:System.Data.OracleClient.OracleParameter.Value*>har lösts.</xref:System.Data.OracleClient.OracleParameter.Value*>"
+  remarks: "Ange den <xref:System.Data.OracleClient.OracleParameter.Precision%2A>eller egenskaper har ingen effekt.</xref:System.Data.OracleClient.OracleParameter.Precision%2A>"
   syntax:
     content: public byte Scale { get; set; }
     return:
       type: System.Byte
-      description: "The number of decimal places to which <xref:System.Data.OracleClient.OracleParameter.Value*> is resolved. The default is 0."
+      description: "Antal decimaler som <xref:System.Data.OracleClient.OracleParameter.Value*>har lösts.</xref:System.Data.OracleClient.OracleParameter.Value*> Standardvärdet är 0."
   overload: System.Data.OracleClient.OracleParameter.Scale*
   exceptions: []
   platform:
@@ -566,15 +566,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the maximum size, in bytes, of the data within the column."
-  remarks: "Setting Size affects only the input value of a parameter. Return values and output parameters are not affected by this property.       The Size property is used for binary and string types.       For nonstring data types and ANSI string data, the Size property refers to the number of bytes. For Unicode string data, Size refers to the number of characters. The count for strings does not include the terminating character.       For variable-length data types, Size describes the maximum amount of data to transmit to the server. For example, for a Unicode string value, Size could be used to limit the amount of data sent to the server to the first one hundred characters.       For bidirectional and output parameters, and return values, you must set the value of Size. This is not required for input parameters, and if not explicitly set, the value of is inferred from the actual size of the specified parameter when a parameterized statement is executed.       The <xref:System.Data.OracleClient.OracleParameter.DbType%2A>, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, and Size properties of a parameter can be inferred by setting <xref:System.Data.OracleClient.OracleParameter.Value%2A>. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.OracleClient.OracleParameter> property settings. For example, if the size of the parameter has been inferred, Size does not contain inferred value after statement execution.       For fixed length data types, the value of Size is ignored. It can be retrieved for informational purposes, and returns the maximum amount of bytes the provider uses when transmitting the value of the parameter to the server."
+  summary: "Hämtar eller anger den maximala storleken i byte av data i kolumnen."
+  remarks: "Anger storleken påverkas endast indatavärdet för en parameter. Returvärden och utdataparametrar påverkas inte av den här egenskapen.       Egenskapen Size används för binära och strängen typer.       För nonstring datatyper och ANSI strängdata avser egenskapen Size antalet byte. För Unicode-strängdata avser storlek antalet tecken. Antalet för strängar som innehåller inte det avslutande tecknet.       Datatyper för variabel längd beskriver storlek maximal mängd data att sända till servern. Till exempel för ett strängvärde för Unicode, kan storlek användas för att begränsa mängden data som skickas till servern för att de första&100; tecken.       För dubbelriktad och utgående parametrar och returvärden, måste du ange värdet för storlek. Det krävs inte för indataparametrarna och om inte uttryckligen ställa in värdet för är härledas från den verkliga storleken för den angivna parametern när ett parametriserat instruktionen körs.       Den <xref:System.Data.OracleClient.OracleParameter.DbType%2A>, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, och egenskaper för storlek på en parameter kan härledas genom att ange <xref:System.Data.OracleClient.OracleParameter.Value%2A>.</xref:System.Data.OracleClient.OracleParameter.Value%2A> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A> </xref:System.Data.OracleClient.OracleParameter.DbType%2A> Därför kan behöver du inte ange dem. Men de inte visas i <xref:System.Data.OracleClient.OracleParameter>egenskapsinställningar.</xref:System.Data.OracleClient.OracleParameter> Till exempel om storleken på parametern som har härletts innehåller storlek inte antydda värdet efter körning av instruktionen.       För fast längd datatyper ignoreras värdet för storlek. Det kan hämtas i informationssyfte och returnerar det högsta tillåtna antalet byte som providern använder när du överför värdet för parametern till servern."
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleParameter()  \n   Dim parameter As New OracleParameter(\"pDescription\", OracleType.VarChar)  \n   parameter.IsNullable = True  \n   parameter.Direction = ParameterDirection.Output  \n   parameter.Size = 88  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleParameter()   \n{  \n   OracleParameter parameter = new OracleParameter(\"pDescription\", OracleType.VarChar);  \n   parameter.IsNullable = true;  \n   parameter.Direction = ParameterDirection.Output;  \n   parameter.Size = 88;  \n}  \n```"
   syntax:
     content: public override int Size { get; set; }
     return:
       type: System.Int32
-      description: "The maximum size, in bytes, of the data within the column. The default value is 0 (to be used when you do not want to specify the maximum size of the value)."
+      description: "Den maximala storleken i byte av data i kolumnen. Standardvärdet är 0 (som ska användas när du inte vill ange den maximala storleken för värdet)."
   overload: System.Data.OracleClient.OracleParameter.Size*
   exceptions: []
   platform:
@@ -591,15 +591,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the name of the source column mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref> and used for loading or returning the <xref:System.Data.OracleClient.OracleParameter.Value*>"
-  remarks: "The link between the value of the <xref:System.Data.OracleClient.OracleParameter> and the <xref:System.Data.DataTable> may be bidirectional depending on the value of the <xref:System.Data.OracleClient.OracleParameter.Direction%2A> property."
+  summary: "Hämtar eller anger namnet på kolumnen källa som mappats till den <xref href=&quot;System.Data.DataSet&quot;> </xref> och används för att läsa in eller returnerar den<xref:System.Data.OracleClient.OracleParameter.Value*></xref:System.Data.OracleClient.OracleParameter.Value*>"
+  remarks: "Länken mellan värdet för den <xref:System.Data.OracleClient.OracleParameter>och <xref:System.Data.DataTable>kanske dubbelriktad beroende på värdet för den <xref:System.Data.OracleClient.OracleParameter.Direction%2A>egenskapen.</xref:System.Data.OracleClient.OracleParameter.Direction%2A> </xref:System.Data.DataTable> </xref:System.Data.OracleClient.OracleParameter>"
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleDbParameter()  \n   Dim parameter As New OracleParameter()  \n   parameter.ParameterName = \"pDName\"  \n   parameter.DbType = DbType.String  \n   parameter.Value = \"ENGINEERING\"  \n   parameter.SourceColumn = \"DName\"  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleDbParameter()   \n{  \n   OracleParameter parameter = new OracleParameter();  \n   parameter.ParameterName = \"pDName\";  \n   parameter.DbType = DbType.String;  \n   parameter.Value = \"ENGINEERING\";  \n   parameter.SourceColumn = \"DName\";  \n}  \n```"
   syntax:
     content: public override string SourceColumn { get; set; }
     return:
       type: System.String
-      description: "The name of the source column mapped to the <xref href=&quot;System.Data.DataSet&quot;></xref>. The default is an empty string (&quot;&quot;)."
+      description: "Namnet på kolumnen källa som mappats till den <xref href=&quot;System.Data.DataSet&quot;> </xref>. Standardvärdet är en tom sträng (&quot;&quot;)."
   overload: System.Data.OracleClient.OracleParameter.SourceColumn*
   exceptions: []
   platform:
@@ -616,13 +616,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Sets or gets a value which indicates whether the source column is nullable. This allows <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;></xref> to correctly generate Update statements for nullable columns."
-  remarks: "SourceColumnNullMapping is used by the <xref:System.Data.OracleClient.OracleCommandBuilder> to correctly generate update commands when dealing with nullable columns. Generally, use of SourceColumnNullMapping is limited to developers inheriting from <xref:System.Data.OracleClient.OracleCommandBuilder>.       <xref:System.Data.Common.DbCommandBuilder> uses this property to determine whether the source column is nullable, and sets this property to `true` if it is nullable, and `false` if it is not. When <xref:System.Data.OracleClient.OracleCommandBuilder> is generating its Update statement, it examines the SourceColumnNullMapping for each parameter. If the property is `true`, <xref:System.Data.OracleClient.OracleCommandBuilder> generates a WHERE clauses like the following (in this query expression, &quot;FieldName&quot; represents the name of the field):      ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ```       If SourceColumnNullMapping for the field is false, <xref:System.Data.OracleClient.OracleCommandBuilder> generates the following WHERE clause:      ```   FieldName = @OriginalFieldName   ```       In addition, @IsNull_FieldName contains 1 if the source field contains null, and 0 if it does not. This mechanism allows for a performance optimization in Oracle Server, and provides for common code that works across multiple providers."
+  summary: "Anger eller hämtar ett värde som anger om källkolumnen kan ha värdet null. Detta gör att <xref href=&quot;System.Data.OracleClient.OracleCommandBuilder&quot;> </xref> korrekt generera Update-instruktioner för nullbara kolumner."
+  remarks: "SourceColumnNullMapping används av den <xref:System.Data.OracleClient.OracleCommandBuilder>att generera korrekt uppdateringskommandon när du hanterar nullbara kolumner.</xref:System.Data.OracleClient.OracleCommandBuilder> I allmänhet kan av SourceColumnNullMapping bara användas för utvecklare som ärver från <xref:System.Data.OracleClient.OracleCommandBuilder>.</xref:System.Data.OracleClient.OracleCommandBuilder>       <xref:System.Data.Common.DbCommandBuilder>använder den här egenskapen för att avgöra om källkolumnen kan ha värdet null och anger den här egenskapen till `true` om det är null, och `false` om den inte.</xref:System.Data.Common.DbCommandBuilder> När <xref:System.Data.OracleClient.OracleCommandBuilder>är genererar dess Update-instruktion, undersöker SourceColumnNullMapping för varje parameter.</xref:System.Data.OracleClient.OracleCommandBuilder> Om egenskapen är `true`, <xref:System.Data.OracleClient.OracleCommandBuilder>genererar en WHERE-satser som följande (det här frågeuttrycket &quot;Fältnamn&quot; representerar namnet på fältet): ```   ((@IsNull_FieldName = 1 AND FieldName IS NULL) OR      (FieldName = @Original_FieldName))   ``` om SourceColumnNullMapping för fältet har värdet false, <xref:System.Data.OracleClient.OracleCommandBuilder>genererar följande WHERE-sats: ```   FieldName = @OriginalFieldName   ``` dessutom @IsNull_FieldName innehåller 1 om fältet i datakällan innehåller null och 0 om det inte.</xref:System.Data.OracleClient.OracleCommandBuilder> </xref:System.Data.OracleClient.OracleCommandBuilder> Den här mekanismen gör det möjligt för en prestandaoptimering i Oracle-Server, samt för gemensam kod som fungerar över flera providers."
   syntax:
     content: public override bool SourceColumnNullMapping { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the source column is nullable, otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Om källkolumnen är null, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.SourceColumnNullMapping*
   exceptions: []
   platform:
@@ -639,15 +639,15 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> to use when you load <xref:System.Data.OracleClient.OracleParameter.Value*>."
-  remarks: "This property is used by the <xref:System.Data.OracleClient.OracleDataAdapter.UpdateCommand%2A> during the <xref:System.Data.Common.DbDataAdapter.Update%2A?displayProperty=fullName> to determine whether the original or current value is used for a parameter value. This lets primary keys be updated. This property is set to the version of the <xref:System.Data.DataRow> used by the <xref:System.Data.DataRow.Item%2A?displayProperty=fullName> property (<xref:System.Data.DataRow> indexer), or the <xref:System.Data.DataRow.GetChildRows%2A?displayProperty=fullName> method of the <xref:System.Data.DataRow> object."
+  summary: "Hämtar eller anger den <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> ska användas när du läser in <xref:System.Data.OracleClient.OracleParameter.Value*>.</xref:System.Data.OracleClient.OracleParameter.Value*>"
+  remarks: "Den här egenskapen används av den <xref:System.Data.OracleClient.OracleDataAdapter.UpdateCommand%2A>under den <xref:System.Data.Common.DbDataAdapter.Update%2A?displayProperty=fullName>att avgöra om den ursprungliga eller aktuella värdet används för ett parametervärde.</xref:System.Data.Common.DbDataAdapter.Update%2A?displayProperty=fullName> </xref:System.Data.OracleClient.OracleDataAdapter.UpdateCommand%2A> På så sätt kan primärnycklar uppdateras. Den här egenskapen anges till versionen av den <xref:System.Data.DataRow>används av den <xref:System.Data.DataRow.Item%2A?displayProperty=fullName>egenskapen (<xref:System.Data.DataRow> indexeraren), eller <xref:System.Data.DataRow.GetChildRows%2A?displayProperty=fullName>-metoden i den <xref:System.Data.DataRow>objekt.</xref:System.Data.DataRow> </xref:System.Data.DataRow.GetChildRows%2A?displayProperty=fullName> </xref:System.Data.DataRow> </xref:System.Data.DataRow.Item%2A?displayProperty=fullName> </xref:System.Data.DataRow>"
   example:
   - "The following example creates a <xref:System.Data.OracleClient.OracleParameter> and sets some of its properties.  \n  \n```vb#  \nPublic Sub CreateOracleParameter()  \n   Dim parameter As New OracleParameter(\"pDName\", OracleType.VarChar)  \n   parameter.IsNullable = True  \n   parameter.SourceColumn = \"Description\"  \n   parameter.SourceVersion = DataRowVersion.Current  \n   parameter.Direction = ParameterDirection.Output  \nEnd Sub  \n```  \n  \n```c#  \npublic void CreateOracleParameter()   \n{  \n   OracleParameter parameter = new OracleParameter(\"pDName\", OracleType.VarChar);  \n   parameter.IsNullable = true;  \n   parameter.SourceColumn = \"Description\";  \n   parameter.SourceVersion = DataRowVersion.Current;  \n   parameter.Direction = ParameterDirection.Output;  \n}  \n```"
   syntax:
     content: public override System.Data.DataRowVersion SourceVersion { get; set; }
     return:
       type: System.Data.DataRowVersion
-      description: "One of the <xref href=&quot;System.Data.DataRowVersion&quot;></xref> values. The default is <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;></xref>."
+      description: "En av de <xref href=&quot;System.Data.DataRowVersion&quot;> </xref> värden. Standardvärdet är <xref uid=&quot;langword_csharp_Current&quot; name=&quot;Current&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleParameter.SourceVersion*
   exceptions: []
   platform:
@@ -665,14 +665,14 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "For a description of this member, see &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.OracleClient.OracleParameter> instance is cast to an <xref:System.ICloneable> interface."
+  summary: "En beskrivning av den här medlemmen finns &lt;xref:System.ICloneable.Clone%2A?displayProperty=fullName&gt;."
+  remarks: "Den här medlemmen är en implementering för medlem av explicit gränssnitt. Det kan användas endast när den <xref:System.Data.OracleClient.OracleParameter>instans omvandlas till ett <xref:System.ICloneable>gränssnitt.</xref:System.ICloneable> </xref:System.Data.OracleClient.OracleParameter>"
   syntax:
     content: object ICloneable.Clone ();
     parameters: []
     return:
       type: System.Object
-      description: "A new object that is a copy of this instance."
+      description: "Ett nytt objekt som är en kopia av den här instansen."
   overload: System.Data.OracleClient.OracleParameter.System#ICloneable#Clone*
   exceptions: []
   platform:
@@ -689,13 +689,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets a string that contains the <xref:System.Data.OracleClient.OracleParameter.ParameterName*>."
+  summary: "Hämtar en sträng som innehåller <xref:System.Data.OracleClient.OracleParameter.ParameterName*>.</xref:System.Data.OracleClient.OracleParameter.ParameterName*>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string that contains the <xref:System.Data.OracleClient.OracleParameter.ParameterName*>."
+      description: "En sträng som innehåller <xref:System.Data.OracleClient.OracleParameter.ParameterName*>.</xref:System.Data.OracleClient.OracleParameter.ParameterName*>"
   overload: System.Data.OracleClient.OracleParameter.ToString*
   exceptions: []
   platform:
@@ -712,13 +712,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Gets or sets the value of the parameter."
-  remarks: "For input parameters, the value is bound to the <xref:System.Data.OracleClient.OracleCommand> that is sent to the server. For output and return-value parameters, the value is set on completion of the <xref:System.Data.OracleClient.OracleCommand> and after the <xref:System.Data.OracleClient.OracleDataReader> is closed.       For an input parameter, Value can be set to an object of either a Microsoft .NET Framework data type or an Oracle data type (for example, an <xref:System.Data.OracleClient.OracleNumber> or <xref:System.Data.OracleClient.OracleString>).       When you send a null parameter value to the server, you must specify DBNull, not null. A null value in the system is an empty object that has no value. DBNull is used to represent null values.       If the application specifies the database type, the bound value is converted to that type when the provider sends the data to the server. The provider tries to convert any type of value if it supports the <xref:System.IConvertible> interface. Conversion errors may result if the specified type is not compatible with the value.       The <xref:System.Data.OracleClient.OracleParameter.DbType%2A>, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, and <xref:System.Data.OracleClient.OracleParameter.Size%2A> properties of a parameter can be inferred by setting Value. Therefore, you are not required to specify them. However, they are not exposed in <xref:System.Data.OracleClient.OracleParameter> property settings. For example, if the size of the parameter has been inferred, Size does not contain inferred value after statement execution.       The `InputOutput`, `Output`, and `ReturnValue`<xref:System.Data.ParameterDirection> values used by the Value property will be Microsoft .NET Framework data types, unless the input value was an Oracle data type (for example, <xref:System.Data.OracleClient.OracleNumber> or <xref:System.Data.OracleClient.OracleString>). This does not apply to REF CURSOR, BFILE, or LOB data types.       The Value property is overwritten by the **Update** method."
+  summary: "Hämtar eller anger värdet för parametern."
+  remarks: "För indataparametrarna värdet är bunden till det <xref:System.Data.OracleClient.OracleCommand>som skickas till servern.</xref:System.Data.OracleClient.OracleCommand> För utdata och returnera värdet parametrar anges värdet i slutet av den <xref:System.Data.OracleClient.OracleCommand>och efter den <xref:System.Data.OracleClient.OracleDataReader>är stängd.</xref:System.Data.OracleClient.OracleDataReader> </xref:System.Data.OracleClient.OracleCommand>       För en indataparameter värdet kan anges till ett objekt av typen Microsoft .NET Framework data eller en Oracle-datatyp (till exempel en <xref:System.Data.OracleClient.OracleNumber>eller <xref:System.Data.OracleClient.OracleString>).</xref:System.Data.OracleClient.OracleString> </xref:System.Data.OracleClient.OracleNumber>       När du skickar ett null-parameter-värde till servern, måste du ange DBNull, inte null. Ett null-värde i systemet är ett tomt-objekt som inte har något värde. DBNull används för att representera null-värden.       Om programmet anger databastyp, konverteras det bundna värdet till den typen när providern skickar data till servern. Providern försöker konvertera någon typ av värde om det har stöd för den <xref:System.IConvertible>gränssnitt.</xref:System.IConvertible> Konverteringsfel orsaka om den angivna typen inte är kompatibel med värdet.       Den <xref:System.Data.OracleClient.OracleParameter.DbType%2A>, <xref:System.Data.OracleClient.OracleParameter.OracleType%2A>, och <xref:System.Data.OracleClient.OracleParameter.Size%2A>Egenskaper för en parameter kan härledas genom att ange värde.</xref:System.Data.OracleClient.OracleParameter.Size%2A> </xref:System.Data.OracleClient.OracleParameter.OracleType%2A> </xref:System.Data.OracleClient.OracleParameter.DbType%2A> Därför kan behöver du inte ange dem. Men de inte visas i <xref:System.Data.OracleClient.OracleParameter>egenskapsinställningar.</xref:System.Data.OracleClient.OracleParameter> Till exempel om storleken på parametern som har härletts innehåller storlek inte antydda värdet efter körning av instruktionen.       Den `InputOutput`, `Output`, och `ReturnValue` <xref:System.Data.ParameterDirection>värden som används av egenskapen Value kommer att Microsoft .NET Framework-datatyper, såvida inte indatavärdet har en Oracle-datatyp (till exempel <xref:System.Data.OracleClient.OracleNumber>eller <xref:System.Data.OracleClient.OracleString>).</xref:System.Data.OracleClient.OracleString> </xref:System.Data.OracleClient.OracleNumber> </xref:System.Data.ParameterDirection> Detta inte gäller för REF PEKAREN och BFILE, eller LOB-datatyper.       Egenskapen Value skrivs över med den **uppdatering** metod."
   syntax:
     content: public override object Value { get; set; }
     return:
       type: System.Object
-      description: "An object that is the value of the parameter. The default value is null."
+      description: "Ett objekt som är värdet för parametern. Standardvärdet är null."
   overload: System.Data.OracleClient.OracleParameter.Value*
   exceptions: []
   platform:
