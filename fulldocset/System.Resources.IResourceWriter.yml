@@ -14,8 +14,8 @@ items:
   nameWithType: IResourceWriter
   fullName: System.Resources.IResourceWriter
   type: Interface
-  summary: "Provides the base functionality for writing resources to an output file or stream."
-  remarks: "Resource writers are used to write resources to files in a particular file format. Implement this interface if you want to control the way in which a resource file is written (for example, to store resources in something other than a .txt, .resx, or binary .resources file). Otherwise, use the default <xref:System.Resources.ResourceWriter> class, which writes resources to a binary .resources file, or the <xref:System.Resources.ResXResourceWriter> class, which writes resources to an XML resource (.resx) file."
+  summary: "Innehåller grundläggande funktioner för skrivning resurser till en utdatafil eller dataström."
+  remarks: "Resurs-skrivare för att skriva resurser till filer i ett visst filformat. Implementera gränssnittet om du vill styra hur som en resursfil skrivs (till exempel för att lagra resurser i något .txt-, resx-eller binär .resources-fil). Annars använder standard <xref:System.Resources.ResourceWriter>-klassen, som skriver resurser till en binär .resources-fil, eller <xref:System.Resources.ResXResourceWriter>-klassen, som skriver resurser till en XML-resursfil (resx).</xref:System.Resources.ResXResourceWriter> </xref:System.Resources.ResourceWriter>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,17 +37,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds an 8-bit unsigned integer array as a named resource to the list of resources to be written."
-  remarks: "The resources are not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "Lägger till en matris med 8-bitars heltal utan tecken som en namngiven resurs i listan över resurser som ska skrivas."
+  remarks: "Resurserna som skrivs inte förrän den <xref:System.Resources.IResourceWriter.Generate%2A>metoden anropas.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void AddResource (string name, byte[] value);
     parameters:
     - id: name
       type: System.String
-      description: "Name of a resource."
+      description: "Namnet på en resurs."
     - id: value
       type: System.Byte[]
-      description: "Value of a resource as an 8-bit unsigned integer array."
+      description: "Värdet för en resurs som ett 8-bitars heltal utan tecken."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -67,17 +67,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.Object> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called.      > [!NOTE] >  `value` might have to be serializable, so you might have to provide a type converter, depending on which resource writer is used."
+  summary: "Lägger till en namngiven resurs av typen <xref:System.Object>i listan över resurser som ska skrivas.</xref:System.Object>"
+  remarks: "Resursen skrivs inte förrän den <xref:System.Resources.IResourceWriter.Generate%2A>metoden anropas.</xref:System.Resources.IResourceWriter.Generate%2A>      > [!NOTE]  >   `value` kanske måste kunna serialiseras, så du kan behöva ange en typkonverterare, beroende på vilken resurs som skrivaren används."
   syntax:
     content: public void AddResource (string name, object value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "Namnet på resursen."
     - id: value
       type: System.Object
-      description: "The value of the resource."
+      description: "Värdet för resursen."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentNullException
@@ -97,17 +97,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Adds a named resource of type <xref:System.String> to the list of resources to be written."
-  remarks: "The resource is not written until the <xref:System.Resources.IResourceWriter.Generate%2A> method is called."
+  summary: "Lägger till en namngiven resurs av typen <xref:System.String>i listan över resurser som ska skrivas.</xref:System.String>"
+  remarks: "Resursen skrivs inte förrän den <xref:System.Resources.IResourceWriter.Generate%2A>metoden anropas.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void AddResource (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the resource."
+      description: "Namnet på resursen."
     - id: value
       type: System.String
-      description: "The value of the resource."
+      description: "Värdet för resursen."
   overload: System.Resources.IResourceWriter.AddResource*
   exceptions:
   - type: System.ArgumentException
@@ -127,8 +127,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Closes the underlying resource file or stream, ensuring all the data has been written to the file."
-  remarks: "If necessary, Close will call the <xref:System.Resources.IResourceWriter.Generate%2A> method to output the resources to the underlying file or stream before closing it."
+  summary: "Stänger den underliggande resursfilen eller stream, säkerställer att alla data har skrivits till filen."
+  remarks: "Om det behövs, anropar Stäng <xref:System.Resources.IResourceWriter.Generate%2A>metoden till utdata resurser till den underliggande fil eller dataström innan du stänger det.</xref:System.Resources.IResourceWriter.Generate%2A>"
   syntax:
     content: public void Close ();
     parameters: []
@@ -148,8 +148,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Resources
-  summary: "Writes all the resources added by the <xref:System.Resources.IResourceWriter.AddResource*> method to the output file or stream."
-  remarks: "Generate does not close the output file or output stream. Instead, consider calling the <xref:System.Resources.IResourceWriter.Close%2A> method. Generate is useful when you want to create a resource file, but you don&quot;t want to close the output stream. Generate can be called only once. After you call Generate, all <xref:System.Resources.IResourceWriter> methods other than <xref:System.Resources.IResourceWriter.Close%2A> will throw an exception."
+  summary: "Skriver alla resurser som lagts till av den <xref:System.Resources.IResourceWriter.AddResource*>metod för att skapa fil eller dataström.</xref:System.Resources.IResourceWriter.AddResource*>"
+  remarks: "Generera inte stänga utdatafilen eller utdataströmmen. I stället anropas den <xref:System.Resources.IResourceWriter.Close%2A>metoden.</xref:System.Resources.IResourceWriter.Close%2A> Generera är användbart när du vill skapa en resursfil, men du inte vill stänga utdataströmmen. Generera kan bara anropas en gång. När du anropar Generate, alla <xref:System.Resources.IResourceWriter>metoder än <xref:System.Resources.IResourceWriter.Close%2A>genereras ett undantagsfel.</xref:System.Resources.IResourceWriter.Close%2A> </xref:System.Resources.IResourceWriter>"
   syntax:
     content: public void Generate ();
     parameters: []
