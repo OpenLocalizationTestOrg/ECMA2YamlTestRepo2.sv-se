@@ -13,8 +13,8 @@ items:
   nameWithType: MessageQuery
   fullName: System.ServiceModel.Dispatcher.MessageQuery
   type: Class
-  summary: "Defines the core behavior of classes used to search for specific correlating data in a message."
-  remarks: "The MessageQuery class is similar to the <xref:System.ServiceModel.Dispatcher.MessageFilter> class.  However, instead of returning matches, the <xref:System.ServiceModel.Dispatcher.MessageQuery.Evaluate%2A> method returns the results of evaluating a query against a message. The result of the query is a value in the message. Use the value as a key to correlate the message to other messages. To add a new property for the data, use the <xref:System.ServiceModel.Channels.CorrelationDataMessageProperty.Add%2A> method of the <xref:System.ServiceModel.Channels.CorrelationDataMessageProperty> class.      > [!NOTE] >  For a concrete implementation of the MessageQuery, see the <xref:System.ServiceModel.XPathMessageQuery> class.      ## Using the XPathMessageQuery and MessageQueryCollection classes    You can optimize the query process by creating a set of query objects and inserting them into an instance of the <xref:System.ServiceModel.Dispatcher.MessageQueryCollection> class.      > [!NOTE] >  For a concrete implementation of the <xref:System.ServiceModel.Dispatcher.MessageQueryCollection>, see the <xref:System.ServiceModel.Dispatcher.XPathMessageQueryCollection> class.       A common usage is to populate the collection with queries that have the same XPath predicate, but that differ only in the final leaf value. For example, the following XPath queries are identical except for the final clause. The first queries for all elements that have the quantity attribute set to 1, and the second queries for elements with the product attribute set to &quot;Contoso&quot;):      ```   &quot;/s12:Envelope/s12:Body/PurchaseOrder/Items/Item[@quantity = 1]&quot;   &quot;/s12:Envelope/s12:Body/PurchaseOrder/Items/Item[@product = &quot;Contoso&quot;]&quot;   ```       The <xref:System.ServiceModel.Dispatcher.MessageQueryCollection> class allows you to create tables of queries that differ only slightly, enabling more efficient processing.       Alternatively, you can use the <xref:System.ServiceModel.Dispatcher.MessageQueryTable%601> class to store and evaluate message queries."
+  summary: "Definierar grundläggande beteendet för klasser som används för att söka efter specifika korrelerar data i ett meddelande."
+  remarks: "Klassen MessageQuery liknar <xref:System.ServiceModel.Dispatcher.MessageFilter>klass.</xref:System.ServiceModel.Dispatcher.MessageFilter>  Men i stället för att returnera matchar, den <xref:System.ServiceModel.Dispatcher.MessageQuery.Evaluate%2A>metoden returnerar resultat av utvärderingen av en fråga mot ett meddelande.</xref:System.ServiceModel.Dispatcher.MessageQuery.Evaluate%2A> Resultatet av frågan är ett värde i meddelandet. Använd värdet som en nyckel för att korrelera meddelandet till andra e-postmeddelanden. Om du vill lägga till en ny egenskap för data, använder du <xref:System.ServiceModel.Channels.CorrelationDataMessageProperty.Add%2A>metoden i <xref:System.ServiceModel.Channels.CorrelationDataMessageProperty>klassen.</xref:System.ServiceModel.Channels.CorrelationDataMessageProperty> </xref:System.ServiceModel.Channels.CorrelationDataMessageProperty.Add%2A>      > [!NOTE] > Finns en konkret implementering av MessageQuery <xref:System.ServiceModel.XPathMessageQuery>klass.</xref:System.ServiceModel.XPathMessageQuery>      ## Med hjälp av klasserna XPathMessageQuery och MessageQueryCollection du kan optimera frågeprocessen genom att skapa en uppsättning objekt i fråga och lägga till dem i en instans av <xref:System.ServiceModel.Dispatcher.MessageQueryCollection>klassen.</xref:System.ServiceModel.Dispatcher.MessageQueryCollection>      > [!NOTE] > För en konkret implementering av <xref:System.ServiceModel.Dispatcher.MessageQueryCollection>finns <xref:System.ServiceModel.Dispatcher.XPathMessageQueryCollection>klass.</xref:System.ServiceModel.Dispatcher.XPathMessageQueryCollection> </xref:System.ServiceModel.Dispatcher.MessageQueryCollection>       Användning av en gemensam är att fylla mängden med frågor som har samma XPath-predikat, men som endast skiljer sig på lövnivå sista värdet. Till exempel är följande XPath-frågor identiska förutom den sista instruktionen. Första frågorna för alla element som har attributet kvantitet inställt på 1, och andra frågor för element med produktattributet inställd på &quot;Contoso&quot;): ```   &quot;/s12:Envelope/s12:Body/PurchaseOrder/Items/Item[@quantity = 1]&quot;   &quot;/s12:Envelope/s12:Body/PurchaseOrder/Items/Item[@product = &quot;Contoso&quot;]&quot;   ``` den <xref:System.ServiceModel.Dispatcher.MessageQueryCollection>klassen kan du skapa tabeller för frågor som skiljer sig bara aktivera lite mer effektiv bearbetning.</xref:System.ServiceModel.Dispatcher.MessageQueryCollection>       Du kan också använda den <xref:System.ServiceModel.Dispatcher.MessageQueryTable%601>klassen för att lagra och utvärdera frågor.</xref:System.ServiceModel.Dispatcher.MessageQueryTable%601>"
   example:
   - "The following example creates a message and XPath message queries. The queries are evaluated by the <xref:System.ServiceModel.XPathMessageQuery> objects contained in an <xref:System.ServiceModel.Dispatcher.XPathMessageQueryCollection> object. The results of each query are tested using the <xref:System.ServiceModel.Dispatcher.XPathResult.ResultType%2A> property of the <xref:System.ServiceModel.Dispatcher.XPathResult> class.  \n  \n [!code-vb[XPathMessageQuery#0](~/add/codesnippet/visualbasic/t-system.servicemodel.di_8_1.vb)]\n [!code-cs[XPathMessageQuery#0](~/add/codesnippet/csharp/t-system.servicemodel.di_8_1.cs)]"
   syntax:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.MessageQuery&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Dispatcher.MessageQuery&quot;> </xref> klass."
   syntax:
     content: protected MessageQuery ();
     parameters: []
@@ -57,14 +57,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Creates a collection of queries that returns a specific type of data associated with it."
-  remarks: "This method is intended to be used by the <xref:System.ServiceModel.Dispatcher.MessageQueryCollection> class."
+  summary: "Skapar en samling av frågor som returnerar en viss typ av data som är associerade med den."
+  remarks: "Den här metoden är avsedd att användas av <xref:System.ServiceModel.Dispatcher.MessageQueryCollection>klass.</xref:System.ServiceModel.Dispatcher.MessageQueryCollection>"
   syntax:
     content: public virtual System.ServiceModel.Dispatcher.MessageQueryCollection CreateMessageQueryCollection ();
     parameters: []
     return:
       type: System.ServiceModel.Dispatcher.MessageQueryCollection
-      description: "<xref href=&quot;System.ServiceModel.Dispatcher.MessageQueryCollection&quot;></xref> The collection of queries associated with the data type."
+      description: "<xref href=&quot;System.ServiceModel.Dispatcher.MessageQueryCollection&quot;></xref>Insamling av frågor som är associerade med datatypen."
   overload: System.ServiceModel.Dispatcher.MessageQuery.CreateMessageQueryCollection*
   exceptions: []
   platform:
@@ -86,10 +86,10 @@ items:
     parameters:
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: TResult
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.ServiceModel.Dispatcher.MessageQuery.Evaluate<TResult>*
   exceptions: []
   platform:
@@ -111,10 +111,10 @@ items:
     parameters:
     - id: buffer
       type: System.ServiceModel.Channels.MessageBuffer
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: TResult
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.ServiceModel.Dispatcher.MessageQuery.Evaluate<TResult>*
   exceptions: []
   platform:

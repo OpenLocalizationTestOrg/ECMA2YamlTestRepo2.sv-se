@@ -14,8 +14,8 @@ items:
   nameWithType: NameReferenceConverter
   fullName: System.Windows.Markup.NameReferenceConverter
   type: Class
-  summary: "Provides type conversion to convert a string name into an object reference to the object with that name, or to return the name of an object from the object graph."
-  remarks: "This class provides a type converter wrapper around two services.       The <xref:System.Windows.Markup.NameReferenceConverter.ConvertFrom%2A> implementation uses <xref:System.Xaml.IXamlNameResolver> service from context to perform the resolution of an object by name in XAML. This is part of the relevant XAML reader and XAML writer implementations in .NET Framework XAML Services. Proper function of this converter requires that the <xref:System.Xaml.IXamlNameResolver> service is available from service context.       The <xref:System.Windows.Markup.NameReferenceConverter.ConvertTo%2A> implementation uses <xref:System.Xaml.IXamlNameProvider> service from context to perform the resolution of a reference name for an object during save/serialization. This is part of the relevant reader and writer implementations and their context. Proper function of this converter requires that there be an underlying <xref:System.Xaml.IXamlNameProvider> service available.       This type converter implementation is atypical for the <xref:System.ComponentModel.TypeConverter> base type because it is not scoped to a discrete conversion type. It can potentially convert any object to and from a referencing name so long as that object could have a name assigned to it in XAML, and the supporting context has the necessary services to return results.       As part of general services support, the System.Xaml base implementation of <xref:System.Xaml.XamlObjectWriter> and <xref:System.Xaml.XamlXmlWriter> provide <xref:System.Xaml.IXamlNameProvider> and <xref:System.Xaml.IXamlNameResolver> services for use by NameReferenceConverter. The name basis for these services uses either `x:Name` or a <xref:System.Windows.Markup.RuntimeNamePropertyAttribute> attributed alias property."
+  summary: "Ger typkonvertering att konvertera ett namn för anslutningssträngen till en objektreferens till objektet med det namnet eller så återgår du namnet på ett objekt från objektdiagrammet."
+  remarks: "Den här klassen innehåller en typ konverteraren wrapper runt två tjänster.       Den <xref:System.Windows.Markup.NameReferenceConverter.ConvertFrom%2A>implementering använder <xref:System.Xaml.IXamlNameResolver>från kontext för att utföra lösning av ett objekt med namnet i XAML.</xref:System.Xaml.IXamlNameResolver> </xref:System.Windows.Markup.NameReferenceConverter.ConvertFrom%2A> Detta är en del av relevanta XAML-läsare och XAML writer implementeringar i .NET Framework XAML-tjänster. Konverteraren korrekta funktion kräver att den <xref:System.Xaml.IXamlNameResolver>-tjänsten är tillgänglig från tjänstkontext.</xref:System.Xaml.IXamlNameResolver>       Den <xref:System.Windows.Markup.NameReferenceConverter.ConvertTo%2A>implementering använder <xref:System.Xaml.IXamlNameProvider>från kontext för att utföra matchning av en Referensnamn för ett objekt under spara-serialisering.</xref:System.Xaml.IXamlNameProvider> </xref:System.Windows.Markup.NameReferenceConverter.ConvertTo%2A> Detta är en del av de relevanta implementeringarna läsare och skrivare och deras kontext. Konverteraren korrekta funktion kräver att det finnas en underliggande <xref:System.Xaml.IXamlNameProvider>tjänsten tillgänglig.</xref:System.Xaml.IXamlNameProvider>       Den här typen konverteraren-implementeringen är ovanlig för den <xref:System.ComponentModel.TypeConverter>bastyp eftersom den inte är begränsade till typen diskreta konvertering.</xref:System.ComponentModel.TypeConverter> Den kan eventuellt konvertera objekt till och från ett refererande namn så länge det objektet kan ha ett namn som tilldelats i XAML och stödjande kontexten har tjänsterna som behövs för att returnera resultat.       Som en del av allmänna services stöder, basera System.Xaml implementeringen av <xref:System.Xaml.XamlObjectWriter>och <xref:System.Xaml.XamlXmlWriter>Ange <xref:System.Xaml.IXamlNameProvider>och <xref:System.Xaml.IXamlNameResolver>tjänster för användning av NameReferenceConverter.</xref:System.Xaml.IXamlNameResolver> </xref:System.Xaml.IXamlNameProvider> </xref:System.Xaml.XamlXmlWriter> </xref:System.Xaml.XamlObjectWriter> Namnet basen för dessa tjänster använder antingen `x:Name` eller en <xref:System.Windows.Markup.RuntimeNamePropertyAttribute>attributet alias egenskap.</xref:System.Windows.Markup.RuntimeNamePropertyAttribute>"
   syntax:
     content: 'public class NameReferenceConverter : System.ComponentModel.TypeConverter'
   inheritance:
@@ -71,7 +71,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Markup.NameReferenceConverter&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Windows.Markup.NameReferenceConverter&quot;> </xref> klass."
   syntax:
     content: public NameReferenceConverter ();
     parameters: []
@@ -91,20 +91,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: "Returns whether this converter can convert an object of one type to another object."
-  remarks: "This implementation can only process a `sourceType` of <xref:System.String>. Other types return `false`."
+  summary: "Returnerar om konverteraren kan konvertera ett objekt av en typ till ett annat objekt."
+  remarks: "Den här implementeringen kan endast bearbeta en `sourceType` <xref:System.String>.</xref:System.String> Andra typer returnera `false`."
   syntax:
     content: public override bool CanConvertFrom (System.ComponentModel.ITypeDescriptorContext context, Type sourceType);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "En <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> som ger en kontext som format."
     - id: sourceType
       type: System.Type
-      description: "A <xref:System.Type> that represents the type you want to convert from."
+      description: "En <xref:System.Type>som motsvarar den typ som du vill konvertera från.</xref:System.Type>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this converter can perform the conversion; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den här konverteraren kan utföra konverteringen; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Markup.NameReferenceConverter.CanConvertFrom*
   exceptions: []
   platform:
@@ -121,20 +121,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: "Returns a value that indicates whether the converter can convert an object to the specified destination type."
-  remarks: "A `destinationType` that references the <xref:System.String> type returns `true`; all other `destinationType` values return `false`.       This method returns false if `context` is `null`, or if <xref:System.Xaml.IXamlNameProvider> cannot be obtained as a service from `context`."
+  summary: "Returnerar ett värde som anger om konverteraren kan konvertera ett objekt till den angivna måltypen."
+  remarks: "En `destinationType` som refererar till den <xref:System.String>skriver returnerar `true`; alla andra `destinationType` värden returnera `false`.</xref:System.String>       Den här metoden returnerar false om `context` är `null`, eller om <xref:System.Xaml.IXamlNameProvider>kan inte hämtas som en tjänst från `context`.</xref:System.Xaml.IXamlNameProvider>"
   syntax:
     content: public override bool CanConvertTo (System.ComponentModel.ITypeDescriptorContext context, Type destinationType);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "En <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> som ger en kontext som format."
     - id: destinationType
       type: System.Type
-      description: "The type to convert to."
+      description: "Konvertera till typen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the converter can perform the conversion; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om konverteraren kan utföra konverteringen; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Markup.NameReferenceConverter.CanConvertTo*
   exceptions: []
   platform:
@@ -151,31 +151,31 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: "Converts the provided object to another object, using the specified context and culture information."
-  remarks: "Only a <xref:System.String> input provides a conversion result."
+  summary: "Konverterar det angivna objektet till ett annat objekt, med hjälp av angivna kontexten och kultur information."
+  remarks: "Endast en <xref:System.String>indata innehåller ett konverteringsresultat.</xref:System.String>"
   syntax:
     content: public override object ConvertFrom (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "En <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> som ger en kontext som format."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> to use as the current culture."
+      description: "Den <xref:System.Globalization.CultureInfo>ska användas som den aktuella kulturen.</xref:System.Globalization.CultureInfo>"
     - id: value
       type: System.Object
-      description: "The reference name string to convert."
+      description: "Referens namnsträngen konvertera."
     return:
       type: System.Object
-      description: "The returned object, which is potentially any object that is type-mapped in the relevant backing assemblies and capable of being declared in XAML with a XAML name reference."
+      description: "Det returnerade objektet, vilket kan vara ett objekt som är typen mappas i relevanta stödjande sammansättningar och kunna som deklarerats i XAML med en referens för XAML-namn."
   overload: System.Windows.Markup.NameReferenceConverter.ConvertFrom*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>value</code> is a null string or empty string.       -or-       <xref href=&quot;System.Xaml.IXamlNameResolver&quot;></xref> service is missing or invalid."
+    description: "<code>value</code>är en null-sträng eller en tom sträng.       - eller - <xref href=&quot;System.Xaml.IXamlNameResolver&quot;> </xref> tjänsten är ogiltig eller saknas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>context</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>context</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Windows.Markup.NameReferenceConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)
@@ -190,33 +190,33 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Windows.Markup
-  summary: "Converts an object to the specified type. This is intended to return XAML reference names for objects in an object graph."
+  summary: "Konverterar ett objekt till den angivna typen. Detta är avsett att returnera namn för XAML-referens för objekt i ett objektdiagram."
   syntax:
     content: public override object ConvertTo (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType);
     parameters:
     - id: context
       type: System.ComponentModel.ITypeDescriptorContext
-      description: "An <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;></xref> that provides a format context."
+      description: "En <xref href=&quot;System.ComponentModel.ITypeDescriptorContext&quot;> </xref> som ger en kontext som format."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> to use as the current culture."
+      description: "Den <xref:System.Globalization.CultureInfo>ska användas som den aktuella kulturen.</xref:System.Globalization.CultureInfo>"
     - id: value
       type: System.Object
-      description: "The object to retrieve the reference name for."
+      description: "Att hämta referensnamnet på för objektet."
     - id: destinationType
       type: System.Type
-      description: "The type to return. You should always reference the <xref:System.String> type."
+      description: "Den typ som ska returneras. Du bör alltid refererar den <xref:System.String>typen.</xref:System.String>"
     return:
       type: System.Object
-      description: "The reference name of the input <code>value</code> object."
+      description: "För referensnamnet på indata <code> value </code> objekt."
   overload: System.Windows.Markup.NameReferenceConverter.ConvertTo*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<xref href=&quot;System.Xaml.IXamlNameProvider&quot;></xref> service is missing or invalid."
+    description: "<xref href=&quot;System.Xaml.IXamlNameProvider&quot;></xref>tjänsten är ogiltig eller saknas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>context</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>context</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

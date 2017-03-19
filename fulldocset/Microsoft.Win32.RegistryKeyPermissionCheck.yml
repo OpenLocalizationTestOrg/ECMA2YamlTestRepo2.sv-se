@@ -12,8 +12,8 @@ items:
   nameWithType: RegistryKeyPermissionCheck
   fullName: Microsoft.Win32.RegistryKeyPermissionCheck
   type: Enum
-  summary: "Specifies whether security checks are performed when opening registry keys and accessing their name/value pairs."
-  remarks: "When an application saves or retrieves a large number of registry settings from a set of subkeys, numerous redundant security checks are performed. This enumeration specifies when security checks on a key are to be omitted.       The following table shows when security checks are performed, based on the way the parent key and the current key are opened.      |Parent key opened with|Current key opened with|Result|   |----------------------------|-----------------------------|------------|   |Default|Default|A security check is performed when accessing any value in the current key, or when attempting to access a subkey. This is the behavior in the .NET Framework versions 1.0 and 1.1.|   |Default|ReadSubTree|A security check is performed when trying to open the current key.|   |Default|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadSubTree|Default or ReadSubTree|No security checks are performed when opening the current key or its values.|   |ReadSubTree|ReadWriteSubTree|A security check is performed when trying to open the current key.|   |ReadWriteSubTree|Any|No security checks are performed when opening the current key or its values.|"
+  summary: "Anger om säkerhetskontroller utförs när du öppnar registernycklar och åtkomst till deras namn/värde-par."
+  remarks: "När ett program sparar eller hämtar ett stort antal registerinställningar från en uppsättning undernycklar, utförs flera redundanta säkerhetskontroller. Den här uppräkningen anger när säkerhetskontroller på en nyckel som ska uteslutas.       I följande tabell visas när säkerhetskontroller utförs baserat på det sätt som den överordnade nyckeln och den aktuella nyckeln är öppna.      | Överordnad nyckel öppnas med | Aktuell nyckel öppnas med | Resultatet |   |----------------------------|-----------------------------|------------|   | Standard | Standard | En säkerhetskontroll utförs vid åtkomst till ett värde i den aktuella nyckeln, eller när du försöker komma åt en undernyckel. Detta görs i .NET Framework-version 1.0 och 1.1. |   | Standard | ReadSubTree | En säkerhetskontroll utförs vid försök att öppna den aktuella nyckeln. |   | Standard | ReadWriteSubTree | En säkerhetskontroll utförs vid försök att öppna den aktuella nyckeln. |   | ReadSubTree | Standard- eller ReadSubTree | Inga säkerhetskontroller utförs när den aktuella nyckeln eller dess värden öppnas. |   | ReadSubTree | ReadWriteSubTree | En säkerhetskontroll utförs vid försök att öppna den aktuella nyckeln. |   | ReadWriteSubTree | Alla | Inga säkerhetskontroller utförs när den aktuella nyckeln eller dess värden öppnas. |"
   example:
   - "The following code example creates a subkey containing 100 key/value pairs and closes it. The example opens the subkey with Default and records the time it takes to read all the values. Then the example opens the subkey with ReadSubTree and records the time it takes to read all the values. Finally, the example computes and displays the percentage improvement.  \n  \n [!code-cs[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/csharp/t-microsoft.win32.regist_3_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/visualbasic/t-microsoft.win32.regist_3_1.vb)]"
   syntax:
@@ -34,12 +34,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "The registry key inherits the mode of its parent. Security checks are performed when trying to access subkeys or values, unless the parent was opened with ReadSubTree or ReadWriteSubTree mode."
+  summary: "Registernyckeln ärver läget för överordnat. Säkerhetskontroller utförs när du försöker åtkomst undernycklar eller värden, om överordnat har öppnats med ReadSubTree eller ReadWriteSubTree läge."
   syntax:
     content: Default
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadSubTree or ReadWriteSubTree."
+  summary: "Säkerhetskontroller utförs inte när åtkomst till undernycklar eller värden. En säkerhetskontroll utförs vid försök att öppna den aktuella nyckeln om överordnat har öppnats med ReadSubTree eller ReadWriteSubTree."
   syntax:
     content: ReadSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -76,12 +76,12 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Security checks are not performed when accessing subkeys or values. A security check is performed when trying to open the current key, unless the parent was opened with ReadWriteSubTree."
+  summary: "Säkerhetskontroller utförs inte när åtkomst till undernycklar eller värden. En säkerhetskontroll utförs vid försök att öppna den aktuella nyckeln om överordnat har öppnats med ReadWriteSubTree."
   syntax:
     content: ReadWriteSubTree
     return:
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
