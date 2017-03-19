@@ -22,8 +22,8 @@ items:
   nameWithType: DriveInfo
   fullName: System.IO.DriveInfo
   type: Class
-  summary: "Provides access to information on a drive."
-  remarks: "This class models a drive and provides methods and properties to query for drive information. Use DriveInfo to determine what drives are available, and what type of drives they are. You can also query to determine the capacity and available free space on the drive."
+  summary: "Tillhandahåller åtkomst till information på en enhet."
+  remarks: "Den här klassen modeller en enhet och ger metoder och egenskaper för att fråga efter enhetsinformation. Använd DriveInfo för att avgöra vilka enheter är tillgängliga och vilken typ av enheter som de är. Du kan också fråga för att avgöra kapaciteten och ledigt utrymme på enheten."
   example:
   - "The following code example demonstrates the use of the DriveInfo class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/t-system.io.driveinfo_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/t-system.io.driveinfo_1.vb)]"
   syntax:
@@ -50,22 +50,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Provides access to information on the specified drive."
-  remarks: "Use this class to obtain information on drives. The drive name must be either an uppercase or lowercase letter from &quot;a&quot; to &quot;z&quot;. You cannot use this method to obtain information on drive names that are `null` or use UNC (\\\\\\server\\share) paths."
+  summary: "Tillhandahåller åtkomst till information på den angivna enheten."
+  remarks: "Använd den här klassen för att få information om enheter. Enhetsnamnet måste vara en versal eller gemen bokstav från &quot;a&quot; och &quot;z&quot;. Du kan inte använda den här metoden för att hämta information om enheten som är `null` eller använda UNC-sökväg (\\\\\\server\\share) sökvägar."
   syntax:
     content: public DriveInfo (string driveName);
     parameters:
     - id: driveName
       type: System.String
-      description: "A valid drive path or drive letter. This can be either uppercase or lowercase, &quot;a&quot; to &quot;z&quot;. A null value is not valid."
+      description: "En giltig enhets- eller enhetsbeteckning. Detta kan vara antingen versal eller gemen, &quot;a&quot; till &quot;z&quot;. Ett null-värde är inte giltigt."
   overload: System.IO.DriveInfo.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The drive letter cannot be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Enhetsbeteckningen får inte vara <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The first letter of <code>driveName</code> is not an uppercase or lowercase letter from &quot;a&quot; to &quot;z&quot;.       -or-       <code>driveName</code> does not refer to a valid drive."
+    description: "Den första bokstaven i <code> driveName </code> är inte en versal eller gemen bokstav från &quot;a&quot; till &quot;z&quot;.       - eller - <code> driveName </code> refererar inte till en giltig enhet."
   platform:
   - net462
 - uid: System.IO.DriveInfo.AvailableFreeSpace
@@ -80,23 +80,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Indicates the amount of available free space on a drive, in bytes."
-  remarks: "This property indicates the amount of free space available on the drive. Note that this number may be different from the <xref:System.IO.DriveInfo.TotalFreeSpace%2A> number because this property takes into account disk quotas."
+  summary: "Anger mängden ledigt utrymme på en enhet, i byte."
+  remarks: "Den här egenskapen anger mängden ledigt utrymme på enheten. Observera att det här antalet kan skilja sig från den <xref:System.IO.DriveInfo.TotalFreeSpace%2A>number eftersom den här egenskapen tar till kontot diskkvoter.</xref:System.IO.DriveInfo.TotalFreeSpace%2A>"
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.av_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.av_1.vb)]"
   syntax:
     content: public long AvailableFreeSpace { get; }
     return:
       type: System.Int64
-      description: "The amount of free space available on the drive, in bytes."
+      description: "Mängden ledigt utrymme på enheten, i byte."
   overload: System.IO.DriveInfo.AvailableFreeSpace*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the drive information is denied."
+    description: "Åtkomst till enhetsinformationen nekas."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   platform:
   - net462
 - uid: System.IO.DriveInfo.DriveFormat
@@ -111,26 +111,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the name of the file system, such as NTFS or FAT32."
-  remarks: "Use DriveFormat to determine what formatting a drive uses."
+  summary: "Hämtar namnet på filsystemet, exempelvis NTFS eller FAT32."
+  remarks: "Använd DriveFormat för att avgöra vad formatering en enhet använder."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.dr_0_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.dr_0_1.vb)]"
   syntax:
     content: public string DriveFormat { get; }
     return:
       type: System.String
-      description: "The name of the file system on the specified drive."
+      description: "Namnet på filsystemet på den angivna enheten."
   overload: System.IO.DriveInfo.DriveFormat*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the drive information is denied."
+    description: "Åtkomst till enhetsinformationen nekas."
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "The drive does not exist or is not mapped."
+    description: "Enheten finns inte eller är inte mappad."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   platform:
   - net462
 - uid: System.IO.DriveInfo.DriveType
@@ -145,15 +145,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the drive type, such as CD-ROM, removable, network, or fixed."
-  remarks: 'The DriveType property indicates whether a drive is one of the following: `CDRom`, `Fixed`, `Network`, `NoRootDirectory`, `Ram`, `Removable`, or `Unknown`. These values are described in the <xref:System.IO.DriveType> enumeration.'
+  summary: "Hämtar enhetstyp, till exempel CD-ROM, flyttbara, nätverk, eller fast."
+  remarks: 'Egenskapen DriveType anger om en enhet är något av följande: `CDRom`, `Fixed`, `Network`, `NoRootDirectory`, `Ram`, `Removable`, eller `Unknown`. Dessa värden beskrivs i den <xref:System.IO.DriveType>uppräkningen.</xref:System.IO.DriveType>'
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.dr_1_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.dr_1_1.vb)]"
   syntax:
     content: public System.IO.DriveType DriveType { get; }
     return:
       type: System.IO.DriveType
-      description: "One of the enumeration values that specifies a drive type."
+      description: "En av uppräkningsvärdena som anger en enhetstyp."
   overload: System.IO.DriveInfo.DriveType*
   exceptions: []
   platform:
@@ -170,8 +170,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Retrieves the drive names of all logical drives on a computer."
-  remarks: "This method retrieves all logical drive names on a computer. You can use this information to iterate through the array and obtain information on the drives using other <xref:System.IO.DriveInfo> methods and properties. Use the <xref:System.IO.DriveInfo.IsReady%2A> property to test whether a drive is ready because using this method on a drive that is not ready will throw a <xref:System.IO.IOException>."
+  summary: "Hämtar enhetsnamnen på alla logiska enheter på en dator."
+  remarks: "Den här metoden hämtar alla logisk enhetsnamn på en dator. Du kan använda den här informationen för att gå igenom matrisen och få information om de enheter som använder andra <xref:System.IO.DriveInfo>metoder och egenskaper.</xref:System.IO.DriveInfo> Använd <xref:System.IO.DriveInfo.IsReady%2A>egenskapen för att testa om en enhet är klar eftersom den här metoden på en enhet som är inte klar genereras <xref:System.IO.IOException>.</xref:System.IO.IOException> </xref:System.IO.DriveInfo.IsReady%2A>"
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/m-system.io.driveinfo.ge_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/m-system.io.driveinfo.ge_1.vb)]"
   syntax:
@@ -179,15 +179,15 @@ items:
     parameters: []
     return:
       type: System.IO.DriveInfo[]
-      description: "An array of type <xref href=&quot;System.IO.DriveInfo&quot;></xref> that represents the logical drives on a computer."
+      description: "En matris av typen <xref href=&quot;System.IO.DriveInfo&quot;> </xref> som representerar logiska enheter på en dator."
   overload: System.IO.DriveInfo.GetDrives*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The caller does not have the required permission."
+    description: "Anroparen har inte behörigheten som krävs."
   platform:
   - net462
 - uid: System.IO.DriveInfo.IsReady
@@ -202,15 +202,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets a value that indicates whether a drive is ready."
-  remarks: "IsReady indicates whether a drive is ready. For example, it indicates whether a CD is in a CD drive or whether a removable storage device is ready for read/write operations. If you do not test whether a drive is ready, and it is not ready,  querying the drive using <xref:System.IO.DriveInfo> will raise an <xref:System.IO.IOException>.       Do not rely on IsReady to avoid catching exceptions from other members such as <xref:System.IO.DriveInfo.TotalSize%2A>, <xref:System.IO.DriveInfo.TotalFreeSpace%2A>, and <xref:System.IO.DriveInfo.DriveFormat%2A>. Between the time that your code checks IsReady and then accesses one of the other properties (even if the access occurs immediately after the check), a drive may have been disconnected or a disk may have been removed."
+  summary: "Hämtar ett värde som anger om en enhet är klar."
+  remarks: "IsReady anger om en enhet är klar. Till exempel anger om en CD-skiva är en CD- eller om en flyttbar lagringsenhet är redo för läs-/ skrivåtgärder. Om du inte testa om en enhet är klar och den inte är klar, frågar enheten med <xref:System.IO.DriveInfo>höjer <xref:System.IO.IOException>.</xref:System.IO.IOException> </xref:System.IO.DriveInfo>       Förlita dig inte på IsReady för att undvika att fånga undantag från andra medlemmar som <xref:System.IO.DriveInfo.TotalSize%2A>, <xref:System.IO.DriveInfo.TotalFreeSpace%2A>, och <xref:System.IO.DriveInfo.DriveFormat%2A>.</xref:System.IO.DriveInfo.DriveFormat%2A> </xref:System.IO.DriveInfo.TotalFreeSpace%2A> </xref:System.IO.DriveInfo.TotalSize%2A> Mellan tiden att din kod kontrollerar IsReady och ansluter till en av de andra egenskaperna (även om åtkomst visas omedelbart efter kontrollen) en enhet kan ha kopplats eller en disk kan ha tagits bort."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.is_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.is_1.vb)]"
   syntax:
     content: public bool IsReady { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the drive is ready; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the drive is not ready."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om enheten är klar; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om enheten inte är klar."
   overload: System.IO.DriveInfo.IsReady*
   exceptions: []
   platform:
@@ -227,15 +227,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the name of a drive, such as C:\\\\."
-  remarks: "This property is the name assigned to the drive, such as C:\\ or E:\\\\."
+  summary: "Hämtar namnet på en enhet, till exempel C:\\\\."
+  remarks: "Den här egenskapen är namnet som tilldelats enheten, t.ex C:\\ eller E:\\\\."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.name_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.name_1.vb)]"
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The name of the drive."
+      description: "Namnet på enheten."
   overload: System.IO.DriveInfo.Name*
   exceptions: []
   platform:
@@ -252,12 +252,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the root directory of a drive."
+  summary: "Hämtar rotkatalogen på en enhet."
   syntax:
     content: public System.IO.DirectoryInfo RootDirectory { get; }
     return:
       type: System.IO.DirectoryInfo
-      description: "An object that contains the root directory of the drive."
+      description: "Ett objekt som innehåller rotkatalogen på enheten."
   overload: System.IO.DriveInfo.RootDirectory*
   exceptions: []
   platform:
@@ -275,17 +275,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Populates a <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> object with the data needed to serialize the target object."
-  remarks: "Any objects included in the <xref:System.Runtime.Serialization.SerializationInfo> object are automatically tracked and serialized by the formatter.       This member is an explicit interface member implementation. It can be used only when the <xref:System.IO.DriveInfo> instance is cast to an <xref:System.Runtime.Serialization.ISerializable> interface."
+  summary: "Fyller på en <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> objektet med de data som behövs för att serialisera målobjektet."
+  remarks: "Alla objekt som ingår i den <xref:System.Runtime.Serialization.SerializationInfo>objektet automatiskt spåras och serialiseras av Formateraren.</xref:System.Runtime.Serialization.SerializationInfo>       Den här medlemmen är en implementering för medlem av explicit gränssnitt. Det kan användas endast när den <xref:System.IO.DriveInfo>instans omvandlas till ett <xref:System.Runtime.Serialization.ISerializable>gränssnitt.</xref:System.Runtime.Serialization.ISerializable> </xref:System.IO.DriveInfo>"
   syntax:
     content: void ISerializable.GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The object to populate with data."
+      description: "Objektet som används för att fylla i med data."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The destination (see <xref:System.Runtime.Serialization.StreamingContext>) for this serialization."
+      description: "Målet (se <xref:System.Runtime.Serialization.StreamingContext>) för den här serialisering.</xref:System.Runtime.Serialization.StreamingContext>"
   overload: System.IO.DriveInfo.System#Runtime#Serialization#ISerializable#GetObjectData*
   exceptions: []
   platform:
@@ -302,14 +302,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Returns a drive name as a string."
-  remarks: "This method returns the <xref:System.IO.DriveInfo.Name%2A> property."
+  summary: "Returnerar en enhetsbeteckning som en sträng."
+  remarks: "Den här metoden returnerar den <xref:System.IO.DriveInfo.Name%2A>egenskapen.</xref:System.IO.DriveInfo.Name%2A>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The name of the drive."
+      description: "Namnet på enheten."
   overload: System.IO.DriveInfo.ToString*
   exceptions: []
   platform:
@@ -326,26 +326,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the total amount of free space available on a drive, in bytes."
-  remarks: "This property indicates the total amount of free space available on the drive, not just what is available to the current user."
+  summary: "Hämtar den totala mängden ledigt utrymme på en enhet, i byte."
+  remarks: "Den här egenskapen anger den totala mängden ledigt utrymme på enheten, inte bara vad som är tillgängligt för den aktuella användaren."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.to_0_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.to_0_1.vb)]"
   syntax:
     content: public long TotalFreeSpace { get; }
     return:
       type: System.Int64
-      description: "The total free space available on a drive, in bytes."
+      description: "Det totala lediga utrymmet på en enhet, i byte."
   overload: System.IO.DriveInfo.TotalFreeSpace*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the drive information is denied."
+    description: "Åtkomst till enhetsinformationen nekas."
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "The drive is not mapped or does not exist."
+    description: "Enheten har inte mappats eller finns inte."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   platform:
   - net462
 - uid: System.IO.DriveInfo.TotalSize
@@ -360,26 +360,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets the total size of storage space on a drive, in bytes."
-  remarks: "This property indicates the total size of the drive in bytes, not just what is available to the current user."
+  summary: "Hämtar den totala storleken på lagringsutrymmet på en enhet, i byte."
+  remarks: "Den här egenskapen anger den totala storleken på enheten i byte, inte bara vad som är tillgängligt för den aktuella användaren."
   example:
   - "The following code example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all of the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.to_1_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.to_1_1.vb)]"
   syntax:
     content: public long TotalSize { get; }
     return:
       type: System.Int64
-      description: "The total size of the drive, in bytes."
+      description: "Den totala storleken på enheten, i byte."
   overload: System.IO.DriveInfo.TotalSize*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the drive information is denied."
+    description: "Åtkomst till enhetsinformationen nekas."
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "The drive is not mapped or does not exist."
+    description: "Enheten har inte mappats eller finns inte."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   platform:
   - net462
 - uid: System.IO.DriveInfo.VolumeLabel
@@ -394,29 +394,29 @@ items:
   assemblies:
   - mscorlib
   namespace: System.IO
-  summary: "Gets or sets the volume label of a drive."
-  remarks: "The label length is determined by the operating system. For example, NTFS allows a volume label to be up to 32 characters long. Note that `null` is a valid VolumeLabel."
+  summary: "Hämtar eller anger volymetiketten för en enhet."
+  remarks: "Etikett längden bestäms av operativsystemet. NTFS kan till exempel en volymetikett vara högst 32 tecken lång. Observera att `null` är en giltig VolumeLabel."
   example:
   - "The following example demonstrates the use of the <xref:System.IO.DriveInfo> class to display information about all the drives on the current system.  \n  \n [!code-cs[System.IO.DriveInfo#00](~/add/codesnippet/csharp/p-system.io.driveinfo.vo_1.cs)]\n [!code-vb[System.IO.DriveInfo#00](~/add/codesnippet/visualbasic/p-system.io.driveinfo.vo_1.vb)]"
   syntax:
     content: public string VolumeLabel { get; set; }
     return:
       type: System.String
-      description: "The volume label."
+      description: "Volymetiketten."
   overload: System.IO.DriveInfo.VolumeLabel*
   exceptions:
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred (for example, a disk error or a drive was not ready)."
+    description: "Det uppstod ett i/o-fel (till exempel fel i en disk eller en enhet inte klar)."
   - type: System.IO.DriveNotFoundException
     commentId: T:System.IO.DriveNotFoundException
-    description: "The drive is not mapped or does not exist."
+    description: "Enheten har inte mappats eller finns inte."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permission."
+    description: "Anroparen har inte behörigheten som krävs."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The volume label is being set on a network or CD-ROM drive.       -or-       Access to the drive information is denied."
+    description: "Volymetiketten anges i ett nätverk eller en CD-ROM-enhet.       - eller - åtkomst nekad till enhetsinformationen."
   platform:
   - net462
 references:

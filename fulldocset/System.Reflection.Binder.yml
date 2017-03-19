@@ -16,8 +16,8 @@ items:
   nameWithType: Binder
   fullName: System.Reflection.Binder
   type: Class
-  summary: "Selects a member from a list of candidates, and performs type conversion from actual argument type to formal argument type."
-  remarks: "Implementations of the Binder class are used by methods such as <xref:System.Type.InvokeMember%2A?displayProperty=fullName>, which selects from a set of possible members to execute, based on a set of parameter types and argument values; <xref:System.Type.GetMethod%2A?displayProperty=fullName>, which selects a method based on parameter types; and so on.       A default implementation of the Binder class is provided by the <xref:System.Type.DefaultBinder%2A?displayProperty=fullName> property."
+  summary: "Väljer en medlem från en lista över kandidater och utför typen konvertering från faktiska Argumenttypen till formella Argumenttypen."
+  remarks: "Implementeringar av klassen Binder används av metoder som <xref:System.Type.InvokeMember%2A?displayProperty=fullName>, som väljer från en mängd med medlemmar som möjligt att köra, baserat på en uppsättning parametertyper och argumentvärden. <xref:System.Type.GetMethod%2A?displayProperty=fullName>, där väljer metod baserat på parametertyper, och så vidare.</xref:System.Type.GetMethod%2A?displayProperty=fullName> </xref:System.Type.InvokeMember%2A?displayProperty=fullName>       En standardimplementering av klassen Binder tillhandahålls av den <xref:System.Type.DefaultBinder%2A?displayProperty=fullName>egenskapen.</xref:System.Type.DefaultBinder%2A?displayProperty=fullName>"
   example:
   - "The following example implements and demonstrates all members of the `Binder` class. The private method `CanConvertFrom` finds compatible types for a given type.  \n  \n [!code-cpp[Binder_1#1](~/add/codesnippet/cpp/t-system.reflection.binder_1.cpp)]\n [!code-vb[Binder_1#1](~/add/codesnippet/visualbasic/t-system.reflection.binder_1.vb)]\n [!code-cs[Binder_1#1](~/add/codesnippet/csharp/t-system.reflection.binder_1.cs)]"
   syntax:
@@ -45,8 +45,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Initializes a new instance of the <xref href=&quot;System.Reflection.Binder&quot;></xref> class."
-  remarks: "This constructor is called by the constructors of derived classes, to initialize state in this type."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Reflection.Binder&quot;> </xref> klass."
+  remarks: "Den här konstruktorn anropas av konstruktorerna i härledda klasser för att initiera tillstånd i den här typen."
   syntax:
     content: protected Binder ();
     parameters: []
@@ -66,37 +66,37 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Selects a field from the given set of fields, based on the specified criteria."
-  remarks: "If `bindingAttr` does not include <xref:System.Reflection.BindingFlags?displayProperty=fullName>, the default binder implementation provided by <xref:System.Type.DefaultBinder%2A?displayProperty=fullName> simply returns the first element of `match`. No selection is done.       This method controls the binding provided by <xref:System.Type.InvokeMember%2A?displayProperty=fullName>."
+  summary: "Markerar ett fält i den angivna uppsättningen fält, baserat på de angivna kriterierna."
+  remarks: "Om `bindingAttr` inte innehåller <xref:System.Reflection.BindingFlags?displayProperty=fullName>, binder standardimplementering tillhandahålls av <xref:System.Type.DefaultBinder%2A?displayProperty=fullName>bara returnerar det första elementet i `match`.</xref:System.Type.DefaultBinder%2A?displayProperty=fullName> </xref:System.Reflection.BindingFlags?displayProperty=fullName> Ingen markering görs.       Den här metoden styr bindning som tillhandahålls av <xref:System.Type.InvokeMember%2A?displayProperty=fullName>.</xref:System.Type.InvokeMember%2A?displayProperty=fullName>"
   syntax:
     content: public abstract System.Reflection.FieldInfo BindToField (System.Reflection.BindingFlags bindingAttr, System.Reflection.FieldInfo[] match, object value, System.Globalization.CultureInfo culture);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "A bitwise combination of <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> values."
+      description: "En binär kombination av <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> värden."
     - id: match
       type: System.Reflection.FieldInfo[]
-      description: "The set of fields that are candidates for matching. For example, when a <xref href=&quot;System.Reflection.Binder&quot;></xref> object is used by &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, this parameter specifies the set of fields that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; changes the order of this array."
+      description: "En uppsättning fält som lämpar sig för matchning. Till exempel när en <xref href=&quot;System.Reflection.Binder&quot;> </xref> objektet används av &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, den här parametern anger en uppsättning fält som reflektion har fastställt att vara möjligt matchar normalt eftersom de har rätt Medlemsnamnet. Standardimplementering som tillhandahålls av &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; ändras ordning i denna matris."
     - id: value
       type: System.Object
-      description: "The field value used to locate a matching field."
+      description: "Fältvärdet som används för att hitta ett matchande fält."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "An instance of <xref:System.Globalization.CultureInfo> that is used to control the coercion of data types, in binder implementations that coerce types. If `culture` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the <xref:System.Globalization.CultureInfo> for the current thread is used.       Note   For example, if a binder implementation allows coercion of string values to numeric types, this parameter is necessary to convert a <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> that represents 1000 to a <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;></xref> value, because 1000 is represented differently by different cultures. The default binder does not do such string coercions."
+      description: "En instans av <xref:System.Globalization.CultureInfo>som används för att styra tvång av datatyper i binder implementeringar som tvinga typer.</xref:System.Globalization.CultureInfo> Om `culture` är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Globalization.CultureInfo>för den aktuella tråden används.</xref:System.Globalization.CultureInfo>       Observera till exempel om en binder implementering tillåter tvång av strängvärden till numeriska typer den här parametern krävs för att konvertera en <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> som representerar 1000 till en <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;> </xref> värde eftersom 1000 representeras på olika sätt av olika kulturer. Standard binder gör inte denna sträng coercions."
     return:
       type: System.Reflection.FieldInfo
-      description: "The matching field."
+      description: "Fältet matchande."
   overload: System.Reflection.Binder.BindToField*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "For the default binder, <code>bindingAttr</code> includes <xref href=&quot;System.Reflection.BindingFlags&quot;></xref>, and <code>match</code> contains multiple fields that are equally good matches for <code>value</code>. For example, <code>value</code> contains a `MyClass` object that implements the `IMyClass` interface, and <code>match</code> contains a field of type `MyClass` and a field of type `IMyClass`."
+    description: "För standard-binder <code> bindingAttr </code> innehåller <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref>, och <code> match </code> innehåller flera fält som är lika bra matchningar för <code> value </code>. Till exempel <code> value </code> innehåller en `MyClass` objekt som implementerar det `IMyClass` -gränssnittet och <code> match </code> innehåller ett fält av typen `MyClass` och ett fält av typen `IMyClass`."
   - type: System.MissingFieldException
     commentId: T:System.MissingFieldException
-    description: "For the default binder, <code>bindingAttr</code> includes <xref href=&quot;System.Reflection.BindingFlags&quot;></xref>, and <code>match</code> contains no fields that can accept <code>value</code>."
+    description: "För standard-binder <code> bindingAttr </code> innehåller <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref>, och <code> match </code> innehåller inga fält som kan acceptera <code> value </code>."
   - type: System.NullReferenceException
     commentId: T:System.NullReferenceException
-    description: "For the default binder, <code>bindingAttr</code> includes <xref href=&quot;System.Reflection.BindingFlags&quot;></xref>, and <code>match</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty array.       -or-       <code>bindingAttr</code> includes <xref href=&quot;System.Reflection.BindingFlags&quot;></xref>, and <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "För standard-binder <code> bindingAttr </code> innehåller <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref>, och <code> match </code> är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom matris.       -or-       <code>bindingAttr</code> includes <xref href=&quot;System.Reflection.BindingFlags&quot;></xref>, and <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Reflection.Binder.BindToMethod(System.Reflection.BindingFlags,System.Reflection.MethodBase[],System.Object[]@,System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[],System.Object@)
@@ -111,46 +111,46 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Selects a method to invoke from the given set of methods, based on the supplied arguments."
-  remarks: "The default binder takes into account both parameters that have values and `params` arrays (`ParamArray` arrays in Visual Basic). Thus, it is possible to find a match in cases where `args` and `match` do not contain the same number of elements.       The binder enables a client to map the array of arguments back to its original form if the argument array has been manipulated by BindToMethod. Use this remap capability to get back by-reference arguments when such arguments are present. When you pass arguments by name, the binder reorders the argument array. The `state` parameter keeps track of argument reordering, thus enabling the binder&quot;s <xref:System.Reflection.Binder.ReorderArgumentArray%2A> method to reorder the argument array to its original form.       The BindToMethod method is used by the <xref:System.Type.InvokeMember%2A?displayProperty=fullName> method."
+  summary: "Väljer en metod för att anropa från den angivna uppsättningen av metoder, beroende på de angivna argumenten."
+  remarks: "Standard-binder tar hänsyn till båda parametrarna som har värden och `params` matriser (`ParamArray` matriser i Visual Basic). Därför är det möjligt att hitta en matchande i fall där `args` och `match` innehåller inte samma antal element.       Binder kan en klient för att mappa array argument tillbaka till dess ursprungliga formuläret om argumentmatrisen har tagits manipuleras av BindToMethod. Använd funktionen mappa om för att få tillbaka argument som referens när det finns sådana argument. När du överför argument med namnet sorterar binder om argumentmatrisen. Den `state` parametern håller reda på argumentet ordna om, vilket gör att bindaren <xref:System.Reflection.Binder.ReorderArgumentArray%2A>metod för att ordna om argumentmatrisen till originalversionen.</xref:System.Reflection.Binder.ReorderArgumentArray%2A>       Metoden BindToMethod används av den <xref:System.Type.InvokeMember%2A?displayProperty=fullName>metoden.</xref:System.Type.InvokeMember%2A?displayProperty=fullName>"
   syntax:
     content: public abstract System.Reflection.MethodBase BindToMethod (System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, ref object[] args, System.Reflection.ParameterModifier[] modifiers, System.Globalization.CultureInfo culture, string[] names, out object state);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "A bitwise combination of <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> values."
+      description: "En binär kombination av <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> värden."
     - id: match
       type: System.Reflection.MethodBase[]
-      description: "The set of methods that are candidates for matching. For example, when a <xref href=&quot;System.Reflection.Binder&quot;></xref> object is used by &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; changes the order of this array."
+      description: "Uppsättning metoder som lämpar sig för matchning. Till exempel när en <xref href=&quot;System.Reflection.Binder&quot;> </xref> objektet används av &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, den här parametern anger uppsättningen metoder som reflektion har fastställt att vara möjligt matchar normalt eftersom de har rätt Medlemsnamnet. Standardimplementering som tillhandahålls av &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; ändras ordning i denna matris."
     - id: args
       type: System.Object[]
-      description: "The arguments that are passed in. The binder can change the order of the arguments in this array; for example, the default binder changes the order of arguments if the `names` parameter is used to specify an order other than positional order. If a binder implementation coerces argument types, the types and values of the arguments can be changed as well."
+      description: "Argument som skickas i. Binder kan ändra ordning på argument i matrisen; till exempel standard binder ändrar argumentens ordning om den `names` används för att ange en ordning än ordning. Om en binder implementering tvingar Argumenttyperna, kan typer och värden för argumenten ändras också."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: "An array of parameter modifiers that enable binding to work with parameter signatures in which the types have been modified. The default binder implementation does not use this parameter."
+      description: "En matris med parametern-modifierare som gör att bindningen ska fungera med parametern signaturer som de har ändrats. Binder standardimplementering använder inte den här parametern."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "An instance of <xref:System.Globalization.CultureInfo> that is used to control the coercion of data types, in binder implementations that coerce types. If `culture` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the <xref:System.Globalization.CultureInfo> for the current thread is used.       Note   For example, if a binder implementation allows coercion of string values to numeric types, this parameter is necessary to convert a <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> that represents 1000 to a <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;></xref> value, because 1000 is represented differently by different cultures. The default binder does not do such string coercions."
+      description: "En instans av <xref:System.Globalization.CultureInfo>som används för att styra tvång av datatyper i binder implementeringar som tvinga typer.</xref:System.Globalization.CultureInfo> Om `culture` är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Globalization.CultureInfo>för den aktuella tråden används.</xref:System.Globalization.CultureInfo>       Observera till exempel om en binder implementering tillåter tvång av strängvärden till numeriska typer den här parametern krävs för att konvertera en <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> som representerar 1000 till en <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;> </xref> värde eftersom 1000 representeras på olika sätt av olika kulturer. Standard binder gör inte denna sträng coercions."
     - id: names
       type: System.String[]
-      description: "The parameter names, if parameter names are to be considered when matching, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if arguments are to be treated as purely positional. For example, parameter names must be used if arguments are not supplied in positional order."
+      description: "Parameternamn om parameternamn ska beaktas när matchning, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om argument är behandlas som enbart positionsparametrarna. Parameternamn måste till exempel användas om argument inte har angetts i ordning."
     - id: state
       type: System.Object
-      description: "After the method returns, `state` contains a binder-provided object that keeps track of argument reordering. The binder creates this object, and the binder is the sole consumer of this object. If `state` is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> when <xref uid=&quot;langword_csharp_BindToMethod&quot; name=&quot;BindToMethod&quot; href=&quot;&quot;></xref> returns, you must pass `state` to the <xref:System.Reflection.Binder.ReorderArgumentArray*> method if you want to restore `args` to its original order, for example, so that you can retrieve the values of <xref uid=&quot;langword_csharp_ref&quot; name=&quot;ref&quot; href=&quot;&quot;></xref> parameters (<xref uid=&quot;langword_csharp_ByRef&quot; name=&quot;ByRef&quot; href=&quot;&quot;></xref> parameters in Visual Basic)."
+      description: "När metoden returnerar `state` innehåller ett angivna binder objekt som övervakas av ändra ordning på argumentet. Binder skapar det här objektet och binder är den enda konsumenten i det här objektet. Om `state` är inte <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> när <xref uid=&quot;langword_csharp_BindToMethod&quot; name=&quot;BindToMethod&quot; href=&quot;&quot;> </xref> returnerar måste du skicka `state` till den <xref:System.Reflection.Binder.ReorderArgumentArray*>metoden om du vill återställa `args` till dess ursprungliga exempelvis ordna så att du kan hämta värdena för <xref uid=&quot;langword_csharp_ref&quot; name=&quot;ref&quot; href=&quot;&quot;> </xref> parametrar (<xref uid=&quot;langword_csharp_ByRef&quot; name=&quot;ByRef&quot; href=&quot;&quot;> </xref> parametrar i Visual Basic).</xref:System.Reflection.Binder.ReorderArgumentArray*>"
     return:
       type: System.Reflection.MethodBase
-      description: "The matching method."
+      description: "Den matchande metoden."
   overload: System.Reflection.Binder.BindToMethod*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "For the default binder, <code>match</code> contains multiple methods that are equally good matches for <code>args</code>. For example, <code>args</code> contains a `MyClass` object that implements the `IMyClass` interface, and <code>match</code> contains a method that takes `MyClass` and a method that takes `IMyClass`."
+    description: "För standard-binder <code> match </code> innehåller flera metoder som är lika bra matchningar för <code> args </code>. Till exempel <code> args </code> innehåller en `MyClass` objekt som implementerar det `IMyClass` -gränssnittet och <code> match </code> innehåller en metod som tar `MyClass` och en metod som tar `IMyClass`."
   - type: System.MissingMethodException
     commentId: T:System.MissingMethodException
-    description: "For the default binder, <code>match</code> contains no methods that can accept the arguments supplied in <code>args</code>."
+    description: "För standard-binder <code> match </code> innehåller inga metoder som kan ta emot argument som angavs i <code> args </code>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "For the default binder, <code>match</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty array."
+    description: "För standard-binder <code> match </code> är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom matris."
   platform:
   - net462
 - uid: System.Reflection.Binder.ChangeType(System.Object,System.Type,System.Globalization.CultureInfo)
@@ -165,23 +165,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Changes the type of the given <xref uid=&quot;langword_csharp_Object&quot; name=&quot;Object&quot; href=&quot;&quot;></xref> to the given <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;></xref>."
-  remarks: "Reflection models the accessibility rules of the common type system. For example, if the caller is in the same assembly, the caller does not need special permissions for internal members. Otherwise, the caller needs <xref:System.Security.Permissions.ReflectionPermission>. This is consistent with lookup of members that are protected, private, and so on.       The general principle is that `ChangeType` should perform only widening coercions, which never lose data. An example of a widening coercion is coercing a value that is a 32-bit signed integer to a value that is a 64-bit signed integer. This is distinguished from a narrowing coercion, which may lose data. An example of a narrowing coercion is coercing a 64-bit signed integer to a 32-bit signed integer.       The following table lists the coercions performed by the default `ChangeType`.      |Source type|Target type|   |-----------------|-----------------|   |Any type|Its base type.|   |Any type|The interface it implements.|   |Char|UInt16, UInt32, Int32, UInt64, Int64, Single, Double|   |Byte|Char, UInt16, Int16, UInt32, Int32, UInt64, Int64, Single, Double|   |SByte|Int16, Int32, Int64, Single, Double|   |UInt16|UInt32, Int32, UInt64, Int64, Single, Double|   |Int16|Int32, Int64, Single, Double|   |UInt32|UInt64, Int64, Single, Double|   |Int32|Int64, Single, Double|   |UInt64|Single, Double|   |Int64|Single, Double|   |Single|Double|   |Non-reference|By-reference.|"
+  summary: "Ändrar typ av den angivna <xref uid=&quot;langword_csharp_Object&quot; name=&quot;Object&quot; href=&quot;&quot;> </xref> till den angivna <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;> </xref>."
+  remarks: "Reflektion modeller hjälpmedel reglerna för vanliga typsystemet. Till exempel om anroparen i samma sammansättning behöver anroparen inte särskilda behörigheter för inre medlemmar. Annars måste anroparen <xref:System.Security.Permissions.ReflectionPermission>.</xref:System.Security.Permissions.ReflectionPermission> Detta är konsekventa med sökning med medlemmar som är skyddade, privata och så vidare.       Allmän princip är att `ChangeType` utför endast breddning coercions som aldrig förlora data. Ett exempel på en utvidgad tvång coercing ett värde som är en 32-bitars heltal med ett värde som är ett 64-bitars heltal. Detta skiljer sig från en begränsad tvång som data kan gå förlorade. Ett exempel på en begränsad tvång coercing ett 64-bitars heltal till en 32-bitars heltal.       I följande tabell visas coercions som utförs av standard `ChangeType`.      | Typ av datakälla | Måltyp |   |-----------------|-----------------|   | Alla typer | Dess bastyp. |   | Alla typer | Den implementerar gränssnittet. |   | Char | UInt16, UInt32, Int32, UInt64, Int64, enkel dubbla |   | Byte | Char UInt16, Int16, UInt32, Int32, UInt64, Int64, enkel dubbla |   | SByte | Int16, Int32, Int64, enkel dubbla |   | UInt16 | UInt32, Int32, UInt64, Int64, enkel dubbla |   | Int16 | Int32, Int64, enkel dubbla |   | UInt32 | UInt64, Int64, enkel dubbla |   | Int32 | Int64, enskild dubbla |   | UInt64 | Single, Double |   | Int64 | Single, Double |   | Enskild | Dubbla |   | Icke-referens | Som referens. |"
   syntax:
     content: public abstract object ChangeType (object value, Type type, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The object to change into a new <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;></xref>."
+      description: "Objektet för att ändra till ett nytt <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;> </xref>."
     - id: type
       type: System.Type
-      description: "The new <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;></xref> that `value` will become."
+      description: "Den nya <xref uid=&quot;langword_csharp_Type&quot; name=&quot;Type&quot; href=&quot;&quot;> </xref> som `value` blir."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "An instance of <xref:System.Globalization.CultureInfo> that is used to control the coercion of data types. If `culture` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the <xref:System.Globalization.CultureInfo> for the current thread is used.       Note   For example, this parameter is necessary to convert a <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref> that represents 1000 to a <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;></xref> value, because 1000 is represented differently by different cultures."
+      description: "En instans av <xref:System.Globalization.CultureInfo>som används för att styra tvång av datatyper.</xref:System.Globalization.CultureInfo> Om `culture` är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Globalization.CultureInfo>för den aktuella tråden används.</xref:System.Globalization.CultureInfo>       Obs exempelvis den här parametern krävs för att konvertera en <xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;> </xref> som representerar 1000 till en <xref uid=&quot;langword_csharp_Double&quot; name=&quot;Double&quot; href=&quot;&quot;> </xref> värde eftersom 1000 representeras på olika sätt av olika kulturer."
     return:
       type: System.Object
-      description: "An object that contains the given value as the new type."
+      description: "Ett objekt som innehåller det angivna värdet som den nya typen."
   overload: System.Reflection.Binder.ChangeType*
   exceptions: []
   platform:
@@ -198,17 +198,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Upon returning from <xref:System.Reflection.Binder.BindToMethod*>, restores the <code>args</code> argument to what it was when it came from <xref uid=&quot;langword_csharp_BindToMethod&quot; name=&quot;BindToMethod&quot; href=&quot;&quot;></xref>."
-  remarks: "The common language runtime calls this method if `state` is not `null` after a return from `BindToMethod`."
+  summary: "Vid returneras från <xref:System.Reflection.Binder.BindToMethod*>, återställs den <code> args </code> argumentet till den ursprungliga när den kom från <xref uid=&quot;langword_csharp_BindToMethod&quot; name=&quot;BindToMethod&quot; href=&quot;&quot;> </xref>.</xref:System.Reflection.Binder.BindToMethod*>"
+  remarks: "Common language runtime anropar den här metoden om `state` är inte `null` efter en retur från `BindToMethod`."
   syntax:
     content: public abstract void ReorderArgumentArray (ref object[] args, object state);
     parameters:
     - id: args
       type: System.Object[]
-      description: "The actual arguments that are passed in. Both the types and values of the arguments can be changed."
+      description: "De faktiska argument som skickas i. Både typer och värden för argumenten kan ändras."
     - id: state
       type: System.Object
-      description: "A binder-provided object that keeps track of argument reordering."
+      description: "En förutsättning binder objekt som håller reda på argumentet omordning."
   overload: System.Reflection.Binder.ReorderArgumentArray*
   exceptions: []
   platform:
@@ -225,34 +225,34 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Selects a method from the given set of methods, based on the argument type."
-  remarks: "This method should return `null` if no method matches the criteria. This method controls the selection provided by the `GetConstructor` and `GetMethod` methods on `Type`."
+  summary: "Markerar en metod från den angivna uppsättningen av metoder, beroende på vilken argumenttyp."
+  remarks: "Den här metoden ska returnera `null` om ingen metod matchar villkoret. Den här metoden styr markeringen från den `GetConstructor` och `GetMethod` metoder i `Type`."
   syntax:
     content: public abstract System.Reflection.MethodBase SelectMethod (System.Reflection.BindingFlags bindingAttr, System.Reflection.MethodBase[] match, Type[] types, System.Reflection.ParameterModifier[] modifiers);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "A bitwise combination of <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> values."
+      description: "En binär kombination av <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> värden."
     - id: match
       type: System.Reflection.MethodBase[]
-      description: "The set of methods that are candidates for matching. For example, when a <xref href=&quot;System.Reflection.Binder&quot;></xref> object is used by &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, this parameter specifies the set of methods that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; changes the order of this array."
+      description: "Uppsättning metoder som lämpar sig för matchning. Till exempel när en <xref href=&quot;System.Reflection.Binder&quot;> </xref> objektet används av &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, den här parametern anger uppsättningen metoder som reflektion har fastställt att vara möjligt matchar normalt eftersom de har rätt Medlemsnamnet. Standardimplementering som tillhandahålls av &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; ändras ordning i denna matris."
     - id: types
       type: System.Type[]
-      description: "The parameter types used to locate a matching method."
+      description: "Parametertyper som används för att hitta en matchande metod."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: "An array of parameter modifiers that enable binding to work with parameter signatures in which the types have been modified."
+      description: "En matris med parametern-modifierare som gör att bindningen ska fungera med parametern signaturer som de har ändrats."
     return:
       type: System.Reflection.MethodBase
-      description: "The matching method, if found; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Den matchande metod, om hittas. Annars <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Reflection.Binder.SelectMethod*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "For the default binder, <code>match</code> contains multiple methods that are equally good matches for the parameter types described by <code>types</code>. For example, the array in <code>types</code> contains a <xref:System.Type> object for `MyClass` and the array in <code>match</code> contains a method that takes a base class of `MyClass` and a method that takes an interface that `MyClass` implements."
+    description: "För standard-binder <code> match </code> innehåller flera metoder som är lika bra matchningar för parametertyper som beskrivs av <code> types </code>. Till exempel matris i <code> types </code> innehåller en <xref:System.Type>för `MyClass` och matrisen i <code> match </code> innehåller en metod som tar en basklass för `MyClass` och en metod som tar ett gränssnitt som `MyClass` implementerar.</xref:System.Type>"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "For the default binder, <code>match</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty array.       -or-       An element of <code>types</code> derives from <xref:System.Type>, but is not of type <xref uid=&quot;langword_csharp_RuntimeType&quot; name=&quot;RuntimeType&quot; href=&quot;&quot;></xref>."
+    description: "För standard-binder <code> match </code> är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom matris.       - eller - element i <code> types </code> härleds från <xref:System.Type>, men är inte av typen <xref uid=&quot;langword_csharp_RuntimeType&quot; name=&quot;RuntimeType&quot; href=&quot;&quot;> </xref>.</xref:System.Type>"
   platform:
   - net462
 - uid: System.Reflection.Binder.SelectProperty(System.Reflection.BindingFlags,System.Reflection.PropertyInfo[],System.Type,System.Type[],System.Reflection.ParameterModifier[])
@@ -267,37 +267,37 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Reflection
-  summary: "Selects a property from the given set of properties, based on the specified criteria."
-  remarks: "This method controls the selection provided by the `GetProperty` method on `Type`."
+  summary: "Markerar en egenskap från den angivna uppsättningen med egenskaper, baserat på de angivna kriterierna."
+  remarks: "Den här metoden styr markeringen från den `GetProperty` metod på `Type`."
   syntax:
     content: public abstract System.Reflection.PropertyInfo SelectProperty (System.Reflection.BindingFlags bindingAttr, System.Reflection.PropertyInfo[] match, Type returnType, Type[] indexes, System.Reflection.ParameterModifier[] modifiers);
     parameters:
     - id: bindingAttr
       type: System.Reflection.BindingFlags
-      description: "A bitwise combination of <xref href=&quot;System.Reflection.BindingFlags&quot;></xref> values."
+      description: "En binär kombination av <xref href=&quot;System.Reflection.BindingFlags&quot;> </xref> värden."
     - id: match
       type: System.Reflection.PropertyInfo[]
-      description: "The set of properties that are candidates for matching. For example, when a <xref href=&quot;System.Reflection.Binder&quot;></xref> object is used by &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, this parameter specifies the set of properties that reflection has determined to be possible matches, typically because they have the correct member name. The default implementation provided by &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; changes the order of this array."
+      description: "Uppsättningen egenskaper som lämpar sig för matchning. Till exempel när en <xref href=&quot;System.Reflection.Binder&quot;> </xref> objektet används av &lt;xref:System.Type.InvokeMember%2A?displayProperty=fullName&gt;, den här parametern anger uppsättningen egenskaper som reflektion har fastställt att vara möjligt matchar normalt eftersom de har rätt Medlemsnamnet. Standardimplementering som tillhandahålls av &lt;xref:System.Type.DefaultBinder%2A?displayProperty=fullName&gt; ändras ordning i denna matris."
     - id: returnType
       type: System.Type
-      description: "The return value the matching property must have."
+      description: "Det returnera värdet matchning av egenskap måste ha."
     - id: indexes
       type: System.Type[]
-      description: "The index types of the property being searched for. Used for index properties such as the indexer for a class."
+      description: "Index typer av den som eftersöks. Används för Indexegenskaper, till exempel indexeraren för en klass."
     - id: modifiers
       type: System.Reflection.ParameterModifier[]
-      description: "An array of parameter modifiers that enable binding to work with parameter signatures in which the types have been modified."
+      description: "En matris med parametern-modifierare som gör att bindningen ska fungera med parametern signaturer som de har ändrats."
     return:
       type: System.Reflection.PropertyInfo
-      description: "The matching property."
+      description: "Matchning av egenskap."
   overload: System.Reflection.Binder.SelectProperty*
   exceptions:
   - type: System.Reflection.AmbiguousMatchException
     commentId: T:System.Reflection.AmbiguousMatchException
-    description: "For the default binder, <code>match</code> contains multiple properties that are equally good matches for <code>returnType</code> and <code>indexes</code>."
+    description: "För standard-binder <code> match </code> innehåller flera egenskaper som är lika bra matchningar för <code> returnType </code> och <code> indexes </code>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "For the default binder, <code>match</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty array."
+    description: "För standard-binder <code> match </code> är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom matris."
   platform:
   - net462
 references:

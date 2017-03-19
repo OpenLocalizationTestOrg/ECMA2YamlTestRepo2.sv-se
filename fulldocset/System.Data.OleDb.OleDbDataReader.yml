@@ -46,8 +46,8 @@ items:
   nameWithType: OleDbDataReader
   fullName: System.Data.OleDb.OleDbDataReader
   type: Class
-  summary: "Provides a way of reading a forward-only stream of data rows from a data source. This class cannot be inherited."
-  remarks: "To create an OleDbDataReader, you must call the <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A> method of the <xref:System.Data.OleDb.OleDbCommand> object, instead of directly using a constructor.       Before you close the <xref:System.Data.OleDb.OleDbConnection>, first close the OleDbDataReader object. You must also close the OleDbDataReader object if you plan to resuse an <xref:System.Data.OleDb.OleDbCommand> object.For example, you cannot retrieve output parameters until after you call <xref:System.Data.OleDb.OleDbDataReader.Close%2A>.       Changes made to a result set by another process or thread while data is being read may be visible to the user of the OleDbDataReader. However, the precise behavior is timing dependent.       <xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A> and <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A> are the only properties that you can call after the OleDbDataReader is closed. Although the <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A> property may be accessed while the OleDbDataReader exists, always call <xref:System.Data.OleDb.OleDbDataReader.Close%2A> before returning the value of <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A> to guarantee an accurate return value."
+  summary: "Kan läsa en endast-framåt-dataström med rader med data från en datakälla. Den här klassen kan inte ärvas."
+  remarks: "Om du vill skapa en OleDbDataReader måste du anropa den <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A>metod för den <xref:System.Data.OleDb.OleDbCommand>objektet i stället för direkt med en konstruktor.</xref:System.Data.OleDb.OleDbCommand> </xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A>       Innan du stänger den <xref:System.Data.OleDb.OleDbConnection>, först stänga objektet OleDbDataReader.</xref:System.Data.OleDb.OleDbConnection> Du måste också stänga OleDbDataReader objektet om du planerar att resuse ett <xref:System.Data.OleDb.OleDbCommand>-objekt. T.ex, du kan inte hämta utdataparametrar tills när du anropar <xref:System.Data.OleDb.OleDbDataReader.Close%2A>.</xref:System.Data.OleDb.OleDbDataReader.Close%2A> </xref:System.Data.OleDb.OleDbCommand>       Ändringar som gjorts i en resultatuppsättning med en annan process eller tråd när data läses kan vara synliga för användare av OleDbDataReader. Dock beteendet exakt timing beroende.       <xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A>och <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>endast egenskaper som kan anropas när OleDbDataReader har stängts.</xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A></xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A> Även om den <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>egenskapen kanske alltid nås medan OleDbDataReader finns anropa <xref:System.Data.OleDb.OleDbDataReader.Close%2A>innan det returneras värdet för <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>att garantera en korrekt returvärde.</xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A> </xref:System.Data.OleDb.OleDbDataReader.Close%2A> </xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbConnection>, an <xref:System.Data.OleDb.OleDbCommand>, and an OleDbDataReader. The example reads through the data, writing it out to the console. Finally, the example closes the OleDbDataReader and then the <xref:System.Data.OleDb.OleDbConnection>.  \n  \n [!code-vb[Classic WebData OleDbDataReader Example#1](~/add/codesnippet/visualbasic/t-system.data.oledb.oled_2_1.vb)]\n [!code-cs[Classic WebData OleDbDataReader Example#1](~/add/codesnippet/csharp/t-system.data.oledb.oled_2_1.cs)]"
   syntax:
@@ -93,8 +93,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Closes the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> object."
-  remarks: "You must explicitly call the Close method when you are through using the <xref:System.Data.OleDb.OleDbDataReader> to use the associated <xref:System.Data.OleDb.OleDbConnection> for any other purpose.      > [!CAUTION] >  Do not call **Close** or **Dispose** on a Connection, a DataReader, or any other managed object in the **Finalize** method of your class. In a finalizer, you should only release unmanaged resources that your class owns directly. If your class does not own any unmanaged resources, do not include a **Finalize** method in your class definition. For more information, see [Garbage Collection](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Stänger den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> objekt."
+  remarks: "Du måste explicit anropa metoden Close när du är klar med den <xref:System.Data.OleDb.OleDbDataReader>att använda den associerade <xref:System.Data.OleDb.OleDbConnection>i något annat syfte.</xref:System.Data.OleDb.OleDbConnection> </xref:System.Data.OleDb.OleDbDataReader>      > [!CAUTION] > Anropar inte **Stäng** eller **ta bort** på en anslutning, en DataReader eller andra hanterat objekt i den **Slutför** -metoden i klassen. Du bör endast släpper ohanterade resurser som din klass äger direkt i en slutföraren. Om klassen inte äger ohanterade resurser innehåller inte en **Slutför** metod i klassdefinition. Mer information finns i [skräpinsamling](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbConnection>, an <xref:System.Data.OleDb.OleDbCommand>, and an <xref:System.Data.OleDb.OleDbDataReader>. The example reads through the data, writing it out to the console. Finally, the example closes the <xref:System.Data.OleDb.OleDbDataReader>, and then the <xref:System.Data.OleDb.OleDbConnection>.  \n  \n [!code-cs[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_24_1.cs)]\n [!code-vb[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_24_1.vb)]"
   syntax:
@@ -116,13 +116,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets a value that indicates the depth of nesting for the current row."
-  remarks: "The outermost table has a depth of zero."
+  summary: "Hämtar ett värde som anger Nivådjupet för den aktuella raden."
+  remarks: "Den yttersta tabellen har ett djup på noll."
   syntax:
     content: public override int Depth { get; }
     return:
       type: System.Int32
-      description: "The depth of nesting for the current row."
+      description: "Djupet kapslingsnivåer för den aktuella raden."
   overload: System.Data.OleDb.OleDbDataReader.Depth*
   exceptions: []
   platform:
@@ -139,18 +139,18 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the number of columns in the current row."
-  remarks: "Includes hidden fields. Use <xref:System.Data.OleDb.OleDbDataReader.VisibleFieldCount%2A> to exclude hidden fields.       After executing a query that does not return rows, FieldCount returns 0."
+  summary: "Hämtar antalet kolumner i den aktuella raden."
+  remarks: "Innehåller dolda fält. Använd <xref:System.Data.OleDb.OleDbDataReader.VisibleFieldCount%2A>för att utesluta dolda fält.</xref:System.Data.OleDb.OleDbDataReader.VisibleFieldCount%2A>       När du kör en fråga som inte returnerar rader returnerar FieldCount 0."
   syntax:
     content: public override int FieldCount { get; }
     return:
       type: System.Int32
-      description: "When not positioned in a valid recordset, 0; otherwise the number of columns in the current record. The default is -1."
+      description: "När den inte placeras i en giltig postuppsättning 0; Annars antalet kolumner i den aktuella posten. Standardvärdet är -1."
   overload: System.Data.OleDb.OleDbDataReader.FieldCount*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "There is no current connection to a data source."
+    description: "Det finns inte någon anslutning till en datakälla."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetBoolean(System.Int32)
@@ -165,22 +165,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a Boolean."
-  remarks: "No conversions are performed; therefore the data retrieved must already be a Boolean, or an exception is generated.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett booleskt värde."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara ett booleskt värde eller ett undantag genereras.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override bool GetBoolean (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Boolean
-      description: "The value of the column."
+      description: "Värdet för kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetBoolean*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetByte(System.Int32)
@@ -195,22 +195,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a byte."
-  remarks: "No conversions are performed; therefore the data retrieved must already be a byte.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som en byte."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en byte.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override byte GetByte (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Byte
-      description: "The value of the specified column as a byte."
+      description: "Värdet för den angivna kolumnen som en byte."
   overload: System.Data.OleDb.OleDbDataReader.GetByte*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)
@@ -225,29 +225,29 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Reads a stream of bytes from the specified column offset into the buffer as an array starting at the given buffer offset."
-  remarks: "GetBytes returns the number of available bytes in the field. Most of the time this is the exact length of the field. However, the number returned may be less than the true length of the field if `GetBytes` has already been used to obtain bytes from the field. This may be the case, for example, when the <xref:System.Data.OleDb.OleDbDataReader> is reading a large data structure into a buffer. For more information, see the `SequentialAccess` setting for <xref:System.Data.CommandBehavior>.       If you pass a buffer that is `null`, GetBytes returns the length of the field in bytes.       No conversions are performed; therefore, the data retrieved must already be a byte array."
+  summary: "Läser in en dataström med byte från den angivna kolumn förskjutningen i bufferten som en matris som börjar vid buffertförskjutningen för angivna."
+  remarks: "GetBytes returnerar antalet tillgängliga byte i fältet. I de flesta fall är detta den exakta längden för fältet. Dock tal som returneras kan vara mindre än true längden för fältet om `GetBytes` redan har använts för att hämta byte från fältet. Detta kan vara fallet, till exempel när den <xref:System.Data.OleDb.OleDbDataReader>läser en struktur för stora mängder data i en buffert.</xref:System.Data.OleDb.OleDbDataReader> Mer information finns i `SequentialAccess` inställning för <xref:System.Data.CommandBehavior>.</xref:System.Data.CommandBehavior>       Om du skickar en buffert som `null`, GetBytes returnerar längden på fältet i byte.       Inga konverteringar utförs; data som hämtats måste därför redan vara en byte-matris."
   syntax:
     content: public override long GetBytes (int ordinal, long dataIndex, byte[] buffer, int bufferIndex, int length);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     - id: dataIndex
       type: System.Int64
-      description: "The index within the field from which to start the read operation."
+      description: "Det index i fältet från att starta läsningen."
     - id: buffer
       type: System.Byte[]
-      description: "The buffer into which to read the stream of bytes."
+      description: "Den buffert som att läsa dataström med byte."
     - id: bufferIndex
       type: System.Int32
-      description: "The index within the `buffer` where the write operation is to start."
+      description: "Indexet i den `buffer` där åtgärden är att starta."
     - id: length
       type: System.Int32
-      description: "The maximum length to copy into the buffer."
+      description: "Den maximala längden ska kopieras till bufferten."
     return:
       type: System.Int64
-      description: "The actual number of bytes read."
+      description: "Det faktiska antalet lästa byte."
   overload: System.Data.OleDb.OleDbDataReader.GetBytes*
   exceptions: []
   platform:
@@ -264,22 +264,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a character."
-  remarks: "Not supported for <xref:System.Data.OleDb>."
+  summary: "Hämtar värdet för den angivna kolumnen som ett tecken."
+  remarks: "Stöds inte för <xref:System.Data.OleDb>.</xref:System.Data.OleDb>"
   syntax:
     content: public override char GetChar (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Char
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetChar*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)
@@ -294,29 +294,29 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Reads a stream of characters from the specified column offset into the buffer as an array starting at the given buffer offset."
-  remarks: "GetChars returns the number of available characters in the field. Most of the time this is the exact length of the field. However, the number returned may be less than the true length of the field if `GetChars` has already been used to obtain characters from the field. This may be the case, for example, when the <xref:System.Data.OleDb.OleDbDataReader> is reading a large data structure into a buffer. For more information, see the `SequentialAccess` setting for <xref:System.Data.CommandBehavior>.       If you pass a buffer that is `null`, GetChars returns the length of the field in characters.       No conversions are performed; therefore, the data retrieved must already be a character array."
+  summary: "Läser in en dataström med tecken från den angivna kolumn förskjutningen i bufferten som en matris som börjar vid buffertförskjutningen för angivna."
+  remarks: "GetChars returnerar antalet tillgängliga tecken i fältet. I de flesta fall är detta den exakta längden för fältet. Dock tal som returneras kan vara mindre än true längden för fältet om `GetChars` har redan använts tecknen ska hämtas från fältet. Detta kan vara fallet, till exempel när den <xref:System.Data.OleDb.OleDbDataReader>läser en struktur för stora mängder data i en buffert.</xref:System.Data.OleDb.OleDbDataReader> Mer information finns i `SequentialAccess` inställning för <xref:System.Data.CommandBehavior>.</xref:System.Data.CommandBehavior>       Om du skickar en buffert som `null`, GetChars returnerar längden för fältet i tecken.       Inga konverteringar utförs; data som hämtats måste därför redan vara en matris med tecken."
   syntax:
     content: public override long GetChars (int ordinal, long dataIndex, char[] buffer, int bufferIndex, int length);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     - id: dataIndex
       type: System.Int64
-      description: "The index within the row from which to start the read operation."
+      description: "Det index i raden från vilket att starta läsningen."
     - id: buffer
       type: System.Char[]
-      description: "The buffer into which to copy data."
+      description: "Den buffert som att kopiera data."
     - id: bufferIndex
       type: System.Int32
-      description: "The index within the `buffer` where the write operation is to start."
+      description: "Indexet i den `buffer` där åtgärden är att starta."
     - id: length
       type: System.Int32
-      description: "The number of characters to read."
+      description: "Antalet tecken som ska läsas."
     return:
       type: System.Int64
-      description: "The actual number of characters read."
+      description: "Läs det faktiska antalet tecken."
   overload: System.Data.OleDb.OleDbDataReader.GetChars*
   exceptions: []
   platform:
@@ -333,17 +333,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Returns an <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> object for the requested column ordinal."
-  remarks: "The <xref:System.Data.OleDb.OleDbDataAdapter.Fill%2A> will call GetData if the provider returns a <xref:System.Data.IDataReader> that has a column that supports <xref:System.Data.IDataReader>."
+  summary: "Returnerar en <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> objekt för den begärda kolumnen ordningstal."
+  remarks: "<xref:System.Data.OleDb.OleDbDataAdapter.Fill%2A>Anropar GetData om providern returnerar ett <xref:System.Data.IDataReader>som har en kolumn som stöder <xref:System.Data.IDataReader>.</xref:System.Data.IDataReader> </xref:System.Data.IDataReader> </xref:System.Data.OleDb.OleDbDataAdapter.Fill%2A>"
   syntax:
     content: public System.Data.OleDb.OleDbDataReader GetData (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Data.OleDb.OleDbDataReader
-      description: "An <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> object."
+      description: "En <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> objekt."
   overload: System.Data.OleDb.OleDbDataReader.GetData*
   exceptions: []
   platform:
@@ -360,16 +360,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the name of the source data type."
+  summary: "Hämtar namnet på typ av data."
   syntax:
     content: public override string GetDataTypeName (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.String
-      description: "The name of the back-end data type. For more information, see [SQL Server data types](http://go.microsoft.com/fwlink/?LinkId=198032) or [Access data types](http://go.microsoft.com/fwlink/?LinkId=198033)."
+      description: "Namnet på backend-datatypen. Mer information finns i [SQL Server-datatyper](http://go.microsoft.com/fwlink/?LinkId=198032) eller [åtkomst till datatyper](http://go.microsoft.com/fwlink/?LinkId=198033)."
   overload: System.Data.OleDb.OleDbDataReader.GetDataTypeName*
   exceptions: []
   platform:
@@ -386,22 +386,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a <xref:System.DateTime> object."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a <xref:System.DateTime> object.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett <xref:System.DateTime>objekt.</xref:System.DateTime>"
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en <xref:System.DateTime>objektet.</xref:System.DateTime>       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override DateTime GetDateTime (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.DateTime
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetDateTime*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetDbDataReader(System.Int32)
@@ -421,10 +421,10 @@ items:
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Data.Common.DbDataReader
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.OleDb.OleDbDataReader.GetDbDataReader*
   exceptions: []
   platform:
@@ -441,22 +441,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a <xref:System.Decimal> object."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a <xref:System.Decimal> object.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett <xref:System.Decimal>objekt.</xref:System.Decimal>"
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en <xref:System.Decimal>objektet.</xref:System.Decimal>       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override decimal GetDecimal (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Decimal
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetDecimal*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetDouble(System.Int32)
@@ -471,22 +471,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a double-precision floating-point number."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a double-precision floating-point number.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett flyttal med dubbel precision."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara ett flyttal med dubbel precision.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override double GetDouble (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Double
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetDouble*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetEnumerator
@@ -501,14 +501,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Returns an <xref:System.Collections.IEnumerator> that can be used to iterate through the rows in the data reader."
-  remarks: "Although you can use this method to retrieve an explicit enumerator, in languages that support a `foreach` construct, it is simpler to use the looping construct directly in order to iterate through the rows in the data reader."
+  summary: "Returnerar en <xref:System.Collections.IEnumerator>som kan användas för att gå igenom dataraderna i dataläsaren.</xref:System.Collections.IEnumerator>"
+  remarks: "Men du kan använda den här metoden för att hämta en explicit uppräknare, i språk som stöder en `foreach` konstruktion, det är enklare att använda slingor konstruktion direkt för att gå igenom dataraderna i dataläsaren."
   syntax:
     content: public override System.Collections.IEnumerator GetEnumerator ();
     parameters: []
     return:
       type: System.Collections.IEnumerator
-      description: "An <xref:System.Collections.IEnumerator> that can be used to iterate through the rows in the data reader."
+      description: "En <xref:System.Collections.IEnumerator>som kan användas för att gå igenom dataraderna i dataläsaren.</xref:System.Collections.IEnumerator>"
   overload: System.Data.OleDb.OleDbDataReader.GetEnumerator*
   exceptions: []
   platform:
@@ -525,16 +525,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the <xref:System.Type> that is the data type of the object."
+  summary: "Hämtar den <xref:System.Type>som datatypen för objektet.</xref:System.Type>"
   syntax:
     content: public override Type GetFieldType (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Type
-      description: "The <xref:System.Type> that is the data type of the object."
+      description: "Den <xref:System.Type>som datatypen för objektet.</xref:System.Type>"
   overload: System.Data.OleDb.OleDbDataReader.GetFieldType*
   exceptions: []
   platform:
@@ -551,22 +551,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a single-precision floating-point number."
-  remarks: "No conversions are performed. Therefore, the data retrieved must already be a single-precision floating-point number.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett flyttal med enkel precision."
+  remarks: "Inga konverteringar utförs. Data som hämtats måste därför redan vara ett flyttal med enkel precision.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override float GetFloat (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Single
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetFloat*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetGuid(System.Int32)
@@ -581,22 +581,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a globally unique identifier (GUID)."
-  remarks: "No conversions are performed; therefore the data retrieved must already be a globally unique identifier.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som en globalt unik identifierare (GUID)."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en globalt unik identifierare.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override Guid GetGuid (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Guid
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetGuid*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetInt16(System.Int32)
@@ -611,22 +611,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a 16-bit signed integer."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a 16-bit signed integer.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett 16-bitars heltal."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara ett 16-bitars heltal.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override short GetInt16 (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Int16
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetInt16*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetInt32(System.Int32)
@@ -641,22 +641,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a 32-bit signed integer."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a 32-bit signed integer.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett 32-bitars heltal."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara ett 32-bitars heltal.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override int GetInt32 (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Int32
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetInt32*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetInt64(System.Int32)
@@ -671,22 +671,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a 64-bit signed integer."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a 64-bit signed integer.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett 64-bitars heltal."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en 64-bitars heltal.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override long GetInt64 (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Int64
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetInt64*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetName(System.Int32)
@@ -701,16 +701,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the name of the specified column."
+  summary: "Hämtar namnet på den angivna kolumnen."
   syntax:
     content: public override string GetName (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.String
-      description: "The name of the specified column."
+      description: "Namnet på den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetName*
   exceptions: []
   platform:
@@ -727,8 +727,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the column ordinal, given the name of the column."
-  remarks: "GetOrdinal performs a case-sensitive lookup first. If it fails, a second case-insensitive search is made. The method throws an `IndexOutOfRange` exceptionif the zero-based column ordinal is not found.       GetOrdinal is kana-width insensitive.       Because ordinal-based lookups are more efficient than named lookups, it is inefficient to call GetOrdinal within a loop. Save time by calling GetOrdinal one time and assigning the results to an integer variable for use within the loop."
+  summary: "Hämtar kolumnen ordningstal, baserat på namnet på kolumnen."
+  remarks: "GetOrdinal utför först en skiftlägeskänslig sökning. Om det misslyckas, görs en andra icke skiftlägeskänslig sökning. Metoden genererar ett `IndexOutOfRange` exceptionif det gick inte att hitta det nollbaserade kolumnordningstalet.       GetOrdinal är kana-bredd skiftlägeskänsligt.       Eftersom ordningstal-baserade sökningar är effektivare än namngivna sökningar, är den ineffektiv att anropa GetOrdinal inom en loop. Spara tid genom att anropa GetOrdinal en gång och tilldela en heltalsvariabel användas inom loopen resultaten."
   example:
   - "The following example demonstrates how to use the GetOrdinal method.  \n  \n [!code-vb[Classic WebData OleDbDataReader.GetOrdinal#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_9_1.vb)]\n [!code-cs[Classic WebData OleDbDataReader.GetOrdinal#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_9_1.cs)]"
   syntax:
@@ -736,15 +736,15 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the column."
+      description: "Namnet på kolumnen."
     return:
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
   overload: System.Data.OleDb.OleDbDataReader.GetOrdinal*
   exceptions:
   - type: System.IndexOutOfRangeException
     commentId: T:System.IndexOutOfRangeException
-    description: "The name specified is not a valid column name."
+    description: "Namnet som angetts är inte ett giltigt kolumnnamn."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetSchemaTable
@@ -759,19 +759,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Returns a <xref href=&quot;System.Data.DataTable&quot;></xref> that describes the column metadata of the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref>."
-  remarks: "The GetSchemaTable method maps to the OLE DB **IColumnsRowset::GetColumnsRowset** method, and returns metadata about each column in the following order:      |DataReader column|OLE DB column ID|Description|   |-----------------------|----------------------|-----------------|   |ColumnName|DBCOLUMN_NAME|The name of the column; this might not be unique. If this cannot be determined, a null value is returned. This name always reflects the most recent renaming of the column in the current view or command text.|   |ColumnOrdinal|DBCOLUMN_NUMBER|The zero-based ordinal of the column. This column cannot contain a null value.|   |ColumnSize|DBCOLUMN_COLUMNSIZE|The maximum possible length of a value in the column. For columns that use a fixed-length data type, this is the size of the data type.|   |NumericPrecision|DBCOLUMN_PRECISION|If DbType is a numeric data type, this is the maximum precision of the column. The precision of columns with a data type of DBTYPE_DECIMAL or DBTYPE_NUMERIC depends on the definition of the column. If DbType is not a numeric data type, this is a null value.|   |NumericScale|DBCOLUMN_SCALE|If DbType is DBTYPE_DECIMAL or DBTYPE_NUMERIC, this is the number of digits to the right of the decimal point. Otherwise, this is a null value.|   |DataType|None|Maps to the .NET Framework type of the column.|   |ProviderType|DBCOLUMN_TYPE|The indicator of the column&quot;s data type. If the data type of the column varies from row to row, this must be DBTYPE_VARIANT. This column cannot contain a null value.|   |IsLong|DBCOLUMNFLAGS_ISLONG|The provider sets DBCOLUMNFLAGS_ISLONG if the column contains a Binary Long Object (BLOB) that contains very long data. The definition of very long data is provider-specific. The setting of this flag corresponds to the value of the IS_LONG column in the PROVIDER_TYPES rowset for the data type.|   |AllowDBNull|DBCOLUMNFLAGS_ISNULLABLE|The provider sets DBCOLUMNFLAGS_ISNULLABLE if the consumer can set the column to a null value, or if the provider cannot determine whether the consumer can set the column to a null value. A column may contain null values, even if it cannot be set to a null value.|   |IsReadOnly|DBCOLUMNFLAGS_WRITE|`true` if the column cannot be modified; otherwise `false`. The column is assumed to be writable if the provider has set either the DBCOLUMNFLAGS_WRITE or DBCOLUMNFLAGS_WRITEUNKNOWN flag.|   |IsRowVersion|DBCOLUMNFLAGS_ISROWID|The provider sets DBCOLUMNFLAGS_ISROWID if the column contains a persistent row identifier that cannot be written to, and has no meaningful value except to identity the row.|   |IsUnique|DBCOLUMN_ISUNIQUE|VARIANT_TRUE: No two rows in the base table-the table returned in BaseTableName-can have the same value in this column. IsUnique is guaranteed to be VARIANT_TRUE if the column represents a key by itself or if there is a constraint of type UNIQUE that applies only to this column.<br /><br /> VARIANT_FALSE: The column can contain duplicate values in the base table. The default of this column is VARIANT_FALSE.|   |IsKey|DBCOLUMN_KEYCOLUMN|VARIANT_TRUE: The column is one of a set of columns in the rowset that, taken together, uniquely identify the row. The set of columns with IsKey set to VARIANT_TRUE must uniquely identify a row in the rowset. There is no requirement that this set of columns is a minimal set of columns. This set of columns may be generated from a base table primary key, a unique constraint or a unique index.<br /><br /> VARIANT_FALSE: The column is not required to uniquely identify the row.|   |IsAutoIncrement|DBCOLUMN_ISAUTOINCREMENT|VARIANT_TRUE: The column assigns values to new rows in fixed increments.<br /><br /> VARIANT_FALSE: The column does not assign values to new rows in fixed increments. The default of this column is VARIANT_FALSE.|   |BaseSchemaName|DBCOLUMN_BASESCHEMANAME|The name of the schema in the data store that contains the column. A null value if the base schema name cannot be determined. The default of this column is a null value.|   |BaseCatalogName|DBCOLUMN_BASECATALOGNAME|The name of the catalog in the data store that contains the column. A null value if the base catalog name cannot be determined. The default of this column is a null value.|   |BaseTableName|DBCOLUMN_BASETABLENAME|The name of the table or view in the data store that contains the column. A null value if the base table name cannot be determined. The default of this column is a null value.|   |BaseColumnName|DBCOLUMN_BASECOLUMNNAME|The name of the column in the data store. This might be different from the column name returned in the ColumnName column if an alias was used. A null value if the base column name cannot be determined or if the rowset column is derived, but not identical to, a column in the data store. The default of this column is a null value.|      > [!NOTE] >  To make sure that metadata columns return the correct information, you must call <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A> with the `behavior` parameter set to `KeyInfo`. Otherwise, some of the columns in the schema table may return default, null, or incorrect data."
+  summary: "Returnerar en <xref href=&quot;System.Data.DataTable&quot;> </xref> som beskriver kolumnmetadata för den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref>."
+  remarks: "Metoden GetSchemaTable mappar till OLE DB **IColumnsRowset::GetColumnsRowset** metod och returnerar metadata om varje kolumn i följande ordning: | DataReader kolumnen | OLE DB kolumn-ID | Beskrivning |   |-----------------------|----------------------|-----------------|   | ColumnName | DBCOLUMN_NAME | Namnet på kolumnen. Det kan inte vara unika. Om detta inte kan fastställas returnerade ett null-värde. Det här namnet visar alltid senaste namnbyte av kolumnen i den aktuella vyn eller kommandot texten. |   | ColumnOrdinal | DBCOLUMN_NUMBER | Det nollbaserade ordningstalet för kolumnen. Den här kolumnen får inte innehålla ett null-värde. |   | ColumnSize | DBCOLUMN_COLUMNSIZE | Möjliga högst ett värde i kolumnen. För kolumner som använder en datatyp med fast längd är storleken på datatypen. |   | NumericPrecision | DBCOLUMN_PRECISION | Om DbType är en numerisk datatyp, är den maximala precisionen för kolumnen. Precisionen för kolumner med datatypen DBTYPE_DECIMAL eller DBTYPE_NUMERIC beror på definitionen av kolumnen. Om DbType inte är en numerisk datatyp, detta är ett null-värde. |   | NumericScale | DBCOLUMN_SCALE | Om DbType är DBTYPE_DECIMAL eller DBTYPE_NUMERIC, är antalet siffror till höger om decimaltecknet. I annat fall är ett null-värde. |   | DataType | Ingen | Mappas till .NET Framework-typen för kolumnen. |   | Providertyp | DBCOLUMN_TYPE | Indikator för kolumnens datatyp. Om datatypen för kolumnen varierar från rad till rad måste vara DBTYPE_VARIANT. Den här kolumnen får inte innehålla ett null-värde. |   | IsLong | DBCOLUMNFLAGS_ISLONG | Providern anger DBCOLUMNFLAGS_ISLONG om kolumnen innehåller en binär lång objekt (BLOB) som innehåller mycket långa data. Definitionen av mycket långa data är provider-specifik. Inställningen för den här flaggan motsvarar värdet i kolumnen IS_LONG i raduppsättningen PROVIDER_TYPES för datatypen. |   | AllowDBNull | DBCOLUMNFLAGS_ISNULLABLE | Providern anger DBCOLUMNFLAGS_ISNULLABLE om konsumenten kan ange kolumnen till ett null-värde, eller om providern inte kan avgöra om användaren kan ange kolumnen till ett null-värde. En kolumn kan innehålla null-värden, även om det inte går att ange ett null-värde. |   | IsReadOnly | DBCOLUMNFLAGS_WRITE | `true` om kolumnen inte kan vara ändrade, annars `false`. Kolumnen antas vara skrivbar om providern har flaggan antingen DBCOLUMNFLAGS_WRITE eller DBCOLUMNFLAGS_WRITEUNKNOWN. |   | IsRowVersion | DBCOLUMNFLAGS_ISROWID | Providern anger DBCOLUMNFLAGS_ISROWID om kolumnen innehåller en beständig rad-ID som inte kan skrivas till och inte har något beskrivande värde utom identitet raden. |   | IsUnique | DBCOLUMN_ISUNIQUE | VARIANT_TRUE: Inga två rader i tabellen i bastabellen returneras i BaseTableName kan ha samma värde i den här kolumnen. IsUnique är garanterat VARIANT_TRUE om kolumnen representerar en nyckel av sig själv eller om det finns en begränsning av typen UNIQUE som gäller enbart för den här kolumnen.<br /><br /> VARIANT_FALSE: Kolumnen kan innehålla dubblettvärden i bastabellen. Standardvärdet för den här kolumnen är VARIANT_FALSE. |   | IsKey | DBCOLUMN_KEYCOLUMN | VARIANT_TRUE: Kolumnen är en av en uppsättning kolumner i raduppsättningen, sammanlagt identifiera raden. Uppsättningen kolumner med IsKey värdet VARIANT_TRUE måste identifiera en rad i raduppsättningen. Det finns inga krav på att den här uppsättningen av kolumner är ett minimalt antal kolumner. Den här uppsättningen kolumner kan genereras från en primär nyckel för bastabellen, en unik begränsning eller ett unikt index.<br /><br /> VARIANT_FALSE: Kolumnen inte krävs för att identifiera raden. |   | IsAutoIncrement | DBCOLUMN_ISAUTOINCREMENT | VARIANT_TRUE: Kolumnen tilldelar värden till nya rader i fasta steg.<br /><br /> VARIANT_FALSE: Kolumnen inte tilldelar värden till nya rader i fasta steg. Standardvärdet för den här kolumnen är VARIANT_FALSE. |   | BaseSchemaName | DBCOLUMN_BASESCHEMANAME | Namnet på schemat i datalagret som innehåller kolumnen. Ett null-värde om grundläggande schemanamnet inte kan fastställas. Standardvärdet för den här kolumnen är ett null-värde. |   | BaseCatalogName | DBCOLUMN_BASECATALOGNAME | Namnet på katalogen i datakällan som innehåller kolumnen. Ett null-värde om grundläggande katalognamnet inte kan fastställas. Standardvärdet för den här kolumnen är ett null-värde. |   | BaseTableName | DBCOLUMN_BASETABLENAME | Namnet på den tabell eller vy i datakällan som innehåller kolumnen. Ett null-värde om inte det går att fastställa namnet på bastabellen. Standardvärdet för den här kolumnen är ett null-värde. |   | BaseColumnName | DBCOLUMN_BASECOLUMNNAME | Namnet på kolumnen i datalagret. Detta kan skilja sig från kolumnnamnet som returernas i kolumnen ColumnName om ett alias användes. Ett null-värde om baskolumn namn inte kan fastställas eller om kolumnen raduppsättningen härledda, men inte är identisk med en kolumn i data lagras. Standardvärdet för den här kolumnen är ett null-värde. |      > [!NOTE] > Att se till att metadatakolumner returneras rätt information, måste du anropa <xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A>med den `behavior` parametern `KeyInfo`.</xref:System.Data.OleDb.OleDbCommand.ExecuteReader%2A> Annars kan vissa av kolumnerna i Schematabellen returnera standardvärdet, null eller felaktiga data."
   syntax:
     content: public override System.Data.DataTable GetSchemaTable ();
     parameters: []
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that describes the column metadata."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som beskriver kolumnens metadata."
   overload: System.Data.OleDb.OleDbDataReader.GetSchemaTable*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> is closed."
+    description: "Den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> är stängd."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetString(System.Int32)
@@ -786,22 +786,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a string."
-  remarks: "No conversions are performed; therefore the data retrieved must already be a string.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som en sträng."
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en sträng.       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public override string GetString (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.String
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetString*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetTimeSpan(System.Int32)
@@ -816,22 +816,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column as a <xref:System.TimeSpan> object."
-  remarks: "No conversions are performed; therefore, the data retrieved must already be a <xref:System.TimeSpan> object.       Call <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A> to look for null values before calling this method."
+  summary: "Hämtar värdet för den angivna kolumnen som ett <xref:System.TimeSpan>objekt.</xref:System.TimeSpan>"
+  remarks: "Inga konverteringar utförs; data som hämtats måste därför redan vara en <xref:System.TimeSpan>objektet.</xref:System.TimeSpan>       Anropa <xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>att söka efter null-värden innan du anropar den här metoden.</xref:System.Data.OleDb.OleDbDataReader.IsDBNull%2A>"
   syntax:
     content: public TimeSpan GetTimeSpan (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.TimeSpan
-      description: "The value of the specified column."
+      description: "Värdet för den angivna kolumnen."
   overload: System.Data.OleDb.OleDbDataReader.GetTimeSpan*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The specified cast is not valid."
+    description: "Den angivna omvandlingen är inte giltig."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.GetValue(System.Int32)
@@ -846,17 +846,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the column at the specified ordinal in its native format."
-  remarks: "This method returns <xref:System.DBNull> for null database columns."
+  summary: "Hämtar värdet för kolumnen vid det angivna ordningstalet i dess ursprungliga format."
+  remarks: "Den här metoden returnerar <xref:System.DBNull>för null databaskolumner.</xref:System.DBNull>"
   syntax:
     content: public override object GetValue (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Object
-      description: "The value to return."
+      description: "Värdet som ska returneras."
   overload: System.Data.OleDb.OleDbDataReader.GetValue*
   exceptions: []
   platform:
@@ -873,8 +873,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Populates an array of objects with the column values of the current row."
-  remarks: "For most applications, the GetValues method provides an efficient means for retrieving all columns, instead of retrieving each column individually.       You can pass an <xref:System.Object> array that contains fewer than the number of columns that are contained in the resulting row. Only the amount of data the <xref:System.Object> array holds is copied to the array. You can also pass an <xref:System.Object> array whose length is more than the number of columns that are contained in the resulting row.       This method returns <xref:System.DBNull> for null database columns."
+  summary: "Fyller i en matris med objekt med kolumnvärden för den aktuella raden."
+  remarks: "För de flesta program innehåller GetValues-metoden ett effektivt sätt för att hämta alla kolumner i stället för att hämta varje kolumn individuellt.       Du kan skicka en <xref:System.Object>matris som innehåller färre än antalet kolumner som ingår i den resulterande raden.</xref:System.Object> Endast mängden data i <xref:System.Object>matris innehåller kopieras till matrisen.</xref:System.Object> Du kan också skicka ett <xref:System.Object>matris vars längd är större än antalet kolumner som ingår i den resulterande raden.</xref:System.Object>       Den här metoden returnerar <xref:System.DBNull>för null databaskolumner.</xref:System.DBNull>"
   example:
   - >-
     [!code-cs[OleDbDataReader_GetValues#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_12_1.cs)]
@@ -884,10 +884,10 @@ items:
     parameters:
     - id: values
       type: System.Object[]
-      description: "An array of <xref:System.Object> into which to copy the attribute columns."
+      description: "En matris med <xref:System.Object>där du vill kopiera attributkolumnerna.</xref:System.Object>"
     return:
       type: System.Int32
-      description: "The number of instances of <xref:System.Object> in the array."
+      description: "Antal instanser av <xref:System.Object>i matrisen.</xref:System.Object>"
   overload: System.Data.OleDb.OleDbDataReader.GetValues*
   exceptions: []
   platform:
@@ -904,12 +904,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets a value that indicates whether the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> contains one or more rows."
+  summary: "Hämtar ett värde som anger om den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> innehåller en eller flera rader."
   syntax:
     content: public override bool HasRows { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> contains one or more rows; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> innehåller en eller flera rader, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbDataReader.HasRows*
   exceptions: []
   platform:
@@ -926,13 +926,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Indicates whether the data reader is closed."
-  remarks: "IsClosed and <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.OleDb.OleDbDataReader> is closed."
+  summary: "Anger om dataläsaren är stängd."
+  remarks: "IsClosed och <xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>är endast egenskaper som du kan anropa efter den <xref:System.Data.OleDb.OleDbDataReader>är stängd.</xref:System.Data.OleDb.OleDbDataReader> </xref:System.Data.OleDb.OleDbDataReader.RecordsAffected%2A>"
   syntax:
     content: public override bool IsClosed { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> is closed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> är stängd, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbDataReader.IsClosed*
   exceptions: []
   platform:
@@ -949,17 +949,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets a value that indicates whether the column contains nonexistent or missing values."
-  remarks: "Call this method to look for null column values before calling the typed get methods (for example, <xref:System.Data.OleDb.OleDbDataReader.GetByte%2A>, <xref:System.Data.OleDb.OleDbDataReader.GetChar%2A>, and so on) to avoid raising an error."
+  summary: "Hämtar ett värde som anger om kolumnen innehåller värden som inte finns eller saknas."
+  remarks: "Anropa den här metoden ska söka efter null kolumnvärdena innan du anropar den angivna hämta metoder (till exempel <xref:System.Data.OleDb.OleDbDataReader.GetByte%2A>, <xref:System.Data.OleDb.OleDbDataReader.GetChar%2A>och så vidare) att undvika att ett fel.</xref:System.Data.OleDb.OleDbDataReader.GetChar%2A> </xref:System.Data.OleDb.OleDbDataReader.GetByte%2A>"
   syntax:
     content: public override bool IsDBNull (int ordinal);
     parameters:
     - id: ordinal
       type: System.Int32
-      description: "The zero-based column ordinal."
+      description: "Det nollbaserade kolumnordningstalet."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified column value is equivalent to <xref href=&quot;System.DBNull&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det angivna kolumnvärdet motsvarar <xref href=&quot;System.DBNull&quot;> </xref>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbDataReader.IsDBNull*
   exceptions: []
   platform:
@@ -976,21 +976,21 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column in its native format given the column ordinal."
+  summary: "Hämtar värdet för den angivna kolumnen i dess ursprungliga format anges kolumnordningstalet."
   syntax:
     content: public override object this[int index] { get; }
     parameters:
     - id: index
       type: System.Int32
-      description: "The column ordinal."
+      description: "Kolumnordningstalet."
     return:
       type: System.Object
-      description: "The value of the specified column in its native format."
+      description: "Värdet för den angivna kolumnen i dess ursprungliga format."
   overload: System.Data.OleDb.OleDbDataReader.Item*
   exceptions:
   - type: System.IndexOutOfRangeException
     commentId: T:System.IndexOutOfRangeException
-    description: "The index passed was outside the range of 0 through <xref:System.Data.IDataRecord.FieldCount*>."
+    description: "Index som skickades var utanför intervallet 0 till <xref:System.Data.IDataRecord.FieldCount*>.</xref:System.Data.IDataRecord.FieldCount*>"
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.Item(System.String)
@@ -1005,22 +1005,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the value of the specified column in its native format given the column name."
-  remarks: "A case-sensitive lookup is performed first. If it fails, a second case-insensitive search is made.       This method is kana-width insensitive."
+  summary: "Hämtar värdet för den angivna kolumnen i dess ursprungliga format, beroende på kolumnnamn."
+  remarks: "Först utförs en skiftlägeskänslig sökning. Om det misslyckas, görs en andra icke skiftlägeskänslig sökning.       Den här metoden är kana-bredd skiftlägeskänsligt."
   syntax:
     content: public override object this[string name] { get; }
     parameters:
     - id: name
       type: System.String
-      description: "The column name."
+      description: "Kolumnnamnet."
     return:
       type: System.Object
-      description: "The value of the specified column in its native format."
+      description: "Värdet för den angivna kolumnen i dess ursprungliga format."
   overload: System.Data.OleDb.OleDbDataReader.Item*
   exceptions:
   - type: System.IndexOutOfRangeException
     commentId: T:System.IndexOutOfRangeException
-    description: "No column with the specified name was found."
+    description: "Ingen kolumn med det angivna namnet hittades."
   platform:
   - net462
 - uid: System.Data.OleDb.OleDbDataReader.NextResult
@@ -1035,14 +1035,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Advances the data reader to the next result, when reading the results of batch SQL statements."
-  remarks: "Used to process multiple results that can be generated by executing batch SQL statements.       By default, the data reader is positioned on the first result."
+  summary: "Avancerar dataläsaren till nästa resultat vid läsning av resultatet av batch SQL-instruktioner."
+  remarks: "Används för att bearbeta flera resultat som kan genereras genom att köra batch SQL-instruktioner.       Dataläsaren är placerad på det första resultatet som standard."
   syntax:
     content: public override bool NextResult ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there are more result sets; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det finns fler resultatmängder; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbDataReader.NextResult*
   exceptions: []
   platform:
@@ -1059,8 +1059,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Advances the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> to the next record."
-  remarks: "The default position of the <xref:System.Data.OleDb.OleDbDataReader> is before the first record. Therefore, you must call Read to start accessing any data.       While the <xref:System.Data.OleDb.OleDbDataReader> is being used, the associated <xref:System.Data.OleDb.OleDbConnection> is busy serving it until you call <xref:System.Data.OleDb.OleDbDataReader.Close%2A>."
+  summary: "Flyttar den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> till nästa post."
+  remarks: "Placering av <xref:System.Data.OleDb.OleDbDataReader>är före den första posten.</xref:System.Data.OleDb.OleDbDataReader> Därför måste du anropa Läs om du vill starta åtkomst till några data.       När den <xref:System.Data.OleDb.OleDbDataReader>används den associerade <xref:System.Data.OleDb.OleDbConnection>är upptagen som hanterar den tills du anropa <xref:System.Data.OleDb.OleDbDataReader.Close%2A>.</xref:System.Data.OleDb.OleDbDataReader.Close%2A> </xref:System.Data.OleDb.OleDbConnection> </xref:System.Data.OleDb.OleDbDataReader>"
   example:
   - "The following example creates an <xref:System.Data.OleDb.OleDbConnection>, an <xref:System.Data.OleDb.OleDbCommand>, and an <xref:System.Data.OleDb.OleDbDataReader>. The example reads through the data, writing it out to the console. Finally, the example closes the <xref:System.Data.OleDb.OleDbDataReader> and then the <xref:System.Data.OleDb.OleDbConnection>.  \n  \n [!code-cs[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/csharp/m-system.data.oledb.oled_6_1.cs)]\n [!code-vb[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/visualbasic/m-system.data.oledb.oled_6_1.vb)]"
   syntax:
@@ -1068,7 +1068,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there are more rows; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det finns fler rader; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OleDb.OleDbDataReader.Read*
   exceptions: []
   platform:
@@ -1085,13 +1085,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the number of rows changed, inserted, or deleted by execution of the SQL statement."
-  remarks: "The RecordsAffected property is not set until all rows are read and you close the <xref:System.Data.OleDb.OleDbDataReader>.       The value of this property is cumulative. For example, if two records are inserted in batch mode, the value of RecordsAffected is two.       <xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A> and RecordsAffected are the only properties that you can call after the <xref:System.Data.OleDb.OleDbDataReader> is closed."
+  summary: "Hämtar antalet rader ändras, infogas eller tas bort genom att köra SQL-instruktionen."
+  remarks: "Egenskapen RecordsAffected anges inte förrän alla rader läses och stänger <xref:System.Data.OleDb.OleDbDataReader>.</xref:System.Data.OleDb.OleDbDataReader>       Värdet för den här egenskapen är kumulativa. Till exempel om två poster infogas i batchläge är värdet för RecordsAffected två.       <xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A>och RecordsAffected är endast egenskaper som du kan anropa efter den <xref:System.Data.OleDb.OleDbDataReader>är stängd.</xref:System.Data.OleDb.OleDbDataReader></xref:System.Data.OleDb.OleDbDataReader.IsClosed%2A>"
   syntax:
     content: public override int RecordsAffected { get; }
     return:
       type: System.Int32
-      description: "The number of rows changed, inserted, or deleted; 0 if no rows were affected or the statement failed; and -1 for SELECT statements."
+      description: "Antalet rader som ändras, infogas eller tas bort; 0 om inga rader påverkades eller instruktionen misslyckades. och 1 för SELECT-satser."
   overload: System.Data.OleDb.OleDbDataReader.RecordsAffected*
   exceptions: []
   platform:
@@ -1108,13 +1108,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.OleDb
-  summary: "Gets the number of fields in the <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;></xref> that are not hidden."
-  remarks: "This value is used to determine how many fields in the <xref:System.Data.OleDb.OleDbDataReader> are visible. For example, a SELECT on a partial primary key returns the remaining parts of the key as hidden fields. The hidden fields are always appended behind the visible fields."
+  summary: "Hämtar antalet fält i den <xref href=&quot;System.Data.OleDb.OleDbDataReader&quot;> </xref> som inte är dolda."
+  remarks: "Det här värdet används för att avgöra hur många fält i den <xref:System.Data.OleDb.OleDbDataReader>är synliga.</xref:System.Data.OleDb.OleDbDataReader> Exempelvis returnerar en väljer på en partiell primärnyckel övriga delar av nyckeln som dolda fält. Dolda fält läggs alltid bakom synliga fälten."
   syntax:
     content: public override int VisibleFieldCount { get; }
     return:
       type: System.Int32
-      description: "The number of fields that are not hidden."
+      description: "Antalet fält som inte är dolda."
   overload: System.Data.OleDb.OleDbDataReader.VisibleFieldCount*
   exceptions: []
   platform:
