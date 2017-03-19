@@ -10,8 +10,8 @@ items:
   nameWithType: SpeechUI
   fullName: System.Speech.Recognition.SpeechUI
   type: Class
-  summary: "Provides text and status information on recognition operations to be displayed in the Speech platform user interface."
-  remarks: "The members of the SpeechUI class can be used to indicate exact feedback to the end user through the speech recognition user interface. An application can return arbitrary text and success/failure information using this class."
+  summary: "Innehåller text-och statusinformation om recognition åtgärder som ska visas i användargränssnittet för tal-plattformen."
+  remarks: "Medlemmar i klassen SpeechUI kan användas för att ange exakt feedback för slutanvändaren via användargränssnittet för igenkänning tal. Ett program kan returnera godtycklig text och lyckade/misslyckade information med hjälp av den här klassen."
   example:
   - "The following example is a handler for the <xref:System.Speech.Recognition.Grammar.SpeechRecognized> event. This event is used by a <xref:System.Speech.Recognition.Grammar> that is designed to handle password input in the form \"My password is …\".  \n  \n If a password is not present, or not valid, <xref:System.Speech.Recognition.SpeechUI.SendTextFeedback%2A> sends error information to the Speech platform user interface.  \n  \n```  \n  \ngrammar.SpeechRecognized +=   \ndelegate(object sender, SpeechRecognizedEventArgs eventArgs)   \n{  \n  SemanticValue semantics = eventArgs.Result.Semantics;  \n  RecognitionResult result=eventArgs.Result;  \n  \n  if (!semantics.ContainsKey(\"Password\"))   \n  {  \n    SpeechUI.SendTextFeedback(eventArgs.Result, \"No Password Provided\", false);  \n  }  \n  else   \n  {  \n    RecognizedAudio pwdAudio = result.GetAudioForWordRange(  \n                  result.Words[3],  \n                  result.Words[result.Words.Count - 1]);  \n    MemoryStream pwdMemoryStream = new MemoryStream();  \n    pwdAudio.WriteToAudioStream(pwdMemoryStream);  \n    if (!IsValidPwd(pwdMemoryStream))   \n    {  \n      string badPwd = System.IO.Path.GetTempPath() +   \n              \"BadPwd\" + (new Random()).Next().ToString() + \".wav\";  \n      FileStream waveStream = new FileStream(badPwd, FileMode.Create);  \n      pwdAudio.WriteToWaveStream(waveStream);  \n      waveStream.Flush();  \n      waveStream.Close();  \n      SpeechUI.SendTextFeedback(eventArgs.Result, \"Invalid Password\", false);  \n    }  \n  }  \n};  \n```"
   syntax:
@@ -34,8 +34,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Sends status and descriptive text to the Speech platform user interface about the status of a recognition operation."
-  remarks: "SendTextFeedback can be used to indicate that a recognition operation failed to meet certain criteria, even if the input was recognized.       An example is the verification of security code information, where the input was fully recognized, but the verification information was wrong."
+  summary: "Skickar status och beskrivande text till tal plattform användargränssnittet om statusen för en åtgärd med igenkänning."
+  remarks: "SendTextFeedback kan användas för att indikera att en recognition åtgärden kunde inte uppfyller vissa kriterier, även om indata kändes igen.       Ett exempel är verifiering av koden säkerhetsinformation där indata kändes fullständigt, men verifieringsinformation var fel."
   example:
   - "The following example is a handler for a <xref:System.Speech.Recognition.Grammar.SpeechRecognized> event. This event is used by a <xref:System.Speech.Recognition.Grammar> that is designed to handle password input of the form, \"My password is …\".  \n  \n If a password is not present, or not valid, **SendTextFeedback** is used to send error information to the Speech platform user interface.  \n  \n```  \n  \ngrammar.SpeechRecognized +=  \ndelegate(object sender, SpeechRecognizedEventArgs eventArgs)   \n{  \n  SemanticValue semantics = eventArgs.Result.Semantics;  \n  RecognitionResult result=eventArgs.Result;  \n  \n  if (!semantics.ContainsKey(\"Password\"))   \n  {  \n    SpeechUI.SendTextFeedback(eventArgs.Result, \"No Password Provided\", false);  \n  }  \n  else  \n  {  \n    RecognizedAudio pwdAudio = result.GetAudioForWordRange(  \n              result.Words[3],  \n              result.Words[result.Words.Count - 1]);  \n    MemoryStream pwdMemoryStream = new MemoryStream();  \n    pwdAudio.WriteToAudioStream(pwdMemoryStream);  \n    if (!IsValidPwd(pwdMemoryStream))   \n    {  \n      string badPwd = System.IO.Path.GetTempPath() + \"BadPwd\" +   \n               (new Random()).Next().ToString() + \".wav\";  \n      FileStream waveStream = new FileStream(badPwd, FileMode.Create);  \n      pwdAudio.WriteToWaveStream(waveStream);  \n      waveStream.Flush();  \n      waveStream.Close();  \n      SpeechUI.SendTextFeedback(eventArgs.Result, \"Invalid Password\", false);  \n    }  \n  }  \n};  \n```"
   syntax:
@@ -43,16 +43,16 @@ items:
     parameters:
     - id: result
       type: System.Speech.Recognition.RecognitionResult
-      description: "A valid <xref href=&quot;System.Speech.Recognition.RecognitionResult&quot;></xref> instance."
+      description: "En giltig <xref href=&quot;System.Speech.Recognition.RecognitionResult&quot;> </xref> instans."
     - id: feedback
       type: System.String
-      description: "A <xref:System.String> containing a comment about the recognition operation that produced the <xref href=&quot;System.Speech.Recognition.RecognitionResult&quot;></xref>`result`."
+      description: "En <xref:System.String>som innehåller en kommentar om recognition åtgärden som producerade den <xref href=&quot;System.Speech.Recognition.RecognitionResult&quot;> </xref> `result`.</xref:System.String>"
     - id: isSuccessfulAction
       type: System.Boolean
-      description: "A <xref uid=&quot;langword_csharp_bool&quot; name=&quot;bool&quot; href=&quot;&quot;></xref> indicating whether the application deemed the recognition operation a success."
+      description: "En <xref uid=&quot;langword_csharp_bool&quot; name=&quot;bool&quot; href=&quot;&quot;> </xref> som anger om programmet bedöms recognition åtgärden lyckas."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the information provided to the method (<code>Feedback</code>, and <code>isSuccessfulAction</code>) was successfully made available to the Speech platform user interface, and <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om informationen som angavs för metoden (<code>Feedback</code>, och <code> isSuccessfulAction </code>) har gjorts tillgängliga användargränssnitt för tal-plattform och <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: System.Speech.Recognition.SpeechUI.SendTextFeedback*
   exceptions: []
   platform:

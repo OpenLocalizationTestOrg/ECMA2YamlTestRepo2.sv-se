@@ -14,8 +14,8 @@ items:
   nameWithType: DisplayAttributes
   fullName: System.Speech.Recognition.DisplayAttributes
   type: Enum
-  summary: "Lists the options that the <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> object can use to specify white space for the display of a word or punctuation mark."
-  remarks: "Windows Desktop Speech returns recognized phrases as collections of <xref:System.Speech.Recognition.RecognizedWordUnit> or <xref:System.Speech.Recognition.ReplacementText> objects. Each object corresponds to a single word or punctuation mark. The `DisplayAttributes` property of a <xref:System.Speech.Recognition.RecognizedWordUnit> or <xref:System.Speech.Recognition.ReplacementText> uses a member of the DisplayAttributes enumeration to describe how print spacing is handled around a given word or punctuation mark.       Two or more members of the `DisplayAttributes` enumeration may be combined by a bit-wise `OR` to specify how a particular word should be displayed.      > [!NOTE] >  The display formatting that the speech recognizer uses is language specific.       For example, suppose the input phrase to a recognition engine using the default system grammar provided by <xref:System.Speech.Recognition.DictationGrammar> is &quot;Hello comma he said period&quot;. Then the recognition engine returns a <xref:System.Speech.Recognition.RecognizedPhrase> containing five <xref:System.Speech.Recognition.RecognizedWordUnit> objects containing the following strings with the following `DisplayAttributes` values.      |Item|`DisplayAttributes`|   |----------|-------------------------|   |Hello|OneTrailingSpace|   |,|OneTrailingSpace &#124; ConsumeLeadingSpaces|   |he|OneTrailingSpace|   |said|OneTrailingSpace|   |.|OneTrailingSpace &#124; ConsumeLeadingSpaces|       The text returned for this recognized phrase is printed as: &quot;Hello, he said.&quot;"
+  summary: "Visar alternativ som den <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> objekt kan använda för att ange tomt utrymme för visning av ett ord eller skiljetecken."
+  remarks: "Windows Desktop tal returnerar tolkade fraser som samlingar av <xref:System.Speech.Recognition.RecognizedWordUnit>eller <xref:System.Speech.Recognition.ReplacementText>objekt.</xref:System.Speech.Recognition.ReplacementText> </xref:System.Speech.Recognition.RecognizedWordUnit> Varje objekt motsvarar ett ord eller skiljetecken. Den `DisplayAttributes` -egenskapen för en <xref:System.Speech.Recognition.RecognizedWordUnit>eller <xref:System.Speech.Recognition.ReplacementText>använder medlem i uppräkningen DisplayAttributes för att beskriva hur avstånd hanteras runt en given word eller skiljetecken.</xref:System.Speech.Recognition.ReplacementText> </xref:System.Speech.Recognition.RecognizedWordUnit>       Två eller flera medlemmar i den `DisplayAttributes` uppräkning kan kombineras med ett bitvis `OR` att ange hur ett visst ord ska visas.      > [!NOTE] > Visningen formatering att taligenkänningen använder är språkspecifika.       Anta exempelvis att använda standard system grammatik som tillhandahålls av för taligenkänning inkommande frasen <xref:System.Speech.Recognition.DictationGrammar>är &quot;Hello kommatecken han SA tidsperiod&quot;.</xref:System.Speech.Recognition.DictationGrammar> Motorn för returnerar ett <xref:System.Speech.Recognition.RecognizedPhrase>som innehåller fem <xref:System.Speech.Recognition.RecognizedWordUnit>objekt som innehåller följande strängar med följande `DisplayAttributes` värden.</xref:System.Speech.Recognition.RecognizedWordUnit> </xref:System.Speech.Recognition.RecognizedPhrase>      | Objektet | `DisplayAttributes`|   |----------|-------------------------|   | Hello | OneTrailingSpace |   |,| OneTrailingSpace | ConsumeLeadingSpaces |   | han | OneTrailingSpace |   | SA | OneTrailingSpace |   |.| OneTrailingSpace | ConsumeLeadingSpaces |       Texten som returneras för den här frasen skrivs ut som: &quot;Hello, han understrykas.&quot;"
   example:
   - "The following example uses the <xref:System.Speech.Recognition.RecognizedWordUnit.DisplayAttributes%2A> property of a list of <xref:System.Speech.Recognition.RecognizedWordUnit> objects to format the words as a phrase.  \n  \n```c#  \n  \n// Use the DisplayAttributes property to format speech as text.   \n  \nstatic string GetDisplayText(List<RecognizedWordUnit> words)  \n{  \n  StringBuilder sb = new StringBuilder();  \n  \n  // Concatenate the word units together. Use the DisplayAttributes  \n  // property of each word unit to add or remove white space around  \n  // the word unit.  \n  foreach (RecognizedWordUnit word in words)  \n  {  \n    if ((word.DisplayAttributes  \n      & DisplayAttributes.ConsumeLeadingSpaces) != 0))  \n    {  \n      sb = new StringBuilder(sb.ToString().TrimEnd());  \n    }  \n  \n    sb.Append(word.Text);  \n  \n    if ((word.DisplayAttributes  \n      & DisplayAttributes.OneTrailingSpace) != 0)  \n    {  \n      sb.Append(\" \");  \n    }  \n    else if ((word.DisplayAttributes  \n      & DisplayAttributes.TwoTrailingSpaces) != 0)  \n    {  \n      sb.Append(\"  \");  \n    }  \n  }  \n  \n  return sb.ToString();  \n}  \n  \n```"
   syntax:
@@ -39,12 +39,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has no spaces preceding it."
+  summary: "Objektet har inga blanksteg före den."
   syntax:
     content: ConsumeLeadingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item does not specify how white space is handled."
+  summary: "Objektet anger inte hur blanksteg ska hanteras."
   syntax:
     content: None
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has one space following it."
+  summary: "Objektet har ett utrymme efter."
   syntax:
     content: OneTrailingSpace
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -102,12 +102,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has two spaces following it."
+  summary: "Objektet har två blanksteg efter den."
   syntax:
     content: TwoTrailingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -123,12 +123,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has no spaces following it."
+  summary: "Objektet har inga blanksteg efter."
   syntax:
     content: ZeroTrailingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
