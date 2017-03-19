@@ -23,7 +23,7 @@ items:
   nameWithType: XmlEntity
   fullName: System.Xml.XmlEntity
   type: Class
-  summary: "Represents an entity declaration, such as &lt;!ENTITY... &gt;."
+  summary: "Representerar en entitet deklaration som &lt;! ENTITET... &gt;."
   syntax:
     content: 'public class XmlEntity : System.Xml.XmlNode'
   inheritance:
@@ -81,13 +81,13 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the base Uniform Resource Identifier (URI) of the current node."
-  remarks: "A networked XML document is comprised of chunks of data aggregated using various World Wide Web Consortium (W3C) standard inclusion mechanisms and therefore contains nodes that come from different places. The `BaseURI` tells you where these nodes came from.       The value of this property varies depending on the node type. Nodes which are children of external EntityReference nodes return the location of the entity itself. For example, consider the following XML document:      ```   <!DOCTYPE item [   <!ENTITY xyz SYSTEM &quot;a/b.xml&quot;>   ]>   <item num=&quot;123&quot;>&xyz;</item>   ```       where the external entity `a/b.xml` contains the XML text `<test>123</test>`.       If the document is loaded from http://server/mydata.xml, `BaseURI` returns the following:      |NodeType|Name|BaseURI|   |--------------|----------|-------------|   |Attribute|num|http://server/mydata.xml|   |Document|#document|http://server/mydata.xml|   |DocumentType|item|http://server/mydata.xml|   |Entity|xyz|http://server/mydata.xml|   |Element|item|http://server/mydata.xml|   |EntityReference|xyz|http://server/mydata.xml|   |Element|test|http://server/a/b.xml|   |Text|#text|http://server/a/b.xml|       `BaseURI` looks for entity reference boundaries, so if entities are expanded, this information is not preserved and this property returns the location of the `XmlDocument` object in all cases.       As a second example, given the following XML document:      ```   <!DOCTYPE Mydata SYSTEM &quot;http://localhost/doctype.dtd&quot;>   <baa>&xyz;</baa>   ```       where the document type definition (DTD) file contains the following:      ```   <!ENTITY xyz &quot;<E1>My Data</E1>&quot;>   <!ELEMENT baa #PCDATA>   <!ATTLIST baa attr1 &quot;woof&quot;>   ```       If the XML document is loaded from http://localhost/mydata.xml, `BaseURI` returns the following for each of the nodes:      |NodeType|Name|BaseURI|   |--------------|----------|-------------|   |Document|#document|http://localhost/mydata.xml|   |DocumentType|Mydata|http://localhost/doctype.dtd|   |Element|baa|http://localhost/mydata.xml|   |Entity|xyz|http://localhost/doctype.dtd|   |EntityReference|xyz|http://localhost/mydata.xml|   |Attribute|woof|http://localhost/mydata.xml|      > [!NOTE] >  The base URI of a default attribute is the same as the base URI of the element to which they belong.       This property is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Hämtar den grundläggande identifierare URI (Uniform Resource) i den aktuella noden."
+  remarks: "En nätverksansluten XML-dokumentet består av segment av sammanställs med olika metoder för standard inkludering av World Wide Web Consortium (W3C) och innehåller därför noder som kommer från olika platser. Den `BaseURI` talar om var dessa noder kom från.       Värdet för den här egenskapen varierar beroende på vilken nod. Noder som är underordnade noder för externa EntityReference returnera platsen för själva entiteten. Tänk dig följande XML-dokument: ```   <!DOCTYPE item [   <!ENTITY xyz SYSTEM &quot;a/b.xml&quot;>   ]>   <item num=&quot;123&quot;>&xyz;</item>   ``` där den externa enheten `a/b.xml` innehåller XML-texten `<test>123</test>`.       Om dokumentet har lästs in från http://server/mydata.xml, `BaseURI` returnerar följande: | NodeType | Namnet | BaseURI |   |--------------|----------|-------------|   | Attributet | num | http://server/mydata.xml |   | Dokumentet | #document | http://server/mydata.xml |   | DocumentType | objektet | http://server/mydata.xml |   | Entiteten | xyz | http://server/mydata.xml |   | Elementet | objektet | http://server/mydata.xml |   | EntityReference | xyz | http://server/mydata.xml |   | Elementet | testa | http://server/a/b.xml |   | Text | #text | http://server/a/b.xml |       `BaseURI` söker efter entitet referens gränser, så om entiteter visas, bevaras inte den här informationen och den här egenskapen returnerar placeringen av den `XmlDocument` objekt i samtliga fall.       Få följande XML-dokumentet som ett andra exempel: ```   <!DOCTYPE Mydata SYSTEM &quot;http://localhost/doctype.dtd&quot;>   <baa>&xyz;</baa>   ``` där typen definition (DTD) filen innehåller följande: ```   <!ENTITY xyz &quot;<E1>My Data</E1>&quot;>   <!ELEMENT baa #PCDATA>   <!ATTLIST baa attr1 &quot;woof&quot;>   ``` om XML-dokumentet har lästs in från http://localhost/mydata.xml, `BaseURI` returnerar följande för varje nod: | NodeType | Namnet | BaseURI |   |--------------|----------|-------------|   | Dokumentet | #document | http://localhost/mydata.xml |   | DocumentType | Mydata | http://localhost/doctype.dtd |   | Elementet | baa | http://localhost/mydata.xml |   | Entiteten | xyz | http://localhost/doctype.dtd |   | EntityReference | xyz | http://localhost/mydata.xml |   | Attributet | woof | http://localhost/mydata.xml |      > [!NOTE] > Bas-URI för en standardattributet är samma som bas-URI för element som de tillhör.       Den här egenskapen är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override string BaseURI { get; }
     return:
       type: System.String
-      description: "The location from which the node was loaded."
+      description: "Den plats där noden lästes in."
   overload: System.Xml.XmlEntity.BaseURI*
   exceptions: []
   platform:
@@ -104,21 +104,21 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Creates a duplicate of this node. Entity nodes cannot be cloned. Calling this method on an <xref href=&quot;System.Xml.XmlEntity&quot;></xref> object throws an exception."
+  summary: "Skapar en dubblett av den här noden. Entiteten noder kan inte klonas. Den här metoden anropas på en <xref href=&quot;System.Xml.XmlEntity&quot;> </xref> objekt genereras ett undantag."
   syntax:
     content: public override System.Xml.XmlNode CloneNode (bool deep);
     parameters:
     - id: deep
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to recursively clone the subtree under the specified node; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to clone only the node itself."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Klona till rekursivt underträdet under den angivna noden; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> att klona noden sig själv."
     return:
       type: System.Xml.XmlNode
-      description: "Returns a copy of the <xref href=&quot;System.Xml.XmlNode&quot;></xref> from which the method is called."
+      description: "Returnerar en kopia av den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> från som metoden anropas."
   overload: System.Xml.XmlEntity.CloneNode*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Entity nodes cannot be cloned. Calling this method on an <xref href=&quot;System.Xml.XmlEntity&quot;></xref> object throws an exception."
+    description: "Entiteten noder kan inte klonas. Den här metoden anropas på en <xref href=&quot;System.Xml.XmlEntity&quot;> </xref> objekt genereras ett undantag."
   platform:
   - net462
 - uid: System.Xml.XmlEntity.InnerText
@@ -133,18 +133,18 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the concatenated values of the entity node and all its children."
-  remarks: "`XmlEntity` nodes are read-only. Setting this property throws an exception.       This property is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Hämtar de sammanfogade värdena från noden entiteten och alla dess underordnade."
+  remarks: "`XmlEntity`noderna är skrivskyddad. Den här egenskapen utlöser ett undantag.       Den här egenskapen är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override string InnerText { get; set; }
     return:
       type: System.String
-      description: "The concatenated values of the node and all its children."
+      description: "De sammanfogade värdena på noden och alla dess underordnade."
   overload: System.Xml.XmlEntity.InnerText*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Attempting to set the property."
+    description: "Försök att ange egenskapen."
   platform:
   - net462
 - uid: System.Xml.XmlEntity.InnerXml
@@ -159,18 +159,18 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the markup representing the children of this node."
-  remarks: "`XmlEntity` nodes are read-only. Setting this property throws an exception.       This property is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Hämtar koden som representerar underordnade noden."
+  remarks: "`XmlEntity`noderna är skrivskyddad. Den här egenskapen utlöser ett undantag.       Den här egenskapen är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override string InnerXml { get; set; }
     return:
       type: System.String
-      description: "For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, String.Empty is returned."
+      description: "För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder, String.Empty returneras."
   overload: System.Xml.XmlEntity.InnerXml*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Attempting to set the property."
+    description: "Försök att ange egenskapen."
   platform:
   - net462
 - uid: System.Xml.XmlEntity.IsReadOnly
@@ -185,13 +185,13 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets a value indicating whether the node is read-only."
-  remarks: "A read-only node is one whose properties, attributes, or children cannot be changed. You can remove a read-only node from the tree and insert it somewhere else."
+  summary: "Hämtar ett värde som anger om noden är skrivskyddad."
+  remarks: "En skrivskyddad nod är en vars egenskaper, attribut eller underordnade inte kan ändras. Du kan ta bort en nod som skrivskyddad i trädet och infoga den någon annanstans."
   syntax:
     content: public override bool IsReadOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the node is read-only; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       Because <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes are read-only, this property always returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om noden är skrivskyddade. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.       Eftersom <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder är skrivskyddad, den här egenskapen returnerar alltid <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Xml.XmlEntity.IsReadOnly*
   exceptions: []
   platform:
@@ -208,12 +208,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the name of the node without the namespace prefix."
+  summary: "Hämtar namnet på nod utan namnrymdsprefixet."
   syntax:
     content: public override string LocalName { get; }
     return:
       type: System.String
-      description: "For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, this property returns the name of the entity."
+      description: "För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder, den här egenskapen returnerar namnet på entiteten."
   overload: System.Xml.XmlEntity.LocalName*
   exceptions: []
   platform:
@@ -230,7 +230,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the name of the node."
+  summary: "Hämtar namnet på noden."
   remarks: ''
   example:
   - "The following example displays information on the entities declared in the XML document.  \n  \n [!code-cs[XmlEntity#1](~/add/codesnippet/csharp/p-system.xml.xmlentity.n_2_1.cs)]\n [!code-cpp[XmlEntity#1](~/add/codesnippet/cpp/p-system.xml.xmlentity.n_2_1.cpp)]\n [!code-vb[XmlEntity#1](~/add/codesnippet/visualbasic/p-system.xml.xmlentity.n_2_1.vb)]  \n  \n The example uses the file `doment.xml` as input.  \n  \n [!code-xml[XmlEntity#2](~/add/codesnippet/xml/p-system.xml.xmlentity.n_2_2.xml)]"
@@ -238,7 +238,7 @@ items:
     content: public override string Name { get; }
     return:
       type: System.String
-      description: "The name of the entity."
+      description: "Namnet på entiteten."
   overload: System.Xml.XmlEntity.Name*
   exceptions: []
   platform:
@@ -255,7 +255,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the type of the node."
+  summary: "Hämtar typ av noden."
   remarks: ''
   example:
   - "The following example displays information on the entities declared in the XML document.  \n  \n [!code-cs[XmlEntity#1](~/add/codesnippet/csharp/p-system.xml.xmlentity.n_1_1.cs)]\n [!code-cpp[XmlEntity#1](~/add/codesnippet/cpp/p-system.xml.xmlentity.n_1_1.cpp)]\n [!code-vb[XmlEntity#1](~/add/codesnippet/visualbasic/p-system.xml.xmlentity.n_1_1.vb)]  \n  \n The example uses the file `doment.xml` as input.  \n  \n [!code-xml[XmlEntity#2](~/add/codesnippet/xml/p-system.xml.xmlentity.n_1_2.xml)]"
@@ -263,7 +263,7 @@ items:
     content: public override System.Xml.XmlNodeType NodeType { get; }
     return:
       type: System.Xml.XmlNodeType
-      description: "The node type. For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, the value is XmlNodeType.Entity."
+      description: "Nodtypen. För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder och värdet är XmlNodeType.Entity."
   overload: System.Xml.XmlEntity.NodeType*
   exceptions: []
   platform:
@@ -280,7 +280,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the name of the optional NDATA attribute on the entity declaration."
+  summary: "Hämtar namnet på attributet valfria NDATA för entiteten-deklaration."
   remarks: ''
   example:
   - "The following example displays information on the entities declared in the XML document.  \n  \n [!code-cs[XmlEntity#1](~/add/codesnippet/csharp/p-system.xml.xmlentity.n_0_1.cs)]\n [!code-cpp[XmlEntity#1](~/add/codesnippet/cpp/p-system.xml.xmlentity.n_0_1.cpp)]\n [!code-vb[XmlEntity#1](~/add/codesnippet/visualbasic/p-system.xml.xmlentity.n_0_1.vb)]  \n  \n The example uses the file, `doment.xml`, as input.  \n  \n [!code-xml[XmlEntity#2](~/add/codesnippet/xml/p-system.xml.xmlentity.n_0_2.xml)]"
@@ -288,7 +288,7 @@ items:
     content: public string NotationName { get; }
     return:
       type: System.String
-      description: "The name of the NDATA attribute. If there is no NDATA, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned."
+      description: "Namnet på attributet NDATA. Om det inte finns några NDATA <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> returneras."
   overload: System.Xml.XmlEntity.NotationName*
   exceptions: []
   platform:
@@ -305,13 +305,13 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the markup representing this node and all its children."
-  remarks: "This property is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Hämtar koden som representerar den här noden och alla dess underordnade."
+  remarks: "Den här egenskapen är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override string OuterXml { get; }
     return:
       type: System.String
-      description: "For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, String.Empty is returned."
+      description: "För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder, String.Empty returneras."
   overload: System.Xml.XmlEntity.OuterXml*
   exceptions: []
   platform:
@@ -328,7 +328,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the value of the public identifier on the entity declaration."
+  summary: "Hämtar värdet för offentlig identifierare för entiteten-deklaration."
   remarks: ''
   example:
   - "The following example displays information on the entities declared in the XML document.  \n  \n [!code-cs[XmlEntity#1](~/add/codesnippet/csharp/p-system.xml.xmlentity.p_1.cs)]\n [!code-cpp[XmlEntity#1](~/add/codesnippet/cpp/p-system.xml.xmlentity.p_1.cpp)]\n [!code-vb[XmlEntity#1](~/add/codesnippet/visualbasic/p-system.xml.xmlentity.p_1.vb)]  \n  \n The example uses the file, `doment.xml`, as input.  \n  \n [!code-xml[XmlEntity#2](~/add/codesnippet/xml/p-system.xml.xmlentity.p_2.xml)]"
@@ -336,7 +336,7 @@ items:
     content: public string PublicId { get; }
     return:
       type: System.String
-      description: "The public identifier on the entity. If there is no public identifier, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned."
+      description: "Offentlig identifierare för entiteten. Om det inte finns någon offentlig identifierare <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> returneras."
   overload: System.Xml.XmlEntity.PublicId*
   exceptions: []
   platform:
@@ -353,7 +353,7 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the value of the system identifier on the entity declaration."
+  summary: "Hämtar värdet för system-ID för entiteten-deklaration."
   remarks: ''
   example:
   - "The following example displays information on the entities declared in the XML document.  \n  \n [!code-cs[XmlEntity#1](~/add/codesnippet/csharp/p-system.xml.xmlentity.s_1.cs)]\n [!code-cpp[XmlEntity#1](~/add/codesnippet/cpp/p-system.xml.xmlentity.s_1.cpp)]\n [!code-vb[XmlEntity#1](~/add/codesnippet/visualbasic/p-system.xml.xmlentity.s_1.vb)]  \n  \n The example uses the file `doment.xml` as input.  \n  \n [!code-xml[XmlEntity#2](~/add/codesnippet/xml/p-system.xml.xmlentity.s_2.xml)]"
@@ -361,7 +361,7 @@ items:
     content: public string SystemId { get; }
     return:
       type: System.String
-      description: "The system identifier on the entity. If there is no system identifier, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned."
+      description: "Systemidentifieraren på enheten. Om det inte finns några systemidentifieraren <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> returneras."
   overload: System.Xml.XmlEntity.SystemId*
   exceptions: []
   platform:
@@ -378,14 +378,14 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Saves all the children of the node to the specified <xref:System.Xml.XmlWriter>. For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, this method has no effect."
-  remarks: "This method is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Sparar alla underordnade för noden till den angivna <xref:System.Xml.XmlWriter>.</xref:System.Xml.XmlWriter> För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder, den här metoden har ingen effekt."
+  remarks: "Den här metoden är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override void WriteContentTo (System.Xml.XmlWriter w);
     parameters:
     - id: w
       type: System.Xml.XmlWriter
-      description: "The <xref uid=&quot;langword_csharp_XmlWriter&quot; name=&quot;XmlWriter&quot; href=&quot;&quot;></xref> to which you want to save."
+      description: "Den <xref uid=&quot;langword_csharp_XmlWriter&quot; name=&quot;XmlWriter&quot; href=&quot;&quot;> </xref> som du vill spara."
   overload: System.Xml.XmlEntity.WriteContentTo*
   exceptions: []
   platform:
@@ -402,14 +402,14 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Saves the node to the specified <xref:System.Xml.XmlWriter>. For <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;></xref> nodes, this method has no effect."
-  remarks: "This method is a Microsoft extension to the Document Object Model (DOM)."
+  summary: "Sparar noden till den angivna <xref:System.Xml.XmlWriter>.</xref:System.Xml.XmlWriter> För <xref uid=&quot;langword_csharp_XmlEntity&quot; name=&quot;XmlEntity&quot; href=&quot;&quot;> </xref> noder, den här metoden har ingen effekt."
+  remarks: "Den här metoden är ett Microsoft-tillägg för den modell DOM (Document Object)."
   syntax:
     content: public override void WriteTo (System.Xml.XmlWriter w);
     parameters:
     - id: w
       type: System.Xml.XmlWriter
-      description: "The <xref uid=&quot;langword_csharp_XmlWriter&quot; name=&quot;XmlWriter&quot; href=&quot;&quot;></xref> to which you want to save."
+      description: "Den <xref uid=&quot;langword_csharp_XmlWriter&quot; name=&quot;XmlWriter&quot; href=&quot;&quot;> </xref> som du vill spara."
   overload: System.Xml.XmlEntity.WriteTo*
   exceptions: []
   platform:

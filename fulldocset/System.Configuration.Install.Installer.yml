@@ -34,8 +34,8 @@ items:
   nameWithType: Installer
   fullName: System.Configuration.Install.Installer
   type: Class
-  summary: "Provides the foundation for custom installations."
-  remarks: "This is the base class for all custom installers in the .NET Framework. Installers are components that help install applications on a computer.       There are several steps you must follow to use an Installer:      -   Inherit the Installer class.      -   Override the <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods.      -   Add the <xref:System.ComponentModel.RunInstallerAttribute> to your derived class and set it to `true`.      -   Put your derived class in the assembly with your application to install.      -   Invoke the installers. For example, use the InstallUtil.exe to invoke the installers.       The <xref:System.Configuration.Install.Installer.Installers%2A> property contains a collection of installers. If this instance of Installer is part of an installer collection, the <xref:System.Configuration.Install.Installer.Parent%2A> property is set to the Installer instance that contains the collection. For an example of the use of the <xref:System.Configuration.Install.Installer.Installers%2A> collection, see the <xref:System.Configuration.Install.AssemblyInstaller> class.       The <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods of the Installer class go through the collection of installers stored in the <xref:System.Configuration.Install.Installer.Installers%2A> property, and invokes the corresponding method of each installer.       The <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods are not always called on the same Installer instance. For example, one Installer instance might be used while installing and committing an application, and then the reference to that instance is released. Later, uninstalling the application creates a reference to a new Installer instance, meaning that the <xref:System.Configuration.Install.Installer.Uninstall%2A> method is called by a different instance of Installer. For this reason, in your derived class, do not save the state of a computer in an installer. Instead, use an <xref:System.Collections.IDictionary> that is preserved across calls and passed into your <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods.       Two situations illustrate the need to save information in the state-saver <xref:System.Collections.IDictionary>. First, suppose that your installer sets a registry key. It should save the key&quot;s original value in the <xref:System.Collections.IDictionary>. If the installation is rolled back, the original value can be restored. Second, suppose the installer replaces an existing file. Save the existing file in a temporary directory and the location of the new location of the file in the <xref:System.Collections.IDictionary>. If the installation is rolled back, the newer file is deleted and replaced by the original from the temporary location.       The <xref:System.Configuration.Install.Installer.Context%2A?displayProperty=fullName> property contains information about the installation. For example, information about the location of the log file for the installation, the location of the file to save information required by the <xref:System.Configuration.Install.Installer.Uninstall%2A> method, and the command line that was entered when the installation executable was run."
+  summary: "Utgör grunden för anpassade installationer."
+  remarks: "Detta är basklass för alla anpassade installationsprogram i .NET Framework. Installationsprogram är komponenter som hjälper till att installera program på en dator.       Det finns flera saker som du måste följa för att använda ett installationsprogram:-ärver Installer-klassen.      -Åsidosätt den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder.</xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A>      -Lägg till den <xref:System.ComponentModel.RunInstallerAttribute>till den härledda klassen och ange det till `true`.</xref:System.ComponentModel.RunInstallerAttribute>      -Placera den härledda klassen i sammansättningen med ditt program att installera.      -Anropa installationsprogram. Till exempel använda InstallUtil.exe för att anropa installationsprogram.       Den <xref:System.Configuration.Install.Installer.Installers%2A>egenskapen innehåller en samling installationsprogram.</xref:System.Configuration.Install.Installer.Installers%2A> Om den här instansen av installationsprogrammet är en del av en installerarmängden den <xref:System.Configuration.Install.Installer.Parent%2A>egenskap är inställd på Installer-instans som innehåller samlingen.</xref:System.Configuration.Install.Installer.Parent%2A> Ett exempel på användning av <xref:System.Configuration.Install.Installer.Installers%2A>samlingen, se <xref:System.Configuration.Install.AssemblyInstaller>klass.</xref:System.Configuration.Install.AssemblyInstaller> </xref:System.Configuration.Install.Installer.Installers%2A>       Den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoderna i klassen Installer gå genom insamling av installationsprogram som lagras i den <xref:System.Configuration.Install.Installer.Installers%2A>egenskap, och anropar metoden motsvarande i varje installer.</xref:System.Configuration.Install.Installer.Installers%2A> </xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A>       Den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder kallas inte alltid på samma instans för Installer.</xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A> Till exempel en instans av installationsprogrammet kan användas vid installation och när ett program och sedan referensen till den instansen släpps. Avinstallera programmet senare skapar en referens till en ny instans för installationsprogrammet, vilket innebär att den <xref:System.Configuration.Install.Installer.Uninstall%2A>metoden anropas av en annan instans av installationsprogrammet.</xref:System.Configuration.Install.Installer.Uninstall%2A> Därför i den härledda klassen inte spara tillståndet för en dator i ett installationsprogram. Använd i stället en <xref:System.Collections.IDictionary>som bevaras över anrop och skickas till din <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder.</xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A> </xref:System.Collections.IDictionary>       Två situationer illustrerar behovet av att spara informationen i den tillståndet skärmsläckaren <xref:System.Collections.IDictionary>.</xref:System.Collections.IDictionary> Först anta att dina installer anger en registernyckel. Det bör spara ursprungligt värde för nyckeln i <xref:System.Collections.IDictionary>.</xref:System.Collections.IDictionary> Om installationen återställs, kan du återställa det ursprungliga värdet. Anta andra installationsprogrammet ersätter en befintlig fil. Spara den befintliga filen i en tillfällig katalog och platsen för den nya platsen för filen i <xref:System.Collections.IDictionary>.</xref:System.Collections.IDictionary> Om installationen återställs, är nyare filen bort och ersättas med ursprungligt från den tillfälliga platsen.       Den <xref:System.Configuration.Install.Installer.Context%2A?displayProperty=fullName>egenskapen innehåller information om installationen.</xref:System.Configuration.Install.Installer.Context%2A?displayProperty=fullName> Till exempel information om platsen för loggfilen för installationen, platsen för filen för att spara informationen som krävs av den <xref:System.Configuration.Install.Installer.Uninstall%2A>metoden och den kommandorad som angavs när installationsprogrammet kördes.</xref:System.Configuration.Install.Installer.Uninstall%2A>"
   example:
   - "The following example demonstrates the use of the Installer class. It creates a class which inherits from Installer. When <xref:System.Configuration.Install.Installer.Commit%2A> is about to complete, <xref:System.Configuration.Install.Installer.Committing> event occurs and a message is displayed. To use the Installer class, you must reference the **System.Configuration.Install** assembly in your project.  \n  \n [!code-cpp[Installer#1](~/add/codesnippet/cpp/t-system.configuration.i_5_1.cpp)]\n [!code-vb[Installer#1](~/add/codesnippet/visualbasic/t-system.configuration.i_5_1.vb)]\n [!code-cs[Installer#1](~/add/codesnippet/csharp/t-system.configuration.i_5_1.cs)]"
   syntax:
@@ -77,7 +77,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Initializes a new instance of the <xref href=&quot;System.Configuration.Install.Installer&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Configuration.Install.Installer&quot;> </xref> klass."
   syntax:
     content: public Installer ();
     parameters: []
@@ -97,7 +97,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs after the <xref:System.Configuration.Install.Installer.Install*> methods of all the installers in the <xref:System.Configuration.Install.Installer.Installers*> property have run."
+  summary: "Inträffar efter den <> </> *> metoder för alla installerare i den <> </> *> egenskapen har körts."
   remarks: ''
   example:
   - "The following example demonstrates the AfterInstall event. It is raised by the <xref:System.Configuration.Install.Installer.OnAfterInstall%2A> method.  \n  \n [!code-cpp[Installer_AfterInstall#1](~/add/codesnippet/cpp/e-system.configuration.i_2_1.cpp)]\n [!code-vb[Installer_AfterInstall#1](~/add/codesnippet/visualbasic/e-system.configuration.i_2_1.vb)]\n [!code-cs[Installer_AfterInstall#1](~/add/codesnippet/csharp/e-system.configuration.i_2_1.cs)]"
@@ -105,7 +105,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler AfterInstall;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -121,7 +121,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs after the installations of all the installers in the <xref:System.Configuration.Install.Installer.Installers*> property are rolled back."
+  summary: "Inträffar efter installationer av alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>Egenskapen återställs.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the AfterRollback event. It overrides the <xref:System.Configuration.Install.Installer.Install%2A> method and explicitly throws an <xref:System.ArgumentException> so that the <xref:System.Configuration.Install.Installer.Rollback%2A> method is called. When the <xref:System.Configuration.Install.Installer.Rollback%2A> is completed, the AfterRollback event occurs and a message is displayed.  \n  \n [!code-cs[Installer_AfterRollback#1](~/add/codesnippet/csharp/e-system.configuration.i_1_1.cs)]\n [!code-cpp[Installer_AfterRollback#1](~/add/codesnippet/cpp/e-system.configuration.i_1_1.cpp)]\n [!code-vb[Installer_AfterRollback#1](~/add/codesnippet/visualbasic/e-system.configuration.i_1_1.vb)]"
@@ -129,7 +129,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler AfterRollback;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -145,7 +145,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs after all the installers in the <xref:System.Configuration.Install.Installer.Installers*> property perform their uninstallation operations."
+  summary: "Inträffar när alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen utföra sina åtgärder för avinstallationen.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the AfterUninstall event. It is raised by the <xref:System.Configuration.Install.Installer.OnAfterUninstall%2A> method.  \n  \n [!code-cs[Installer_AfterUninstall#1](~/add/codesnippet/csharp/e-system.configuration.i_7_1.cs)]\n [!code-cpp[Installer_AfterUninstall#1](~/add/codesnippet/cpp/e-system.configuration.i_7_1.cpp)]\n [!code-vb[Installer_AfterUninstall#1](~/add/codesnippet/visualbasic/e-system.configuration.i_7_1.vb)]"
@@ -153,7 +153,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler AfterUninstall;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -169,7 +169,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs before the <xref:System.Configuration.Install.Installer.Install*> method of each installer in the installer collection has run."
+  summary: "Inträffar före det <xref:System.Configuration.Install.Installer.Install*>metod för varje installer i installerarmängden har körts.</xref:System.Configuration.Install.Installer.Install*>"
   remarks: ''
   example:
   - "The following example demonstrates the BeforeInstall event. It is raised by the <xref:System.Configuration.Install.Installer.OnBeforeInstall%2A> method.  \n  \n [!code-cpp[Installer_BeforeInstall#1](~/add/codesnippet/cpp/e-system.configuration.i_0_1.cpp)]\n [!code-cs[Installer_BeforeInstall#1](~/add/codesnippet/csharp/e-system.configuration.i_0_1.cs)]\n [!code-vb[Installer_BeforeInstall#1](~/add/codesnippet/visualbasic/e-system.configuration.i_0_1.vb)]"
@@ -177,7 +177,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler BeforeInstall;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -193,7 +193,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property are rolled back."
+  summary: "Inträffar före installerare i den <xref:System.Configuration.Install.Installer.Installers*>Egenskapen återställs.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the BeforeRollback event. It overrides the <xref:System.Configuration.Install.Installer.Install%2A> method and explicitly throws an <xref:System.ArgumentException> so that the <xref:System.Configuration.Install.Installer.Rollback%2A> method is called. When the <xref:System.Configuration.Install.Installer.Rollback%2A> is complete, the BeforeRollback event occurs and a message is displayed.  \n  \n [!code-vb[Installer_BeforeRollback#1](~/add/codesnippet/visualbasic/e-system.configuration.i_5_1.vb)]\n [!code-cs[Installer_BeforeRollback#1](~/add/codesnippet/csharp/e-system.configuration.i_5_1.cs)]\n [!code-cpp[Installer_BeforeRollback#1](~/add/codesnippet/cpp/e-system.configuration.i_5_1.cpp)]"
@@ -201,7 +201,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler BeforeRollback;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -217,7 +217,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property perform their uninstall operations."
+  summary: "Inträffar före installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen utföra sina avinstallera operations.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the BeforeUninstall event. It is raised by the <xref:System.Configuration.Install.Installer.OnBeforeUninstall%2A> method.  \n  \n [!code-cs[Installer_BeforeUninstall#1](~/add/codesnippet/csharp/e-system.configuration.i_4_1.cs)]\n [!code-cpp[Installer_BeforeUninstall#1](~/add/codesnippet/cpp/e-system.configuration.i_4_1.cpp)]\n [!code-vb[Installer_BeforeUninstall#1](~/add/codesnippet/visualbasic/e-system.configuration.i_4_1.vb)]"
@@ -225,7 +225,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler BeforeUninstall;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -241,7 +241,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "When overridden in a derived class, completes the install transaction."
+  summary: "Slutför installera transaktionen när åsidosätts i en härledd klass."
   remarks: ''
   example:
   - "The following example demonstrates the Commit method of the <xref:System.Configuration.Install.Installer> class. A class is derived from the <xref:System.Configuration.Install.Installer> base class and the Commit method are overridden.  \n  \n [!code-cs[Installer_Install#2](~/add/codesnippet/csharp/m-system.configuration.i_4_1.cs)]\n [!code-vb[Installer_Install#2](~/add/codesnippet/visualbasic/m-system.configuration.i_4_1.vb)]\n [!code-cpp[Installer_Install#2](~/add/codesnippet/cpp/m-system.configuration.i_4_1.cpp)]"
@@ -250,15 +250,15 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after all the installers in the collection have run."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd när alla installerare i samlingen har kört.</xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.Commit*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>savedState</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The saved-state <xref:System.Collections.IDictionary> might have been corrupted."
+    description: "The <code>savedState</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - eller - det sparade tillståndet <xref:System.Collections.IDictionary>kan vara skadad.</xref:System.Collections.IDictionary>"
   - type: System.Configuration.Install.InstallException
     commentId: T:System.Configuration.Install.InstallException
-    description: "An exception occurred during the Commit phase of the installation. This exception is ignored and the installation continues. However, the application might not function correctly after the installation is complete."
+    description: "Ett undantag uppstod under allokeringsfasen för installationen. Det här undantaget ignoreras och installationen fortsätter. Dock kanske programmet inte fungerar korrekt när installationen är klar."
   platform:
   - net462
 - uid: System.Configuration.Install.Installer.Committed
@@ -273,7 +273,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs after all the installers in the <xref:System.Configuration.Install.Installer.Installers*> property have committed their installations."
+  summary: "Inträffar när alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen har begått installationerna.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the Committed event. It is raised by the <xref:System.Configuration.Install.Installer.OnCommitted%2A> method.  \n  \n [!code-cpp[Installer_Committed1#1](~/add/codesnippet/cpp/e-system.configuration.i_3_1.cpp)]\n [!code-cs[Installer_Committed1#1](~/add/codesnippet/csharp/e-system.configuration.i_3_1.cs)]\n [!code-vb[Installer_Committed1#1](~/add/codesnippet/visualbasic/e-system.configuration.i_3_1.vb)]"
@@ -281,7 +281,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler Committed;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -297,7 +297,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Occurs before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property committ their installations."
+  summary: "Inträffar före installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen committ installationerna.</xref:System.Configuration.Install.Installer.Installers*>"
   remarks: ''
   example:
   - "The following example demonstrates the Committing event. It is raised by the <xref:System.Configuration.Install.Installer.OnCommitting%2A> method.  \n  \n [!code-cpp[Installer_Committing#1](~/add/codesnippet/cpp/e-system.configuration.i_6_1.cpp)]\n [!code-cs[Installer_Committing#1](~/add/codesnippet/csharp/e-system.configuration.i_6_1.cs)]\n [!code-vb[Installer_Committing#1](~/add/codesnippet/visualbasic/e-system.configuration.i_6_1.vb)]"
@@ -305,7 +305,7 @@ items:
     content: public event System.Configuration.Install.InstallEventHandler Committing;
     return:
       type: System.Configuration.Install.InstallEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -321,15 +321,15 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Gets or sets information about the current installation."
-  remarks: "The Context property contains installation information. For example, information about the location of the log file for the installation, the location of the file to save information required by the <xref:System.Configuration.Install.Installer.Uninstall%2A> method, and the command line that was entered when the installation executable was run.       The program that calls the <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, or <xref:System.Configuration.Install.Installer.Uninstall%2A> methods sets the Context property with information that the methods need.       If an installer belongs to an installer collection, the parent installer sets the Context property before calling any of these methods. The parent installer can be accessed through the <xref:System.Configuration.Install.Installer.Parent%2A> property."
+  summary: "Hämtar eller anger information om den aktuella installationen."
+  remarks: "Egenskapen kontexten innehåller information om installation. Till exempel information om platsen för loggfilen för installationen, platsen för filen för att spara informationen som krävs av den <xref:System.Configuration.Install.Installer.Uninstall%2A>metoden och den kommandorad som angavs när installationsprogrammet kördes.</xref:System.Configuration.Install.Installer.Uninstall%2A>       Det program som anropar den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, eller <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder anger kontextegenskap information som behöver metoderna.</xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A>       Om ett installationsprogram som tillhör en samling med installationsprogrammet kan egenskapen installationsprogrammet överordnade kontexten innan du anropar någon av dessa metoder. Överordnad installationsprogrammet kan nås via de <xref:System.Configuration.Install.Installer.Parent%2A>egenskap.</xref:System.Configuration.Install.Installer.Parent%2A>"
   example:
   - "The following example demonstrates the Context property of the <xref:System.Configuration.Install.Installer> class. The contents of the Context property contain information about the location of the log file for the installation, the location of the file to save information required by the <xref:System.Configuration.Install.Installer.Uninstall%2A> method, and the command line that was entered when the installation executable was run. These contents are then displayed on the console.  \n  \n [!code-cpp[Installer_Context#1](~/add/codesnippet/cpp/p-system.configuration.i_9_1.cpp)]\n [!code-cs[Installer_Context#1](~/add/codesnippet/csharp/p-system.configuration.i_9_1.cs)]\n [!code-vb[Installer_Context#1](~/add/codesnippet/visualbasic/p-system.configuration.i_9_1.vb)]"
   syntax:
     content: public System.Configuration.Install.InstallContext Context { get; set; }
     return:
       type: System.Configuration.Install.InstallContext
-      description: "An <xref href=&quot;System.Configuration.Install.InstallContext&quot;></xref> that contains information about the current installation."
+      description: "En <xref href=&quot;System.Configuration.Install.InstallContext&quot;> </xref> som innehåller information om den aktuella installationen."
   overload: System.Configuration.Install.Installer.Context*
   exceptions: []
   platform:
@@ -346,7 +346,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Gets the help text for all the installers in the installer collection."
+  summary: "Hämtar den hjälptext som visas för alla installerare i installerarmängden."
   remarks: ''
   example:
   - "The following example demonstrates the HelpText property. This property is defined in the <xref:System.Configuration.Install.Installer> class, which, when called, returns the description of the <xref:System.Configuration.Install.Installer> and the command line options for the installation executable, such as the Installutil.exe utility, that can be passed to and understood by the <xref:System.Configuration.Install.Installer>.  \n  \n [!code-cs[Installer_HelpText#1](~/add/codesnippet/csharp/p-system.configuration.i_1_1.cs)]\n [!code-cpp[Installer_HelpText#1](~/add/codesnippet/cpp/p-system.configuration.i_1_1.cpp)]\n [!code-vb[Installer_HelpText#1](~/add/codesnippet/visualbasic/p-system.configuration.i_1_1.vb)]"
@@ -354,12 +354,12 @@ items:
     content: public virtual string HelpText { get; }
     return:
       type: System.String
-      description: "The help text for all the installers in the installer collection, including the description of what the installer does and the command line options for the installation executable, such as the InstallUtil.exe utility, that can be passed to and understood by this installer."
+      description: "Den hjälptext som visas för alla installerare i installerarmängden, inklusive beskrivning av installationsprogrammet tillåter och kommandoradsalternativ för installationsprogrammet, till exempel verktyget InstallUtil.exe som kan skickas till och bli förstått av det här installationsprogrammet."
   overload: System.Configuration.Install.Installer.HelpText*
   exceptions:
   - type: System.NullReferenceException
     commentId: T:System.NullReferenceException
-    description: "One of the installers in the installer collection specifies a null reference instead of help text. A likely cause for this exception is that a field to contain the help text is defined but not initialized."
+    description: "En installerare i installerarmängden anger en null-referens i stället för hjälptexten. En trolig orsak för det här undantaget är att ett fält som ska innehålla hjälptexten definierats men inte initierats."
   platform:
   - net462
 - uid: System.Configuration.Install.Installer.Install(System.Collections.IDictionary)
@@ -374,7 +374,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "When overridden in a derived class, performs the installation."
+  summary: "När åsidosätts i en härledd klass utför installationen."
   remarks: ''
   example:
   - "The following example demonstrates the Install method of the <xref:System.Configuration.Install.Installer> class. A class is derived from the <xref:System.Configuration.Install.Installer> base class and the Install method is overridden.  \n  \n [!code-cs[Installer_Install#1](~/add/codesnippet/csharp/m-system.configuration.i_0_1.cs)]\n [!code-vb[Installer_Install#1](~/add/codesnippet/visualbasic/m-system.configuration.i_0_1.vb)]\n [!code-cpp[Installer_Install#1](~/add/codesnippet/cpp/m-system.configuration.i_0_1.cpp)]"
@@ -383,7 +383,7 @@ items:
     parameters:
     - id: stateSaver
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> used to save information needed to perform a commit, rollback, or uninstall operation."
+      description: "En <xref:System.Collections.IDictionary>används för att spara information som behövs för att utföra ett genomförande återställning eller avinstallera igen.</xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.Install*
   exceptions:
   - type: System.ArgumentException
@@ -391,7 +391,7 @@ items:
     description: "The <code>stateSaver</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An exception occurred in the <xref href=&quot;System.Configuration.Install.Installer.BeforeInstall&quot;></xref> event handler of one of the installers in the collection.       -or-       An exception occurred in the <xref href=&quot;System.Configuration.Install.Installer.AfterInstall&quot;></xref> event handler of one of the installers in the collection."
+    description: "Ett undantag uppstod i den <xref href=&quot;System.Configuration.Install.Installer.BeforeInstall&quot;> </xref> händelsehanterare för en installerare i samlingen.       - eller - ett undantag uppstod i den <xref href=&quot;System.Configuration.Install.Installer.AfterInstall&quot;> </xref> händelsehanterare för en installerare i samlingen."
   platform:
   - net462
 - uid: System.Configuration.Install.Installer.Installers
@@ -406,15 +406,15 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Gets the collection of installers that this installer contains."
-  remarks: "The Installers property contains a collection of installers that install objects needed by this <xref:System.Configuration.Install.Installer> instance to correctly install the component. The <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods of the <xref:System.Configuration.Install.Installer> class go through the collection of installers and invokes the corresponding method of each installer.       If this instance of <xref:System.Configuration.Install.Installer> is contained in an installer collection, the <xref:System.Configuration.Install.Installer.Parent%2A> property is the <xref:System.Configuration.Install.Installer> instance that contains the collection. For an example of the use of the Installers collection, see the <xref:System.Configuration.Install.AssemblyInstaller> class."
+  summary: "Hämtar samlingen av installationsprogram som innehåller det här installationsprogrammet."
+  remarks: "Egenskapen installationsprogram innehåller en samling av installationsprogram som installerar objekt som behövs av detta <xref:System.Configuration.Install.Installer>instans att korrekt installera komponenten.</xref:System.Configuration.Install.Installer> Den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder för den <xref:System.Configuration.Install.Installer>klassen går genom insamling av installationsprogram och anropar metoden motsvarande i varje installer.</xref:System.Configuration.Install.Installer> </xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A>       Om den här instansen av <xref:System.Configuration.Install.Installer>finns i en installerarmängden den <xref:System.Configuration.Install.Installer.Parent%2A>egenskapen är den <xref:System.Configuration.Install.Installer>instans som innehåller samlingen.</xref:System.Configuration.Install.Installer> </xref:System.Configuration.Install.Installer.Parent%2A> </xref:System.Configuration.Install.Installer> Se ett exempel på användning av mängden <xref:System.Configuration.Install.AssemblyInstaller>klass.</xref:System.Configuration.Install.AssemblyInstaller>"
   example:
   - "The following example demonstrates the Installers and <xref:System.Configuration.Install.Installer.Parent%2A> properties. The Installers property shows the <xref:System.Configuration.Install.InstallerCollection> associated with an <xref:System.Configuration.Install.Installer>.  \n  \n [!code-cs[Installer_Installers#1](~/add/codesnippet/csharp/p-system.configuration.i_12_1.cs)]\n [!code-cpp[Installer_Installers#1](~/add/codesnippet/cpp/p-system.configuration.i_12_1.cpp)]\n [!code-vb[Installer_Installers#1](~/add/codesnippet/visualbasic/p-system.configuration.i_12_1.vb)]"
   syntax:
     content: public System.Configuration.Install.InstallerCollection Installers { get; }
     return:
       type: System.Configuration.Install.InstallerCollection
-      description: "An <xref href=&quot;System.Configuration.Install.InstallerCollection&quot;></xref> containing the collection of installers associated with this installer."
+      description: "En <xref href=&quot;System.Configuration.Install.InstallerCollection&quot;> </xref> som innehåller samlingen av installationsprogram som är associerade med det här installationsprogrammet."
   overload: System.Configuration.Install.Installer.Installers*
   exceptions: []
   platform:
@@ -431,8 +431,8 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.AfterInstall&quot;></xref> event."
-  remarks: "This method is called after the <xref:System.Configuration.Install.Installer.Install%2A> methods of all the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> run.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnAfterInstall method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.AfterInstall&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas efter den <xref:System.Configuration.Install.Installer.Install%2A>metoder för alla installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>Kör.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Install%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnAfterInstall tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   example:
   - "The following example demonstrates the OnAfterInstall method. This method is overridden in the derived class. Space is provided to add steps to be done after the installation in the OnAfterInstall method.  \n  \n [!code-cs[Installer_OnInstall#2](~/add/codesnippet/csharp/60146eeb-3353-443b-b027-_1.cs)]\n [!code-vb[Installer_OnInstall#2](~/add/codesnippet/visualbasic/60146eeb-3353-443b-b027-_1.vb)]\n [!code-cpp[Installer_OnInstall#2](~/add/codesnippet/cpp/60146eeb-3353-443b-b027-_1.cpp)]"
   syntax:
@@ -440,7 +440,7 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after all the installers contained in the <xref:System.Configuration.Install.Installer.Installers*> property have completed their installations."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd efter alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen har slutfört installationerna.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnAfterInstall*
   exceptions: []
   platform:
@@ -457,14 +457,14 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.AfterRollback&quot;></xref> event."
-  remarks: "This method is called after the <xref:System.Configuration.Install.Installer.Rollback%2A> methods of all the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> have run.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnAfterRollback method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.AfterRollback&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas efter den <xref:System.Configuration.Install.Installer.Rollback%2A>metoder för alla installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>har kört.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Rollback%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnAfterRollback tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   syntax:
     content: protected virtual void OnAfterRollback (System.Collections.IDictionary savedState);
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after the installers contained in the <xref:System.Configuration.Install.Installer.Installers*> property are rolled back."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd efter installationsprogram som ingår i den <xref:System.Configuration.Install.Installer.Installers*>Egenskapen återställs.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnAfterRollback*
   exceptions: []
   platform:
@@ -481,14 +481,14 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.AfterUninstall&quot;></xref> event."
-  remarks: "This method is called after the <xref:System.Configuration.Install.Installer.Uninstall%2A> methods of all the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> have run.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnAfterUninstall method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.AfterUninstall&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas efter den <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder för alla installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>har kört.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Uninstall%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnAfterUninstall tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   syntax:
     content: protected virtual void OnAfterUninstall (System.Collections.IDictionary savedState);
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after all the installers contained in the <xref:System.Configuration.Install.Installer.Installers*> property are uninstalled."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd efter alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen avinstalleras.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnAfterUninstall*
   exceptions: []
   platform:
@@ -505,8 +505,8 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.BeforeInstall&quot;></xref> event."
-  remarks: "This method is called before the <xref:System.Configuration.Install.Installer.Install%2A> methods of the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> are called.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnBeforeInstall method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.BeforeInstall&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas innan den <xref:System.Configuration.Install.Installer.Install%2A>metoder för installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>kallas.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Install%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnBeforeInstall tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   example:
   - "The following example demonstrates the OnBeforeInstall method. This method is overridden in the derived class. Space is provided to add steps to be done before the installation in the OnBeforeInstall method.  \n  \n [!code-cs[Installer_OnInstall#1](~/add/codesnippet/csharp/05e12d6b-04c9-42f3-be39-_1.cs)]\n [!code-vb[Installer_OnInstall#1](~/add/codesnippet/visualbasic/05e12d6b-04c9-42f3-be39-_1.vb)]\n [!code-cpp[Installer_OnInstall#1](~/add/codesnippet/cpp/05e12d6b-04c9-42f3-be39-_1.cpp)]"
   syntax:
@@ -514,7 +514,7 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property are installed. This <xref:System.Collections.IDictionary> object should be empty at this point."
+      description: "En <xref:System.Collections.IDictionary>som innehåller tillståndet för datorn innan installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen installeras.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary> Detta <xref:System.Collections.IDictionary>objektet ska vara tom nu.</xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnBeforeInstall*
   exceptions: []
   platform:
@@ -531,14 +531,14 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.BeforeRollback&quot;></xref> event."
-  remarks: "This method is called before the <xref:System.Configuration.Install.Installer.Rollback%2A> methods of the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> are called.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnBeforeRollback method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.BeforeRollback&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas innan den <xref:System.Configuration.Install.Installer.Rollback%2A>metoder för installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>kallas.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Rollback%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnBeforeRollback tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   syntax:
     content: protected virtual void OnBeforeRollback (System.Collections.IDictionary savedState);
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property are rolled back."
+      description: "En <xref:System.Collections.IDictionary>som innehåller tillståndet för datorn innan installerare i den <xref:System.Configuration.Install.Installer.Installers*>Egenskapen återställs.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnBeforeRollback*
   exceptions: []
   platform:
@@ -555,14 +555,14 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.BeforeUninstall&quot;></xref> event."
-  remarks: "This method is called before the <xref:System.Configuration.Install.Installer.Uninstall%2A> methods of the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> are uninstalled.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnBeforeUninstall method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.BeforeUninstall&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas innan den <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder för installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>avinstalleras.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Uninstall%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnBeforeUninstall tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   syntax:
     content: protected virtual void OnBeforeUninstall (System.Collections.IDictionary savedState);
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property uninstall their installations."
+      description: "En <xref:System.Collections.IDictionary>som innehåller tillståndet för datorn innan installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen avinstallera installationerna.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnBeforeUninstall*
   exceptions: []
   platform:
@@ -579,8 +579,8 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.Committed&quot;></xref> event."
-  remarks: "This method is called after the <xref:System.Configuration.Install.Installer.Commit%2A> methods of all the installers contained in this instance&quot;s installer collection run.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnCommitted method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.Committed&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas efter den <xref:System.Configuration.Install.Installer.Commit%2A>metoder för alla installerare i installerarmängden för den här instansen som kör.</xref:System.Configuration.Install.Installer.Commit%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnCommitted tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   example:
   - "The following example demonstrates the OnCommitted method of the <xref:System.Configuration.Install.Installer> class. The OnCommitted method is overridden in the derived class. Space is provided for the user to add the steps to be performed before committing and after committing.  \n  \n [!code-cs[Installer_Committed#2](~/add/codesnippet/csharp/5648b84f-6316-46f8-bd1c-_1.cs)]\n [!code-cpp[Installer_Committed#2](~/add/codesnippet/cpp/5648b84f-6316-46f8-bd1c-_1.cpp)]\n [!code-vb[Installer_Committed#2](~/add/codesnippet/visualbasic/5648b84f-6316-46f8-bd1c-_1.vb)]"
   syntax:
@@ -588,7 +588,7 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after all the installers in the <xref:System.Configuration.Install.Installer.Installers*> property run."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd efter alla installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen kör.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnCommitted*
   exceptions: []
   platform:
@@ -605,8 +605,8 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Raises the <xref href=&quot;System.Configuration.Install.Installer.Committing&quot;></xref> event."
-  remarks: "This method is called before the <xref:System.Configuration.Install.Installer.Commit%2A> methods of the installers in this instance&quot;s <xref:System.Configuration.Install.InstallerCollection> run.       Raising an event invokes the event handler through a delegate. For more information, see [Events](~/add/includes/ajax-current-ext-md.md).       The OnCommitting method allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Genererar den <xref href=&quot;System.Configuration.Install.Installer.Committing&quot;> </xref> händelse."
+  remarks: "Den här metoden anropas innan den <xref:System.Configuration.Install.Installer.Commit%2A>metoder för installerare i den här instansen <xref:System.Configuration.Install.InstallerCollection>Kör.</xref:System.Configuration.Install.InstallerCollection> </xref:System.Configuration.Install.Installer.Commit%2A>       Att en händelse utlöstes anropar händelsehanteraren via ett ombud. Mer information finns i [händelser](~/add/includes/ajax-current-ext-md.md).       Metoden OnCommitting tillåter härledda klasser att hantera händelsen utan att koppla en delegat. Det här är den prioriterade metoden för hantering av händelsen i en härledd klass."
   example:
   - "The following example demonstrates the OnCommitting method of the <xref:System.Configuration.Install.Installer> class. The OnCommitting method is overridden in the derived class. Space is provided for the user to add the steps to be performed before committing and after committing.  \n  \n [!code-cs[Installer_Committed#1](~/add/codesnippet/csharp/4332932f-4b73-47c5-9f45-_1.cs)]\n [!code-cpp[Installer_Committed#1](~/add/codesnippet/cpp/4332932f-4b73-47c5-9f45-_1.cpp)]\n [!code-vb[Installer_Committed#1](~/add/codesnippet/visualbasic/4332932f-4b73-47c5-9f45-_1.vb)]"
   syntax:
@@ -614,7 +614,7 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer before the installers in the <xref:System.Configuration.Install.Installer.Installers*> property are committed."
+      description: "En <xref:System.Collections.IDictionary>som innehåller tillståndet för datorn innan installerare i den <xref:System.Configuration.Install.Installer.Installers*>egenskapen genomförs.</xref:System.Configuration.Install.Installer.Installers*> </xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.OnCommitting*
   exceptions: []
   platform:
@@ -631,15 +631,15 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "Gets or sets the installer containing the collection that this installer belongs to."
-  remarks: "If this instance of <xref:System.Configuration.Install.Installer> is part of an installer collection, the Parent property is set to the <xref:System.Configuration.Install.Installer> instance that contains the collection. For an example of the use of the <xref:System.Configuration.Install.Installer.Installers%2A> collection, see the <xref:System.Configuration.Install.AssemblyInstaller> class.       The <xref:System.Configuration.Install.Installer.Installers%2A> property contains a collection of installers. The <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, and <xref:System.Configuration.Install.Installer.Uninstall%2A> methods of the <xref:System.Configuration.Install.Installer> class go through the collection of installers and invokes the corresponding method of each installer."
+  summary: "Hämtar eller anger den installerare som innehåller den samling som den här installeraren hör till."
+  remarks: "Om den här instansen av <xref:System.Configuration.Install.Installer>är en del av en installer samling, den överordnade egenskap är inställd på den <xref:System.Configuration.Install.Installer>instans som innehåller samlingen.</xref:System.Configuration.Install.Installer> </xref:System.Configuration.Install.Installer> Ett exempel på användning av <xref:System.Configuration.Install.Installer.Installers%2A>samlingen, se <xref:System.Configuration.Install.AssemblyInstaller>klass.</xref:System.Configuration.Install.AssemblyInstaller> </xref:System.Configuration.Install.Installer.Installers%2A>       Den <xref:System.Configuration.Install.Installer.Installers%2A>egenskapen innehåller en samling installationsprogram.</xref:System.Configuration.Install.Installer.Installers%2A> Den <xref:System.Configuration.Install.Installer.Install%2A>, <xref:System.Configuration.Install.Installer.Commit%2A>, <xref:System.Configuration.Install.Installer.Rollback%2A>, och <xref:System.Configuration.Install.Installer.Uninstall%2A>metoder för den <xref:System.Configuration.Install.Installer>klassen går genom insamling av installationsprogram och anropar metoden motsvarande i varje installer.</xref:System.Configuration.Install.Installer> </xref:System.Configuration.Install.Installer.Uninstall%2A> </xref:System.Configuration.Install.Installer.Rollback%2A> </xref:System.Configuration.Install.Installer.Commit%2A> </xref:System.Configuration.Install.Installer.Install%2A>"
   example:
   - "The following example demonstrates the Parent property. The Parent property gets the <xref:System.Configuration.Install.Installer> containing the collection that this <xref:System.Configuration.Install.Installer> belongs to.  \n  \n [!code-cs[Installer_Installers#2](~/add/codesnippet/csharp/p-system.configuration.i_7_1.cs)]\n [!code-cpp[Installer_Installers#2](~/add/codesnippet/cpp/p-system.configuration.i_7_1.cpp)]\n [!code-vb[Installer_Installers#2](~/add/codesnippet/visualbasic/p-system.configuration.i_7_1.vb)]"
   syntax:
     content: public System.Configuration.Install.Installer Parent { get; set; }
     return:
       type: System.Configuration.Install.Installer
-      description: "An <xref href=&quot;System.Configuration.Install.Installer&quot;></xref> containing the collection that this instance belongs to, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this instance does not belong to a collection."
+      description: "En <xref href=&quot;System.Configuration.Install.Installer&quot;> </xref> som innehåller den samling som den här instansen tillhör, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om den här instansen inte tillhör en samling."
   overload: System.Configuration.Install.Installer.Parent*
   exceptions: []
   platform:
@@ -656,7 +656,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "When overridden in a derived class, restores the pre-installation state of the computer."
+  summary: "Återställer tillståndet före installationen på datorn när åsidosätts i en härledd klass."
   remarks: ''
   example:
   - "The following example demonstrates the Rollback method of <xref:System.Configuration.Install.Installer>. The Rollback method is overridden in the derived class of <xref:System.Configuration.Install.Installer>. An exception is generated to force an installation rollback.  \n  \n [!code-cpp[Installer_Rollback#1](~/add/codesnippet/cpp/f7b5aa66-1011-46b1-9df6-_1.cpp)]\n [!code-cs[Installer_Rollback#1](~/add/codesnippet/csharp/f7b5aa66-1011-46b1-9df6-_1.cs)]\n [!code-vb[Installer_Rollback#1](~/add/codesnippet/visualbasic/f7b5aa66-1011-46b1-9df6-_1.vb)]"
@@ -665,15 +665,15 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the pre-installation state of the computer."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns förinstallation tillstånd.</xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.Rollback*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>savedState</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The saved-state <xref:System.Collections.IDictionary> might have been corrupted."
+    description: "The <code>savedState</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       - eller - det sparade tillståndet <xref:System.Collections.IDictionary>kan vara skadad.</xref:System.Collections.IDictionary>"
   - type: System.Configuration.Install.InstallException
     commentId: T:System.Configuration.Install.InstallException
-    description: "An exception occurred during the Rollback phase of the installation. This exception is ignored and the rollback continues. However, the computer might not be fully reverted to its initial state after the rollback completes."
+    description: "Ett undantag uppstod under återställningsfasen av installationen. Det här undantaget ignoreras och återställningen fortsätter. Men kan datorn inte helt återställas till det ursprungliga tillståndet när återställningen är klar."
   platform:
   - net462
 - uid: System.Configuration.Install.Installer.Uninstall(System.Collections.IDictionary)
@@ -688,7 +688,7 @@ items:
   assemblies:
   - System.Configuration.Install
   namespace: System.Configuration.Install
-  summary: "When overridden in a derived class, removes an installation."
+  summary: "När åsidosätts i en härledd klass, tar du bort en installation."
   remarks: ''
   example:
   - "The following example demonstrates the Uninstall method of <xref:System.Configuration.Install.Installer>. The Uninstall method is overridden in the derived class of <xref:System.Configuration.Install.Installer>.  \n  \n [!code-cpp[Installer_Uninstall#1](~/add/codesnippet/cpp/6ad3795d-c7c2-494d-bf0b-_1.cpp)]\n [!code-vb[Installer_Uninstall#1](~/add/codesnippet/visualbasic/6ad3795d-c7c2-494d-bf0b-_1.vb)]\n [!code-cs[Installer_Uninstall#1](~/add/codesnippet/csharp/6ad3795d-c7c2-494d-bf0b-_1.cs)]"
@@ -697,15 +697,15 @@ items:
     parameters:
     - id: savedState
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that contains the state of the computer after the installation was complete."
+      description: "En <xref:System.Collections.IDictionary>som innehåller datorns tillstånd när installationen har slutförts.</xref:System.Collections.IDictionary>"
   overload: System.Configuration.Install.Installer.Uninstall*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The saved-state <xref:System.Collections.IDictionary> might have been corrupted."
+    description: "Det sparade tillståndet <xref:System.Collections.IDictionary>kan vara skadad.</xref:System.Collections.IDictionary>"
   - type: System.Configuration.Install.InstallException
     commentId: T:System.Configuration.Install.InstallException
-    description: "An exception occurred while uninstalling. This exception is ignored and the uninstall continues. However, the application might not be fully uninstalled after the uninstallation completes."
+    description: "Ett undantag uppstod under avinstallationen. Det här undantaget ignoreras och avinstallationen fortsätter. Men eventuellt programmet avinstalleras inte helt när avinstallationen har slutförts."
   platform:
   - net462
 references:
