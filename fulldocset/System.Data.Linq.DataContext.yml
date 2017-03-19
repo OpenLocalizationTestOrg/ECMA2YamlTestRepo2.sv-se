@@ -47,8 +47,8 @@ items:
   nameWithType: DataContext
   fullName: System.Data.Linq.DataContext
   type: Class
-  summary: "Represents the main entry point for the [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] framework."
-  remarks: "The DataContext is the source of all entities mapped over a database connection. It tracks changes that you made to all retrieved entities and maintains an &quot;identity cache&quot; that guarantees that entities retrieved more than one time are represented by using the same object instance.       In general, a DataContext instance is designed to last for one &quot;unit of work&quot; however your application defines that term. A DataContext is lightweight and is not expensive to create. A typical [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] application creates DataContext instances at method scope or as a member of short-lived classes that represent a logical set of related database operations."
+  summary: "Representerar den huvudsakliga startpunkten för den [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] framework."
+  remarks: "Att DataContext är källan för alla enheter som har mappats via en databasanslutning. Den spårar ändringar som du har gjort alla hämtade entiteter och upprätthåller en &quot;identity-cachen&quot; garanterar att mer än en gång hämtats, entiteter visas som använder samma objektinstansen.       I allmänhet är en DataContext-instans avsedd att senaste för en &quot;arbetsenheten&quot; men tillämpningsprogrammet definierar termen. En DataContext är enkel och är inte dyrt att skapa. En typisk [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] programmet skapar DataContext instanser definitionsområdet metod eller medlem tillfällig klasser som representerar en logisk uppsättning relaterade databasåtgärder."
   syntax:
     content: 'public class DataContext : IDisposable'
   inheritance:
@@ -70,14 +70,14 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class by referencing the connection used by the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
-  remarks: "A <xref:System.Data.Linq.DataContext> opens and closes a database connection as needed if you provide a closed connection or a connection string. In general, you should never have to call `Dispose` on a <xref:System.Data.Linq.DataContext>. If you provide an open connection, the <xref:System.Data.Linq.DataContext> will not close it. Therefore, do not instantiate a <xref:System.Data.Linq.DataContext> with an open connection unless you have a good reason to do this. In a <xref:System.Transactions> transaction, a <xref:System.Data.Linq.DataContext> will not open or close a connection to avoid promotion."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klassen genom att referera till anslutningen som används av den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+  remarks: "En <xref:System.Data.Linq.DataContext>öppnar och stänger en databasanslutning efter behov om du anger en stängd anslutning eller en anslutningssträng.</xref:System.Data.Linq.DataContext> I allmänhet ska du aldrig har att anropa `Dispose` <xref:System.Data.Linq.DataContext>.</xref:System.Data.Linq.DataContext> Om du anger en öppen anslutning <xref:System.Data.Linq.DataContext>kommer inte att stänga det.</xref:System.Data.Linq.DataContext> Därför instansiera inte en <xref:System.Data.Linq.DataContext>med en öppen anslutning om du inte har bra att göra detta.</xref:System.Data.Linq.DataContext> I en <xref:System.Transactions>transaktion, en <xref:System.Data.Linq.DataContext>kommer inte att öppna eller stänga en anslutning för att undvika befordran.</xref:System.Data.Linq.DataContext> </xref:System.Transactions>"
   syntax:
     content: public DataContext (System.Data.IDbConnection connection);
     parameters:
     - id: connection
       type: System.Data.IDbConnection
-      description: "The connection used by the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
+      description: "Anslutningen som används av den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)]."
   overload: System.Data.Linq.DataContext.#ctor*
   exceptions: []
   platform:
@@ -94,13 +94,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class by referencing a file source."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klassen genom att referera till en källa."
   syntax:
     content: public DataContext (string fileOrServerOrConnection);
     parameters:
     - id: fileOrServerOrConnection
       type: System.String
-      description: "This argument can be any one of the following:       The name of a file where a SQL Server Express database resides.       The name of a server where a database is present. In this case the provider uses the default database for a user.       A complete connection string. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] just passes the string to the provider without modification."
+      description: "Argumentet kan vara något av följande: namnet på en fil där det finns en SQL Server Express-databas.       Namnet på en server där det finns en databas. I detta fall använder providern standarddatabasen för en användare.       En fullständig anslutningssträng. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]skickar bara strängen till providern utan modifiering."
   overload: System.Data.Linq.DataContext.#ctor*
   exceptions: []
   platform:
@@ -117,16 +117,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class by referencing a connection and a mapping source."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klassen genom att referera till en anslutning och en mappningskälla."
   syntax:
     content: public DataContext (System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mapping);
     parameters:
     - id: connection
       type: System.Data.IDbConnection
-      description: "The connection used by the .NET Framework."
+      description: "Anslutningen som används av .NET Framework."
     - id: mapping
       type: System.Data.Linq.Mapping.MappingSource
-      description: "A source for mapping."
+      description: "En källa för mappningen."
   overload: System.Data.Linq.DataContext.#ctor*
   exceptions: []
   platform:
@@ -143,16 +143,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class by referencing a file source and a mapping source."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klassen genom att referera till en källa och en mappningskälla."
   syntax:
     content: public DataContext (string fileOrServerOrConnection, System.Data.Linq.Mapping.MappingSource mapping);
     parameters:
     - id: fileOrServerOrConnection
       type: System.String
-      description: "This argument can be any one of the following:       The name of a file where a SQL Server Express database resides.       The name of a server where a database is present. In this case the provider uses the default database for a user.       A complete connection string. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] just passes the string to the provider without modification."
+      description: "Argumentet kan vara något av följande: namnet på en fil där det finns en SQL Server Express-databas.       Namnet på en server där det finns en databas. I detta fall använder providern standarddatabasen för en användare.       En fullständig anslutningssträng. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]skickar bara strängen till providern utan modifiering."
     - id: mapping
       type: System.Data.Linq.Mapping.MappingSource
-      description: "A source for mapping."
+      description: "En källa för mappningen."
   overload: System.Data.Linq.DataContext.#ctor*
   exceptions: []
   platform:
@@ -169,8 +169,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets a collection of objects that caused concurrency conflicts when <xref:System.Data.Linq.DataContext.SubmitChanges*> was called."
-  remarks: "The following example shows how the collection can be iterated over to retrieve conflict information."
+  summary: "Hämtar en samling objekt som har orsakat samtidighetskonflikter när <xref:System.Data.Linq.DataContext.SubmitChanges*>anropades.</xref:System.Data.Linq.DataContext.SubmitChanges*>"
+  remarks: "I följande exempel visas hur samlingen kan hävdade över för att hämta information om konflikten."
   example:
   - >-
     [!code-cs[System.Data.Linq.ObjectChangeConflict#1](~/add/codesnippet/csharp/objconflict/program.cs#1)]
@@ -179,7 +179,7 @@ items:
     content: public System.Data.Linq.ChangeConflictCollection ChangeConflicts { get; }
     return:
       type: System.Data.Linq.ChangeConflictCollection
-      description: "A collection of objects that caused concurrency conflicts."
+      description: "En samling objekt som har orsakat samtidighetskonflikter."
   overload: System.Data.Linq.DataContext.ChangeConflicts*
   exceptions: []
   platform:
@@ -196,13 +196,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets a value that increases the time-out period for queries that would otherwise time out during the default time-out period."
-  remarks: "This property gets or sets the command time-out used to execute generated commands (`IDbCommands`). For more information, see <xref:System.Data.IDbCommand.CommandTimeout%2A>.       When this property is not set, the default value of <xref:System.Data.IDbCommand.CommandTimeout%2A> is used for query command execution. This default value is set by the storage provider. Note that some providers may throw exceptions if this value is set to a non-zero value."
+  summary: "Hämtar eller anger ett värde som ökar tidsgränsen för frågor som skulle annars tidsgräns under standard timeout-perioden."
+  remarks: "Den här egenskapen hämtar eller anger timeout för kommandot som används för att köra genererade kommandon (`IDbCommands`). Mer information finns i <xref:System.Data.IDbCommand.CommandTimeout%2A>.</xref:System.Data.IDbCommand.CommandTimeout%2A>       När den här egenskapen inte anges används standardvärdet <xref:System.Data.IDbCommand.CommandTimeout%2A>används för att köra frågan.</xref:System.Data.IDbCommand.CommandTimeout%2A> Det här värdet anges av lagringsprovidern. Observera att vissa leverantörer kan utlösa undantag om det här värdet anges till ett värde som inte är noll."
   syntax:
     content: public int CommandTimeout { get; set; }
     return:
       type: System.Int32
-      description: "An integer value that increases the time-out period for queries that would otherwise time out during the default time-out period."
+      description: "Ett heltal som ökar tidsgränsen för frågor som skulle annars tidsgräns under standard timeout-perioden."
   overload: System.Data.Linq.DataContext.CommandTimeout*
   exceptions: []
   platform:
@@ -219,13 +219,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets the connection used by the framework."
-  remarks: "You can use this property to interoperate with relational ADO.NET code.       The returned connection will be closed unless it has been explicitly opened by the user."
+  summary: "Hämtar anslutningen som används av framework."
+  remarks: "Du kan använda den här egenskapen tillsammans med relationella ADO.NET-kod.       Returnerade anslutningen stängs såvida inte uttryckligen har öppnats av användaren."
   syntax:
     content: public System.Data.Common.DbConnection Connection { get; }
     return:
       type: System.Data.Common.DbConnection
-      description: "The connection used by the framework."
+      description: "Den anslutning som används av framework."
   overload: System.Data.Linq.DataContext.Connection*
   exceptions: []
   platform:
@@ -242,8 +242,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Creates a database on the server."
-  remarks: "The name of the database is derived by using the following algorithm:      -   If a database is identified in the connection string, its name is used.      -   If a <xref:System.Data.Linq.Mapping.DatabaseAttribute> attribute is present, its <xref:System.Data.Linq.Mapping.DatabaseAttribute.Name%2A> property is used as the name of the database.      -   If there is no database tag in the connection string and a strongly typed <xref:System.Data.Linq.DataContext> is used, a database that has the same name as the <xref:System.Data.Linq.DataContext> inheriting class is checked.      -   If a weakly typed <xref:System.Data.Linq.DataContext> is used, an exception is thrown.      -   If the <xref:System.Data.Linq.DataContext> has been created by using a file name, the database corresponding to that file name is created."
+  summary: "Skapar en databas på servern."
+  remarks: "Namnet på databasen som beräknas med hjälp av följande algoritm:-namnet används om en databas har identifierats i anslutningssträngen.      -Om en <xref:System.Data.Linq.Mapping.DatabaseAttribute>attributet finns dess <xref:System.Data.Linq.Mapping.DatabaseAttribute.Name%2A>egenskapen används som namnet på databasen.</xref:System.Data.Linq.Mapping.DatabaseAttribute.Name%2A> </xref:System.Data.Linq.Mapping.DatabaseAttribute>      – Om det finns ingen databas-tagg i anslutningssträngen och strikt typkontroll <xref:System.Data.Linq.DataContext>används, en databas som har samma namn som den <xref:System.Data.Linq.DataContext>arv klass är markerad.</xref:System.Data.Linq.DataContext> </xref:System.Data.Linq.DataContext>      – Om ett svagt skrev <xref:System.Data.Linq.DataContext>är används, genereras ett undantag.</xref:System.Data.Linq.DataContext>      -Om den <xref:System.Data.Linq.DataContext>har skapats med hjälp av ett filnamn för att filnamn databasen har skapats.</xref:System.Data.Linq.DataContext>"
   example:
   - "The following code shows how to set up a temporary database and then remove it.  \n  \n [!code-vb[System.Data.Linq.DataContext#1](~/add/codesnippet/visualbasic/DataContext/Module1.vb#1)]\n [!code-cs[System.Data.Linq.DataContext#1](~/add/codesnippet/csharp/DataContext/Program.cs#1)]"
   syntax:
@@ -270,16 +270,16 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: methodInfo
       type: System.Reflection.MethodInfo
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: parameters
       type: System.Object[]
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Linq.IQueryable{TResult}
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Linq.DataContext.CreateMethodCallQuery<TResult>*
   exceptions: []
   platform:
@@ -296,8 +296,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Determines whether the associated database can be opened."
-  remarks: "This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to attempt to open the associated database."
+  summary: "Anger om den associerade databasen kan öppnas."
+  remarks: "Den här metoden använder anslutningen i den <xref:System.Data.Linq.DataContext.Connection%2A>egenskapen att försöka öppna den associerade databasen.</xref:System.Data.Linq.DataContext.Connection%2A>"
   example:
   - "The following example uses this method to determine whether a database already exists.  \n  \n [!code-vb[System.Data.Linq.DataContext#1](~/add/codesnippet/visualbasic/DataContext/Module1.vb#1)]\n [!code-cs[System.Data.Linq.DataContext#1](~/add/codesnippet/csharp/DataContext/Program.cs#1)]"
   syntax:
@@ -305,7 +305,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified database can be opened; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den angivna databasen kan öppnas. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Linq.DataContext.DatabaseExists*
   exceptions: []
   platform:
@@ -322,13 +322,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets a value that indicates whether to delay-load one-to-many or one-to-one relationships."
-  remarks: "When the code accesses one of these relationships, null is returned if the relationship is one-to-one, and an empty collection is returned if it is one-to-many. The relationships can still be filled by setting the <xref:System.Data.Linq.DataContext.LoadOptions%2A> property.       The main scenario for this property is to enable you to extract a piece of the object model and send it out (for example, to a Web service).      > [!NOTE] >  If this property is set to `false` after a query has been executed, an exception is thrown. See the **Valid Modes** section below for more information.      ## Valid modes    Deferred loading requires object tracking. Only the following three modes are valid:      -   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `false`. DeferredLoadingEnabled is ignored and inferred to be `false`. This behavior corresponds to a read-only <xref:System.Data.Linq.DataContext>.      -   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `true`. DeferredLoadingEnabled = `false`. This situation corresponds to a <xref:System.Data.Linq.DataContext> that allows users to load an object graph by using <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> directives, but it does not enable deferred loading.      -   Both are set to `true`. This is the default.       The flags may not be changed after a query has been executed. Any change after the execution of the first query that uses that <xref:System.Data.Linq.DataContext> throws an exception."
+  summary: "Hämtar eller anger ett värde som anger om fördröjd inläsning av en-till-många eller&1;:&1;-relationer."
+  remarks: "När koden har åtkomst till någon av dessa relationer null returneras om relationen är&1; och returneras en tom samling om det är en-till-många. Relationerna kan fortfarande fyllas genom att ange den <xref:System.Data.Linq.DataContext.LoadOptions%2A>egenskapen.</xref:System.Data.Linq.DataContext.LoadOptions%2A>       Det huvudsakliga scenariot för den här egenskapen är så att du kan extrahera en typ av objektmodellen och skicka den (till exempel till en webbtjänst).      > [!NOTE] > Om den här egenskapen anges till `false` efter en fråga har utförts, genereras ett undantag. Finns det **giltiga lägena** avsnittet nedan för mer information.      ## Giltiga lägena uppskjuten inläsning krävs Objektspårning. Endast följande tre lägen är giltiga:- <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A>= `false`.</xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> DeferredLoadingEnabled ignoreras och härleda ska `false`. Detta motsvarar en skrivskyddad <xref:System.Data.Linq.DataContext>.</xref:System.Data.Linq.DataContext>      -   <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> = `true`.</xref:System.Data.Linq.DataContext.ObjectTrackingEnabled%2A> DeferredLoadingEnabled = `false`. Det här fallet motsvarar en <xref:System.Data.Linq.DataContext>som gör det möjligt för användare att läsa in ett objektdiagram med hjälp av <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>direktiven, men inte aktiverar uppskjuten inläsning.</xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> </xref:System.Data.Linq.DataContext>      -Båda är inställda på att `true`. Detta är standardinställningen.       Flaggorna får inte ändras när en fråga har körts. Ändringar efter körning av den första frågan som använder som <xref:System.Data.Linq.DataContext>genererar ett undantag.</xref:System.Data.Linq.DataContext>"
   syntax:
     content: public bool DeferredLoadingEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if deferred loading is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om uppskjuten inläsning aktiveras; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Linq.DataContext.DeferredLoadingEnabled*
   exceptions: []
   platform:
@@ -345,8 +345,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Deletes the associated database."
-  remarks: "This method uses the connection in the <xref:System.Data.Linq.DataContext.Connection%2A> property to identify the database to be deleted."
+  summary: "Tar bort den associerade databasen."
+  remarks: "Den här metoden använder anslutningen i den <xref:System.Data.Linq.DataContext.Connection%2A>egenskapen för att identifiera databasen som ska tas bort.</xref:System.Data.Linq.DataContext.Connection%2A>"
   example:
   - "The following example shows how to delete a database that has been temporarily created.  \n  \n [!code-vb[System.Data.Linq.DataContext#1](~/add/codesnippet/visualbasic/DataContext/Module1.vb#1)]\n [!code-cs[System.Data.Linq.DataContext#1](~/add/codesnippet/csharp/DataContext/Program.cs#1)]"
   syntax:
@@ -368,7 +368,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class."
+  summary: "Frigör alla resurser som används av den aktuella instansen av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klass."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -388,13 +388,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> class and optionally releases the managed resource."
+  summary: "Släpper de ohanterade resurser som används av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> klassen och eventuellt släpper hanterade resurser."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Frisläpp både hanterade och ohanterade resurser. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> att släppa endast resurser som inte hanteras."
   overload: System.Data.Linq.DataContext.Dispose*
   exceptions: []
   platform:
@@ -411,7 +411,7 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes SQL commands directly on the database."
+  summary: "Kör SQL-kommandon direkt på databasen."
   remarks: "This method is a pass-through mechanism for cases where [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] does not adequately provide for a particular scenario.  \n  \n The syntax for the command is almost the same as the syntax used to create an ADO.NET `DataCommand`. The only difference is in how the parameters are specified. Specifically, you specify parameters by enclosing them in braces ({…}) and enumerate them starting from 0. The parameter is associated with the equally numbered object in the parameters array.  \n  \n `ExecuteQuery` and `ExecuteCommand` allow you to specify a variable number of arguments for parameter substitution. For example, you can specify the parameters when invoking ExecuteQuery\\<TResult>:  \n  \n```  \ndb.ExecuteQuery<Customer>(\"select * from dbo.Customers where City = {0}\", \"London\");  \n```  \n  \n And, another example:  \n  \n```  \ndb.ExecuteCommand(\"UPDATE Products SET QuantityPerUnit = {0} WHERE ProductID = {1}\", \"24 boxes\", 5);  \n```  \n  \n The following example opens a connection and passes a SQL `UPDATE` command to the SQL engine."
   example:
   - >-
@@ -422,13 +422,13 @@ items:
     parameters:
     - id: command
       type: System.String
-      description: "The SQL command to be executed."
+      description: "SQL-kommando som ska köras."
     - id: parameters
       type: System.Object[]
-      description: "The array of parameters to be passed to the command. Note the following behavior:       If the number of objects in the array is less than the highest number identified in the command string, an exception is thrown.       If the array contains objects that are not referenced in the command string, no exception is thrown.       If any one of the parameters is null, it is converted to <xref uid=&quot;langword_csharp_DBNull.Value&quot; name=&quot;DBNull.Value&quot; href=&quot;&quot;></xref>."
+      description: "Matris med parametrar som ska skickas till kommandot. Tänk på följande: om antalet objekt i matrisen är mindre än det högsta antalet som identifierats i kommandosträngen, genereras ett undantag.       Om matrisen innehåller objekt som inte refererar till kommandosträngen, genereras inget undantag.       Om någon av parametrarna är null, konverteras det till <xref uid=&quot;langword_csharp_DBNull.Value&quot; name=&quot;DBNull.Value&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Int32
-      description: "The number of rows modified by the executed command."
+      description: "Antal rader som ändrats av kommandot körs."
   overload: System.Data.Linq.DataContext.ExecuteCommand*
   exceptions: []
   platform:
@@ -445,14 +445,14 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes, inside delete override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for delete operations."
-  remarks: "See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>."
+  summary: "Kör i ta bort åsidosättningen metoder att redelegate till [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] aktiviteten för att generera och köra dynamiska SQL för delete-åtgärder."
+  remarks: "Se <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.</xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>"
   syntax:
     content: protected void ExecuteDynamicDelete (object entity);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity to be deleted."
+      description: "Enheten som ska tas bort."
   overload: System.Data.Linq.DataContext.ExecuteDynamicDelete*
   exceptions: []
   platform:
@@ -469,14 +469,14 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes, inside insert override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for insert operations."
-  remarks: "Note the following considerations:      -   Because the method has a protected modifier, its use requires subclassing <xref:System.Data.Linq.DataContext>.      -   An exception is thrown if this operation is not called inside a <xref:System.Data.Linq.DataContext.SubmitChanges%2A> operation. It is not intended to be called as a stand-alone operation outside the scope of a <xref:System.Data.Linq.DataContext.SubmitChanges%2A> operation. <xref:System.Data.Linq.DataContext.SubmitChanges%2A> itself calls override methods if they are implemented and the previous methods are intended to be called inside the override methods.      -   It is the responsibility of the developer to pass in the correct entity. The implementation verifies that the passed-in entity is tracked. However, it is the responsibility of the developer to maintain the order or pass in the same entity two times.      -   It is the responsibility of the developer to invoke the correct dynamic API. For example, in the `Update` override method, only the <xref:System.Data.Linq.DataContext.ExecuteDynamicUpdate%2A> method can be called. [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] does not detect or verify whether the invoked dynamic method matches the applicable operation. The results are undefined if an inapplicable method is called (for example, calling <xref:System.Data.Linq.DataContext.ExecuteDynamicDelete%2A> for an object to be updated)."
+  summary: "Kör i insert åsidosättning metoder att redelegate till [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] aktiviteten för att generera och köra dynamiska SQL för infogningsåtgärder."
+  remarks: "Observera följande:-eftersom metoden har en skyddad modifierare, dess användning kräver tillämpa subclassing <xref:System.Data.Linq.DataContext>.</xref:System.Data.Linq.DataContext>      -Ett undantag om den här åtgärden inte anropas inuti en <xref:System.Data.Linq.DataContext.SubmitChanges%2A>åtgärden.</xref:System.Data.Linq.DataContext.SubmitChanges%2A> Det är inte avsedd att anropas som en fristående åtgärd utanför omfånget för en <xref:System.Data.Linq.DataContext.SubmitChanges%2A>åtgärden.</xref:System.Data.Linq.DataContext.SubmitChanges%2A> <xref:System.Data.Linq.DataContext.SubmitChanges%2A>själva åsidosätta anrop metoder om de har implementerats och föregående metoder ska anropas i metoder för åsidosättning.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>      -Ansvarar för utvecklare att skicka in rätt enhet. Implementeringen verifierar att skickas i entiteten spåras. Det är dock ansvar för utvecklare att underhålla ordning och skicka två gånger i samma entitet.      -Ansvarar för utvecklare att anropa rätt dynamiska API: et. Till exempel i den `Update` Åsidosätt metoden bara den <xref:System.Data.Linq.DataContext.ExecuteDynamicUpdate%2A>metod kan anropas.</xref:System.Data.Linq.DataContext.ExecuteDynamicUpdate%2A> [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]identifierar inte och kontrollera om den dynamiska anropade metoden matchar tillämpliga igen. Resultatet är odefinierad om ett metoden anropas (till exempel anropar <xref:System.Data.Linq.DataContext.ExecuteDynamicDelete%2A>för ett objekt uppdateras).</xref:System.Data.Linq.DataContext.ExecuteDynamicDelete%2A>"
   syntax:
     content: protected void ExecuteDynamicInsert (object entity);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity to be inserted."
+      description: "Enheten som ska infogas."
   overload: System.Data.Linq.DataContext.ExecuteDynamicInsert*
   exceptions: []
   platform:
@@ -493,14 +493,14 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes, inside update override methods, to redelegate to [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] the task of generating and executing dynamic SQL for update operations."
-  remarks: "See <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>."
+  summary: "Kör i uppdateringsmetoder åsidosättning till redelegate till [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] aktiviteten för att generera och köra dynamiska SQL för uppdateringsåtgärder."
+  remarks: "Se <xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>.</xref:System.Data.Linq.DataContext.ExecuteDynamicInsert%2A>"
   syntax:
     content: protected void ExecuteDynamicUpdate (object entity);
     parameters:
     - id: entity
       type: System.Object
-      description: "The entity to be updated."
+      description: "Enheten som ska uppdateras."
   overload: System.Data.Linq.DataContext.ExecuteDynamicUpdate*
   exceptions: []
   platform:
@@ -517,23 +517,23 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes the stored database procedure or scalar function associated with the specified CLR method."
-  remarks: "The ExecuteMethodCall method is used in automatically generated code and acts as a proxy to database functions."
+  summary: "Kör den lagrade metod eller skalärfunktion som är associerade med den angivna CLR-metoden."
+  remarks: "Metoden ExecuteMethodCall fungerar som proxy för databasfunktioner används i automatiskt genererade koden."
   syntax:
     content: protected System.Data.Linq.IExecuteResult ExecuteMethodCall (object instance, System.Reflection.MethodInfo methodInfo, object[] parameters);
     parameters:
     - id: instance
       type: System.Object
-      description: "The instance of the method invocation (the current object)."
+      description: "Instans av metodanropet (det aktuella objektet)."
     - id: methodInfo
       type: System.Reflection.MethodInfo
-      description: "Identifies the CLR method that corresponds to a database method."
+      description: "Identifierar den CLR-metoden som motsvarar en metod för databasen."
     - id: parameters
       type: System.Object[]
-      description: "The array of parameters to be passed to the command."
+      description: "Matris med parametrar som ska skickas till kommandot."
     return:
       type: System.Data.Linq.IExecuteResult
-      description: "The result (the return value and output parameters) of executing the specified method."
+      description: "Resultatet (returvärde och utdataparametrar) för att köra den angivna metoden."
   overload: System.Data.Linq.DataContext.ExecuteMethodCall*
   exceptions: []
   platform:
@@ -550,22 +550,22 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Executes SQL queries directly on the database."
+  summary: "Kör SQL-frågor direkt på databasen."
   syntax:
     content: public System.Collections.IEnumerable ExecuteQuery (Type elementType, string query, object[] parameters);
     parameters:
     - id: elementType
       type: System.Type
-      description: "The type of the &lt;xref:System.Collections.Generic.IEnumerable%601&gt; to be returned.       The algorithm for matching columns in the result of the query to fields or properties in the object works as follows:       If a field or property is mapped to a particular column name, that column name is expected in the resultset.       If a field or property is not mapped, a column with the same name as the field or property is expected in the resultset.       The comparison is performed by looking for a case-sensitive match first. If this match is not found, a subsequent search occurs for a case-insensitive match.       The query must return all the tracked fields and properties of the object (except those that are loaded on a deferred basis) when all the following conditions are true:       `T` is an entity explicitly tracked by the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref>.       <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.       The entity has a primary key.       Otherwise an exception is thrown."
+      description: "Typ av den &lt;xref:System.Collections.Generic.IEnumerable%601&gt; ska returneras.       Algoritmen för att matcha kolumner i resultatet av frågan till fält och egenskaper i objektet fungerar på följande sätt: om ett fält eller egenskap är mappad till en viss kolumnnamnet, som kolumnnamn förväntas i resultatuppsättningen.       Om ett fält eller egenskap inte är mappad, förväntas en kolumn med samma namn som fältet eller egenskapen i resultatuppsättningen.       Jämförelsen utförs genom att söka efter en skiftlägeskänslig matchning först. Om den här matchning, en efterföljande sökning görs för en icke-skiftlägeskänsliga matchningen.       Frågan måste returnera alla spårade fält och egenskaper i objektet (utom de som läses in på grundval av uppskjutna) när följande villkor är uppfyllda: `T` en entitet uttryckligen spåras av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref>.       <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*>is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.</xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*>       Entiteten har en primärnyckel.       Annars genereras ett undantag."
     - id: query
       type: System.String
-      description: "The SQL query to be executed."
+      description: "SQL-frågan ska köras."
     - id: parameters
       type: System.Object[]
-      description: "The array of parameters to be passed to the command. Note the following behavior:       If the number of objects in the array is less than the highest number identified in the command string, an exception is thrown.       If the array contains objects that are not referenced in the command string, no exception is thrown.       If a parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, it is converted to <xref uid=&quot;langword_csharp_DBNull.Value&quot; name=&quot;DBNull.Value&quot; href=&quot;&quot;></xref>."
+      description: "Matris med parametrar som ska skickas till kommandot. Tänk på följande: om antalet objekt i matrisen är mindre än det högsta antalet som identifierats i kommandosträngen, genereras ett undantag.       Om matrisen innehåller objekt som inte refererar till kommandosträngen, genereras inget undantag.       Om parametern är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, konverteras det till <xref uid=&quot;langword_csharp_DBNull.Value&quot; name=&quot;DBNull.Value&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Collections.IEnumerable
-      description: "An &lt;xref:System.Collections.Generic.IEnumerable%601&gt; collection of objects returned by the query."
+      description: "En &lt;xref:System.Collections.Generic.IEnumerable%601&gt; samlingen med objekt som returneras av frågan."
   overload: System.Data.Linq.DataContext.ExecuteQuery*
   exceptions: []
   platform:
@@ -587,13 +587,13 @@ items:
     parameters:
     - id: query
       type: System.String
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: parameters
       type: System.Object[]
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Collections.Generic.IEnumerable{TResult}
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Linq.DataContext.ExecuteQuery<TResult>*
   exceptions: []
   platform:
@@ -610,8 +610,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets the modified objects tracked by <xref href=&quot;System.Data.Linq.DataContext&quot;></xref>."
-  remarks: "Note the following considerations:      -   GetChangeSet might have side effects, such as inference of insert and delete operations that are usually performed at the time of <xref:System.Data.Linq.DataContext.SubmitChanges%2A>. For example, objects that are used in the following operations can create corresponding inferred operations in the following list:          -   <xref:System.Data.Linq.EntitySet%601.Add%2A> to <xref:System.Data.Linq.Table%601.InsertOnSubmit%2A>.          -   <xref:System.Data.Linq.EntityRef%601> assignment to null (possibly because of <xref:System.Data.Linq.EntitySet%601.Remove%2A> to <xref:System.Data.Linq.Table%601.DeleteOnSubmit%2A>.      -   The set may not be ordered according to foreign key constraints.      -   Database-generated values (for example, primary and foreign key values, timestamps, and so forth) are not available. Such information requires database command execution and perhaps the propagation of retrieved information (for example, foreign key from primary key).      -   The set of changed objects is computed at the time of the call. Subsequent calls to <xref:System.Data.Linq.DataContext.SubmitChanges%2A> can produce a different set if additional changes are made.       Output when no changes have been made appears as follows:       `{Added: 0, Removed: 0, Modified: 0}`"
+  summary: "Hämtar de ändrade objekten som spåras av <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref>."
+  remarks: "Observera följande:-GetChangeSet kan ha sidoeffekter, som härledning av insert och delete-åtgärder som utförs vanligtvis vid tidpunkten för <xref:System.Data.Linq.DataContext.SubmitChanges%2A>.</xref:System.Data.Linq.DataContext.SubmitChanges%2A> Objekt som används i följande åtgärder kan till exempel skapa motsvarande antydda åtgärder i listan nedan:- <xref:System.Data.Linq.EntitySet%601.Add%2A> <xref:System.Data.Linq.Table%601.InsertOnSubmit%2A>.</xref:System.Data.Linq.Table%601.InsertOnSubmit%2A> </xref:System.Data.Linq.EntitySet%601.Add%2A>          - <xref:System.Data.Linq.EntityRef%601>tilldelning till null (möjligen på grund av <xref:System.Data.Linq.EntitySet%601.Remove%2A>att <xref:System.Data.Linq.Table%601.DeleteOnSubmit%2A>.</xref:System.Data.Linq.Table%601.DeleteOnSubmit%2A> </xref:System.Data.Linq.EntitySet%601.Remove%2A> </xref:System.Data.Linq.EntityRef%601>      -Uppsättningen kan inte sorteras enligt sekundärnyckelbegränsningar.      -Databasen-genererade värden (till exempel primärnyckeln och nyckelvärden, tidsstämplar och så vidare) är inte tillgängliga. Sådan information kräver databasen kommandokörning och kanske spridning av hämtade information (till exempel sekundärnyckel från primär nyckel).      -Uppsättning ändrade objekt beräknas vid tidpunkten för anropet. Efterföljande anrop till <xref:System.Data.Linq.DataContext.SubmitChanges%2A>kan ge olika om ytterligare ändringar görs.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>       Utdata när du inte har gjorts några ändringar visas på följande sätt:`{Added: 0, Removed: 0, Modified: 0}`"
   example:
   - >-
     [!code-vb[DLinqDebuggingSupport#2](~/add/codesnippet/visualbasic/debuggingsupport/Module1.vb#2)]
@@ -621,7 +621,7 @@ items:
     parameters: []
     return:
       type: System.Data.Linq.ChangeSet
-      description: "The set of objects is returned as three read-only collections."
+      description: "Uppsättningen objekt returneras som tre samlingar."
   overload: System.Data.Linq.DataContext.GetChangeSet*
   exceptions: []
   platform:
@@ -638,8 +638,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets the information about SQL commands generated by [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]."
-  remarks: "This method is only a getter and does not affect <xref:System.Data.Linq.DataContext> state.       Note the following considerations:      -   The argument must be non-null. Otherwise, a null argument exception is thrown.      -   Normal query translation exceptions thrown during [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] query execution apply for a query that cannot be translated.      -   Only the first query command is returned. Specifically, additional commands that are used for eager loading (<xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>) are not included.      -   <xref:System.Data.Linq.DataContext> does not track what the user does with the command. For example, results from the execution of the returned command are not tracked and do not affect <xref:System.Data.Linq.DataContext> state."
+  summary: "Hämtar information om SQL-kommandon som genererats av [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)]."
+  remarks: "Den här metoden är endast getter och påverkar inte <xref:System.Data.Linq.DataContext>tillstånd.</xref:System.Data.Linq.DataContext>       Observera följande:-argumentet måste vara icke-null. Annars genereras ett undantag för null-argument.      -Normal query translation undantag under [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] Frågekörningen gäller för en fråga som inte kan översättas.      – Endast det första frågekommandot returneras. Mer specifikt ytterligare kommandon som används för gärna inläsning (<xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>) ingår inte i listan.</xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>      - <xref:System.Data.Linq.DataContext>spårar inte vad du gör med hjälp av kommandot.</xref:System.Data.Linq.DataContext> Till exempel resultat från körningen av kommandot returnerade spåras inte och påverkar inte <xref:System.Data.Linq.DataContext>tillstånd.</xref:System.Data.Linq.DataContext>"
   example:
   - >-
     [!code-vb[DLinqDebuggingSupport#3](~/add/codesnippet/visualbasic/debuggingsupport/Module1.vb#3)]
@@ -649,10 +649,10 @@ items:
     parameters:
     - id: query
       type: System.Linq.IQueryable
-      description: "The query whose SQL command information is to be retrieved."
+      description: "Frågan vars SQL-kommandoinformation som hämtas."
     return:
       type: System.Data.Common.DbCommand
-      description: "The requested command information object."
+      description: "Den begärda kommando informationsobjektet."
   overload: System.Data.Linq.DataContext.GetCommand*
   exceptions: []
   platform:
@@ -669,17 +669,17 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Returns a collection of objects of a particular type, where the type is defined by the <code>type</code> parameter."
-  remarks: "This is a weakly typed version of <xref:System.Data.Linq.DataContext.GetTable%2A>. It is important to have a weakly typed version because it is a relatively common practice to construct queries dynamically. It would be inconvenient to force the application to use reflection to call the correct generic method.       If there is no collection for a particular type, an exception is thrown."
+  summary: "Returnerar en mängd med objekt i en viss typ, där typen definieras av den <code> type </code> parameter."
+  remarks: "Det här är en svagt skrivna version av <xref:System.Data.Linq.DataContext.GetTable%2A>.</xref:System.Data.Linq.DataContext.GetTable%2A> Det är viktigt att ha en svagt skrivna version eftersom det är en relativt vanligt att dynamiskt skapa frågor. Det är svårt att tvinga program att använda reflektion för att anropa rätt generisk metod.       Om det inte finns någon samling för en viss typ, genereras ett undantag."
   syntax:
     content: public System.Data.Linq.ITable GetTable (Type type);
     parameters:
     - id: type
       type: System.Type
-      description: "The type of the objects to be returned."
+      description: "Typ av objekt som ska returneras."
     return:
       type: System.Data.Linq.ITable
-      description: "A collection of objects defined by the <code>type</code> parameter."
+      description: "En samling objekt som definieras av den <code> type </code> parameter."
   overload: System.Data.Linq.DataContext.GetTable*
   exceptions: []
   platform:
@@ -701,7 +701,7 @@ items:
     parameters: []
     return:
       type: System.Data.Linq.Table`1
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Linq.DataContext.GetTable<TEntity>*
   exceptions: []
   platform:
@@ -718,13 +718,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets the <xref href=&quot;System.Data.Linq.DataLoadOptions&quot;></xref> associated with this <xref href=&quot;System.Data.Linq.DataContext&quot;></xref>."
-  remarks: "This property gets or sets the options that are used to define prefetch behavior for deferred-loaded members and membership of related collections."
+  summary: "Hämtar eller anger den <xref href=&quot;System.Data.Linq.DataLoadOptions&quot;> </xref> som är associerade med den här <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref>."
+  remarks: "Den här egenskapen hämtar eller anger de alternativ som används för att definiera prefetch funktioner för uppskjuten inläsning medlemmar och medlemskapet för relaterade samlingar."
   syntax:
     content: public System.Data.Linq.DataLoadOptions LoadOptions { get; set; }
     return:
       type: System.Data.Linq.DataLoadOptions
-      description: "The prefetch load options for related data."
+      description: "Prefetch att läsa in alternativ för relaterade data."
   overload: System.Data.Linq.DataContext.LoadOptions*
   exceptions: []
   platform:
@@ -741,15 +741,15 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets the destination to write the SQL query or command."
-  remarks: "Set this property to `null` to disable command logging."
+  summary: "Hämtar eller anger målet att skriva SQL-fråga eller kommando."
+  remarks: "Den här egenskapen `null` att inaktivera loggning för kommandot."
   example:
   - "The following example displays generated SQL in the console window before it displays the results of the query.  \n  \n [!code-vb[System.Data.Linq.DataContext#2](~/add/codesnippet/visualbasic/DataContext/Module1.vb#2)]\n [!code-cs[System.Data.Linq.DataContext#2](~/add/codesnippet/csharp/DataContext/Program.cs#2)]"
   syntax:
     content: public System.IO.TextWriter Log { get; set; }
     return:
       type: System.IO.TextWriter
-      description: "The <xref:System.IO.TextReader> to use for writing the command."
+      description: "Den <xref:System.IO.TextReader>ska användas för att skriva kommandot.</xref:System.IO.TextReader>"
   overload: System.Data.Linq.DataContext.Log*
   exceptions: []
   platform:
@@ -766,12 +766,12 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets the <xref href=&quot;System.Data.Linq.Mapping.MetaModel&quot;></xref> on which the mapping is based."
+  summary: "Hämtar den <xref href=&quot;System.Data.Linq.Mapping.MetaModel&quot;> </xref> på mappningen är baserat."
   syntax:
     content: public System.Data.Linq.Mapping.MetaModel Mapping { get; }
     return:
       type: System.Data.Linq.Mapping.MetaModel
-      description: "The mapping between a database and domain objects."
+      description: "Mappning mellan en databas och domän-objekt."
   overload: System.Data.Linq.DataContext.Mapping*
   exceptions: []
   platform:
@@ -788,13 +788,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets a value that indicates whether object tracking is enabled."
-  remarks: "Setting this property to `false` improves performance at retrieval time, because there are fewer items to track.       An exception is thrown:      -   If the property is set to `false` after a query has been executed.           For more information, see the Valid Modes section in <xref:System.Data.Linq.DataContext>.      -   If the property is set to `false` and <xref:System.Data.Linq.DataContext.SubmitChanges%2A> is called.       If ObjectTrackingEnabled is `false`, <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> is ignored and treated as `false`. In this case, the <xref:System.Data.Linq.DataContext> is read-only.       If ObjectTrackingEnabled is `true`, <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> is `false`. In this case, <xref:System.Data.Linq.DataContext> allows you to load an object graph by using <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> directives, but does not enable deferred loading."
+  summary: "Hämtar eller anger ett värde som anger om Objektspårning är aktiverad."
+  remarks: "Den här egenskapen `false` förbättrar prestanda vid av hämtningstiden eftersom det finns färre objekt att spåra.       Ett undantag: – om den här egenskapen anges till `false` efter en fråga har utförts.           Mer information finns i avsnittet giltiga lägena i <xref:System.Data.Linq.DataContext>.</xref:System.Data.Linq.DataContext>      -Om egenskapen anges till `false` och <xref:System.Data.Linq.DataContext.SubmitChanges%2A>kallas.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>       Om ObjectTrackingEnabled `false`, <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A>har ignorerats och behandlas som `false`.</xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> I det här fallet den <xref:System.Data.Linq.DataContext>är skrivskyddad.</xref:System.Data.Linq.DataContext>       Om ObjectTrackingEnabled `true`, <xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A>är `false`.</xref:System.Data.Linq.DataContext.DeferredLoadingEnabled%2A> I det här fallet <xref:System.Data.Linq.DataContext>kan du läsa in ett objektdiagram med hjälp av <xref:System.Data.Linq.DataLoadOptions.LoadWith%2A>direktiven, men inte aktiverar uppskjuten inläsning.</xref:System.Data.Linq.DataLoadOptions.LoadWith%2A> </xref:System.Data.Linq.DataContext>"
   syntax:
     content: public bool ObjectTrackingEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the object tracking is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om objektet spårning aktiveras; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Linq.DataContext.ObjectTrackingEnabled*
   exceptions: []
   platform:
@@ -811,16 +811,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Refreshes a collection of entity objects according to the specified mode."
+  summary: "Uppdaterar en samling med entitetsobjekt enligt det angivna läget."
   syntax:
     content: public void Refresh (System.Data.Linq.RefreshMode mode, System.Collections.IEnumerable entities);
     parameters:
     - id: mode
       type: System.Data.Linq.RefreshMode
-      description: "A value that specifies how optimistic concurrency conflicts are handled."
+      description: "Ett värde som anger hur optimistisk samtidighetskonflikter hanteras."
     - id: entities
       type: System.Collections.IEnumerable
-      description: "The collection of entities to be refreshed."
+      description: "Samling med entiteter uppdateras."
   overload: System.Data.Linq.DataContext.Refresh*
   exceptions: []
   platform:
@@ -837,16 +837,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Refreshes an entity object according to the specified mode."
+  summary: "Uppdaterar ett entitetsobjekt enligt det angivna läget."
   syntax:
     content: public void Refresh (System.Data.Linq.RefreshMode mode, object entity);
     parameters:
     - id: mode
       type: System.Data.Linq.RefreshMode
-      description: "A value that specifies how optimistic concurrency conflicts are handled."
+      description: "Ett värde som anger hur optimistisk samtidighetskonflikter hanteras."
     - id: entity
       type: System.Object
-      description: "The object to be refreshed."
+      description: "Objektet som ska uppdateras."
   overload: System.Data.Linq.DataContext.Refresh*
   exceptions: []
   platform:
@@ -863,16 +863,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Refreshes an array of entity objects according to the specified mode."
+  summary: "Uppdaterar en matris med entitetsobjekt enligt det angivna läget."
   syntax:
     content: public void Refresh (System.Data.Linq.RefreshMode mode, object[] entities);
     parameters:
     - id: mode
       type: System.Data.Linq.RefreshMode
-      description: "A value that specifies how optimistic concurrency conflicts are handled."
+      description: "Ett värde som anger hur optimistisk samtidighetskonflikter hanteras."
     - id: entities
       type: System.Object[]
-      description: "The array of entity objects to be refreshed."
+      description: "Matris med entitetsobjekt uppdateras."
   overload: System.Data.Linq.DataContext.Refresh*
   exceptions: []
   platform:
@@ -889,8 +889,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Computes the set of modified objects to be inserted, updated, or deleted, and executes the appropriate commands to implement the changes to the database."
-  remarks: "If override methods are present for insert, update, or delete, <xref:System.Data.Linq.DataContext.SubmitChanges%2A> executes these methods instead of the default [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] commands."
+  summary: "Beräknar uppsättningen ändrade objekt som ska infogas, uppdateras eller tas bort och utför lämpliga kommandon för att implementera ändringar till databasen."
+  remarks: "Om åsidosättningen metoder som finns för insert-, update- eller delete, <xref:System.Data.Linq.DataContext.SubmitChanges%2A>utför dessa metoder i stället för standard [!INCLUDE[vbtecdlinq](~/add/includes/vbtecdlinq-md.md)] kommandon.</xref:System.Data.Linq.DataContext.SubmitChanges%2A>"
   syntax:
     content: public void SubmitChanges ();
     parameters: []
@@ -910,8 +910,8 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Sends changes that were made to retrieved objects to the underlying database, and specifies the action to be taken if the submission fails."
-  remarks: "Default failure mode is <xref:System.Data.Linq.ConflictMode>."
+  summary: "Skickar ändringar som har gjorts att hämta objekt till den underliggande databasen och anger åtgärden som ska vidtas om överföringen misslyckas."
+  remarks: "Standardläget för fel är <xref:System.Data.Linq.ConflictMode>.</xref:System.Data.Linq.ConflictMode>"
   example:
   - >-
     [!code-cs[System.Data.Linq.ConflictModeEnumeration#1](~/add/codesnippet/csharp/cmodesnip/program.cs#1)]
@@ -921,7 +921,7 @@ items:
     parameters:
     - id: failureMode
       type: System.Data.Linq.ConflictMode
-      description: "The action to be taken if the submission fails. Valid arguments are as follows:       <xref href=&quot;System.Data.Linq.ConflictMode&quot;></xref><xref href=&quot;System.Data.Linq.ConflictMode&quot;></xref>"
+      description: "Åtgärden som ska vidtas om överföringen misslyckas. Giltiga argument är följande:<xref href=&quot;System.Data.Linq.ConflictMode&quot;></xref><xref href=&quot;System.Data.Linq.ConflictMode&quot;></xref>"
   overload: System.Data.Linq.DataContext.SubmitChanges*
   exceptions: []
   platform:
@@ -938,13 +938,13 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Gets or sets a local transaction for the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] to use to access the database."
-  remarks: "The primary scenario for this property is interoperability with relational [!INCLUDE[vstecado](~/add/includes/vstecado-md.md)] code. For example, use this property when you write your own `Create`/`Update`/`Delete` methods to set the `Transaction` property on the ADO `Command` object.       Note the following:      -   If this property has not been explicitly set, the getter returns null.      -   If the code is executing in a <xref:System.Transactions.Transaction> context, setting this property throws an exception.      -   If this property is set and a new <xref:System.Transactions.Transaction> is opened, an exception is thrown when a query or update is executed."
+  summary: "Hämtar eller anger en lokal transaktion för den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] du använder för att få åtkomst till databasen."
+  remarks: "Det primära scenariot för den här egenskapen är samverkan med relationella [!INCLUDE[vstecado](~/add/includes/vstecado-md.md)] kod. Till exempel använda den här egenskapen när du skriver en egen `Create` / `Update` / `Delete` metoder för att ange den `Transaction` egenskapen på ADO `Command` objekt.       Tänk på följande:-om den här egenskapen inte har ställts in explicit, till exempel returnerar null.      – Om koden körs i en <xref:System.Transactions.Transaction>kontext, ställa in den här egenskapen genererar ett undantag.</xref:System.Transactions.Transaction>      – Om den här egenskapen är uppsättning och en ny <xref:System.Transactions.Transaction>är öppnas, genereras ett undantag när en fråga eller uppdatering har körts.</xref:System.Transactions.Transaction>"
   syntax:
     content: public System.Data.Common.DbTransaction Transaction { get; set; }
     return:
       type: System.Data.Common.DbTransaction
-      description: "The transaction object used by the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref> when executing queries and commands."
+      description: "Transaktionsobjektet som används av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref> när du kör frågor och kommandon."
   overload: System.Data.Linq.DataContext.Transaction*
   exceptions: []
   platform:
@@ -961,16 +961,16 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Converts an existing <xref href=&quot;System.Data.Common.DbDataReader&quot;></xref> to objects."
+  summary: "Konverterar en befintlig <xref href=&quot;System.Data.Common.DbDataReader&quot;> </xref> objekt."
   syntax:
     content: public System.Data.Linq.IMultipleResults Translate (System.Data.Common.DbDataReader reader);
     parameters:
     - id: reader
       type: System.Data.Common.DbDataReader
-      description: "The <xref href=&quot;System.Data.IDataReader&quot;></xref> to be converted."
+      description: "Den <xref href=&quot;System.Data.IDataReader&quot;> </xref> ska konverteras."
     return:
       type: System.Data.Linq.IMultipleResults
-      description: "A list of objects returned by the conversion."
+      description: "En lista över objekt som returnerats av konverteringen."
   overload: System.Data.Linq.DataContext.Translate*
   exceptions: []
   platform:
@@ -987,19 +987,19 @@ items:
   assemblies:
   - System.Data.Linq
   namespace: System.Data.Linq
-  summary: "Converts an existing <xref href=&quot;System.Data.Common.DbDataReader&quot;></xref> to objects."
+  summary: "Konverterar en befintlig <xref href=&quot;System.Data.Common.DbDataReader&quot;> </xref> objekt."
   syntax:
     content: public System.Collections.IEnumerable Translate (Type elementType, System.Data.Common.DbDataReader reader);
     parameters:
     - id: elementType
       type: System.Type
-      description: "The type of the &lt;xref:System.Collections.Generic.IEnumerable%601&gt; to be returned.       The algorithm for matching columns in the result to fields and properties in the object works as follows:       If a field or property is mapped to a particular column name, that column name is expected in the resultset.       If a field or property is not mapped, a column with the same name as the field or property is expected in the resultset.       The comparison is performed by looking for a case-sensitive match first. If this match is not found, a subsequent search is occurs for a case-insensitive match.       The query must return all the tracked fields and properties of the object (except those that are loaded on a deferred basis) when all the following conditions are true:       `T` is an entity explicitly tracked by the <xref href=&quot;System.Data.Linq.DataContext&quot;></xref>.       <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.       The entity has a primary key.       Otherwise an exception is thrown."
+      description: "Typ av den &lt;xref:System.Collections.Generic.IEnumerable%601&gt; ska returneras.       Algoritmen för matchande kolumner i resultatet till fält och egenskaper i objektet fungerar på följande sätt: om ett fält eller egenskap är mappad till en viss kolumnnamnet, som kolumnnamn förväntas i resultatuppsättningen.       Om ett fält eller egenskap inte är mappad, förväntas en kolumn med samma namn som fältet eller egenskapen i resultatuppsättningen.       Jämförelsen utförs genom att söka efter en skiftlägeskänslig matchning först. Om matchningen inte hittas är en efterföljande sökning görs för en icke-skiftlägeskänsliga matchningen.       Frågan måste returnera alla spårade fält och egenskaper i objektet (utom de som läses in på grundval av uppskjutna) när följande villkor är uppfyllda: `T` en entitet uttryckligen spåras av den <xref href=&quot;System.Data.Linq.DataContext&quot;> </xref>.       <xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*>is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.</xref:System.Data.Linq.DataContext.ObjectTrackingEnabled*>       Entiteten har en primärnyckel.       Annars genereras ett undantag."
     - id: reader
       type: System.Data.Common.DbDataReader
-      description: "The <xref href=&quot;System.Data.IDataReader&quot;></xref> to be converted."
+      description: "Den <xref href=&quot;System.Data.IDataReader&quot;> </xref> ska konverteras."
     return:
       type: System.Collections.IEnumerable
-      description: "A list of objects returned by the conversion."
+      description: "En lista över objekt som returnerats av konverteringen."
   overload: System.Data.Linq.DataContext.Translate*
   exceptions: []
   platform:
@@ -1021,10 +1021,10 @@ items:
     parameters:
     - id: reader
       type: System.Data.Common.DbDataReader
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Collections.Generic.IEnumerable{TResult}
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Data.Linq.DataContext.Translate<TResult>*
   exceptions: []
   platform:

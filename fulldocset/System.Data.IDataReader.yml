@@ -16,8 +16,8 @@ items:
   nameWithType: IDataReader
   fullName: System.Data.IDataReader
   type: Interface
-  summary: "Provides a means of reading one or more forward-only streams of result sets obtained by executing a command at a data source, and is implemented by .NET Framework data providers that access relational databases."
-  remarks: "The IDataReader and <xref:System.Data.IDataRecord> interfaces allow an inheriting class to implement a `DataReader` class, which provides a means of reading one or more forward-only streams of result sets. For more information about `DataReader` classes, see [Retrieving Data Using a DataReader](~/add/includes/ajax-current-ext-md.md).       An application does not create an instance of the IDataReader interface directly, but creates an instance of a class that inherits IDataReader.       Classes that inherit IDataReader must implement the inherited members, and typically define additional members to add provider-specific functionality.       Changes made to a result set by another process or thread while data is being read may be visible to the user of a class that implements an `IDataReader`. However, the precise behavior is both provider and timing dependent."
+  summary: "Ger dig möjlighet att läsa en eller flera framåtriktade dataströmmar resultatuppsättningar som erhållits genom att köra ett kommando i en datakälla och implementeras av .NET Framework dataproviders som kommer åt relationsdatabaser."
+  remarks: "IDataReader och <xref:System.Data.IDataRecord>gränssnitt för att implementera en ärvande klass en `DataReader` -klassen, som ger dig möjlighet att läsa en eller flera framåtriktade dataströmmar för resultatuppsättningar.</xref:System.Data.IDataRecord> Mer information om `DataReader` klasser, se [hämtar Data med en DataReader](~/add/includes/ajax-current-ext-md.md).       Ett program skapa inte en instans av gränssnittet IDataReader direkt, men de skapar en instans av en klass som ärver IDataReader.       Klasser som ärver IDataReader måste implementera ärvda medlemmar och vanligtvis definiera ytterligare medlemmar för att lägga till provider-specifik funktion.       Ändringar som gjorts i en resultatmängd av en annan bearbeta eller tråd när data läses kan vara synliga för användare av en klass som implementerar ett `IDataReader`. Exakt beteendet är dock både providern och tidsinställning beroende."
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlConnection>, <xref:System.Data.SqlClient.SqlCommand>, and <xref:System.Data.SqlClient.SqlDataReader>. The example reads through the data, writing it out to the console. Finally, the example closes the <xref:System.Data.SqlClient.SqlDataReader>, then the <xref:System.Data.SqlClient.SqlConnection>.  \n  \n [!code-cs[Classic WebData SqlDataReader.Read Example#1](~/add/codesnippet/csharp/t-system.data.idatareader_1.cs)]\n [!code-vb[Classic WebData SqlDataReader.Read Example#1](~/add/codesnippet/visualbasic/t-system.data.idatareader_1.vb)]"
   syntax:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Closes the <xref href=&quot;System.Data.IDataReader&quot;></xref> Object."
-  remarks: "You must explicitly call the Close method when you are through using the <xref:System.Data.IDataReader> to use the associated <xref:System.Data.IDbConnection> for any other purpose."
+  summary: "Stänger den <xref href=&quot;System.Data.IDataReader&quot;> </xref> objekt."
+  remarks: "Du måste explicit anropa metoden Close när du är klar med den <xref:System.Data.IDataReader>att använda den associerade <xref:System.Data.IDbConnection>i något annat syfte.</xref:System.Data.IDbConnection> </xref:System.Data.IDataReader>"
   syntax:
     content: public void Close ();
     parameters: []
@@ -60,13 +60,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets a value indicating the depth of nesting for the current row."
-  remarks: "The outermost table has a depth of zero."
+  summary: "Hämtar ett värde som anger Nivådjupet för den aktuella raden."
+  remarks: "Den yttersta tabellen har ett djup på noll."
   syntax:
     content: public int Depth { get; }
     return:
       type: System.Int32
-      description: "The level of nesting."
+      description: "Nivå kapslingsnivåer."
   overload: System.Data.IDataReader.Depth*
   exceptions: []
   platform:
@@ -83,19 +83,19 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Returns a <xref href=&quot;System.Data.DataTable&quot;></xref> that describes the column metadata of the <xref href=&quot;System.Data.IDataReader&quot;></xref>."
-  remarks: "The implementation of GetSchemaTable method for the .NET Framework Data Provider for OLE DB maps to the OLE DB IColumnsRowset::GetColumnsRowset method, while implementations for other .NET Framework data providers do not use an OLE DB provider layer. The order in which GetSchemaTable returns metadata about each column in a table, and the DataReader columns that are returned, vary depending on which data provider you use. The following table lists data providers and members that implement GetSchemaTable.      |Data Provider|Member|   |-------------------|------------|   |.NET Data Provider for ODBC|<xref:System.Data.Odbc.OdbcDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |.NET Data Provider for OLE DB|<xref:System.Data.OleDb.OleDbDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |.NET Data Provider for Oracle|<xref:System.Data.OracleClient.OracleDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |.NET Data Provider for SQL Server|<xref:System.Data.SqlClient.SqlDataReader.GetSchemaTable%2A?displayProperty=fullName>.|"
+  summary: "Returnerar en <xref href=&quot;System.Data.DataTable&quot;> </xref> som beskriver kolumnmetadata för den <xref href=&quot;System.Data.IDataReader&quot;> </xref>."
+  remarks: "Genomförandet av metoden GetSchemaTable för .NET Framework Data Provider för OLE DB mappar till metoden OLE DB IColumnsRowset::GetColumnsRowset medan implementeringar för andra .NET Framework dataproviders inte använder ett lager för OLE DB-providern. Ordningen i vilken GetSchemaTable returnerar metadata om varje kolumn i en tabell och DataReader kolumner som ska returneras varierar beroende på vilken dataleverantör som du använder. I följande tabell visas dataleverantörer och medlemmar som implementerar GetSchemaTable.      | Dataprovidern | Medlemmen |   |-------------------|------------|   |. NET-dataprovidern för ODBC | <xref:System.Data.Odbc.OdbcDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |. NET Data Provider för OLE DB | <xref:System.Data.OleDb.OleDbDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |. NET-dataprovider för Oracle | <xref:System.Data.OracleClient.OracleDataReader.GetSchemaTable%2A?displayProperty=fullName>.|   |. NET Data Provider för SQLServer | <xref:System.Data.SqlClient.SqlDataReader.GetSchemaTable%2A?displayProperty=fullName>.|</xref:System.Data.SqlClient.SqlDataReader.GetSchemaTable%2A?displayProperty=fullName></xref:System.Data.OracleClient.OracleDataReader.GetSchemaTable%2A?displayProperty=fullName></xref:System.Data.OleDb.OleDbDataReader.GetSchemaTable%2A?displayProperty=fullName></xref:System.Data.Odbc.OdbcDataReader.GetSchemaTable%2A?displayProperty=fullName>"
   syntax:
     content: public System.Data.DataTable GetSchemaTable ();
     parameters: []
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that describes the column metadata."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som beskriver kolumnens metadata."
   overload: System.Data.IDataReader.GetSchemaTable*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Data.IDataReader&quot;></xref> is closed."
+    description: "Den <xref href=&quot;System.Data.IDataReader&quot;> </xref> är stängd."
   platform:
   - net462
 - uid: System.Data.IDataReader.IsClosed
@@ -110,13 +110,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets a value indicating whether the data reader is closed."
-  remarks: "IsClosed and <xref:System.Data.IDataReader.RecordsAffected%2A> are the only properties that you can call after the <xref:System.Data.IDataReader> is closed."
+  summary: "Hämtar ett värde som anger om dataläsaren har stängts."
+  remarks: "IsClosed och <xref:System.Data.IDataReader.RecordsAffected%2A>är endast egenskaper som du kan anropa efter den <xref:System.Data.IDataReader>är stängd.</xref:System.Data.IDataReader> </xref:System.Data.IDataReader.RecordsAffected%2A>"
   syntax:
     content: public bool IsClosed { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data reader is closed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om dataläsaren är stängd. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataReader.IsClosed*
   exceptions: []
   platform:
@@ -133,14 +133,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Advances the data reader to the next result, when reading the results of batch SQL statements."
-  remarks: "Used to process multiple results, which can be obtained by executing batch SQL statements.       By default, the data reader is positioned on the first result.       [!code-vb[IDataReader_NextResult#1](~/add/codesnippet/visualbasic/m-system.data.idatareade_1_1.vb)]  [!code-cs[IDataReader_NextResult#1](~/add/codesnippet/csharp/m-system.data.idatareade_1_1.cs)]"
+  summary: "Avancerar dataläsaren till nästa resultat vid läsning av resultatet av batch SQL-instruktioner."
+  remarks: "Används för att bearbeta flera resultat, som kan erhållas genom att köra batch SQL-instruktioner.       Dataläsaren är placerad på det första resultatet som standard.       [!code-vb[IDataReader_NextResult&#1;](~/add/codesnippet/visualbasic/m-system.data.idatareade_1_1.vb)][!code-cs[IDataReader_NextResult nr&1;  ](~/add/codesnippet/csharp/m-system.data.idatareade_1_1.cs)]"
   syntax:
     content: public bool NextResult ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there are more rows; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det finns fler rader; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataReader.NextResult*
   exceptions: []
   platform:
@@ -157,8 +157,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Advances the <xref href=&quot;System.Data.IDataReader&quot;></xref> to the next record."
-  remarks: "The default position of the <xref:System.Data.IDataReader> is prior to the first record. Therefore you must call Read to begin accessing any data.       While the data reader is in use, the associated connection is busy serving the <xref:System.Data.IDataReader>. This is the case until <xref:System.Data.IDataReader.Close%2A> is called."
+  summary: "Flyttar den <xref href=&quot;System.Data.IDataReader&quot;> </xref> till nästa post."
+  remarks: "Placering av <xref:System.Data.IDataReader>är före den första posten.</xref:System.Data.IDataReader> Därför måste du anropa Läs om du vill börja få åtkomst till några data.       När dataläsaren används är den associerade anslutningen upptagen betjänar <xref:System.Data.IDataReader>.</xref:System.Data.IDataReader> I så fall tills <xref:System.Data.IDataReader.Close%2A>kallas.</xref:System.Data.IDataReader.Close%2A>"
   example:
   - "The following example creates instances of three derived classes <xref:System.Data.OleDb.OleDbConnection>, an <xref:System.Data.OleDb.OleDbCommand>, and an <xref:System.Data.OleDb.OleDbDataReader>. The example reads through the data, writing it out to the console. Finally, the example closes the <xref:System.Data.OleDb.OleDbDataReader>, then the <xref:System.Data.OleDb.OleDbConnection>.  \n  \n [!code-cs[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/csharp/m-system.data.idatareade_0_1.cs)]\n [!code-vb[Classic WebData IDataReader.Read Example#1](~/add/codesnippet/visualbasic/m-system.data.idatareade_0_1.vb)]"
   syntax:
@@ -166,7 +166,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if there are more rows; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det finns fler rader; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDataReader.Read*
   exceptions: []
   platform:
@@ -183,13 +183,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Gets the number of rows changed, inserted, or deleted by execution of the SQL statement."
-  remarks: "The RecordsAffected property is not set until all rows are read and you close the <xref:System.Data.IDataReader>.       <xref:System.Data.IDataReader.IsClosed%2A> and RecordsAffected are the only properties that you can call after the <xref:System.Data.IDataReader> is closed."
+  summary: "Hämtar antalet rader ändras, infogas eller tas bort genom att köra SQL-instruktionen."
+  remarks: "Egenskapen RecordsAffected anges inte förrän alla rader läses och stänger <xref:System.Data.IDataReader>.</xref:System.Data.IDataReader>       <xref:System.Data.IDataReader.IsClosed%2A>och RecordsAffected är endast egenskaper som du kan anropa efter den <xref:System.Data.IDataReader>är stängd.</xref:System.Data.IDataReader></xref:System.Data.IDataReader.IsClosed%2A>"
   syntax:
     content: public int RecordsAffected { get; }
     return:
       type: System.Int32
-      description: "The number of rows changed, inserted, or deleted; 0 if no rows were affected or the statement failed; and -1 for SELECT statements."
+      description: "Antalet rader som ändras, infogas eller tas bort; 0 om inga rader påverkades eller instruktionen misslyckades. och 1 för SELECT-satser."
   overload: System.Data.IDataReader.RecordsAffected*
   exceptions: []
   platform:

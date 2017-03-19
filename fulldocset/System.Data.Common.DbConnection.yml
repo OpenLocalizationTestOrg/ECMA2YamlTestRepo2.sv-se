@@ -36,7 +36,7 @@ items:
   nameWithType: DbConnection
   fullName: System.Data.Common.DbConnection
   type: Class
-  summary: "Represents a connection to a database."
+  summary: "Representerar en anslutning till en databas."
   syntax:
     content: 'public abstract class DbConnection : System.ComponentModel.Component, IDisposable, System.Data.IDbConnection'
   inheritance:
@@ -75,7 +75,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Common.DbConnection&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Data.Common.DbConnection&quot;> </xref> klass."
   syntax:
     content: protected DbConnection ();
     parameters: []
@@ -95,17 +95,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Starts a database transaction."
-  remarks: "If you are creating your own connection type, override this method to implement the code necessary to begin a transaction."
+  summary: "Startar en databastransaktion."
+  remarks: "Om du skapar en egen typ av anslutning kan åsidosätta den här metoden för att implementera kod som behövs för att påbörja transaktionen."
   syntax:
     content: protected abstract System.Data.Common.DbTransaction BeginDbTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
     - id: isolationLevel
       type: System.Data.IsolationLevel
-      description: "Specifies the isolation level for the transaction."
+      description: "Anger Isoleringsnivån för transaktionen."
     return:
       type: System.Data.Common.DbTransaction
-      description: "An object representing the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Common.DbConnection.BeginDbTransaction*
   exceptions: []
   platform:
@@ -122,14 +122,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Starts a database transaction."
-  remarks: "If you do not specify an isolation level, the default isolation level for the specific type of connection is used."
+  summary: "Startar en databastransaktion."
+  remarks: "Om du inte anger en isoleringsnivå används standardisoleringsnivån för typ av anslutning."
   syntax:
     content: public System.Data.Common.DbTransaction BeginTransaction ();
     parameters: []
     return:
       type: System.Data.Common.DbTransaction
-      description: "An object representing the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Common.DbConnection.BeginTransaction*
   exceptions: []
   platform:
@@ -146,16 +146,16 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Starts a database transaction with the specified isolation level."
+  summary: "Startar en transaktion med den angivna Isoleringsnivån."
   syntax:
     content: public System.Data.Common.DbTransaction BeginTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
     - id: isolationLevel
       type: System.Data.IsolationLevel
-      description: "Specifies the isolation level for the transaction."
+      description: "Anger Isoleringsnivån för transaktionen."
     return:
       type: System.Data.Common.DbTransaction
-      description: "An object representing the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Common.DbConnection.BeginTransaction*
   exceptions: []
   platform:
@@ -172,14 +172,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Changes the current database for an open connection."
-  remarks: "The value supplied in the `databaseName` parameter must be a valid database name for the current instance."
+  summary: "Ändrar den aktuella databasen för en öppen anslutning."
+  remarks: "Värdet som angetts i den `databaseName` parametern måste vara ett giltigt databasnamn för den aktuella instansen."
   syntax:
     content: public abstract void ChangeDatabase (string databaseName);
     parameters:
     - id: databaseName
       type: System.String
-      description: "Specifies the name of the database for the connection to use."
+      description: "Anger namnet på databasen för anslutningen ska använda."
   overload: System.Data.Common.DbConnection.ChangeDatabase*
   exceptions: []
   platform:
@@ -196,8 +196,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Closes the connection to the database. This is the preferred method of closing any open connection."
-  remarks: "The Close method rolls back any pending transactions. It then releases the connection to the connection pool, or closes the connection if connection pooling is disabled.       An application can call Close more than one time. No exception is generated.       If the <xref:System.Data.Common.DbConnection> goes out of scope, it is not closed. Therefore, you must explicitly close the connection by calling `Close` or `Dispose`, which are functionally equivalent. If the connection pooling value `Pooling` is set to `true` or `yes`, this also releases the physical connection.      > [!CAUTION] >  Do not call `Close` or `Dispose` on a **Connection**, a **DataReader**, or any other managed object in the `Finalize` method of your class. In a finalizer, you should only release unmanaged resources that your class owns directly. If your class does not own any unmanaged resources, do not include a `Finalize` method in your class definition. For more information, see [Garbage Collection](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Stänger anslutningen till databasen. Detta är den bästa metoden för att stänga en öppen anslutning."
+  remarks: "Close-metoden återställer alla väntande transaktioner. Den sedan släpper anslutningen till anslutningspoolen eller stänger anslutningen om anslutningspooler är inaktiverad.       Ett program kan anropa Close mer än en gång. Inget undantag genereras.       Om den <xref:System.Data.Common.DbConnection>går ut av omfång, inte är stängd.</xref:System.Data.Common.DbConnection> Därför måste du uttryckligen stänga anslutningen genom att anropa `Close` eller `Dispose`, vilket är funktionellt likvärdiga. Om värdet för anslutningspoolen `Pooling` är inställd på `true` eller `yes`, detta också släpper den fysiska anslutningen.      > [!CAUTION] > Anropar inte `Close` eller `Dispose` på en **anslutning**, **DataReader**, eller andra hanterat objekt i den `Finalize` -metoden i klassen. Du bör endast släpper ohanterade resurser som din klass äger direkt i en slutföraren. Om klassen inte äger ohanterade resurser innehåller inte en `Finalize` metod i klassdefinition. Mer information finns i [skräpinsamling](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public abstract void Close ();
     parameters: []
@@ -205,7 +205,7 @@ items:
   exceptions:
   - type: System.Data.Common.DbException
     commentId: T:System.Data.Common.DbException
-    description: "The connection-level error that occurred while opening the connection."
+    description: "Anslutningsnivån felet som uppstod när du öppnar anslutningen."
   platform:
   - net462
 - uid: System.Data.Common.DbConnection.ConnectionString
@@ -220,13 +220,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets or sets the string used to open the connection."
-  remarks: "The exact contents of the connection string depend on the specific data source for this connection. To determine which settings are valid, see the documentation for the specific type of connection that you are using."
+  summary: "Hämtar eller anger den sträng som används för att öppna anslutningen."
+  remarks: "Exakt innehållet i anslutningssträngen är beroende av specifika datakällan för den här anslutningen. Finns i dokumentationen för den speciella typ av anslutning som du använder för att avgöra vilka inställningar som är giltiga."
   syntax:
     content: public abstract string ConnectionString { get; set; }
     return:
       type: System.String
-      description: "The connection string used to establish the initial connection. The exact contents of the connection string depend on the specific data source for this connection. The default value is an empty string."
+      description: "Den anslutningssträng som används för att skapa den första anslutningen. Exakt innehållet i anslutningssträngen är beroende av specifika datakällan för den här anslutningen. Standardvärdet är en tom sträng."
   overload: System.Data.Common.DbConnection.ConnectionString*
   exceptions: []
   platform:
@@ -243,12 +243,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets the time to wait while establishing a connection before terminating the attempt and generating an error."
+  summary: "Hämtas när en anslutning upprättas innan försöket avbryts och ett fel genereras."
   syntax:
     content: public virtual int ConnectionTimeout { get; }
     return:
       type: System.Int32
-      description: "The time (in seconds) to wait for a connection to open. The default value is determined by the specific type of connection that you are using."
+      description: "Tid (i sekunder) för en anslutning för att öppna. Standardvärdet bestäms av den speciella typ av anslutning som du använder."
   overload: System.Data.Common.DbConnection.ConnectionTimeout*
   exceptions: []
   platform:
@@ -265,7 +265,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Creates and returns a <xref href=&quot;System.Data.Common.DbCommand&quot;></xref> object associated with the current connection."
+  summary: "Skapar och returnerar ett <xref href=&quot;System.Data.Common.DbCommand&quot;> </xref> objektet som är associerat med den aktuella anslutningen."
   syntax:
     content: public System.Data.Common.DbCommand CreateCommand ();
     parameters: []
@@ -288,8 +288,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Creates and returns a <xref href=&quot;System.Data.Common.DbCommand&quot;></xref> object associated with the current connection."
-  remarks: "If you are implementing your own connection, override this method to implement the code necessary to create and return a <xref:System.Data.Common.DbCommand> object."
+  summary: "Skapar och returnerar ett <xref href=&quot;System.Data.Common.DbCommand&quot;> </xref> objektet som är associerat med den aktuella anslutningen."
+  remarks: "Om du implementerar din egen anslutning åsidosätta den här metoden för att implementera kod som behövs för att skapa och returnera ett <xref:System.Data.Common.DbCommand>objekt.</xref:System.Data.Common.DbCommand>"
   syntax:
     content: protected abstract System.Data.Common.DbCommand CreateDbCommand ();
     parameters: []
@@ -312,13 +312,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets the name of the current database after a connection is opened, or the database name specified in the connection string before the connection is opened."
-  remarks: "A connection typically updates this property dynamically when the current database changes."
+  summary: "Hämtar namnet på den aktuella databasen när en anslutning har öppnats eller namn som anges i anslutningssträngen innan anslutningen har öppnats."
+  remarks: "En anslutning uppdateras vanligtvis dynamiskt den här egenskapen när den aktuella databasen ändras."
   syntax:
     content: public abstract string Database { get; }
     return:
       type: System.String
-      description: "The name of the current database or the name of the database to be used after a connection is opened. The default value is an empty string."
+      description: "Namnet på den aktuella databasen eller namnet på databasen som ska användas när en anslutning har öppnats. Standardvärdet är en tom sträng."
   overload: System.Data.Common.DbConnection.Database*
   exceptions: []
   platform:
@@ -335,13 +335,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets the name of the database server to which to connect."
-  remarks: "If the connection to the database is closed, the DataSource returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword. If the connection is open and the <xref:System.Data.Common.DbConnection.ConnectionString%2A> data source keyword&quot;s value starts with &quot;&#124;`datadirectory`&#124;&quot;, the property returns whatever is contained in the <xref:System.Data.Common.DbConnection.ConnectionString%2A> for the `DataSource` keyword only. If the connection to the database is open, the property returns what the native provider returns for the `DBPROP_INIT_DATASOURCE`, and if that is empty, the native provider&quot;s `DBPROP_DATASOURCENAME` is returned."
+  summary: "Hämtar namnet på den databasserver som ska anslutas."
+  remarks: "Om anslutningen till databasen är stängd datakällan returnerar det ingår i den <xref:System.Data.Common.DbConnection.ConnectionString%2A>för den `DataSource` nyckelordet.</xref:System.Data.Common.DbConnection.ConnectionString%2A> Om anslutningen är öppen och <xref:System.Data.Common.DbConnection.ConnectionString%2A>datakälla nyckelordet värdet börjar med &quot;|`datadirectory`|&quot;, returnerar egenskapen vad ingår i den <xref:System.Data.Common.DbConnection.ConnectionString%2A>för den `DataSource` nyckelordet endast.</xref:System.Data.Common.DbConnection.ConnectionString%2A> </xref:System.Data.Common.DbConnection.ConnectionString%2A> Om anslutningen till databasen är öppen, returnerar egenskapen ursprunglig provider returnerar för den `DBPROP_INIT_DATASOURCE`, och om det är tomt, den inbyggda providern `DBPROP_DATASOURCENAME` returneras."
   syntax:
     content: public abstract string DataSource { get; }
     return:
       type: System.String
-      description: "The name of the database server to which to connect. The default value is an empty string."
+      description: "Namnet på den databasserver som ska anslutas. Standardvärdet är en tom sträng."
   overload: System.Data.Common.DbConnection.DataSource*
   exceptions: []
   platform:
@@ -363,7 +363,7 @@ items:
     content: protected virtual System.Data.Common.DbProviderFactory DbProviderFactory { get; }
     return:
       type: System.Data.Common.DbProviderFactory
-      description: "A set of methods for creating instances of a provider&quot;s implementation of the data source classes."
+      description: "En uppsättning metoder för att skapa instanser av en providerns implementering av datakällsklasser."
   overload: System.Data.Common.DbConnection.DbProviderFactory*
   exceptions: []
   platform:
@@ -380,14 +380,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Enlists in the specified transaction."
-  remarks: "New in ADO.NET 2.0 is support for using the `EnlistTransaction` method to enlist in a distributed transaction. Because it enlists a connection in a <xref:System.Transactions.Transaction> instance, `EnlistTransaction` takes advantage of functionality available in the <xref:System.Transactions> namespace for managing distributed transactions. Once a connection is explicitly enlisted in a transaction, it cannot be unenlisted or enlisted in another transaction until the first transaction finishes."
+  summary: "Att registrera sig i den angivna transaktionen."
+  remarks: "Ny i ADO.NET 2.0 finns stöd för att använda den `EnlistTransaction` metod för att medverka i en distribuerad transaktion. Eftersom den anger en anslutning i en <xref:System.Transactions.Transaction>instansen `EnlistTransaction` drar nytta av funktionerna i den <xref:System.Transactions>namnområde för hantering av distribuerade transaktioner.</xref:System.Transactions> </xref:System.Transactions.Transaction> När en anslutning är uttryckligen registrerad i en transaktion, kan inte de unenlisted eller utför en annan transaktion tills den första transaktionen har slutförts."
   syntax:
     content: public virtual void EnlistTransaction (System.Transactions.Transaction transaction);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "A reference to an existing <xref href=&quot;System.Transactions.Transaction&quot;></xref> in which to enlist."
+      description: "En referens till en befintlig <xref href=&quot;System.Transactions.Transaction&quot;> </xref> där du vill registrera."
   overload: System.Data.Common.DbConnection.EnlistTransaction*
   exceptions: []
   platform:
@@ -404,14 +404,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Common.DbConnection&quot;></xref>."
-  remarks: "If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Common.DbConnection&quot;> </xref>."
+  remarks: "Om anslutningen är associerad med en transaktion kan köra `GetSchema` anrop kan orsaka vissa leverantörer att utlösa ett undantag."
   syntax:
     content: public virtual System.Data.DataTable GetSchema ();
     parameters: []
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Common.DbConnection.GetSchema*
   exceptions: []
   platform:
@@ -428,22 +428,22 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Common.DbConnection&quot;></xref> using the specified string for the schema name."
-  remarks: "If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Common.DbConnection&quot;> </xref> med den angivna strängen för schemanamnet."
+  remarks: "Om anslutningen är associerad med en transaktion kan köra `GetSchema` anrop kan orsaka vissa leverantörer att utlösa ett undantag."
   syntax:
     content: public virtual System.Data.DataTable GetSchema (string collectionName);
     parameters:
     - id: collectionName
       type: System.String
-      description: "Specifies the name of the schema to return."
+      description: "Anger namnet på scheman som ska returneras."
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Common.DbConnection.GetSchema*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>collectionName</code> is specified as null."
+    description: "<code>collectionName</code>har angetts som null."
   platform:
   - net462
 - uid: System.Data.Common.DbConnection.GetSchema(System.String,System.String[])
@@ -458,25 +458,25 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Returns schema information for the data source of this <xref href=&quot;System.Data.Common.DbConnection&quot;></xref> using the specified string for the schema name and the specified string array for the restriction values."
-  remarks: "The `restrictionValues` parameter can supply *n* depth of values, which are specified by the restrictions collection for a specific collection. In order to set values on a given restriction, and not set the values of other restrictions, you need to set the preceding restrictions to null and then put the appropriate value in for the restriction that you would like to specify a value for.       An example of this is the &quot;Tables&quot; collection. If the &quot;Tables&quot; collection has three restrictions (database, owner, and table name) and you want to get back only the tables associated with the owner &quot;Carl&quot;, you must pass in the following values at least: null, &quot;Carl&quot;. If a restriction value is not passed in, the default values are used for that restriction. This is the same mapping as passing in null, which is different from passing in an empty string for the parameter value. In that case, the empty string (&quot;&quot;) is considered to be the value for the specified parameter.       If the connection is associated with a transaction, executing `GetSchema` calls may cause some providers to throw an exception."
+  summary: "Returnerar schemainformation för datakällan för detta <xref href=&quot;System.Data.Common.DbConnection&quot;> </xref> med den angivna strängen för schemanamnet och angivna Strängmatrisen för värdena som begränsning."
+  remarks: "Den `restrictionValues` kan ange parametern *n* djup med värden som anges av begränsningssamlingen för en specifik samling. Du måste ange de här begränsningarna till null och publicera sedan lämpligt värde i för begränsningen som du vill ange ett värde för för att ange värden för en viss begränsning, och inte ange värden för andra begränsningar.       Ett exempel på detta är &quot;Tabeller&quot;-samling. Om samlingen &quot;Tabeller&quot; har tre begränsningar (databas, ägare och namn) och du vill få tillbaka endast tabeller som är kopplade till ägaren &quot;Carl&quot;, du måste ange följande värden minst: null &quot;Carl&quot;. Om en begränsningsvärdet inte skickas, som standardvärden används för denna begränsning. Detta är samma mappning som passerar null, vilket skiljer sig från passerar i en tom sträng för parametervärdet. I så fall, en tom sträng (&quot;&quot;) betraktas som värdet för den angivna parametern.       Om anslutningen är associerad med en transaktion kan köra `GetSchema` anrop kan orsaka vissa leverantörer att utlösa ett undantag."
   syntax:
     content: public virtual System.Data.DataTable GetSchema (string collectionName, string[] restrictionValues);
     parameters:
     - id: collectionName
       type: System.String
-      description: "Specifies the name of the schema to return."
+      description: "Anger namnet på scheman som ska returneras."
     - id: restrictionValues
       type: System.String[]
-      description: "Specifies a set of restriction values for the requested schema."
+      description: "Anger en begränsningsvärden för det begärda schemat."
     return:
       type: System.Data.DataTable
-      description: "A <xref href=&quot;System.Data.DataTable&quot;></xref> that contains schema information."
+      description: "En <xref href=&quot;System.Data.DataTable&quot;> </xref> som innehåller schemainformation."
   overload: System.Data.Common.DbConnection.GetSchema*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>collectionName</code> is specified as null."
+    description: "<code>collectionName</code>har angetts som null."
   platform:
   - net462
 - uid: System.Data.Common.DbConnection.OnStateChange(System.Data.StateChangeEventArgs)
@@ -491,14 +491,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Raises the <xref href=&quot;System.Data.Common.DbConnection.StateChange&quot;></xref> event."
-  remarks: 'Raising an event invokes the event handler through a delegate. For an overview, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).'
+  summary: "Genererar den <xref href=&quot;System.Data.Common.DbConnection.StateChange&quot;> </xref> händelse."
+  remarks: 'Att en händelse utlöstes anropar händelsehanteraren via ett ombud. En översikt finns [NIB: att en händelse utlöstes](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).'
   syntax:
     content: protected virtual void OnStateChange (System.Data.StateChangeEventArgs stateChange);
     parameters:
     - id: stateChange
       type: System.Data.StateChangeEventArgs
-      description: "A <xref href=&quot;System.Data.StateChangeEventArgs&quot;></xref> that contains the event data."
+      description: "En <xref href=&quot;System.Data.StateChangeEventArgs&quot;> </xref> som innehåller informationen om händelsen."
   overload: System.Data.Common.DbConnection.OnStateChange*
   exceptions: []
   platform:
@@ -515,8 +515,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Opens a database connection with the settings specified by the <xref:System.Data.Common.DbConnection.ConnectionString*>."
-  remarks: "This method must be overridden with user-defined behavior. <xref:System.Data.SqlClient.SqlConnection.Open%2A?displayProperty=fullName> will throw an exception if called again without first being closed."
+  summary: "Öppnar en databasanslutning med de inställningar som anges av <xref:System.Data.Common.DbConnection.ConnectionString*>.</xref:System.Data.Common.DbConnection.ConnectionString*>"
+  remarks: "Den här metoden måste åsidosättas med användardefinierade beteende. <xref:System.Data.SqlClient.SqlConnection.Open%2A?displayProperty=fullName>genereras ett undantagsfel om den anropas igen utan att stängas först.</xref:System.Data.SqlClient.SqlConnection.Open%2A?displayProperty=fullName>"
   syntax:
     content: public abstract void Open ();
     parameters: []
@@ -536,14 +536,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "An asynchronous version of <xref:System.Data.Common.DbConnection.Open*>, which opens a database connection with the settings specified by the <xref:System.Data.Common.DbConnection.ConnectionString*>. This method invokes the virtual method <xref:System.Data.Common.DbConnection.OpenAsync*> with CancellationToken.None."
-  remarks: "After calling <xref:System.Data.Common.DbConnection.OpenAsync%2A>, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState> until the returned <xref:System.Threading.Tasks.Task> is completed. Then, if the connection was successful, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState>. If the connection fails, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState>.       A call to <xref:System.Data.Common.DbConnection.Close%2A> will attempt to cancel or close the corresponding <xref:System.Data.Common.DbConnection.OpenAsync%2A> call.       For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/add/includes/ajax-current-ext-md.md)."
+  summary: "En asynkron version av <> </> *>, som öppnar en databasanslutning med de inställningar som anges av den <> </> *>. Den här metoden anropar metoden virtuella <xref:System.Data.Common.DbConnection.OpenAsync*>med CancellationToken.None.</xref:System.Data.Common.DbConnection.OpenAsync*>"
+  remarks: "När du anropar <xref:System.Data.Common.DbConnection.OpenAsync%2A>, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>tills den returnerade <xref:System.Threading.Tasks.Task>har slutförts.</xref:System.Threading.Tasks.Task> </xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A> </xref:System.Data.Common.DbConnection.OpenAsync%2A> Om en anslutning har upprättats, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>.</xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A> Om anslutningen misslyckas, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>.</xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A>       Ett anrop till <xref:System.Data.Common.DbConnection.Close%2A>kommer att försöka avbryta eller stänga motsvarande <xref:System.Data.Common.DbConnection.OpenAsync%2A>anropa.</xref:System.Data.Common.DbConnection.OpenAsync%2A> </xref:System.Data.Common.DbConnection.Close%2A>       Mer information om asynkron programmering i den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] dataprovider för [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)], se [asynkron programmering](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public System.Threading.Tasks.Task OpenAsync ();
     parameters: []
     return:
       type: System.Threading.Tasks.Task
-      description: "A task representing the asynchronous operation."
+      description: "En aktivitet som representerar den asynkrona åtgärden."
   overload: System.Data.Common.DbConnection.OpenAsync*
   exceptions: []
   platform:
@@ -560,17 +560,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "This is the asynchronous version of <xref:System.Data.Common.DbConnection.Open*>. Providers should override with an appropriate implementation. The cancellation token can optionally be honored.       The default implementation invokes the synchronous <xref:System.Data.Common.DbConnection.Open*> call and returns a completed task. The default implementation will return a cancelled task if passed an already cancelled cancellationToken. Exceptions thrown by Open will be communicated via the returned Task Exception property.       Do not invoke other methods and properties of the <xref uid=&quot;langword_csharp_DbConnection&quot; name=&quot;DbConnection&quot; href=&quot;&quot;></xref> object until the returned Task is complete."
-  remarks: "After calling <xref:System.Data.Common.DbConnection.OpenAsync%2A>, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState> until the returned <xref:System.Threading.Tasks.Task> is completed. Then, if the connection was successful, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState>. If the connection fails, <xref:System.Data.Common.DbConnection.State%2A> must return <xref:System.Data.ConnectionState>.       A call to <xref:System.Data.Common.DbConnection.Close%2A> will attempt to cancel or close the corresponding <xref:System.Data.Common.DbConnection.OpenAsync%2A> call.       For more information about asynchronous programming in the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] Data Provider for [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)], see [Asynchronous Programming](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Det här är den asynkrona versionen av <> </> *>. Leverantörer ska åsidosätta med en lämplig implementering. Annullering-token kan eventuellt användas.       Standardimplementering anropar den synkrona <> </> *> anropa och returnerar en slutförd uppgift. Standardimplementering returneras en annullerad uppgift om skickas en redan annullerad cancellationToken. Undantag från öppna meddelas via egenskapen returnerade uppgiften undantag.       Anropa inte andra metoder och egenskaper i den <xref uid=&quot;langword_csharp_DbConnection&quot; name=&quot;DbConnection&quot; href=&quot;&quot;> </xref> objekt förrän den returnerade åtgärden är klar."
+  remarks: "När du anropar <xref:System.Data.Common.DbConnection.OpenAsync%2A>, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>tills den returnerade <xref:System.Threading.Tasks.Task>har slutförts.</xref:System.Threading.Tasks.Task> </xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A> </xref:System.Data.Common.DbConnection.OpenAsync%2A> Om en anslutning har upprättats, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>.</xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A> Om anslutningen misslyckas, <xref:System.Data.Common.DbConnection.State%2A>måste returnera <xref:System.Data.ConnectionState>.</xref:System.Data.ConnectionState> </xref:System.Data.Common.DbConnection.State%2A>       Ett anrop till <xref:System.Data.Common.DbConnection.Close%2A>kommer att försöka avbryta eller stänga motsvarande <xref:System.Data.Common.DbConnection.OpenAsync%2A>anropa.</xref:System.Data.Common.DbConnection.OpenAsync%2A> </xref:System.Data.Common.DbConnection.Close%2A>       Mer information om asynkron programmering i den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] dataprovider för [!INCLUDE[ssNoVersion](~/add/includes/ssnoversion-md.md)], se [asynkron programmering](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public virtual System.Threading.Tasks.Task OpenAsync (System.Threading.CancellationToken cancellationToken);
     parameters:
     - id: cancellationToken
       type: System.Threading.CancellationToken
-      description: "The cancellation instruction."
+      description: "Annullering-instruktion."
     return:
       type: System.Threading.Tasks.Task
-      description: "A task representing the asynchronous operation."
+      description: "En aktivitet som representerar den asynkrona åtgärden."
   overload: System.Data.Common.DbConnection.OpenAsync*
   exceptions: []
   platform:
@@ -587,17 +587,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets a string that represents the version of the server to which the object is connected."
+  summary: "Hämtar en sträng som representerar versionen av den server som objektet är ansluten."
   syntax:
     content: public abstract string ServerVersion { get; }
     return:
       type: System.String
-      description: "The version of the database. The format of the string returned depends on the specific type of connection you are using."
+      description: "Versionen av databasen. Formatet på den sträng som returneras beror på vilken typ av anslutning som du använder."
   overload: System.Data.Common.DbConnection.ServerVersion*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "ServerVersion was called while the returned Task was not completed and the connection was not opened after a call to <xref:System.Data.Common.DbConnection.OpenAsync*>."
+    description: "ServerVersion anropades medan returnerade uppgiften slutfördes inte och gick inte att öppna anslutningen efter ett anrop till <xref:System.Data.Common.DbConnection.OpenAsync*>.</xref:System.Data.Common.DbConnection.OpenAsync*>"
   platform:
   - net462
 - uid: System.Data.Common.DbConnection.State
@@ -612,12 +612,12 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Gets a string that describes the state of the connection."
+  summary: "Hämtar en sträng som beskriver status för anslutningen."
   syntax:
     content: public abstract System.Data.ConnectionState State { get; }
     return:
       type: System.Data.ConnectionState
-      description: "The state of the connection. The format of the string returned depends on the specific type of connection you are using."
+      description: "Status för anslutningen. Formatet på den sträng som returneras beror på vilken typ av anslutning som du använder."
   overload: System.Data.Common.DbConnection.State*
   exceptions: []
   platform:
@@ -634,13 +634,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Occurs when the state of the event changes."
-  remarks: "The StateChange event occurs when the state of the event changes from closed to opened, or opened to closed."
+  summary: "Inträffar när ändras tillståndet för händelsen."
+  remarks: "Behörighet händelsen inträffar när tillståndet för händelsen ändras från stängd öppnas eller öppna stängd."
   syntax:
     content: public virtual event System.Data.StateChangeEventHandler StateChange;
     return:
       type: System.Data.StateChangeEventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -657,14 +657,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Begins a database transaction."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.Data.Common.DbConnection> instance is cast to an <xref:System.Data.IDbConnection> interface.       For more information, see <xref:System.Data.IDbConnection.BeginTransaction%2A>."
+  summary: "Börjar en databastransaktion."
+  remarks: "Den här medlemmen är en implementering för medlem av explicit gränssnitt. Det kan användas endast när den <xref:System.Data.Common.DbConnection>instans omvandlas till ett <xref:System.Data.IDbConnection>gränssnitt.</xref:System.Data.IDbConnection> </xref:System.Data.Common.DbConnection>       Mer information finns i <xref:System.Data.IDbConnection.BeginTransaction%2A>.</xref:System.Data.IDbConnection.BeginTransaction%2A>"
   syntax:
     content: System.Data.IDbTransaction IDbConnection.BeginTransaction ();
     parameters: []
     return:
       type: System.Data.IDbTransaction
-      description: "An object that represents the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Common.DbConnection.System#Data#IDbConnection#BeginTransaction*
   exceptions: []
   platform:
@@ -682,17 +682,17 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Begins a database transaction with the specified <xref href=&quot;System.Data.IsolationLevel&quot;></xref> value."
-  remarks: "For more information, see <xref:System.Data.IDbConnection.BeginTransaction%2A>."
+  summary: "Startar en transaktion med den angivna <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> värde."
+  remarks: "Mer information finns i <xref:System.Data.IDbConnection.BeginTransaction%2A>.</xref:System.Data.IDbConnection.BeginTransaction%2A>"
   syntax:
     content: System.Data.IDbTransaction IDbConnection.BeginTransaction (System.Data.IsolationLevel isolationLevel);
     parameters:
     - id: isolationLevel
       type: System.Data.IsolationLevel
-      description: "One of the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> values."
+      description: "En av de <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> värden."
     return:
       type: System.Data.IDbTransaction
-      description: "An object that represents the new transaction."
+      description: "Ett objekt som representerar den nya transaktionen."
   overload: System.Data.Common.DbConnection.System#Data#IDbConnection#BeginTransaction*
   exceptions: []
   platform:
@@ -710,14 +710,14 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Common
-  summary: "Creates and returns a <xref href=&quot;System.Data.Common.DbCommand&quot;></xref> object that is associated with the current connection."
-  remarks: "For more information, see [Commands and Parameters](~/add/includes/ajax-current-ext-md.md) and <xref:System.Data.IDbConnection.CreateCommand%2A>."
+  summary: "Skapar och returnerar ett <xref href=&quot;System.Data.Common.DbCommand&quot;> </xref> objekt som är associerade med den aktuella anslutningen."
+  remarks: "Mer information finns i [kommandon och parametrar](~/add/includes/ajax-current-ext-md.md) och <xref:System.Data.IDbConnection.CreateCommand%2A>.</xref:System.Data.IDbConnection.CreateCommand%2A>"
   syntax:
     content: System.Data.IDbCommand IDbConnection.CreateCommand ();
     parameters: []
     return:
       type: System.Data.IDbCommand
-      description: "A <xref href=&quot;System.Data.Common.DbCommand&quot;></xref> object that is associated with the connection."
+      description: "En <xref href=&quot;System.Data.Common.DbCommand&quot;> </xref> objekt som är associerade med den här anslutningen."
   overload: System.Data.Common.DbConnection.System#Data#IDbConnection#CreateCommand*
   exceptions: []
   platform:
