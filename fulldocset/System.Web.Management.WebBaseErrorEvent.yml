@@ -13,8 +13,8 @@ items:
   nameWithType: WebBaseErrorEvent
   fullName: System.Web.Management.WebBaseErrorEvent
   type: Class
-  summary: "Serves as the base class for all the health-monitoring error events."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health-event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       The WebBaseErrorEvent class is the base class for the health-monitoring events that represent error conditions. ASP.NET uses WebBaseErrorEvent and its derived types to indicate error conditions during the lifetime of a Web application.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of deriving from the WebBaseErrorEvent class, see the example provided in this topic."
+  summary: "Fungerar som basklass för alla övervakning av hälsotillstånd felhändelser."
+  remarks: "Övervaka ASP.NET-hälsa kan produktions- och personal för att hantera distribuerade webbprogram. Den <xref:System.Web.Management>namnområde innehåller ansvarar för att paketera hälsostatus programdata och vilka provider ansvarar för bearbetning av dessa data hälsohändelse typer.</xref:System.Web.Management> Den innehåller också stödjande typer som hjälp vid hantering av hälsotillstånd händelser.       Klassen WebBaseErrorEvent är basklass för övervakning av hälsotillstånd händelser som representerar felvillkor. ASP.NET använder WebBaseErrorEvent och dess härledda typer för att indikera fel under livslängden för ett webbprogram.      > [!NOTE] > I de flesta fall kommer du att kunna använda ASP.NET-hälsoövervakning typer som implementeras och du kommer att styra system för övervakning av hälsotillstånd genom att ange värden i den `healthMonitoring` konfigurationsavsnittet. Du kan också vara härledd från övervakning av hälsotillstånd-typer för att skapa dina egna anpassade händelser och leverantörer. Ett exempel på härleds från klassen WebBaseErrorEvent, finns i exemplet i det här avsnittet."
   example:
   - "The following code example has two parts. The first is an excerpt of a configuration file that enables ASP.NET health monitoring to use an event derived from the WebBaseErrorEvent class. The second shows how to derive from the WebBaseErrorEvent class to create the custom event.  \n  \n```  \n<healthMonitoring   \n  enabled=\"true\" heartBeatInterval=\"0\">  \n  \n  <providers>  \n    <!-- Define the custom provider that   \n         processes custom Web request events. -->  \n    <add name=\"SampleWebEventProvider\"   \n      type=\"SamplesAspNet.SampleEventProvider,  \n      webeventprovider,Version=1.0.1573.18094,   \n      Culture=neutral, PublicKeyToken=b5a57a9a9d487cf4,   \n      processorArchitecture=MSIL\"/>  \n  </providers>  \n  \n  <eventMappings>  \n  \n    <!--  Define the event source that issues custom events.   -->  \n    <add  name=\"SampleWebBaseErrorEvent\"      \n      type=\"SamplesAspNet.SampleWebBaseErrorEvent,  \n      webbaseerrorevent,Version=1.0.1573.21549, Culture=neutral,     \n      PublicKeyToken=2a0b23915ac7352b, processorArchitecture=MSIL\"/>  \n  </eventMappings>  \n  \n  <rules>  \n    <!-- Associate custom event with related   \n      custom provider -->  \n    <add   \n       name=\"Custom Web Base Errors\"  \n       eventName=\"SampleWebBaseErrorEvent\"   \n       provider=\"SampleWebEventProvider\"   \n       profile=\"Custom\"/>    \n  </rules>  \n  \n</healthMonitoring>  \n```  \n  \n The following code shows how to derive from the WebBaseErrorEvent class to create a custom event.  \n  \n [!code-cs[System.Web.Management.WebErrorEvent#1](~/add/codesnippet/csharp/t-system.web.management._23_1.cs)]\n [!code-vb[System.Web.Management.WebErrorEvent#1](~/add/codesnippet/visualbasic/t-system.web.management._23_1.vb)]"
   syntax:
@@ -55,8 +55,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebBaseErrorEvent&quot;></xref> class."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You can call this constructor when implementing your own event type that inherits from this class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.Management.WebBaseErrorEvent&quot;> </xref> klass."
+  remarks: "Den här konstruktorn används internt av ASP.NET-övervakning av hälsotillstånd system. När du implementerar din egen händelsetyp som ärver från den här klassen kan du anropa den här konstruktorn."
   example:
   - "The following code example shows how to call this constructor from a constructor for the `SampleWebBaseErrorEvent` class, a class that derives from the <xref:System.Web.Management.WebBaseErrorEvent> class.  \n  \n [!code-cs[System.Web.Management.WebBaseErrorEvent#2](~/add/codesnippet/csharp/490f1ed0-2b88-4f74-b1da-_1.cs)]\n [!code-vb[System.Web.Management.WebBaseErrorEvent#2](~/add/codesnippet/visualbasic/490f1ed0-2b88-4f74-b1da-_1.vb)]"
   syntax:
@@ -64,16 +64,16 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "Händelsebeskrivning."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "Det objekt som är källa för händelsen."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "Den kod som associeras med händelsen. När du implementerar en anpassad händelse händelsekoden måste vara större än <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: e
       type: System.Exception
-      description: "The <xref:System.Exception> associated with the error."
+      description: "Den <xref:System.Exception>som är associerade med fel.</xref:System.Exception>"
   overload: System.Web.Management.WebBaseErrorEvent.#ctor*
   exceptions: []
   platform:
@@ -90,8 +90,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebBaseErrorEvent&quot;></xref> class."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You can call this constructor when implementing your own event type that inherits from this class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.Management.WebBaseErrorEvent&quot;> </xref> klass."
+  remarks: "Den här konstruktorn används internt av ASP.NET-övervakning av hälsotillstånd system. När du implementerar din egen händelsetyp som ärver från den här klassen kan du anropa den här konstruktorn."
   example:
   - "The following code example shows how to call this constructor from a constructor for the `SampleWebBaseErrorEvent` class, a class that derives from the <xref:System.Web.Management.WebBaseErrorEvent> class.  \n  \n [!code-cs[System.Web.Management.WebBaseErrorEvent#3](~/add/codesnippet/csharp/d926271b-b6dc-48d8-931e-_1.cs)]\n [!code-vb[System.Web.Management.WebBaseErrorEvent#3](~/add/codesnippet/visualbasic/d926271b-b6dc-48d8-931e-_1.vb)]"
   syntax:
@@ -99,19 +99,19 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "Händelsebeskrivning."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "Det objekt som är källa för händelsen."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "Den kod som associeras med händelsen. När du implementerar en anpassad händelse händelsekoden måste vara större än <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: eventDetailCode
       type: System.Int32
-      description: "The detailed identifier for the event."
+      description: "Detaljerad identifierare för händelsen."
     - id: e
       type: System.Exception
-      description: "The <xref:System.Exception> associated with the error."
+      description: "Den <xref:System.Exception>som är associerade med fel.</xref:System.Exception>"
   overload: System.Web.Management.WebBaseErrorEvent.#ctor*
   exceptions: []
   platform:
@@ -128,13 +128,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the <xref:System.Exception> associated with the error."
-  remarks: "If you implement a custom <xref:System.Web.Management.WebBaseErrorEvent>, you must ensure that your custom error event handles this exception."
+  summary: "Hämtar den <xref:System.Exception>som är associerade med fel.</xref:System.Exception>"
+  remarks: "Om du implementerar en anpassad <xref:System.Web.Management.WebBaseErrorEvent>, måste du se till att dina egna händelse hanterar det här undantaget.</xref:System.Web.Management.WebBaseErrorEvent>"
   syntax:
     content: public Exception ErrorException { get; }
     return:
       type: System.Exception
-      description: "The <xref:System.Exception> associated with the error."
+      description: "Den <xref:System.Exception>som är associerade med fel.</xref:System.Exception>"
   overload: System.Web.Management.WebBaseErrorEvent.ErrorException*
   exceptions: []
   platform:
@@ -151,8 +151,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Increments the event-error performance-related counters."
-  remarks: "This method increments the following performance counters:      -   Infrastructure Error Events Raised. This is a global counter that tracks the error events raised.      -   Error Events Raised. This is an application-specific counter that tracks the number of error events raised since the application started.       This method also calls the parent <xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A>, which increments the Events Raised counter. This counter tracks the total number of events raised.       To view these performance counters in System Monitor (PerfMon), in the **Add Counters** window select **ASP.NET** in the **Performance object** drop-down list, select the performance counter you want to view, and click the **Add** button. For more information, see [Using the System Monitor (PerfMon) with ASP.NET Applications](http://go.microsoft.com/fwlink/?linkid=36882&clcid=0x409) in the IIS documentation on MSDN."
+  summary: "Steg fel händelse prestandarelaterade räknare."
+  remarks: "Den här metoden ökar följande prestandaräknare:-infrastruktur fel händelser aktiveras. Detta är en global räknare som spårar felhändelser aktiveras.      -Felhändelser aktiveras. Det här är en programspecifika räknare som spårar antalet felhändelser aktiveras sedan programmet startades.       Den här metoden anropar även överordnat <xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A>, vilket ökar räknaren händelser aktiveras.</xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A> Den här räknaren spårar det totala antalet händelser som aktiverats.       Att visa de här prestandaräknarna i Systemövervakaren (PerfMon) i den **Lägg till räknare** fönstret Välj **ASP.NET** i den **prestandaobjekt** listrutan väljer du de prestandaräknare som du vill visa och klicka på den **Lägg till** knappen. Mer information finns i [med Systemövervakaren (PerfMon) med ASP.NET-program](http://go.microsoft.com/fwlink/?linkid=36882&clcid=0x409) i IIS-dokumentationen på MSDN."
   syntax:
     content: protected override void IncrementPerfCounters ();
     parameters: []

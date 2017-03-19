@@ -22,7 +22,7 @@ items:
   nameWithType: VirtualPathUtility
   fullName: System.Web.VirtualPathUtility
   type: Class
-  summary: "Provides utility methods for common virtual path operations."
+  summary: "Ger metoder för vanliga åtgärder för virtuell sökväg."
   remarks: "The VirtualPathUtility class provides utility methods for common operations involving virtual paths. For ASP.NET server controls and server code, virtual paths using the Web application root operator, the tilde (~), commonly are used instead of relative and absolute paths. For more information, see [ASP.NET Web Project Paths](~/add/includes/ajax-current-ext-md.md).  \n  \n Use the VirtualPathUtility class when you need to convert application-relative paths to absolute virtual paths, as might be the case in developing a custom Web service handler.  \n  \n An absolute virtual path starts with the literal slash mark (/). A relative virtual path is relative to the application root directory, if it is just a tilde (~) or starts with the tilde and a double backslash (~\\\\\\\\) or the tilde and a slash mark (~/). Making a virtual path relative makes the path independent of the application.  \n  \n The virtual directory for the application can be obtained from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> and <xref:System.Web.HttpRequest.ApplicationPath%2A> properties.  \n  \n> [!NOTE]\n>  The VirtualPathUtility class is not intended for security or canonicalization purposes. For more information about Web application security, see [Overview of Web Application Security Threats](~/add/includes/ajax-current-ext-md.md). For generic URL processing functionality, see <xref:System.Uri>."
   example:
   - "The following code example demonstrates how to use the VirtualPathUtility class and some of its methods. First, the <xref:System.Web.HttpRequest.FilePath%2A> property generates the virtual path to the Web page. The <xref:System.Web.VirtualPathUtility.GetFileName%2A>, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods return information about the virtual path. Next, the <xref:System.Web.HttpRequest.CurrentExecutionFilePath%2A> property generates a virtual path of the current request, which might be different from the <xref:System.Web.HttpRequest.FilePath%2A> property, if a <xref:System.Web.HttpResponse.Redirect%2A> method was called. The <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods return information about the virtual path.  \n  \n [!code-vb[System.Web.VirtualPathUtility#1](~/add/codesnippet/visualbasic/t-system.web.virtualpath_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#1](~/add/codesnippet/csharp/t-system.web.virtualpath_1.aspx)]"
@@ -46,17 +46,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Appends the literal slash mark (/) to the end of the virtual path, if one does not already exist."
-  remarks: "If the literal slash mark (/) exists at the end of the virtual path, the virtual path is not modified."
+  summary: "Lägger till literal snedstreck (/) i slutet av den virtuella sökvägen om det inte redan finns."
+  remarks: "Om det finns literal snedstreck (/) i slutet av den virtuella sökvägen, ändras inte den virtuella sökvägen."
   syntax:
     content: public static string AppendTrailingSlash (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to append the slash mark to."
+      description: "Den virtuella sökvägen ska läggas till snedstreck till."
     return:
       type: System.String
-      description: "The modified virtual path."
+      description: "Den virtuella sökvägen."
   overload: System.Web.VirtualPathUtility.AppendTrailingSlash*
   exceptions: []
   platform:
@@ -73,17 +73,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Combines a base path and a relative path."
-  remarks: "TheCombine method returns the value of the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property if the relative path is exactly a tilde (~).       The Combine method uses the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property value rather than the base path, if the relative path starts with a tilde and a slash mark (~/); otherwise, the Combine method uses the base path."
+  summary: "Kombinerar en bassökväg och en relativ sökväg."
+  remarks: "TheCombine-metoden returnerar värdet för den <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>egenskapen om den relativa sökvägen är exakt tilde (~).</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>       Kombinera-metoden använder den <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>egenskapsvärde i stället för bassökväg, om den relativa sökvägen som börjar med tilde och ett snedstreck (~ /), annars använder metoden kombinera den grundläggande sökvägen.</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>"
   syntax:
     content: public static string Combine (string basePath, string relativePath);
     parameters:
     - id: basePath
       type: System.String
-      description: "The base path."
+      description: "Bassökvägen."
     - id: relativePath
       type: System.String
-      description: "The relative path."
+      description: "Den relativa sökvägen."
     return:
       type: System.String
       description: "The combined <code>basePath</code> and <code>relativePath</code>."
@@ -91,10 +91,10 @@ items:
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "<code>relativePath</code> is a physical path.       -or-       <code>relativePath</code> includes one or more colons."
+    description: "<code>relativePath</code>är en fysisk sökväg.       - eller - <code>relativePath</code> innehåller en eller flera kolon."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>relativePath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string.       -or-       <code>basePath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+    description: "<code>relativePath</code>är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom sträng.       - eller - <code>basePath</code> är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom sträng."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.GetDirectory(System.String)
@@ -109,8 +109,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the directory portion of a virtual path."
-  remarks: "If `virtualPath` is not rooted; that is, it does not equal the root operator (the tilde [~]), does not start with a tilde (~), such as a tilde and a slash mark (~/) or a tilde and a double backslash (~//), or does not start with a slash mark (/), an <xref:System.ArgumentException> exception is thrown.       If the virtual path that is passed into the GetDirectory method is `&quot;/images/image1.gif&quot;`, the returned directory is `&quot;/images&quot;`."
+  summary: "Returnerar delen av en virtuell sökväg."
+  remarks: "Om `virtualPath` saknar rot; som är den inte är lika med operatorn rot (tilde [~]), inte börjar med tilde (~), till exempel tilde och ett snedstreck (~ /) eller tecknet tilde och två omvända snedstreck (~ / /), eller inte börjar med ett snedstreck (/), en <xref:System.ArgumentException>undantag.</xref:System.ArgumentException>       Om den virtuella sökvägen som överförs till metoden GetDirectory är `&quot;/images/image1.gif&quot;`, returnerade katalogen är `&quot;/images&quot;`."
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.GetFileName%2A>, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and GetDirectory methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_3_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_3_1.aspx)]"
   syntax:
@@ -118,10 +118,10 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "Den virtuella sökvägen."
     return:
       type: System.String
-      description: "The directory referenced in the virtual path."
+      description: "Katalogen som refereras till i den virtuella sökvägen."
   overload: System.Web.VirtualPathUtility.GetDirectory*
   exceptions:
   - type: System.ArgumentException
@@ -141,8 +141,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves the extension of the file that is referenced in the virtual path."
-  remarks: "If the virtual path that is passed into the GetExtension method is `&quot;/images/image1.gif&quot;`, the returned extension is `&quot;.gif&quot;`."
+  summary: "Hämtar tillägget på den fil som refereras till i den virtuella sökvägen."
+  remarks: "Om den virtuella sökvägen som överförs till metoden GetExtension är `&quot;/images/image1.gif&quot;`, returnerade tillägget är `&quot;.gif&quot;`."
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.GetFileName%2A>, GetExtension, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_0_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_0_1.aspx)]"
   syntax:
@@ -150,15 +150,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "Den virtuella sökvägen."
     return:
       type: System.String
-      description: "The file name extension string literal, including the period (.), <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, or an empty string (&quot;&quot;)."
+      description: "I filen namnet tillägget stränglitteral, inklusive punkt (.), <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, eller en tom sträng (&quot;&quot;)."
   overload: System.Web.VirtualPathUtility.GetExtension*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> contains one or more characters that are not valid, as defined in <xref:System.IO.Path.InvalidPathChars>."
+    description: "<code>virtualPath</code>innehåller en eller flera tecken som inte är giltiga, enligt definitionen i <xref:System.IO.Path.InvalidPathChars>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.GetFileName(System.String)
@@ -173,8 +173,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Retrieves the file name of the file that is referenced in the virtual path."
-  remarks: "If the virtual path that is passed into the GetFileName method is `&quot;/images/image1.gif&quot;`, the returned file name is `&quot;image1.gif&quot;`."
+  summary: "Hämtar namnet på den fil som refereras till i den virtuella sökvägen."
+  remarks: "Om den virtuella sökvägen som överförs till metoden GetFileName är `&quot;/images/image1.gif&quot;`, returnerade filnamnet är `&quot;image1.gif&quot;`."
   example:
   - "The following code example demonstrates how to use the GetFileName, <xref:System.Web.VirtualPathUtility.GetExtension%2A>, and <xref:System.Web.VirtualPathUtility.GetDirectory%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#2](~/add/codesnippet/visualbasic/m-system.web.virtualpath_5_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#2](~/add/codesnippet/csharp/m-system.web.virtualpath_5_1.aspx)]"
   syntax:
@@ -182,15 +182,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "Den virtuella sökvägen."
     return:
       type: System.String
-      description: "The file name literal after the last directory character in <code>virtualPath</code>; otherwise, the last directory name if the last character of <code>virtualPath</code> is a directory or volume separator character."
+      description: "Literalen efter det sista tecknet i katalogen i filnamnet <code> virtualPath </code>, annars katalogen senaste namn om det sista tecknet i <code> virtualPath </code> är en katalog eller volymen avgränsningstecknet."
   overload: System.Web.VirtualPathUtility.GetFileName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> contains one or more characters that are not valid, as defined in <xref:System.IO.Path.InvalidPathChars>."
+    description: "<code>virtualPath</code>innehåller en eller flera tecken som inte är giltiga, enligt definitionen i <xref:System.IO.Path.InvalidPathChars>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.IsAbsolute(System.String)
@@ -205,8 +205,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a Boolean value indicating whether the specified virtual path is absolute; that is, it starts with a literal slash mark (/)."
-  remarks: "A virtual path is absolute if it begins with a literal slash mark (/). For example, the <xref:System.Web.HttpRequest.Path%2A> property returns an absolute virtual path."
+  summary: "Returnerar ett booleskt värde som anger om den angivna virtuella sökvägen är absolut; det vill säga börjar det med en literal snedstreck (/)."
+  remarks: "En virtuell sökväg är absolut om det börjar med en literal snedstreck (/). Till exempel den <xref:System.Web.HttpRequest.Path%2A>egenskapen returnerar en absolut virtuell sökväg.</xref:System.Web.HttpRequest.Path%2A>"
   example:
   - "The following code example demonstrates how to use the IsAbsolute, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_2_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_2_1.aspx)]"
   syntax:
@@ -214,15 +214,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to check."
+      description: "Den virtuella sökvägen till kontrollera."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>virtualPath</code> is an absolute path and is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string (&quot;&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> virtualPath </code> är en absolut sökväg och inte <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> eller en tom sträng (&quot;&quot;); otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Web.VirtualPathUtility.IsAbsolute*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.IsAppRelative(System.String)
@@ -237,8 +237,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a Boolean value indicating whether the specified virtual path is relative to the application."
-  remarks: "The virtual path can be just the root operator (the tilde [~]), or it can begin with the root operator. If `virtualPath` is `null`, an <xref:System.ArgumentNullException> exception is raised. If `virtualPath` is an empty string (&quot;&quot;), the IsAppRelative method returns `false`.      > [!NOTE] >  `&quot;~` `filename` `&quot;` is not a valid virtual path and returns `false` for the IsAppRelative method."
+  summary: "Returnerar ett booleskt värde som anger om den angivna virtuella sökvägen är i förhållande till programmet."
+  remarks: "Den virtuella sökvägen kan vara precis rot-operatorn (tilde [~]) eller det kan börja med en rot-operator. Om `virtualPath` är `null`, en <xref:System.ArgumentNullException>undantagsfel genereras.</xref:System.ArgumentNullException> Om `virtualPath` är en tom sträng (&quot;&quot;), returnerar metoden IsAppRelative `false`.      > [!NOTE]  >   `&quot;~` `filename` `&quot;` är inte en giltig virtuell sökväg och returnerar `false` för metoden IsAppRelative."
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, IsAppRelative, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_4_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_4_1.aspx)]"
   syntax:
@@ -246,15 +246,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to check."
+      description: "Den virtuella sökvägen till kontrollera."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>virtualPath</code> is relative to the application; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> virtualPath </code> är relativ till programmet, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.VirtualPathUtility.IsAppRelative*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.MakeRelative(System.String,System.String)
@@ -269,20 +269,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the relative virtual path from one virtual path containing the root operator (the tilde [~]) to another."
-  remarks: "If the `fromPath` and `toPath` parameters are not rooted; that is, they do not equal the root operator (the tilde [~]), do not start with a tilde (~), such as a tilde and a slash mark (~/) or a tilde and a double backslash (~//), or do not start with a slash mark (/), an <xref:System.ArgumentException> exception is thrown.       Query string parameters and HTML anchors that are used in the URI are not used in determining the relative path.       If `fromPath` is `&quot;/directory1/file1.aspx&quot;` and `toPath` is `&quot;/directory2/file2.aspx&quot;`, the MakeRelative method returns `&quot;../directory2/file2.aspx&quot;`."
+  summary: "Returnerar den relativa virtuella sökvägen från en virtuell sökväg som innehåller operatorn rot (tilde [~]) till en annan."
+  remarks: "Om den `fromPath` och `toPath` parametrar rotas inte; som är de inte är lika med operatorn rot (tilde [~]), inte börjar med tilde (~), till exempel tilde och ett snedstreck (~ /) eller tecknet tilde och två omvända snedstreck (~ / /), eller inte börjar med ett snedstreck (/), en <xref:System.ArgumentException>undantag.</xref:System.ArgumentException>       Frågesträngparametrar och HTML ankare som används i URI: N används inte för att fastställa den relativa sökvägen.       Om `fromPath` är `&quot;/directory1/file1.aspx&quot;` och `toPath` är `&quot;/directory2/file2.aspx&quot;`, MakeRelative-metoden returnerar `&quot;../directory2/file2.aspx&quot;`."
   syntax:
     content: public static string MakeRelative (string fromPath, string toPath);
     parameters:
     - id: fromPath
       type: System.String
-      description: "The starting virtual path to return the relative virtual path from."
+      description: "Den första virtuella sökvägen att returnera den relativa virtuella sökvägen från."
     - id: toPath
       type: System.String
-      description: "The ending virtual path to return the relative virtual path to."
+      description: "Den sista virtuella sökvägen att returnera den relativa virtuella sökvägen till."
     return:
       type: System.String
-      description: "The relative virtual path from <code>fromPath</code> to <code>toPath</code>."
+      description: "Den relativa virtuella sökvägen från <code> fromPath </code> till <code> toPath </code>."
   overload: System.Web.VirtualPathUtility.MakeRelative*
   exceptions:
   - type: System.ArgumentException
@@ -302,17 +302,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Removes a trailing slash mark (/) from a virtual path."
-  remarks: "The RemoveTrailingSlash method removes a slash mark (/) from the end of the virtual path. If the virtual path is already the root directory (`&quot;/&quot;`), no action is taken. If the virtual path is `null` or an empty string (&quot;&quot;), the RemoveTrailingSlash method returns `null`."
+  summary: "Tar bort avslutande snedstreck (/) från en virtuell sökväg."
+  remarks: "Metoden RemoveTrailingSlash tar bort ett snedstreck (/) från slutet av den virtuella sökvägen. Om den virtuella sökvägen redan är rotkatalogen (`&quot;/&quot;`), ingen åtgärd. Om den virtuella sökvägen är `null` eller en tom sträng (&quot;&quot;), returnerar metoden RemoveTrailingSlash `null`."
   syntax:
     content: public static string RemoveTrailingSlash (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to remove any trailing slash mark from."
+      description: "Den virtuella sökvägen för att ta bort alla avslutande snedstreck från."
     return:
       type: System.String
-      description: "A virtual path without a trailing slash mark, if the virtual path is not already the root directory (&quot;/&quot;); otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "En virtuell sökväg utan avslutande snedstreck om den virtuella sökvägen inte är redan rotkatalog (&quot;/&quot;). Annars <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.VirtualPathUtility.RemoveTrailingSlash*
   exceptions: []
   platform:
@@ -329,25 +329,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application absolute path."
-  remarks: "An application absolute path is one where the application path is used instead of the root operator (the tilde [~]).       If `virtualPath` is:      -   Absolute, the ToAbsolute method returns the virtual path unchanged.      -   Application relative, the ToAbsolute method appends the current application virtual directory path to the beginning of the `virtualPath`. For example, the current application virtual directory path can be accessed from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property.      -   Not rooted, the ToAbsolute method raises an <xref:System.ArgumentOutOfRangeException> exception."
+  summary: "Konverterar en virtuell sökväg till en absolut sökväg."
+  remarks: "En absolut sökväg är en där programmets sökväg används i stället för rot-operatorn (tilde [~]).       Om `virtualPath` är: - absolut ToAbsolute-metoden returnerar den virtuella sökvägen oförändrade.      -Programmet relativt metoden ToAbsolute lägger till den aktuella virtuella program katalogsökvägen till början av den `virtualPath`. Till exempel aktuella programmet virtuella sökvägen kan nås från den <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>egenskapen.</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>      -Inte rotad metoden ToAbsolute genererar ett <xref:System.ArgumentOutOfRangeException>undantag.</xref:System.ArgumentOutOfRangeException>"
   syntax:
     content: public static string ToAbsolute (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "Den virtuella sökvägen att konvertera till en program-relativ sökväg."
     return:
       type: System.String
-      description: "The absolute path representation of the specified virtual path."
+      description: "Absolut sökväg representation av den angivna virtuella sökvägen."
   overload: System.Web.VirtualPathUtility.ToAbsolute*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>virtualPath</code> is not rooted."
+    description: "<code>virtualPath</code>saknar rot."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A leading double period (..) is used to exit above the top directory."
+    description: "Inledande dubbla punkt (.) används för att avsluta över den översta katalogen."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAbsolute(System.String,System.String)
@@ -362,28 +362,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application absolute path using the specified application path."
-  remarks: "The ToAbsolute overload of the <xref:System.Web.VirtualPathUtility.ToAbsolute%2A> method uses the supplied application path rather than the current application path.       If `virtualPath` is:      -   Absolute, the ToAbsolute method returns the virtual path with no changes.      -   Application relative, the ToAbsolute method adds `applicationPath` to the beginning of the virtual path.      -   Not rooted, the ToAbsolute method raises an <xref:System.ArgumentOutOfRangeException> exception."
+  summary: "Konverterar en virtuell sökväg till en absolut sökväg på programmet med den angivna sökvägen."
+  remarks: "ToAbsolute överlagringen för <xref:System.Web.VirtualPathUtility.ToAbsolute%2A>metoden använder den angivna sökvägen i stället för den aktuella programsökväg.</xref:System.Web.VirtualPathUtility.ToAbsolute%2A>       Om `virtualPath` är: - absolut ToAbsolute-metoden returnerar den virtuella sökvägen utan ändringar.      -Programmet relativt metoden ToAbsolute lägger till `applicationPath` till början av den virtuella sökvägen.      -Inte rotad metoden ToAbsolute genererar ett <xref:System.ArgumentOutOfRangeException>undantag.</xref:System.ArgumentOutOfRangeException>"
   syntax:
     content: public static string ToAbsolute (string virtualPath, string applicationPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "Den virtuella sökvägen att konvertera till en program-relativ sökväg."
     - id: applicationPath
       type: System.String
-      description: "The application path to use to convert `virtualPath` to a relative path."
+      description: "Sökvägen till programmet du använder för att konvertera `virtualPath` till en relativ sökväg."
     return:
       type: System.String
-      description: "The absolute virtual path representation of <code>virtualPath</code>."
+      description: "Absolut virtuell sökväg representation av <code> virtualPath </code>."
   overload: System.Web.VirtualPathUtility.ToAbsolute*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>applicationPath</code> is not rooted."
+    description: "<code>applicationPath</code>saknar rot."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A leading double period (..) is used in the application path to exit above the top directory."
+    description: "Inledande dubbla punkt (.) används i sökvägen till programmet för att avsluta över den översta katalogen."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAppRelative(System.String)
@@ -398,8 +398,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application-relative path using the application virtual path that is in the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*> property."
-  remarks: "If the virtual path for the application is `&quot;myapp&quot;` and the virtual path `&quot;/myApp/sub/default.asp&quot;` is passed into the ToAppRelative method, the resulting application-relative path is `&quot;~/sub/default.aspx&quot;`.       If `virtualPath` does not start with the current application path, the ToAppRelative method returns the virtual path unchanged.       If `virtualPath` is the same as the application path, the root operator (the tilde [~]), is returned. For example, the current application virtual directory path can be accessed from the <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A> property."
+  summary: "Konverterar en virtuell sökväg till en program-relativ sökväg med hjälp av den virtuella sökvägen som tillhör den <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*>egenskapen.</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath*>"
+  remarks: "Om den virtuella sökvägen för programmet är `&quot;myapp&quot;` och den virtuella sökvägen `&quot;/myApp/sub/default.asp&quot;` skickas till ToAppRelative-metoden den resulterande program relativa sökvägen är `&quot;~/sub/default.aspx&quot;`.       Om `virtualPath` börjar inte med aktuella sökvägen till programmet, ToAppRelative returnerar metoden den virtuella sökvägen oförändrade.       Om `virtualPath` är samma som sökvägen till programmet rot-operatorn (tilde är [~]), returneras. Till exempel aktuella programmet virtuella sökvägen kan nås från den <xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>egenskapen.</xref:System.Web.HttpRuntime.AppDomainAppVirtualPath%2A>"
   example:
   - "The following code example demonstrates how to use the <xref:System.Web.VirtualPathUtility.IsAbsolute%2A>, <xref:System.Web.VirtualPathUtility.IsAppRelative%2A>, and <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> methods.  \n  \n [!code-vb[System.Web.VirtualPathUtility#3](~/add/codesnippet/visualbasic/m-system.web.virtualpath_1_1.aspx)]\n [!code-cs[System.Web.VirtualPathUtility#3](~/add/codesnippet/csharp/m-system.web.virtualpath_1_1.aspx)]"
   syntax:
@@ -407,15 +407,15 @@ items:
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "Den virtuella sökvägen att konvertera till en program-relativ sökväg."
     return:
       type: System.String
-      description: "The application-relative path representation of <code>virtualPath</code>."
+      description: "Program-relativ sökväg representation av <code> virtualPath </code>."
   overload: System.Web.VirtualPathUtility.ToAppRelative*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>virtualPath</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.VirtualPathUtility.ToAppRelative(System.String,System.String)
@@ -430,20 +430,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Converts a virtual path to an application-relative path using a specified application path."
-  remarks: "The ToAppRelative overload of the <xref:System.Web.VirtualPathUtility.ToAppRelative%2A> method uses `applicationPath` rather than the current application path. If `virtualPath` does not start with `applicationPath`, the ToAppRelative method returns the virtual path unchanged."
+  summary: "Konverterar en virtuell sökväg till en program-relativ sökväg med hjälp av en angiven sökväg."
+  remarks: "ToAppRelative överlagring för den <xref:System.Web.VirtualPathUtility.ToAppRelative%2A>metoden använder `applicationPath` i stället för den aktuella programsökväg.</xref:System.Web.VirtualPathUtility.ToAppRelative%2A> Om `virtualPath` börjar inte med `applicationPath`, ToAppRelative-metoden returnerar den virtuella sökvägen oförändrade."
   syntax:
     content: public static string ToAppRelative (string virtualPath, string applicationPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to convert to an application-relative path."
+      description: "Den virtuella sökvägen att konvertera till en program-relativ sökväg."
     - id: applicationPath
       type: System.String
-      description: "The application path to use to convert `virtualPath` to a relative path."
+      description: "Sökvägen till programmet du använder för att konvertera `virtualPath` till en relativ sökväg."
     return:
       type: System.String
-      description: "The application-relative path representation of <code>virtualPath</code>."
+      description: "Program-relativ sökväg representation av <code> virtualPath </code>."
   overload: System.Web.VirtualPathUtility.ToAppRelative*
   exceptions: []
   platform:

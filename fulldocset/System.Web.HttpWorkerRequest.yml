@@ -143,8 +143,8 @@ items:
   nameWithType: HttpWorkerRequest
   fullName: System.Web.HttpWorkerRequest
   type: Class
-  summary: "This abstract class defines the base worker methods and enumerations used by ASP.NET managed code to process requests."
-  remarks: "In most cases, your code will not deal with HttpWorkerRequest directly because request and response data are exposed through the <xref:System.Web.HttpRequest> and <xref:System.Web.HttpResponse> classes. Some internal ASP.NET classes extend this class. If your code implements its own hosting environment, it will need to extend this class to call the <xref:System.Web.HttpRuntime.ProcessRequest%2A> method. In addition, your code could create a derived class for the purpose of child-request execution within a given application in order to pass its instance to <xref:System.Web.HttpRuntime.ProcessRequest%2A>. In this case, the derived class should keep a reference to the current HttpWorkerRequest and delegate most of the methods to it."
+  summary: "Denna abstrakta klass definierar grundläggande worker metoder och uppräkningar som används av ASP.NET hanterad kod för att bearbeta förfrågningar."
+  remarks: "I de flesta fall din kod kan inte behandla HttpWorkerRequest direkt eftersom begäran och svar data är tillgängliga via den <xref:System.Web.HttpRequest>och <xref:System.Web.HttpResponse>klasser.</xref:System.Web.HttpResponse> </xref:System.Web.HttpRequest> Vissa interna ASP.NET utökar den här klassen. Om din kod implementerar sin egen värdmiljön, det måste du utöka den här klassen för att anropa den <xref:System.Web.HttpRuntime.ProcessRequest%2A>metoden.</xref:System.Web.HttpRuntime.ProcessRequest%2A> Dessutom kan din kod skapa en härledd klass för underordnade begäran körs inom ett visst program för att skicka sin instans till <xref:System.Web.HttpRuntime.ProcessRequest%2A>.</xref:System.Web.HttpRuntime.ProcessRequest%2A> I det här fallet ska den härledda klassen behålla en referens till den aktuella HttpWorkerRequest och delegera de flesta av metoderna som den."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(false)]
@@ -168,8 +168,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.HttpWorkerRequest&quot;></xref> class."
-  remarks: "The HttpWorkerRequest constructor is the default constructor for the <xref:System.Web.HttpWorkerRequest> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.HttpWorkerRequest&quot;> </xref> klass."
+  remarks: "Konstruktorn HttpWorkerRequest är standardkonstruktor för <xref:System.Web.HttpWorkerRequest>klass.</xref:System.Web.HttpWorkerRequest>"
   syntax:
     content: protected HttpWorkerRequest ();
     parameters: []
@@ -189,19 +189,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Sends the currently buffered response to the client."
+  summary: "Skickar det för närvarande buffrat svaret till klienten."
   syntax:
     content: public virtual IAsyncResult BeginFlush (AsyncCallback callback, object state);
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when a corresponding asynchronous operation completes."
+      description: "Metoden som ska anropas när en motsvarande asynkrona åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous flush operation from other requests."
+      description: "Ett användardefinierade objekt som särskiljer Denna asynkron tömning åtgärd från andra begäranden."
     return:
       type: System.IAsyncResult
-      description: "The worker request buffers the status, headers, and response body until an asynchronous flush operation is initiated. If the underlying <xref href=&quot;System.Web.HttpWorkerRequest&quot;></xref> object supports asynchronous flush and this method is called from an asynchronous module event or asynchronous handler, the send operation is performed asynchronously. Otherwise, the implementation performs a synchronous flush operation."
+      description: "Worker-begäran buffrar brödtexten status, rubriker och svar innan en tömning asynkron åtgärd initieras. Om den underliggande <xref href=&quot;System.Web.HttpWorkerRequest&quot;> </xref> objekt stöder asynkron tömning och den här metoden anropas från en asynkron modul händelse eller asynkron hanterare, send-åtgärden asynkront. Annars utför implementeringen en synkron tömning."
   overload: System.Web.HttpWorkerRequest.BeginFlush*
   exceptions: []
   platform:
@@ -218,28 +218,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Begins an asynchronous read operation of the request entity body."
+  summary: "Börjar en asynkron läsning av entiteten begärandetexten."
   syntax:
     content: public virtual IAsyncResult BeginRead (byte[] buffer, int offset, int count, AsyncCallback callback, object state);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The buffer to read the data into."
+      description: "Den buffert som används för att läsa data i."
     - id: offset
       type: System.Int32
-      description: "The byte offset in the buffer at which to begin writing data."
+      description: "Byte-förskjutning i bufferten som du vill börja skriva data."
     - id: count
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Maximalt antal byte som ska läsas."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when a corresponding asynchronous operation completes."
+      description: "Metoden som ska anropas när en motsvarande asynkrona åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "A user-provided object that distinguishes this particular asynchronous read from other requests."
+      description: "Ett användardefinierade objekt som särskiljer den här viss asynkron läsning från andra begäranden."
     return:
       type: System.IAsyncResult
-      description: "Begins an asynchronous read operation of the request entity body."
+      description: "Börjar en asynkron läsning av entiteten begärandetexten."
   overload: System.Web.HttpWorkerRequest.BeginRead*
   exceptions: []
   platform:
@@ -256,7 +256,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Terminates the connection with the client."
+  summary: "Avslutar anslutningen med klienten."
   syntax:
     content: public virtual void CloseConnection ();
     parameters: []
@@ -276,13 +276,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Waits for the pending asynchronous flush operation to complete."
+  summary: "Väntar på att väntande asynkron tömning åtgärden är klar."
   syntax:
     content: public virtual void EndFlush (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous request."
+      description: "En referens till en väntande asynkron begäran."
   overload: System.Web.HttpWorkerRequest.EndFlush*
   exceptions: []
   platform:
@@ -299,7 +299,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Used by the runtime to notify the <xref href=&quot;System.Web.HttpWorkerRequest&quot;></xref> that request processing for the current request is complete."
+  summary: "Används av körningen för att meddela den <xref href=&quot;System.Web.HttpWorkerRequest&quot;> </xref> att begäran bearbetades för den aktuella begäranden har slutförts."
   syntax:
     content: public abstract void EndOfRequest ();
     parameters: []
@@ -319,16 +319,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Waits for the pending asynchronous read operation to complete."
+  summary: "Väntar på att väntande asynkrona skrivskyddade åtgärden är klar."
   syntax:
     content: public virtual int EndRead (IAsyncResult asyncResult);
     parameters:
     - id: asyncResult
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous request."
+      description: "En referens till en väntande asynkron begäran."
     return:
       type: System.Int32
-      description: "The number of bytes that have been read from the stream."
+      description: "Antal byte som har lästs från dataströmmen."
   overload: System.Web.HttpWorkerRequest.EndRead*
   exceptions: []
   platform:
@@ -345,13 +345,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Sends all pending response data to the client."
+  summary: "Skickar alla svarsdata som väntar på till klienten."
   syntax:
     content: public abstract void FlushResponse (bool finalFlush);
     parameters:
     - id: finalFlush
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this is the last time response data will be flushed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det här är ska sista gången svarsdata tömmas. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.FlushResponse*
   exceptions: []
   platform:
@@ -368,13 +368,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the virtual path to the currently executing server application."
+  summary: "Returnerar den virtuella sökvägen till programmet för närvarande körs."
   syntax:
     content: public virtual string GetAppPath ();
     parameters: []
     return:
       type: System.String
-      description: "The virtual path of the current application."
+      description: "Den virtuella sökvägen till det aktuella programmet."
   overload: System.Web.HttpWorkerRequest.GetAppPath*
   exceptions: []
   platform:
@@ -391,13 +391,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the physical path to the currently executing server application."
+  summary: "Returnerar den fysiska sökvägen till programmet för närvarande körs."
   syntax:
     content: public virtual string GetAppPathTranslated ();
     parameters: []
     return:
       type: System.String
-      description: "The physical path of the current application."
+      description: "Den fysiska sökvägen för det aktuella programmet."
   overload: System.Web.HttpWorkerRequest.GetAppPathTranslated*
   exceptions: []
   platform:
@@ -414,13 +414,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the application pool ID for the current URL."
+  summary: "Returnerar programpoolens ID för den aktuella URL när åsidosätts i en härledd klass."
   syntax:
     content: public virtual string GetAppPoolID ();
     parameters: []
     return:
       type: System.String
-      description: "Always returns null."
+      description: "Returnerar alltid null."
   overload: System.Web.HttpWorkerRequest.GetAppPoolID*
   exceptions: []
   platform:
@@ -437,13 +437,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the number of bytes read in from the client."
+  summary: "Hämtar antalet byte i från klienten."
   syntax:
     content: public virtual long GetBytesRead ();
     parameters: []
     return:
       type: System.Int64
-      description: "A <xref uid=&quot;langword_csharp_Long&quot; name=&quot;Long&quot; href=&quot;&quot;></xref> containing the number of bytes read."
+      description: "En <xref uid=&quot;langword_csharp_Long&quot; name=&quot;Long&quot; href=&quot;&quot;> </xref> som innehåller antalet lästa byte."
   overload: System.Web.HttpWorkerRequest.GetBytesRead*
   exceptions: []
   platform:
@@ -460,14 +460,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, gets the certification fields (specified in the X.509 standard) from a request issued by the client."
-  remarks: "If no certificate is sent, the <xref:System.Web.HttpRequest.ClientCertificate%2A> collection returns empty."
+  summary: "Hämtar fälten certifikatutfärdare (anges i X.509-standarden) från en begäran som skickats av klienten när åsidosätts i en härledd klass."
+  remarks: "Om inget certifikat skickas den <xref:System.Web.HttpRequest.ClientCertificate%2A>samling returnerar tomt.</xref:System.Web.HttpRequest.ClientCertificate%2A>"
   syntax:
     content: public virtual byte[] GetClientCertificate ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "A byte array containing the stream of the entire certificate content."
+      description: "En bytematris som innehåller dataströmmen för hela certifikatets innehåll."
   overload: System.Web.HttpWorkerRequest.GetClientCertificate*
   exceptions: []
   platform:
@@ -484,13 +484,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the certificate issuer, in binary format."
+  summary: "Hämtar certifikatutfärdare, i binärformat."
   syntax:
     content: public virtual byte[] GetClientCertificateBinaryIssuer ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "A byte array containing the certificate issuer expressed in binary format."
+      description: "En bytematris som innehåller den certifikatutfärdare som uttrycks i binärformat."
   overload: System.Web.HttpWorkerRequest.GetClientCertificateBinaryIssuer*
   exceptions: []
   platform:
@@ -507,13 +507,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the <xref:System.Text.Encoding> object in which the client certificate was encoded."
+  summary: "När åsidosätts i en härledd klass returnerar den <xref:System.Text.Encoding>objekt i klientcertifikatet som har kodats.</xref:System.Text.Encoding>"
   syntax:
     content: public virtual int GetClientCertificateEncoding ();
     parameters: []
     return:
       type: System.Int32
-      description: "The certificate encoding, expressed as an integer."
+      description: "Certifikatet kodning, uttryckt som ett heltal."
   overload: System.Web.HttpWorkerRequest.GetClientCertificateEncoding*
   exceptions: []
   platform:
@@ -530,7 +530,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, gets a <xref uid=&quot;langword_csharp_PublicKey&quot; name=&quot;PublicKey&quot; href=&quot;&quot;></xref> object associated with the client certificate."
+  summary: "När åsidosätts i en härledd klass, får en <xref uid=&quot;langword_csharp_PublicKey&quot; name=&quot;PublicKey&quot; href=&quot;&quot;> </xref> som är associerat med klientcertifikatet."
   syntax:
     content: public virtual byte[] GetClientCertificatePublicKey ();
     parameters: []
@@ -553,13 +553,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, gets the date when the certificate becomes valid. The date varies with international settings."
+  summary: "Hämtar det datum då certifikatet blir giltigt när åsidosätts i en härledd klass. Datumet varierar beroende på internationella inställningar."
   syntax:
     content: public virtual DateTime GetClientCertificateValidFrom ();
     parameters: []
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> object representing when the certificate becomes valid."
+      description: "En <xref:System.DateTime>objekt som representerar när certifikatet blir giltigt.</xref:System.DateTime>"
   overload: System.Web.HttpWorkerRequest.GetClientCertificateValidFrom*
   exceptions: []
   platform:
@@ -576,13 +576,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the certificate expiration date."
+  summary: "Hämtar certifikatets förfallodatum."
   syntax:
     content: public virtual DateTime GetClientCertificateValidUntil ();
     parameters: []
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> object representing the date that the certificate expires."
+      description: "En <xref:System.DateTime>-objekt som representerar det datum då certifikatet upphör att gälla.</xref:System.DateTime>"
   overload: System.Web.HttpWorkerRequest.GetClientCertificateValidUntil*
   exceptions: []
   platform:
@@ -599,13 +599,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the ID of the current connection."
+  summary: "Returnerar ID för den aktuella anslutningen när åsidosätts i en härledd klass."
   syntax:
     content: public virtual long GetConnectionID ();
     parameters: []
     return:
       type: System.Int64
-      description: "Always returns 0."
+      description: "Returnerar alltid 0."
   overload: System.Web.HttpWorkerRequest.GetConnectionID*
   exceptions: []
   platform:
@@ -622,13 +622,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the virtual path to the requested URI."
+  summary: "Returnerar den virtuella sökvägen till begärd URI när åsidosätts i en härledd klass."
   syntax:
     content: public virtual string GetFilePath ();
     parameters: []
     return:
       type: System.String
-      description: "The path to the requested URI."
+      description: "Sökvägen till den begärda URI: N."
   overload: System.Web.HttpWorkerRequest.GetFilePath*
   exceptions: []
   platform:
@@ -645,13 +645,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: 'Returns the physical file path to the requested URI (and translates it from virtual path to physical path: for example, &quot;/proj1/page.aspx&quot; to &quot;c:\dir\page.aspx&quot;)'
+  summary: 'Returnerar den fysiska sökvägen till den begärda URI: N (och översätter det från den virtuella sökvägen till fysisk sökväg: till exempel &quot;/ proj1/page.aspx&quot; till &quot;c:\dir\page.aspx&quot;)'
   syntax:
     content: public virtual string GetFilePathTranslated ();
     parameters: []
     return:
       type: System.String
-      description: "The translated physical file path to the requested URI."
+      description: "Översatta fysiska sökvägen till den begärda URI: N."
   overload: System.Web.HttpWorkerRequest.GetFilePathTranslated*
   exceptions: []
   platform:
@@ -668,13 +668,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the specified member of the request header."
+  summary: "Returnerar den angivna medlemmen av begärda huvuden."
   syntax:
     content: public abstract string GetHttpVerbName ();
     parameters: []
     return:
       type: System.String
-      description: "The HTTP verb returned in the request header."
+      description: "HTTP-verbet som returneras i huvudet i begäran."
   overload: System.Web.HttpWorkerRequest.GetHttpVerbName*
   exceptions: []
   platform:
@@ -691,13 +691,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides access to the HTTP version of the request (for example, &quot;HTTP/1.1&quot;)."
+  summary: "Tillhandahåller åtkomst till HTTP-version för begäran (till exempel &quot;HTTP/1.1&quot;)."
   syntax:
     content: public abstract string GetHttpVersion ();
     parameters: []
     return:
       type: System.String
-      description: "The HTTP version returned in the request header."
+      description: "HTTP-version som returneras i huvudet i begäran."
   overload: System.Web.HttpWorkerRequest.GetHttpVersion*
   exceptions: []
   platform:
@@ -714,16 +714,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the standard HTTP request header that corresponds to the specified index."
+  summary: "Returnerar den vanliga HTTP-frågehuvudet som motsvarar det angivna indexet."
   syntax:
     content: public virtual string GetKnownRequestHeader (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The index of the header. For example, the <xref href=&quot;System.Web.HttpWorkerRequest.HeaderAllow&quot;></xref> field."
+      description: "Index för rubriken. Till exempel den <xref href=&quot;System.Web.HttpWorkerRequest.HeaderAllow&quot;> </xref> fältet."
     return:
       type: System.String
-      description: "The HTTP request header."
+      description: "HTTP-huvud för begäran."
   overload: System.Web.HttpWorkerRequest.GetKnownRequestHeader*
   exceptions: []
   platform:
@@ -740,16 +740,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the index number of the specified HTTP request header."
+  summary: "Returnerar index för den angivna HTTP-huvuden för begäran."
   syntax:
     content: public static int GetKnownRequestHeaderIndex (string header);
     parameters:
     - id: header
       type: System.String
-      description: "The name of the header."
+      description: "Namnet på rubriken."
     return:
       type: System.Int32
-      description: "The index number of the HTTP request header specified in the <code>header</code> parameter."
+      description: "Index för HTTP-frågehuvudet som anges i den <code> header </code> parameter."
   overload: System.Web.HttpWorkerRequest.GetKnownRequestHeaderIndex*
   exceptions: []
   platform:
@@ -766,16 +766,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the name of the specified HTTP request header."
+  summary: "Returnerar namnet på den angivna HTTP-huvuden för begäran."
   syntax:
     content: public static string GetKnownRequestHeaderName (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The index number of the header."
+      description: "Index för rubriken."
     return:
       type: System.String
-      description: "The name of the HTTP request header specified in the <code>index</code> parameter."
+      description: "Namnet på rubriken HTTP som anges i den <code> index </code> parameter."
   overload: System.Web.HttpWorkerRequest.GetKnownRequestHeaderName*
   exceptions: []
   platform:
@@ -792,16 +792,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the index number of the specified HTTP response header."
+  summary: "Returnerar index för den angivna HTTP-Svarsrubrik."
   syntax:
     content: public static int GetKnownResponseHeaderIndex (string header);
     parameters:
     - id: header
       type: System.String
-      description: "The name of the HTTP header."
+      description: "Namnet på det HTTP-huvudet."
     return:
       type: System.Int32
-      description: "The index number of the HTTP response header specified in the <code>header</code> parameter."
+      description: "Index för HTTP-Svarsrubrik som anges i den <code> header </code> parameter."
   overload: System.Web.HttpWorkerRequest.GetKnownResponseHeaderIndex*
   exceptions: []
   platform:
@@ -818,16 +818,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the name of the specified HTTP response header."
+  summary: "Returnerar namnet på den angivna HTTP-Svarsrubrik."
   syntax:
     content: public static string GetKnownResponseHeaderName (int index);
     parameters:
     - id: index
       type: System.Int32
-      description: "The index number of the header."
+      description: "Index för rubriken."
     return:
       type: System.String
-      description: "The name of the HTTP response header specified in the <code>index</code> parameter."
+      description: "Namnet på HTTP-Svarsrubrik som anges i den <code> index </code> parameter."
   overload: System.Web.HttpWorkerRequest.GetKnownResponseHeaderName*
   exceptions: []
   platform:
@@ -844,13 +844,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides access to the specified member of the request header."
+  summary: "Tillhandahåller åtkomst till den angivna medlemmen av begärda huvuden."
   syntax:
     content: public abstract string GetLocalAddress ();
     parameters: []
     return:
       type: System.String
-      description: "The server IP address returned in the request header."
+      description: "Serverns IP-adress returneras i huvudet i begäran."
   overload: System.Web.HttpWorkerRequest.GetLocalAddress*
   exceptions: []
   platform:
@@ -867,13 +867,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides access to the specified member of the request header."
+  summary: "Tillhandahåller åtkomst till den angivna medlemmen av begärda huvuden."
   syntax:
     content: public abstract int GetLocalPort ();
     parameters: []
     return:
       type: System.Int32
-      description: "The server port number returned in the request header."
+      description: "Portnummer för servern returneras i huvudet i begäran."
   overload: System.Web.HttpWorkerRequest.GetLocalPort*
   exceptions: []
   platform:
@@ -890,13 +890,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns additional path information for a resource with a URL extension. That is, for the path /virdir/page.html/tail, the <xref uid=&quot;langword_csharp_GetPathInfo&quot; name=&quot;GetPathInfo&quot; href=&quot;&quot;></xref> value is /tail."
+  summary: "Returnerar information om ytterligare sökväg för en resurs med en URL-tillägget. Det vill säga för sökväg-/virdir/page.html/tail den <xref uid=&quot;langword_csharp_GetPathInfo&quot; name=&quot;GetPathInfo&quot; href=&quot;&quot;> </xref> värdet är /tail."
   syntax:
     content: public virtual string GetPathInfo ();
     parameters: []
     return:
       type: System.String
-      description: "Additional path information for a resource."
+      description: "Ytterligare information om sökvägen för en resurs."
   overload: System.Web.HttpWorkerRequest.GetPathInfo*
   exceptions: []
   platform:
@@ -913,13 +913,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the portion of the HTTP request body that has already been read."
+  summary: "Returnerar del av texten på HTTP-begäran som redan har lästs."
   syntax:
     content: public virtual byte[] GetPreloadedEntityBody ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "The portion of the HTTP request body that has been read."
+      description: "Del av texten på HTTP-begäran som har lästs."
   overload: System.Web.HttpWorkerRequest.GetPreloadedEntityBody*
   exceptions: []
   platform:
@@ -936,19 +936,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the portion of the HTTP request body that has currently been read by using the specified buffer data and byte offset."
+  summary: "Hämtar del av texten på HTTP-begäran som för närvarande har lästs med hjälp av den angivna data och byte buffertförskjutningen."
   syntax:
     content: public virtual int GetPreloadedEntityBody (byte[] buffer, int offset);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The data to read."
+      description: "Data som kan läsas."
     - id: offset
       type: System.Int32
-      description: "The byte offset at which to begin reading."
+      description: "Mottagna byte förskjutning som du vill börja läsa."
     return:
       type: System.Int32
-      description: "The portion of the HTTP request body that has been read."
+      description: "Del av texten på HTTP-begäran som har lästs."
   overload: System.Web.HttpWorkerRequest.GetPreloadedEntityBody*
   exceptions: []
   platform:
@@ -965,13 +965,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the length of the portion of the HTTP request body that has currently been read."
+  summary: "Hämtar längden på del av texten på HTTP-begäran som för närvarande har lästs."
   syntax:
     content: public virtual int GetPreloadedEntityBodyLength ();
     parameters: []
     return:
       type: System.Int32
-      description: "An integer containing the length of the currently read HTTP request body."
+      description: "Ett heltal som innehåller för närvarande skrivskyddad skickades längd."
   overload: System.Web.HttpWorkerRequest.GetPreloadedEntityBodyLength*
   exceptions: []
   platform:
@@ -988,13 +988,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the HTTP protocol (HTTP or HTTPS)."
+  summary: "När åsidosätts i en härledd klass returnerar HTTP-protokoll (HTTP eller HTTPS)."
   syntax:
     content: public virtual string GetProtocol ();
     parameters: []
     return:
       type: System.String
-      description: "HTTPS if the <xref:System.Web.HttpWorkerRequest.IsSecure*> method is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, otherwise HTTP."
+      description: "HTTPS om den <xref:System.Web.HttpWorkerRequest.IsSecure*>metoden är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, annars HTTP.</xref:System.Web.HttpWorkerRequest.IsSecure*>"
   overload: System.Web.HttpWorkerRequest.GetProtocol*
   exceptions: []
   platform:
@@ -1011,13 +1011,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the query string specified in the request URL."
+  summary: "Returnerar frågesträngen som anges i URL: en för begäran."
   syntax:
     content: public abstract string GetQueryString ();
     parameters: []
     return:
       type: System.String
-      description: "The request query string."
+      description: "Frågesträngen begäran."
   overload: System.Web.HttpWorkerRequest.GetQueryString*
   exceptions: []
   platform:
@@ -1034,13 +1034,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the response query string as an array of bytes."
+  summary: "När åsidosätts i en härledd klass returnerar svaret frågesträngen som en matris med byte."
   syntax:
     content: public virtual byte[] GetQueryStringRawBytes ();
     parameters: []
     return:
       type: System.Byte[]
-      description: "An array of bytes containing the response."
+      description: "En matris med byte som innehåller svaret."
   overload: System.Web.HttpWorkerRequest.GetQueryStringRawBytes*
   exceptions: []
   platform:
@@ -1057,13 +1057,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the URL path contained in the request header with the query string appended."
+  summary: "Returnerar en URL-sökväg som finns i dess huvud med frågesträngen läggas till."
   syntax:
     content: public abstract string GetRawUrl ();
     parameters: []
     return:
       type: System.String
-      description: "The raw URL path of the request header."
+      description: "Rådata URL-sökvägen av begärda huvuden."
   overload: System.Web.HttpWorkerRequest.GetRawUrl*
   exceptions: []
   platform:
@@ -1080,13 +1080,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides access to the specified member of the request header."
+  summary: "Tillhandahåller åtkomst till den angivna medlemmen av begärda huvuden."
   syntax:
     content: public abstract string GetRemoteAddress ();
     parameters: []
     return:
       type: System.String
-      description: "The client&quot;s IP address."
+      description: "Klientens IP-adress."
   overload: System.Web.HttpWorkerRequest.GetRemoteAddress*
   exceptions: []
   platform:
@@ -1103,13 +1103,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the name of the client computer."
+  summary: "Returnerar namnet på klientdatorn när åsidosätts i en härledd klass."
   syntax:
     content: public virtual string GetRemoteName ();
     parameters: []
     return:
       type: System.String
-      description: "The name of the client computer."
+      description: "Namnet på klientdatorn."
   overload: System.Web.HttpWorkerRequest.GetRemoteName*
   exceptions: []
   platform:
@@ -1126,13 +1126,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides access to the specified member of the request header."
+  summary: "Tillhandahåller åtkomst till den angivna medlemmen av begärda huvuden."
   syntax:
     content: public abstract int GetRemotePort ();
     parameters: []
     return:
       type: System.Int32
-      description: "The client&quot;s HTTP port number."
+      description: "Klientens HTTP-portnummer."
   overload: System.Web.HttpWorkerRequest.GetRemotePort*
   exceptions: []
   platform:
@@ -1149,13 +1149,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the reason for the request."
+  summary: "När åsidosätts i en härledd klass, returnerar du orsaken för begäran."
   syntax:
     content: public virtual int GetRequestReason ();
     parameters: []
     return:
       type: System.Int32
-      description: "Reason code. The default is <xref uid=&quot;langword_csharp_ReasonResponseCacheMiss&quot; name=&quot;ReasonResponseCacheMiss&quot; href=&quot;&quot;></xref>."
+      description: "Orsakskod. Standardvärdet är <xref uid=&quot;langword_csharp_ReasonResponseCacheMiss&quot; name=&quot;ReasonResponseCacheMiss&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.GetRequestReason*
   exceptions: []
   platform:
@@ -1172,13 +1172,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the name of the local server."
+  summary: "Returnerar namnet på den lokala servern när åsidosätts i en härledd klass."
   syntax:
     content: public virtual string GetServerName ();
     parameters: []
     return:
       type: System.String
-      description: "The name of the local server."
+      description: "Namnet på den lokala servern."
   overload: System.Web.HttpWorkerRequest.GetServerName*
   exceptions: []
   platform:
@@ -1195,16 +1195,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a single server variable from a dictionary of server variables associated with the request."
+  summary: "Returnerar en enda servervariabel från en uppslagslista av servervariabler som är kopplad till begäran."
   syntax:
     content: public virtual string GetServerVariable (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the requested server variable."
+      description: "Namnet på den begärda servervariabeln."
     return:
       type: System.String
-      description: "The requested server variable."
+      description: "Den begärda servervariabeln."
   overload: System.Web.HttpWorkerRequest.GetServerVariable*
   exceptions: []
   platform:
@@ -1221,16 +1221,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a string that describes the name of the specified HTTP status code."
+  summary: "Returnerar en sträng som beskriver namnet på den angivna HTTP-statuskoden."
   syntax:
     content: public static string GetStatusDescription (int code);
     parameters:
     - id: code
       type: System.Int32
-      description: "The HTTP status code."
+      description: "HTTP-statuskod."
     return:
       type: System.String
-      description: "The status description. For example, GetStatusDescription (404) returns &quot;Not Found&quot;."
+      description: "Statusbeskrivningen. Till exempel returnerar GetStatusDescription (404) &quot;Kunde inte hittas&quot;."
   overload: System.Web.HttpWorkerRequest.GetStatusDescription*
   exceptions: []
   platform:
@@ -1247,13 +1247,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the length of the entire HTTP request body."
+  summary: "Hämtar längden på hela skickades."
   syntax:
     content: public virtual int GetTotalEntityBodyLength ();
     parameters: []
     return:
       type: System.Int32
-      description: "An integer containing the length of the entire HTTP request body."
+      description: "Ett heltal som innehåller längden på hela skickades."
   overload: System.Web.HttpWorkerRequest.GetTotalEntityBodyLength*
   exceptions: []
   platform:
@@ -1270,16 +1270,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a nonstandard HTTP request header value."
+  summary: "Returnerar ett avvikande huvudvärde för HTTP-begäran."
   syntax:
     content: public virtual string GetUnknownRequestHeader (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The header name."
+      description: "Huvudets namn."
     return:
       type: System.String
-      description: "The header value."
+      description: "Huvudets värde."
   overload: System.Web.HttpWorkerRequest.GetUnknownRequestHeader*
   exceptions: []
   platform:
@@ -1296,13 +1296,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Get all nonstandard HTTP header name-value pairs."
+  summary: "Hämta alla avvikande HTTP-huvudet namn / värde-par."
   syntax:
     content: public virtual string[][] GetUnknownRequestHeaders ();
     parameters: []
     return:
       type: System.String[][]
-      description: "An array of header name-value pairs."
+      description: "En matris med rubriken namn / värde-par."
   overload: System.Web.HttpWorkerRequest.GetUnknownRequestHeaders*
   exceptions: []
   platform:
@@ -1319,13 +1319,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the virtual path to the requested URI."
+  summary: "Returnerar den virtuella sökvägen till den begärda URI: N."
   syntax:
     content: public abstract string GetUriPath ();
     parameters: []
     return:
       type: System.String
-      description: "The path to the requested URI."
+      description: "Sökvägen till den begärda URI: N."
   overload: System.Web.HttpWorkerRequest.GetUriPath*
   exceptions: []
   platform:
@@ -1342,13 +1342,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the context ID of the current connection."
+  summary: "När åsidosätts i en härledd klass returnerar kontext-ID för den aktuella anslutningen."
   syntax:
     content: public virtual long GetUrlContextID ();
     parameters: []
     return:
       type: System.Int64
-      description: "Always returns 0."
+      description: "Returnerar alltid 0."
   overload: System.Web.HttpWorkerRequest.GetUrlContextID*
   exceptions: []
   platform:
@@ -1365,13 +1365,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "When overridden in a derived class, returns the client&quot;s impersonation token."
+  summary: "Returnerar klientens personifieringstoken när åsidosätts i en härledd klass."
   syntax:
     content: public virtual IntPtr GetUserToken ();
     parameters: []
     return:
       type: System.IntPtr
-      description: "A value representing the client&quot;s impersonation token. The default is 0."
+      description: "Ett värde som representerar klientens personifieringstoken. Standardvärdet är 0."
   overload: System.Web.HttpWorkerRequest.GetUserToken*
   exceptions: []
   platform:
@@ -1388,13 +1388,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the impersonation token for the request virtual path."
+  summary: "Hämtar personifieringen token för den virtuella sökvägen för begäran."
   syntax:
     content: public virtual IntPtr GetVirtualPathToken ();
     parameters: []
     return:
       type: System.IntPtr
-      description: "An unmanaged memory pointer for the token for the request virtual path."
+      description: "En ohanterade minnet pekare för token för den virtuella sökvägen för begäran."
   overload: System.Web.HttpWorkerRequest.GetVirtualPathToken*
   exceptions: []
   platform:
@@ -1411,13 +1411,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a value indicating whether the request contains body data."
+  summary: "Returnerar ett värde som anger om begäran innehåller brödtext data."
   syntax:
     content: public bool HasEntityBody ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the request contains body data; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om begäran innehåller brödtext data. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.HasEntityBody*
   exceptions: []
   platform:
@@ -1434,13 +1434,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Accept&quot; name=&quot;Accept&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Accept&quot; name=&quot;Accept&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAccept = 20;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1456,13 +1456,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Accept-Charset&quot; name=&quot;Accept-Charset&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Accept-Charset&quot; name=&quot;Accept-Charset&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAcceptCharset = 21;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1478,13 +1478,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Accept-Encoding&quot; name=&quot;Accept-Encoding&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Accept-Encoding&quot; name=&quot;Accept-Encoding&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAcceptEncoding = 22;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1500,13 +1500,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Accept-Language&quot; name=&quot;Accept-Language&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Accept-Language&quot; name=&quot;Accept-Language&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAcceptLanguage = 23;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1522,13 +1522,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Accept-Ranges&quot; name=&quot;Accept-Ranges&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Accept-Ranges&quot; name=&quot;Accept-Ranges&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAcceptRanges = 20;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1544,13 +1544,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Age&quot; name=&quot;Age&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Age&quot; name=&quot;Age&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAge = 21;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1566,13 +1566,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Allow&quot; name=&quot;Allow&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Allow&quot; name=&quot;Allow&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAllow = 10;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1588,13 +1588,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Authorization&quot; name=&quot;Authorization&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Authorization&quot; name=&quot;Authorization&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderAuthorization = 24;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1610,13 +1610,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "The index that represents the HTTP <xref uid=&quot;langword_csharp_Cache-Control&quot; name=&quot;Cache-Control&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Det index som representerar HTTP <xref uid=&quot;langword_csharp_Cache-Control&quot; name=&quot;Cache-Control&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderCacheControl = 0;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1632,13 +1632,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Connection&quot; name=&quot;Connection&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Connection&quot; name=&quot;Connection&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderConnection = 1;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1654,13 +1654,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Encoding&quot; name=&quot;Content-Encoding&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Encoding&quot; name=&quot;Content-Encoding&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentEncoding = 13;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1676,13 +1676,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Language&quot; name=&quot;Content-Language&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Language&quot; name=&quot;Content-Language&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentLanguage = 14;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1698,13 +1698,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentLength = 11;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1720,13 +1720,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Location&quot; name=&quot;Content-Location&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Location&quot; name=&quot;Content-Location&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentLocation = 15;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1742,13 +1742,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-MD5&quot; name=&quot;Content-MD5&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-MD5&quot; name=&quot;Content-MD5&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentMd5 = 16;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1764,13 +1764,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Range&quot; name=&quot;Content-Range&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Range&quot; name=&quot;Content-Range&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentRange = 17;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1786,13 +1786,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Content-Type&quot; name=&quot;Content-Type&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Content-Type&quot; name=&quot;Content-Type&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderContentType = 12;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1808,13 +1808,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Cookie&quot; name=&quot;Cookie&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Cookie&quot; name=&quot;Cookie&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderCookie = 25;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1830,13 +1830,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Date&quot; name=&quot;Date&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Date&quot; name=&quot;Date&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderDate = 2;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1852,13 +1852,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_ETag&quot; name=&quot;ETag&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_ETag&quot; name=&quot;ETag&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderEtag = 22;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1874,13 +1874,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Except&quot; name=&quot;Except&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Except&quot; name=&quot;Except&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderExpect = 26;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1896,13 +1896,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Expires&quot; name=&quot;Expires&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Expires&quot; name=&quot;Expires&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderExpires = 18;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1918,13 +1918,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_From&quot; name=&quot;From&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_From&quot; name=&quot;From&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderFrom = 27;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1940,13 +1940,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Host&quot; name=&quot;Host&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Host&quot; name=&quot;Host&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderHost = 28;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1962,13 +1962,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_If-Match&quot; name=&quot;If-Match&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_If-Match&quot; name=&quot;If-Match&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderIfMatch = 29;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -1984,13 +1984,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_If-Modified-Since&quot; name=&quot;If-Modified-Since&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_If-Modified-Since&quot; name=&quot;If-Modified-Since&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderIfModifiedSince = 30;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2006,13 +2006,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_If-None-Match&quot; name=&quot;If-None-Match&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_If-None-Match&quot; name=&quot;If-None-Match&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderIfNoneMatch = 31;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2028,13 +2028,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_If-Range&quot; name=&quot;If-Range&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_If-Range&quot; name=&quot;If-Range&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderIfRange = 32;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2050,13 +2050,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_If-Unmodified-Since&quot; name=&quot;If-Unmodified-Since&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_If-Unmodified-Since&quot; name=&quot;If-Unmodified-Since&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderIfUnmodifiedSince = 33;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2072,13 +2072,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Keep-Alive&quot; name=&quot;Keep-Alive&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Keep-Alive&quot; name=&quot;Keep-Alive&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderKeepAlive = 3;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2094,13 +2094,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Last-Modified&quot; name=&quot;Last-Modified&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Last-Modified&quot; name=&quot;Last-Modified&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderLastModified = 19;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2116,13 +2116,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Location&quot; name=&quot;Location&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Location&quot; name=&quot;Location&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderLocation = 23;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2138,13 +2138,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Max-Forwards&quot; name=&quot;Max-Forwards&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Max-Forwards&quot; name=&quot;Max-Forwards&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderMaxForwards = 34;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2160,13 +2160,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Pragma&quot; name=&quot;Pragma&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Pragma&quot; name=&quot;Pragma&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderPragma = 4;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2182,13 +2182,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Proxy-Authenticate&quot; name=&quot;Proxy-Authenticate&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Proxy-Authenticate&quot; name=&quot;Proxy-Authenticate&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderProxyAuthenticate = 24;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2204,13 +2204,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Proxy-Authorization&quot; name=&quot;Proxy-Authorization&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Proxy-Authorization&quot; name=&quot;Proxy-Authorization&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderProxyAuthorization = 35;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2226,13 +2226,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Range&quot; name=&quot;Range&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Range&quot; name=&quot;Range&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderRange = 37;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2248,13 +2248,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Referer&quot; name=&quot;Referer&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Referer&quot; name=&quot;Referer&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderReferer = 36;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2270,13 +2270,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Retry-After&quot; name=&quot;Retry-After&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Retry-After&quot; name=&quot;Retry-After&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderRetryAfter = 25;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2292,13 +2292,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Server&quot; name=&quot;Server&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Server&quot; name=&quot;Server&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderServer = 26;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2314,13 +2314,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Set-Cookie&quot; name=&quot;Set-Cookie&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Set-Cookie&quot; name=&quot;Set-Cookie&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderSetCookie = 27;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2336,13 +2336,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a value indicating whether HTTP response headers have been sent to the client for the current request."
+  summary: "Returnerar ett värde som anger om HTTP-svarshuvuden har skickats till klienten för den aktuella begäranden."
   syntax:
     content: public virtual bool HeadersSent ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if HTTP response headers have been sent to the client; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om HTTP-svarshuvuden har skickats till klienten. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.HeadersSent*
   exceptions: []
   platform:
@@ -2359,13 +2359,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_TE&quot; name=&quot;TE&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_TE&quot; name=&quot;TE&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderTe = 38;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2381,13 +2381,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Trailer&quot; name=&quot;Trailer&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Trailer&quot; name=&quot;Trailer&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderTrailer = 5;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2403,13 +2403,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Transfer-Encoding&quot; name=&quot;Transfer-Encoding&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Transfer-Encoding&quot; name=&quot;Transfer-Encoding&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderTransferEncoding = 6;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2425,13 +2425,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Upgrade&quot; name=&quot;Upgrade&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Upgrade&quot; name=&quot;Upgrade&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderUpgrade = 7;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2447,13 +2447,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_User-Agent&quot; name=&quot;User-Agent&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_User-Agent&quot; name=&quot;User-Agent&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderUserAgent = 39;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2469,13 +2469,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Vary&quot; name=&quot;Vary&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Vary&quot; name=&quot;Vary&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderVary = 28;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2491,13 +2491,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Via&quot; name=&quot;Via&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Via&quot; name=&quot;Via&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderVia = 8;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2513,13 +2513,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Warning&quot; name=&quot;Warning&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Warning&quot; name=&quot;Warning&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderWarning = 9;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2535,13 +2535,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_WWW-Authenticate&quot; name=&quot;WWW-Authenticate&quot; href=&quot;&quot;></xref> HTTP header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_WWW-Authenticate&quot; name=&quot;WWW-Authenticate&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int HeaderWwwAuthenticate = 29;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2557,13 +2557,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a value indicating whether the client connection is still active."
+  summary: "Returnerar ett värde som anger om klientanslutningen fortfarande är aktiv."
   syntax:
     content: public virtual bool IsClientConnected ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the client connection is still active; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om klientanslutningen fortfarande är aktivt; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.IsClientConnected*
   exceptions: []
   platform:
@@ -2580,13 +2580,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a value indicating whether all request data is available and no further reads from the client are required."
+  summary: "Returnerar ett värde som anger om alla begära data är tillgängliga och det krävs inga ytterligare läser från klienten."
   syntax:
     content: public virtual bool IsEntireEntityBodyIsPreloaded ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if all request data is available; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om alla begär data är tillgängliga. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.IsEntireEntityBodyIsPreloaded*
   exceptions: []
   platform:
@@ -2603,13 +2603,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns a value indicating whether the connection uses SSL."
+  summary: "Returnerar ett värde som anger om SSL används för anslutningen."
   syntax:
     content: public virtual bool IsSecure ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the connection is an SSL connection; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om anslutningen är en SSL-anslutning. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.IsSecure*
   exceptions: []
   platform:
@@ -2626,12 +2626,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the full physical path to the Machine.config file."
+  summary: "Hämtar den fullständiga fysiska sökvägen till filen Machine.config."
   syntax:
     content: public virtual string MachineConfigPath { get; }
     return:
       type: System.String
-      description: "The physical path to the Machine.config file."
+      description: "Den fysiska sökvägen till filen Machine.config."
   overload: System.Web.HttpWorkerRequest.MachineConfigPath*
   exceptions: []
   platform:
@@ -2648,12 +2648,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the physical path to the directory where the ASP.NET binaries are installed."
+  summary: "Hämtar den fysiska sökvägen till den katalog där ASP.NET-binärfiler ska installeras."
   syntax:
     content: public virtual string MachineInstallDirectory { get; }
     return:
       type: System.String
-      description: "The physical directory to the ASP.NET binary files."
+      description: "Fysisk katalog för ASP.NET-binärfiler."
   overload: System.Web.HttpWorkerRequest.MachineInstallDirectory*
   exceptions: []
   platform:
@@ -2670,16 +2670,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Returns the physical path corresponding to the specified virtual path."
+  summary: "Returnerar den fysiska sökvägen som motsvarar den angivna virtuella sökvägen."
   syntax:
     content: public virtual string MapPath (string virtualPath);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path."
+      description: "Den virtuella sökvägen."
     return:
       type: System.String
-      description: "The physical path that corresponds to the virtual path specified in the <code>virtualPath</code> parameter."
+      description: "Den fysiska sökvägen som motsvarar den virtuella sökvägen som anges i den <code> virtualPath </code> parameter."
   overload: System.Web.HttpWorkerRequest.MapPath*
   exceptions: []
   platform:
@@ -2696,20 +2696,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Reads request data from the client (when not preloaded)."
-  remarks: "An implementation is free to return fewer bytes than requested even if the end of the stream has not been reached.       Use this overload to specify the response for message bodies greater than 2 GB."
+  summary: "Läser begär data från klienten (om inte förinstallerade)."
+  remarks: "En implementering är gratis att returnera färre byte än begärda även om slutet på dataströmmen har överskridits.       Använd den här överlagring för att ange svaret för meddelandetext som är större än 2 GB."
   syntax:
     content: public virtual int ReadEntityBody (byte[] buffer, int size);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The byte array to read data into."
+      description: "Bytematrisen läsa data i."
     - id: size
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Maximalt antal byte som ska läsas."
     return:
       type: System.Int32
-      description: "The number of bytes read."
+      description: "Antal lästa byte."
   overload: System.Web.HttpWorkerRequest.ReadEntityBody*
   exceptions: []
   platform:
@@ -2726,23 +2726,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Reads request data from the client (when not preloaded) by using the specified buffer to read from, byte offset, and maximum bytes."
-  remarks: "An implementation is free to return fewer bytes than requested even if the end of the stream has not been reached.       Use this overload to specify the response for message bodies greater than 2 GB."
+  summary: "Läser begära data från klienten (om inte förinstallerade) med hjälp av den angivna bufferten att läsa från, byte-förskjutning och maximalt antal byte."
+  remarks: "En implementering är gratis att returnera färre byte än begärda även om slutet på dataströmmen har överskridits.       Använd den här överlagring för att ange svaret för meddelandetext som är större än 2 GB."
   syntax:
     content: public virtual int ReadEntityBody (byte[] buffer, int offset, int size);
     parameters:
     - id: buffer
       type: System.Byte[]
-      description: "The byte array to read data into."
+      description: "Bytematrisen läsa data i."
     - id: offset
       type: System.Int32
-      description: "The byte offset at which to begin reading."
+      description: "Mottagna byte förskjutning som du vill börja läsa."
     - id: size
       type: System.Int32
-      description: "The maximum number of bytes to read."
+      description: "Maximalt antal byte som ska läsas."
     return:
       type: System.Int32
-      description: "The number of bytes read."
+      description: "Antal lästa byte."
   overload: System.Web.HttpWorkerRequest.ReadEntityBody*
   exceptions: []
   platform:
@@ -2759,12 +2759,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request."
+  summary: "Anger en anledning för begäran."
   syntax:
     content: public const int ReasonCachePolicy = 2;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2780,12 +2780,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request."
+  summary: "Anger en anledning för begäran."
   syntax:
     content: public const int ReasonCacheSecurity = 3;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2801,12 +2801,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request."
+  summary: "Anger en anledning för begäran."
   syntax:
     content: public const int ReasonClientDisconnect = 4;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2822,12 +2822,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request. The default value is <xref href=&quot;System.Web.HttpWorkerRequest.ReasonResponseCacheMiss&quot;></xref>."
+  summary: "Anger en anledning för begäran. Standardvärdet är <xref href=&quot;System.Web.HttpWorkerRequest.ReasonResponseCacheMiss&quot;> </xref>."
   syntax:
     content: public const int ReasonDefault = 0;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2843,12 +2843,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request."
+  summary: "Anger en anledning för begäran."
   syntax:
     content: public const int ReasonFileHandleCacheMiss = 1;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2864,12 +2864,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies a reason for the request."
+  summary: "Anger en anledning för begäran."
   syntax:
     content: public const int ReasonResponseCacheMiss = 0;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2885,13 +2885,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Maximum&quot; name=&quot;Maximum&quot; href=&quot;&quot;></xref> HTTP request header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Maximum&quot; name=&quot;Maximum&quot; href=&quot;&quot;> </xref> HTTP-huvud."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int RequestHeaderMaximum = 40;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2907,13 +2907,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the corresponding Event Tracking for Windows trace ID for the current request."
-  remarks: "ASP.NET requests execute with the same trace ID as the corresponding IIS request. This facilitates tracking a request throughout its lifetime, starting with the HTTP.SYS kernel-mode HTTP listener, through the IIS service, and into the ASP.NET system. The IDs provided by IIS differ based on the platform and service pack level."
+  summary: "Hämtar den motsvarande händelse spårning för Windows trace-ID för den aktuella begäranden."
+  remarks: "Att köra ASP.NET-begäranden med samma trace-ID som motsvarande IIS-begäran. Detta underlättar spåra en begäran under dess livslängd som börjar med HTTP. SYS kernelläge HTTP-lyssnare, via tjänsten IIS och ASP.NET-system. ID: N i IIS kan variera, beroende på den plattform och service pack-nivån."
   syntax:
     content: public virtual Guid RequestTraceIdentifier { get; }
     return:
       type: System.Guid
-      description: "A trace ID for the current ASP.NET request."
+      description: "En trace-ID för den aktuella ASP.NET-begäranden."
   overload: System.Web.HttpWorkerRequest.RequestTraceIdentifier*
   exceptions: []
   platform:
@@ -2930,13 +2930,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the index number for the <xref uid=&quot;langword_csharp_Maximum&quot; name=&quot;Maximum&quot; href=&quot;&quot;></xref> HTTP response header."
-  remarks: "The .NET Framework assigns an index number to each standard HTTP header type, for use in the <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A> and <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> methods."
+  summary: "Anger index för den <xref uid=&quot;langword_csharp_Maximum&quot; name=&quot;Maximum&quot; href=&quot;&quot;> </xref> HTTP-Svarsrubrik."
+  remarks: ".NET Framework tilldelar typen på varje standard HTTP-huvud för användning i ett indextal på <xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>och <xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A>metoder.</xref:System.Web.HttpWorkerRequest.SendKnownResponseHeader%2A> </xref:System.Web.HttpWorkerRequest.GetKnownRequestHeader%2A>"
   syntax:
     content: public const int ResponseHeaderMaximum = 30;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -2952,13 +2952,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the full physical path to the root Web.config file."
-  remarks: "If you are implementing your own hosting environment, you may to override this property to return the location of your environment&quot;s root configuration file. An example of this is the <xref:System.Web.Hosting.SimpleWorkerRequest> class which provides a simple implementation of the <xref:System.Web.HttpWorkerRequest>. The <xref:System.Web.Hosting.SimpleWorkerRequest.RootWebConfigPath%2A?displayProperty=fullName> property of <xref:System.Web.Hosting.SimpleWorkerRequest> class overrides the RootWebConfigPath property of <xref:System.Web.HttpWorkerRequest> class."
+  summary: "Hämtar den fullständiga fysiska sökvägen till Web.config-rotfilen."
+  remarks: "Om du implementerar din egen värdmiljön, kan om du vill åsidosätta den här egenskapen för att returnera platsen för konfigurationsfilen för din miljö rot. Ett exempel på detta är den <xref:System.Web.Hosting.SimpleWorkerRequest>klass som innehåller en enkel implementering av <xref:System.Web.HttpWorkerRequest>.</xref:System.Web.HttpWorkerRequest> </xref:System.Web.Hosting.SimpleWorkerRequest> <xref:System.Web.Hosting.SimpleWorkerRequest.RootWebConfigPath%2A?displayProperty=fullName>Egenskapen <xref:System.Web.Hosting.SimpleWorkerRequest>åsidosätter egenskapen RootWebConfigPath för <xref:System.Web.HttpWorkerRequest>klass.</xref:System.Web.HttpWorkerRequest> </xref:System.Web.Hosting.SimpleWorkerRequest> </xref:System.Web.Hosting.SimpleWorkerRequest.RootWebConfigPath%2A?displayProperty=fullName>"
   syntax:
     content: public virtual string RootWebConfigPath { get; }
     return:
       type: System.String
-      description: "The physical path to the root Web.config file."
+      description: "Den fysiska sökvägen till Web.config-rotfilen."
   overload: System.Web.HttpWorkerRequest.RootWebConfigPath*
   exceptions: []
   platform:
@@ -2975,14 +2975,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds a <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;></xref> HTTP header to the response for message bodies that are less than or equal to 2 GB."
-  remarks: "When the content length is not explicitly set, this method enables the <xref:System.Web.HttpWorkerRequest> instance to add a `Content-Length` HTTP header to the response.       Use this overload to set the `Content-Length` header when the length of the response message body is less than or equal to 2 GB."
+  summary: "Lägger till en <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;> </xref> HTTP-huvudet i svaret för meddelandetext som är mindre än eller lika med 2 GB."
+  remarks: "När innehåll inte uttryckligen anges den här metoden kan den <xref:System.Web.HttpWorkerRequest>instans att lägga till en `Content-Length` HTTP-huvudet i svaret.</xref:System.Web.HttpWorkerRequest>       Använd den här överlagring för att ange den `Content-Length` huvud när längden på meddelandet svarstexten är mindre än eller lika med 2 GB."
   syntax:
     content: public virtual void SendCalculatedContentLength (int contentLength);
     parameters:
     - id: contentLength
       type: System.Int32
-      description: "The length of the response, in bytes."
+      description: "Längden i svaret, i byte."
   overload: System.Web.HttpWorkerRequest.SendCalculatedContentLength*
   exceptions: []
   platform:
@@ -2999,14 +2999,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds a <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;></xref> HTTP header to the response for message bodies that are greater than 2 GB."
-  remarks: "When the content length is not explicitly set, this method enables the <xref:System.Web.HttpWorkerRequest> instance to add a `Content-Length` HTTP header to the response. The default implementation calls the overload that takes a `contentLength` parameter of type <xref:System.Int32>.       Use this overload to specify the response for message bodies greater than 2 GB."
+  summary: "Lägger till en <xref uid=&quot;langword_csharp_Content-Length&quot; name=&quot;Content-Length&quot; href=&quot;&quot;> </xref> HTTP-huvudet i svaret för meddelandetext som är större än 2 GB."
+  remarks: "När innehåll inte uttryckligen anges den här metoden kan den <xref:System.Web.HttpWorkerRequest>instans att lägga till en `Content-Length` HTTP-huvudet i svaret.</xref:System.Web.HttpWorkerRequest> Standardimplementering anropar överlagring som tar en `contentLength` parameter av typen <xref:System.Int32>.</xref:System.Int32>       Använd den här överlagring för att ange svaret för meddelandetext som är större än 2 GB."
   syntax:
     content: public virtual void SendCalculatedContentLength (long contentLength);
     parameters:
     - id: contentLength
       type: System.Int64
-      description: "The length of the response, in bytes."
+      description: "Längden i svaret, i byte."
   overload: System.Web.HttpWorkerRequest.SendCalculatedContentLength*
   exceptions: []
   platform:
@@ -3023,16 +3023,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds a standard HTTP header to the response."
+  summary: "Lägger till en standard HTTP-huvudet i svaret."
   syntax:
     content: public abstract void SendKnownResponseHeader (int index, string value);
     parameters:
     - id: index
       type: System.Int32
-      description: "The header index. For example, <xref href=&quot;System.Web.HttpWorkerRequest.HeaderContentLength&quot;></xref>."
+      description: "Rubrik-index. Till exempel <xref href=&quot;System.Web.HttpWorkerRequest.HeaderContentLength&quot;> </xref>."
     - id: value
       type: System.String
-      description: "The value of the header."
+      description: "Värdet för sidhuvudet."
   overload: System.Web.HttpWorkerRequest.SendKnownResponseHeader*
   exceptions: []
   platform:
@@ -3049,19 +3049,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds the contents of the specified file to the response and specifies the starting position in the file and the number of bytes to send."
+  summary: "Lägger till innehållet i den angivna filen i svaret och anger startpositionen i filen och hur många byte att skicka."
   syntax:
     content: public abstract void SendResponseFromFile (IntPtr handle, long offset, long length);
     parameters:
     - id: handle
       type: System.IntPtr
-      description: "The handle of the file to send."
+      description: "Referensen för att skicka filen."
     - id: offset
       type: System.Int64
-      description: "The starting position in the file."
+      description: "Startpositionen i filen."
     - id: length
       type: System.Int64
-      description: "The number of bytes to send."
+      description: "Antal byte att skicka."
   overload: System.Web.HttpWorkerRequest.SendResponseFromFile*
   exceptions: []
   platform:
@@ -3078,19 +3078,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds the contents of the specified file to the response and specifies the starting position in the file and the number of bytes to send."
+  summary: "Lägger till innehållet i den angivna filen i svaret och anger startpositionen i filen och hur många byte att skicka."
   syntax:
     content: public abstract void SendResponseFromFile (string filename, long offset, long length);
     parameters:
     - id: filename
       type: System.String
-      description: "The name of the file to send."
+      description: "Namnet på filen för att skicka."
     - id: offset
       type: System.Int64
-      description: "The starting position in the file."
+      description: "Startpositionen i filen."
     - id: length
       type: System.Int64
-      description: "The number of bytes to send."
+      description: "Antal byte att skicka."
   overload: System.Web.HttpWorkerRequest.SendResponseFromFile*
   exceptions: []
   platform:
@@ -3107,16 +3107,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds the specified number of bytes from a byte array to the response."
+  summary: "Lägger till det angivna antalet byte från en byte-matris i svaret."
   syntax:
     content: public abstract void SendResponseFromMemory (byte[] data, int length);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The byte array to send."
+      description: "Bytematrisen att skicka."
     - id: length
       type: System.Int32
-      description: "The number of bytes to send, starting at the first byte."
+      description: "Antal byte att skicka, som börjar med den första byten."
   overload: System.Web.HttpWorkerRequest.SendResponseFromMemory*
   exceptions: []
   platform:
@@ -3133,16 +3133,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds the specified number of bytes from a block of memory to the response."
+  summary: "Lägger till det angivna antalet byte från ett minnesblock i svaret."
   syntax:
     content: public virtual void SendResponseFromMemory (IntPtr data, int length);
     parameters:
     - id: data
       type: System.IntPtr
-      description: "An unmanaged pointer to the block of memory."
+      description: "Ohanterad pekare till block minne."
     - id: length
       type: System.Int32
-      description: "The number of bytes to send."
+      description: "Antal byte att skicka."
   overload: System.Web.HttpWorkerRequest.SendResponseFromMemory*
   exceptions: []
   platform:
@@ -3159,16 +3159,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Specifies the HTTP status code and status description of the response, such as `SendStatus(200, &quot;Ok&quot;)`."
+  summary: "Anger HTTP-status och koden statusbeskrivningen i svaret, som `SendStatus(200, &quot;Ok&quot;)`."
   syntax:
     content: public abstract void SendStatus (int statusCode, string statusDescription);
     parameters:
     - id: statusCode
       type: System.Int32
-      description: "The status code to send"
+      description: "Statuskoden att skicka"
     - id: statusDescription
       type: System.String
-      description: "The status description to send."
+      description: "Statusbeskrivningen att skicka."
   overload: System.Web.HttpWorkerRequest.SendStatus*
   exceptions: []
   platform:
@@ -3185,16 +3185,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Adds a nonstandard HTTP header to the response."
+  summary: "Lägger till en icke-standard HTTP-huvudet i svaret."
   syntax:
     content: public abstract void SendUnknownResponseHeader (string name, string value);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the header to send."
+      description: "Namnet på rubriken för att skicka."
     - id: value
       type: System.String
-      description: "The value of the header."
+      description: "Värdet för sidhuvudet."
   overload: System.Web.HttpWorkerRequest.SendUnknownResponseHeader*
   exceptions: []
   platform:
@@ -3216,10 +3216,10 @@ items:
     parameters:
     - id: callback
       type: System.Web.HttpWorkerRequest.EndOfSendNotification
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: extraData
       type: System.Object
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Web.HttpWorkerRequest.SetEndOfSendNotification*
   exceptions: []
   platform:
@@ -3236,12 +3236,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets a value that indicates whether asynchronous flush operations are supported."
+  summary: "Hämtar ett värde som anger om tömning asynkrona åtgärder stöds."
   syntax:
     content: public virtual bool SupportsAsyncFlush { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if asynchronous flush operations are supported; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om tömning asynkrona åtgärder stöds. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.SupportsAsyncFlush*
   exceptions: []
   platform:
@@ -3258,12 +3258,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets a value that indicates whether asynchronous read operations are supported."
+  summary: "Hämtar ett värde som anger om det finns stöd för asynkrona läsåtgärder."
   syntax:
     content: public virtual bool SupportsAsyncRead { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if asynchronous read operations are supported; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om asynkrona läsåtgärder stöds. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.HttpWorkerRequest.SupportsAsyncRead*
   exceptions: []
   platform:

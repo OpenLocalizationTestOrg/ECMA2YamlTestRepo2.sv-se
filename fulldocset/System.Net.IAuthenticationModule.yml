@@ -13,8 +13,8 @@ items:
   nameWithType: IAuthenticationModule
   fullName: System.Net.IAuthenticationModule
   type: Interface
-  summary: "Provides the base authentication interface for Web client authentication modules."
-  remarks: "The IAuthenticationModule interface defines the properties and methods that custom authentication modules must use.       Authentication modules conduct the entire authentication process with a server, responding to an authentication challenge as appropriate. This process may consist of requests to an authentication server separate from the resource server, as well as any other activities required to properly authenticate a request for a URI.       Custom authentication modules should implement the IAuthenticationModule interface and then register with the <xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName> method. Authentication modules are also registered at program initialization by reading the configuration file."
+  summary: "Innehåller grundläggande autentisering-gränssnitt för Web-moduler för autentisering av klienten."
+  remarks: "IAuthenticationModule-gränssnittet definierar egenskaper och metoder som måste använda för anpassad autentiseringsmoduler.       Moduler utför hela verifieringsprocessen med en server som svarar på en autentiseringsfråga efter behov. Den här processen kan bestå av begäranden till en autentiseringsserver som är separat från resursservern, samt andra aktiviteter som krävs för att kunna autentisera en begäran för en URI.       Anpassad autentiseringsmoduler måste implementera gränssnittet IAuthenticationModule och registrera sedan med den <xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName>metoden.</xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName> Moduler för autentisering också är registrerade på programinitiering genom att läsa konfigurationsfilen."
   example:
   - "The following example creates creates a customized authentication class by implementing the IAuthenticationModule interface. For a complete example refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#6](~/add/codesnippet/csharp/t-system.net.iauthentica_1.cs)]\n [!code-cpp[System.Net.Authentication#6](~/add/codesnippet/cpp/t-system.net.iauthentica_1.cpp)]\n [!code-vb[System.Net.Authentication#6](~/add/codesnippet/visualbasic/t-system.net.iauthentica_1.vb)]"
   syntax:
@@ -34,8 +34,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Returns an instance of the <xref href=&quot;System.Net.Authorization&quot;></xref> class in respose to an authentication challenge from a server."
-  remarks: "The Authenticate method conducts the authentication process with the server and returns an <xref:System.Net.Authorization> instance to the <xref:System.Net.AuthenticationManager>."
+  summary: "Returnerar en instans av den <xref href=&quot;System.Net.Authorization&quot;> </xref> klassen i respose till en autentiseringsfråga från en server."
+  remarks: "Metoden autentisera utför autentiseringen med servern och returnerar en <xref:System.Net.Authorization>instans i <xref:System.Net.AuthenticationManager>.</xref:System.Net.AuthenticationManager> </xref:System.Net.Authorization>"
   example:
   - "The following example shows how to use the Authenticate method. For a complete example refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#3](~/add/codesnippet/csharp/4972f2e3-c89b-4471-afd2-_1.cs)]\n [!code-cpp[System.Net.Authentication#3](~/add/codesnippet/cpp/4972f2e3-c89b-4471-afd2-_1.cpp)]\n [!code-vb[System.Net.Authentication#3](~/add/codesnippet/visualbasic/4972f2e3-c89b-4471-afd2-_1.vb)]"
   syntax:
@@ -43,16 +43,16 @@ items:
     parameters:
     - id: challenge
       type: System.String
-      description: "The authentication challenge sent by the server."
+      description: "Autentiseringsfråga som skickats av servern."
     - id: request
       type: System.Net.WebRequest
-      description: "The <xref:System.Net.WebRequest> instance associated with the challenge."
+      description: "Den <xref:System.Net.WebRequest>serverinstans kopplad till utmaningen.</xref:System.Net.WebRequest>"
     - id: credentials
       type: System.Net.ICredentials
-      description: "The credentials associated with the challenge."
+      description: "Autentiseringsuppgifterna som associeras med det en utmaningen."
     return:
       type: System.Net.Authorization
-      description: "An <xref href=&quot;System.Net.Authorization&quot;></xref> instance containing the authorization message for the request, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the challenge cannot be handled."
+      description: "En <xref href=&quot;System.Net.Authorization&quot;> </xref> instans som innehåller meddelandet tillstånd för begäran, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om de inte kan hanteras."
   overload: System.Net.IAuthenticationModule.Authenticate*
   exceptions: []
   platform:
@@ -69,15 +69,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets the authentication type provided by this authentication module."
-  remarks: "The AuthenticationType property identifies the authentication type implemented by this authentication module. The AuthenticationType property is used by the <xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName> method to determine if the authentication module has been registered, and by the <xref:System.Net.AuthenticationManager.Unregister%2A?displayProperty=fullName> method to remove a registered authentication module."
+  summary: "Hämtar den autentiseringstyp som tillhandahålls av den här autentiseringsmodulen."
+  remarks: "Egenskapen AuthenticationType identifierar den autentiseringstyp som implementerats av den här autentiseringsmodulen. Egenskapen AuthenticationType används av den <xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName>metod för att bestämma om autentiseringsmodulen har registrerats och genom att den <xref:System.Net.AuthenticationManager.Unregister%2A?displayProperty=fullName>metod för att ta bort en registrerad autentiseringsmodul.</xref:System.Net.AuthenticationManager.Unregister%2A?displayProperty=fullName> </xref:System.Net.AuthenticationManager.Register%2A?displayProperty=fullName>"
   example:
   - "The following example shows how to use the AuthenticationType property. For a complete example refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#7](~/add/codesnippet/csharp/p-system.net.iauthentica_1_1.cs)]\n [!code-cpp[System.Net.Authentication#7](~/add/codesnippet/cpp/p-system.net.iauthentica_1_1.cpp)]\n [!code-vb[System.Net.Authentication#7](~/add/codesnippet/visualbasic/p-system.net.iauthentica_1_1.vb)]"
   syntax:
     content: public string AuthenticationType { get; }
     return:
       type: System.String
-      description: "A string indicating the authentication type provided by this authentication module."
+      description: "En sträng som anger den autentiseringstyp som tillhandahålls av den här autentiseringsmodulen."
   overload: System.Net.IAuthenticationModule.AuthenticationType*
   exceptions: []
   platform:
@@ -94,15 +94,15 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Gets a value indicating whether the authentication module supports preauthentication."
-  remarks: "The CanPreAuthenticate property is set to `true` to indicate that the authentication module can respond with a valid <xref:System.Net.Authorization> instance when the <xref:System.Net.IAuthenticationModule.PreAuthenticate%2A> method is called."
+  summary: "Hämtar ett värde som anger om har stöd för autentiseringsmodulen förautentisering."
+  remarks: "Egenskapen CanPreAuthenticate anges till `true` att indikera att modulen för användarautentisering kan svara med en giltig <xref:System.Net.Authorization>instansen när den <xref:System.Net.IAuthenticationModule.PreAuthenticate%2A>metoden anropas.</xref:System.Net.IAuthenticationModule.PreAuthenticate%2A> </xref:System.Net.Authorization>"
   example:
   - "The following example shows how to use the CanPreAuthenticate property. For a complete example refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#7](~/add/codesnippet/csharp/p-system.net.iauthentica_0_1.cs)]\n [!code-cpp[System.Net.Authentication#7](~/add/codesnippet/cpp/p-system.net.iauthentica_0_1.cpp)]\n [!code-vb[System.Net.Authentication#7](~/add/codesnippet/visualbasic/p-system.net.iauthentica_0_1.vb)]"
   syntax:
     content: public bool CanPreAuthenticate { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the authorization module supports preauthentication; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om tillståndet har stöd för modulen förautentisering; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Net.IAuthenticationModule.CanPreAuthenticate*
   exceptions: []
   platform:
@@ -119,8 +119,8 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Returns an instance of the <xref href=&quot;System.Net.Authorization&quot;></xref> class for an authentication request to a server."
-  remarks: "When the <xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A> property is `true`, the PreAuthenticate method will return an instance of the <xref:System.Net.Authorization> class containing an authentication message."
+  summary: "Returnerar en instans av den <xref href=&quot;System.Net.Authorization&quot;> </xref> klass för en autentiseringsbegäran till en server."
+  remarks: "När den <xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A>egenskapen är `true`, PreAuthenticate-metoden returnerar en instans av den <xref:System.Net.Authorization>klass som innehåller ett autentiseringsmeddelande.</xref:System.Net.Authorization> </xref:System.Net.IAuthenticationModule.CanPreAuthenticate%2A>"
   example:
   - "The following example shows how to use the PreAuthenticate method. For a complete example refer to the <xref:System.Net.AuthenticationManager> class.  \n  \n [!code-cs[System.Net.Authentication#4](~/add/codesnippet/csharp/8db36693-aec8-4613-b44c-_1.cs)]\n [!code-cpp[System.Net.Authentication#4](~/add/codesnippet/cpp/8db36693-aec8-4613-b44c-_1.cpp)]\n [!code-vb[System.Net.Authentication#4](~/add/codesnippet/visualbasic/8db36693-aec8-4613-b44c-_1.vb)]"
   syntax:
@@ -128,13 +128,13 @@ items:
     parameters:
     - id: request
       type: System.Net.WebRequest
-      description: "The <xref:System.Net.WebRequest> instance associated with the authentication request."
+      description: "Den <xref:System.Net.WebRequest>serverinstans kopplad till autentiseringsbegäran.</xref:System.Net.WebRequest>"
     - id: credentials
       type: System.Net.ICredentials
-      description: "The credentials associated with the authentication request."
+      description: "Autentiseringsuppgifterna som associeras med autentiseringsbegäran."
     return:
       type: System.Net.Authorization
-      description: "An <xref href=&quot;System.Net.Authorization&quot;></xref> instance containing the authorization message for the request."
+      description: "En <xref href=&quot;System.Net.Authorization&quot;> </xref> instans som innehåller meddelandet tillstånd för begäran."
   overload: System.Net.IAuthenticationModule.PreAuthenticate*
   exceptions: []
   platform:
