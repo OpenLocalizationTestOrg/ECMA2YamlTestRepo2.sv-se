@@ -52,7 +52,7 @@ items:
   nameWithType: RegistryKey
   fullName: Microsoft.Win32.RegistryKey
   type: Class
-  summary: "Represents a key-level node in the Windows registry. This class is a registry encapsulation."
+  summary: "Representerar en nyckel på objektnivå nod i Windows-registret. Den här klassen är en inkapsling i registret."
   remarks: "To get an instance of RegistryKey, use one of the static members of the <xref:Microsoft.Win32.Registry> class.  \n  \n The registry acts as a central repository of information for the operating system and the applications on a computer. The registry is organized in a hierarchical format, based on a logical ordering of the elements stored within it (please see <xref:Microsoft.Win32.Registry> for the base-level items in this hierarchy). When storing information in the registry, select the appropriate location based on the type of information being stored. Be sure to avoid destroying information created by other applications, because this can cause those applications to exhibit unexpected behavior, and can also have an adverse effect upon your own application.  \n  \n> [!IMPORTANT]\n>  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic.  \n  \n Registry keys are the base unit of organization in the registry, and can be compared to folders in File Explorer. A particular key can have subkeys, just as a folder can have subfolders. Each key can be deleted, as long as the user has the appropriate permissions to do so, and the key is not a base key or at the level directly under the base keys. Each key can also have multiple values associated with it (a value can be compared to a file), which are used to store the information — for example, information about an application installed on the computer. Each value holds one particular piece of information, which can be retrieved or updated when required. For instance, you can create a RegistryKey for your company, under the key HKEY_LOCAL_MACHINE\\Software, and then a subkey for each application that your company creates. Each subkey holds the information specific to that application, such as color settings, screen location and size, or recognized file extensions.  \n  \n Note that information stored in the registry is available to other applications and users, and therefore should not be used to store security data or critical application information.  \n  \n> [!CAUTION]\n>  Do not expose RegistryKey objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.  \n  \n Starting in the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)], the length of a registry key is no longer limited to 255 characters."
   example:
   - "The following code example shows how to create a subkey under HKEY_CURRENT_USER, manipulate its contents, and then delete the subkey.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/cpp/t-microsoft.win32.regist_2_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/csharp/t-microsoft.win32.regist_2_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/visualbasic/t-microsoft.win32.regist_2_1.vb)]"
@@ -85,8 +85,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Closes the key and flushes it to disk if its contents have been modified."
-  remarks: "Calling this method on system keys will have no effect, because system keys are never closed.       This method does nothing if you call it on an instance of `RegistryKey` that is already closed."
+  summary: "Stänger nyckeln och rensar den till disk om innehållet har ändrats."
+  remarks: "Den här metoden anropas på systemnycklar har ingen effekt, eftersom systemnycklar aldrig är stängd.       Den här metoden händer ingenting om anropas på en instans av `RegistryKey` som redan är stängd."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/cpp/m-microsoft.win32.regist_4_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/csharp/m-microsoft.win32.regist_4_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_4_1.vb)]"
   syntax:
@@ -108,8 +108,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a new subkey or opens an existing subkey for write access."
-  remarks: "In order to perform this action, the user must have permission at this level and below in the registry hierarchy.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values."
+  summary: "Skapar en ny nyckel eller öppnar en befintlig undernyckel för skrivåtkomst."
+  remarks: "För att kunna utföra den här åtgärden måste användaren ha behörighet på denna nivå och under i hierarkin registret.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden."
   example:
   - "The following code example shows how to create a subkey under HKEY_CURRENT_USER, manipulate its contents, and then delete the subkey.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_15_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_15_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_15_1.vb)]"
   syntax:
@@ -117,27 +117,27 @@ items:
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open. This string is not case-sensitive."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna. Den här strängen är inte skiftlägeskänsligt."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed. If a zero-length string is specified for <code>subkey</code>, the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is returned."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades. Om en sträng med längden noll har angetts för <code> subkey </code>, aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt returneras."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> on which this method is being invoked is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> på som den här metoden är anropas är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> cannot be written to; for example, it was not opened as a writable key , or the user does not have the necessary access rights."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> kan inte skrivas till, till exempel öppnades inte som en skrivbar nyckel eller användaren har inte tillräckliga åtkomsträttigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key, or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln, eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck)
@@ -152,40 +152,40 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a new subkey or opens an existing subkey for write access, using the specified permission check option."
-  remarks: "In order to perform this action, the user must have permission at this level and below in the registry hierarchy.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.       In order to use the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Skapar en ny nyckel eller öppnar en befintlig undernyckel för skrivåtkomst med alternativet Kontrollera angivna behörighet."
+  remarks: "För att kunna utföra den här åtgärden måste användaren ha behörighet på denna nivå och under i hierarkin registret.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.       För att kunna använda den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metoden, du måste ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, Microsoft.Win32.RegistryKeyPermissionCheck permissionCheck);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open. This string is not case-sensitive."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna. Den här strängen är inte skiftlägeskänsligt."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed. If a zero-length string is specified for <code>subkey</code>, the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is returned."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades. Om en sträng med längden noll har angetts för <code> subkey </code>, aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt returneras."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>permissionCheck</code> contains an invalid value."
+    description: "<code>permissionCheck</code>innehåller ett ogiltigt värde."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> on which this method is being invoked is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> på som den här metoden är anropas är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> cannot be written to; for example, it was not opened as a writable key, or the user does not have the necessary access rights."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> kan inte skrivas till, till exempel öppnades inte som en skrivbar nyckel eller användaren har inte tillräckliga åtkomsträttigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key, or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln, eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,System.Boolean)
@@ -200,34 +200,34 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a new subkey or opens an existing subkey with the specified access.       Available starting in [!INCLUDE[net_v46](~/add/includes/net-v46-md.md)]"
-  remarks: "In order to perform this action, the user must have permission at this level and below in the registry hierarchy.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.       In order to use the CreateSubKey method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Skapar en ny nyckel eller öppnar en befintlig undernyckel med angivna åtkomst.       Från och med[!INCLUDE[net_v46](~/add/includes/net-v46-md.md)]"
+  remarks: "För att kunna utföra den här åtgärden måste användaren ha behörighet på denna nivå och under i hierarkin registret.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.       För att kunna använda metoden CreateSubKey måste du ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen.</xref:Microsoft.Win32.RegistryKey> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, bool writable);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open. This string is not case-sensitive."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna. Den här strängen är inte skiftlägeskänsligt."
     - id: writable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate the new subkey is writable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att ange den nya undernyckeln är skrivbar; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed. If a zero-length string is specified for <code>subkey</code>, the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is returned."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades. Om en sträng med längden noll har angetts för <code> subkey </code>, aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt returneras."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> cannot be written to; for example, it was not opened as a writable key, or the user does not have the necessary access rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> kan inte skrivas till, till exempel öppnades inte som en skrivbar nyckel eller användaren har inte tillräckliga åtkomsträttigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key, or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln, eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,Microsoft.Win32.RegistryOptions)
@@ -242,23 +242,23 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a subkey or opens a subkey for write access, using the specified permission check and registry options."
-  remarks: "To obtain the current <xref:Microsoft.Win32.RegistryKey> object, specify an empty string (&quot;&quot;) for `subkey`."
+  summary: "Skapar en undernyckel eller öppnar en undernyckel för skrivåtkomst alternativen angivna behörigheten kontroll och registret."
+  remarks: "Hämta aktuellt <xref:Microsoft.Win32.RegistryKey>objekt, ange en tom sträng (&quot;&quot;) för `subkey`.</xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, Microsoft.Win32.RegistryKeyPermissionCheck permissionCheck, Microsoft.Win32.RegistryOptions options);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     - id: options
       type: Microsoft.Win32.RegistryOptions
-      description: "The registry option to use; for example, that creates a volatile key."
+      description: "Alternativet registret ska användas. till exempel skapas som en temporär nyckel."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
@@ -266,16 +266,16 @@ items:
     description: "<code>subkey </code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is closed (closed keys cannot be accessed)."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet är stängt (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object cannot be written to; for example, it was not opened as a writable key, or the user does not have the required access rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt kan inte skrivas till; exempelvis öppnades inte som en skrivbar nyckel eller användaren saknar nödvändig behörighet."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,System.Security.AccessControl.RegistrySecurity)
@@ -290,43 +290,43 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a new subkey or opens an existing subkey for write access, using the specified permission check option and registry security."
-  remarks: "The CreateSubKey method creates a registry key that has the access control specified by the `registrySecurity` parameter. The <xref:Microsoft.Win32.RegistryKey> object that is returned represents the registry key, but that object is not restricted by the access control specified in the `registrySecurity` parameter.       If `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for read/write access. If `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for read access.       For backward compatibility, the key is opened for reading and writing if `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> and the parent key also has <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>. If the parent key has any other setting, read/write status is controlled by the parent key&quot;s setting.       In order to perform this action, the user must have permissions at this level and below in the registry hierarchy.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.       In order to use the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Skapar en ny nyckel eller öppnar en befintlig undernyckel för skrivåtkomst, använder den angivna behörighet Kontrollera alternativet och registret säkerheten."
+  remarks: "Metoden CreateSubKey skapar en registernyckel som har den behörighet som anges av den `registrySecurity` parameter. Den <xref:Microsoft.Win32.RegistryKey>objekt som returneras representerar registernyckeln, men det objektet begränsas inte av åtkomstkontroll som anges i den `registrySecurity` parameter.</xref:Microsoft.Win32.RegistryKey>       Om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, nyckeln har öppnats med läs-/ skrivbehörighet.</xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> Om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, nyckeln har öppnats med läsrättigheter.</xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>       För bakåtkompatibilitet, nyckeln öppnas för läsning och skrivning om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>och den överordnade nyckeln har också <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>.</xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> Om den överordnade nyckeln har andra inställningar, kontrolleras status för läsning och skrivning av den överordnade nyckeln inställningen.       Användaren måste ha behörigheter på denna nivå och under i hierarkin registret för att kunna utföra den här åtgärden.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.       För att kunna använda den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metoden, du måste ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, Microsoft.Win32.RegistryKeyPermissionCheck permissionCheck, System.Security.AccessControl.RegistrySecurity registrySecurity);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open. This string is not case-sensitive."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna. Den här strängen är inte skiftlägeskänsligt."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     - id: registrySecurity
       type: System.Security.AccessControl.RegistrySecurity
-      description: "The access control security for the new key."
+      description: "Access control säkerhet för den nya nyckeln."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed. If a zero-length string is specified for <code>subkey</code>, the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is returned."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades. Om en sträng med längden noll har angetts för <code> subkey </code>, aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt returneras."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>permissionCheck</code> contains an invalid value."
+    description: "<code>permissionCheck</code>innehåller ett ogiltigt värde."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> on which this method is being invoked is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> på som den här metoden är anropas är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> cannot be written to; for example, it was not opened as a writable key, or the user does not have the necessary access rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> kan inte skrivas till, till exempel öppnades inte som en skrivbar nyckel eller användaren har inte tillräckliga åtkomsträttigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key, or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln, eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,System.Boolean,Microsoft.Win32.RegistryOptions)
@@ -341,40 +341,40 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a new subkey or opens an existing subkey with the specified access.       Available starting in [!INCLUDE[net_v46](~/add/includes/net-v46-md.md)]"
-  remarks: "In order to perform this action, the user must have permission at this level and below in the registry hierarchy.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.       In order to use the CreateSubKey method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Skapar en ny nyckel eller öppnar en befintlig undernyckel med angivna åtkomst.       Från och med[!INCLUDE[net_v46](~/add/includes/net-v46-md.md)]"
+  remarks: "För att kunna utföra den här åtgärden måste användaren ha behörighet på denna nivå och under i hierarkin registret.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.       För att kunna använda metoden CreateSubKey måste du ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen.</xref:Microsoft.Win32.RegistryKey> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, bool writable, Microsoft.Win32.RegistryOptions options);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open. This string is not case-sensitive."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna. Den här strängen är inte skiftlägeskänsligt."
     - id: writable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate the new subkey is writable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att ange den nya undernyckeln är skrivbar; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: options
       type: Microsoft.Win32.RegistryOptions
-      description: "The registry option to use."
+      description: "Registret alternativet att använda."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed. If a zero-length string is specified for <code>subkey</code>, the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is returned."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades. Om en sträng med längden noll har angetts för <code> subkey </code>, aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt returneras."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>options</code> does not specify a valid Option"
+    description: "<code>options</code>Anger inte ett giltigt alternativ"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> cannot be written to; for example, it was not opened as a writable key, or the user does not have the necessary access rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> kan inte skrivas till, till exempel öppnades inte som en skrivbar nyckel eller användaren har inte tillräckliga åtkomsträttigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key, or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln, eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.CreateSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,Microsoft.Win32.RegistryOptions,System.Security.AccessControl.RegistrySecurity)
@@ -389,26 +389,26 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a subkey or opens a subkey for write access, using the specified permission check option, registry option, and registry security."
-  remarks: "To obtain the current <xref:Microsoft.Win32.RegistryKey> object, specify an empty string (&quot;&quot;) for `subkey`."
+  summary: "Skapar en undernyckel eller öppnar en undernyckel för skrivåtkomst med angivna behörighet av checkar, registret och säkerheten i registret."
+  remarks: "Hämta aktuellt <xref:Microsoft.Win32.RegistryKey>objekt, ange en tom sträng (&quot;&quot;) för `subkey`.</xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey CreateSubKey (string subkey, Microsoft.Win32.RegistryKeyPermissionCheck permissionCheck, Microsoft.Win32.RegistryOptions registryOptions, System.Security.AccessControl.RegistrySecurity registrySecurity);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name or path of the subkey to create or open."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     - id: registryOptions
       type: Microsoft.Win32.RegistryOptions
-      description: "The registry option to use."
+      description: "Registret alternativet att använda."
     - id: registrySecurity
       type: System.Security.AccessControl.RegistrySecurity
-      description: "The access control security for the new subkey."
+      description: "Säkerheten för åtkomstkontroll för den nya undernyckeln."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The newly created subkey, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln nyskapade eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.CreateSubKey*
   exceptions:
   - type: System.ArgumentNullException
@@ -416,16 +416,16 @@ items:
     description: "<code>subkey </code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object is closed. Closed keys cannot be accessed."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet är stängt. Stängd nycklar kan inte nås."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object cannot be written to; for example, it was not opened as a writable key, or the user does not have the required access rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt kan inte skrivas till; exempelvis öppnades inte som en skrivbar nyckel eller användaren saknar nödvändig behörighet."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The nesting level exceeds 510.       -or-       A system error occurred, such as deletion of the key or an attempt to create a key in the <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;></xref> root."
+    description: "Också överskrider kapslingsnivån 510.       - eller - ett systemfel inträffade, exempelvis radering av nyckeln eller ett försök att skapa en nyckel i den <xref href=&quot;Microsoft.Win32.Registry.LocalMachine&quot;> </xref> rot."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or open the registry key."
+    description: "Användaren saknar behörighet att skapa eller öppna registernyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteSubKey(System.String)
@@ -440,8 +440,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes the specified subkey."
-  remarks: "To delete child subkeys, use <xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>.       Use caution when deleting registry keys."
+  summary: "Tar bort den angivna undernyckeln."
+  remarks: "Om du vill ta bort underordnade undernycklar, använder du <xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>.</xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>       Var försiktig när du tar bort registernycklarna."
   example:
   - "The following example demonstrates how to use DeleteSubKey.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#5](~/add/codesnippet/cpp/m-microsoft.win32.regist_5_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#5](~/add/codesnippet/csharp/m-microsoft.win32.regist_5_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#5](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_5_1.vb)]"
   syntax:
@@ -449,27 +449,27 @@ items:
     parameters:
     - id: subkey
       type: System.String
-      description: "The name of the subkey to delete. This string is not case-sensitive."
+      description: "Namnet på undernyckeln att ta bort. Den här strängen är inte skiftlägeskänsligt."
   overload: Microsoft.Win32.RegistryKey.DeleteSubKey*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <code>subkey</code> has child subkeys"
+    description: "Den <code> subkey </code> har underordnade undernycklar"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>subkey</code> parameter does not specify a valid registry key"
+    description: "Den <code> subkey </code> parametern anger inte en giltig registernyckel"
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
+    description: "<code>subkey</code>är<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the key."
+    description: "Användaren saknar behörighet att ta bort nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteSubKey(System.String,System.Boolean)
@@ -484,37 +484,37 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes the specified subkey, and specifies whether an exception is raised if the subkey is not found."
-  remarks: "To delete child subkeys, use <xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>.       Use caution when deleting registry keys."
+  summary: "Tar bort den angivna undernyckeln och anger om ett undantagsfel genereras om undernyckeln inte hittas."
+  remarks: "Om du vill ta bort underordnade undernycklar, använder du <xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>.</xref:Microsoft.Win32.RegistryKey.DeleteSubKeyTree%2A>       Var försiktig när du tar bort registernycklarna."
   syntax:
     content: public void DeleteSubKey (string subkey, bool throwOnMissingSubKey);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name of the subkey to delete. This string is not case-sensitive."
+      description: "Namnet på undernyckeln att ta bort. Den här strängen är inte skiftlägeskänsligt."
     - id: throwOnMissingSubKey
       type: System.Boolean
-      description: "Indicates whether an exception should be raised if the specified subkey cannot be found. If this argument is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the specified subkey does not exist, an exception is raised. If this argument is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> and the specified subkey does not exist, no action is taken."
+      description: "Anger om ett undantag ska aktiveras om den angivna undernyckeln inte kan hittas. Om det här argumentet är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> och den angivna undernyckeln inte finns, ett undantagsfel genereras. Om det här argumentet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> och den angivna undernyckeln inte finns, att ingen åtgärd utförs."
   overload: Microsoft.Win32.RegistryKey.DeleteSubKey*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>subkey</code> has child subkeys."
+    description: "<code>subkey</code>har underordnade undernycklar."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subkey</code> does not specify a valid registry key, and <code>throwOnMissingSubKey</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>Anger inte en giltig registernyckel och <code>throwOnMissingSubKey</code> är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the key."
+    description: "Användaren saknar behörighet att ta bort nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteSubKeyTree(System.String)
@@ -529,8 +529,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes a subkey and any child subkeys recursively."
-  remarks: "You must have appropriate permissions to delete the subkey and its tree.      > [!CAUTION] >  Deleting a particular key will remove all entries below the key in the tree. No warning will be provided. If you want to delete a subkey only when it has no child subkeys, use the <xref:Microsoft.Win32.RegistryKey.DeleteSubKey%2A> method."
+  summary: "Tar bort en undernyckel och eventuella underordnade undernycklar rekursivt."
+  remarks: "Du måste ha behörighet att ta bort undernyckeln och dess trädet.      > [!CAUTION] > En viss nyckel tas bort alla poster under nyckeln i trädet. Ingen varning anges. Om du vill ta bort en undernyckel endast när den har inga underordnade undernycklar, använda den <xref:Microsoft.Win32.RegistryKey.DeleteSubKey%2A>metoden.</xref:Microsoft.Win32.RegistryKey.DeleteSubKey%2A>"
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/cpp/m-microsoft.win32.regist_12_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/csharp/m-microsoft.win32.regist_12_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_12_1.vb)]"
   syntax:
@@ -538,27 +538,27 @@ items:
     parameters:
     - id: subkey
       type: System.String
-      description: "The subkey to delete. This string is not case-sensitive."
+      description: "Ta bort undernyckel. Den här strängen är inte skiftlägeskänsligt."
   overload: Microsoft.Win32.RegistryKey.DeleteSubKeyTree*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "Deletion of a root hive is attempted.       -or-       <code>subkey</code> does not specify a valid registry subkey."
+    description: "Radera en rotregistreringsdatafil görs.       - eller - <code> subkey </code> anger inte en giltig registerundernyckel."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error has occurred."
+    description: "Ett i/o-fel har uppstått."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the key."
+    description: "Användaren saknar behörighet att ta bort nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteSubKeyTree(System.String,System.Boolean)
@@ -573,33 +573,33 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes the specified subkey and any child subkeys recursively, and specifies whether an exception is raised if the subkey is not found."
+  summary: "Tar bort den angivna undernyckeln och alla undernycklar rekursivt i underordnade och anger om ett undantagsfel genereras om undernyckeln inte hittas."
   syntax:
     content: public void DeleteSubKeyTree (string subkey, bool throwOnMissingSubKey);
     parameters:
     - id: subkey
       type: System.String
-      description: "The name of the subkey to delete. This string is not case-sensitive."
+      description: "Namnet på undernyckeln att ta bort. Den här strängen är inte skiftlägeskänsligt."
     - id: throwOnMissingSubKey
       type: System.Boolean
-      description: "Indicates whether an exception should be raised if the specified subkey cannot be found. If this argument is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the specified subkey does not exist, an exception is raised. If this argument is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> and the specified subkey does not exist, no action is taken."
+      description: "Anger om ett undantag ska aktiveras om den angivna undernyckeln inte kan hittas. Om det här argumentet är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> och den angivna undernyckeln inte finns, ett undantagsfel genereras. Om det här argumentet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> och den angivna undernyckeln inte finns, att ingen åtgärd utförs."
   overload: Microsoft.Win32.RegistryKey.DeleteSubKeyTree*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt was made to delete the root hive of the tree.       -or-       <code>subkey</code> does not specify a valid registry subkey, and <code>throwOnMissingSubKey</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+    description: "Ett försök gjordes att ta bort rotregistreringsdatafil i trädet.       - eller - <code> subkey </code> anger inte en giltig registerundernyckel, och <code> throwOnMissingSubKey </code> är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subkey</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subkey</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the key."
+    description: "Användaren saknar behörighet att ta bort nyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteValue(System.String)
@@ -614,8 +614,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes the specified value from this key."
-  remarks: "On Windows 95, Windows 98, Windows 98 Second Edition, and Windows Millennium Edition, specifying an empty string for the `name` parameter does not delete the default value."
+  summary: "Tar bort det angivna värdet från den här nyckeln."
+  remarks: "På Windows 95, Windows 98, Windows 98 Second Edition och Windows ME, anger du en tom sträng för den `name` parametern tar inte bort standardvärdet."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#3](~/add/codesnippet/cpp/m-microsoft.win32.regist_13_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#3](~/add/codesnippet/csharp/m-microsoft.win32.regist_13_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#3](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_13_1.vb)]"
   syntax:
@@ -623,21 +623,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to delete."
+      description: "Namnet på värdet för att ta bort."
   overload: Microsoft.Win32.RegistryKey.DeleteValue*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not a valid reference to a value."
+    description: "<code>name</code>är inte en giltig referens till ett värde."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the value."
+    description: "Användaren saknar behörighet att ta bort värdet."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is read-only."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras är skrivskyddad."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.DeleteValue(System.String,System.Boolean)
@@ -652,31 +652,31 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Deletes the specified value from this key, and specifies whether an exception is raised if the value is not found."
-  remarks: "If `throwOnMissingValue` is `false`, there is no way to tell if the deletion was successful, without subsequently trying to access the value just deleted. Therefore, use caution when deleting values from the registry in this manner.       On Windows 95, Windows 98, Windows 98 Second Edition, and Windows Millennium Edition, specifying an empty string for the `name` parameter does not delete the default value."
+  summary: "Tar bort det angivna värdet från den här nyckeln och anger om ett undantagsfel genereras om värdet inte hittas."
+  remarks: "Om `throwOnMissingValue` är `false`, det finns inget sätt att avgöra om borttagningen har slutförts, utan därefter försöker få åtkomst till värdet bara bort. Därför försiktig när du tar bort värden från registret på detta sätt.       På Windows 95, Windows 98, Windows 98 Second Edition och Windows ME, anger du en tom sträng för den `name` parametern tar inte bort standardvärdet."
   syntax:
     content: public void DeleteValue (string name, bool throwOnMissingValue);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to delete."
+      description: "Namnet på värdet för att ta bort."
     - id: throwOnMissingValue
       type: System.Boolean
-      description: "Indicates whether an exception should be raised if the specified value cannot be found. If this argument is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> and the specified value does not exist, an exception is raised. If this argument is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> and the specified value does not exist, no action is taken."
+      description: "Anger om ett undantag ska aktiveras om det inte går att hitta det angivna värdet. Om det här argumentet är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> och det angivna värdet finns inte, ett undantagsfel genereras. Om det här argumentet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> och det angivna värdet finns inte, ingen åtgärd."
   overload: Microsoft.Win32.RegistryKey.DeleteValue*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not a valid reference to a value and <code>throwOnMissingValue</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>är inte en giltig referens till ett värde och <code>throwOnMissingValue</code> är <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>.       -or-       <code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to delete the value."
+    description: "Användaren saknar behörighet att ta bort värdet."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is read-only."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras är skrivskyddad."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.Dispose
@@ -691,8 +691,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> class."
-  remarks: "Call `Dispose` when you are finished using the <xref:Microsoft.Win32.RegistryKey>. The `Dispose` method leaves the <xref:Microsoft.Win32.RegistryKey> in an unusable state. After calling `Dispose`, you must release all references to the <xref:Microsoft.Win32.RegistryKey> so the garbage collector can reclaim the memory that the <xref:Microsoft.Win32.RegistryKey> was occupying.       For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call `Dispose` before you release your last reference to the <xref:Microsoft.Win32.RegistryKey>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:Microsoft.Win32.RegistryKey> object&quot;s `Finalize` method."
+  summary: "Frigör alla resurser som används av den aktuella instansen av den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> klass."
+  remarks: "Anropa `Dispose` när du är klar med hjälp av <xref:Microsoft.Win32.RegistryKey>.</xref:Microsoft.Win32.RegistryKey> Den `Dispose` metoden lämnar kvar det <xref:Microsoft.Win32.RegistryKey>oanvändbar.</xref:Microsoft.Win32.RegistryKey> Efter att `Dispose`, måste du släppa alla referenser till den <xref:Microsoft.Win32.RegistryKey>så skräpinsamlingen kan frigöra minne som den <xref:Microsoft.Win32.RegistryKey>var upptar.</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey>       Mer information finns i [Rensa ohanterade resurser](~/add/includes/ajax-current-ext-md.md) och [implementera en metod för ta bort](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Alltid anropet `Dispose` innan du släpper senaste referens till <xref:Microsoft.Win32.RegistryKey>.</xref:Microsoft.Win32.RegistryKey> De resurser som den använder frigörs annars inte förrän skräpinsamlingen anrop av <xref:Microsoft.Win32.RegistryKey>objektets `Finalize` metod.</xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -712,8 +712,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Writes all the attributes of the specified open registry key into the registry."
-  remarks: "It is not necessary to call `Flush` to write out changes to a key. Registry changes are flushed to disk when the registry uses its lazy flusher. Lazy flushing occurs automatically and regularly after a system-specified time interval. Registry changes are also flushed to disk at system shutdown.       Unlike <xref:Microsoft.Win32.RegistryKey.Close%2A>, the `Flush` function returns only when all the data has been written to the registry.       The `Flush` function might also write out parts of or all of the other keys. Calling this function excessively can have a negative effect on an application&quot;s performance.       An application should only call `Flush` if it must be absolute certain that registry changes are recorded to disk. In general, `Flush` rarely, if ever, need be used."
+  summary: "Skriver alla attribut för den angivna öppna registernyckeln till registret."
+  remarks: "Det är inte nödvändigt att anropa `Flush` för att skriva ändringar till en nyckel. Ändringar i registret rensade disk när registret använder dess lazy HÖGTRYCKSSPOLNING. Lazy lokaliseraren inträffar regelbundet och automatiskt efter ett systemdefinierade tidsintervall. Ändringar i registret är också rensade till disk vid stängning av systemet.       Till skillnad från <xref:Microsoft.Win32.RegistryKey.Close%2A>, `Flush` returnerar endast när alla data har skrivits till registret.</xref:Microsoft.Win32.RegistryKey.Close%2A>       Den `Flush` funktionen kan också skriva ut delar av eller alla andra nycklar. Den här funktionen anropas överdrivet kan ha en negativ inverkan på programmets prestanda.       Ett program bara ska anropa `Flush` om det måste vara absolut vissa att registerändringar registreras till disk. I allmänhet `Flush` sällan eller aldrig behöver användas."
   syntax:
     content: public void Flush ();
     parameters: []
@@ -733,27 +733,27 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a registry key from a specified handle."
+  summary: "Skapar en registernyckel från en angiven referens."
   syntax:
     content: public static Microsoft.Win32.RegistryKey FromHandle (Microsoft.Win32.SafeHandles.SafeRegistryHandle handle);
     parameters:
     - id: handle
       type: Microsoft.Win32.SafeHandles.SafeRegistryHandle
-      description: "The handle to the registry key."
+      description: "Referensen till registernyckeln."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "A registry key."
+      description: "En registernyckel."
   overload: Microsoft.Win32.RegistryKey.FromHandle*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>handle</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>handle</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to perform this action."
+    description: "Användaren saknar behörighet att utföra den här åtgärden."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.FromHandle(Microsoft.Win32.SafeHandles.SafeRegistryHandle,Microsoft.Win32.RegistryView)
@@ -768,34 +768,34 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Creates a registry key from a specified handle and registry view setting."
-  remarks: "The `view` parameter for this method is used in subsequent operations, such as opening subkeys.       If `view` is <xref:Microsoft.Win32.RegistryView> but the machine is running a 32-bit operating system, the returned key will use the <xref:Microsoft.Win32.RegistryView> view."
+  summary: "Skapar en registernyckel från en angiven referens och registret Visa inställningen."
+  remarks: "Den `view` parametern för den här metoden kan användas i efterföljande åtgärder, till exempel öppna undernycklar.       Om `view` är <xref:Microsoft.Win32.RegistryView>men datorn kör en 32-bitars operativsystem, använder nyckeln returnerade den <xref:Microsoft.Win32.RegistryView>vyn.</xref:Microsoft.Win32.RegistryView> </xref:Microsoft.Win32.RegistryView>"
   syntax:
     content: public static Microsoft.Win32.RegistryKey FromHandle (Microsoft.Win32.SafeHandles.SafeRegistryHandle handle, Microsoft.Win32.RegistryView view);
     parameters:
     - id: handle
       type: Microsoft.Win32.SafeHandles.SafeRegistryHandle
-      description: "The handle to the registry key."
+      description: "Referensen till registernyckeln."
     - id: view
       type: Microsoft.Win32.RegistryView
-      description: "The registry view to use."
+      description: "Registret vyn för att använda."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "A registry key."
+      description: "En registernyckel."
   overload: Microsoft.Win32.RegistryKey.FromHandle*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>view</code> is invalid."
+    description: "<code>view</code>är ogiltigt."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>handle</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>handle</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to perform this action."
+    description: "Användaren saknar behörighet att utföra den här åtgärden."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetAccessControl
@@ -810,25 +810,25 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Returns the access control security for the current registry key."
-  remarks: "This method overload is equivalent to calling the <xref:Microsoft.Win32.RegistryKey.GetAccessControl%28System.Security.AccessControl.AccessControlSections%29> method overload with the bitwise combination of the following flags: <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, and <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>. You can use that overload to search for other permissions.       The user must have <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName> rights to call this method."
+  summary: "Returnerar säkerheten för åtkomstkontroll för den aktuella registernyckeln."
+  remarks: "Den här metodöverlagringen motsvarar anropar den <xref:Microsoft.Win32.RegistryKey.GetAccessControl%28System.Security.AccessControl.AccessControlSections%29>metodöverlagringen med bitvis kombination av följande flaggor: <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, och <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>.</xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> </xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> </xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKey.GetAccessControl%28System.Security.AccessControl.AccessControlSections%29> Du kan använda den överlagringen för att söka efter andra behörigheter.       Användaren måste ha <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName>behörighet att anropa den här metoden.</xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName>"
   syntax:
     content: public System.Security.AccessControl.RegistrySecurity GetAccessControl ();
     parameters: []
     return:
       type: System.Security.AccessControl.RegistrySecurity
-      description: "An object that describes the access control permissions on the registry key represented by the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref>."
+      description: "Ett objekt som beskriver behörigheterna för registernyckeln som representeras av aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref>."
   overload: Microsoft.Win32.RegistryKey.GetAccessControl*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the necessary permissions."
+    description: "Användaren saknar behörighet."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current key has been deleted."
+    description: "Den aktuella nyckeln har tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetAccessControl(System.Security.AccessControl.AccessControlSections)
@@ -843,28 +843,28 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Returns the specified sections of the access control security for the current registry key."
-  remarks: "To request the access permissions currently granted to users, specify the bitwise combination of the following flags: <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, and <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>. Alternatively, you can use the <xref:Microsoft.Win32.RegistryKey.GetAccessControl> method overload, which specifies exactly that combination of values.       The user must have <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName> rights to call this method."
+  summary: "Returnerar de angivna avsnitt av säkerheten för åtkomstkontroll för den aktuella registernyckeln."
+  remarks: "Om du vill begära åtkomst behörigheterna för närvarande för användare att ange bitvis kombination av följande flaggor: <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>, och <xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName>.</xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> </xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> </xref:System.Security.AccessControl.AccessControlSections?displayProperty=fullName> Du kan också använda den <xref:Microsoft.Win32.RegistryKey.GetAccessControl>överlagring för metoden, som anger exakt den kombinationen av värden.</xref:Microsoft.Win32.RegistryKey.GetAccessControl>       Användaren måste ha <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName>behörighet att anropa den här metoden.</xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName>"
   syntax:
     content: public System.Security.AccessControl.RegistrySecurity GetAccessControl (System.Security.AccessControl.AccessControlSections includeSections);
     parameters:
     - id: includeSections
       type: System.Security.AccessControl.AccessControlSections
-      description: "A bitwise combination of enumeration values that specifies the type of security information to get."
+      description: "En binär kombination av uppräkningsvärden som anger vilken typ av säkerhetsinformation för att hämta."
     return:
       type: System.Security.AccessControl.RegistrySecurity
-      description: "An object that describes the access control permissions on the registry key represented by the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref>."
+      description: "Ett objekt som beskriver behörigheterna för registernyckeln som representeras av aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref>."
   overload: Microsoft.Win32.RegistryKey.GetAccessControl*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the necessary permissions."
+    description: "Användaren saknar behörighet."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current key has been deleted."
+    description: "Den aktuella nyckeln har tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetSubKeyNames
@@ -879,8 +879,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves an array of strings that contains all the subkey names."
-  remarks: "This method does not recursively find names. It returns the names on the base level from which it was called."
+  summary: "Hämtar en matris med strängar som innehåller alla undernycklar namn."
+  remarks: "Den här metoden stöder inte rekursivt Sök efter namn. Den returnerar namnen på basnivån som den anropades."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/cpp/m-microsoft.win32.regist_7_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/csharp/m-microsoft.win32.regist_7_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_7_1.vb)]"
   syntax:
@@ -888,21 +888,21 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "An array of strings that contains the names of the subkeys for the current key."
+      description: "En matris med strängar som innehåller namnen på undernycklar för den aktuella nyckeln."
   overload: Microsoft.Win32.RegistryKey.GetSubKeyNames*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the key."
+    description: "Användaren saknar behörighet att läsa från nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "A system error occurred, for example the current key has been deleted."
+    description: "Ett systemfel inträffade, till exempel den aktuella nyckeln har tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetValue(System.String)
@@ -917,8 +917,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the value associated with the specified name. Returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the name/value pair does not exist in the registry."
-  remarks: "> [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To retrieve this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.       When the GetValue method retrieves expandable string values (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), it expands environment strings using data from the local environment. To retrieve expandable string values from the registry on a remote computer, use the <xref:Microsoft.Win32.RegistryKey.GetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueOptions%29> method overload to specify that you do not want environment strings expanded.      > [!NOTE] >  If a value containing expandable references to environment variables has been stored as a string (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), rather than as an expandable string (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), GetValue does not expand it. You can expand such a string after it has been retrieved by calling the <xref:System.Environment.ExpandEnvironmentVariables%2A> method.      > [!NOTE] >  The recommended way to retrieve data from the <xref:Microsoft.Win32.Registry.PerformanceData> key is to use the <xref:System.Diagnostics.PerformanceCounter> class rather than the <xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName> method.   >    >  GetValue does not support reading values of type REG_NONE or REG_LINK.  In both cases, the default value (`null`) is returned instead of the actual value."
+  summary: "Hämtar värdet som associeras med det angivna namnet. Returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om namn/värde-par inte finns i registret."
+  remarks: "> [!NOTE]> En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange antingen för att hämta det namnlösa värdet `null` eller en tom sträng (&quot;&quot;) för `name`.       När metoden GetValue hämtar utbyggbara strängvärden (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), den utökar miljövariabler med data från den lokala miljön.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> Använd för att hämta utbyggbara strängvärden från registret på en fjärrdator i <xref:Microsoft.Win32.RegistryKey.GetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueOptions%29>metodöverlagringen att ange att du inte vill miljövariabler expanderas.</xref:Microsoft.Win32.RegistryKey.GetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueOptions%29>      > [!NOTE] > Om ett värde som innehåller utbyggbara referenser till miljövariabler har lagrats som en sträng (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), i stället för en utbyggbara sträng (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), GetValue inte expandera den.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> Du kan expandera denna sträng när den har hämtats genom att anropa den <xref:System.Environment.ExpandEnvironmentVariables%2A>metoden.</xref:System.Environment.ExpandEnvironmentVariables%2A>      > [!NOTE] > Det rekommenderade sättet att hämta data från den <xref:Microsoft.Win32.Registry.PerformanceData>nyckel är att använda den <xref:System.Diagnostics.PerformanceCounter>klassen snarare än den <xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName>metoden.</xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName> </xref:System.Diagnostics.PerformanceCounter> </xref:Microsoft.Win32.Registry.PerformanceData>   >> GetValue stöder inte läsning värden av typen REG_NONE eller REG_LINK.  I båda fallen standardvärdet (`null`) returneras i stället för det faktiska värdet."
   example:
   - "The following code example creates a test key and adds values of different data types to the key. The example then reads the name/value pairs and displays them to the console, using the <xref:Microsoft.Win32.RegistryKey.GetValueKind%2A> method to retrieve the corresponding registry data types.  \n  \n [!code-cpp[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_3_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_3_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_3_1.vb)]"
   syntax:
@@ -926,24 +926,24 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to retrieve. This string is not case-sensitive."
+      description: "Namnet på värdet som ska hämtas. Den här strängen är inte skiftlägeskänsligt."
     return:
       type: System.Object
-      description: "The value associated with <code>name</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if <code>name</code> is not found."
+      description: "Värdet som associeras med <code> name </code>, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om <code> name </code> finns inte."
   overload: Microsoft.Win32.RegistryKey.GetValue*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the registry key."
+    description: "Användaren saknar behörighet att läsa från registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value has been marked for deletion."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet har markerats för borttagning."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetValue(System.String,System.Object)
@@ -958,8 +958,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the value associated with the specified name. If the name is not found, returns the default value that you provide."
-  remarks: "Use this overload of <xref:Microsoft.Win32.RegistryKey.GetValue%2A> to handle the case where a name does not exist yet — for example, the first time your application is run. Whenever you call this overload, use the `defaultValue` parameter to specify the value to return if `name` does not exist.      > [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To retrieve this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.       When the <xref:Microsoft.Win32.RegistryKey.GetValue%2A> method retrieves expandable string values (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), it expands environment strings using data from the local environment. To retrieve expandable string values from the registry on a remote computer, use the <xref:Microsoft.Win32.RegistryKey.GetValue%2A> overload to specify that you do not want environment strings expanded.      > [!NOTE] >  If a value containing expandable references to environment variables has been stored as a string (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), rather than as an expandable string (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), the <xref:Microsoft.Win32.RegistryKey.GetValue%2A> method does not expand it. You can expand such a string after it has been retrieved by calling the <xref:System.Environment.ExpandEnvironmentVariables%2A> method.      > [!NOTE] >  The recommended way to retrieve data from the <xref:Microsoft.Win32.Registry.PerformanceData> key is to use the <xref:System.Diagnostics.PerformanceCounter> class rather than the <xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName> method.   >    >  GetValue does not support reading values of type REG_NONE or REG_LINK.  In both cases, the default value (`null`) is returned instead of the actual value."
+  summary: "Hämtar värdet som associeras med det angivna namnet. Om namnet inte hittas, returnerar standardvärdet som du anger."
+  remarks: "Använd den här överlagring av <xref:Microsoft.Win32.RegistryKey.GetValue%2A>att hantera de fall där ett namn inte finns ännu – till exempel första gången programmet körs.</xref:Microsoft.Win32.RegistryKey.GetValue%2A> Använd när du anropar den här överlagring av `defaultValue` parametern för att ange värdet som ska returneras om `name` finns inte.      > [!NOTE] > En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange antingen för att hämta det namnlösa värdet `null` eller en tom sträng (&quot;&quot;) för `name`.       När den <xref:Microsoft.Win32.RegistryKey.GetValue%2A>metoden hämtar utbyggbara strängvärden (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), den utökar miljövariabler med data från den lokala miljön.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKey.GetValue%2A> Använd för att hämta utbyggbara strängvärden från registret på en fjärrdator i <xref:Microsoft.Win32.RegistryKey.GetValue%2A>överlagring för att ange att du inte vill miljövariabler expanderas.</xref:Microsoft.Win32.RegistryKey.GetValue%2A>      > [!NOTE] > Om ett värde som innehåller utbyggbara referenser till miljövariabler har lagrats som en sträng (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), i stället för en utbyggbara sträng (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), <xref:Microsoft.Win32.RegistryKey.GetValue%2A>metoden inte expandera den.</xref:Microsoft.Win32.RegistryKey.GetValue%2A> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> Du kan expandera denna sträng när den har hämtats genom att anropa den <xref:System.Environment.ExpandEnvironmentVariables%2A>metoden.</xref:System.Environment.ExpandEnvironmentVariables%2A>      > [!NOTE] > Det rekommenderade sättet att hämta data från den <xref:Microsoft.Win32.Registry.PerformanceData>nyckel är att använda den <xref:System.Diagnostics.PerformanceCounter>klassen snarare än den <xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName>metoden.</xref:Microsoft.Win32.RegistryKey.GetValue%2A?displayProperty=fullName> </xref:System.Diagnostics.PerformanceCounter> </xref:Microsoft.Win32.Registry.PerformanceData>   >> GetValue stöder inte läsning värden av typen REG_NONE eller REG_LINK.  I båda fallen standardvärdet (`null`) returneras i stället för det faktiska värdet."
   example:
   - "The following code example creates a test key with a value and retrieves that value. The example then attempts to retrieve a nonexistent value from the key; in this case the GetValue method returns the specified default value.  \n  \n [!code-cs[Classic RegistryKey.GetValue Example#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_6_1.cs)]\n [!code-cpp[Classic RegistryKey.GetValue Example#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_6_1.cpp)]\n [!code-vb[Classic RegistryKey.GetValue Example#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_6_1.vb)]"
   syntax:
@@ -967,27 +967,27 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to retrieve. This string is not case-sensitive."
+      description: "Namnet på värdet som ska hämtas. Den här strängen är inte skiftlägeskänsligt."
     - id: defaultValue
       type: System.Object
-      description: "The value to return if `name` does not exist."
+      description: "Värdet som ska returneras om `name` finns inte."
     return:
       type: System.Object
-      description: "The value associated with <code>name</code>, with any embedded environment variables left unexpanded, or <code>defaultValue</code> if <code>name</code> is not found."
+      description: "Värdet som associeras med <code> name </code>, med alla inbäddade miljövariabler vänster ej utökat eller <code> defaultValue </code> om <code> name </code> finns inte."
   overload: Microsoft.Win32.RegistryKey.GetValue*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the registry key."
+    description: "Användaren saknar behörighet att läsa från registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value has been marked for deletion."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet har markerats för borttagning."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetValue(System.String,System.Object,Microsoft.Win32.RegistryValueOptions)
@@ -1002,8 +1002,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the value associated with the specified name and retrieval options. If the name is not found, returns the default value that you provide."
-  remarks: "Use this overload to specify special processing of the retrieved value. For example, you can specify <xref:Microsoft.Win32.RegistryValueOptions?displayProperty=fullName> when retrieving a registry value of type <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> to retrieve the string without expanding embedded environment variables.       Use the `defaultValue` parameter to specify the value to return if `name` does not exist.      > [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To retrieve this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.   >    >  GetValue does not support reading values of type REG_NONE or REG_LINK.  In both cases, the default value (`null`) is returned instead of the actual value."
+  summary: "Hämtar värdet som associeras med de angivna alternativen för namn och hämtning. Om namnet inte hittas, returnerar standardvärdet som du anger."
+  remarks: "Använd den här överlagring för att ange särskild bearbetning av det hämtade värdet. Du kan till exempel ange <xref:Microsoft.Win32.RegistryValueOptions?displayProperty=fullName>vid hämtning av ett registervärde av typen <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>att hämta strängen utan att expandera inbäddade miljövariabler.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryValueOptions?displayProperty=fullName>       Använd den `defaultValue` parametern för att ange värdet som ska returneras om `name` finns inte.      > [!NOTE] > En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange antingen för att hämta det namnlösa värdet `null` eller en tom sträng (&quot;&quot;) för `name`.   >> GetValue stöder inte läsning värden av typen REG_NONE eller REG_LINK.  I båda fallen standardvärdet (`null`) returneras i stället för det faktiska värdet."
   example:
   - "The following code sample creates a test key, adds a value with an embedded environment variable, and retrieves the value in both expanded and unexpanded forms.  \n  \n [!code-cs[RegistryValueOptions#1](~/add/codesnippet/csharp/0ecb41d1-0eb1-4d34-96b2-_1.cs)]\n [!code-cpp[RegistryValueOptions#1](~/add/codesnippet/cpp/0ecb41d1-0eb1-4d34-96b2-_1.cpp)]\n [!code-vb[RegistryValueOptions#1](~/add/codesnippet/visualbasic/0ecb41d1-0eb1-4d34-96b2-_1.vb)]"
   syntax:
@@ -1011,33 +1011,33 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to retrieve. This string is not case-sensitive."
+      description: "Namnet på värdet som ska hämtas. Den här strängen är inte skiftlägeskänsligt."
     - id: defaultValue
       type: System.Object
-      description: "The value to return if `name` does not exist."
+      description: "Värdet som ska returneras om `name` finns inte."
     - id: options
       type: Microsoft.Win32.RegistryValueOptions
-      description: "One of the enumeration values that specifies optional processing of the retrieved value."
+      description: "En av de uppräkningsvärden som anger valfria bearbetning av det hämtade värdet."
     return:
       type: System.Object
-      description: "The value associated with <code>name</code>, processed according to the specified <code>options</code>, or <code>defaultValue</code> if <code>name</code> is not found."
+      description: "Värdet som associeras med <code> name </code>, bearbetade enligt den angivna <code> options </code>, eller <code> defaultValue </code> om <code> name </code> finns inte."
   overload: Microsoft.Win32.RegistryKey.GetValue*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the registry key."
+    description: "Användaren saknar behörighet att läsa från registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value has been marked for deletion."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet har markerats för borttagning."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>options</code> is not a valid <xref href=&quot;Microsoft.Win32.RegistryValueOptions&quot;></xref> value; for example, an invalid value is cast to <xref href=&quot;Microsoft.Win32.RegistryValueOptions&quot;></xref>."
+    description: "<code>options</code>är inte ett giltigt <xref href=&quot;Microsoft.Win32.RegistryValueOptions&quot;> </xref> värde, till exempel ett ogiltigt värde omvandlas till <xref href=&quot;Microsoft.Win32.RegistryValueOptions&quot;> </xref>."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetValueKind(System.String)
@@ -1052,8 +1052,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the registry data type of the value associated with the specified name."
-  remarks: "> [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To retrieve the registry data type of this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.       For a description of supported registry data types, please see the <xref:Microsoft.Win32.RegistryValueKind> enumeration."
+  summary: "Hämtar registret datatypen för det värde som är associerade med det angivna namnet."
+  remarks: "> [!NOTE]> En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange om du vill hämta registret datatypen för detta ej namngivet värde, antingen `null` eller en tom sträng (&quot;&quot;) för `name`.       En beskrivning av datatyper stöds registret, finns det <xref:Microsoft.Win32.RegistryValueKind>uppräkningen.</xref:Microsoft.Win32.RegistryValueKind>"
   example:
   - "The following code example creates a test key and adds values of different data types to the key. The example then reads the name/value pairs and displays them to the console, using the GetValueKind method to retrieve the corresponding registry data types.  \n  \n [!code-cpp[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_0_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_0_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_0_1.vb)]"
   syntax:
@@ -1061,24 +1061,24 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value whose registry data type is to be retrieved. This string is not case-sensitive."
+      description: "Namnet på det värde vars datatyp i registret är som ska hämtas. Den här strängen är inte skiftlägeskänsligt."
     return:
       type: Microsoft.Win32.RegistryValueKind
-      description: "The registry data type of the value associated with <code>name</code>."
+      description: "Registret datatypen för det värde som är associerade med <code> name </code>."
   overload: Microsoft.Win32.RegistryKey.GetValueKind*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the registry key."
+    description: "Användaren saknar behörighet att läsa från registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The subkey that contains the specified value does not exist.       -or-       The name/value pair specified by <code>name</code> does not exist.       This exception is not thrown on Windows 95, Windows 98, or Windows Millennium Edition."
+    description: "Undernyckeln som innehåller det angivna värdet finns inte.       - eller - namn/värde-par som anges av <code> name </code> finns inte.       Detta undantag inte på Windows 95, Windows 98 eller Windows ME."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.GetValueNames
@@ -1093,8 +1093,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves an array of strings that contains all the value names associated with this key."
-  remarks: "If no value names for the key are found, an empty array is returned.       A registry key can have a default value — that is, a name/value pair in which the name is the empty string (&quot;&quot;). If a default value has been set for a registry key, the array returned by the GetValueNames method includes the empty string."
+  summary: "Hämtar en matris med strängar som innehåller alla värdenamn som är associerade med den här nyckeln."
+  remarks: "Om inga värdenamn för nyckeln inte hittas returneras en tom matris.       En registernyckel kan ha ett standardvärde, som är ett namn/värde-par som där är namnet en tom sträng (&quot;&quot;). Om ett standardvärde har angetts för en registernyckel, innehåller matrisen som returneras av metoden GetValueNames en tom sträng."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/cpp/m-microsoft.win32.regist_2_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/csharp/m-microsoft.win32.regist_2_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_2_1.vb)]"
   syntax:
@@ -1102,21 +1102,21 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "An array of strings that contains the value names for the current key."
+      description: "En matris med strängar som innehåller värdenamn för den aktuella nyckeln."
   overload: Microsoft.Win32.RegistryKey.GetValueNames*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read from the registry key."
+    description: "Användaren saknar behörighet att läsa från registernyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "A system error occurred; for example, the current key has been deleted."
+    description: "Ett systemfel uppstod; till exempel har den aktuella nyckeln tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.Handle
@@ -1131,26 +1131,26 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Gets a <xref href=&quot;Microsoft.Win32.SafeHandles.SafeRegistryHandle&quot;></xref> object that represents the registry key that the current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object encapsulates."
+  summary: "Hämtar en <xref href=&quot;Microsoft.Win32.SafeHandles.SafeRegistryHandle&quot;> </xref> objekt som representerar registret nyckeln som aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> objekt kapslar in."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeRegistryHandle Handle { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeRegistryHandle
-      description: "The handle to the registry key."
+      description: "Referensen till registernyckeln."
   overload: Microsoft.Win32.RegistryKey.Handle*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The registry key is closed. Closed keys cannot be accessed."
+    description: "Registernyckeln är stängd. Stängd nycklar kan inte nås."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "A system error occurred, such as deletion of the current key."
+    description: "Ett systemfel inträffade, exempelvis radering av den aktuella nyckeln."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read the key."
+    description: "Användaren saknar behörighet att läsa nyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.Name
@@ -1165,20 +1165,20 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the name of the key."
-  remarks: "The name of the key includes the absolute path of this key in the registry, always starting at a base key, for example, HKEY_LOCAL_MACHINE."
+  summary: "Hämtar namnet på nyckeln."
+  remarks: "Namnet på nyckeln som innehåller den absoluta sökvägen för den här nyckeln i registret alltid början på en grundläggande nyckel, till exempel HKEY_LOCAL_MACHINE."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/cpp/p-microsoft.win32.regist_0_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/csharp/p-microsoft.win32.regist_0_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/visualbasic/p-microsoft.win32.regist_0_1.vb)]"
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The absolute (qualified) name of the key."
+      description: "Absolut (kvalificerade) namnet på nyckeln."
   overload: Microsoft.Win32.RegistryKey.Name*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenBaseKey(Microsoft.Win32.RegistryHive,Microsoft.Win32.RegistryView)
@@ -1193,30 +1193,30 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Opens a new <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that represents the requested key on the local machine with the specified view."
+  summary: "Öppnar en ny <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som representerar den begärda nyckeln på den lokala datorn med den angivna vyn."
   syntax:
     content: public static Microsoft.Win32.RegistryKey OpenBaseKey (Microsoft.Win32.RegistryHive hKey, Microsoft.Win32.RegistryView view);
     parameters:
     - id: hKey
       type: Microsoft.Win32.RegistryHive
-      description: "The HKEY to open."
+      description: "HKEY att öppna."
     - id: view
       type: Microsoft.Win32.RegistryView
-      description: "The registry view to use."
+      description: "Registret vyn för att använda."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The requested registry key."
+      description: "Den begärda registernyckeln."
   overload: Microsoft.Win32.RegistryKey.OpenBaseKey*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hKey</code> or <code>view</code> is invalid."
+    description: "<code>hKey</code>eller <code>view</code> är ogiltig."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to perform this action."
+    description: "Användaren saknar behörighet att utföra den här åtgärden."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,System.String)
@@ -1231,8 +1231,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Opens a new <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that represents the requested key on a remote machine."
-  remarks: "The local machine registry is opened if `machineName` is <xref:System.String?displayProperty=fullName>. The requested key must be a root key on the remote machine, and is identified by the appropriate <xref:Microsoft.Win32.RegistryHive> value.       In order for a key to be opened remotely, both the server and client machines must be running the remote registry service, and have remote administration enabled."
+  summary: "Öppnar en ny <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som representerar den begärda nyckeln på en fjärrdator."
+  remarks: "Den lokala systemregistret öppnas om `machineName` är <xref:System.String?displayProperty=fullName>.</xref:System.String?displayProperty=fullName> Den begärda nyckeln måste vara en rotnyckel på fjärrdatorn och identifieras av lämplig <xref:Microsoft.Win32.RegistryHive>värde.</xref:Microsoft.Win32.RegistryHive>       För en nyckel som ska öppnas via en fjärranslutning måste både servern och klienten datorer kör tjänsten remote registry och fjärradministration aktiverat."
   example:
   - "The following code example shows how to open a registry key on a remote computer and enumerate the values of the key. The remote computer must be running the remote registry service. Specify the name of the remote computer as a command-line argument when invoking the program.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey.OpenRemoteBaseKey#1](~/add/codesnippet/cpp/e08e963c-edd7-45e7-b967-_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey.OpenRemoteBaseKey#1](~/add/codesnippet/csharp/e08e963c-edd7-45e7-b967-_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey.OpenRemoteBaseKey#1](~/add/codesnippet/visualbasic/e08e963c-edd7-45e7-b967-_1.vb)]"
   syntax:
@@ -1240,30 +1240,30 @@ items:
     parameters:
     - id: hKey
       type: Microsoft.Win32.RegistryHive
-      description: "The HKEY to open, from the <xref href=&quot;Microsoft.Win32.RegistryHive&quot;></xref> enumeration."
+      description: "HKEY att öppna, från den <xref href=&quot;Microsoft.Win32.RegistryHive&quot;> </xref> uppräkning."
     - id: machineName
       type: System.String
-      description: "The remote machine."
+      description: "Fjärrdatorn."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The requested registry key."
+      description: "Den begärda registernyckeln."
   overload: Microsoft.Win32.RegistryKey.OpenRemoteBaseKey*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hKey</code> is invalid."
+    description: "<code>hKey</code>är ogiltigt."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>machineName</code> is not found."
+    description: "<code>machineName</code>hittades inte."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>machineName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>machineName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the proper permissions to perform this operation."
+    description: "Användaren saknar rätt behörighet för att utföra den här åtgärden."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(Microsoft.Win32.RegistryHive,System.String,Microsoft.Win32.RegistryView)
@@ -1278,40 +1278,40 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Opens a new registry key that represents the requested key on a remote machine with the specified view."
-  remarks: "The local machine registry is opened if `machineName` is <xref:System.String?displayProperty=fullName>. The requested key must be a root key on the remote machine, and is identified by the appropriate <xref:Microsoft.Win32.RegistryHive> value.       In order for a key to be opened remotely, both the server and client machines must be running the remote registry service, and have remote administration enabled.       On the 64-bit versions of Windows, portions of the registry are stored separately for 32-bit and 64-bit applications. There is a 32-bit view for 32-bit applications and a 64-bit view for 64-bit applications. If `view` is <xref:Microsoft.Win32.RegistryView> but the remote machine is running a 32-bit operating system, the returned key will use the <xref:Microsoft.Win32.RegistryView> view."
+  summary: "Öppnar en ny registernyckel som representerar den begärda nyckeln på en fjärrdator med den angivna vyn."
+  remarks: "Den lokala systemregistret öppnas om `machineName` är <xref:System.String?displayProperty=fullName>.</xref:System.String?displayProperty=fullName> Den begärda nyckeln måste vara en rotnyckel på fjärrdatorn och identifieras av lämplig <xref:Microsoft.Win32.RegistryHive>värde.</xref:Microsoft.Win32.RegistryHive>       För en nyckel som ska öppnas via en fjärranslutning måste både servern och klienten datorer kör tjänsten remote registry och fjärradministration aktiverat.       Delar av registret lagras separat för 32-bitars och 64-bitarsprogram på 64-bitars versioner av Windows. Det finns en 32-bitars vy för 32-bitars program och en 64-bitars vy för 64-bitarsprogram. Om `view` är <xref:Microsoft.Win32.RegistryView>men fjärrdatorn kör en 32-bitars operativsystem, använder nyckeln returnerade den <xref:Microsoft.Win32.RegistryView>vyn.</xref:Microsoft.Win32.RegistryView> </xref:Microsoft.Win32.RegistryView>"
   syntax:
     content: public static Microsoft.Win32.RegistryKey OpenRemoteBaseKey (Microsoft.Win32.RegistryHive hKey, string machineName, Microsoft.Win32.RegistryView view);
     parameters:
     - id: hKey
       type: Microsoft.Win32.RegistryHive
-      description: "The HKEY to open from the <xref href=&quot;Microsoft.Win32.RegistryHive&quot;></xref> enumeration.."
+      description: "HKEY öppna från den <xref href=&quot;Microsoft.Win32.RegistryHive&quot;> </xref> uppräkning..."
     - id: machineName
       type: System.String
-      description: "The remote machine."
+      description: "Fjärrdatorn."
     - id: view
       type: Microsoft.Win32.RegistryView
-      description: "The registry view to use."
+      description: "Registret vyn för att använda."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The requested registry key."
+      description: "Den begärda registernyckeln."
   overload: Microsoft.Win32.RegistryKey.OpenRemoteBaseKey*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>hKey</code> or <code>view</code> is invalid."
+    description: "<code>hKey</code>eller <code>view</code> är ogiltig."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>machineName</code> is not found."
+    description: "<code>machineName</code>hittades inte."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>machineName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>machineName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the required permissions to perform this operation."
+    description: "Användaren saknar behörighet att utföra den här åtgärden."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenSubKey(System.String)
@@ -1326,8 +1326,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves a subkey as read-only."
-  remarks: "You must open a key before it can be manipulated with other methods and properties. To modify a key, you must open it with an overload of the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method that allows you to specify write access, such as the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CMicrosoft.Win32.RegistryKeyPermissionCheck%29> overload or the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CSystem.Boolean%29> overload.       If the specified subkey cannot be found, then `null` is returned.       In order to use the OpenSubKey method, you must have an instance of <xref:Microsoft.Win32.RegistryKey>. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use the one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Hämtar en undernyckel som skrivskyddad."
+  remarks: "Du måste öppna en nyckel innan det kan hanteras med andra metoder och egenskaper. Om du vill ändra en nyckel måste du öppna den med en överlagring av den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metod som gör att du kan ange skrivbehörighet, till exempel den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CMicrosoft.Win32.RegistryKeyPermissionCheck%29>överlagra eller <xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CSystem.Boolean%29>överlagra.</xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CSystem.Boolean%29> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%28System.String%2CMicrosoft.Win32.RegistryKeyPermissionCheck%29> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>       Om den angivna undernyckeln inte kan hittas, sedan `null` returneras.       För att kunna använda metoden OpenSubKey måste du ha en instans av <xref:Microsoft.Win32.RegistryKey>.</xref:Microsoft.Win32.RegistryKey> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>, använda något av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   example:
   - "The following code example creates a test key and uses the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method to open it, demonstrating both overloads of the method.  \n  \n [!code-cs[RegistryKey.OpenSubKey#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_11_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_11_1.vb)]\n [!code-cpp[RegistryKey.OpenSubKey#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_11_1.cpp)]"
   syntax:
@@ -1335,21 +1335,21 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name or path of the subkey to open as read-only."
+      description: "Namnet eller sökvägen till undernyckeln öppna som skrivskyddad."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The subkey requested, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln begärt, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.OpenSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
+    description: "<code>name</code>är<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read the registry key."
+    description: "Användaren saknar behörighet att läsa registernyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck)
@@ -1364,8 +1364,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the specified subkey for read or read/write access."
-  remarks: "Rather than throwing an exception, this method returns `null` if the requested key does not exist.       If `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for reading and writing; if `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> or <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for reading unless the parent key was opened with <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>.       In order to use the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Hämtar den angivna undernyckeln för läsning eller skrivning/komma åt."
+  remarks: "I stället för att ett undantag för den här metoden returnerar `null` om den begärda nyckeln inte finns.       Om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, nyckeln öppnas för läsning och skrivning, om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>eller <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>nyckeln öppnas för läsning om den överordnade nyckeln har öppnats med <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>.</xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>       För att kunna använda den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metoden, du måste ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   example:
   - "The following code example creates a subkey containing 100 key/value pairs and closes it. The example opens the subkey with <xref:Microsoft.Win32.RegistryKeyPermissionCheck>, records the time it takes to read all the values, and closes the subkey. The example opens the subkey with <xref:Microsoft.Win32.RegistryKeyPermissionCheck> and records the time it takes to read all the values. Finally, the example computes and displays the percentage improvement.  \n  \n [!code-cs[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/csharp/1404fbf5-0fde-46f3-9877-_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey_PermCheck#1](~/add/codesnippet/visualbasic/1404fbf5-0fde-46f3-9877-_1.vb)]"
   syntax:
@@ -1373,27 +1373,27 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name or path of the subkey to create or open."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The subkey requested, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln begärt, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.OpenSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
+    description: "<code>name</code>är<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>permissionCheck</code> contains an invalid value."
+    description: "<code>permissionCheck</code>innehåller ett ogiltigt värde."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to read the registry key."
+    description: "Användaren saknar behörighet att läsa registernyckeln."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenSubKey(System.String,System.Boolean)
@@ -1408,8 +1408,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves a specified subkey, and specifies whether write access is to be applied to the key."
-  remarks: "If the requested key does not exist, this method returns `null` instead of throwing an exception.       If `writable` is `true`, the key will be opened for reading and writing, otherwise, the key will be opened as read-only.       In order to use the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> method. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Hämtar en angiven undernyckel och anger om skrivåtkomst ska tillämpas på nyckeln."
+  remarks: "Om den begärda nyckeln inte finns den här metoden returnerar `null` i stället för att ett undantag.       Om `writable` är `true`nyckeln öppnas för läsning och skrivning, i annat fall nyckeln öppnas som skrivskyddad.       För att kunna använda den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metoden, måste du ha en instans av den <xref:Microsoft.Win32.RegistryKey>metoden.</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   example:
   - "The following code example creates a test key and uses the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method to open it, demonstrating both overloads of the method.  \n  \n [!code-cs[RegistryKey.OpenSubKey#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_1_1.cs)]\n [!code-vb[RegistryKey.OpenSubKey#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_1_1.vb)]\n [!code-cpp[RegistryKey.OpenSubKey#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_1_1.cpp)]"
   syntax:
@@ -1417,24 +1417,24 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "Name or path of the subkey to open."
+      description: "Namnet eller sökvägen till undernyckeln att öppna."
     - id: writable
       type: System.Boolean
-      description: "Set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if you need write access to the key."
+      description: "Ange till <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> om du behöver åtkomst till nyckeln."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The subkey requested, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln begärt, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.OpenSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to access the registry key in the specified mode."
+    description: "Användaren saknar behörighet att komma åt registernyckeln i det angivna läget."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenSubKey(System.String,System.Security.AccessControl.RegistryRights)
@@ -1449,31 +1449,31 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves a subkey with the specified name and .       Available starting in [!INCLUDE[net_2015](~/add/includes/net-2015-md.md)]"
-  remarks: "You must open a key before it can be manipulated with other methods and properties. To modify a key, you must open it with an overload of the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method that allows you to specify write access."
+  summary: "Hämtar en undernyckel med det angivna namnet och.       Från och med[!INCLUDE[net_2015](~/add/includes/net-2015-md.md)]"
+  remarks: "Du måste öppna en nyckel innan det kan hanteras med andra metoder och egenskaper. Om du vill ändra en nyckel måste du öppna den med en överlagring av den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metod som kan du ange skrivåtkomst.</xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>"
   syntax:
     content: public Microsoft.Win32.RegistryKey OpenSubKey (string name, System.Security.AccessControl.RegistryRights rights);
     parameters:
     - id: name
       type: System.String
-      description: "The name or path of the subkey to create or open."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna."
     - id: rights
       type: System.Security.AccessControl.RegistryRights
-      description: "The rights for the registry key."
+      description: "Behörighet för registernyckeln."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The subkey requested, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln begärt, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.OpenSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to access the registry key in the specified mode."
+    description: "Användaren saknar behörighet att komma åt registernyckeln i det angivna läget."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.OpenSubKey(System.String,Microsoft.Win32.RegistryKeyPermissionCheck,System.Security.AccessControl.RegistryRights)
@@ -1488,37 +1488,37 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the specified subkey for read or read/write access, requesting the specified access rights."
-  remarks: "Rather than throwing an exception, this method returns `null` if the requested key does not exist.       If `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for reading and writing; if `permissionCheck` is <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> or <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, the key is opened for reading unless the parent key was opened with <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>.       The access specified for `permissionCheck` takes precedence over the access specified for `rights`. For example, if you specify <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> for `permissionCheck` and <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName> for `rights`, an attempt to write to the subkey throws an exception.       In order to use the <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> method, you must have an instance of the <xref:Microsoft.Win32.RegistryKey> class. To get an instance of <xref:Microsoft.Win32.RegistryKey>, use one of the static members of the <xref:Microsoft.Win32.Registry> class."
+  summary: "Hämtar den angivna undernyckeln för Läs- eller läsning och skrivning åtkomst begär de angivna åtkomstbehörigheterna."
+  remarks: "I stället för att ett undantag för den här metoden returnerar `null` om den begärda nyckeln inte finns.       Om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>, nyckeln öppnas för läsning och skrivning, om `permissionCheck` är <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>eller <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>nyckeln öppnas för läsning om den överordnade nyckeln har öppnats med <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>.</xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>       Åtkomst som angetts för `permissionCheck` företräde framför den åtkomst som angetts för `rights`. Om du anger till exempel <xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>för `permissionCheck` och <xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName>för `rights`, ett försök att skriva till undernyckeln genererar ett undantag.</xref:System.Security.AccessControl.RegistryRights?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKeyPermissionCheck?displayProperty=fullName>       För att kunna använda den <xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A>metoden, du måste ha en instans av <xref:Microsoft.Win32.RegistryKey>klassen</xref:Microsoft.Win32.RegistryKey> </xref:Microsoft.Win32.RegistryKey.OpenSubKey%2A> Att hämta en instans av <xref:Microsoft.Win32.RegistryKey>med någon av de statiska medlemmarna i <xref:Microsoft.Win32.Registry>klass.</xref:Microsoft.Win32.Registry> </xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryKey OpenSubKey (string name, Microsoft.Win32.RegistryKeyPermissionCheck permissionCheck, System.Security.AccessControl.RegistryRights rights);
     parameters:
     - id: name
       type: System.String
-      description: "The name or path of the subkey to create or open."
+      description: "Namnet eller sökvägen till undernyckeln att skapa eller öppna."
     - id: permissionCheck
       type: Microsoft.Win32.RegistryKeyPermissionCheck
-      description: "One of the enumeration values that specifies whether the key is opened for read or read/write access."
+      description: "Ett värde för uppräkning som anger om nyckeln öppnas för läsning eller/skrivbehörighet."
     - id: rights
       type: System.Security.AccessControl.RegistryRights
-      description: "A bitwise combination of enumeration values that specifies the desired security access."
+      description: "En binär kombination av uppräkningsvärden som anger den önskade åtkomsten."
     return:
       type: Microsoft.Win32.RegistryKey
-      description: "The subkey requested, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the operation failed."
+      description: "Undernyckeln begärt, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om åtgärden misslyckades."
   overload: Microsoft.Win32.RegistryKey.OpenSubKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
+    description: "<code>name</code>är<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>"
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>permissionCheck</code> contains an invalid value."
+    description: "<code>permissionCheck</code>innehåller ett ogiltigt värde."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är stängd (stängd nycklar kan inte nås)."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "<code>rights</code> includes invalid registry rights values.       -or-       The user does not have the requested permissions."
+    description: "<code>rights</code>innehåller ogiltig rättigheter registervärden.       - eller - användaren har inte de begärda behörigheterna."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.SetAccessControl(System.Security.AccessControl.RegistrySecurity)
@@ -1533,8 +1533,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Applies Windows access control security to an existing registry key."
-  remarks: "To modify permissions for a registry key, use the <xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A> method to obtain a <xref:System.Security.AccessControl.RegistrySecurity> object representing the existing Windows access control security, modify that <xref:System.Security.AccessControl.RegistrySecurity> object, and then use the SetAccessControl method to update security for the key.      > [!CAUTION] >  The <xref:System.Security.AccessControl.RegistrySecurity> object specified for `registrySecurity` replaces the existing security for the registry key. To add permissions for a new user, use the <xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A> method to obtain the existing access control security, and then modify it."
+  summary: "Gäller windowssäkerhet för åtkomstkontroll för en befintlig registernyckel."
+  remarks: "Om du vill ändra behörigheter för en registernyckel, använda den <xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A>metod för att hämta en <xref:System.Security.AccessControl.RegistrySecurity>objekt som representerar den befintliga säkerheten för Windows åtkomstkontroll, ändra <xref:System.Security.AccessControl.RegistrySecurity>objektet och sedan använda metoden SetAccessControl för att uppdatera säkerheten för nyckeln.</xref:System.Security.AccessControl.RegistrySecurity> </xref:System.Security.AccessControl.RegistrySecurity> </xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A>      > [!CAUTION] > Den <xref:System.Security.AccessControl.RegistrySecurity>objekt som angetts för `registrySecurity` ersätter befintliga säkerheten för registernyckel.</xref:System.Security.AccessControl.RegistrySecurity> Om du vill lägga till behörigheter för en ny användare, använder du <xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A>metoden för att hämta den befintliga säkerheten för åtkomstkontroll, och sedan ändra det.</xref:Microsoft.Win32.RegistryKey.GetAccessControl%2A>"
   example:
   - "The following code example creates a test key. The current user is allowed <xref:System.Security.AccessControl.RegistryRights> and <xref:System.Security.AccessControl.RegistryRights> rights but denied <xref:System.Security.AccessControl.RegistryRights> and <xref:System.Security.AccessControl.RegistryRights> rights. Subsequent attempts to manipulate the key succeed or fail depending on these permissions.  \n  \n Before the key is deleted, the code pauses. You can switch to the registry editor and verify that the same access rights apply when the key is accessed using the registry editor. (This works best if you use **RunAs** from the command line to run the registry editor and the sample code as a local user without administrator rights. The registry editor always allows an administrator to change permissions, even if the particular administrator has been denied those rights. If you have defined a local user named TestUser, the command `runas /user:TestUser cmd` opens a command window from which you can run the registry editor and then the sample code.)  \n  \n [!code-cpp[RegistrySecurity101#1](~/add/codesnippet/cpp/463455ee-8295-4a1a-9af9-_1.cpp)]\n [!code-cs[RegistrySecurity101#1](~/add/codesnippet/csharp/463455ee-8295-4a1a-9af9-_1.cs)]\n [!code-vb[RegistrySecurity101#1](~/add/codesnippet/visualbasic/463455ee-8295-4a1a-9af9-_1.vb)]"
   syntax:
@@ -1542,18 +1542,18 @@ items:
     parameters:
     - id: registrySecurity
       type: System.Security.AccessControl.RegistrySecurity
-      description: "The access control security to apply to the current subkey."
+      description: "Säkerheten för åtkomstkontroll ska gälla för den aktuella undernyckeln."
   overload: Microsoft.Win32.RegistryKey.SetAccessControl*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The current <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object represents a key with access control security, and the caller does not have <xref href=&quot;System.Security.AccessControl.RegistryRights&quot;></xref> rights."
+    description: "Aktuellt <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet representerar en nyckel med säkerhet för åtkomstkontroll och anroparen har inte <xref href=&quot;System.Security.AccessControl.RegistryRights&quot;> </xref> rättigheter."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>registrySecurity</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>registrySecurity</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.SetValue(System.String,System.Object)
@@ -1568,8 +1568,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Sets the specified name/value pair."
-  remarks: "Because many values can be stored in each key in the registry, you must use the `name` parameter to specify the particular value you want to set.      > [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To set this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.       In order to set values in a key, you must open the key with write access. After you have opened a key with write access, you can change any of the name/value pairs in that key.       If the specified `name` does not exist in the key, it is created and the associated value is set to `value`.       This overload of <xref:Microsoft.Win32.RegistryKey.SetValue%2A> stores 64-bit integers as strings (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>). To store 64-bit numbers as <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> values, use the <xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29> overload that specifies <xref:Microsoft.Win32.RegistryValueKind>.       This overload of <xref:Microsoft.Win32.RegistryKey.SetValue%2A> stores all string values as <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, even if they contain expandable references to environment variables. To save string values as expandable strings (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), use the <xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29> overload that specifies <xref:Microsoft.Win32.RegistryValueKind>.       Numeric types other than 32-bit integers are stored as strings by this method overload. Enumeration elements are stored as strings containing the element names.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.      > [!NOTE] >  On Windows 98 and Windows Millennium Edition the registry is not Unicode, and not all Unicode characters are valid for all code pages. A Unicode character that is invalid for the current code page is replaced by the best available match. No exception is thrown."
+  summary: "Anger den angivna namn/värde-par."
+  remarks: "Eftersom många värden kan lagras i varje nyckel i registret, måste du använda den `name` just det värdet som du vill ange med parametern.      > [!NOTE] > En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange om du vill ange det namnlösa värde, antingen `null` eller en tom sträng (&quot;&quot;) för `name`.       Du måste öppna nyckeln med skrivbehörighet för att ange värden i en nyckel. När du har öppnat en nyckel med skrivbehörighet kan ändra du något av namn/värde-par i nyckeln.       Om den angivna `name` finns inte i den här nyckeln skapas och det associerade värdet anges till `value`.       Den här överlagring för <xref:Microsoft.Win32.RegistryKey.SetValue%2A>lagrar 64-bitars heltal som strängar (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>).</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKey.SetValue%2A> Att lagra 64-bitars tal som <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>värden, Använd <xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29>överlagring som anger <xref:Microsoft.Win32.RegistryValueKind>.</xref:Microsoft.Win32.RegistryValueKind> </xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>       Den här överlagring för <xref:Microsoft.Win32.RegistryKey.SetValue%2A>lagrar alla strängvärden som <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, även om de innehåller utbyggbara referenser till miljövariabler.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryKey.SetValue%2A> Spara strängvärden som expanderbara strängar (<xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>), Använd <xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29>överlagring som anger <xref:Microsoft.Win32.RegistryValueKind>.</xref:Microsoft.Win32.RegistryValueKind> </xref:Microsoft.Win32.RegistryKey.SetValue%28System.String%2CSystem.Object%2CMicrosoft.Win32.RegistryValueKind%29> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>       Numeriska typer än 32-bitars heltal lagras som strängar som den här metodöverlagringen. Element i uppräkningen lagras som strängar som innehåller namnen på elementen.      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.      > [!NOTE] > I Windows 98 och Windows ME registret är inte Unicode och alla Unicode-tecken är inte giltig för alla sidor i koden. Ett Unicode-tecken som är ogiltigt för den aktuella teckentabellen ersätts av den bästa tillgängliga matchningen. Inget undantag genereras."
   example:
   - "The following code example shows how the SetValue method determines the registry data type when it sets values. The example creates a test key and adds values of different data types to the key. The example then reads the name/value pairs and displays them to the console, using the <xref:Microsoft.Win32.RegistryKey.GetValueKind%2A> method to display the corresponding registry data types.  \n  \n [!code-vb[Microsoft.Win32.RegistryKey.SetValue1#1](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_10_1.vb)]\n [!code-cs[Microsoft.Win32.RegistryKey.SetValue1#1](~/add/codesnippet/csharp/m-microsoft.win32.regist_10_1.cs)]\n [!code-cpp[Microsoft.Win32.RegistryKey.SetValue1#1](~/add/codesnippet/cpp/m-microsoft.win32.regist_10_1.cpp)]"
   syntax:
@@ -1577,30 +1577,30 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to store."
+      description: "Namnet på värdet som ska lagras."
     - id: value
       type: System.Object
-      description: "The data to be stored."
+      description: "Data lagras."
   overload: Microsoft.Win32.RegistryKey.SetValue*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>value</code> is an unsupported data type."
+    description: "<code>value</code>är en datatyp."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is read-only, and cannot be written to; for example, the key has not been opened with write access.       -or-       The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object represents a root-level node, and the operating system is Windows Millennium Edition or Windows 98."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är skrivskyddad och kan inte skrivas till, till exempel nyckeln inte har öppnats med skrivrättigheter.       - eller - <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet representerar en nod på rotnivå och operativsystemet är Windows ME eller Windows 98."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or modify registry keys."
+    description: "Användaren saknar behörighet att skapa eller ändra registernycklar."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object represents a root-level node, and the operating system is Windows 2000, Windows XP, or Windows Server 2003."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet representerar en nod på rotnivå och operativsystemet är Windows 2000, Windows XP eller Windows Server 2003."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.SetValue(System.String,System.Object,Microsoft.Win32.RegistryValueKind)
@@ -1615,8 +1615,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Sets the value of a name/value pair in the registry key, using the specified registry data type."
-  remarks: "Because many values can be stored in each key in the registry, you must use the `name` parameter to specify the particular value you want to set.      > [!NOTE] >  A registry key can have one value that is not associated with any name. When this unnamed value is displayed in the registry editor, the string &quot;(Default)&quot; appears instead of a name. To set this unnamed value, specify either `null` or the empty string (&quot;&quot;) for `name`.       In order to set values in a key, you must open the key with write access. After you have opened a key with write access, you can change any of the name/value pairs in that key.       If the specified `name` does not exist in the key, it is created, and the associated value is set to `value`.      > [!NOTE] >  Specifying the registry data type <xref:Microsoft.Win32.RegistryValueKind> is the same as using the <xref:Microsoft.Win32.RegistryKey.SetValue%2A> overload.       If the type of the specified `value` does not match the specified `valueKind`, and the data cannot be converted, <xref:System.ArgumentException> is thrown. For example, you can store a <xref:System.Int64?displayProperty=fullName> as a <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, but only if its value is less than the maximum value of a <xref:System.Int32?displayProperty=fullName>. You cannot store a single string value as a <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>.      > [!NOTE] >  If boxed values are passed for <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> or <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, the conversion is done using the invariant culture.      > [!CAUTION] >  Do not expose <xref:Microsoft.Win32.RegistryKey> objects in such a way that a malicious program could create thousands of meaningless subkeys or key/value pairs. For example, do not allow callers to enter arbitrary keys or values.      > [!NOTE] >  On Windows 98 and Windows Millennium Edition the registry is not Unicode, and not all Unicode characters are valid for all code pages. A Unicode character that is invalid for the current code page is replaced by the best available match. No exception is thrown."
+  summary: "Anger värdet för ett namn/värde-par i registernyckeln med datatypen angivna registret."
+  remarks: "Eftersom många värden kan lagras i varje nyckel i registret, måste du använda den `name` just det värdet som du vill ange med parametern.      > [!NOTE] > En registernyckel kan ha ett värde som inte är associerad med ett namn. När detta ej namngivet värde visas i Registereditorn, visas string &quot;(standard)&quot; i stället för ett namn. Ange om du vill ange det namnlösa värde, antingen `null` eller en tom sträng (&quot;&quot;) för `name`.       Du måste öppna nyckeln med skrivbehörighet för att ange värden i en nyckel. När du har öppnat en nyckel med skrivbehörighet kan ändra du något av namn/värde-par i nyckeln.       Om den angivna `name` finns inte i den här nyckeln skapas och det associerade värdet anges till `value`.      > [!NOTE] > Anger datatypen registret <xref:Microsoft.Win32.RegistryValueKind>är detsamma som att använda den <xref:Microsoft.Win32.RegistryKey.SetValue%2A>överlagra.</xref:Microsoft.Win32.RegistryKey.SetValue%2A> </xref:Microsoft.Win32.RegistryValueKind>       Om typ av den angivna `value` matchar inte den angivna `valueKind`, och data kan inte konverteras <xref:System.ArgumentException>genereras.</xref:System.ArgumentException> Du kan till exempel lagra en <xref:System.Int64?displayProperty=fullName>som en <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, men endast om dess värde är mindre än det största värdet i <xref:System.Int32?displayProperty=fullName>.</xref:System.Int32?displayProperty=fullName> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:System.Int64?displayProperty=fullName> Du kan inte lagra ett enkelt strängvärde som <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>      > [!NOTE] > Om omslutna värden angavs för <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>eller <xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>, konverteringen är klar med invariabla.</xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName> </xref:Microsoft.Win32.RegistryValueKind?displayProperty=fullName>      > [!CAUTION] > Inte exponerar <xref:Microsoft.Win32.RegistryKey>objekt så att ett skadligt program kan skapa tusentals meningslöst undernycklar eller nyckel/värde-par.</xref:Microsoft.Win32.RegistryKey> Till exempel tillåter inte att anropare ska kunna ange valfri nycklar och värden.      > [!NOTE] > I Windows 98 och Windows ME registret är inte Unicode och alla Unicode-tecken är inte giltig för alla sidor i koden. Ett Unicode-tecken som är ogiltigt för den aktuella teckentabellen ersätts av den bästa tillgängliga matchningen. Inget undantag genereras."
   example:
   - "The following code example creates a test key and uses the <xref:Microsoft.Win32.RegistryKey.SetValue%2A> method to store several values, specifying the registry data type for each value. The example then reads the name/value pairs and displays them to the console, using the <xref:Microsoft.Win32.RegistryKey.GetValueKind%2A> method to display the corresponding registry data types.  \n  \n [!code-cpp[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/cpp/4d7d6152-5710-4faa-8e5f-_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/csharp/4d7d6152-5710-4faa-8e5f-_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryValueKind#1](~/add/codesnippet/visualbasic/4d7d6152-5710-4faa-8e5f-_1.vb)]"
   syntax:
@@ -1624,33 +1624,33 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the value to be stored."
+      description: "Namnet på värdet som ska lagras."
     - id: value
       type: System.Object
-      description: "The data to be stored."
+      description: "Data lagras."
     - id: valueKind
       type: Microsoft.Win32.RegistryValueKind
-      description: "The registry data type to use when storing the data."
+      description: "Registret datatyp som används när data lagrades."
   overload: Microsoft.Win32.RegistryKey.SetValue*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The type of <code>value</code> did not match the registry data type specified by <code>valueKind</code>, therefore the data could not be converted properly."
+    description: "Typ av <code> value </code> matchade inte registret datatypen som anges av <code> valueKind </code>, därför data kunde inte konverteras korrekt."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> that contains the specified value is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som innehåller det angivna värdet är stängd (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> is read-only, and cannot be written to; for example, the key has not been opened with write access.       -or-       The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object represents a root-level node, and the operating system is Windows Millennium Edition or Windows 98."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> är skrivskyddad och kan inte skrivas till, till exempel nyckeln inte har öppnats med skrivrättigheter.       - eller - <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet representerar en nod på rotnivå och operativsystemet är Windows ME eller Windows 98."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have the permissions required to create or modify registry keys."
+    description: "Användaren saknar behörighet att skapa eller ändra registernycklar."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> object represents a root-level node, and the operating system is Windows 2000, Windows XP, or Windows Server 2003."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> -objektet representerar en nod på rotnivå och operativsystemet är Windows 2000, Windows XP eller Windows Server 2003."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.SubKeyCount
@@ -1665,29 +1665,29 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the count of subkeys of the current key."
-  remarks: "This property does not recursively count names. It only returns the count of names on the base level from which it was called."
+  summary: "Hämtar antalet undernycklar till den aktuella nyckeln."
+  remarks: "Den här egenskapen stöder inte rekursivt antal namn. Den returnerar endast antalet namn på basnivån som den anropades."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/cpp/p-microsoft.win32.regist_1_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/csharp/p-microsoft.win32.regist_1_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/visualbasic/p-microsoft.win32.regist_1_1.vb)]"
   syntax:
     content: public int SubKeyCount { get; }
     return:
       type: System.Int32
-      description: "The number of subkeys of the current key."
+      description: "Antal undernycklar till den aktuella nyckeln."
   overload: Microsoft.Win32.RegistryKey.SubKeyCount*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have read permission for the key."
+    description: "Användaren har inte läsbehörighet för nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "A system error occurred, for example the current key has been deleted."
+    description: "Ett systemfel inträffade, till exempel den aktuella nyckeln har tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.ToString
@@ -1702,8 +1702,8 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves a string representation of this key."
-  remarks: "The return value includes the registry path of the specified key and the hexadecimal value for the key. The registry path includes the absolute root of the specified key, always starts at one of the base keys for the registry, for example, HKEY_LOCAL_MACHINE."
+  summary: "Hämtar en strängrepresentation av den här nyckeln."
+  remarks: "Det returnera värdet omfattar registersökvägen för den angivna nyckeln och det hexadecimala värdet för nyckeln. Registersökvägen innehåller absolut roten för den angivna nyckeln, alltid börjar på någon av de grundläggande nycklarna för registret, till exempel HKEY_LOCAL_MACHINE."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/cpp/m-microsoft.win32.regist_9_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/csharp/m-microsoft.win32.regist_9_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#4](~/add/codesnippet/visualbasic/m-microsoft.win32.regist_9_1.vb)]"
   syntax:
@@ -1711,12 +1711,12 @@ items:
     parameters: []
     return:
       type: System.String
-      description: "A string representing the key. If the specified key is invalid (cannot be found) then <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> is returned."
+      description: "En sträng som representerar nyckeln. Om den angivna nyckeln är ogiltig (det går inte att hitta) sedan <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> returneras."
   overload: Microsoft.Win32.RegistryKey.ToString*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being accessed is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> som används är stängd (stängd nycklar kan inte nås)."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.ValueCount
@@ -1731,29 +1731,29 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Retrieves the count of values in the key."
-  remarks: "Each registry key has a default value that is not associated with any name. This unnamed value can be set by using the <xref:Microsoft.Win32.RegistryKey.SetValue%2A> method and specifying either `null` or the empty string (&quot;&quot;) for `name`. If the default value has never been set, it does not contribute to the total count returned by the ValueCount property; once it has been set, however, it is always counted."
+  summary: "Hämtar antalet värden i nyckeln."
+  remarks: "Varje registernyckeln har ett standardvärde som inte är associerad med ett namn. Detta namnlösa värdet kan anges med hjälp av den <xref:Microsoft.Win32.RegistryKey.SetValue%2A>metod och ange antingen `null` eller en tom sträng (&quot;&quot;) för `name`.</xref:Microsoft.Win32.RegistryKey.SetValue%2A> Om standardvärdet har aldrig angetts, bidrar den inte till det totala antalet som returneras av egenskapen ValueCount; När den väl har angetts, men räknas den alltid."
   example:
   - "This code example is part of a larger example provided for the <xref:Microsoft.Win32.RegistryKey> class.  \n  \n [!code-cpp[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/cpp/p-microsoft.win32.regist_2_1.cpp)]\n [!code-cs[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/csharp/p-microsoft.win32.regist_2_1.cs)]\n [!code-vb[Microsoft.Win32.RegistryKey2#2](~/add/codesnippet/visualbasic/p-microsoft.win32.regist_2_1.vb)]"
   syntax:
     content: public int ValueCount { get; }
     return:
       type: System.Int32
-      description: "The number of name/value pairs in the key."
+      description: "Antal namn/värde-par i nyckeln."
   overload: Microsoft.Win32.RegistryKey.ValueCount*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The user does not have read permission for the key."
+    description: "Användaren har inte läsbehörighet för nyckeln."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;Microsoft.Win32.RegistryKey&quot;></xref> being manipulated is closed (closed keys cannot be accessed)."
+    description: "Den <xref href=&quot;Microsoft.Win32.RegistryKey&quot;> </xref> manipuleras stängs (stängd nycklar kan inte nås)."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have the necessary registry rights."
+    description: "Användaren saknar nödvändiga rättigheter."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "A system error occurred, for example the current key has been deleted."
+    description: "Ett systemfel inträffade, till exempel den aktuella nyckeln har tagits bort."
   platform:
   - net462
 - uid: Microsoft.Win32.RegistryKey.View
@@ -1768,13 +1768,13 @@ items:
   assemblies:
   - mscorlib
   namespace: Microsoft.Win32
-  summary: "Gets the view that was used to create the registry key."
-  remarks: "On the 64-bit versions of Windows, portions of the registry are stored separately for 32-bit and 64-bit applications. There is a 32-bit view for 32-bit applications and a 64-bit view for 64-bit applications.       Do not assume that the view always corresponds to the actual view of the <xref:Microsoft.Win32.RegistryKey>."
+  summary: "Hämtar den vy som användes för att skapa registernyckeln."
+  remarks: "Delar av registret lagras separat för 32-bitars och 64-bitarsprogram på 64-bitars versioner av Windows. Det finns en 32-bitars vy för 32-bitars program och en 64-bitars vy för 64-bitarsprogram.       Inte förutsätter att vyn alltid motsvarar den faktiska vyn i <xref:Microsoft.Win32.RegistryKey>.</xref:Microsoft.Win32.RegistryKey>"
   syntax:
     content: public Microsoft.Win32.RegistryView View { get; }
     return:
       type: Microsoft.Win32.RegistryView
-      description: "The view that was used to create the registry key.       -or-       <xref href=&quot;Microsoft.Win32.RegistryView&quot;></xref>, if no view was used."
+      description: "Den vy som användes för att skapa registernyckeln.       - eller - <xref href=&quot;Microsoft.Win32.RegistryView&quot;> </xref>, om ingen vy har använts."
   overload: Microsoft.Win32.RegistryKey.View*
   exceptions: []
   platform:

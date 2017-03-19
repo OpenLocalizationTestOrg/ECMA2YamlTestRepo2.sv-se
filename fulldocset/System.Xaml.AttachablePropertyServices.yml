@@ -15,8 +15,8 @@ items:
   nameWithType: AttachablePropertyServices
   fullName: System.Xaml.AttachablePropertyServices
   type: Class
-  summary: "Provides static helper methods that obtain values and accessor method information from an attachable property and that work with an attached property store."
-  remarks: "Most functionality in this class relies on an attached property store, which generally implements the <xref:System.Xaml.IAttachedPropertyStore> interface. However, parameters for passing the store into AttachablePropertyServices are not typed as the interface and are instead typed as `object`. This is because you can pass an arbitrary object, and in this case, an internal default attachable property store is used.       Best practice for the arbitrary object is to pass the object that would otherwise be associated with the store. Do not pass `null` to indicate that you do not have an <xref:System.Xaml.IAttachedPropertyStore> to use. Passing `null` enters code paths that do nothing. Passing an object that is non-null, but evaluates as `null` on an attempted <xref:System.Xaml.IAttachedPropertyStore> cast, uses the default attachable property store."
+  summary: "Innehåller statiska hjälpmetoder som hämtar värden och accessor metodinformation från en kopplingsbar egenskap och det fungerar med en bifogade egenskapen store."
+  remarks: "De flesta funktionerna i den här klassen är beroende av en ansluten egenskapsarkiv som vanligtvis implementerar den <xref:System.Xaml.IAttachedPropertyStore>gränssnitt.</xref:System.Xaml.IAttachedPropertyStore> Dock parametrar för att skicka arkivet till AttachablePropertyServices inte har angett som gränssnitt och skrivs i stället som `object`. Detta beror på att du kan skicka ett godtyckligt objekt och i det här fallet en kopplingsbar egenskap för interna standardlagringsplatsen används.       Bästa praxis för objektet godtycklig är att skicka-objektet som annars skulle vara kopplade till arkivet. Inte klarar `null` att indikera att du inte har en <xref:System.Xaml.IAttachedPropertyStore>ska användas.</xref:System.Xaml.IAttachedPropertyStore> Skicka `null` anger kodsökvägar som gör ingenting. Skicka ett objekt som inte är null, men utvärderas som `null` på ett försök <xref:System.Xaml.IAttachedPropertyStore>omvandla, använder kopplingsbar egenskap standardlagringsplatsen.</xref:System.Xaml.IAttachedPropertyStore>"
   syntax:
     content: public static class AttachablePropertyServices
   inheritance:
@@ -37,20 +37,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Copies all attachable property/value pairs from a specified attachable property store and into a destination array."
-  remarks: "Calling this method invokes an underlying <xref:System.Collections.Generic.ICollection%601.CopyTo%2A> implementation that is constrained with a key/value pair, which might be the source of exceptions that are not listed in this topic."
+  summary: "Kopierar alla kopplingsbar egenskap/värde-par från en butik angivna kopplingsbar egenskap och i en Målmatrisen."
+  remarks: "Den här metoden anropas anropar en underliggande <xref:System.Collections.Generic.ICollection%601.CopyTo%2A>implementering som är begränsad med en nyckel/värde-par som kan vara källan för undantag som inte är listade i det här avsnittet.</xref:System.Collections.Generic.ICollection%601.CopyTo%2A>"
   syntax:
     content: public static void CopyPropertiesTo (object instance, System.Collections.Generic.KeyValuePair<System.Xaml.AttachableMemberIdentifier,object>[] array, int index);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "En kopplingsbar egenskap butik som implementerar <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; eller något icke-null-objekt kan komma åt en statisk standard kopplingsbar egenskap store."
     - id: array
       type: System.Collections.Generic.KeyValuePair{System.Xaml.AttachableMemberIdentifier,System.Object}[]
-      description: "The destination array. The array is a generic array, should be passed undimensioned, and should have components of <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;></xref> and <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref>."
+      description: "Målmatrisen. Matrisen är en generisk matris ska skickas undimensioned och ska ha komponenter i <xref href=&quot;System.Xaml.AttachableMemberIdentifier&quot;> </xref> och <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref>."
     - id: index
       type: System.Int32
-      description: "The source index into which to copy."
+      description: "Källindex i som ska kopieras."
   overload: System.Xaml.AttachablePropertyServices.CopyPropertiesTo*
   exceptions: []
   platform:
@@ -67,16 +67,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the count of the attachable property entries that are in the specified store."
+  summary: "Returnerar antalet kopplingsbar egenskap-poster som har det angivna arkivet."
   syntax:
     content: public static int GetAttachedPropertyCount (object instance);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "En kopplingsbar egenskap butik som implementerar <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; eller något icke-null-objekt kan komma åt en statisk standard kopplingsbar egenskap store."
     return:
       type: System.Int32
-      description: "The integer count of entries in the store."
+      description: "Heltal antal poster i arkivet."
   overload: System.Xaml.AttachablePropertyServices.GetAttachedPropertyCount*
   exceptions: []
   platform:
@@ -93,20 +93,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Removes the entry for the specified attachable property from the specified store."
-  remarks: "Stores are per instance; therefore, in a store, the `name` value should be unambiguous."
+  summary: "Tar bort posten för den angivna kopplingsbara egenskapen från det angivna arkivet."
+  remarks: "Lagrar anges per instans. därför i ett Arkiv den `name` värdet bör vara entydig."
   syntax:
     content: public static bool RemoveProperty (object instance, System.Xaml.AttachableMemberIdentifier name);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to access a static default attachable property store."
+      description: "En kopplingsbar egenskap butik som implementerar <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; eller något icke-null-objekt kan komma åt en statisk standard kopplingsbar egenskap store."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier for the attachable property entry to remove from the store."
+      description: "Identifierare för posten kopplingsbar egenskap ska tas bort från store."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable property entry for <code>name</code> was found in the store and removed from it; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om en kopplingsbar egenskap post för <code> name </code> kunde hittas i arkivet och tas bort från den, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.AttachablePropertyServices.RemoveProperty*
   exceptions: []
   platform:
@@ -123,27 +123,27 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Sets a value for the specified attachable property in the specified store."
+  summary: "Anger ett värde för den angivna kopplingsbar egenskapen i det angivna arkivet."
   syntax:
     content: public static void SetProperty (object instance, System.Xaml.AttachableMemberIdentifier name, object value);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to use a static default attachable property store."
+      description: "En kopplingsbar egenskap butik som implementerar <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; eller något icke-null-objekt för att använda en statisk standard kopplingsbar egenskap store."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier of the attachable property entry for which to set a value."
+      description: "Identifierare för kopplingsbar egenskap posten som du vill ange ett värde."
     - id: value
       type: System.Object
-      description: "The value to set."
+      description: "Värdet som angetts."
   overload: System.Xaml.AttachablePropertyServices.SetProperty*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A value could not be set in the store."
+    description: "Det gick inte att ange ett värde i arkivet."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.AttachablePropertyServices.TryGetProperty(System.Object,System.Xaml.AttachableMemberIdentifier,System.Object@)
@@ -158,22 +158,22 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Attempts to get a value for the specified attachable property in the specified store. Does not throw an exception if the specific attachable property does not exist in the store."
+  summary: "Försök att hämta ett värde för den angivna kopplingsbar egenskapen i det angivna arkivet. Inget genereras ett undantag om specifika kopplingsbar egenskap inte finns i arkivet."
   syntax:
     content: public static bool TryGetProperty (object instance, System.Xaml.AttachableMemberIdentifier name, out object value);
     parameters:
     - id: instance
       type: System.Object
-      description: "A specific attachable property store that implements <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;></xref>; or any non-null object to use a static default attachable property store."
+      description: "En kopplingsbar egenskap butik som implementerar <xref href=&quot;System.Xaml.IAttachedPropertyStore&quot;> </xref>; eller något icke-null-objekt för att använda en statisk standard kopplingsbar egenskap store."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "The identifier of the attachable property entry for which to get a value."
+      description: "Identifierare för kopplingsbar egenskap posten som du vill hämta ett värde."
     - id: value
       type: System.Object
-      description: "Out parameter. When this method returns, contains the destination object for the value if `name` exists in the store and has a value."
+      description: "Out-parameter. När den här metoden returnerar innehåller målobjekt för värdet om `name` finns i arkivet och har ett värde."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if an attachable property entry for <code>name</code> was found in the store and a value was posted to <code>value</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om en kopplingsbar egenskap post för <code> name </code> hittades i butiken, och ett värde anslogs <code> value </code>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.AttachablePropertyServices.TryGetProperty*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
     parameters:
     - id: instance
       type: System.Object
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: name
       type: System.Xaml.AttachableMemberIdentifier
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: value
       type: T
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Xaml.AttachablePropertyServices.TryGetProperty<T>*
   exceptions: []
   platform:
