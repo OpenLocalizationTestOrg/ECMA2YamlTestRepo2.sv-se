@@ -17,8 +17,8 @@ items:
   nameWithType: User
   fullName: Microsoft.VisualBasic.ApplicationServices.User
   type: Class
-  summary: "Provides access to the information about the current user."
-  remarks: "The properties and methods exposed by the `My.User` object provide access to the information about the current user. The meaning of &quot;current user&quot; differs slightly between Windows and Web applications. In a Windows application, the current user is the user who runs the application. In a Web application, the current user is the user who accesses the application.       The `My.User` property also provides access to the <xref:System.Security.Principal.IPrincipal> for the current user. A principal object represents the user&quot;s security context, including that user&quot;s identity and any roles to which the user belongs.       For Windows applications, this property provides the same functionality as the <xref:System.Threading.Thread.CurrentPrincipal%2A> property. For Web applications, this property provides the same functionality as the <xref:System.Web.HttpContext.User%2A> property of the object returned by the <xref:System.Web.HttpContext.Current%2A> property.      > [!NOTE] >  For Windows applications, only projects built on the **Windows Application** template initialize the `My.User` object by default. In all other Windows project types, you must initialize the `My.User` object by calling the <xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A> method explicitly or by assigning a value to <xref:System.Threading.Thread.CurrentPrincipal%2A>.      > [!NOTE] >  The `My.User` object cannot report information about the current Windows user when run under Windows 95 and Windows 98 because those operating systems do not support the concept of a logged-on user. You must implement custom authentication to use the `My.User` object on those operating systems."
+  summary: "Tillhandahåller åtkomst till information om den aktuella användaren."
+  remarks: "Egenskaper och metoder som exponeras av den `My.User` objektet ger åtkomst till information om den aktuella användaren. Enligt &quot;aktuella användare&quot; skiljer sig något mellan Windows och webbprogram. Den aktuella användaren är den användare som kör programmet i ett Windows-program. Den aktuella användaren är den användare som har åtkomst till programmet i ett webbprogram.       Den `My.User` egenskapen ger också tillgång till den <xref:System.Security.Principal.IPrincipal>för den aktuella användaren.</xref:System.Security.Principal.IPrincipal> En UPN-objektet representerar användarens säkerhetskontext, inklusive användarens identitet och alla roller som användaren tillhör.       För Windows-program, den här egenskapen fungerar på samma sätt som den <xref:System.Threading.Thread.CurrentPrincipal%2A>egenskapen.</xref:System.Threading.Thread.CurrentPrincipal%2A> För webbprogram, den här egenskapen fungerar på samma sätt som den <xref:System.Web.HttpContext.User%2A>egenskap hos det objekt som returneras av den <xref:System.Web.HttpContext.Current%2A>egenskapen.</xref:System.Web.HttpContext.Current%2A> </xref:System.Web.HttpContext.User%2A>      > [!NOTE] > För Windows-program, endast projekt som bygger på den **Windows-program** mall initiera den `My.User` objekt som standard. I alla andra Windows projekttyper, måste du initiera den `My.User` objekt genom att anropa den <xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A>metoden uttryckligen eller genom att tilldela ett värde till <xref:System.Threading.Thread.CurrentPrincipal%2A>.</xref:System.Threading.Thread.CurrentPrincipal%2A> </xref:Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser%2A>      > [!NOTE] > Den `My.User` objekt kan inte rapportera information om den aktuella Windows-användaren när körs under Windows 95 och Windows 98 eftersom dessa operativsystem inte stöder begreppet en inloggad användare. Du måste implementera anpassad autentisering som ska användas i `My.User` objekt på dessa operativsystem."
   example:
   - "This example checks if the application is using Windows or custom authentication, and uses that information to parse the `My.User.Name` property.  \n  \n [!code-vb[VbVbalrMyUser#3](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#3)]"
   syntax:
@@ -41,8 +41,8 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.VisualBasic.ApplicationServices.User&quot;></xref> class."
-  remarks: "The properties and methods exposed by the `My.User` object provide access to information about the current user."
+  summary: "Initierar en ny instans av den <xref href=&quot;Microsoft.VisualBasic.ApplicationServices.User&quot;> </xref> klass."
+  remarks: "Egenskaper och metoder som exponeras av den `My.User` objektet ger åtkomst till information om den aktuella användaren."
   syntax:
     content: public User ();
     parameters: []
@@ -62,20 +62,20 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Gets or sets the current principal (for role-based security)."
-  remarks: "You can set the `My.User.CurrentPrincipal` property to an object that implements the <xref:System.Security.Principal.IPrincipal> interface to enable custom authentication.       In most project types, this property gets and sets the thread&quot;s current principal. In an ASP.NET application, this property gets and sets the security information for the current HTTP request&quot;s user identity.       This is an advanced member; it does not show in IntelliSense unless you click the **All** tab.      ## Availability by Project Type      |||   |-|-|   |Project type|Available|   |Windows Application|**Yes**|   |Class Library|**Yes**|   |Console Application|**Yes**|   |Windows Control Library|**Yes**|   |Web Control Library|**Yes**|   |Windows Service|**Yes**|   |Web Site|**Yes**|"
+  summary: "Hämtar eller anger den aktuella huvudnamn (för rollbaserad säkerhet)."
+  remarks: "Du kan ange den `My.User.CurrentPrincipal` egenskapen till ett objekt som implementerar det <xref:System.Security.Principal.IPrincipal>-gränssnitt för anpassad autentisering.</xref:System.Security.Principal.IPrincipal>       I de flesta projekttyper egenskapen hämtar och anger trådens aktuella huvudnamn. I ett ASP.NET-program egenskapen hämtar och anger säkerhetsinformationen för den aktuella HTTP-begäran användaridentitet.       Det här är en avancerad medlem; den visas inte i IntelliSense om du klickar på den **alla** fliken.      ## Tillgänglighet med projekttypen |||   |-|-|   | Projekttyp | Tillgängliga |   | Windows-program | **Yes**|   | Klassen Biblioteksservern | **Yes**|   | Konsolprogrammet | **Yes**|   | Windows styra biblioteket | **Yes**|   | Web Control Library | **Yes**|   | Windows-tjänst | **Yes**|   | Webbplats | **Yes**|"
   example:
   - "This example checks if the application is using Windows or custom authentication, and uses that information to parse `My.User.Name` property.  \n  \n [!code-vb[VbVbalrMyUser#3](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#3)]"
   syntax:
     content: public System.Security.Principal.IPrincipal CurrentPrincipal { get; set; }
     return:
       type: System.Security.Principal.IPrincipal
-      description: "A <xref:System.Security.Principal.IPrincipal> value representing the security context."
+      description: "En <xref:System.Security.Principal.IPrincipal>-värde som representerar säkerhetskontexten.</xref:System.Security.Principal.IPrincipal>"
   overload: Microsoft.VisualBasic.ApplicationServices.User.CurrentPrincipal*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the permission required to set the principal."
+    description: "Anroparen har inte den behörighet som krävs för att ange huvudnamn."
   platform:
   - net462
 - uid: Microsoft.VisualBasic.ApplicationServices.User.InitializeWithWindowsUser
@@ -90,8 +90,8 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Sets the thread&quot;s current principal to the Windows user that started the application."
-  remarks: "You can use the `My.User.InitializeWithWindowsUser` method to set the thread&quot;s current principal to the Windows user that started the application. The Visual Basic Application Model in a Windows application calls this method at startup by default. In other project types, you must set the thread&quot;s current principal by calling this method explicitly or by assigning a value to <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>.       In Windows projects, the `My.User` object is based on the thread&quot;s current principal; therefore, this method can change the information `My.User` returns. In an ASP.NET application, the `My.User` object is based on the current HTTP request&quot;s user identity, and is unaffected by this method.      > [!NOTE] >  The exact behavior of the `My.User` object depends on the type of application and on the operating system on which the application runs. For more information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User> class overview.       This is an advanced member; it does not show in IntelliSense unless you click the **All** tab.      ## Availability by Project Type      |||   |-|-|   |Project type|Available|   |Windows Application|**Yes**|   |Class Library|**Yes**|   |Console Application|**Yes**|   |Windows Control Library|**Yes**|   |Web Control Library|**Yes**|   |Windows Service|**Yes**|   |Web Site|**Yes**|"
+  summary: "Anger att trådens aktuella huvudnamn för Windows-användaren som startade programmet."
+  remarks: "Du kan använda den `My.User.InitializeWithWindowsUser` metod för att ange trådens aktuella huvudnamn för Windows-användaren som startade programmet. Visual Basic programmodell i ett Windows-program anropar den här metoden vid start som standard. I andra projekttyper måste du ange att trådens aktuella principal genom att anropa den här metoden explicit eller genom att tilldela ett värde till <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>.</xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>       I Windows-projekt i `My.User` objekt baserat på trådens aktuella principal; därför kan den här metoden kan ändra informationen `My.User` returnerar. I ett ASP.NET-program i `My.User` objekt baserat på den aktuella HTTP-begäran användar-ID och påverkas inte av den här metoden.      > [!NOTE] > Exakt hur den `My.User` objektet beror på vilken typ av program och operativsystem som programmet körs. Mer information finns i <xref:Microsoft.VisualBasic.ApplicationServices.User>Översikt över klassen.</xref:Microsoft.VisualBasic.ApplicationServices.User>       Det här är en avancerad medlem; den visas inte i IntelliSense om du klickar på den **alla** fliken.      ## Tillgänglighet med projekttypen |||   |-|-|   | Projekttyp | Tillgängliga |   | Windows-program | **Yes**|   | Klassen Biblioteksservern | **Yes**|   | Konsolprogrammet | **Yes**|   | Windows styra biblioteket | **Yes**|   | Web Control Library | **Yes**|   | Windows-tjänst | **Yes**|   | Webbplats | **Yes**|"
   syntax:
     content: public void InitializeWithWindowsUser ();
     parameters: []
@@ -111,13 +111,13 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Gets or sets the principal object representing the current user."
-  remarks: "In the <xref:Microsoft.VisualBasic.ApplicationServices.User> object, this property wraps the <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> property. Override this method in a derived class to provide different behavior. For example, the <xref:Microsoft.VisualBasic.ApplicationServices.WebUser.InternalPrincipal%2A?displayProperty=fullName> property overrides this property."
+  summary: "Hämtar eller anger UPN-objekt som representerar den aktuella användaren."
+  remarks: "I den <xref:Microsoft.VisualBasic.ApplicationServices.User>objekt den här egenskapen radbryts i <xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName>egenskap.</xref:System.Threading.Thread.CurrentPrincipal%2A?displayProperty=fullName> </xref:Microsoft.VisualBasic.ApplicationServices.User> Åsidosätta den här metoden i en härledd klass att tillhandahålla olika beteenden. Till exempel den <xref:Microsoft.VisualBasic.ApplicationServices.WebUser.InternalPrincipal%2A?displayProperty=fullName>egenskapen åsidosätter egenskapen.</xref:Microsoft.VisualBasic.ApplicationServices.WebUser.InternalPrincipal%2A?displayProperty=fullName>"
   syntax:
     content: protected virtual System.Security.Principal.IPrincipal InternalPrincipal { get; set; }
     return:
       type: System.Security.Principal.IPrincipal
-      description: "An <xref:System.Security.Principal.IPrincipal> object representing the current user."
+      description: "Ett <xref:System.Security.Principal.IPrincipal>-objekt som representerar den aktuella användaren.</xref:System.Security.Principal.IPrincipal>"
   overload: Microsoft.VisualBasic.ApplicationServices.User.InternalPrincipal*
   exceptions: []
   platform:
@@ -134,15 +134,15 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Gets a value that indicates whether the user has been authenticated."
-  remarks: "The `My.User.IsAuthenticated` property allows your code to determine if the current user has been authenticated.      > [!NOTE] >  The exact behavior of `My.User` object depends on the type of the application and on the operating system on which the application runs. For more information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User> class overview.      ## Availability by Project Type      |||   |-|-|   |Project type|Available|   |Windows Application|**Yes**|   |Class Library|**Yes**|   |Console Application|**Yes**|   |Windows Control Library|**Yes**|   |Web Control Library|**Yes**|   |Windows Service|**Yes**|   |Web Site|**Yes**|"
+  summary: "Hämtar ett värde som anger om användaren har autentiserats."
+  remarks: "Den `My.User.IsAuthenticated` egenskapen gör att din kod att avgöra om den aktuella användaren har autentiserats.      > [!NOTE] > Exakt hur `My.User` objektet beror på vilken typ av programmet och operativsystemet där programmet körs. Mer information finns i <xref:Microsoft.VisualBasic.ApplicationServices.User>Översikt över klassen.</xref:Microsoft.VisualBasic.ApplicationServices.User>      ## Tillgänglighet med projekttypen |||   |-|-|   | Projekttyp | Tillgängliga |   | Windows-program | **Yes**|   | Klassen Biblioteksservern | **Yes**|   | Konsolprogrammet | **Yes**|   | Windows styra biblioteket | **Yes**|   | Web Control Library | **Yes**|   | Windows-tjänst | **Yes**|   | Webbplats | **Yes**|"
   example:
   - "This example verifies that the user has been authenticated before accessing a resource.  \n  \n [!code-vb[VbVbalrMyUser#2](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#2)]"
   syntax:
     content: public bool IsAuthenticated { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the user was authenticated; otherwise, <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Om användaren autentiserades; Annars <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.VisualBasic.ApplicationServices.User.IsAuthenticated*
   exceptions: []
   platform:
@@ -159,8 +159,8 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Determines whether the current user belongs to the specified role."
-  remarks: "The `My.User.IsInRole` method allows your code to determine if the current user is a member of the specified role.       The overload of the `My.User.IsInRole` method that takes a string provides easy access to the <xref:System.Security.Principal.IPrincipal.IsInRole%2A> method of the current principal.       The overload of the `My.User.IsInRole` method that takes a `BuiltInRole` enumeration behaves differently, depending on the current principal. If it is a Windows user principal (<xref:System.Security.Principal.WindowsPrincipal>), this function converts `role` to the equivalent <xref:System.Security.Principal.WindowsBuiltInRole> enumeration and returns the result of calling <xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A>. If the current principal is any other principal, this function passes the name of the enumeration value in `role` to the principal&quot;s <xref:System.Security.Principal.IPrincipal.IsInRole%2A> method.      > [!NOTE] >  The exact behavior of the `My.User` object depends on the type of the application and on the operating system on which the application runs. For more information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User> class overview.      ## Availability by Project Type      |||   |-|-|   |Project type|Available|   |Windows Application|**Yes**|   |Class Library|**Yes**|   |Console Application|**Yes**|   |Windows Control Library|**Yes**|   |Web Control Library|**Yes**|   |Windows Service|**Yes**|   |Web Site|**Yes**|"
+  summary: "Anger om den aktuella användaren tillhör den angivna rollen."
+  remarks: "Den `My.User.IsInRole` metoden kan din kod att avgöra om den aktuella användaren är medlem i den angivna rollen.       Överlagring för den `My.User.IsInRole` metod som tar en sträng som ger tillgång till den <xref:System.Security.Principal.IPrincipal.IsInRole%2A>metoden aktuella huvudkontots.</xref:System.Security.Principal.IPrincipal.IsInRole%2A>       Överlagring för den `My.User.IsInRole` metod som tar en `BuiltInRole` uppräkning fungerar annorlunda, beroende på den aktuella huvudnamn. Om det är en Windows-UPN (<xref:System.Security.Principal.WindowsPrincipal>), den här funktionen konverterar `role` till motsvarande <xref:System.Security.Principal.WindowsBuiltInRole>uppräkning och returnerar resultatet av att anropa <xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A>.</xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A> </xref:System.Security.Principal.WindowsBuiltInRole> </xref:System.Security.Principal.WindowsPrincipal> Om den aktuella principal andra huvudnamn funktionen skickar namnet på uppräkningsvärdet i `role` till säkerhetsobjekt <xref:System.Security.Principal.IPrincipal.IsInRole%2A>metod.</xref:System.Security.Principal.IPrincipal.IsInRole%2A>      > [!NOTE] > Exakt hur den `My.User` objektet beror på vilken typ av programmet och operativsystemet där programmet körs. Mer information finns i <xref:Microsoft.VisualBasic.ApplicationServices.User>Översikt över klassen.</xref:Microsoft.VisualBasic.ApplicationServices.User>      ## Tillgänglighet med projekttypen |||   |-|-|   | Projekttyp | Tillgängliga |   | Windows-program | **Yes**|   | Klassen Biblioteksservern | **Yes**|   | Konsolprogrammet | **Yes**|   | Windows styra biblioteket | **Yes**|   | Web Control Library | **Yes**|   | Windows-tjänst | **Yes**|   | Webbplats | **Yes**|"
   example:
   - "This example checks if the user is an administrator before accessing a resource.  \n  \n [!code-vb[VbVbalrMyUser#1](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#1)]"
   syntax:
@@ -168,10 +168,10 @@ items:
     parameters:
     - id: role
       type: Microsoft.VisualBasic.ApplicationServices.BuiltInRole
-      description: "The built-in Windows role for which to check membership."
+      description: "Den inbyggda Windows-rollen som du vill kontrollera medlemskap."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the current user is a member of the specified role; otherwise, <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Om den aktuella användaren är medlem i den angivna rollen; Annars <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.VisualBasic.ApplicationServices.User.IsInRole*
   exceptions: []
   platform:
@@ -188,8 +188,8 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Determines whether the current user belongs to the specified role."
-  remarks: "The `My.User.IsInRole` method allows your code to determine if the current user is a member of the specified role.       The overload of the `My.User.IsInRole` method that takes a string provides easy access to the <xref:System.Security.Principal.IPrincipal.IsInRole%2A> method of the current principal.       The overload of the `My.User.IsInRole` method that takes a `BuiltInRole` enumeration behaves differently, depending on the current principal. If it is a Windows user principal (<xref:System.Security.Principal.WindowsPrincipal>), this function converts `role` to the equivalent <xref:System.Security.Principal.WindowsBuiltInRole> enumeration and returns the result of calling <xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A>. If the current principal is any other principal, this function passes the name of the enumeration value in `role` to the principal&quot;s <xref:System.Security.Principal.IPrincipal.IsInRole%2A> method.      > [!NOTE] >  The exact behavior of the `My.User` object depends on the type of the application and on the operating system on which the application runs. For more information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User> class overview.      ## Availability by Project Type      |||   |-|-|   |Project type|Available|   |Windows Application|**Yes**|   |Class Library|**Yes**|   |Console Application|**Yes**|   |Windows Control Library|**Yes**|   |Web Control Library|**Yes**|   |Windows Service|**Yes**|   |Web Site|**Yes**|"
+  summary: "Anger om den aktuella användaren tillhör den angivna rollen."
+  remarks: "Den `My.User.IsInRole` metoden kan din kod att avgöra om den aktuella användaren är medlem i den angivna rollen.       Överlagring för den `My.User.IsInRole` metod som tar en sträng som ger tillgång till den <xref:System.Security.Principal.IPrincipal.IsInRole%2A>metoden aktuella huvudkontots.</xref:System.Security.Principal.IPrincipal.IsInRole%2A>       Överlagring för den `My.User.IsInRole` metod som tar en `BuiltInRole` uppräkning fungerar annorlunda, beroende på den aktuella huvudnamn. Om det är en Windows-UPN (<xref:System.Security.Principal.WindowsPrincipal>), den här funktionen konverterar `role` till motsvarande <xref:System.Security.Principal.WindowsBuiltInRole>uppräkning och returnerar resultatet av att anropa <xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A>.</xref:System.Security.Principal.WindowsPrincipal.IsInRole%2A> </xref:System.Security.Principal.WindowsBuiltInRole> </xref:System.Security.Principal.WindowsPrincipal> Om den aktuella principal andra huvudnamn funktionen skickar namnet på uppräkningsvärdet i `role` till säkerhetsobjekt <xref:System.Security.Principal.IPrincipal.IsInRole%2A>metod.</xref:System.Security.Principal.IPrincipal.IsInRole%2A>      > [!NOTE] > Exakt hur den `My.User` objektet beror på vilken typ av programmet och operativsystemet där programmet körs. Mer information finns i <xref:Microsoft.VisualBasic.ApplicationServices.User>Översikt över klassen.</xref:Microsoft.VisualBasic.ApplicationServices.User>      ## Tillgänglighet med projekttypen |||   |-|-|   | Projekttyp | Tillgängliga |   | Windows-program | **Yes**|   | Klassen Biblioteksservern | **Yes**|   | Konsolprogrammet | **Yes**|   | Windows styra biblioteket | **Yes**|   | Web Control Library | **Yes**|   | Windows-tjänst | **Yes**|   | Webbplats | **Yes**|"
   example:
   - "This example checks if the user is an administrator before accessing a resource.  \n  \n [!code-vb[VbVbalrMyUser#1](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#1)]"
   syntax:
@@ -197,10 +197,10 @@ items:
     parameters:
     - id: role
       type: System.String
-      description: "The name of the role for which to check membership."
+      description: "Namnet på rollen som du vill kontrollera medlemskap."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the current user is a member of the specified role; otherwise, <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Om den aktuella användaren är medlem i den angivna rollen; Annars <xref uid=&quot;langword_csharp_False&quot; name=&quot;False&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.VisualBasic.ApplicationServices.User.IsInRole*
   exceptions: []
   platform:
@@ -217,7 +217,7 @@ items:
   assemblies:
   - Microsoft.VisualBasic
   namespace: Microsoft.VisualBasic.ApplicationServices
-  summary: "Gets the name of the current user."
+  summary: "Hämtar namnet på den aktuella användaren."
   remarks: "You can use the `My.User` object to get information about the current user.  \n  \n The principal that authenticates the user also controls the format of the user name. By default, an application uses Windows authentication, and the user name has the format DOMAIN\\USERNAME. A custom implementation of the principal does not necessarily use the same format.  \n  \n> [!NOTE]\n>  The `My.User.Name` property returns an empty string when run under Windows 95 and Windows 98 because those operating systems do not recognize user names.  \n  \n> [!NOTE]\n>  The exact behavior of the `My.User` object depends on the type of the application and on the operating system on which the application runs. For more information, see the <xref:Microsoft.VisualBasic.ApplicationServices.User> class overview.  \n  \n## Availability by Project Type  \n  \n|||  \n|-|-|  \n|Project type|Available|  \n|Windows Application|**Yes**|  \n|Class Library|**Yes**|  \n|Console Application|**Yes**|  \n|Windows Control Library|**Yes**|  \n|Web Control Library|**Yes**|  \n|Windows Service|**Yes**|  \n|Web Site|**Yes**|"
   example:
   - "This example checks if the application is using Windows or custom authentication, and uses that information to parse the `My.User.Name` property.  \n  \n [!code-vb[VbVbalrMyUser#3](~/add/codesnippet/visualbasic/VbVbalrMyUser/Class1.vb#3)]"
@@ -225,7 +225,7 @@ items:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "<xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref>. The name of the current user."
+      description: "<xref uid=&quot;langword_csharp_String&quot; name=&quot;String&quot; href=&quot;&quot;></xref>. Namnet på den aktuella användaren."
   overload: Microsoft.VisualBasic.ApplicationServices.User.Name*
   exceptions: []
   platform:

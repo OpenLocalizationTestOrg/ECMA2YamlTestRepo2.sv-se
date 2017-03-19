@@ -13,8 +13,8 @@ items:
   nameWithType: WorkflowSchedulerService
   fullName: System.Workflow.Runtime.Hosting.WorkflowSchedulerService
   type: Class
-  summary: "Provides a mechanism to implement your own thread pool to execute the workflow and manage in-memory timer registration and events."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       WorkflowSchedulerService is that base class for all classes that create threads that run workflow instances on the workflow runtime engine host. These include <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService> and <xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService>."
+  summary: "Tillhandahåller en mekanism för att implementera din egen trådpoolen för att köra arbetsflödet och hantera InMemory-timer-registrering och händelser."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]WorkflowSchedulerService är som basklass för alla klasser som skapar trådar som körs arbetsflödesinstanser på arbetsflödesvärden runtime engine. Dessa inkluderar <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService>och <xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService>.</xref:System.Workflow.Runtime.Hosting.ManualWorkflowSchedulerService> </xref:System.Workflow.Runtime.Hosting.DefaultWorkflowSchedulerService>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When implemented in a derived class, initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.WorkflowSchedulerService&quot;></xref> class."
+  summary: "Implementeras i en härledd klass initierar en ny instans av den <xref href=&quot;System.Workflow.Runtime.Hosting.WorkflowSchedulerService&quot;> </xref> klass."
   remarks: ''
   example:
   - "The following example demonstrates creating an instance of a <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> object (that inherits from <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService>) and adding it to the runtime. This example is from the Nested Exception Handlers SDK sample, from the Program.cs file. For more information, see [Nested Exception Handlers Sample](http://msdn.microsoft.com/en-us/d1da0209-842b-41c8-9b7c-0cbaa1034265).  \n  \n [!code-cs[WF_Samples#161](~/add/codesnippet/csharp/wf_snippets/snippets11.cs#161)]\n [!code-vb[WF_Samples#161](~/add/codesnippet/visualbasic/wf_snippets/snippets11.vb#161)]"
@@ -69,14 +69,14 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When overridden in a derived class, cancels the scheduled work item with the given <code>timerId</code>."
-  remarks: "Cancel removes from the pending work items queue a previous request to schedule a workflow instance."
+  summary: "När åsidosätts i en härledd klass, avbryter schemalagda arbetsobjektet med den angivna <code> timerId </code>."
+  remarks: "Avbryt om du tar bort väntande objekt kön en tidigare begäran att schemalägga en arbetsflödesinstans."
   syntax:
     content: protected abstract void Cancel (Guid timerId);
     parameters:
     - id: timerId
       type: System.Guid
-      description: "The <xref:System.Guid> associated with the existing scheduled thread to cancel."
+      description: "Den <xref:System.Guid>som är associerade med den befintliga schemalagda tråden att avbryta.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.WorkflowSchedulerService.Cancel*
   exceptions: []
   platform:
@@ -93,17 +93,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When overridden in a derived class, this method is called by the runtime to schedule a work item (callback) for a particular instance ID."
-  remarks: "Use the <xref:System.Threading.WaitCallback> constructor to create your delegate method to run in the new thread."
+  summary: "När åsidosätts i en härledd klass anropas den här metoden av körningen att schemalägga ett arbetsobjekt (motringning) för en viss instans-ID."
+  remarks: "Använd den <xref:System.Threading.WaitCallback>konstruktorn för att skapa din delegatmetod för att köras i en ny tråd.</xref:System.Threading.WaitCallback>"
   syntax:
     content: protected abstract void Schedule (System.Threading.WaitCallback callback, Guid workflowInstanceId);
     parameters:
     - id: callback
       type: System.Threading.WaitCallback
-      description: "A <xref href=&quot;System.Threading.WaitCallback&quot;></xref> multicast delegate that represents the method to run."
+      description: "En <xref href=&quot;System.Threading.WaitCallback&quot;> </xref> multicast-delegat som representerar metoden som ska köras."
     - id: workflowInstanceId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the workflow instance."
+      description: "En <xref:System.Guid>som representerar arbetsflödesinstansen.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.WorkflowSchedulerService.Schedule*
   exceptions: []
   platform:
@@ -120,22 +120,22 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "When overridden in a derived class, this method is called by the runtime to schedule a work item (callback) for a particular workflow instance to be done at the given time (<xref:System.DateTime>)."
+  summary: "När åsidosätts i en härledd klass den här metoden anropas av körningen att schemalägga ett arbetsobjekt (motringning) för en viss arbetsflödesinstans göras vid en viss tidpunkt (<xref:System.DateTime>).</xref:System.DateTime>"
   syntax:
     content: protected abstract void Schedule (System.Threading.WaitCallback callback, Guid workflowInstanceId, DateTime whenUtc, Guid timerId);
     parameters:
     - id: callback
       type: System.Threading.WaitCallback
-      description: "A <xref href=&quot;System.Threading.WaitCallback&quot;></xref> multicast delegate that represents the method to run."
+      description: "En <xref href=&quot;System.Threading.WaitCallback&quot;> </xref> multicast-delegat som representerar metoden som ska köras."
     - id: workflowInstanceId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the workflow instance to add."
+      description: "En <xref:System.Guid>som representerar arbetsflödesinstansen lägga till.</xref:System.Guid>"
     - id: whenUtc
       type: System.DateTime
-      description: "The <xref:System.DateTime> to begin running the workflow item."
+      description: "Den <xref:System.DateTime>att börja använda arbetsflödesobjektet.</xref:System.DateTime>"
     - id: timerId
       type: System.Guid
-      description: "A <xref:System.Guid> that represents the scheduled timer."
+      description: "En <xref:System.Guid>som representerar schemalagda timern.</xref:System.Guid>"
   overload: System.Workflow.Runtime.Hosting.WorkflowSchedulerService.Schedule*
   exceptions: []
   platform:
