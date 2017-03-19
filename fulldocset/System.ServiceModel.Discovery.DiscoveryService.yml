@@ -16,8 +16,8 @@ items:
   nameWithType: DiscoveryService
   fullName: System.ServiceModel.Discovery.DiscoveryService
   type: Class
-  summary: "An abstract base class used to implement a discovery service."
-  remarks: "When a <xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior> is added to a service, a default DiscoveryService implementation is used to handle Find and Resolve requests. Extend this class to implement a custom discovery service that has behavior different from the default implementation, such as to reply to Find requests using a custom matching algorithm"
+  summary: "En abstrakt basklass som används för att implementera en discovery-tjänsten."
+  remarks: "När en <xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior>har lagts till i en tjänst, en standardimplementering DiscoveryService används för att hantera Sök och Lös förfrågningar.</xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior> Utöka den här klassen för att implementera en anpassad discovery-tjänsten som har beteendet skiljer sig från standardimplementeringen, exempelvis genom att besvara hitta begäranden med en anpassad matchande algoritm"
   syntax:
     content: public abstract class DiscoveryService
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> klass."
   syntax:
     content: protected DiscoveryService ();
     parameters: []
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref>."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> klass med det angivna <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref>."
   syntax:
     content: protected DiscoveryService (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator discoveryMessageSequenceGenerator);
     parameters:
     - id: discoveryMessageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The discovery message sequence generator."
+      description: "Identifiering meddelandet följd generator."
   overload: System.ServiceModel.Discovery.DiscoveryService.#ctor*
   exceptions: []
   platform:
@@ -81,16 +81,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref> and duplicate message history length."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> klass med det angivna <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref> och duplicera meddelandet historik längd."
   syntax:
     content: protected DiscoveryService (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator discoveryMessageSequenceGenerator, int duplicateMessageHistoryLength);
     parameters:
     - id: discoveryMessageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The discovery message sequence generator."
+      description: "Identifiering meddelandet följd generator."
     - id: duplicateMessageHistoryLength
       type: System.Int32
-      description: "The maximum number of message hashes used by the transport for identifying duplicate messages. The default value is 0."
+      description: "Det maximala antalet hashar för meddelanden används av transporten för att identifiera dubblerade meddelanden. Standardvärdet är 0."
   overload: System.ServiceModel.Discovery.DiscoveryService.#ctor*
   exceptions: []
   platform:
@@ -107,23 +107,23 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a find operation."
-  remarks: "Find results are returned by calling the <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A> method one or more times."
+  summary: "Åsidosätta den här metoden för att hantera en find-åtgärd."
+  remarks: "Hitta resultat genom att anropa den <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>metoden en eller flera gånger.</xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>"
   syntax:
     content: protected abstract IAsyncResult OnBeginFind (System.ServiceModel.Discovery.FindRequestContext findRequestContext, AsyncCallback callback, object state);
     parameters:
     - id: findRequestContext
       type: System.ServiceModel.Discovery.FindRequestContext
-      description: "The find request context that describes the service to discover."
+      description: "Hitta begärandekontexten som beskriver tjänsten för att identifiera."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Motringning delegaten att anropa när åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "En referens till väntande asynkron åtgärd."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnBeginFind*
   exceptions: []
   platform:
@@ -140,22 +140,22 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a resolve operation."
+  summary: "Åsidosätta den här metoden för att hantera en resolve-åtgärd."
   syntax:
     content: protected abstract IAsyncResult OnBeginResolve (System.ServiceModel.Discovery.ResolveCriteria resolveCriteria, AsyncCallback callback, object state);
     parameters:
     - id: resolveCriteria
       type: System.ServiceModel.Discovery.ResolveCriteria
-      description: "The find request context that describes the service to discover."
+      description: "Hitta begärandekontexten som beskriver tjänsten för att identifiera."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "Motringning delegaten att anropa när åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Användardefinierat tillståndsdata."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "En referens till väntande asynkron åtgärd."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnBeginResolve*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a find operation."
+  summary: "Åsidosätta den här metoden för att hantera en find-åtgärd slutförs."
   syntax:
     content: protected abstract void OnEndFind (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "En referens till den asynkrona åtgärden slutfördes."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnEndFind*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a resolve operation."
+  summary: "Åsidosätta den här metoden för att hantera slutförandet av en resolve-åtgärd."
   syntax:
     content: protected abstract System.ServiceModel.Discovery.EndpointDiscoveryMetadata OnEndResolve (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "En referens till den asynkrona åtgärden slutfördes."
     return:
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "The endpoint discovery metadata that describes the resolved service."
+      description: "Metadata för slutpunkt-identifiering som beskriver tjänsten löst."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnEndResolve*
   exceptions: []
   platform:

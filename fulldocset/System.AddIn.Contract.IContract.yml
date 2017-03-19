@@ -15,8 +15,8 @@ items:
   nameWithType: IContract
   fullName: System.AddIn.Contract.IContract
   type: Interface
-  summary: "Represents the base interface for all contracts that are used for communication between components that are updated independently."
-  remarks: "The IContract interface defines a contract that independently updated components, such as an application and an add-in, can use to communicate. Components can use IContract to communicate across process or application domain boundaries, or to communicate with other components in the same process or application domain. IContract serves a similar purpose for components created using the .NET Framework as the `IUnknown` interface serves for components created using COM. To determine whether an object implements a particular contract, use the <xref:System.AddIn.Contract.IContract.QueryContract%2A> method."
+  summary: "Representerar det grundläggande gränssnittet för alla kontrakt som används för kommunikation mellan komponenter som är uppdaterade oberoende av varandra."
+  remarks: "IContract-gränssnittet definierar ett kontrakt som oberoende uppdaterade komponenter, t.ex. ett program och ett tillägg, kan använda för att kommunicera. Komponenter kan använda IContract kan kommunicera över processen eller domängränser för programmet, eller för att kommunicera med andra komponenter i samma process eller programdomän. IContract har en liknande funktion för komponenter som skapats med hjälp av .NET Framework som de `IUnknown` -gränssnittet fungerar för komponenter som skapats med hjälp av COM. Använd för att fastställa om ett objekt som implementerar ett visst kontrakt, den <xref:System.AddIn.Contract.IContract.QueryContract%2A>metoden.</xref:System.AddIn.Contract.IContract.QueryContract%2A>"
   syntax:
     content: public interface IContract
   implements: []
@@ -34,14 +34,14 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Specifies that the contract is accessible to a client until the client revokes the contract."
-  remarks: "Clients of an object that implements <xref:System.AddIn.Contract.IContract> call the AcquireLifetimeToken method to notify the object that the client requires access to the contract. An <xref:System.AddIn.Contract.IContract> is guaranteed to be usable as long as at least one lifetime token that it passed to a client has not been revoked.       To revoke a contract, clients call the <xref:System.AddIn.Contract.IContract.RevokeLifetimeToken%2A> method."
+  summary: "Anger att kontraktet är tillgänglig för en klient tills klienten återkallar kontraktet."
+  remarks: "Klienter för ett objekt som implementerar <xref:System.AddIn.Contract.IContract>anropa metoden AcquireLifetimeToken för att meddela objektet att klienten kräver åtkomst till kontraktet.</xref:System.AddIn.Contract.IContract> En <xref:System.AddIn.Contract.IContract>garanterat användas så länge som minst en livslängdstoken som den som skickades till en klient inte har återkallats.</xref:System.AddIn.Contract.IContract>       Återkalla ett kontrakt, klienter anropet den <xref:System.AddIn.Contract.IContract.RevokeLifetimeToken%2A>metoden.</xref:System.AddIn.Contract.IContract.RevokeLifetimeToken%2A>"
   syntax:
     content: public int AcquireLifetimeToken ();
     parameters: []
     return:
       type: System.Int32
-      description: "A value, also known as a lifetime token, that identifies the client that has acquired the contract."
+      description: "Ett värde, även kallat en livslängdstoken som identifierar den klient som har fått kontraktet."
   overload: System.AddIn.Contract.IContract.AcquireLifetimeToken*
   exceptions: []
   platform:
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Returns a hash code for the <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+  summary: "Returnerar en Hashkod för den <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
   syntax:
     content: public int GetRemoteHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+      description: "En Hashkod för den <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
   overload: System.AddIn.Contract.IContract.GetRemoteHashCode*
   exceptions: []
   platform:
@@ -81,17 +81,17 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Returns a contract that is implemented by this contract."
-  remarks: "The QueryContract method enables <xref:System.AddIn.Contract.IContract> objects to expose other contracts. QueryContract serves a purpose similar to that of the `IUnknown.QueryInterface` method in COM.       The format of the strings used to identify contracts is defined by the <xref:System.AddIn.Contract.IContract> implementation. It is recommended that you use the <xref:System.Type.AssemblyQualifiedName%2A> of the contract that is being queried."
+  summary: "Returnerar ett kontrakt som implementerats av det här kontraktet."
+  remarks: "Metoden QueryContract aktiverar <xref:System.AddIn.Contract.IContract>objekt att visa andra avtal.</xref:System.AddIn.Contract.IContract> QueryContract har ett syfte som är samma som den `IUnknown.QueryInterface` metod i COM.       Formatet på strängar som används för att identifiera kontrakt som definieras av den <xref:System.AddIn.Contract.IContract>implementering.</xref:System.AddIn.Contract.IContract> Det rekommenderas att du använder den <xref:System.Type.AssemblyQualifiedName%2A>kontraktets frågas.</xref:System.Type.AssemblyQualifiedName%2A>"
   syntax:
     content: public System.AddIn.Contract.IContract QueryContract (string contractIdentifier);
     parameters:
     - id: contractIdentifier
       type: System.String
-      description: "A string that identifies the contract that is being requested."
+      description: "En sträng som identifierar kontraktet som efterfrågas."
     return:
       type: System.AddIn.Contract.IContract
-      description: "An <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref> that represents a contract that a client is requesting from the current contract; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the current contract does not support the contract that is requested."
+      description: "En <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref> som representerar ett kontrakt som en klient begär från det aktuella kontraktet. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om det aktuella kontraktet inte stöder kontrakt som begärs."
   overload: System.AddIn.Contract.IContract.QueryContract*
   exceptions: []
   platform:
@@ -108,16 +108,16 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Indicates whether the specified contract is equal to this <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+  summary: "Anger om det angivna kontraktet är lika med detta <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
   syntax:
     content: public bool RemoteEquals (System.AddIn.Contract.IContract contract);
     parameters:
     - id: contract
       type: System.AddIn.Contract.IContract
-      description: "The contract to compare with this <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+      description: "Kontraktet ska jämföras med den här <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>contract</code> is equal to this <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>if <code>contract</code> is equal to this <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.AddIn.Contract.IContract.RemoteEquals*
   exceptions: []
   platform:
@@ -134,13 +134,13 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Returns a string representation of the current <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+  summary: "Returnerar en strängrepresentation av aktuellt <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
   syntax:
     content: public string RemoteToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representation of the current <xref href=&quot;System.AddIn.Contract.IContract&quot;></xref>."
+      description: "En strängrepresentation av aktuellt <xref href=&quot;System.AddIn.Contract.IContract&quot;> </xref>."
   overload: System.AddIn.Contract.IContract.RemoteToString*
   exceptions: []
   platform:
@@ -157,14 +157,14 @@ items:
   assemblies:
   - System.AddIn.Contract
   namespace: System.AddIn.Contract
-  summary: "Specifies that the contract is no longer accessible to a client."
-  remarks: "Clients of an object that implements <xref:System.AddIn.Contract.IContract> call the RevokeLifetimeToken method to notify the object that the client no longer needs the contract. An <xref:System.AddIn.Contract.IContract> is guaranteed to be usable as long as at least one lifetime token that it passed to a client has not been revoked.       To acquire a contract, clients call the <xref:System.AddIn.Contract.IContract.AcquireLifetimeToken%2A> method."
+  summary: "Anger att kontraktet inte längre är tillgänglig för en klient."
+  remarks: "Klienter för ett objekt som implementerar <xref:System.AddIn.Contract.IContract>anropa metoden RevokeLifetimeToken för att meddela objektet att klienten inte längre behöver kontraktet.</xref:System.AddIn.Contract.IContract> En <xref:System.AddIn.Contract.IContract>garanterat användas så länge som minst en livslängdstoken som den som skickades till en klient inte har återkallats.</xref:System.AddIn.Contract.IContract>       Att hämta ett kontrakt, klienter anropet den <xref:System.AddIn.Contract.IContract.AcquireLifetimeToken%2A>metoden.</xref:System.AddIn.Contract.IContract.AcquireLifetimeToken%2A>"
   syntax:
     content: public void RevokeLifetimeToken (int token);
     parameters:
     - id: token
       type: System.Int32
-      description: "A value, also known as a lifetime token, that identifies the client that is revoking the contract."
+      description: "Ett värde, även kallat en livslängdstoken som identifierar den klient som återkallar kontraktet."
   overload: System.AddIn.Contract.IContract.RevokeLifetimeToken*
   exceptions: []
   platform:

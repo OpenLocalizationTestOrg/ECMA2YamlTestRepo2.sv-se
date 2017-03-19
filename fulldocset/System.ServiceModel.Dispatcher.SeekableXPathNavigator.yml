@@ -17,8 +17,8 @@ items:
   nameWithType: SeekableXPathNavigator
   fullName: System.ServiceModel.Dispatcher.SeekableXPathNavigator
   type: Class
-  summary: "Provides read-only, random access to data contained in XML documents and enables efficient querying for specified nodes."
-  remarks: "The SOAP messages passed between parts of the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] system are handled by various components of the system that must inspect these messages to determine what actions to take in processing them. The XPath engine is a component that queries messages for this purpose and it requires a navigator to read SOAP messages and other XML documents. A navigator provides a cursor that moves from node to node tracking where the XML document is actually being read.       The XPath engine works with a SeekableXPathNavigator, which extends the <xref:System.Xml.XPath.XPathNavigator> class by adding a <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> property. This property allows positions within the XML document to be saved and loaded quickly without having to clone the navigator, an expensive memory allocation that the <xref:System.Xml.XPath.XPathNavigator> requires for such an operation. The XPath engine must frequently record the position of the cursor in the course of executing queries on XML documents, so the SeekableXPathNavigator provides an important optimization for message processing.       Note that the value of the <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> property is implementation-specific and may not map to node position or character position. Its value is only meaningful to the SeekableXPathNavigator implementation (and instance) that supplied it."
+  summary: "Tillhandahåller, slumpmässig åtkomst till data i XML-dokument och möjliggör effektiva frågor för noderna."
+  remarks: "SOAP-meddelanden som skickas mellan delar av den [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] system hanteras av olika komponenter i systemet som måste granska dessa meddelanden för att fastställa vilka åtgärder som ska vidtas vid bearbetning av dem. XPath-motorn är en komponent som frågar meddelanden för detta ändamål och kräver en navigator att läsa SOAP-meddelanden och andra XML-dokument. En navigator ger en markör som flyttas från en nod till en nod spårning där XML-dokumentet faktiskt läses.       XPath-motorn fungerar med en SeekableXPathNavigator som utökar den <xref:System.Xml.XPath.XPathNavigator>klassen genom att lägga till en <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A>egenskap.</xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> </xref:System.Xml.XPath.XPathNavigator> Den här egenskapen gör positioner inom XML-dokumentet sparas och läsa in snabbt utan att behöva klona Navigatören en dyr minnesallokering som den <xref:System.Xml.XPath.XPathNavigator>kräver för en sådan åtgärd.</xref:System.Xml.XPath.XPathNavigator> XPath-motorn måste ofta registrera placering av markören under köra frågor på XML-dokument, så SeekableXPathNavigator innehåller en viktigt optimering för meddelandebehandling.       Observera att värdet för den <xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A>egenskapen är implementeringen-specifika och kan inte mappas till noden positionen eller teckenposition.</xref:System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition%2A> Värdet är bara meningsfullt att SeekableXPathNavigator implementering (och instans) som angetts i den."
   syntax:
     content: 'public abstract class SeekableXPathNavigator : System.Xml.XPath.XPathNavigator'
   inheritance:
@@ -158,7 +158,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.SeekableXPathNavigator&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Dispatcher.SeekableXPathNavigator&quot;> </xref> klass."
   syntax:
     content: protected SeekableXPathNavigator ();
     parameters: []
@@ -178,24 +178,24 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns a value that describes the document order of the two specified positions."
+  summary: "Returnerar ett värde som beskriver dokumentordningen för två angivna positioner när åsidosätts i en härledd klass."
   syntax:
     content: public abstract System.Xml.XmlNodeOrder ComparePosition (long firstPosition, long secondPosition);
     parameters:
     - id: firstPosition
       type: System.Int64
-      description: "The first position in the comparison."
+      description: "Den första positionen i jämförelsen."
     - id: secondPosition
       type: System.Int64
-      description: "The second position in the comparison."
+      description: "Den andra positionen i jämförelsen."
     return:
       type: System.Xml.XmlNodeOrder
-      description: "One of the <xref href=&quot;System.Xml.XmlNodeOrder&quot;></xref> values that describes the relation of <code>firstPosition</code> to <code>secondPosition</code> in the document."
+      description: "En av de <xref href=&quot;System.Xml.XmlNodeOrder&quot;> </xref> värden som beskriver relationen <code> firstPosition </code> till <code> secondPosition </code> i dokumentet."
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.ComparePosition*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>firstPosition</code> or <code>secondPosition</code> is not valid."
+    description: "<code>firstPosition</code>eller <code>secondPosition</code> är inte giltig."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, gets or sets a value associated with the node in the data where the XPath navigator is positioned."
-  remarks: "The `set` operation moves the navigator to the position associated with the value specified. The `get` operation returns a value associated with the current position of the navigator."
+  summary: "När åsidosätts i en härledd klass, hämtar eller anger ett värde som är kopplad till noden i data som XPath Navigatören är placerad."
+  remarks: "Den `set` åtgärden flyttar Navigatören till den plats som är associerade med det angivna värdet. Den `get` åtgärd returnerar ett värde som är associerade med Navigatorns aktuella position."
   syntax:
     content: public abstract long CurrentPosition { get; set; }
     return:
       type: System.Int64
-      description: "A value that is associated with the navigator’s current position."
+      description: "Ett värde som är associerad med den Navigatorns aktuella position."
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.CurrentPosition*
   exceptions: []
   platform:
@@ -233,21 +233,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns the local name of the node at the position specified."
+  summary: "Returnerar det lokala namnet på noden vid position när åsidosätts i en härledd klass."
   syntax:
     content: public abstract string GetLocalName (long nodePosition);
     parameters:
     - id: nodePosition
       type: System.Int64
-      description: "The position of the node whose local name is being retrieved."
+      description: "Positionen för noden vars lokalt namn som ska hämtas."
     return:
       type: System.String
-      description: "The local name of the node at the specified position. <xref:System.String> is returned if the node does not have a local name, for example if the current position references a text node."
+      description: "Det lokala namnet på noden vid den angivna positionen. <xref:System.String>returneras om noden inte har ett lokalt namn, till exempel om den aktuella positionen refererar till en textnod.</xref:System.String>"
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetLocalName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>nodePosition</code> is invalid."
+    description: "<code>nodePosition</code>är ogiltigt."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetName(System.Int64)
@@ -262,22 +262,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns the name of the node at the specified position."
-  remarks: "The name is the name of the XML element at `nodePosition` and typically includes a namespace prefix."
+  summary: "Returnerar namnet på noden vid den angivna positionen när åsidosätts i en härledd klass."
+  remarks: "Namnet är namnet på XML-elementet i `nodePosition` och innehåller vanligen ett namnområdesprefix."
   syntax:
     content: public abstract string GetName (long nodePosition);
     parameters:
     - id: nodePosition
       type: System.Int64
-      description: "The position of the node whose name is being retrieved."
+      description: "Positionen för noden vars namn ska hämtas."
     return:
       type: System.String
-      description: "The name of the node at <code>nodePosition</code>. <xref:System.String> is returned if the node does not have a name."
+      description: "Namnet på noden från <code> nodePosition </code>. <xref:System.String>returneras om noden inte har ett namn.</xref:System.String>"
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>nodePosition</code> is invalid."
+    description: "<code>nodePosition</code>är ogiltigt."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetNamespace(System.Int64)
@@ -292,21 +292,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns the namespace of the node at the specified position."
+  summary: "När åsidosätts i en härledd klass returnerar namnområdet för noden vid den angivna positionen."
   syntax:
     content: public abstract string GetNamespace (long nodePosition);
     parameters:
     - id: nodePosition
       type: System.Int64
-      description: "The position of the node whose namespace is being retrieved."
+      description: "Positionen för noden vars namnområde som ska hämtas."
     return:
       type: System.String
-      description: "The namespace of the node at <code>nodePosition</code>. <xref:System.String> is returned if the node does not have a namespace."
+      description: "Namnområdet för noden från <code> nodePosition </code>. <xref:System.String>returneras om noden inte har ett namnområde.</xref:System.String>"
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetNamespace*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>nodePosition</code> is invalid."
+    description: "<code>nodePosition</code>är ogiltigt."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetNodeType(System.Int64)
@@ -321,21 +321,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns the type of the node at the specified position."
+  summary: "Returnerar typen för noden vid den angivna positionen när åsidosätts i en härledd klass."
   syntax:
     content: public abstract System.Xml.XPath.XPathNodeType GetNodeType (long nodePosition);
     parameters:
     - id: nodePosition
       type: System.Int64
-      description: "The position of the node whose node type is being retrieved."
+      description: "Positionen för noden vars nodtypen hämtas."
     return:
       type: System.Xml.XPath.XPathNodeType
-      description: "One of the <xref href=&quot;System.Xml.XPath.XPathNodeType&quot;></xref> values that indicate the type of the XML node."
+      description: "En av de <xref href=&quot;System.Xml.XPath.XPathNodeType&quot;> </xref> värden som anger vilken typ av XML-noden."
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetNodeType*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>nodePosition</code> is invalid."
+    description: "<code>nodePosition</code>är ogiltigt."
   platform:
   - net462
 - uid: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetValue(System.Int64)
@@ -350,22 +350,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, returns the text value of the node at the specified position."
-  remarks: "For elements, this method returns the concatenation of all text descendents of the node at the specified position, similar to the <xref:System.Xml.XmlElement.InnerText%2A> property."
+  summary: "När åsidosätts i en härledd klass returnerar textvärdet för noden vid den angivna positionen."
+  remarks: "För element, den här metoden returnerar sammanslagningen av alla underordnade element text för noden vid angiven position som liknar den <xref:System.Xml.XmlElement.InnerText%2A>egenskapen.</xref:System.Xml.XmlElement.InnerText%2A>"
   syntax:
     content: public abstract string GetValue (long nodePosition);
     parameters:
     - id: nodePosition
       type: System.Int64
-      description: "The position of the node whose text value is being retrieved."
+      description: "Positionen för noden vars värde ska hämtas."
     return:
       type: System.String
-      description: "The text value of the node at <code>nodePosition</code>. <xref:System.String> is returned if the node does not have a text value."
+      description: "Textvärdet för noden från <code> nodePosition </code>. <xref:System.String>returneras om noden inte har ett textvärde.</xref:System.String>"
   overload: System.ServiceModel.Dispatcher.SeekableXPathNavigator.GetValue*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>nodePosition</code> is invalid."
+    description: "<code>nodePosition</code>är ogiltigt."
   platform:
   - net462
 references:

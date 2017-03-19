@@ -11,8 +11,8 @@ items:
   nameWithType: IDesignerDataSchema
   fullName: System.ComponentModel.Design.Data.IDesignerDataSchema
   type: Interface
-  summary: "Defines methods for retrieving data-store schema information."
-  remarks: "Classes that implement the IDesignerDataSchema interface retrieve schema information from a data store and return it to the user interface, typically to populate UI elements that enable the user to specify the data-store object that they  want to work with.       The IDesignerDataSchema interface provides two methods: the <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.GetSchemaItems%2A> method, which returns the requested schema objects, and the <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A> method, which indicates whether a specified data-schema object is supported by the data store."
+  summary: "Definierar metoder för att hämta information för datalagringen schemat."
+  remarks: "Klasser som implementerar gränssnittet IDesignerDataSchema hämta schemainformation från ett datalager och återgår till användargränssnittet, vanligtvis för att fylla UI-element som gör att användaren kan ange det datalager objekt som de vill arbeta med.       Gränssnittet IDesignerDataSchema erbjuder två metoder: den <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.GetSchemaItems%2A>metod som returnerar de begärda schemaobjekt och <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A>-metoden, som anger om ett objekt i angivna dataschemat stöds av datalagret.</xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A> </xref:System.ComponentModel.Design.Data.IDesignerDataSchema.GetSchemaItems%2A>"
   syntax:
     content: public interface IDesignerDataSchema
   implements: []
@@ -30,17 +30,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Gets a collection of specified schema items."
-  remarks: "The GetSchemaItems method returns a collection of all the specified schema objects in the data store.       See the <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass> class for the list of schema objects supported by the .NET Framework. Additional schema objects can be added to the <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass> class by creating a derived type.       If the data store does not support the requested schema object, the GetSchemaItems method should return `null`. You can use the <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A> method to determine whether a data store supports the requested schema object before calling the GetSchemaItems method, to avoid returning `null` to your application.       If the data store supports the requested object, but does not contain any instances, the GetSchemaItems method should return an empty collection."
+  summary: "Hämtar en objektmängd angivna schemat."
+  remarks: "GetSchemaItems-metoden returnerar en mängd med alla angivna schemaobjekt i datalagret.       Finns det <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass>objektklass för listan över schemat stöds av .NET Framework.</xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass> Ytterligare schemaobjekt kan läggas till i <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass>klassen genom att skapa en härledd typ.</xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass>       Om datalagret inte stöder det begärda schemaobjektet, GetSchemaItems-metoden ska returnera `null`. Du kan använda den <xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A>metod för att avgöra om ett dataarkiv som stöder det begärda schemaobjektet innan du anropar metoden GetSchemaItems för att undvika att `null` i tillämpningsprogrammet.</xref:System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass%2A>       Om datalagret har stöd för det begärda objektet, men inte innehåller några instanser, ska GetSchemaItems-metoden returnera en tom samling."
   syntax:
     content: public System.Collections.ICollection GetSchemaItems (System.ComponentModel.Design.Data.DesignerDataSchemaClass schemaClass);
     parameters:
     - id: schemaClass
       type: System.ComponentModel.Design.Data.DesignerDataSchemaClass
-      description: "The schema objects to return."
+      description: "Schemaobjekt att returnera."
     return:
       type: System.Collections.ICollection
-      description: "A collection of schema objects of the specified type."
+      description: "En samling schemaobjekt för den angivna typen."
   overload: System.ComponentModel.Design.Data.IDesignerDataSchema.GetSchemaItems*
   exceptions: []
   platform:
@@ -57,17 +57,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Data
-  summary: "Returns a value indicating whether the data store contains the specified data-schema object."
-  remarks: "The SupportsSchemaClass method indicates whether the data store supports a specified data-schema object. If the data store does not support the specified object, the SupportsSchemaClass method should return `false`.       You can add tests for additional data-schema objects by deriving from the <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass> class."
+  summary: "Returnerar ett värde som anger om datalagret innehåller det angivna dataschemat-objektet."
+  remarks: "Metoden SupportsSchemaClass anger om datalagret har stöd för ett objekt i angivna dataschemat. Om inte stöder det angivna objektet i datalagret, SupportsSchemaClass-metoden ska returnera `false`.       Du kan lägga till tester för att ytterligare dataschemat objekt som härleds från <xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass>klassen.</xref:System.ComponentModel.Design.Data.DesignerDataSchemaClass>"
   syntax:
     content: public bool SupportsSchemaClass (System.ComponentModel.Design.Data.DesignerDataSchemaClass schemaClass);
     parameters:
     - id: schemaClass
       type: System.ComponentModel.Design.Data.DesignerDataSchemaClass
-      description: "The schema objects to return."
+      description: "Schemaobjekt att returnera."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the data store supports the specified data-schema object; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om datalagret har stöd för det angivna dataschemat-objektet. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Data.IDesignerDataSchema.SupportsSchemaClass*
   exceptions: []
   platform:

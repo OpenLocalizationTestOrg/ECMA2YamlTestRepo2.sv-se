@@ -17,7 +17,7 @@ items:
   fullName: System.Xml.XmlNodeChangedEventArgs
   type: Class
   summary: "Provides data for the <xref href=&quot;System.Xml.XmlDocument.NodeChanged&quot;></xref>, <xref href=&quot;System.Xml.XmlDocument.NodeChanging&quot;></xref>, <xref href=&quot;System.Xml.XmlDocument.NodeInserted&quot;></xref>, <xref href=&quot;System.Xml.XmlDocument.NodeInserting&quot;></xref>, <xref href=&quot;System.Xml.XmlDocument.NodeRemoved&quot;></xref> and <xref href=&quot;System.Xml.XmlDocument.NodeRemoving&quot;></xref> events."
-  remarks: "The following C# code shows how to use the event handler.      ```   //Add a new event handler.   XmlDocument doc = new XmlDocument();   doc.NodeInserted += new XmlNodeChangedEventHandler(NodeInsertedHandler);   //Define the event handler.   void NodeInsertedHandler(Object src, XmlNodeChangedEventArgs args)   {    Console.WriteLine(&quot;Node &quot; + args.Node.Name + &quot; inserted!!&quot;);   }   ```      > [!NOTE] >  If an operation is comprised of multiple actions, it results in multiple events. For example, an <xref:System.Xml.XmlNode.AppendChild%2A> call may have to remove the node being appended from its previous parent. In this case you will see a `NodeRemoved` event followed by a `NodeInserted` event."
+  remarks: "Följande C#-kod visar hur du använder händelsehanteraren.      ```   //Add a new event handler.   XmlDocument doc = new XmlDocument();   doc.NodeInserted += new XmlNodeChangedEventHandler(NodeInsertedHandler);   //Define the event handler.   void NodeInsertedHandler(Object src, XmlNodeChangedEventArgs args)   {    Console.WriteLine(&quot;Node &quot; + args.Node.Name + &quot; inserted!!&quot;);   }   ```      > [!NOTE]> Om en åtgärd består av flera åtgärder, resulterar det i flera händelser. Till exempel en <xref:System.Xml.XmlNode.AppendChild%2A>anrop kan behöva ta bort noden som ska läggas till från den tidigare överordnat.</xref:System.Xml.XmlNode.AppendChild%2A> I det här fallet visas en `NodeRemoved` händelse följt av en `NodeInserted` händelse."
   syntax:
     content: 'public class XmlNodeChangedEventArgs : EventArgs'
   inheritance:
@@ -38,25 +38,25 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xml.XmlNodeChangedEventArgs&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Xml.XmlNodeChangedEventArgs&quot;> </xref> klass."
   syntax:
     content: public XmlNodeChangedEventArgs (System.Xml.XmlNode node, System.Xml.XmlNode oldParent, System.Xml.XmlNode newParent, string oldValue, string newValue, System.Xml.XmlNodeChangedAction action);
     parameters:
     - id: node
       type: System.Xml.XmlNode
-      description: "The <xref href=&quot;System.Xml.XmlNode&quot;></xref> that generated the event."
+      description: "Den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som genererade händelsen."
     - id: oldParent
       type: System.Xml.XmlNode
-      description: "The old parent <xref href=&quot;System.Xml.XmlNode&quot;></xref> of the <xref href=&quot;System.Xml.XmlNode&quot;></xref> that generated the event."
+      description: "Den gamla överordnat <xref href=&quot;System.Xml.XmlNode&quot;> </xref> av den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som genererade händelsen."
     - id: newParent
       type: System.Xml.XmlNode
-      description: "The new parent <xref href=&quot;System.Xml.XmlNode&quot;></xref> of the <xref href=&quot;System.Xml.XmlNode&quot;></xref> that generated the event."
+      description: "Den nya överordnat <xref href=&quot;System.Xml.XmlNode&quot;> </xref> av den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som genererade händelsen."
     - id: oldValue
       type: System.String
-      description: "The old value of the <xref href=&quot;System.Xml.XmlNode&quot;></xref> that generated the event."
+      description: "Det gamla värdet för den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som genererade händelsen."
     - id: newValue
       type: System.String
-      description: "The new value of the <xref href=&quot;System.Xml.XmlNode&quot;></xref> that generated the event."
+      description: "Det nya värdet för den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som genererade händelsen."
     - id: action
       type: System.Xml.XmlNodeChangedAction
       description: "The <xref href=&quot;System.Xml.XmlNodeChangedAction&quot;></xref>."
@@ -76,12 +76,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets a value indicating what type of node change event is occurring."
+  summary: "Hämtar ett värde som anger vilken typ av noden Ändringshändelse sker."
   syntax:
     content: public System.Xml.XmlNodeChangedAction Action { get; }
     return:
       type: System.Xml.XmlNodeChangedAction
-      description: "An <xref uid=&quot;langword_csharp_XmlNodeChangedAction&quot; name=&quot;XmlNodeChangedAction&quot; href=&quot;&quot;></xref> value describing the node change event.       <table><thead><tr><th> XmlNodeChangedAction Value       </th><th> Description       </th></tr></thead><tbody><tr><td> Insert       </td><td> A node has been or will be inserted.       </td></tr><tr><td> Remove       </td><td> A node has been or will be removed.       </td></tr><tr><td> Change       </td><td> A node has been or will be changed.       </td></tr></tbody></table><div class=&quot;alert NOTE&quot;>    The <xref uid=&quot;langword_csharp_Action&quot; name=&quot;Action&quot; href=&quot;&quot;></xref> value does not differentiate between when the event occurred (before or after). You can create separate event handlers to handle both instances.      </div>"
+      description: "En <xref uid=&quot;langword_csharp_XmlNodeChangedAction&quot; name=&quot;XmlNodeChangedAction&quot; href=&quot;&quot;> </xref> värdet som beskriver noden ändra händelse.       <table><thead><tr><th> XmlNodeChangedAction värde       </th><th> Beskrivning       </th></tr></thead><tbody><tr><td> Infoga       </td><td> En nod har eller kommer att infogas.       </td></tr><tr><td> Ta bort       </td><td> En nod har eller tas bort.       </td></tr><tr><td> Ändra       </td><td> En nod har eller kommer att ändras.       </td></tr></tbody></table><div class=&quot;alert NOTE&quot;>    Den <xref uid=&quot;langword_csharp_Action&quot; name=&quot;Action&quot; href=&quot;&quot;> </xref> värdet görs ingen åtskillnad mellan när händelsen inträffade (före eller efter). Du kan skapa separata händelsehanterare för att hantera både instanser.      </div>"
   overload: System.Xml.XmlNodeChangedEventArgs.Action*
   exceptions: []
   platform:
@@ -98,12 +98,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the value of the <xref:System.Xml.XmlNode.ParentNode*> after the operation completes."
+  summary: "Hämtar värdet för den <xref:System.Xml.XmlNode.ParentNode*>när åtgärden har slutförts.</xref:System.Xml.XmlNode.ParentNode*>"
   syntax:
     content: public System.Xml.XmlNode NewParent { get; }
     return:
       type: System.Xml.XmlNode
-      description: "The value of the <xref uid=&quot;langword_csharp_ParentNode&quot; name=&quot;ParentNode&quot; href=&quot;&quot;></xref> after the operation completes. This property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the node is being removed.       <div class=&quot;alert NOTE&quot;>    For attribute nodes this property returns the <xref:System.Xml.XmlAttribute.OwnerElement*>.      </div>"
+      description: "Värdet för den <xref uid=&quot;langword_csharp_ParentNode&quot; name=&quot;ParentNode&quot; href=&quot;&quot;> </xref> när åtgärden har slutförts. Den här egenskapen returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om noden tas bort.       <div class=&quot;alert NOTE&quot;>    För attributet noder returnerar den här egenskapen <xref:System.Xml.XmlAttribute.OwnerElement*>.</xref:System.Xml.XmlAttribute.OwnerElement*>      </div>"
   overload: System.Xml.XmlNodeChangedEventArgs.NewParent*
   exceptions: []
   platform:
@@ -120,12 +120,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the new value of the node."
+  summary: "Hämtar det nya värdet för noden."
   syntax:
     content: public string NewValue { get; }
     return:
       type: System.String
-      description: "The new value of the node. This property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the node is neither an attribute nor a text node, or if the node is being removed.       If called in a <xref href=&quot;System.Xml.XmlDocument.NodeChanging&quot;></xref> event, <xref uid=&quot;langword_csharp_NewValue&quot; name=&quot;NewValue&quot; href=&quot;&quot;></xref> returns the value of the node if the change is successful. If called in a <xref href=&quot;System.Xml.XmlDocument.NodeChanged&quot;></xref> event, <xref uid=&quot;langword_csharp_NewValue&quot; name=&quot;NewValue&quot; href=&quot;&quot;></xref> returns the current value of the node."
+      description: "Det nya värdet för noden. Den här egenskapen returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om noden varken är ett attribut eller en textnod, eller om noden tas bort.       Om den anropas en <xref href=&quot;System.Xml.XmlDocument.NodeChanging&quot;> </xref> händelse <xref uid=&quot;langword_csharp_NewValue&quot; name=&quot;NewValue&quot; href=&quot;&quot;> </xref> returnerar värdet för noden om ändringen är genomförd. Om den anropas en <xref href=&quot;System.Xml.XmlDocument.NodeChanged&quot;> </xref> händelse <xref uid=&quot;langword_csharp_NewValue&quot; name=&quot;NewValue&quot; href=&quot;&quot;> </xref> returnerar det aktuella värdet för noden."
   overload: System.Xml.XmlNodeChangedEventArgs.NewValue*
   exceptions: []
   platform:
@@ -142,12 +142,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the <xref href=&quot;System.Xml.XmlNode&quot;></xref> that is being added, removed or changed."
+  summary: "Hämtar den <xref href=&quot;System.Xml.XmlNode&quot;> </xref> som har lagts till, tagits bort eller ändrats."
   syntax:
     content: public System.Xml.XmlNode Node { get; }
     return:
       type: System.Xml.XmlNode
-      description: "The <xref uid=&quot;langword_csharp_XmlNode&quot; name=&quot;XmlNode&quot; href=&quot;&quot;></xref> that is being added, removed or changed; this property never returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Den <xref uid=&quot;langword_csharp_XmlNode&quot; name=&quot;XmlNode&quot; href=&quot;&quot;> </xref> som har lagts till, borttagna eller ändrade; den här egenskapen returnerar aldrig <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Xml.XmlNodeChangedEventArgs.Node*
   exceptions: []
   platform:
@@ -164,12 +164,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the value of the <xref:System.Xml.XmlNode.ParentNode*> before the operation began."
+  summary: "Hämtar värdet för den <xref:System.Xml.XmlNode.ParentNode*>innan åtgärden startade.</xref:System.Xml.XmlNode.ParentNode*>"
   syntax:
     content: public System.Xml.XmlNode OldParent { get; }
     return:
       type: System.Xml.XmlNode
-      description: "The value of the <xref uid=&quot;langword_csharp_ParentNode&quot; name=&quot;ParentNode&quot; href=&quot;&quot;></xref> before the operation began. This property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the node did not have a parent.       <div class=&quot;alert NOTE&quot;>    For attribute nodes this property returns the <xref:System.Xml.XmlAttribute.OwnerElement*>.      </div>"
+      description: "Värdet för den <xref uid=&quot;langword_csharp_ParentNode&quot; name=&quot;ParentNode&quot; href=&quot;&quot;> </xref> innan åtgärden startade. Den här egenskapen returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om noden inte hade en överordnad.       <div class=&quot;alert NOTE&quot;>    För attributet noder returnerar den här egenskapen <xref:System.Xml.XmlAttribute.OwnerElement*>.</xref:System.Xml.XmlAttribute.OwnerElement*>      </div>"
   overload: System.Xml.XmlNodeChangedEventArgs.OldParent*
   exceptions: []
   platform:
@@ -186,12 +186,12 @@ items:
   assemblies:
   - System.Xml
   namespace: System.Xml
-  summary: "Gets the original value of the node."
+  summary: "Hämtar det ursprungliga värdet för noden."
   syntax:
     content: public string OldValue { get; }
     return:
       type: System.String
-      description: "The original value of the node. This property returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the node is neither an attribute nor a text node, or if the node is being inserted.       If called in a <xref href=&quot;System.Xml.XmlDocument.NodeChanging&quot;></xref> event, <xref uid=&quot;langword_csharp_OldValue&quot; name=&quot;OldValue&quot; href=&quot;&quot;></xref> returns the current value of the node that will be replaced if the change is successful. If called in a <xref href=&quot;System.Xml.XmlDocument.NodeChanged&quot;></xref> event, <xref uid=&quot;langword_csharp_OldValue&quot; name=&quot;OldValue&quot; href=&quot;&quot;></xref> returns the value of node prior to the change."
+      description: "Det ursprungliga värdet för noden. Den här egenskapen returnerar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om noden varken är ett attribut eller en textnod, eller om nod som infogas.       Om den anropas en <xref href=&quot;System.Xml.XmlDocument.NodeChanging&quot;> </xref> händelse <xref uid=&quot;langword_csharp_OldValue&quot; name=&quot;OldValue&quot; href=&quot;&quot;> </xref> returnerar det aktuella värdet för den nod som kommer att ersättas om ändringen är genomförd. Om den anropas en <xref href=&quot;System.Xml.XmlDocument.NodeChanged&quot;> </xref> händelse <xref uid=&quot;langword_csharp_OldValue&quot; name=&quot;OldValue&quot; href=&quot;&quot;> </xref> returnerar värdet för nod innan ändringen."
   overload: System.Xml.XmlNodeChangedEventArgs.OldValue*
   exceptions: []
   platform:
