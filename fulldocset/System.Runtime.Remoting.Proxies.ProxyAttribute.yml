@@ -14,8 +14,8 @@ items:
   nameWithType: ProxyAttribute
   fullName: System.Runtime.Remoting.Proxies.ProxyAttribute
   type: Class
-  summary: "Indicates that an object type requires a custom proxy."
-  remarks: "Apply the current attribute to types that need custom proxies. You can use the ProxyAttribute class to intercept the `new` (`New` in Visual Basic) statement by deriving from the ProxyAttribute and placing the attribute on a child of `ContextBoundObject`. (Placing the proxy attribute on a child of `MarshalByRefObject` is not supported.)      > [!NOTE] >  This class makes a link demand and an inheritance demand at the class level. A <xref:System.Security.SecurityException> is thrown when either the immediate caller or the derived class does not have infrastructure permission. For details about security demands, see [Link Demands](~/add/includes/ajax-current-ext-md.md) and [Inheritance Demands](http://msdn.microsoft.com/en-us/28b9adbb-8f08-4f10-b856-dbf59eb932d9)."
+  summary: "Anger att en objekttyp som kräver en anpassad proxyserver."
+  remarks: "Använd det aktuella attributet till typer som behöver anpassade proxy. Du kan använda klassen ProxyAttribute fånga den `new` (`New` i Visual Basic) instruktionen genom härleds från ProxyAttribute och attributet på underordnad `ContextBoundObject`. (Placera proxy-attributet på underordnad `MarshalByRefObject` stöds inte.)      > [!NOTE] > Den här klassen är en länkbegäran och ett arv begäran på klassnivå. En <xref:System.Security.SecurityException>när den omedelbara anroparen eller den härledda klassen inte har behörighet för infrastruktur.</xref:System.Security.SecurityException> Mer information om krav för säkerhet finns [länk krav](~/add/includes/ajax-current-ext-md.md) och [arv krav](http://msdn.microsoft.com/en-us/28b9adbb-8f08-4f10-b856-dbf59eb932d9)."
   example:
   - >-
     [!code-cpp[CustomProxy_Attribute_RealProxy#11](~/add/codesnippet/cpp/t-system.runtime.remotin_46_1.cpp)]
@@ -49,7 +49,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Proxies
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Remoting.Proxies.ProxyAttribute&quot;></xref> class with default values."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Runtime.Remoting.Proxies.ProxyAttribute&quot;> </xref> klass med standardvärden."
   remarks: ''
   example:
   - >-
@@ -75,7 +75,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Proxies
-  summary: "Creates either an uninitialized <xref href=&quot;System.MarshalByRefObject&quot;></xref> or a transparent proxy, depending on whether the specified type can exist in the current context."
+  summary: "Skapar antingen en oinitierad <xref href=&quot;System.MarshalByRefObject&quot;> </xref> eller en transparent proxy, beroende på om den angivna typen kan finnas i den aktuella kontexten."
   remarks: ''
   example:
   - >-
@@ -87,10 +87,10 @@ items:
     parameters:
     - id: serverType
       type: System.Type
-      description: "The object type to create an instance of."
+      description: "Objekttyp som ska skapa en instans av."
     return:
       type: System.MarshalByRefObject
-      description: "An uninitialized <xref href=&quot;System.MarshalByRefObject&quot;></xref> or a transparent proxy."
+      description: "En oinitierad <xref href=&quot;System.MarshalByRefObject&quot;> </xref> eller en transparent proxy."
   overload: System.Runtime.Remoting.Proxies.ProxyAttribute.CreateInstance*
   exceptions: []
   platform:
@@ -107,7 +107,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Proxies
-  summary: "Creates an instance of a remoting proxy for a remote object described by the specified <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref>, and located on the server."
+  summary: "Skapar en instans av en fjärrproxy för ett fjärrobjekt som beskrivs i den angivna <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref>, och finns på servern."
   remarks: >-
     > [!NOTE]
 
@@ -122,19 +122,19 @@ items:
     parameters:
     - id: objRef
       type: System.Runtime.Remoting.ObjRef
-      description: "The object reference to the remote object for which to create a proxy."
+      description: "Objektreferensen till fjärrobjektet som du vill skapa en proxy."
     - id: serverType
       type: System.Type
-      description: "The type of the server where the remote object is located."
+      description: "Typ av den server där fjärrobjektet."
     - id: serverObject
       type: System.Object
-      description: "The server object."
+      description: "Server-objekt."
     - id: serverContext
       type: System.Runtime.Remoting.Contexts.Context
-      description: "The context in which the server object is located."
+      description: "Kontexten där serverobjektet finns."
     return:
       type: System.Runtime.Remoting.Proxies.RealProxy
-      description: "The new instance of remoting proxy for the remote object that is described in the specified <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;></xref>."
+      description: "Den nya instansen av fjärrproxy för fjärr-objektet som beskrivs i den angivna <xref href=&quot;System.Runtime.Remoting.ObjRef&quot;> </xref>."
   overload: System.Runtime.Remoting.Proxies.ProxyAttribute.CreateProxy*
   exceptions: []
   platform:
@@ -151,13 +151,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Proxies
-  summary: "Gets properties for a new context."
+  summary: "Hämtar egenskaperna för en ny kontext."
   syntax:
     content: public void GetPropertiesForNewContext (System.Runtime.Remoting.Activation.IConstructionCallMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Activation.IConstructionCallMessage
-      description: "The message for which the context is to be retrieved."
+      description: "Det meddelande som kontexten är hämtas."
   overload: System.Runtime.Remoting.Proxies.ProxyAttribute.GetPropertiesForNewContext*
   exceptions: []
   platform:
@@ -174,19 +174,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Proxies
-  summary: "Checks the specified context."
+  summary: "Kontrollerar det angivna sammanhanget."
   syntax:
     content: public bool IsContextOK (System.Runtime.Remoting.Contexts.Context ctx, System.Runtime.Remoting.Activation.IConstructionCallMessage msg);
     parameters:
     - id: ctx
       type: System.Runtime.Remoting.Contexts.Context
-      description: "The context to be verified."
+      description: "Kontexten ska verifieras."
     - id: msg
       type: System.Runtime.Remoting.Activation.IConstructionCallMessage
-      description: "The message for the remote call."
+      description: "Meddelande för med fjärranrop."
     return:
       type: System.Boolean
-      description: "The specified context."
+      description: "Det angivna sammanhanget."
   overload: System.Runtime.Remoting.Proxies.ProxyAttribute.IsContextOK*
   exceptions: []
   platform:

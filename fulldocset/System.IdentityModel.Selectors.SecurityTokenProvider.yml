@@ -30,8 +30,8 @@ items:
   nameWithType: SecurityTokenProvider
   fullName: System.IdentityModel.Selectors.SecurityTokenProvider
   type: Class
-  summary: "Represents a security token provider that handles security tokens for a SOAP message sender."
-  remarks: "Use the SecurityTokenProvider class when custom security tokens are required. The role of a security token provider is to get a security token when a SOAP message is sent by a client and a security token is used to authenticate the client or to protect the SOAP message. Specifically, the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method is called to get a security token. The security token provider can also be called to cancel and renew a security using the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A> methods.       Classes that derive from the <xref:System.IdentityModel.Selectors.SecurityTokenManager> class implement the <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A> method to determine which security token provider is required for a given security token.       The <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager> and <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> classes provide the default implementations for built-in security token types. For custom security token scenarios, you must derive a class from one of the <xref:System.IdentityModel.Selectors.SecurityTokenManager>, <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>, or <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> classes and provide the functionality to create the security token provider, security token authenticator, and security token serializer for the custom security token. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] creating a custom token, see [How to: Create a Custom Token](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Representerar en leverantör av säkerhetstoken som hanterar säkerhetstoken för en SOAP-meddelandet avsändare."
+  remarks: "Använd klassen med SecurityTokenProvider när anpassade säkerhetstoken krävs. En leverantör av säkerhetstoken roll är att hämta en säkerhetstoken när ett SOAP-meddelande skickas av en klient och en säkerhetstoken används för att autentisera klienten eller för att skydda SOAP-meddelandet. Mer specifikt den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>metoden anropas för att få en säkerhetstoken.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> Säkerhetstokenleverantören kan också användas för att avbryta och förnya en säkerhet med hjälp av den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>och <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A> </xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>       Klasser som härleds från den <xref:System.IdentityModel.Selectors.SecurityTokenManager>klassen implementera den <xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A>metod för att bestämma vilka säkerhetsgrupper tokenleverantör krävs för en given säkerhetstoken.</xref:System.IdentityModel.Selectors.SecurityTokenManager.CreateSecurityTokenProvider%2A> </xref:System.IdentityModel.Selectors.SecurityTokenManager>       Den <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>och <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager>klasser tillhandahåller standardimplementeringar för inbyggda säkerhet tokentyper.</xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> </xref:System.ServiceModel.ClientCredentialsSecurityTokenManager> Scenarier med anpassade säkerhetsrollen token måste härledas en klass från en av de <xref:System.IdentityModel.Selectors.SecurityTokenManager>, <xref:System.ServiceModel.ClientCredentialsSecurityTokenManager>, eller <xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager>klasser och tillhandahålla funktioner för att skapa Säkerhetstokenleverantören, Säkerhetstokenautentiseraren och serialiserare för säkerhetstoken för anpassade säkerhetstoken.</xref:System.ServiceModel.Security.ServiceCredentialsSecurityTokenManager> </xref:System.ServiceModel.ClientCredentialsSecurityTokenManager> </xref:System.IdentityModel.Selectors.SecurityTokenManager> [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]Skapa en anpassad token finns [så här: skapa en anpassad Token](~/add/includes/ajax-current-ext-md.md)."
   example:
   - >-
     [!code-vb[SecurityTokenProvider#0](~/add/codesnippet/visualbasic/t-system.identitymodel.s_9_1.vb)]
@@ -56,7 +56,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenProvider&quot;> </xref> klass."
   syntax:
     content: protected SecurityTokenProvider ();
     parameters: []
@@ -76,26 +76,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "Börjar en asynkron åtgärd att avbryta en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den."
   syntax:
     content: public IAsyncResult BeginCancelToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som avbryter säkerhetstoken.</xref:System.TimeSpan>"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att avbryta."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till asynkron Avbryt åtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*
   exceptions: []
   platform:
@@ -112,26 +112,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "Börjar en asynkron åtgärd att avbryta en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den."
   syntax:
     content: protected virtual IAsyncResult BeginCancelTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som avbryter säkerhetstoken.</xref:System.TimeSpan>"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att avbryta."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous cancel operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till asynkron Avbryt åtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*
   exceptions: []
   platform:
@@ -148,23 +148,23 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to get a security token."
-  remarks: "The BeginGetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A> method."
+  summary: "Börjar en asynkron åtgärd för att få en säkerhetstoken."
+  remarks: "Metodanrop BeginGetToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore%2A>"
   syntax:
     content: public IAsyncResult BeginGetToken (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som hämtar säkerhetstoken.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous close operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona Stängningsåtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*
   exceptions: []
   platform:
@@ -181,23 +181,23 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation to get a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the BeginGetTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A> method calls the BeginGetTokenCore method."
+  summary: "Börjar en asynkron åtgärd för att få en säkerhetstoken."
+  remarks: "När du ärver från den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>klass som du inte behöver åsidosätta de asynkrona metoderna som den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>basklass stöder asynkrona baserat på synkrona metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Därför kan krävs du inte för att åsidosätta metoden BeginGetTokenCore om du måste ange en egen asynkront genomförande.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A>metoden anropar metoden BeginGetTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken%2A>"
   syntax:
     content: protected virtual IAsyncResult BeginGetTokenCore (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som hämtar säkerhetstoken.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*
   exceptions: []
   platform:
@@ -214,26 +214,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation that renews a security token."
-  remarks: "The BeginRenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A> method."
+  summary: "Börjar en asynkron åtgärd som förnyar en säkerhetstoken."
+  remarks: "Metodanrop BeginRenewToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore%2A>"
   syntax:
     content: public IAsyncResult BeginRenewToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som förnyar säkerhetstoken.</xref:System.TimeSpan>"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att förnya."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*
   exceptions: []
   platform:
@@ -250,26 +250,26 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Begins an asynchronous operation that renews a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the BeginRenewTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A> method calls the BeginRenewTokenCore method."
+  summary: "Börjar en asynkron åtgärd som förnyar en säkerhetstoken."
+  remarks: "När du ärver från den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>klass som du inte behöver åsidosätta de asynkrona metoderna som den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>basklass stöder asynkrona baserat på synkrona metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Därför kan krävs du inte för att åsidosätta metoden BeginRenewTokenCore om du måste ange en egen asynkront genomförande.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A>metoden anropar metoden BeginRenewTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken%2A>"
   syntax:
     content: protected virtual IAsyncResult BeginRenewTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som förnyar säkerhetstoken.</xref:System.TimeSpan>"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att förnya."
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives notification of the completion of the asynchronous close operation."
+      description: "Den <xref:System.AsyncCallback>delegat som får ett meddelande om genomförandet av asynkrona Stängningsåtgärden.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona stänga åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden.</xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*
   exceptions: []
   platform:
@@ -286,17 +286,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Cancels a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The CancelToken method calls <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A> method."
+  summary: "Avbryter en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den.       Metodanrop CancelToken <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A>metod.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore%2A>"
   syntax:
     content: public void CancelToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som avbryter säkerhetstoken.</xref:System.TimeSpan>"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att avbryta."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken*
   exceptions: []
   platform:
@@ -313,17 +313,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Cancels a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A> method calls CancelTokenCore method.       When the CancelTokenCore method is overridden and the security token passed into the token parameter cannot be canceled, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception."
+  summary: "Avbryter en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>CancelTokenCore metoden metodanrop.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.CancelToken%2A>       När metoden CancelTokenCore åsidosätts och säkerhetstoken som skickades till parametern token kan inte avbrytas, utlösa den <xref:System.IdentityModel.Tokens.SecurityTokenException>undantag.</xref:System.IdentityModel.Tokens.SecurityTokenException>"
   syntax:
     content: protected virtual void CancelTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that cancels the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som avbryter säkerhetstoken.</xref:System.TimeSpan>"
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to cancel."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att avbryta."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.CancelTokenCore*
   exceptions: []
   platform:
@@ -340,14 +340,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       The EndCancelToken method calls <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A> method."
+  summary: "Slutför en asynkron åtgärd att avbryta en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den.       Metodanrop EndCancelToken <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A>metod.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore%2A>"
   syntax:
     content: public void EndCancelToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelToken*> </xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken*
   exceptions: []
   platform:
@@ -364,14 +364,14 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to cancel a security token."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it.       When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndCancelTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A> method calls EndCancelTokenCore method."
+  summary: "Slutför en asynkron åtgärd att avbryta en säkerhetstoken."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den.       När du ärver från den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>klass som du inte behöver åsidosätta de asynkrona metoderna som den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>basklass stöder asynkrona baserat på synkrona metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Därför kan krävs du inte för att åsidosätta metoden EndCancelTokenCore om du måste ange en egen asynkront genomförande.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A>EndCancelTokenCore metoden metodanrop.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelToken%2A>"
   syntax:
     content: protected virtual void EndCancelTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginCancelTokenCore*> </xref:System.IAsyncResult>"
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndCancelTokenCore*
   exceptions: []
   platform:
@@ -388,17 +388,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to get a security token."
-  remarks: "The EndGetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A> method."
+  summary: "Slutför en asynkron åtgärd för att få en säkerhetstoken."
+  remarks: "Metodanrop EndGetToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore%2A>"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken EndGetToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetToken*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar säkerhetstoken."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken*
   exceptions: []
   platform:
@@ -415,17 +415,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to get a security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndGetTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A> method calls the EndGetTokenCore method."
+  summary: "Slutför en asynkron åtgärd för att få en säkerhetstoken."
+  remarks: "När du ärver från den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>klass som du inte behöver åsidosätta de asynkrona metoderna som den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>basklass stöder asynkrona baserat på synkrona metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Därför kan krävs du inte för att åsidosätta metoden EndGetTokenCore om du måste ange en egen asynkront genomförande.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A>metoden anropar metoden EndGetTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndGetToken%2A>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken EndGetTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginGetTokenCore*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar säkerhetstoken."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndGetTokenCore*
   exceptions: []
   platform:
@@ -442,17 +442,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to renew a security token."
-  remarks: "The EndRenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A> method."
+  summary: "Slutför en asynkron åtgärd för att förnya en säkerhetstoken."
+  remarks: "Metodanrop EndRenewToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore%2A>"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken EndRenewToken (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewToken*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar den säkerhetstoken som har förnyats."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken*
   exceptions: []
   platform:
@@ -469,17 +469,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Completes an asynchronous operation to renew the security token."
-  remarks: "When you inherit from the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> class you are not required to override the asynchronous methods, as the <xref:System.IdentityModel.Selectors.SecurityTokenProvider> base class provides asynchronous support based upon the synchronous methods. Therefore, you are not required to override the EndRenewTokenCore method, unless you must provide your own asynchronous implementation.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A> method calls the EndRenewTokenCore method."
+  summary: "Slutför en asynkron åtgärd för att förnya säkerhetstoken."
+  remarks: "När du ärver från den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>klass som du inte behöver åsidosätta de asynkrona metoderna som den <xref:System.IdentityModel.Selectors.SecurityTokenProvider>basklass stöder asynkrona baserat på synkrona metoder.</xref:System.IdentityModel.Selectors.SecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Därför kan krävs du inte för att åsidosätta metoden EndRenewTokenCore om du måste ange en egen asynkront genomförande.       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A>metoden anropar metoden EndRenewTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewToken%2A>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken EndRenewTokenCore (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that is returned by a call to the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*> method."
+      description: "Den <xref:System.IAsyncResult>som returneras av ett anrop till den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.BeginRenewTokenCore*> </xref:System.IAsyncResult>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar den säkerhetstoken som har förnyats."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.EndRenewTokenCore*
   exceptions: []
   platform:
@@ -496,17 +496,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token."
-  remarks: "The GetToken method is called by the <xref:System.ServiceModel.Description.ClientCredentials> class when a client sends a SOAP message and a security token is required.       The GetToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A> method.       In most cases the `timeout` parameter is not used by derived classes of <xref:System.IdentityModel.Selectors.SecurityTokenProvider> such as <xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider>. However, sometimes retrieving a security token involves distributed messaging. An example is <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider> used in a federated service. In these cases the `timeout` parameter is used to avoid exceptions caused by network failures, message loss, and other error conditions."
+  summary: "Hämtar en säkerhetstoken."
+  remarks: "GetToken-metoden anropas av den <xref:System.ServiceModel.Description.ClientCredentials>klassen när en klient skickar ett SOAP-meddelande och en säkerhetstoken krävs.</xref:System.ServiceModel.Description.ClientCredentials>       Metodanrop GetToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore%2A>       I de flesta fall den `timeout` parametern används inte i härledda klasser för <xref:System.IdentityModel.Selectors.SecurityTokenProvider>till exempel <xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider>.</xref:System.IdentityModel.Selectors.UserNameSecurityTokenProvider> </xref:System.IdentityModel.Selectors.SecurityTokenProvider> Men innebär ibland hämtar en säkerhetstoken att distribuerade meddelanden. Ett exempel är <xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider>används i en federerad tjänst.</xref:System.ServiceModel.Security.Tokens.IssuedSecurityTokenProvider> I dessa fall den `timeout` används för att undvika undantag på grund av nätverksfel meddelandet går förlorade och andra felvillkor."
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken GetToken (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som hämtar säkerhetstoken.</xref:System.TimeSpan>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token to get."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar säkerhetstoken för att hämta."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.GetToken*
   exceptions: []
   platform:
@@ -523,8 +523,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a security token."
-  remarks: "When the GetTokenCore method is overridden and the security token passed into the token parameter cannot be obtained, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method is called by the <xref:System.ServiceModel.Description.ClientCredentials> class when a client sends a SOAP message and a security token is required.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A> method calls the GetTokenCore method."
+  summary: "Hämtar en säkerhetstoken."
+  remarks: "När metoden GetTokenCore åsidosätts och går inte att hämta säkerhetstoken som skickades till parametern token, utlösa den <xref:System.IdentityModel.Tokens.SecurityTokenException>undantag.</xref:System.IdentityModel.Tokens.SecurityTokenException>       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>metoden anropas av den <xref:System.ServiceModel.Description.ClientCredentials>klassen när en klient skickar ett SOAP-meddelande och en säkerhetstoken krävs.</xref:System.ServiceModel.Description.ClientCredentials> </xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>metoden anropar metoden GetTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.GetToken%2A>"
   example:
   - >-
     [!code-vb[SecurityTokenProvider#1](~/add/codesnippet/visualbasic/501effc0-dded-4b3b-893a-_1.vb)]
@@ -534,10 +534,10 @@ items:
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that gets the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som hämtar säkerhetstoken.</xref:System.TimeSpan>"
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token to get."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar säkerhetstoken för att hämta."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.GetTokenCore*
   exceptions: []
   platform:
@@ -554,20 +554,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Renews a security token."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired.       The RenewToken method calls the <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A> method."
+  summary: "Förnyar en säkerhetstoken."
+  remarks: "En utfärdade säkerhetstoken som är förnybara kan en klient för att förnya det när säkerhetstoken är på väg att eller har upphört att gälla.       Metodanrop RenewToken den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A>metoden.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore%2A>"
   syntax:
     content: public System.IdentityModel.Tokens.SecurityToken RenewToken (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som förnyar säkerhetstoken.</xref:System.TimeSpan>"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att förnya."
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar den säkerhetstoken som har förnyats."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken*
   exceptions: []
   platform:
@@ -584,20 +584,20 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Renews a security token."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired.       When the RenewTokenCore method is overridden and the security token passed into the token parameter cannot be renewed, throw the <xref:System.IdentityModel.Tokens.SecurityTokenException> exception.       The <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A> method calls the RenewTokenCore method."
+  summary: "Förnyar en säkerhetstoken."
+  remarks: "En utfärdade säkerhetstoken som är förnybara kan en klient för att förnya det när säkerhetstoken är på väg att eller har upphört att gälla.       När metoden RenewTokenCore åsidosätts och säkerhetstoken som skickades till parametern token kan inte förnyas, utlösa den <xref:System.IdentityModel.Tokens.SecurityTokenException>undantag.</xref:System.IdentityModel.Tokens.SecurityTokenException>       Den <xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>metoden anropar metoden RenewTokenCore.</xref:System.IdentityModel.Selectors.SecurityTokenProvider.RenewToken%2A>"
   syntax:
     content: protected virtual System.IdentityModel.Tokens.SecurityToken RenewTokenCore (TimeSpan timeout, System.IdentityModel.Tokens.SecurityToken tokenToBeRenewed);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "A <xref:System.TimeSpan> that specifies the timeout value for the message that renews the security token."
+      description: "En <xref:System.TimeSpan>som anger timeout-värdet för meddelandet som förnyar säkerhetstoken.</xref:System.TimeSpan>"
     - id: tokenToBeRenewed
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to renew."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> att förnya."
     return:
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> that represents the security token that is renewed."
+      description: "Den <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> som representerar den säkerhetstoken som har förnyats."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.RenewTokenCore*
   exceptions: []
   platform:
@@ -614,13 +614,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a value that indicates whether the security token can be cancelled."
-  remarks: "A security token that can be cancelled, such as one that is issued, allows a client that requested a security token to cancel it when it is done with it."
+  summary: "Hämtar ett värde som anger om säkerhetstoken kan avbrytas."
+  remarks: "En säkerhetstoken som kan avbrytas, t.ex ett som har utfärdats, kan klienter som har begärt en säkerhetstoken för att avbryta den när du är klar med den."
   syntax:
     content: public virtual bool SupportsTokenCancellation { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the security token can be cancelled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om säkerhetstoken kan avbrytas; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.SupportsTokenCancellation*
   exceptions: []
   platform:
@@ -637,13 +637,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a value that indicates whether the security token is renewable."
-  remarks: "An issued security token that is renewable allows a client to renew it when the security token is about to or has expired."
+  summary: "Hämtar ett värde som anger om säkerhetstoken är förnyas."
+  remarks: "En utfärdade säkerhetstoken som är förnybara kan en klient för att förnya det när säkerhetstoken är på väg att eller har upphört att gälla."
   syntax:
     content: public virtual bool SupportsTokenRenewal { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the security token can be renewed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om säkerhetstoken kan förnyas; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Selectors.SecurityTokenProvider.SupportsTokenRenewal*
   exceptions: []
   platform:

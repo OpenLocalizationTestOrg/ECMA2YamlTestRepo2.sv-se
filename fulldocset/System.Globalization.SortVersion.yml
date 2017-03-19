@@ -17,8 +17,8 @@ items:
   nameWithType: SortVersion
   fullName: System.Globalization.SortVersion
   type: Class
-  summary: "Provides information about the version of Unicode used to compare and order strings."
-  remarks: "From the [!INCLUDE[net_v20sp1_long](~/add/includes/net-v20sp1-long-md.md)] through the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)], each version of the.NET Framework has included tables that contain sort weights and data on string normalization and that are based on a particular version of Unicode. In the [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)], the presence of these tables depends on the operating system:      -   On [!INCLUDE[win7](~/add/includes/win7-md.md)] and previous versions of the Windows operating system, the tables continue to be used for comparing and ordering strings.      -   On [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)], the .NET Framework delegates string comparison and ordering operations to the operating system.       Consequently, the result of a string comparison can depend not only on the .NET Framework version, but also on the operating system version, as the following table shows. Note that this list of supported Unicode versions applies to character comparison and sorting only; it does not apply to classification of Unicode characters by category.      |.NET Framework version|Operating system|Unicode version|   |----------------------------|----------------------|---------------------|   |[!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]|All operating systems|Unicode 5.0|   |[!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] and later versions of the .NET Framework|[!INCLUDE[win7](~/add/includes/win7-md.md)]|Unicode 5.0|   |[!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] and later versions of the .NET Framework|[!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)] and later Windows operating system versions|Unicode 6.0|       On [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)], because the version of Unicode used in string comparison and ordering depends on the version of the operating system, the results of string comparison may differ even for applications that run on a specific version of the .NET Framework.       The SortVersion class provides information about the Unicode version used by the .NET Framework for string comparison and ordering. It enables developers to write applications that can detect and successfully handle changes in the version of Unicode that is used to compare and sort an application&quot;s strings.       You can instantiate a SortVersion object in two ways:      -   By calling the <xref:System.Globalization.SortVersion.%23ctor%2A> constructor, which instantiates a new SortVersion object based on a version number and sort ID. This constructor is most useful when recreating a SortVersion object from saved data.      -   By retrieving the value of the <xref:System.Globalization.CompareInfo.Version%2A?displayProperty=fullName> property. This property provides information about the Unicode version used by the .NET Framework on which the application is running.       The SortVersion class has two properties, <xref:System.Globalization.SortVersion.FullVersion%2A> and <xref:System.Globalization.SortVersion.SortId%2A>, that indicate the Unicode version and the specific culture used for string comparison. The <xref:System.Globalization.SortVersion.FullVersion%2A> property is an arbitrary numeric value that reflects the Unicode version used for string comparison, and the <xref:System.Globalization.SortVersion.SortId%2A> property is an arbitrary <xref:System.Guid> that reflects the culture whose conventions are used for string comparison. The values of these two properties are important only when you compare two SortVersion objects by using the <xref:System.Globalization.SortVersion.Equals%2A> method, the <xref:System.Globalization.SortVersion.op_Equality%2A> operator, or the <xref:System.Globalization.SortVersion.op_Inequality%2A> operator.       You typically use a SortVersion object when saving or retrieving some form of culture-sensitive, ordered string data, such as indexes or the literal strings themselves. This requires the following steps:      1.  When the ordered string data is saved, the <xref:System.Globalization.SortVersion.FullVersion%2A> and <xref:System.Globalization.SortVersion.SortId%2A> property values are also saved.      2.  When the ordered string data is retrieved, you can recreate the SortVersion object used for ordering the strings by calling the <xref:System.Globalization.SortVersion.%23ctor%2A> constructor.      3.  This newly instantiated SortVersion object is compared with a SortVersion object that reflects the culture whose conventions are used to order the string data.      4.  If the two SortVersion objects are not equal, the string data must be reordered.       The example provides an illustration."
+  summary: "Innehåller information om versionen av Unicode används för att jämföra och ordning strängar."
+  remarks: "Från den [!INCLUDE[net_v20sp1_long](~/add/includes/net-v20sp1-long-md.md)] via den [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]varje version av.NET Framework har inkluderat tabeller som innehåller sortera vikterna och data på sträng normalisering och som är baserade på en viss version av Unicode. I den [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)], förekomst av dessa tabeller är beroende av operativsystemet: – på [!INCLUDE[win7](~/add/includes/win7-md.md)] och tidigare versioner av Windows-operativsystemet tabellerna fortsätter att användas för att jämföra och ordning strängar.      -På [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)], .NET Framework delegerar strängjämförelse och beställning åtgärder för operativsystemet.       Följaktligen beror resultatet av en strängjämförelse inte bara på .NET Framework-version, utan också på versionen av operativsystemet, vilket visas i följande tabell. Observera att den här listan över Unicode-versioner som stöds gäller tecken jämförelse och sortering. den gäller inte för klassificering av Unicode-tecken efter kategori.      |. NET Framework-version | Operativsystemet | Unicode-version |   |----------------------------|----------------------|---------------------|   | [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)]| Alla operativsystem | Unicode 5.0 |   | [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] och senare versioner av .NET Framework | [!INCLUDE[win7](~/add/includes/win7-md.md)]| Unicode 5.0 |   | [!INCLUDE[net_v45](~/add/includes/ajax-current-ext-md.md)] och senare versioner av .NET Framework | [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)] och senare versioner av Windows operativsystem | Unicode-6.0 |       På [!INCLUDE[win8](~/add/includes/ajax-current-ext-md.md)]eftersom versionen av Unicode används i strängjämförelse och ordning beror på vilken version av operativsystemet, resultatet av strängjämförelse kan skilja sig även för program som körs på en viss version av .NET Framework.       Klassen SortVersion innehåller information om Unicode-versionen av .NET Framework för strängjämförelse och ordning. Det gör att utvecklare kan skriva program som kan identifiera och hantera ändringar i versionen av Unicode som används för att jämföra och sortera strängar för ett program.       Du kan initiera en SortVersion objekt på två sätt: - genom att anropa den <xref:System.Globalization.SortVersion.%23ctor%2A>konstruktor, som instantierar nya SortVersion objekt baserat på ett versionsnummer och sortera ID.</xref:System.Globalization.SortVersion.%23ctor%2A> Den här konstruktorn är mest användbart när återskapa ett SortVersion objekt från sparade data.      -Av hämta värdet för den <xref:System.Globalization.CompareInfo.Version%2A?displayProperty=fullName>egenskapen.</xref:System.Globalization.CompareInfo.Version%2A?displayProperty=fullName> Den här egenskapen innehåller information om den Unicode-version som används av .NET Framework där programmet körs.       Klassen SortVersion har två egenskaper <xref:System.Globalization.SortVersion.FullVersion%2A>och <xref:System.Globalization.SortVersion.SortId%2A>, som anger Unicode-versionen och specifik kultur som används för strängjämförelse.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> Den <xref:System.Globalization.SortVersion.FullVersion%2A>egenskapen är ett godtyckligt numeriskt värde som motsvarar Unicode-version som används för strängjämförelse, och <xref:System.Globalization.SortVersion.SortId%2A>egenskapen är en valfri <xref:System.Guid>som visar kulturen vars konventioner används för strängjämförelse.</xref:System.Guid> </xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> Värdena för dessa två egenskaper är viktiga bara när du jämför två SortVersion-objekt med hjälp av den <xref:System.Globalization.SortVersion.Equals%2A>-metoden i <xref:System.Globalization.SortVersion.op_Equality%2A>-operator, eller <xref:System.Globalization.SortVersion.op_Inequality%2A>operatorn.</xref:System.Globalization.SortVersion.op_Inequality%2A> </xref:System.Globalization.SortVersion.op_Equality%2A> </xref:System.Globalization.SortVersion.Equals%2A>       Du använder vanligtvis ett SortVersion objekt när du sparar eller hämta någon form av kulturen känslig, ordnad strängdata som index eller literalen strängar sig själva. Detta kräver följande: 1.  När den beställda strängdata sparas i <xref:System.Globalization.SortVersion.FullVersion%2A>och <xref:System.Globalization.SortVersion.SortId%2A>egenskapsvärden sparas även.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A>      2.  När den beställda strängdata hämtas, kan du återskapa SortVersion-objektet som används för ordning strängarna genom att anropa den <xref:System.Globalization.SortVersion.%23ctor%2A>konstruktor.</xref:System.Globalization.SortVersion.%23ctor%2A>      3.  Objektet nyligen instansierad SortVersion jämförs med ett SortVersion-objekt som visar kulturen vars konventioner används för att ordna datatypen string.      4.  Om de två objekten SortVersion inte är lika måste datatypen string ändras.       Exemplet innehåller en bild."
   example:
   - "The following example contains a portion of the source code from an application that uses the SortVersion class to ensure that the native names of <xref:System.Globalization.RegionInfo> objects are ordered appropriately for the current system and current culture. It uses the <xref:System.IO.BinaryReader> and <xref:System.IO.BinaryWriter> objects to store and retrieve ordered data from a data file named `Regions.dat` rather than retrieving and ordering data each time the application is run. The example first checks to determine whether the data file exists. If it does not, it creates the data and sets the `reindex` flag, which indicates that the data must be resorted and saved again. Otherwise, it retrieves the data and compares the saved SortVersion object with the SortVersion object for the current culture on the current system. If they are not equal, or if the `reindex` flag had been set previously, it resorts the <xref:System.Globalization.RegionInfo> data.  \n  \n [!code-cs[System.Globalization.SortVersion#1](~/add/codesnippet/csharp/t-system.globalization.s_0_1.cs)]\n [!code-vb[System.Globalization.SortVersion#1](~/add/codesnippet/visualbasic/t-system.globalization.s_0_1.vb)]"
   syntax:
@@ -42,17 +42,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Creates a new instance of the <xref href=&quot;System.Globalization.SortVersion&quot;></xref> class."
-  remarks: "This constructor instantiates a <xref:System.Globalization.SortVersion> object with the specified version and sort ID. The `fullVersion` argument is assigned to the <xref:System.Globalization.SortVersion.FullVersion%2A> property. The `sortId` argument is assigned to the <xref:System.Globalization.SortVersion.SortId%2A> property.       This constructor is useful for recreating a <xref:System.Globalization.SortVersion> object from data that has been serialized or saved. This version can then be compared with the current application version to determine whether the version of Unicode used to display and order the application&quot;s strings is available."
+  summary: "Skapar en ny instans av den <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> klass."
+  remarks: "Den här konstruktorn instansierar ett <xref:System.Globalization.SortVersion>objekt med den angivna versionen och sortera ID.</xref:System.Globalization.SortVersion> Den `fullVersion` argumentet har tilldelats den <xref:System.Globalization.SortVersion.FullVersion%2A>egenskapen.</xref:System.Globalization.SortVersion.FullVersion%2A> Den `sortId` argumentet har tilldelats den <xref:System.Globalization.SortVersion.SortId%2A>egenskapen.</xref:System.Globalization.SortVersion.SortId%2A>       Den här konstruktorn är användbart för att återskapa en <xref:System.Globalization.SortVersion>objekt från data som har serialiserats eller sparas.</xref:System.Globalization.SortVersion> Den här versionen kan jämföras med den aktuella versionen för programmet att avgöra om versionen av Unicode som används för att visa och beställa programmets strängar är tillgänglig."
   syntax:
     content: public SortVersion (int fullVersion, Guid sortId);
     parameters:
     - id: fullVersion
       type: System.Int32
-      description: "A version number."
+      description: "Ett versionsnummer."
     - id: sortId
       type: System.Guid
-      description: "A sort ID."
+      description: "Ett sortera-ID."
   overload: System.Globalization.SortVersion.#ctor*
   exceptions: []
   platform:
@@ -69,17 +69,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a value that indicates whether this <xref href=&quot;System.Globalization.SortVersion&quot;></xref> instance is equal to a specified <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object."
-  remarks: "Two <xref:System.Globalization.SortVersion> objects are equal if their <xref:System.Globalization.SortVersion.FullVersion%2A> and <xref:System.Globalization.SortVersion.SortId%2A> properties are equal."
+  summary: "Returnerar ett värde som anger om detta <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> -instansen är lika med en angiven <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt."
+  remarks: "Två <xref:System.Globalization.SortVersion>objekt är lika om deras <xref:System.Globalization.SortVersion.FullVersion%2A>och <xref:System.Globalization.SortVersion.SortId%2A>Egenskaper är lika.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> </xref:System.Globalization.SortVersion>"
   syntax:
     content: public bool Equals (System.Globalization.SortVersion other);
     parameters:
     - id: other
       type: System.Globalization.SortVersion
-      description: "The object to compare with this instance."
+      description: "Objektet som ska jämföras med den här instansen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>other</code> represents the same version as this instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> other </code> representerar samma version som den här instansen, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.SortVersion.Equals*
   exceptions: []
   platform:
@@ -96,17 +96,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a value that indicates whether this <xref href=&quot;System.Globalization.SortVersion&quot;></xref> instance is equal to a specified object."
-  remarks: "Two <xref:System.Globalization.SortVersion> objects are equal if their <xref:System.Globalization.SortVersion.FullVersion%2A> and <xref:System.Globalization.SortVersion.SortId%2A> properties are equal."
+  summary: "Returnerar ett värde som anger om detta <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> -instansen är lika med ett angivet-objekt."
+  remarks: "Två <xref:System.Globalization.SortVersion>objekt är lika om deras <xref:System.Globalization.SortVersion.FullVersion%2A>och <xref:System.Globalization.SortVersion.SortId%2A>Egenskaper är lika.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> </xref:System.Globalization.SortVersion>"
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "An object to compare with this instance."
+      description: "Ett objekt som ska jämföras med den här instansen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>obj</code> is a <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object that represents the same version as this instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> obj </code> är en <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt som representerar samma version som den här instansen, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.SortVersion.Equals*
   exceptions: []
   platform:
@@ -123,13 +123,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the full version number of the <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object."
-  remarks: "The value of the FullVersion property reflects the Unicode version used to normalize and compare strings."
+  summary: "Hämtar det fullständiga versionsnumret för den <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt."
+  remarks: "Värdet på egenskapen FullVersion motsvarar Unicode-versionen som används för att normalisera och jämförelse av strängar."
   syntax:
     content: public int FullVersion { get; }
     return:
       type: System.Int32
-      description: "The version number of this <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object."
+      description: "Versionsnumret för detta <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt."
   overload: System.Globalization.SortVersion.FullVersion*
   exceptions: []
   platform:
@@ -146,13 +146,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a hash code for this instance."
+  summary: "Returnerar en Hashkod för den här instansen."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code."
+      description: "En 32-bitars heltal hash-kod."
   overload: System.Globalization.SortVersion.GetHashCode*
   exceptions: []
   platform:
@@ -169,20 +169,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Indicates whether two <xref href=&quot;System.Globalization.SortVersion&quot;></xref> instances are equal."
-  remarks: "Two <xref:System.Globalization.SortVersion> objects are equal if both are `null`, or if their <xref:System.Globalization.SortVersion.FullVersion%2A> and <xref:System.Globalization.SortVersion.SortId%2A> properties are equal."
+  summary: "Anger om två <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> instanserna är lika."
+  remarks: "Två <xref:System.Globalization.SortVersion>objekt är lika om båda är `null`, eller om deras <xref:System.Globalization.SortVersion.FullVersion%2A>och <xref:System.Globalization.SortVersion.SortId%2A>Egenskaper är lika.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> </xref:System.Globalization.SortVersion>"
   syntax:
     content: public static bool op_Equality (System.Globalization.SortVersion left, System.Globalization.SortVersion right);
     parameters:
     - id: left
       type: System.Globalization.SortVersion
-      description: "The first instance to compare."
+      description: "Den första instansen ska jämföras."
     - id: right
       type: System.Globalization.SortVersion
-      description: "The second instance to compare."
+      description: "Den andra instansen ska jämföras."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the values of <code>left</code> and <code>right</code> are equal; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>if the values of <code>left</code> and <code>right</code> are equal; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Globalization.SortVersion.op_Equality*
   exceptions: []
   platform:
@@ -199,20 +199,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Indicates whether two <xref href=&quot;System.Globalization.SortVersion&quot;></xref> instances are not equal."
-  remarks: "Two <xref:System.Globalization.SortVersion> objects are not equal if one is `null` and the other is not, or if they have different <xref:System.Globalization.SortVersion.FullVersion%2A> or <xref:System.Globalization.SortVersion.SortId%2A> property values."
+  summary: "Anger om två <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> instanser är inte lika."
+  remarks: "Två <xref:System.Globalization.SortVersion>objekt är inte lika om något `null` och den andra inte, eller om de har olika <xref:System.Globalization.SortVersion.FullVersion%2A>eller <xref:System.Globalization.SortVersion.SortId%2A>egenskapsvärden.</xref:System.Globalization.SortVersion.SortId%2A> </xref:System.Globalization.SortVersion.FullVersion%2A> </xref:System.Globalization.SortVersion>"
   syntax:
     content: public static bool op_Inequality (System.Globalization.SortVersion left, System.Globalization.SortVersion right);
     parameters:
     - id: left
       type: System.Globalization.SortVersion
-      description: "The first instance to compare."
+      description: "Den första instansen ska jämföras."
     - id: right
       type: System.Globalization.SortVersion
-      description: "The second instance to compare."
+      description: "Den andra instansen ska jämföras."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the values of <code>left</code> and <code>right</code> are not equal; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om värdena för <code> left </code> och <code> right </code> är inte lika, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.SortVersion.op_Inequality*
   exceptions: []
   platform:
@@ -229,13 +229,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets a globally unique identifier for this <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object."
-  remarks: "The value of the SortId property reflects the culture whose conventions influence string comparison and sorting."
+  summary: "Hämtar en globalt unik identifierare för den här <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt."
+  remarks: "Värdet på egenskapen SortId visar kulturen vars konventioner påverka strängjämförelse och sortering."
   syntax:
     content: public Guid SortId { get; }
     return:
       type: System.Guid
-      description: "A globally unique identifier for this <xref href=&quot;System.Globalization.SortVersion&quot;></xref> object."
+      description: "En globalt unik identifierare för den här <xref href=&quot;System.Globalization.SortVersion&quot;> </xref> objekt."
   overload: System.Globalization.SortVersion.SortId*
   exceptions: []
   platform:

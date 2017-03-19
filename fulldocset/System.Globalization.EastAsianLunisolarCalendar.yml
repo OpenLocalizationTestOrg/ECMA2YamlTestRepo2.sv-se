@@ -30,8 +30,8 @@ items:
   nameWithType: EastAsianLunisolarCalendar
   fullName: System.Globalization.EastAsianLunisolarCalendar
   type: Class
-  summary: "Represents a calendar that divides time into months, days, years, and eras, and has dates that are based on cycles of the sun and the moon."
-  remarks: "The EastAsianLunisolarCalendar class supports the sexagenary cycle of years (which repeats every 60 years) in addition to solar years and lunar months. Each solar year in the calendar is associated with a Sexagenary Year (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear%2A>), a Celestial Stem (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetCelestialStem%2A>), and a Terrestrial Branch (see <xref:System.Globalization.EastAsianLunisolarCalendar.GetTerrestrialBranch%2A>).      > [!NOTE] >  For information about using the <xref:System.Globalization.HebrewCalendar> class and the other calendar classes in the .NET Framework, see [Working with Calendars](~/add/includes/ajax-current-ext-md.md).       A year can have a leap month after any month of the year, and a month can have a leap day. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a positive integer that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month.       Each <xref:System.Globalization.CultureInfo> supports a set of calendars. Currently, none of the lunisolar calendar classes that derive from EastAsianLunisolarCalendar is used by any of the cultures supported by the <xref:System.Globalization.CultureInfo> class. Therefore, this class and those that derive from it can be used only to calculate dates in the East Asian lunisolar calendars. This class supports several &quot;get&quot; methods to describe a <xref:System.DateTime> in the terms used by lunisolar calendars, and the <xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A> method to convert from lunisolar calendar data to a <xref:System.DateTime>."
+  summary: "Representerar en kalender som delar upp tid i månader, dagar, år och epoker och har datum som är baserade på cykler sol och månen."
+  remarks: "Klassen EastAsianLunisolarCalendar stöder sexagenary cykel år (som upprepas var 60 år) utöver kryssrutan år och månkalender månader. Varje år kryssrutan i kalendern är associerad med ett Sexagenary år (finns <xref:System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear%2A>), Celestial stam (finns <xref:System.Globalization.EastAsianLunisolarCalendar.GetCelestialStem%2A>), och en land gren (se <xref:System.Globalization.EastAsianLunisolarCalendar.GetTerrestrialBranch%2A>).</xref:System.Globalization.EastAsianLunisolarCalendar.GetTerrestrialBranch%2A> </xref:System.Globalization.EastAsianLunisolarCalendar.GetCelestialStem%2A> </xref:System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear%2A>      > [!NOTE] > Information om hur du använder den <xref:System.Globalization.HebrewCalendar>klass och det andra kalender klasser i .NET Framework, se [arbeta med kalendrar](~/add/includes/ajax-current-ext-md.md).</xref:System.Globalization.HebrewCalendar>       Ett år kan ha ett skottår månad efter varje månad och en månad kan ha en leap dag. Till exempel den <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>metoden returnerar ett positivt heltal som anger vilken månad som är associerad med ett visst datum.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> Om det finns en leap månad mellan åttonde och nionde månader år, den <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>metoden returnerar 8 för den åttonde månaden, 9 för leap åttonde månad och 10 för den nionde månaden.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>       Varje <xref:System.Globalization.CultureInfo>stöder en uppsättning kalendrar.</xref:System.Globalization.CultureInfo> För närvarande används ingen sol-och månkalender kalender klasser som härleds från EastAsianLunisolarCalendar av någon av kulturer som stöds av <xref:System.Globalization.CultureInfo>klass.</xref:System.Globalization.CultureInfo> Den här klassen och de som härleds från den kan därför användas för bara för att beräkna datum i östasiatiska sol-och månkalender kalendrar. Den här klassen stöder flera &quot;Hämta&quot; metoder för att beskriva en <xref:System.DateTime>i termer som används av sol-och månkalender kalendrar och <xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A>metod för att konvertera från sol-och månkalender kalenderdata till en <xref:System.DateTime>.</xref:System.DateTime> </xref:System.Globalization.EastAsianLunisolarCalendar.ToDateTime%2A> </xref:System.DateTime>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -55,28 +55,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the date that is the specified number of months away from the specified date."
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The year part of the resulting <xref:System.DateTime> is affected if the resulting month is outside the year of the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.       For example, if the specified month is October, which has 31 days, the specified day is the thirty-first day of that month, and the value of the `months` parameter is 6, the resulting year is one more than the specified year, the resulting month is April, and the resulting day is the thirtieth day, which is the last day in April.       If the value of the `months` parameter is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.       The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.       [!code-vb[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/visualbasic/d86a04c2-1ef4-4a8d-ab7c-_1.vb)]  [!code-cs[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/csharp/d86a04c2-1ef4-4a8d-ab7c-_1.cs)]"
+  summary: "Beräknar det datum som infaller det angivna antalet månader från det angivna datumet."
+  remarks: "Den dag-delen av den resulterande <xref:System.DateTime>påverkas om den resulterande dagen inte är en giltig dag i den resulterande månaden resulterande.</xref:System.DateTime> I det här fallet ändras dag-del till den sista giltiga dagen i den resulterande månaden resulterande. År tillhör den resulterande <xref:System.DateTime>påverkas om den resulterande månaden är utanför året i angivet <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime> Den här implementeringen stöder endast den aktuella era. Därför <xref:System.ArgumentException>genereras om resulterande året ligger utanför era inom den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.ArgumentException> Den tid på dag delen av den resulterande <xref:System.DateTime>är densamma som den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       Om den angivna månaden oktober som har 31 dagar, den angivna dagen är exempelvis trettio första dagen i månaden och värdet för den `months` parameter är 6, resulterande året är en mer än det angivna året, månaden resulterande April, och den resulterande dagen trettionde dag, vilket är den sista dagen i April.       Om värdet för den `months` parameter är negativ, den resulterande som <xref:System.DateTime>är äldre än den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       <xref:System.DateTime.Kind%2A>Egenskapen för det returnerade <xref:System.DateTime>värdet alltid är lika med <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime> </xref:System.DateTime.Kind%2A> Du kan behålla den <xref:System.DateTime.Kind%2A>-egenskapen för den `time` parameter genom att anropa den <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName>metoden som visas i följande exempel.</xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> </xref:System.DateTime.Kind%2A>       [!code-vb[System.Globalization.Calendar.AddMethods#5](~/add/codesnippet/visualbasic/d86a04c2-1ef4-4a8d-ab7c-_1.vb)][!code-cs[System.Globalization.Calendar.AddMethods#5  ](~/add/codesnippet/csharp/d86a04c2-1ef4-4a8d-ab7c-_1.cs)]"
   syntax:
     content: public override DateTime AddMonths (DateTime time, int months);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to which to add `months`."
+      description: "Den <xref:System.DateTime>som ska läggas till `months`.</xref:System.DateTime>"
     - id: months
       type: System.Int32
-      description: "The number of months to add."
+      description: "Antalet månader att lägga till."
     return:
       type: System.DateTime
-      description: "A new <xref:System.DateTime> that results from adding the specified number of months to the <code>time</code> parameter."
+      description: "En ny <xref:System.DateTime>som resultat av att lägga till det angivna antalet månader i <code> time </code> parameter.</xref:System.DateTime>"
   overload: System.Globalization.EastAsianLunisolarCalendar.AddMonths*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The result is outside the supported range of a <xref:System.DateTime>."
+    description: "Resultatet ligger utanför intervallet som stöds av <xref:System.DateTime>.</xref:System.DateTime>"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>months</code> is less than -120000 or greater than 120000.       -or-       <code>time</code> is less than <xref:System.Globalization.Calendar.MinSupportedDateTime*> or greater than <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
+    description: "<code>months</code>är mindre än-120000 eller större än 120000.       - eller - <code>time</code> är mindre än <xref:System.Globalization.Calendar.MinSupportedDateTime*> eller större än <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.AddYears(System.DateTime,System.Int32)
@@ -91,28 +91,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the date that is the specified number of years away from the specified date."
-  remarks: "The day part of the resulting <xref:System.DateTime> is affected if the resulting day is not a valid day in the resulting month of the resulting year. In this case, the day part is changed to the last valid day in the resulting month of the resulting year. The month part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>. This implementation supports only the current era. Therefore, <xref:System.ArgumentException> is thrown if the resulting year is outside the era of the specified <xref:System.DateTime>. The time-of-day part of the resulting <xref:System.DateTime> remains the same as the specified <xref:System.DateTime>.       For example, February has 28 days, except during leap years when it has 29 days. If the specified date is the twenty-ninth day of February in a leap year and the value of the `years` parameter is 1, the resulting date will be the twenty-eighth day of February in the following year.       If `years` is negative, the resulting <xref:System.DateTime> is earlier than the specified <xref:System.DateTime>.       The<xref:System.DateTime.Kind%2A> property of the returned <xref:System.DateTime> value always equals <xref:System.DateTimeKind?displayProperty=fullName>. You can preserve the <xref:System.DateTime.Kind%2A> property of the `time` parameter by calling the <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> method, as the following example shows.       [!code-vb[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/visualbasic/6f9d0244-83a4-4a86-acea-_1.vb)]  [!code-cs[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/csharp/6f9d0244-83a4-4a86-acea-_1.cs)]"
+  summary: "Beräknar det datum som infaller det angivna antalet år från det angivna datumet."
+  remarks: "Den dag-delen av den resulterande <xref:System.DateTime>påverkas om den resulterande dagen inte är en giltig dag i den resulterande månaden resulterande.</xref:System.DateTime> I det här fallet ändras dag-del till den sista giltiga dagen i den resulterande månaden resulterande. Den månad delen av den resulterande <xref:System.DateTime>är densamma som den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime> Den här implementeringen stöder endast den aktuella era. Därför <xref:System.ArgumentException>genereras om resulterande året ligger utanför era inom den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.ArgumentException> Den tid på dag delen av den resulterande <xref:System.DateTime>är densamma som den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       Till exempel har februari 28 dagar utom under skottår när det har 29 dagar. Om det angivna datumet är den 29 dagen i februari under ett skottår och värdet för den `years` parametern är 1 blir det resulterande datumet 20 åttonde dagen i februari följande år.       Om `years` är negativ, den resulterande som <xref:System.DateTime>är äldre än den angivna <xref:System.DateTime>.</xref:System.DateTime> </xref:System.DateTime>       <xref:System.DateTime.Kind%2A>Egenskapen för det returnerade <xref:System.DateTime>värdet alltid är lika med <xref:System.DateTimeKind?displayProperty=fullName>.</xref:System.DateTimeKind?displayProperty=fullName> </xref:System.DateTime> </xref:System.DateTime.Kind%2A> Du kan behålla den <xref:System.DateTime.Kind%2A>-egenskapen för den `time` parameter genom att anropa den <xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName>metoden som visas i följande exempel.</xref:System.DateTime.SpecifyKind%2A?displayProperty=fullName> </xref:System.DateTime.Kind%2A>       [!code-vb[System.Globalization.Calendar.AddMethods#8](~/add/codesnippet/visualbasic/6f9d0244-83a4-4a86-acea-_1.vb)][!code-cs[System.Globalization.Calendar.AddMethods#8  ](~/add/codesnippet/csharp/6f9d0244-83a4-4a86-acea-_1.cs)]"
   syntax:
     content: public override DateTime AddYears (DateTime time, int years);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to which to add `years`."
+      description: "Den <xref:System.DateTime>som ska läggas till `years`.</xref:System.DateTime>"
     - id: years
       type: System.Int32
-      description: "The number of years to add."
+      description: "Antalet år för att lägga till."
     return:
       type: System.DateTime
-      description: "A new <xref:System.DateTime> that results from adding the specified number of years to the <code>time</code> parameter."
+      description: "En ny <xref:System.DateTime>som resultat av att lägga till det angivna antalet år som den <code> time </code> parameter.</xref:System.DateTime>"
   overload: System.Globalization.EastAsianLunisolarCalendar.AddYears*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The result is outside the supported range of a <xref:System.DateTime>."
+    description: "Resultatet ligger utanför intervallet som stöds av <xref:System.DateTime>.</xref:System.DateTime>"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>time</code> is less than <xref:System.Globalization.Calendar.MinSupportedDateTime*> or greater than <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
+    description: "<code>time</code>är mindre än <xref:System.Globalization.Calendar.MinSupportedDateTime*> eller större än <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.AlgorithmType
@@ -127,12 +127,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets a value indicating whether the current calendar is solar-based, lunar-based, or a combination of both."
+  summary: "Hämtar ett värde som anger om den aktuella kalendern är sol-baserade, lunar-baserad eller en kombination av båda."
   syntax:
     content: public override System.Globalization.CalendarAlgorithmType AlgorithmType { get; }
     return:
       type: System.Globalization.CalendarAlgorithmType
-      description: "Always returns <xref href=&quot;System.Globalization.CalendarAlgorithmType&quot;></xref>."
+      description: "Returnerar alltid <xref href=&quot;System.Globalization.CalendarAlgorithmType&quot;> </xref>."
   overload: System.Globalization.EastAsianLunisolarCalendar.AlgorithmType*
   exceptions: []
   platform:
@@ -149,21 +149,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the celestial stem of the specified year in the sexagenary (60-year) cycle."
+  summary: "Beräknar celestial stam för den angivna år i rutinen sexagenary (60 år)."
   syntax:
     content: public int GetCelestialStem (int sexagenaryYear);
     parameters:
     - id: sexagenaryYear
       type: System.Int32
-      description: "An integer from 1 through 60 that represents a year in the sexagenary cycle."
+      description: "Ett heltal mellan 1 och 60 som representerar ett år i sexagenary cykeln."
     return:
       type: System.Int32
-      description: "A number from 1 through 10."
+      description: "En siffra mellan 1 och 10."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetCelestialStem*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>sexagenaryYear</code> is less than 1 or greater than 60."
+    description: "<code>sexagenaryYear</code>är mindre än 1 eller större än 60."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetDayOfMonth(System.DateTime)
@@ -178,16 +178,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the day of the month in the specified date."
+  summary: "Beräknar dagen i månaden i det angivna datumet."
   syntax:
     content: public override int GetDayOfMonth (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "Den <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 through 31 that represents the day of the month specified in the <code>time</code> parameter."
+      description: "Ett heltal mellan 1 och 31 som representerar dagen i månaden som angetts i den <code> time </code> parameter."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDayOfMonth*
   exceptions: []
   platform:
@@ -204,21 +204,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the day of the week in the specified date."
+  summary: "Beräknar veckodagen i det angivna datumet."
   syntax:
     content: public override DayOfWeek GetDayOfWeek (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "Den <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.DayOfWeek
-      description: "One of the <xref:System.DayOfWeek> values that represents the day of the week specified in the <code>time</code> parameter."
+      description: "En av de <xref:System.DayOfWeek>värden som representerar dagen i veckan som anges i den <code> time </code> parameter.</xref:System.DayOfWeek>"
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDayOfWeek*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>time</code> is less than <xref:System.Globalization.Calendar.MinSupportedDateTime*> or greater than <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
+    description: "<code>time</code>är mindre än <xref:System.Globalization.Calendar.MinSupportedDateTime*> eller större än <xref:System.Globalization.Calendar.MaxSupportedDateTime*>."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear(System.DateTime)
@@ -233,17 +233,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the day of the year in the specified date."
-  remarks: "The day of the year is defined as the number of days from the first day of the year. For example, GetDayOfYear for the first day of the first month returns 1, and GetDayOfYear for the last day of the last month returns the total number of days in that year, which is the same value returned by <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A>."
+  summary: "Beräknar dagen på året i det angivna datumet."
+  remarks: "Dag på året definieras som antalet dagar från den första dagen på året. Till exempel GetDayOfYear för den första dagen i den första månaden returnerar 1 och GetDayOfYear för den sista dagen i den senaste månaden returnerar det totala antalet dagar i år, vilket är det samma värde som returneras av <xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A>.</xref:System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear%2A>"
   syntax:
     content: public override int GetDayOfYear (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "Den <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 through 354 in a common year, or 1 through 384 in a leap year, that represents the day of the year specified in the <code>time</code> parameter."
+      description: "Ett heltal från 1 till 354 till ett vanligt år eller 1 till 384 under ett skottår som representerar dagen på året som anges i den <code> time </code> parameter."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDayOfYear*
   exceptions: []
   platform:
@@ -260,28 +260,28 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the number of days in the specified month of the specified year and era."
-  remarks: "Ifthe `month` parameter is the second month, the GetDaysInMonth method returns 28 or 29, depending on whether the `year` parameter is a leap year."
+  summary: "Beräknar antalet dagar i den angivna månaden för det angivna året och era."
+  remarks: "Säljbarkvalitet `month` parametern är den andra månaden, metoden GetDaysInMonth returnerar 28 eller 29, beroende på om den `year` parameter är ett skottår."
   syntax:
     content: public override int GetDaysInMonth (int year, int month, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: month
       type: System.Int32
-      description: "An integer from 1 through 12 in a common year, or 1 through 13 in a leap year, that represents the month."
+      description: "Ett heltal mellan 1 och 12 i ett vanligt år eller 1 till och med 13 under ett skottår, som representerar månaden."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Int32
-      description: "The number of days in the specified month of the specified year and era."
+      description: "Antalet dagar i den angivna månaden för det angivna året och era."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDaysInMonth*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>, <code>month</code>, eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear(System.Int32,System.Int32)
@@ -296,25 +296,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the number of days in the specified year and era."
-  remarks: "The GetDaysInYear method returns 365 or 366, depending on whether the `year` parameter is a leap year."
+  summary: "Beräknar antalet dagar i angivna år och era."
+  remarks: "Metoden GetDaysInYear returnerar 365 eller 366, beroende på om den `year` parameter är ett skottår."
   syntax:
     content: public override int GetDaysInYear (int year, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Int32
-      description: "The number of days in the specified year and era."
+      description: "Antalet dagar i det angivna året och era."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetDaysInYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetLeapMonth(System.Int32,System.Int32)
@@ -329,20 +329,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the leap month for the specified year and era."
-  remarks: "In a calendar that supports a leap month, the leap month can occur either after a particular month or after any month in a year. For example, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns a number from 1 through 13 that indicates the month associated with a specified date. If there is a leap month between the eighth and ninth months of the year, the <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> method returns 8 for the eighth month, 9 for the leap eighth month, and 10 for the ninth month."
+  summary: "Beräknar leap månaden för det angivna året och era."
+  remarks: "I en kalender som har stöd för en månad leap kan leap månaden inträffa efter en viss månad eller efter en månad i ett år. Till exempel den <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>metoden returnerar ett tal från 1 till och med 13 som anger den månad som är associerad med ett visst datum.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A> Om det finns en leap månad mellan åttonde och nionde månader år, den <xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>metoden returnerar 8 för den åttonde månaden, 9 för leap åttonde månad och 10 för den nionde månaden.</xref:System.Globalization.EastAsianLunisolarCalendar.GetMonth%2A>"
   syntax:
     content: public override int GetLeapMonth (int year, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Int32
-      description: "A positive integer from 1 through 13 that indicates the leap month in the specified year and era.       -or-       Zero if this calendar does not support a leap month, or if the <code>year</code> and <code>era</code> parameters do not specify a leap year."
+      description: "Ett positivt heltal mellan 1 och 13 som anger leap månaden i det angivna året och era.       - eller - noll om denna kalender inte stöder leap i månaden, eller om den <code> year </code> och <code> era </code> parametrar inte anger ett skottår."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetLeapMonth*
   exceptions: []
   platform:
@@ -359,16 +359,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the month in the specified date."
+  summary: "Returnerar månaden i det angivna datumet."
   syntax:
     content: public override int GetMonth (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "Den <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer from 1 to 13 that represents the month specified in the <code>time</code> parameter."
+      description: "Ett heltal från 1 till 13 som representerar månad som anges i den <code> time </code> parameter."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetMonth*
   exceptions: []
   platform:
@@ -385,24 +385,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the number of months in the specified year and era."
+  summary: "Beräknar antalet månader i angivna år och era."
   syntax:
     content: public override int GetMonthsInYear (int year, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Int32
-      description: "The number of months in the specified year in the specified era. The return value is 12 months in a common year or 13 months in a leap year."
+      description: "Antalet månader under det angivna året angivna era. Det returnera värdet är 12 månader i en gemensam år eller 13 månader under ett skottår."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetMonthsInYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear(System.DateTime)
@@ -417,16 +417,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the year in the sexagenary (60-year) cycle that corresponds to the specified date."
+  summary: "Beräknar år i rutinen sexagenary (60 år) som motsvarar det angivna datumet."
   syntax:
     content: public virtual int GetSexagenaryYear (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "A <xref:System.DateTime> to read."
+      description: "En <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "A number from 1 through 60 in the sexagenary cycle that corresponds to the <code>date</code> parameter."
+      description: "Ett tal från 1 till 60 i sexagenary cykeln som motsvarar den <code> date </code> parameter."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetSexagenaryYear*
   exceptions: []
   platform:
@@ -443,21 +443,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Calculates the terrestrial branch of the specified year in the sexagenary (60-year) cycle."
+  summary: "Beräknar grenen land för den angivna år i rutinen sexagenary (60 år)."
   syntax:
     content: public int GetTerrestrialBranch (int sexagenaryYear);
     parameters:
     - id: sexagenaryYear
       type: System.Int32
-      description: "An integer from 1 through 60 that represents a year in the sexagenary cycle."
+      description: "Ett heltal mellan 1 och 60 som representerar ett år i sexagenary cykeln."
     return:
       type: System.Int32
-      description: "An integer from 1 through 12."
+      description: "Ett heltal mellan 1 och 12."
   overload: System.Globalization.EastAsianLunisolarCalendar.GetTerrestrialBranch*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>sexagenaryYear</code> is less than 1 or greater than 60."
+    description: "<code>sexagenaryYear</code>är mindre än 1 eller större än 60."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.GetYear(System.DateTime)
@@ -472,16 +472,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns the year in the specified date."
+  summary: "Returnerar året i det angivna datumet."
   syntax:
     content: public override int GetYear (DateTime time);
     parameters:
     - id: time
       type: System.DateTime
-      description: "The <xref:System.DateTime> to read."
+      description: "Den <xref:System.DateTime>att läsa.</xref:System.DateTime>"
     return:
       type: System.Int32
-      description: "An integer that represents the year in the specified <xref:System.DateTime>."
+      description: "Ett heltal som representerar året i angivet <xref:System.DateTime>.</xref:System.DateTime>"
   overload: System.Globalization.EastAsianLunisolarCalendar.GetYear*
   exceptions: []
   platform:
@@ -498,30 +498,30 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified date in the specified era is a leap day."
+  summary: "Anger om det angivna datumet i den angivna era är ett skottår dag."
   syntax:
     content: public override bool IsLeapDay (int year, int month, int day, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: month
       type: System.Int32
-      description: "An integer from 1 through 13 that represents the month."
+      description: "Ett heltal från 1 till och med 13 som motsvarar månaden."
     - id: day
       type: System.Int32
-      description: "An integer from 1 through 31 that represents the day."
+      description: "Ett heltal mellan 1 och 31 som representerar dagen."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified day is a leap day; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den angivna dagen är leap om dagen. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.EastAsianLunisolarCalendar.IsLeapDay*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code>, <code>month</code>, <code>day</code>, or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>, <code>month</code>, <code>day</code>, eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.IsLeapMonth(System.Int32,System.Int32,System.Int32)
@@ -536,27 +536,27 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified month in the specified year and era is a leap month."
+  summary: "Anger om den angivna månaden i det angivna året och era är ett skottår månad."
   syntax:
     content: public override bool IsLeapMonth (int year, int month, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: month
       type: System.Int32
-      description: "An integer from 1 through 13 that represents the month."
+      description: "Ett heltal från 1 till och med 13 som motsvarar månaden."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>month</code> parameter is a leap month; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den <code> month </code> parameter är en leap månad, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.EastAsianLunisolarCalendar.IsLeapMonth*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code>, <code>month</code>, or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>, <code>month</code>, eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.IsLeapYear(System.Int32,System.Int32)
@@ -571,24 +571,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified year in the specified era is a leap year."
+  summary: "Anger om det angivna året angivna era är ett skottår."
   syntax:
     content: public override bool IsLeapYear (int year, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified year is a leap year; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om det angivna året är ett skottår; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.EastAsianLunisolarCalendar.IsLeapYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.ToDateTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)
@@ -603,43 +603,43 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a <xref:System.DateTime> that is set to the specified date, time, and era."
-  remarks: "The ToDateTime method can convert any date in the current calendar to a Gregorian calendar date. The Gregorian date can subsequently be used, for example, to compare dates in different calendars or create an equivalent date in a particular calendar."
+  summary: "Returnerar en <xref:System.DateTime>som har angetts till angivet datum, tid och era.</xref:System.DateTime>"
+  remarks: "Metoden ToDateTime kan konvertera ett datum i den aktuella kalendern till ett datum i gregoriansk kalender. Gregorianskt datum kan därefter användas, till exempel att jämföra datum i olika kalendrar eller skapa ett motsvarande datum i en viss kalender."
   syntax:
     content: public override DateTime ToDateTime (int year, int month, int day, int hour, int minute, int second, int millisecond, int era);
     parameters:
     - id: year
       type: System.Int32
-      description: "An integer that represents the year."
+      description: "Ett heltal som representerar året."
     - id: month
       type: System.Int32
-      description: "An integer from 1 through 13 that represents the month."
+      description: "Ett heltal från 1 till och med 13 som motsvarar månaden."
     - id: day
       type: System.Int32
-      description: "An integer from 1 through 31 that represents the day."
+      description: "Ett heltal mellan 1 och 31 som representerar dagen."
     - id: hour
       type: System.Int32
-      description: "An integer from 0 through 23 that represents the hour."
+      description: "Ett heltal mellan 0 och 23 som representerar timmen."
     - id: minute
       type: System.Int32
-      description: "An integer from 0 through 59 that represents the minute."
+      description: "Ett heltal mellan 0 och 59 som representerar minut."
     - id: second
       type: System.Int32
-      description: "An integer from 0 through 59 that represents the second."
+      description: "Ett heltal mellan 0 och 59 som representerar sekund."
     - id: millisecond
       type: System.Int32
-      description: "An integer from 0 through 999 that represents the millisecond."
+      description: "Ett heltal mellan 0 och 999 som representerar millisekunder."
     - id: era
       type: System.Int32
-      description: "An integer that represents the era."
+      description: "Ett heltal som representerar era."
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> that is set to the specified date, time, and era."
+      description: "En <xref:System.DateTime>som har angetts till angivet datum, tid och era.</xref:System.DateTime>"
   overload: System.Globalization.EastAsianLunisolarCalendar.ToDateTime*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code>, or <code>era</code> is outside the range supported by this calendar."
+    description: "<code>year</code>, <code>month</code>, <code>day</code>, <code>hour</code>, <code>minute</code>, <code>second</code>, <code>millisecond</code>, eller <code>era</code> ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.ToFourDigitYear(System.Int32)
@@ -654,22 +654,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Converts the specified year to a four-digit year."
-  remarks: "The ToFourDigitYear method uses the <xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A> property to determine the appropriate century.       ToFourDigitYear supports either a two-digit year or a four-digit year. Passing a two-digit year value (less than 100) causes the method to convert the value to a four-digit value according to the <xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A> value representing the appropriate century. If the application supplies a four-digit year value that is within the supported calendar range to ToFourDigitYear, the method returns the actual input value. If the application supplies a four-digit value that is outside the supported calendar range, or if it supplies a negative value, the method throws an exception."
+  summary: "Konverterar år till ett fyrsiffriga år."
+  remarks: "Metoden ToFourDigitYear använder den <xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A>egenskapen fastställa lämpliga talet.</xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A>       ToFourDigitYear stöder ett årtal eller ett fyrsiffriga år. Skicka ett årtal värde (mindre än 100) medför metoden att konvertera värdet till ett fyrsiffrigt värde enligt den <xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A>-värde som representerar på lämplig talet.</xref:System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax%2A> Om programmet tillhandahåller ett årtal-värde som ligger inom intervallet kalender som stöds till ToFourDigitYear, returnerar metoden faktiska indatavärdet. Om programmet tillhandahåller ett fyrsiffrigt-värde som är utanför intervallet som stöds kalender, eller om det finns ett negativt värde, genereras metoden ett undantag."
   syntax:
     content: public override int ToFourDigitYear (int year);
     parameters:
     - id: year
       type: System.Int32
-      description: "A two-digit or four-digit integer that represents the year to convert."
+      description: "Ett två siffror eller fyra siffror heltal som representerar året ska konverteras."
     return:
       type: System.Int32
-      description: "An integer that contains the four-digit representation of the <code>year</code> parameter."
+      description: "Ett heltal som innehåller fyra siffror representation av den <code> year </code> parameter."
   overload: System.Globalization.EastAsianLunisolarCalendar.ToFourDigitYear*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>year</code> is outside the range supported by this calendar."
+    description: "<code>year</code>ligger utanför intervallet som denna kalender stöder."
   platform:
   - net462
 - uid: System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax
@@ -684,21 +684,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets or sets the last year of a 100-year range that can be represented by a 2-digit year."
-  remarks: "This property allows a 2-digit year to be properly translated to a 4-digit year. For example, in the Gregorian calendar, if this property is set to 2029, the 100-year range is from 1930 to 2029. Therefore, a 2-digit value of 30 is interpreted as 1930, while a 2-digit value of 29 is interpreted as 2029.       The initial value of this property is derived from the settings in the regional and language options portion of Control Panel. However, that information can change during the life of the <xref:System.AppDomain>. The <xref:System.Globalization.EastAsianLunisolarCalendar> class does not detect changes in the system settings automatically."
+  summary: "Hämtar eller anger det senaste året för ett urval av 100 år som representeras av ett 2 årtal."
+  remarks: "Den här egenskapen gör en 2 årtal korrekt översättas till ett 4-siffrig år. Till exempel i gregoriansk kalender är om den här egenskapen anges till 2029, 100 år intervallet från 1930 till 2029. Därför tolkas 30 2-siffrig värdet som 1930, medan 29 2-siffrig värdet tolkas som 2029.       Det första värdet i den här egenskapen är härledd från inställningarna i den nationella inställningar och språkinställningar alternativ delen av Kontrollpanelen. Denna information kan dock ändra under <xref:System.AppDomain>.</xref:System.AppDomain> Den <xref:System.Globalization.EastAsianLunisolarCalendar>klassen upptäcker inte ändringar i systeminställningarna för automatiskt.</xref:System.Globalization.EastAsianLunisolarCalendar>"
   syntax:
     content: public override int TwoDigitYearMax { get; set; }
     return:
       type: System.Int32
-      description: "The last year of a 100-year range that can be represented by a 2-digit year."
+      description: "Det senaste året för ett intervall om 100 år som representeras av ett 2 årtal."
   overload: System.Globalization.EastAsianLunisolarCalendar.TwoDigitYearMax*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The current <xref href=&quot;System.Globalization.EastAsianLunisolarCalendar&quot;></xref> is read-only."
+    description: "Aktuellt <xref href=&quot;System.Globalization.EastAsianLunisolarCalendar&quot;> </xref> är skrivskyddad."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value in a set operation is less than 99 or greater than the maximum supported year in the current calendar."
+    description: "Värdet i en set-åtgärd är mindre än 99 eller större än den maximala stöds år i den aktuella kalendern."
   platform:
   - net462
 references:
