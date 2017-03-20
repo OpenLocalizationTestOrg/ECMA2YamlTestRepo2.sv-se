@@ -14,8 +14,8 @@ items:
   nameWithType: FileSystemAuditRule
   fullName: System.Security.AccessControl.FileSystemAuditRule
   type: Class
-  summary: "Represents an abstraction of an access control entry (ACE) that defines an audit rule for a file or directory. This class cannot be inherited."
-  remarks: "The FileSystemAuditRule class represents an abstraction of an underlying access control entry (ACE) that specifies a user account, the type of access to provide (read, write, and so on), and whether to perform auditing.  This class can also specify how audit rules are inherited from and propagated to objects.       To permit file and directory auditing on Windows NT or later, you must enable Audit Access Security policy on your machine.  By default, this policy is set to No Auditing.       To enable the Audit Access Security policy, perform the following steps:      1.  Open the **Local Security Settings** Microsoft Management Console (MMC) snap-in, located in the Administrative Tools folder.      2.  Expand the Local Policies folder and left-click the Audit Policy folder.      3.  Double-click the **Audit object access** entry on the right pane of the MMC snap-in, or right-click and choose Properties to display the **Audit object access properties** dialog box.      4.  Select the **Success** or **Failure** check boxes to log successes or failures.       Note that an audit rule for a user account requires a corresponding access rule for the same user account.       Use the FileSystemAuditRule class to create a new audit rule.  You can persist this rule using the <xref:System.Security.AccessControl.FileSecurity> or <xref:System.Security.AccessControl.DirectorySecurity> class."
+  summary: "Representerar en abstraktion av en åtkomstkontrollpost (ACE) som definierar en regel för granskning för en fil eller katalog. Den här klassen kan inte ärvas."
+  remarks: "Klassen FileSystemAuditRule representerar en abstraktion av en underliggande åtkomstkontrollpost (ACE) som anger ett användarkonto, vilken typ av åtkomst ska kunna tillhandahålla (Läs-, Skriv- och så vidare), och om du vill utföra en granskning.  Den här klassen kan även ange hur audit regler ärvs från och sprids till objekt.       Om du vill tillåta fil- och directory granskning på Windows NT eller senare, måste du aktivera Audit åtkomst säkerhetsprinciper på din dator.  Den här principen är som standard att ingen granskning.       Utför följande steg för att aktivera granskning åtkomst säkerhetsprincip: 1.  Öppna den **lokala säkerhetsinställningar** snapin-modulen Microsoft Management Console (MMC), finns i mappen Administrationsverktyg.      2.  Expandera mappen lokala principer och på mappen granskningsprincip.      3.  Dubbelklicka på den **Granska objektåtkomst** post i den högra rutan i snapin-modulen MMC eller högerklicka och välj egenskaper som ska visas i **granska åtkomst objektegenskaper** dialogrutan.      4.  Välj den **lyckade** eller **fel** kryssrutorna för att logga lyckade eller misslyckade försök.       Observera att en regel för ett användarkonto för granskning kräver en motsvarande åtkomstregel för samma användarkonto.       Använda klassen FileSystemAuditRule för att skapa en ny regel för granskning.  Du kan spara den här regeln med hjälp av <xref:System.Security.AccessControl.FileSecurity>eller <xref:System.Security.AccessControl.DirectorySecurity>klass.</xref:System.Security.AccessControl.DirectorySecurity> </xref:System.Security.AccessControl.FileSecurity>"
   example:
   - "The following code example uses the FileSystemAuditRule class to add and then remove an audit rule from a file.  You must supply a valid user or group account to run this example.  \n  \n [!code-vb[AccessControl.FileSystemAuditRule#1](~/add/codesnippet/visualbasic/t-system.security.access_9_1.vb)]\n [!code-cs[AccessControl.FileSystemAuditRule#1](~/add/codesnippet/csharp/t-system.security.access_9_1.cs)]"
   syntax:
@@ -46,31 +46,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> class using a reference to a user account, a value that specifies the type of operation associated with the audit rule, and a value that specifies when to perform auditing."
-  remarks: "Use this constructor to create an audit rule that you can persist using the <xref:System.Security.AccessControl.FileSecurity> or <xref:System.Security.AccessControl.DirectorySecurity> class.  Audit rules determine when and how actions performed on system objects, such as files and folders, are logged."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> klassen med en referens till ett användarkonto, ett värde som anger vilken typ av åtgärd som associeras med Granskningsregeln och ett värde som anger när du ska utföra granskning."
+  remarks: "Använd den här konstruktorn för att skapa en regel för granskning som du kan spara med <xref:System.Security.AccessControl.FileSecurity>eller <xref:System.Security.AccessControl.DirectorySecurity>klass.</xref:System.Security.AccessControl.DirectorySecurity> </xref:System.Security.AccessControl.FileSecurity>  Granska reglerna bestämmer när och hur åtgärder ska utföras på systemobjekt, t.ex. filer och mappar, loggas."
   syntax:
     content: public FileSystemAuditRule (System.Security.Principal.IdentityReference identity, System.Security.AccessControl.FileSystemRights fileSystemRights, System.Security.AccessControl.AuditFlags flags);
     parameters:
     - id: identity
       type: System.Security.Principal.IdentityReference
-      description: "An <xref href=&quot;System.Security.Principal.IdentityReference&quot;></xref> object that encapsulates a reference to a user account."
+      description: "En <xref href=&quot;System.Security.Principal.IdentityReference&quot;> </xref> objekt som innehåller en referens till ett användarkonto."
     - id: fileSystemRights
       type: System.Security.AccessControl.FileSystemRights
-      description: "One of the <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> values that specifies the type of operation associated with the audit rule."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> värden som anger vilken typ av åtgärd som associeras med Granskningsregeln."
     - id: flags
       type: System.Security.AccessControl.AuditFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> values that specifies when to perform auditing."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värden som anger när du ska utföra granskning."
   overload: System.Security.AccessControl.FileSystemAuditRule.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>identity</code> parameter is not an <xref href=&quot;System.Security.Principal.IdentityReference&quot;></xref> object."
+    description: "Den <code> identity </code> parametern är inte en <xref href=&quot;System.Security.Principal.IdentityReference&quot;> </xref> objekt."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>identity</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "An incorrect enumeration was passed to the <code>flags</code> parameter.       -or-       The <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> value was passed to the <code>flags</code> parameter."
+    description: "En felaktig uppräkning skickades till den <code> flags </code> parameter.       - eller - <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värde skickades till den <code> flags </code> parameter."
   platform:
   - net462
 - uid: System.Security.AccessControl.FileSystemAuditRule.#ctor(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.AuditFlags)
@@ -85,7 +85,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> class using a user account name, a value that specifies the type of operation associated with the audit rule, and a value that specifies when to perform auditing."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> klassen med namnet på ett användarkonto, ett värde som anger vilken typ av åtgärd som associeras med Granskningsregeln och ett värde som anger när du ska utföra granskning."
   remarks: "Use this constructor to create an audit rule that you can persist using the <xref:System.Security.AccessControl.FileSecurity> or <xref:System.Security.AccessControl.DirectorySecurity> class.  Audit rules determine when and how actions performed on system objects, such as files and folders, are logged.  \n  \n The `identity` parameter must identify a valid account on the current computer or domain.  The string takes the following form, where `DOMAIN` is the name of a valid domain or computer name and `account` is the name of a valid user account on a domain or computer: `DOMAIN\\account`."
   example:
   - "The following code example uses the <xref:System.Security.AccessControl.FileSystemAuditRule> class to add and then remove an audit rule from a file.  You must supply a valid user or group account to run this example.  \n  \n [!code-vb[AccessControl.FileSystemAuditRule#1](~/add/codesnippet/visualbasic/0cfd6a33-c1ca-4126-9899-_1.vb)]\n [!code-cs[AccessControl.FileSystemAuditRule#1](~/add/codesnippet/csharp/0cfd6a33-c1ca-4126-9899-_1.cs)]"
@@ -94,18 +94,18 @@ items:
     parameters:
     - id: identity
       type: System.String
-      description: "The name of a user account."
+      description: "Namnet på ett användarkonto."
     - id: fileSystemRights
       type: System.Security.AccessControl.FileSystemRights
-      description: "One of the <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> values that specifies the type of operation associated with the audit rule."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> värden som anger vilken typ av åtgärd som associeras med Granskningsregeln."
     - id: flags
       type: System.Security.AccessControl.AuditFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> values that specifies when to perform auditing."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värden som anger när du ska utföra granskning."
   overload: System.Security.AccessControl.FileSystemAuditRule.#ctor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "An incorrect enumeration was passed to the <code>flags</code> parameter.       -or-       The <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> value was passed to the <code>flags</code> parameter."
+    description: "En felaktig uppräkning skickades till den <code> flags </code> parameter.       - eller - <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värde skickades till den <code> flags </code> parameter."
   platform:
   - net462
 - uid: System.Security.AccessControl.FileSystemAuditRule.#ctor(System.Security.Principal.IdentityReference,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)
@@ -120,37 +120,37 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> class using the name of a reference to a user account, a value that specifies the type of operation associated with the audit rule, a value that determines how rights are inherited, a value that determines how rights are propagated, and a value that specifies when to perform auditing."
-  remarks: "Use this constructor to create an audit rule that you can persist using the <xref:System.Security.AccessControl.FileSecurity> or <xref:System.Security.AccessControl.DirectorySecurity> class.  Audit rules determine when and how actions performed on system objects, such as files and folders, are logged."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> klassen med namnet på en referens till ett användarkonto, ett värde som anger vilken typ av åtgärd som associeras med Granskningsregeln, ett värde som avgör hur rättigheter ärvs, ett värde som avgör hur rättigheter sprids och ett värde som anger när du ska utföra granskning."
+  remarks: "Använd den här konstruktorn för att skapa en regel för granskning som du kan spara med <xref:System.Security.AccessControl.FileSecurity>eller <xref:System.Security.AccessControl.DirectorySecurity>klass.</xref:System.Security.AccessControl.DirectorySecurity> </xref:System.Security.AccessControl.FileSecurity>  Granska reglerna bestämmer när och hur åtgärder ska utföras på systemobjekt, t.ex. filer och mappar, loggas."
   syntax:
     content: public FileSystemAuditRule (System.Security.Principal.IdentityReference identity, System.Security.AccessControl.FileSystemRights fileSystemRights, System.Security.AccessControl.InheritanceFlags inheritanceFlags, System.Security.AccessControl.PropagationFlags propagationFlags, System.Security.AccessControl.AuditFlags flags);
     parameters:
     - id: identity
       type: System.Security.Principal.IdentityReference
-      description: "An <xref href=&quot;System.Security.Principal.IdentityReference&quot;></xref> object that encapsulates a reference to a user account."
+      description: "En <xref href=&quot;System.Security.Principal.IdentityReference&quot;> </xref> objekt som innehåller en referens till ett användarkonto."
     - id: fileSystemRights
       type: System.Security.AccessControl.FileSystemRights
-      description: "One of the <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> values that specifies the type of operation associated with the audit rule."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> värden som anger vilken typ av åtgärd som associeras med Granskningsregeln."
     - id: inheritanceFlags
       type: System.Security.AccessControl.InheritanceFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.InheritanceFlags&quot;></xref> values that specifies how access masks are propagated to child objects."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.InheritanceFlags&quot;> </xref> värden som anger hur åtkomst masker sprids till underordnade objekt."
     - id: propagationFlags
       type: System.Security.AccessControl.PropagationFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.PropagationFlags&quot;></xref> values that specifies how Access Control Entries (ACEs) are propagated to child objects."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.PropagationFlags&quot;> </xref> värden som anger hur åtkomstkontrollposter (ACE) sprids till underordnade objekt."
     - id: flags
       type: System.Security.AccessControl.AuditFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> values that specifies when to perform auditing."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värden som anger när du ska utföra granskning."
   overload: System.Security.AccessControl.FileSystemAuditRule.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>identity</code> parameter is not an <xref href=&quot;System.Security.Principal.IdentityReference&quot;></xref> object."
+    description: "Den <code> identity </code> parametern är inte en <xref href=&quot;System.Security.Principal.IdentityReference&quot;> </xref> objekt."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "The <code>identity</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "An incorrect enumeration was passed to the <code>flags</code> parameter.       -or-       The <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> value was passed to the <code>flags</code> parameter."
+    description: "En felaktig uppräkning skickades till den <code> flags </code> parameter.       - eller - <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värde skickades till den <code> flags </code> parameter."
   platform:
   - net462
 - uid: System.Security.AccessControl.FileSystemAuditRule.#ctor(System.String,System.Security.AccessControl.FileSystemRights,System.Security.AccessControl.InheritanceFlags,System.Security.AccessControl.PropagationFlags,System.Security.AccessControl.AuditFlags)
@@ -165,26 +165,26 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> class using the name of a user account, a value that specifies the type of operation associated with the audit rule, a value that determines how rights are inherited, a value that determines how rights are propagated, and a value that specifies when to perform auditing."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> klassen med namnet på ett användarkonto, ett värde som anger vilken typ av åtgärd som associeras med Granskningsregeln, ett värde som avgör hur rättigheter ärvs, ett värde som avgör hur rättigheter sprids och ett värde som anger när du ska utföra granskning."
   remarks: "Use this constructor to create an audit rule that you can persist using the <xref:System.Security.AccessControl.FileSecurity> or <xref:System.Security.AccessControl.DirectorySecurity> class.  Audit rules determine when and how actions performed on system objects, such as files and folders, are logged.  \n  \n The `identity` parameter must identify a valid account on the current computer or domain.  The string takes the following form, where `DOMAIN` is the name of a valid domain or computer name and `account` is the name of a valid user account on a domain or computer: `DOMAIN\\account`."
   syntax:
     content: public FileSystemAuditRule (string identity, System.Security.AccessControl.FileSystemRights fileSystemRights, System.Security.AccessControl.InheritanceFlags inheritanceFlags, System.Security.AccessControl.PropagationFlags propagationFlags, System.Security.AccessControl.AuditFlags flags);
     parameters:
     - id: identity
       type: System.String
-      description: "The name of a user account."
+      description: "Namnet på ett användarkonto."
     - id: fileSystemRights
       type: System.Security.AccessControl.FileSystemRights
-      description: "One of the <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> values that specifies the type of operation associated with the audit rule."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> värden som anger vilken typ av åtgärd som associeras med Granskningsregeln."
     - id: inheritanceFlags
       type: System.Security.AccessControl.InheritanceFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.InheritanceFlags&quot;></xref> values that specifies how access masks are propagated to child objects."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.InheritanceFlags&quot;> </xref> värden som anger hur åtkomst masker sprids till underordnade objekt."
     - id: propagationFlags
       type: System.Security.AccessControl.PropagationFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.PropagationFlags&quot;></xref> values that specifies how Access Control Entries (ACEs) are propagated to child objects."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.PropagationFlags&quot;> </xref> värden som anger hur åtkomstkontrollposter (ACE) sprids till underordnade objekt."
     - id: flags
       type: System.Security.AccessControl.AuditFlags
-      description: "One of the <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;></xref> values that specifies when to perform auditing."
+      description: "En av de <xref href=&quot;System.Security.AccessControl.AuditFlags&quot;> </xref> värden som anger när du ska utföra granskning."
   overload: System.Security.AccessControl.FileSystemAuditRule.#ctor*
   exceptions: []
   platform:
@@ -201,12 +201,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.AccessControl
-  summary: "Gets the <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> flags associated with the current <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> object."
+  summary: "Hämtar den <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> flaggor som är associerade med aktuellt <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> objekt."
   syntax:
     content: public System.Security.AccessControl.FileSystemRights FileSystemRights { get; }
     return:
       type: System.Security.AccessControl.FileSystemRights
-      description: "The <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;></xref> flags associated with the current <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;></xref> object."
+      description: "Den <xref href=&quot;System.Security.AccessControl.FileSystemRights&quot;> </xref> flaggor som är associerade med aktuellt <xref href=&quot;System.Security.AccessControl.FileSystemAuditRule&quot;> </xref> objekt."
   overload: System.Security.AccessControl.FileSystemAuditRule.FileSystemRights*
   exceptions: []
   platform:

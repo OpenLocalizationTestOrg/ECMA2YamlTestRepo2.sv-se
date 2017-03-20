@@ -17,8 +17,8 @@ items:
   nameWithType: RSAParameters
   fullName: System.Security.Cryptography.RSAParameters
   type: Struct
-  summary: "Represents the standard parameters for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
-  remarks: "The <xref:System.Security.Cryptography.RSA> class exposes an <xref:System.Security.Cryptography.RSA.ExportParameters%2A> method that enables you to retrieve the raw RSA key in the form of an RSAParameters structure. Understanding the contents of this structure requires familiarity with how the <xref:System.Security.Cryptography.RSA> algorithm works. The next section discusses the algorithm briefly.      ## RSA Algorithm    To generate a key pair, you start by creating two large prime numbers named p and q. These numbers are multiplied and the result is called n. Because p and q are both prime numbers, the only factors of n are 1, p, q, and n.       If we consider only numbers that are less than n, the count of numbers that are relatively prime to n, that is, have no factors in common with n, equals (p - 1)(q - 1).       Now you choose a number e, which is relatively prime to the value you calculated. The public key is now represented as {e, n}.       To create the private key, you must calculate d, which is a number such that (d)(e) mod (p - 1)(q - 1) = 1. In accordance with the Euclidean algorithm, the private key is now {d, n}.       Encryption of plaintext m to ciphertext c is defined as c = (m ^ e) mod n. Decryption would then be defined as m = (c ^ d) mod n.      ## Summary of Fields    Section A.1.2 of the [PKCS #1: RSA Cryptography Standard](http://go.microsoft.com/fwlink/?LinkId=113155) on the RSA Laboratories Web site defines a format for RSA private keys.       The following table summarizes the fields of the RSAParameters structure. The third column provides the corresponding field in section A.1.2 of [PKCS #1: RSA Cryptography Standard](http://go.microsoft.com/fwlink/?LinkId=113155).      |RSAParameters field|Contains|Corresponding PKCS #1 field|   |---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|----------------------------------|   |<xref:System.Security.Cryptography.RSAParameters.D>|d, the private exponent|privateExponent|   |<xref:System.Security.Cryptography.RSAParameters.DP>|d mod (p - 1)|exponent1|   |<xref:System.Security.Cryptography.RSAParameters.DQ>|d mod (q - 1)|exponent2|   |<xref:System.Security.Cryptography.RSAParameters.Exponent>|e, the public exponent|publicExponent|   |<xref:System.Security.Cryptography.RSAParameters.InverseQ>|(InverseQ)(q) = 1 mod p|coefficient|   |<xref:System.Security.Cryptography.RSAParameters.Modulus>|n|modulus|   |<xref:System.Security.Cryptography.RSAParameters.P>|p|prime1|   |<xref:System.Security.Cryptography.RSAParameters.Q>|q|prime2|       The security of RSA derives from the fact that, given the public key { e, n }, it is computationally infeasible to calculate d, either directly or by factoring n into p and q. Therefore, any part of the key related to d, p, or q must be kept secret. If you call       <xref:System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters%2A> and ask for only the public key information, this is why you will receive only <xref:System.Security.Cryptography.RSAParameters.Exponent> and <xref:System.Security.Cryptography.RSAParameters.Modulus>. The other fields are available only if you have access to the private key, and you request it.       RSAParameters is not encrypted in any way, so you must be careful when you use it with the private key information. In fact, none of the fields that contain private key information can be serialized. If you try to serialize an RSAParameters structure with a remoting call or by using one of the serializers, you will receive only public key information. If you want to pass private key information, you will have to manually send that data. In all cases, if anyone can derive the parameters, the key that you transmit becomes useless."
+  summary: "Representerar standard parametrar för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
+  remarks: "Den <xref:System.Security.Cryptography.RSA>klassen visar en <xref:System.Security.Cryptography.RSA.ExportParameters%2A>metoden som gör att du kan hämta den råa RSA-nyckeln i form av en RSAParameters.</xref:System.Security.Cryptography.RSA.ExportParameters%2A> </xref:System.Security.Cryptography.RSA> Förstå innehållet i den här strukturen kräver kunskap om hur <xref:System.Security.Cryptography.RSA>algoritmen fungerar.</xref:System.Security.Cryptography.RSA> I nästa avsnitt beskrivs kortfattat algoritmen.      ## RSA-algoritm att generera ett nyckelpar, börja med att skapa två stora primtal med namnet p och q. Dessa siffror multipliceras och resultatet kallas n. Eftersom p och q är båda primtal, endast faktorer för n är 1, p, q och n.       Om vi anser siffror som är mindre än n, antalet siffror som är relativt särskilda till n, det vill säga har inga faktorer gemensamma där n är lika med (p - 1)(q-1).       Nu du numret e, vilket är relativt särskilda till du det beräknade värdet. Den offentliga nyckeln visas nu som {e, n}.       Om du vill skapa den privata nyckeln måste du beräkna d, vilket är ett tal så att (d)(e) mod (p - 1)(q-1) = 1. I enlighet med algoritmen Euclidean den privata nyckeln är nu {d, n}.       Kryptering av klartext m till ciphertext c definieras som c = (m ^ e) rest n. Dekryptering skulle sedan definieras som m = (c ^ d) rest n.      ## Sammanfattning av fälten avsnittet A.1.2 av den [PKCS #1: RSA Cryptography Standard](http://go.microsoft.com/fwlink/?LinkId=113155) på webben RSA Laboratories plats definierar formatet för RSA privata nycklar.       I följande tabell sammanfattas fälten för RSAParameters-strukturen. Den tredje kolumnen innehåller motsvarande fält i avsnittet A.1.2 av [PKCS #1: RSA Cryptography Standard](http://go.microsoft.com/fwlink/?LinkId=113155).      | RSAParameters fältet | Innehåller | Motsvarande fält i PKCS #1 |   |---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|----------------------------------|   | <xref:System.Security.Cryptography.RSAParameters.D>| d, privata exponenten | privateExponent |   | <xref:System.Security.Cryptography.RSAParameters.DP>| d mod (p - 1) | exponent1 |   | <xref:System.Security.Cryptography.RSAParameters.DQ>| d mod (q - 1) | exponent2 |   | <xref:System.Security.Cryptography.RSAParameters.Exponent>| e, offentliga exponenten | publicExponent |   | <xref:System.Security.Cryptography.RSAParameters.InverseQ>| (InverseQ) (q) = 1 mod p | värde |   | <xref:System.Security.Cryptography.RSAParameters.Modulus>| n | modulus |   | <xref:System.Security.Cryptography.RSAParameters.P>| p | prime1 |   | <xref:System.Security.Cryptography.RSAParameters.Q>| q | prime2 |       Säkerheten för RSA härleds från det faktum att få den offentliga nyckeln {e, n}, är det omöjligt att beräkna d, antingen direkt eller genom factoring n i p och f.</xref:System.Security.Cryptography.RSAParameters.Q> </xref:System.Security.Cryptography.RSAParameters.P> </xref:System.Security.Cryptography.RSAParameters.Modulus> </xref:System.Security.Cryptography.RSAParameters.InverseQ> </xref:System.Security.Cryptography.RSAParameters.Exponent> </xref:System.Security.Cryptography.RSAParameters.DQ> </xref:System.Security.Cryptography.RSAParameters.DP> </xref:System.Security.Cryptography.RSAParameters.D> Därför måste någon del av nyckeln som rör d, p eller q hållas hemliga. Om du anropar <xref:System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters%2A>och be om bara den offentlig nyckelinformationen, det är därför du får <xref:System.Security.Cryptography.RSAParameters.Exponent>och <xref:System.Security.Cryptography.RSAParameters.Modulus>.</xref:System.Security.Cryptography.RSAParameters.Modulus> </xref:System.Security.Cryptography.RSAParameters.Exponent> </xref:System.Security.Cryptography.RSACryptoServiceProvider.ExportParameters%2A> De andra fälten är endast tillgängliga om du har åtkomst till den privata nyckeln och på begäran.       RSAParameters krypteras inte på något sätt, så måste du vara försiktig när du använder det med informationen om privat nyckel. Faktum är kan ingen av de fält som innehåller information om privat nyckel inte serialiseras. Om du försöker att serialisera en RSAParameters struktur med ett fjärranrop, eller genom att använda en av serializers får endast offentlig nyckelinformation. Om du vill skicka information om privat nyckel behöver att skicka data manuellt. I samtliga fall om vem som helst kan härleda parametrar, blir den nyckel som du överför oanvändbar."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -41,12 +41,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_D&quot; name=&quot;D&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_D&quot; name=&quot;D&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] D;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -62,12 +62,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_DP&quot; name=&quot;DP&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_DP&quot; name=&quot;DP&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] DP;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -83,12 +83,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_DQ&quot; name=&quot;DQ&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_DQ&quot; name=&quot;DQ&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] DQ;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -104,12 +104,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_Exponent&quot; name=&quot;Exponent&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_Exponent&quot; name=&quot;Exponent&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] Exponent;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -125,12 +125,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_InverseQ&quot; name=&quot;InverseQ&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_InverseQ&quot; name=&quot;InverseQ&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] InverseQ;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -146,12 +146,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_Modulus&quot; name=&quot;Modulus&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_Modulus&quot; name=&quot;Modulus&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] Modulus;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -167,12 +167,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_P&quot; name=&quot;P&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_P&quot; name=&quot;P&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] P;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -188,12 +188,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "Represents the <xref uid=&quot;langword_csharp_Q&quot; name=&quot;Q&quot; href=&quot;&quot;></xref> parameter for the <xref href=&quot;System.Security.Cryptography.RSA&quot;></xref> algorithm."
+  summary: "Representerar den <xref uid=&quot;langword_csharp_Q&quot; name=&quot;Q&quot; href=&quot;&quot;> </xref> parameter för den <xref href=&quot;System.Security.Cryptography.RSA&quot;> </xref> algoritmen."
   syntax:
     content: public byte[] Q;
     return:
       type: System.Byte[]
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

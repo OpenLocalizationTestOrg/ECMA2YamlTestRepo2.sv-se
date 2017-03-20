@@ -11,8 +11,8 @@ items:
   nameWithType: IComponentInitializer
   fullName: System.ComponentModel.Design.IComponentInitializer
   type: Interface
-  summary: "Provides a set of recommended default values during component creation."
-  remarks: "The IComponentInitializer interface can be implemented by any designer, which is a component that also implements <xref:System.ComponentModel.Design.IDesigner>, which receives a recommended set of default values for the component it is designing. IComponentInitializer is queried during new component creation. Recommended default values for the component&quot;s properties are passed in as name/value pairs in a dictionary.       This design provides two customization points: the toolbox item itself can be replaced or changed to perform custom actions, or the designer for a component can be changed to provide a custom action. A designer that implements IComponentInitializer should not depend on either of its methods—<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> or <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>—being called, because toolbox items are not obligated to call these methods.       For an overview of creating design components, see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Innehåller en uppsättning rekommenderade standardvärden när komponenten skapades."
+  remarks: "Gränssnittet IComponentInitializer kan implementeras med alla designer, som är en komponent som implementerar också <xref:System.ComponentModel.Design.IDesigner>, som tar emot en rekommenderad uppsättning standardvärden för komponenten den designar.</xref:System.ComponentModel.Design.IDesigner> IComponentInitializer efterfrågas vid skapandet av ny komponent. Rekommenderade standardvärden för komponentens skickas i namn/värde-par i en ordlista.       Den här designen ger två anpassningspunkter: verktygslådeobjektet själva kan ersättas eller ändras för att utföra anpassade åtgärder eller designer för en komponent kan ändras om du vill ange en anpassad åtgärd. En designer som implementerar IComponentInitializer bör inte beroende av någon av dess metoder –<xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A> eller <xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A>– som anropas eftersom objekt i verktygslådan inte är skyldig att anropa dessa metoder.</xref:System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent%2A> </xref:System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent%2A>       En översikt över skapar designkomponenter, se [utöka designläge Support](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public interface IComponentInitializer
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Restores an instance of a component to its default state."
-  remarks: "The InitializeExistingComponent method is called when a designer will re-initialize an existing component. For example, InitializeExistingComponent is commonly called after a drag-and-drop operation. The `defaultValues` parameter is a dictionary containing name/value pairs of default values that should be applied to properties of the associated component. This dictionary may be `null` if no default values have been specified.      > [!CAUTION] >  When implementing this method, generally you should not modify the component properties beyond those recommendations found in `defaultValue`. The existing component may already have had its properties set by the user or other design-time code."
+  summary: "Återställer en instans av en komponent till sitt ursprungsläge."
+  remarks: "InitializeExistingComponent-metoden anropas när en designer ska initiera en befintlig komponent. InitializeExistingComponent kallas vanligtvis när en dra och släpp-åtgärd. Den `defaultValues` parameter är en dictionary som innehåller namn/värde-par av standardvärden som ska tillämpas på egenskaperna för den associerade komponenten. Den här ordlistan kanske `null` om några standardvärden har angetts.      > [!CAUTION] > När du implementerar den här metoden vanligtvis du bör inte ändra egenskaperna för komponenten utöver de här rekommendationerna finns i `defaultValue`. Den befintliga komponenten kanske redan har haft dess egenskaper som anges av användaren eller annan kod i designläge."
   syntax:
     content: public void InitializeExistingComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to reset the component&quot;s state."
+      description: "En ordlista med egenskapen standardvärdena som är namn/värde-par som du vill återställa komponentens tillstånd."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeExistingComponent*
   exceptions: []
   platform:
@@ -54,14 +54,14 @@ items:
   assemblies:
   - System
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new component using a set of recommended values."
-  remarks: "The InitializeNewComponent method is called after a new component is created. It is typically called by the toolbox item itself and is used to configure the component’s default values.       This dictionary may be `null` if no default values are specified. If the dictionary is `null`, the component properties should be left in their implicit default states."
+  summary: "Initierar en ny komponent med en uppsättning rekommenderade värden."
+  remarks: "InitializeNewComponent-metoden anropas när en ny komponent har skapats. Det kallas vanligtvis av verktygslådeobjektet sig själv och används för att konfigurera komponentens standardvärden.       Den här ordlistan kanske `null` om några standardvärden anges. Om ordlistan är `null`, egenskaperna för komponenten ska lämnas i sina implicit standardtillstånd."
   syntax:
     content: public void InitializeNewComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A dictionary of default property values, which are name/value pairs, with which to initialize the component&quot;s state."
+      description: "En ordlista med egenskapen standardvärdena som är namn/värde-par som du vill initiera komponentens tillstånd."
   overload: System.ComponentModel.Design.IComponentInitializer.InitializeNewComponent*
   exceptions: []
   platform:

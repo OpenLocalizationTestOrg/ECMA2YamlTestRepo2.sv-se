@@ -11,8 +11,8 @@ items:
   nameWithType: IClientChannelSinkProvider
   fullName: System.Runtime.Remoting.Channels.IClientChannelSinkProvider
   type: Interface
-  summary: "Creates client channel sinks for the client channel through which remoting messages flow."
-  remarks: "Channel sinks are connected to a client channel through implementations of the IClientChannelSinkProvider interface. All the remoting client channels provide constructors that take a IClientChannelSinkProvider as a parameter.       Channel sink providers are stored in a chain, and the user is responsible for chaining all channel sink providers together before passing the outer one to the channel constructor. IClientChannelSinkProvider provides a property called <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A> for this purpose.       When multiple channel sink providers are specified in a configuration file, the remoting infrastructure will chain them together in the order they are found in the configuration file. The channel sink providers will be created when the channel is created during the <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName> call."
+  summary: "Skapar klienten kanal sänkor för klientkanal via vilken fjärrkommunikation meddelanden."
+  remarks: "Kanal sänkor är anslutna till en klientkanal via implementeringar av gränssnittet IClientChannelSinkProvider. Alla kanaler för fjärrkommunikation-klient ger konstruktorer som tar en IClientChannelSinkProvider som en parameter.       Kanal Mottagarproviders lagras i en kedja och användaren är ansvarig för länkning alla kanal Mottagarproviders tillsammans innan det yttre för kanalkonstruktorn. IClientChannelSinkProvider innehåller en egenskap som kallas <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>för detta ändamål.</xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider.Next%2A>       När flera kanal Mottagarproviders anges i en konfigurationsfil, kommer fjärrinfrastrukturen kedja dem tillsammans i den ordning som de finns i konfigurationsfilen. Mottagarproviders kanalen ska skapas när kanalen har skapats under den <xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>anropa.</xref:System.Runtime.Remoting.RemotingConfiguration.Configure%2A?displayProperty=fullName>"
   example:
   - "The following code example illustrates an implementation of this interface.  \n  \n [!code-cs[Remoting_Sinks#30](~/add/codesnippet/csharp/t-system.runtime.remotin_15_1.cs)]\n [!code-cpp[Remoting_Sinks#30](~/add/codesnippet/cpp/t-system.runtime.remotin_15_1.cpp)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IClientChannelSink> interface documentation for an example of the corresponding client sink implementation."
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Creates a sink chain."
-  remarks: "When the CreateSink method is called, it creates its own channel sink, forwards the CreateSink call to the next sink provider in the chain (if there is one), and ensures that the next sink and the current one are linked together."
+  summary: "Skapar en sink-kedja."
+  remarks: "När metoden CreateSink anropas den skapar en egen kanalmottagare, vidarebefordrar CreateSink anropet till nästa mottagarprovider i kedjan (om sådan finns), och säkerställer att nästa sink och den aktuella som är länkade till varandra."
   example:
   - "The following code example illustrates an implementation of this method.  \n  \n [!code-cs[Remoting_Sinks#33](~/add/codesnippet/csharp/09bab0ba-2acd-4d69-ae61-_1.cs)]\n [!code-cpp[Remoting_Sinks#33](~/add/codesnippet/cpp/09bab0ba-2acd-4d69-ae61-_1.cpp)]"
   syntax:
@@ -44,21 +44,21 @@ items:
     parameters:
     - id: channel
       type: System.Runtime.Remoting.Channels.IChannelSender
-      description: "Channel for which the current sink chain is being constructed."
+      description: "Kanal som den aktuella sink-kedjan skapas."
     - id: url
       type: System.String
-      description: "The URL of the object to connect to. This parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the connection is based entirely on the information contained in the `remoteChannelData` parameter."
+      description: "URL till objektet att ansluta till. Den här parametern kan vara <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om anslutningen bara baseras på informationen i den `remoteChannelData` parameter."
     - id: remoteChannelData
       type: System.Object
-      description: "A channel data object that describes a channel on the remote server."
+      description: "En kanal-dataobjekt som beskriver en kanal på fjärrservern."
     return:
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The first sink of the newly formed channel sink chain, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, which indicates that this provider will not or cannot provide a connection for this endpoint."
+      description: "Sink-kedja nyligen utformat kanal första sink eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, vilket anger att den här providern kan inte eller kan inte tillhandahålla en anslutning för den här slutpunkten."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.CreateSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Den omedelbara anroparen har inte behörighet för infrastruktur."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.Next
@@ -73,7 +73,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets or sets the next sink provider in the channel sink provider chain."
+  summary: "Hämtar eller anger nästa mottagarprovider i kedjan kanal sink-providern."
   remarks: ''
   example:
   - "The following code example illustrates an implementation of this property.  \n  \n [!code-cs[Remoting_Sinks#32](~/add/codesnippet/csharp/p-system.runtime.remotin_37_1.cs)]\n [!code-cpp[Remoting_Sinks#32](~/add/codesnippet/cpp/p-system.runtime.remotin_37_1.cpp)]"
@@ -81,12 +81,12 @@ items:
     content: public System.Runtime.Remoting.Channels.IClientChannelSinkProvider Next { get; set; }
     return:
       type: System.Runtime.Remoting.Channels.IClientChannelSinkProvider
-      description: "The next sink provider in the channel sink provider chain."
+      description: "Nästa mottagarprovider i kedjan kanal sink-providern."
   overload: System.Runtime.Remoting.Channels.IClientChannelSinkProvider.Next*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "Den omedelbara anroparen har inte behörighet för infrastruktur."
   platform:
   - net462
 references:

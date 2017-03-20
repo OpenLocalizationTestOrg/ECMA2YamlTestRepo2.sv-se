@@ -12,8 +12,8 @@ items:
   nameWithType: ManagedToNativeComInteropStubAttribute
   fullName: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute
   type: Class
-  summary: "Provides support for user customization of interop stubs in managed-to-COM interop scenarios."
-  remarks: "This attribute enables interop developers who have knowledge about marshaling and the inner workings of interop calls to do the following:      -   Take advantage of customized interop stubs at build time instead of run time.      -   Debug customized interop stubs.      -   Provide marshaling capabilities within a stub that the runtime does not provide.      -   Provide user-specific method dispatch capabilities.       You apply the attribute on a method in an interface to specify a corresponding stub method for managed-to-native COM interop.       If this attribute is encountered during run time, the common language runtime does not dynamically generate an interop stub. Instead, it invokes the custom stub that was created at build time.       The ManagedToNativeComInteropStubAttribute attribute has the following characteristics:      -   The attribute can be used only on methods from interfaces that are marked `[ComImport]`. If the attribute is applied to non-interface types, it is ignored by the runtime.      -   The attribute can be used only once on the same method in an interface. If it is used more than once, the compiler generates a duplicated attribute error.      -   The attribute is not inheritable from a base interface. Derived interfaces must explicitly assign the attribute.      -   The assembly that contains the attributed method must also contain the customized stub.       Overloaded stub methods are valid. Although you specify only the type and the name of the stub method, the runtime will discover the corresponding stub. It does this by examining all the arguments on the interface method, and then performing full signature matching by using an explicit `this` pointer.       It is also possible for multiple methods in an interface to share the same stub method; however, you should be careful when you use shared stubs.      > [!NOTE] >  Stub methods must be static.       You could inform the runtime to use a customized interop stub at build time instead of run time with the following C# code:      ```   [ComImport]   interface IMyInterface   {       [ManagedToNativeComInteropStubAttribute(typeof(TestStubClass),                 &quot;ForwardTestStub&quot;)]       void GetString (string arg);   }   ```       You could then use the following code to declare the corresponding stub method:      ```   class TestStubClass   {       internal static void ForwardTestStub(IMyInterface thisObject,                string arg) {…}   }   ```"
+  summary: "Ger stöd för användaranpassning av interop stub-rutiner i hanteras till COM-interop scenarier."
+  remarks: "Det här attributet kan interop utvecklare som har kunskap om att konvertera och proxyklassen interop-anrop att göra följande:-dra nytta av anpassade interop stub vid byggning i stället för körning.      -Debug anpassade interop stub-rutiner.      -Ange omordnande funktioner i en stub körningsmiljön inte tillhandahåller.      -Ange användarspecifika metoden dispatch-funktioner.       Du kan använda attributet för en metod i ett gränssnitt för att ange en motsvarande stub-metoden för hanterade-till-intern COM-interop.       Om det här attributet har påträffats vid körning, genererar CLR inte dynamiskt ett interop stub. I stället anropar den anpassade stub-funktionen som skapades vid byggning.       Attributet ManagedToNativeComInteropStubAttribute har följande egenskaper:-attributet kan användas enbart på metoder från gränssnitt som är markerade `[ComImport]`. Om attributet används för icke-gränssnittstyper ignoreras av körningsmiljön.      -Attributet kan användas en gång i samma metod i ett gränssnitt. Om den används mer än en gång genereras ett fel med Duplicerat attribut.      -Attributet kan inte ärvas från ett grundläggande gränssnitt. Härledda gränssnitt måste uttryckligen tilldela attributet.      -Sammansättningen som innehåller metoden attributed måste också innehålla anpassade stub-funktionen.       Överlagrade stub-metoder är giltiga. Men du kan ange endast typen och namnet på stub-metoden, identifierar körningsmiljön motsvarande stub-funktionen. Detta åstadkoms genom att undersöka alla argument för metoden i gränssnittet och sedan utföra fullständig signatur som matchar med hjälp av ett explicit `this` pekaren.       Det är också möjligt för flera metoder i ett gränssnitt för att dela samma stub-metoden. dock bör du vara försiktig när du använder delade stub-rutiner.      > [!NOTE] > Stub-metoder måste vara statisk.       Du kan informera runtime om du vill använda en anpassad interop stub vid byggning i stället för körning med följande C#-kod: ```   [ComImport]   interface IMyInterface   {       [ManagedToNativeComInteropStubAttribute(typeof(TestStubClass),                 &quot;ForwardTestStub&quot;)]       void GetString (string arg);   }   ``` du kan sedan använda följande kod för att deklarera motsvarande stub-metoden:```   class TestStubClass   {       internal static void ForwardTestStub(IMyInterface thisObject,                string arg) {…}   }   ```"
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Method, AllowMultiple=false, Inherited=false)]
@@ -39,24 +39,24 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute&quot;></xref> class with the specified class type and method name."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute&quot;> </xref> klassen med namnet för den angivna klassen typ och metod."
   syntax:
     content: public ManagedToNativeComInteropStubAttribute (Type classType, string methodName);
     parameters:
     - id: classType
       type: System.Type
-      description: "The class that contains the required stub method."
+      description: "Den klass som innehåller nödvändiga stub-metoden."
     - id: methodName
       type: System.String
-      description: "The name of the stub method."
+      description: "Namnet på stub-metoden."
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>methodName</code> cannot be found.       -or-       The method is not static or non-generic.       -or-       The method&quot;s parameter list does not match the expected parameter list for the stub."
+    description: "<code>methodName</code>kan inte hittas.       - eller - metoden är inte statisk eller icke-generisk.       - eller - metodens parameterlista matchar inte listan över förväntade parametern för stub-funktionen."
   - type: System.MethodAccessException
     commentId: T:System.MethodAccessException
-    description: "The interface that contains the managed interop method has no access to the stub method, because the stub method has private or protected accessibility, or because of a security issue."
+    description: "Det gränssnitt som innehåller hanterade interop-metoden har inte tillgång till stub-metoden eftersom stub-metoden har privat eller skyddade hjälpmedel eller på grund av ett säkerhetsproblem."
   platform:
   - net462
 - uid: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.ClassType
@@ -71,12 +71,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the class that contains the required stub method."
+  summary: "Hämtar den klass som innehåller nödvändiga stub-metoden."
   syntax:
     content: public Type ClassType { get; }
     return:
       type: System.Type
-      description: "The class that contains the customized interop stub."
+      description: "Den klass som innehåller anpassade interop stub-funktionen."
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.ClassType*
   exceptions: []
   platform:
@@ -93,12 +93,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the name of the stub method."
+  summary: "Hämtar namnet på stub-metoden."
   syntax:
     content: public string MethodName { get; }
     return:
       type: System.String
-      description: "The name of a customized interop stub."
+      description: "Namnet på en anpassad interop stub."
   overload: System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute.MethodName*
   exceptions: []
   platform:
