@@ -43,8 +43,8 @@ items:
   nameWithType: WorkflowInstance
   fullName: System.Activities.Hosting.WorkflowInstance
   type: Class
-  summary: "WorkflowInstance is a lightweight, per-instance runtime for executing a workflow program. It can be constructed to create a new workflow instance or from existing instance state. The APIs that <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> exposes are the minimal set of runtime controls from which higher level operations can be implemented. This API set represents the entire breadth of functionality of the runtime. WorkflowInstance is an abstract class and relies on a host’s implementation of its abstract methods in order to provide host functionality such as synchronization, persistence, tracking, and extensions."
-  remarks: "WorkflowInstance is single threaded and assumes that the host synchronizes all access to it. An attempt to call multiple APIs simultaneously will result in an <xref:System.InvalidOperationException> being thrown.       Internally, a WorkflowInstance has two states: Running and Paused. The only way to cause the runtime to transition from paused to running is to call <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>. All actions (except Pause) can only be taken while the runtime is Paused. The runtime will become spontaneously Paused in the following situations:      -   An error fatal to the runtime has occurred. The host will be signaled through <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> (which does not signal a transition to Paused) and then notified through <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A>.      -   An exception in the workflow was uncaught and escaped the root. The host will be notified through the <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyUnhandledException%2A> method.      -   The scheduler has run out of work items and is now <xref:System.Activities.Hosting.WorkflowInstanceState>. The host will be notified through the <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> method. Note that the scheduler could have run out of work items because the instance is idle or because the instance is complete. The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A> value of the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property can be used to differentiate between the two.       The host can request a change from Running to Paused by calling the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> or <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.PauseWhenPersistable%2A> methods of the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> instance returned by the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property. This request should not be considered to have a specific response meaning that the host should not attempt to correlate an OnNotify* or <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> with a specific call to pause. In response to a pause request, the runtime may transition to Paused and call <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> while the scheduler still has pending work items. The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A> value of the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property can be used to determine whether the scheduler has no more work or was interrupted by a request to pause.       The <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> method of the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> instance returned by the <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> property is the only method which can be called while the WorkflowInstance is in the Running state. All other methods will throw an <xref:System.InvalidOperationException> if called.Given the rules for how WorkflowInstance transitions from one state to another, the public notion of Running and Paused can be defined as follows:      -   Running – The state between a call to <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A> and the next WorkflowInstance.OnNotify*.      -   Paused – The state between the last WorkflowInstance.OnNotify* and the next call to <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>."
+  summary: "WorkflowInstance är en förenklad, per instans runtime för att köra ett arbetsflödesprogram. Det kan konstrueras för att skapa en ny arbetsflödesinstans eller från den befintliga instanstillstånd. API: erna som <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>visar är den minsta uppsättningen av runtime-kontroller som högre nivå åtgärder kan genomföras.</xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> Den här API-uppsättningen representerar hela bredden av funktionerna i körningsmiljön. WorkflowInstance är en abstrakt klass och bygger på en värd implementering av de abstrakta metoderna för att kunna tillhandahålla värdfunktioner såsom synkronisering, beständighet, spårning och tillägg."
+  remarks: "WorkflowInstance är en enskild flertrådade och förutsätter att värden synkroniserar all åtkomst till den. Ett försök att anropa flera API: er samtidigt resulterar i en <xref:System.InvalidOperationException>som genereras.</xref:System.InvalidOperationException>       Internt, en WorkflowInstance har två lägen: körs och pausad. Det enda sättet att körningstiden till övergången från pausats körs är att anropa <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>.</xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A> Alla åtgärder (utom Pause) kan bara hämtas när körningen har pausats. Körningen ska bli spontant pausad i följande situationer:-ett allvarligt körningstillstånd fel har uppstått. Värden signaleras via <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A>(som ogiltig indikation på en övergång till pausad) och sedan meddelas via <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A>.</xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> </xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A>      -Ett undantag i arbetsflödet var utan felhantering och föregås av roten. Värden kommer att meddelas via den <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyUnhandledException%2A>metoden.</xref:System.Activities.Hosting.WorkflowInstance.OnNotifyUnhandledException%2A>      -Schemaläggaren har slut arbetsobjekt och är nu <xref:System.Activities.Hosting.WorkflowInstanceState>.</xref:System.Activities.Hosting.WorkflowInstanceState> Värden kommer att meddelas via den <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A>metoden.</xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> Observera att Schemaläggaren kan ha slut arbetsobjekt eftersom instansen är inaktiv eller eftersom instansen är klar. Den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A>värdet för den <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A>egenskapen kan användas för att skilja mellan två.</xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A>       Värden kan begära en ändring från att köras på Paused genom att anropa den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A>eller <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.PauseWhenPersistable%2A>metoder för den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>instans som returneras av den <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A>egenskapen.</xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.PauseWhenPersistable%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> Denna begäran ska inte betraktas som har ett visst svar vilket innebär att värden inte ska försöka att korrelera ett OnNotify* eller <xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A>med ett specifikt anrop till pausa.</xref:System.Activities.Hosting.WorkflowInstance.OnRequestAbort%2A> Som svar på en begäran om paus körningen kan övergå till pausas och anropet <xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A>medan Schemaläggaren har fortfarande väntande arbetsobjekt.</xref:System.Activities.Hosting.WorkflowInstance.OnNotifyPaused%2A> Den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A>värdet för den <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A>egenskapen kan användas för att avgöra om Schemaläggaren har inga fler arbete eller avbröts av en begäran om att pausa.</xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.State%2A>       Den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A>metod för den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>instans som returneras av den <xref:System.Activities.Hosting.WorkflowInstance.Controller%2A>egenskapen är den enda metoden som kan anropas när WorkflowInstance är i tillståndet körs.</xref:System.Activities.Hosting.WorkflowInstance.Controller%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.RequestPause%2A> Alla andra metoder genereras ett <xref:System.InvalidOperationException>om den anropas. Angivna regler för WorkflowInstance övergången från ett tillstånd till en annan offentlig begreppet körs och pausad kan definieras enligt följande: - kör – tillstånd mellan ett anrop till <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>och nästa WorkflowInstance.OnNotify*.</xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A> </xref:System.InvalidOperationException>      -Pausad – tillstånd mellan den sista WorkflowInstance.OnNotify* och nästa anrop till <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>.</xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Run%2A>"
   syntax:
     content: public abstract class WorkflowInstance
   inheritance:
@@ -65,13 +65,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;></xref> class with the specified workflow definition."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;> </xref> klass med den angivna arbetsflödesdefinitionen."
   syntax:
     content: protected WorkflowInstance (System.Activities.Activity workflowDefinition);
     parameters:
     - id: workflowDefinition
       type: System.Activities.Activity
-      description: "The activity that defines the workflow."
+      description: "Aktiviteten som definierar arbetsflödet."
   overload: System.Activities.Hosting.WorkflowInstance.#ctor*
   exceptions: []
   platform:
@@ -88,16 +88,16 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;></xref> class with the specified workflow definition and definition identity."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;> </xref> klass med angivna arbetsflödesdefinitionen och definitionsidentitet."
   syntax:
     content: protected WorkflowInstance (System.Activities.Activity workflowDefinition, System.Activities.WorkflowIdentity definitionIdentity);
     parameters:
     - id: workflowDefinition
       type: System.Activities.Activity
-      description: "The activity that defines the workflow."
+      description: "Aktiviteten som definierar arbetsflödet."
     - id: definitionIdentity
       type: System.Activities.WorkflowIdentity
-      description: "The definition identity."
+      description: "Definitionsidentitet."
   overload: System.Activities.Hosting.WorkflowInstance.#ctor*
   exceptions: []
   platform:
@@ -114,22 +114,22 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to begin sending pending tracking records to tracking participants asynchronously."
+  summary: "Anropas av arbetsflödet körningen ska börja skicka väntande spåra poster att spåra deltagare asynkront."
   syntax:
     content: protected IAsyncResult BeginFlushTrackingRecords (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which to abort the attempt."
+      description: "Tidsperiod efter vilken att avbryta försöket."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the track operation has completed."
+      description: "Metoden som ska anropas när spåra åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "The information about the asynchronous operation."
+      description: "Information om den asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The status of the current track operation."
+      description: "Status för den aktuella åtgärden spåra."
   overload: System.Activities.Hosting.WorkflowInstance.BeginFlushTrackingRecords*
   exceptions: []
   platform:
@@ -146,12 +146,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets the <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> instance for this <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;></xref>."
+  summary: "Hämtar den <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>instansen för den här <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;> </xref>.</xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>"
   syntax:
     content: protected System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl Controller { get; }
     return:
       type: System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl
-      description: "The controller instance for this workflow instance."
+      description: "Instansen som domänkontrollant för denna arbetsflödesinstans."
   overload: System.Activities.Hosting.WorkflowInstance.Controller*
   exceptions: []
   platform:
@@ -168,12 +168,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets or sets the definition identity of <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;></xref>."
+  summary: "Hämtar eller anger definitionsidentitet <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;> </xref>."
   syntax:
     content: public System.Activities.WorkflowIdentity DefinitionIdentity { get; }
     return:
       type: System.Activities.WorkflowIdentity
-      description: "The definition identity of <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;></xref>."
+      description: "Definition av identiteten för <xref href=&quot;System.Activities.Hosting.WorkflowInstance&quot;> </xref>."
   overload: System.Activities.Hosting.WorkflowInstance.DefinitionIdentity*
   exceptions: []
   platform:
@@ -190,7 +190,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Calls <xref:System.Disposable.Dispose*> on all extensions that implement <xref:System.IDisposable>."
+  summary: "Anropar <xref:System.Disposable.Dispose*>på alla tillägg som implementerar <xref:System.IDisposable>.</xref:System.IDisposable> </xref:System.Disposable.Dispose*>"
   syntax:
     content: protected void DisposeExtensions ();
     parameters: []
@@ -210,13 +210,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to end the track operation."
+  summary: "Anropas av arbetsflödet körningen ska sluta spåra igen."
   syntax:
     content: protected void EndFlushTrackingRecords (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the asynchronous track operation."
+      description: "Status för asynkron spåra igen."
   overload: System.Activities.Hosting.WorkflowInstance.EndFlushTrackingRecords*
   exceptions: []
   platform:
@@ -233,13 +233,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to send pending tracking records to tracking participants."
+  summary: "Anropas av arbetsflödet körningen att skicka väntande spåra poster för spårning av deltagare."
   syntax:
     content: protected void FlushTrackingRecords (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which to abort the attempt."
+      description: "Tidsperiod efter vilken att avbryta försöket."
   overload: System.Activities.Hosting.WorkflowInstance.FlushTrackingRecords*
   exceptions: []
   platform:
@@ -256,19 +256,19 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Retrieves the list of activity that is blocking the update of the workflow."
+  summary: "Hämtar listan över aktiviteter som blockerar uppdateringen av arbetsflödet."
   syntax:
     content: protected static System.Collections.Generic.IList<System.Activities.DynamicUpdate.ActivityBlockingUpdate> GetActivitiesBlockingUpdate (object deserializedRuntimeState, System.Activities.DynamicUpdate.DynamicUpdateMap updateMap);
     parameters:
     - id: deserializedRuntimeState
       type: System.Object
-      description: "The deserialized runtime state."
+      description: "Avserialiserat runtime-tillståndet."
     - id: updateMap
       type: System.Activities.DynamicUpdate.DynamicUpdateMap
-      description: "The update map."
+      description: "Uppdateringsmappningen."
     return:
       type: System.Collections.Generic.IList{System.Activities.DynamicUpdate.ActivityBlockingUpdate}
-      description: "The list of activity that is blocking the update."
+      description: "Lista över aktiviteter som blockerar uppdateringen."
   overload: System.Activities.Hosting.WorkflowInstance.GetActivitiesBlockingUpdate*
   exceptions: []
   platform:
@@ -290,7 +290,7 @@ items:
     parameters: []
     return:
       type: T
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Activities.Hosting.WorkflowInstance.GetExtension<T>*
   exceptions: []
   platform:
@@ -312,7 +312,7 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{T}
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Activities.Hosting.WorkflowInstance.GetExtensions<T>*
   exceptions: []
   platform:
@@ -329,13 +329,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets or sets the root environment for the workflow instance’s arguments and variables."
-  remarks: "If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown."
+  summary: "Hämtar eller anger rot-miljö för arbetsflödesinstansen argument och variabler."
+  remarks: "Om den här egenskapen anges när arbetsflödesinstansen har initierats och <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>returnerar `true`, en <xref:System.InvalidOperationException>genereras.</xref:System.InvalidOperationException> </xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>"
   syntax:
     content: public System.Activities.LocationReferenceEnvironment HostEnvironment { get; set; }
     return:
       type: System.Activities.LocationReferenceEnvironment
-      description: "The root environment for the workflow instance’s arguments and variables."
+      description: "Rot-miljö för arbetsflödesinstansen argument och variabler."
   overload: System.Activities.Hosting.WorkflowInstance.HostEnvironment*
   exceptions: []
   platform:
@@ -352,12 +352,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets the unique identifier for the workflow instance."
+  summary: "Hämtar den unika identifieraren för arbetsflödesinstansen."
   syntax:
     content: public abstract Guid Id { get; }
     return:
       type: System.Guid
-      description: "The unique identifier for the workflow instance."
+      description: "Den unika identifieraren för arbetsflödesinstansen."
   overload: System.Activities.Hosting.WorkflowInstance.Id*
   exceptions: []
   platform:
@@ -374,13 +374,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the host to initialize the workflow instance with the workflow run-time state."
+  summary: "Anropas av värden för att initiera arbetsflödesinstans med arbetsflödets körtid tillstånd."
   syntax:
     content: protected void Initialize (object deserializedRuntimeState);
     parameters:
     - id: deserializedRuntimeState
       type: System.Object
-      description: "The run-time state used to execute the workflow."
+      description: "Körning status används för att köra arbetsflödet."
   overload: System.Activities.Hosting.WorkflowInstance.Initialize*
   exceptions: []
   platform:
@@ -397,16 +397,16 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the host to initialize the workflow instance with the argument values and execution properties."
+  summary: "Anropas av värden för att initiera arbetsflödesinstans med argumentet värdena och körningsegenskaper."
   syntax:
     content: protected void Initialize (System.Collections.Generic.IDictionary<string,object> workflowArgumentValues, System.Collections.Generic.IList<System.Activities.Handle> workflowExecutionProperties);
     parameters:
     - id: workflowArgumentValues
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "The input parameters to the workflow, keyed by argument name."
+      description: "Indataparametrarna för arbetsflödet, Nyckelbaserade av argumentnamnet."
     - id: workflowExecutionProperties
       type: System.Collections.Generic.IList{System.Activities.Handle}
-      description: "The list of workflow execution properties."
+      description: "Lista över körningsegenskaper för arbetsflöde."
   overload: System.Activities.Hosting.WorkflowInstance.Initialize*
   exceptions: []
   platform:
@@ -423,16 +423,16 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the host to initialize the workflow instance with the workflow run-time state and update map."
+  summary: "Kallas för värden att initiera arbetsflödesinstans med arbetsflödets körtid tillstånd och uppdatera kartan."
   syntax:
     content: protected void Initialize (object deserializedRuntimeState, System.Activities.DynamicUpdate.DynamicUpdateMap updateMap);
     parameters:
     - id: deserializedRuntimeState
       type: System.Object
-      description: "The run-time state used to execute the workflow."
+      description: "Körning status används för att köra arbetsflödet."
     - id: updateMap
       type: System.Activities.DynamicUpdate.DynamicUpdateMap
-      description: "The update map."
+      description: "Uppdateringsmappningen."
   overload: System.Activities.Hosting.WorkflowInstance.Initialize*
   exceptions: []
   platform:
@@ -449,12 +449,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets a value that indicates whether the workflow instance has been initialized."
+  summary: "Hämtar ett värde som anger om arbetsflödesinstansen har initierats."
   syntax:
     content: protected bool IsReadOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the workflow instance has been initialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om arbetsflödesinstansen har initierats. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Activities.Hosting.WorkflowInstance.IsReadOnly*
   exceptions: []
   platform:
@@ -471,22 +471,22 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that new instance keys should be associated with this instance."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att den nya instansen nycklar ska associeras med den här instansen."
   syntax:
     content: protected abstract IAsyncResult OnBeginAssociateKeys (System.Collections.Generic.ICollection<System.Runtime.DurableInstancing.InstanceKey> keys, AsyncCallback callback, object state);
     parameters:
     - id: keys
       type: System.Collections.Generic.ICollection{System.Runtime.DurableInstancing.InstanceKey}
-      description: "The instance keys to associate with this workflow instance."
+      description: "Instansen nycklar ska associeras med den här arbetsflödesinstans."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the operation completes."
+      description: "Metoden som ska anropas när åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "An optional application-specific object that contains information about the asynchronous operation."
+      description: "Ett valfritt programspecifika-objekt som innehåller information om den asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "A reference to the asynchronous associate keys operation."
+      description: "En referens till den asynkrona associera nycklar igen."
   overload: System.Activities.Hosting.WorkflowInstance.OnBeginAssociateKeys*
   exceptions: []
   platform:
@@ -503,19 +503,19 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Asynchronous call to ask host to flush pending tracking records to tracking participants."
+  summary: "Asynkront anrop till be värden för att tömma väntande spåra poster för spårning av deltagare."
   syntax:
     content: protected virtual IAsyncResult OnBeginFlushTrackingRecords (AsyncCallback callback, object state);
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the track operation has completed."
+      description: "Metoden som ska anropas när spåra åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "The information about the asynchronous operation."
+      description: "Information om den asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The status of the current track operation."
+      description: "Status för den aktuella åtgärden spåra."
   overload: System.Activities.Hosting.WorkflowInstance.OnBeginFlushTrackingRecords*
   exceptions: []
   platform:
@@ -532,19 +532,19 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Asynchronous call to ask the host to persist the workflow."
+  summary: "Asynkront anrop till be värden att bevara arbetsflödet."
   syntax:
     content: protected abstract IAsyncResult OnBeginPersist (AsyncCallback callback, object state);
     parameters:
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the persist operation has completed."
+      description: "Metoden som ska anropas när spara-åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "An optional application-specific object that contains information about the asynchronous operation."
+      description: "Ett valfritt programspecifika-objekt som innehåller information om den asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "A reference to the current persist operation."
+      description: "En referens till aktuellt spara igen."
   overload: System.Activities.Hosting.WorkflowInstance.OnBeginPersist*
   exceptions: []
   platform:
@@ -561,28 +561,28 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that a resume bookmark operation is beginning."
+  summary: "Anropas av arbetsflödet körningen att meddela den värd som ett bokmärke återställningsförsöket börjar."
   syntax:
     content: protected abstract IAsyncResult OnBeginResumeBookmark (System.Activities.Bookmark bookmark, object value, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: bookmark
       type: System.Activities.Bookmark
-      description: "The bookmark to resume."
+      description: "Bokmärket att återuppta."
     - id: value
       type: System.Object
-      description: "The data to be passed to the activity that created the <xref href=&quot;System.Activities.Bookmark&quot;></xref>."
+      description: "Data som ska skickas till den aktivitet som skapade den <xref href=&quot;System.Activities.Bookmark&quot;> </xref>."
     - id: timeout
       type: System.TimeSpan
-      description: "The interval in which the resume operation must complete before the operation is canceled and a <xref:System.TimeoutException> is thrown."
+      description: "Åtgärden återuppta måste slutföras innan åtgärden avbryts och en intervallet <xref:System.TimeoutException>genereras.</xref:System.TimeoutException>"
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called when the resume operation has completed."
+      description: "Metoden som ska anropas när återuppta åtgärden har slutförts."
     - id: state
       type: System.Object
-      description: "An optional application-specific object that contains information about the asynchronous operation."
+      description: "Ett valfritt programspecifika-objekt som innehåller information om den asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "A reference to the asynchronous resume operation."
+      description: "En referens till åtgärden för asynkron återuppta."
   overload: System.Activities.Hosting.WorkflowInstance.OnBeginResumeBookmark*
   exceptions: []
   platform:
@@ -599,13 +599,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that a certain set of instance keys should no longer be associated with this instance."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att en viss uppsättning instans nycklar inte längre ska vara associerat med den här instansen."
   syntax:
     content: protected abstract void OnDisassociateKeys (System.Collections.Generic.ICollection<System.Runtime.DurableInstancing.InstanceKey> keys);
     parameters:
     - id: keys
       type: System.Collections.Generic.ICollection{System.Runtime.DurableInstancing.InstanceKey}
-      description: "The list of keys to disassociate."
+      description: "Lista över nycklar koppla."
   overload: System.Activities.Hosting.WorkflowInstance.OnDisassociateKeys*
   exceptions: []
   platform:
@@ -622,13 +622,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that an associate keys operation is complete."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att en associera nycklar åtgärd har slutförts."
   syntax:
     content: protected abstract void OnEndAssociateKeys (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The reference to the asynchronous associate keys operation."
+      description: "Referensen till den asynkrona associera nycklar igen."
   overload: System.Activities.Hosting.WorkflowInstance.OnEndAssociateKeys*
   exceptions: []
   platform:
@@ -645,13 +645,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host when the flush tracking records operation is complete."
+  summary: "Anropas av arbetsflödet körningen att meddela värden när flush spårning poster åtgärden har slutförts."
   syntax:
     content: protected virtual void OnEndFlushTrackingRecords (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the asynchronous flush tracking records operation."
+      description: "Status för asynkron tömning spårning poster igen."
   overload: System.Activities.Hosting.WorkflowInstance.OnEndFlushTrackingRecords*
   exceptions: []
   platform:
@@ -668,13 +668,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that a persist operation is complete."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att en spara-åtgärden har slutförts."
   syntax:
     content: protected abstract void OnEndPersist (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The reference to the asynchronous persist operation."
+      description: "Referensen till den asynkrona spara igen."
   overload: System.Activities.Hosting.WorkflowInstance.OnEndPersist*
   exceptions: []
   platform:
@@ -691,16 +691,16 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that a resume bookmark operation is complete."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att en återuppta bokmärke åtgärd har slutförts."
   syntax:
     content: protected abstract System.Activities.BookmarkResumptionResult OnEndResumeBookmark (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The reference to the asynchronous resume bookmark operation."
+      description: "Referens till åtgärden för asynkron återuppta bokmärket."
     return:
       type: System.Activities.BookmarkResumptionResult
-      description: "One of the enumeration values that indicates the result of a <xref href=&quot;System.Activities.Bookmark&quot;></xref> resume operation."
+      description: "En av uppräkningsvärdena som visar resultatet av en <xref href=&quot;System.Activities.Bookmark&quot;> </xref> åtgärden återuppta."
   overload: System.Activities.Hosting.WorkflowInstance.OnEndResumeBookmark*
   exceptions: []
   platform:
@@ -717,7 +717,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that the workflow instance has transitioned from the running state to the paused state."
+  summary: "Anropas av arbetsflödet körningen att meddela den värd som arbetsflödesinstansen har övergått från körs till pausläge."
   syntax:
     content: protected abstract void OnNotifyPaused ();
     parameters: []
@@ -737,19 +737,19 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host an unhandled exception has occurred in the workflow instance."
+  summary: "Anropas av arbetsflödet körningen att meddela värden ett ohanterat undantag uppstod i arbetsflödesinstansen."
   syntax:
     content: protected abstract void OnNotifyUnhandledException (Exception exception, System.Activities.Activity source, string sourceInstanceId);
     parameters:
     - id: exception
       type: System.Exception
-      description: "The unhandled exception."
+      description: "Ohanterat undantag."
     - id: source
       type: System.Activities.Activity
-      description: "The activity that threw the exception."
+      description: "Den aktivitet som utlöste undantaget."
     - id: sourceInstanceId
       type: System.String
-      description: "The unique identifier of the <xref href=&quot;System.Activities.ActivityInstance&quot;></xref> representing the activity that threw the exception."
+      description: "Den unika identifieraren för den <xref href=&quot;System.Activities.ActivityInstance&quot;> </xref> som representerar den aktivitet som utlöste undantaget."
   overload: System.Activities.Hosting.WorkflowInstance.OnNotifyUnhandledException*
   exceptions: []
   platform:
@@ -766,14 +766,14 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the workflow runtime to notify the host that an abort operation has been requested for the workflow instance."
-  remarks: "Once OnRequestAbort is called, most <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> APIs except <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Abort%2A> will throw an <xref:System.InvalidOperationException>. It is expected that after OnRequestAbort is called a host will trend toward a state in which it can satisfy the abort."
+  summary: "Anropas av arbetsflödet körningen att meddela värden att åtgärden Avbryt har begärts för arbetsflödesinstansen."
+  remarks: "En gång OnRequestAbort anropas, de flesta <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl>API: er utom <xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Abort%2A>genereras <xref:System.InvalidOperationException>.</xref:System.InvalidOperationException> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl.Abort%2A> </xref:System.Activities.Hosting.WorkflowInstance.WorkflowInstanceControl> Det förväntas att en värd kommer trenden mot ett tillstånd där den klarar avbrottet när OnRequestAbort anropas."
   syntax:
     content: protected abstract void OnRequestAbort (Exception reason);
     parameters:
     - id: reason
       type: System.Exception
-      description: "The reason for aborting the workflow instance."
+      description: "Orsak till avbryts arbetsflödesinstansen."
   overload: System.Activities.Hosting.WorkflowInstance.OnRequestAbort*
   exceptions: []
   platform:
@@ -790,14 +790,14 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Called by the host to register the specified extension manager, validate that all required extensions are present, and to initialize the collection of extensions to be used."
-  remarks: "Extensions are keyed by type, and a host provided extension will always be used if provided. Extensions added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the runtime type of the object as the type key. Extensions providers added through <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> use the decared type T of the Func\\<T> as the type key. Extension providers contributed by activities through the various *ActivityMetadata.AddDefaultExtensionProvider methods are dropped if a host extension exists for the declared type or if there is a broader type provided through AddDefaultExtensionProvider (ex. if Func\\<StreamWriter> is provided and Func\\<TextWriter> is provided, only Func\\<StreamWriter> will be kept). If an extension does not exist in the collection that is required by an activity (expressed by calling \\*ActivityMetadata.RequireExtension) a <xref:System.Activities.ValidationException> is thrown."
+  summary: "Kallas för värden att registrera den angivna Tilläggshanteraren, verifiera att alla nödvändiga tillägg finns och att initiera uppsättning tillägg som ska användas."
+  remarks: "Tillägg är anpassade efter typ och en värd som tillägget används alltid om. Tillägg som lagts till via <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A>Använd runtime-typen av objekt som nyckel för typen.</xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> Tillägg providers som lagts till via <xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A>använder funktionen decared typen T\\<T > som typen nyckel.</xref:System.Activities.Hosting.WorkflowInstanceExtensionManager.Add%2A> Tilläggsproviders har bidragit med aktiviteter på olika sätt *ActivityMetadata.AddDefaultExtensionProvider släpps om filnamnstillägget värden finns för den deklarerade typen eller om det finns en bredare typ som tillhandahålls via AddDefaultExtensionProvider (t.ex. Om funktionen\\<StreamWriter > tillhandahålls och Func\\<TextWriter > tillhandahålls endast Func\\<StreamWriter > sparas). Om ett tillägg inte finns i samlingen som krävs av en aktivitet (uttryckt genom att anropa \\*ActivityMetadata.RequireExtension) en <xref:System.Activities.ValidationException>genereras.</xref:System.Activities.ValidationException>"
   syntax:
     content: protected void RegisterExtensionManager (System.Activities.Hosting.WorkflowInstanceExtensionManager extensionManager);
     parameters:
     - id: extensionManager
       type: System.Activities.Hosting.WorkflowInstanceExtensionManager
-      description: "The extension manager to register."
+      description: "Tilläggshanteraren för att registrera."
   overload: System.Activities.Hosting.WorkflowInstance.RegisterExtensionManager*
   exceptions: []
   platform:
@@ -814,12 +814,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets a value that indicates whether the host supports the association of <xref:System.Runtime.Persistence.InstanceView.InstanceKeys*> with a run-time instance."
+  summary: "Hämtar ett värde som anger om värden stöder associering av <xref:System.Runtime.Persistence.InstanceView.InstanceKeys*>med en instans för körning.</xref:System.Runtime.Persistence.InstanceView.InstanceKeys*>"
   syntax:
     content: protected abstract bool SupportsInstanceKeys { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the host supports the association of <xref:System.Runtime.Persistence.InstanceView.InstanceKeys*> with a workflow instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om värden stöder associering av <xref:System.Runtime.Persistence.InstanceView.InstanceKeys*>med en arbetsflödesinstans; annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Runtime.Persistence.InstanceView.InstanceKeys*>"
   overload: System.Activities.Hosting.WorkflowInstance.SupportsInstanceKeys*
   exceptions: []
   platform:
@@ -836,13 +836,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets or sets the <xref:System.Threading.SynchronizationContext> used for scheduling the workflow instance."
-  remarks: "If this property is set after the workflow instance is initialized and <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, an <xref:System.InvalidOperationException> is thrown."
+  summary: "Hämtar eller anger den <xref:System.Threading.SynchronizationContext>används för schemaläggning av arbetsflödesinstansen.</xref:System.Threading.SynchronizationContext>"
+  remarks: "Om den här egenskapen anges när arbetsflödesinstansen har initierats och <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>returnerar `true`, en <xref:System.InvalidOperationException>genereras.</xref:System.InvalidOperationException> </xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>"
   syntax:
     content: public System.Threading.SynchronizationContext SynchronizationContext { get; set; }
     return:
       type: System.Threading.SynchronizationContext
-      description: "The synchronization context used for scheduling the workflow instance."
+      description: "Synkroniseringskontext som används för schemaläggning av arbetsflödesinstansen."
   overload: System.Activities.Hosting.WorkflowInstance.SynchronizationContext*
   exceptions: []
   platform:
@@ -859,8 +859,8 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Throws an <xref:System.InvalidOperationException> if the workflow instance has been initialized, as determined by <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly*>."
-  remarks: "If <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A> returns `true`, then an <xref:System.InvalidOperationException> is thrown."
+  summary: "Genererar en <xref:System.InvalidOperationException>om arbetsflödesinstansen har initierats, enligt systemets <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly*>.</xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly*> </xref:System.InvalidOperationException>"
+  remarks: "Om <xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>returnerar `true`, och sedan en <xref:System.InvalidOperationException>genereras.</xref:System.InvalidOperationException> </xref:System.Activities.Hosting.WorkflowInstance.IsReadOnly%2A>"
   syntax:
     content: protected void ThrowIfReadOnly ();
     parameters: []
@@ -880,12 +880,12 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Hosting
-  summary: "Gets the workflow definition of the workflow instance."
+  summary: "Hämtar Arbetsflödesdefinitionen för arbetsflödesinstansen."
   syntax:
     content: public System.Activities.Activity WorkflowDefinition { get; }
     return:
       type: System.Activities.Activity
-      description: "The workflow definition of the workflow instance."
+      description: "Arbetsflödesdefinitionen för arbetsflödesinstansen."
   overload: System.Activities.Hosting.WorkflowInstance.WorkflowDefinition*
   exceptions: []
   platform:
