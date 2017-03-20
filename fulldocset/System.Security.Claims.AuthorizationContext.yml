@@ -14,8 +14,8 @@ items:
   nameWithType: AuthorizationContext
   fullName: System.Security.Claims.AuthorizationContext
   type: Class
-  summary: "Provides context information of an authorization event. This includes the principal that represents the caller, the resource that is being requested, and the action that is being performed."
-  remarks: "The AuthorizationContext class represents the context that is used by a claims authorization manager, an implementation of the <xref:System.Security.Claims.ClaimsAuthorizationManager> class,  to determine whether a principal (subject) should be authorized to perform a specified action on a given resource. The claims authorization manager evaluates the authorization context in the <xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A> method and either denies or grants access based on the claims presented by the principal.       The <xref:System.Security.Claims.AuthorizationContext.Principal%2A> property contains the principal for which authorization is being requested, the <xref:System.Security.Claims.AuthorizationContext.Resource%2A> property contains the resource on which the principal is being authorized, and the <xref:System.Security.Claims.AuthorizationContext.Action%2A> property contains the actions that the principal intends  to perform on the resource. Both the resource and the action are represented as a collection of claims; however, in most cases, each collection contains a single claim."
+  summary: "Ger omständighetsinformation för en auktoriseringshändelse. Detta inkluderar det säkerhetsobjekt som representerar anroparen resursen som begärs och den åtgärd som utförs."
+  remarks: "AuthorizationContext-klassen representerar den kontext som används av ett anspråk Auktoriseringshanteraren en implementering av den <xref:System.Security.Claims.ClaimsAuthorizationManager>klass för att avgöra om huvudkonto (ämne) ska ha behörighet att utföra en viss åtgärd på en viss resurs.</xref:System.Security.Claims.ClaimsAuthorizationManager> Auktoriseringshanteraren anspråk utvärderar autentiseringskontexten i den <xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A>metoden och antingen nekar eller beviljar åtkomst baserat på anspråk som presenteras av huvudnamn.</xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A>       Den <xref:System.Security.Claims.AuthorizationContext.Principal%2A>egenskapen innehåller huvudnamn som begärs auktorisering, den <xref:System.Security.Claims.AuthorizationContext.Resource%2A>-egenskapen innehåller den resurs där objektet som auktoriseras, och <xref:System.Security.Claims.AuthorizationContext.Action%2A>egenskap innehåller de åtgärder som objektet har för avsikt att utföra på resursen.</xref:System.Security.Claims.AuthorizationContext.Action%2A> </xref:System.Security.Claims.AuthorizationContext.Resource%2A> </xref:System.Security.Claims.AuthorizationContext.Principal%2A> Resurs- och åtgärden representeras som en uppsättning anspråk; men innehåller de flesta fall ett enda anspråk på varje samling."
   example:
   - "The code example that is used in the AuthorizationContext topic is taken from the `Claims Based Authorization` sample. This sample provides a custom claims authorization manager that can authorize subjects based on a policy that is specified in configuration. This custom manager consists of three basic components: a class derived from <xref:System.Security.Claims.ClaimsAuthorizationManager> that implements the manager, the `ResourceAction` class that pairs a resource and an action, and a policy reader that reads and compiles policy that is specified in the configuration file. This compiled policy can then be used by the claims authorization manager to evaluate a principal in order to authorize access to resources. Not all elements are shown for the sake of brevity. For information about this sample and other samples available for WIF and about where to download them, see [WIF Code Sample Index](~/add/includes/ajax-current-ext-md.md).  \n  \n The following code shows the <xref:System.Security.Claims.ClaimsAuthorizationManager.CheckAccess%2A> method for the custom claims authorization manager. A function that evaluates the principal based on the resource and action specified in the AuthorizationContext is invoked. This function returns either `true` or `false`, which either grants or denies access to the principal.  \n  \n [!code-cs[WifClaimsBasedAuthorization#3](~/add/codesnippet/csharp/claimsauthorizationlibrary/myclaimsauthorizationmanager.cs#3)]  \n[!code-cs[WifClaimsBasedAuthorization#5](~/add/codesnippet/csharp/claimsauthorizationlibrary/myclaimsauthorizationmanager.cs#5)]  \n  \n The following XML shows an example of the authorization policy that was specified in configuration. In the first policy, the principal must possess one of the specified claims in order to perform the specified action on the specified resource. In the second policy, the principal must possess both claims to be able to perform the specified action on the specified resource. In all others, the principal is automatically granted access regardless of the claims it possesses.  \n  \n```xml  \n<system.identityModel>  \n  <identityConfiguration>  \n    <claimsAuthorizationManager type=\"ClaimsAuthorizationLibrary.MyClaimsAuthorizationManager, ClaimsAuthorizationLibrary\">  \n      <policy resource=\"http://localhost:28491/Developers.aspx\" action=\"GET\">  \n        <or>  \n          <claim claimType=\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\" claimValue=\"developer\" />  \n          <claim claimType=\"http://schemas.xmlsoap.org/claims/Group\" claimValue=\"Administrator\" />  \n        </or>  \n      </policy>  \n      <policy resource=\"http://localhost:28491/Administrators.aspx\" action=\"GET\">  \n        <and>  \n          <claim claimType=\"http://schemas.xmlsoap.org/claims/Group\" claimValue=\"Administrator\" />  \n          <claim claimType=\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country\" claimValue=\"USA\" />  \n        </and>  \n      </policy>  \n      <policy resource=\"http://localhost:28491/Default.aspx\" action=\"GET\">  \n      </policy>  \n      <policy resource=\"http://localhost:28491/\" action=\"GET\">  \n      </policy>  \n      <policy resource=\"http://localhost:28491/Claims.aspx\" action=\"GET\">  \n      </policy>  \n    </claimsAuthorizationManager>  \n  \n    ...  \n  \n  </identityConfiguration>  \n</system.identityModel>  \n```"
   syntax:
@@ -38,24 +38,24 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.AuthorizationContext&quot;></xref> class with the specified principal, resource claim, and action claim."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.Claims.AuthorizationContext&quot;> </xref> klass med angivna huvudnamnet, resurs anspråk och anspråk för åtgärden."
   syntax:
     content: public AuthorizationContext (System.Security.Claims.ClaimsPrincipal principal, System.Collections.ObjectModel.Collection<System.Security.Claims.Claim> resource, System.Collections.ObjectModel.Collection<System.Security.Claims.Claim> action);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The principal for which authorization is to be checked."
+      description: "Den användare som auktorisering är kontrolleras."
     - id: resource
       type: System.Collections.ObjectModel.Collection{System.Security.Claims.Claim}
-      description: "A collection of claims that represents the resource for which the principal is to be authorized. The collection typically contains a single element."
+      description: "En samling av anspråk som representerar den resurs som objektet är auktoriseras. Samlingen innehåller vanligtvis ett enstaka element."
     - id: action
       type: System.Collections.ObjectModel.Collection{System.Security.Claims.Claim}
-      description: "A collection of claims that represents the action to be performed on the resource. The collection typically contains a single element."
+      description: "En uppsättning anspråk som representerar åtgärden som ska utföras på resursen. Samlingen innehåller vanligtvis ett enstaka element."
   overload: System.Security.Claims.AuthorizationContext.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>principal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>resource</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>action</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>principal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>resource</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>action</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.AuthorizationContext.#ctor(System.Security.Claims.ClaimsPrincipal,System.String,System.String)
@@ -70,25 +70,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.Security.Claims
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Claims.AuthorizationContext&quot;></xref> class with the specified principal, resource name, and action name."
-  remarks: "The <xref:System.Security.Claims.AuthorizationContext.Action%2A> property is initialized to contain a name claim (<xref:System.Security.Claims.ClaimTypes.Name?displayProperty=fullName>) that has the value specified by the `action` parameter. The <xref:System.Security.Claims.AuthorizationContext.Resource%2A> property is initialized to contain a name claim that has the value specified by the `resource` parameter."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.Claims.AuthorizationContext&quot;> </xref> klass med angivna huvudnamnet, resursnamnet och namnet på åtgärden."
+  remarks: "Den <xref:System.Security.Claims.AuthorizationContext.Action%2A>egenskapen har initierats för att innehålla ett name-anspråk (<xref:System.Security.Claims.ClaimTypes.Name?displayProperty=fullName>) som har värdet som anges av den `action` parameter.</xref:System.Security.Claims.ClaimTypes.Name?displayProperty=fullName> </xref:System.Security.Claims.AuthorizationContext.Action%2A> Den <xref:System.Security.Claims.AuthorizationContext.Resource%2A>egenskapen har initierats för att innehålla ett name-anspråk som innehåller värdet som anges av den `resource` parameter.</xref:System.Security.Claims.AuthorizationContext.Resource%2A>"
   syntax:
     content: public AuthorizationContext (System.Security.Claims.ClaimsPrincipal principal, string resource, string action);
     parameters:
     - id: principal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The principal for which authorization is to be checked."
+      description: "Den användare som auktorisering är kontrolleras."
     - id: resource
       type: System.String
-      description: "The resource for which the principal is to be authorized. The resource is specified as the value of a name claim."
+      description: "Den resurs som objektet är auktoriseras. Resursen har angetts som värde för ett namn-anspråk."
     - id: action
       type: System.String
-      description: "The action to be performed on the resource. The action is specified as the value of a name claim."
+      description: "Åtgärden som ska utföras på resursen. Åtgärden har angetts som värde för ett namn-anspråk."
   overload: System.Security.Claims.AuthorizationContext.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>principal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>resource</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>action</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>principal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>resource</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>action</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.Claims.AuthorizationContext.Action
@@ -103,13 +103,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.Security.Claims
-  summary: "Gets the action for which the principal is to be authorized."
-  remarks: "The collection typically contains a single element."
+  summary: "Hämtar den åtgärd som objektet är auktoriseras."
+  remarks: "Samlingen innehåller vanligtvis ett enstaka element."
   syntax:
     content: public System.Collections.ObjectModel.Collection<System.Security.Claims.Claim> Action { get; }
     return:
       type: System.Collections.ObjectModel.Collection{System.Security.Claims.Claim}
-      description: "A collection of claims that represents the actions relevant to the request."
+      description: "En uppsättning anspråk som representerar åtgärderna som är relevanta för begäran."
   overload: System.Security.Claims.AuthorizationContext.Action*
   exceptions: []
   platform:
@@ -126,12 +126,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.Security.Claims
-  summary: "Gets the principal (subject) for which authorization is being requested."
+  summary: "Hämtar huvudnamn (ämne) för vilka tillstånd begärs."
   syntax:
     content: public System.Security.Claims.ClaimsPrincipal Principal { get; }
     return:
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The principal for which authorization is being requested."
+      description: "Den användare som tillstånd begärs."
   overload: System.Security.Claims.AuthorizationContext.Principal*
   exceptions: []
   platform:
@@ -148,13 +148,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.Security.Claims
-  summary: "Gets the resource on which the principal is to be authorized."
-  remarks: "The collection typically contains a single element."
+  summary: "Hämtar den resurs där objektet kan auktoriseras."
+  remarks: "Samlingen innehåller vanligtvis ett enstaka element."
   syntax:
     content: public System.Collections.ObjectModel.Collection<System.Security.Claims.Claim> Resource { get; }
     return:
       type: System.Collections.ObjectModel.Collection{System.Security.Claims.Claim}
-      description: "A collection of claims that represents the resource."
+      description: "En uppsättning anspråk som representerar resursen."
   overload: System.Security.Claims.AuthorizationContext.Resource*
   exceptions: []
   platform:

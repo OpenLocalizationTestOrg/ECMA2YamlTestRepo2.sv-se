@@ -49,8 +49,8 @@ items:
   nameWithType: ServiceHostBase
   fullName: System.ServiceModel.ServiceHostBase
   type: Class
-  summary: "Extends the ServiceHostBase class to implement hosts that expose custom programming models."
-  remarks: "Use the ServiceHostBase class to create hosts that provide a custom programming model. The [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] service programming model uses the <xref:System.ServiceModel.ServiceHost> class.       Special note for Managed C++ users deriving from this class:      -   Put your cleanup code in (On)(Begin)Close (and/or OnAbort), not in a destructor.      -   Avoid destructors; they cause the compiler to auto-generate <xref:System.IDisposable>.      -   Avoid non-reference members; they can cause the compiler to auto-generate <xref:System.IDisposable>.      -   Avoid finalizers; but if you include one, you should suppress the build warning and call <xref:System.GC.SuppressFinalize%28System.Object%29> and the finalizer itself from (On)(Begin)Close (and/or OnAbort) to emulate what would have been the auto-generated <xref:System.IDisposable> behavior."
+  summary: "Utökar klassen ServiceHostBase om du vill implementera värdar som exponerar anpassade programmeringsmodeller."
+  remarks: "Använd klassen ServiceHostBase för att skapa värdar som tillhandahåller en anpassad programmeringsmodell. Den [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] programmeringsmodell för tjänsten använder <xref:System.ServiceModel.ServiceHost>klass.</xref:System.ServiceModel.ServiceHost>       Särskild anmärkning för hanterade C++ användare som härleds från den här klassen:-placera din Rensa koden i (på) (Begin) Stäng (och/eller OnAbort), inte i en destruktorn.      -Undvika destruktorer; de orsakar kompilatorn att Autogenerera <xref:System.IDisposable>.</xref:System.IDisposable>      -Undvika-referens medlemmar. de kan orsaka kompilatorn att Autogenerera <xref:System.IDisposable>.</xref:System.IDisposable>      -Undvika finaliserare; men om du inkluderar en build-varning och anrop ska ignorera <xref:System.GC.SuppressFinalize%28System.Object%29>och den slutföraren sig själv från (på) (Begin) Stäng (och/eller OnAbort) att emulera vad som skulle ha varit den automatiskt genererade <xref:System.IDisposable>beteende.</xref:System.IDisposable> </xref:System.GC.SuppressFinalize%28System.Object%29>"
   example:
   - "This sample uses the <xref:System.ServiceModel.ServiceHost> class, which is derived from ServiceHostBase.  \n  \n [!code-cs[S_SelfHost#1](~/add/codesnippet/csharp/t-system.servicemodel.se_10_1.cs)]\n [!code-vb[S_SelfHost#1](~/add/codesnippet/visualbasic/t-system.servicemodel.se_10_1.vb)]"
   syntax:
@@ -75,7 +75,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.ServiceHostBase&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.ServiceHostBase&quot;> </xref> klass."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#30](~/add/codesnippet/csharp/m-system.servicemodel.se_0_1.cs)]'
@@ -98,19 +98,19 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a base address to the service host."
-  remarks: "This property allows users extending <xref:System.ServiceModel.ServiceHostBase> to provide the base address after the host is constructed. AddBaseAddress can be used to add base addresses to an existing host, but throws an exception if the description is already initialized."
+  summary: "Lägger till en basadress tjänstvärden."
+  remarks: "Den här egenskapen kan användare utöka <xref:System.ServiceModel.ServiceHostBase>att tillhandahålla basadressen när värden har skapats.</xref:System.ServiceModel.ServiceHostBase> AddBaseAddress kan användas för att lägga till basadresser i en befintlig värd, men genererar ett undantag om beskrivningen har redan initierats."
   syntax:
     content: protected void AddBaseAddress (Uri baseAddress);
     parameters:
     - id: baseAddress
       type: System.Uri
-      description: "A <xref:System.Uri> that contains the base address for services hosted on the current host."
+      description: "En <xref:System.Uri>som innehåller basadressen för tjänster som ligger på den aktuella värddatorn.</xref:System.Uri>"
   overload: System.ServiceModel.ServiceHostBase.AddBaseAddress*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <code>baseAddress</code> cannot be called."
+    description: "Den <code> baseAddress </code> kan inte anropas."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.AddDefaultEndpoints
@@ -125,13 +125,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds service endpoints for all base addresses in each contract found in the service host with the default binding."
+  summary: "Lägger till slutpunkter för alla basadresser i varje kontrakt hittades i värden för tjänsten med standard-bindning."
   syntax:
     content: public virtual System.Collections.ObjectModel.ReadOnlyCollection<System.ServiceModel.Description.ServiceEndpoint> AddDefaultEndpoints ();
     parameters: []
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.ServiceModel.Description.ServiceEndpoint}
-      description: "A read-only collection of default endpoints."
+      description: "En skrivskyddad samling slutpunkter."
   overload: System.ServiceModel.ServiceHostBase.AddDefaultEndpoints*
   exceptions: []
   platform:
@@ -148,22 +148,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds the specified service endpoint to the hosted service."
-  remarks: "When using the method, the service host does a &quot;by-configuration-name&quot; validation on the contract description. In other words, the host verifies that <xref:System.ServiceModel.Description.ContractDescription.ConfigurationName%2A> exists in the list of configuration names of the service contracts implemented by the service. If the validation passes, the description in the <xref:System.ServiceModel.Description.ServiceEndpoint> is used as it is, even if the <xref:System.ServiceModel.Description.ContractDescription> reflected from the service is different.       As an example, assume that the description in the ServiceEndpoint and the contract description reflected from the service have the same name, but different operation behaviors. The implication of only “by-configuration-name” validation is that there is no validation that the behaviors are the same and there are one updates to one description because of another description.       If the `address` is a relative URI, one of the base addresses of the <xref:System.ServiceModel.ServiceHost> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+  summary: "Lägger till den angivna tjänstslutpunkten värdtjänsten."
+  remarks: "När du använder metoden har en &quot;efter-konfiguration – namn&quot; verifiering på Kontraktbeskrivningen tjänstvärden. Med andra ord värddatorn verifierar att <xref:System.ServiceModel.Description.ContractDescription.ConfigurationName%2A>finns i listan över konfigurationsnamn för tjänstekontrakt som implementerats av tjänst.</xref:System.ServiceModel.Description.ContractDescription.ConfigurationName%2A> Om valideringen skickar beskrivningen i den <xref:System.ServiceModel.Description.ServiceEndpoint>används eftersom det är även om den <xref:System.ServiceModel.Description.ContractDescription>reflekteras från tjänsten är olika.</xref:System.ServiceModel.Description.ContractDescription> </xref:System.ServiceModel.Description.ServiceEndpoint>       Anta exempelvis att beskrivningen i ServiceEndpoint och Kontraktbeskrivningen återspeglas från tjänsten har samma namn men olika åtgärden beteenden. Konsekvenserna av &quot;efter-konfiguration – namn&quot;-verifiering är att det finns ingen verifiering att beteenden är identiska och det finns uppdateringar till en beskrivning på grund av en annan beskrivning.       Om den `address` är en relativ URI en basadresser för den <xref:System.ServiceModel.ServiceHost>(beroende på bindningsprotokollet) används som bas slutpunktsadress.</xref:System.ServiceModel.ServiceHost>"
   syntax:
     content: public virtual void AddServiceEndpoint (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint."
+      description: "Tjänstslutpunkten."
   overload: System.ServiceModel.ServiceHostBase.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>Endpoint</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>Endpoint</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is not in a Created or an Opening state or there is no <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service."
+    description: "Värden finns inte i en skapad eller ett inledande tillstånd eller så finns det ingen <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
     description: "The <code>Address</code>, <code>Binding, </code> or <code>Contract</code> property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
@@ -181,7 +181,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, and endpoint address."
+  summary: "Lägger till en tjänstslutpunkt värdtjänst med en angiven kontraktet, bindningen och slutpunktsadress."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#40](~/add/codesnippet/csharp/edf6e090-b786-4010-8e21-_1.cs)]'
@@ -190,24 +190,24 @@ items:
     parameters:
     - id: implementedContract
       type: System.String
-      description: "The contract implemented by the endpoint."
+      description: "Kontrakt som implementerats av slutpunkten."
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "Den <xref:System.ServiceModel.Channels.Binding>för den slutpunkt som lagts till.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.String
-      description: "The address for the endpoint added. This can be an absolute or relative URI. If it is a relative URI, one of the base address of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+      description: "Adressen för den slutpunkt som lagts till. Detta kan vara en absolut eller relativ URI. Om det är en relativ URI en basadress för den <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> (beroende på bindningsprotokollet) som ska användas som basadress för slutpunkten."
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "Den <xref:System.ServiceModel.Description.ServiceEndpoint>lagts till i den värdbaserade tjänsten.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHostBase.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is not in a <xref:System.ServiceModel.CommunicationState> or an <xref:System.ServiceModel.CommunicationState> state or there is no <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service and so an endpoint cannot be added or the binding lacks a transport of binding scheme."
+    description: "Värden är inte i en <xref:System.ServiceModel.CommunicationState>eller en <xref:System.ServiceModel.CommunicationState>tillstånd eller att det är ingen <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten, så en slutpunkt kan inte läggas till eller Bindningen saknar en transport av ett schema för bindningen.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri)
@@ -222,30 +222,30 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, and a URI that contains the endpoint address."
+  summary: "Lägger till en tjänstslutpunkt till den värdbaserade tjänsten med angivna kontraktet, bindningen och en URI som innehåller slutpunktsadressen."
   syntax:
     content: public System.ServiceModel.Description.ServiceEndpoint AddServiceEndpoint (string implementedContract, System.ServiceModel.Channels.Binding binding, Uri address);
     parameters:
     - id: implementedContract
       type: System.String
-      description: "The contract implemented by the endpoint."
+      description: "Kontrakt som implementerats av slutpunkten."
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "Den <xref:System.ServiceModel.Channels.Binding>för den slutpunkt som lagts till.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address for the endpoint added. This can be an absolute or relative URI. If it is a relative URI, one of the base address of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+      description: "Den <xref:System.Uri>som innehåller adressen för den slutpunkt som lagts till.</xref:System.Uri> Detta kan vara en absolut eller relativ URI. Om det är en relativ URI en basadress för den <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> (beroende på bindningsprotokollet) som ska användas som basadress för slutpunkten."
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "Den <xref:System.ServiceModel.Description.ServiceEndpoint>lagts till i den värdbaserade tjänsten.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHostBase.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is not in a <xref:System.ServiceModel.CommunicationState> or an <xref:System.ServiceModel.CommunicationState> state or there is no <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service and so an endpoint cannot be added."
+    description: "Värden är inte i en <xref:System.ServiceModel.CommunicationState>eller en <xref:System.ServiceModel.CommunicationState>tillstånd eller att det är ingen <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten, så en slutpunkt kan inte läggas till.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String,System.Uri)
@@ -260,34 +260,34 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, endpoint address and URI that contains the address at which it listens."
-  remarks: "If the `address` is a relative URI, one of the base addresses of the <xref:System.ServiceModel.ServiceHost> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+  summary: "Lägger till en tjänstslutpunkt värdtjänst med en angiven kontraktet, bindningen, slutpunktsadress och URI som innehåller adressen som lyssnar."
+  remarks: "Om den `address` är en relativ URI en basadresser för den <xref:System.ServiceModel.ServiceHost>(beroende på bindningsprotokollet) används som bas slutpunktsadress.</xref:System.ServiceModel.ServiceHost>"
   syntax:
     content: public System.ServiceModel.Description.ServiceEndpoint AddServiceEndpoint (string implementedContract, System.ServiceModel.Channels.Binding binding, string address, Uri listenUri);
     parameters:
     - id: implementedContract
       type: System.String
-      description: "The contract implemented by the endpoint."
+      description: "Kontrakt som implementerats av slutpunkten."
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "Den <xref:System.ServiceModel.Channels.Binding>för den slutpunkt som lagts till.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.String
-      description: "The address for the endpoint added. This address can be an absolute or relative URI. If it is a relative URI, one of the base address of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+      description: "Adressen för den slutpunkt som lagts till. Den här adressen kan vara en absolut eller relativ URI. Om det är en relativ URI en basadress för den <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> (beroende på bindningsprotokollet) som ska användas som basadress för slutpunkten."
     - id: listenUri
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address which the endpoint listens to for incoming messages. This URI can be relative or absolute."
+      description: "Den <xref:System.Uri>som innehåller adressen som slutpunkten lyssnar på efter inkommande meddelanden.</xref:System.Uri> Den här URI kan vara relativ eller absolut."
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "Den <xref:System.ServiceModel.Description.ServiceEndpoint>lagts till i den värdbaserade tjänsten.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHostBase.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is not in a <xref:System.ServiceModel.CommunicationState> or an <xref:System.ServiceModel.CommunicationState> state or there is no <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service and so an endpoint cannot be added."
+    description: "Värden är inte i en <xref:System.ServiceModel.CommunicationState>eller en <xref:System.ServiceModel.CommunicationState>tillstånd eller att det är ingen <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten, så en slutpunkt kan inte läggas till.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)
@@ -302,33 +302,33 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with the specified contract, binding, and URIs that contain the endpoint and listening addresses."
+  summary: "Lägger till en tjänstslutpunkt till den värdbaserade tjänsten med angivna kontraktet, bindningen och URI: er som innehåller slutpunkt och lyssnande adresser."
   syntax:
     content: public System.ServiceModel.Description.ServiceEndpoint AddServiceEndpoint (string implementedContract, System.ServiceModel.Channels.Binding binding, Uri address, Uri listenUri);
     parameters:
     - id: implementedContract
       type: System.String
-      description: "The contract implemented by the endpoint."
+      description: "Kontrakt som implementerats av slutpunkten."
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "Den <xref:System.ServiceModel.Channels.Binding>för den slutpunkt som lagts till.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address for the endpoint added. If it is a relative URI, one of the base address of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> (depending on the binding protocol) is used as the endpoint&quot;s base address."
+      description: "Den <xref:System.Uri>som innehåller adressen för den slutpunkt som lagts till.</xref:System.Uri> Om det är en relativ URI en basadress för den <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> (beroende på bindningsprotokollet) som ska användas som basadress för slutpunkten."
     - id: listenUri
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address at which the endpoint listens for incoming messages."
+      description: "Den <xref:System.Uri>som innehåller adressen som slutpunkten lyssnar efter inkommande meddelanden.</xref:System.Uri>"
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service. This URI can be absolute or relative."
+      description: "Den <xref:System.ServiceModel.Description.ServiceEndpoint>lagts till i den värdbaserade tjänsten.</xref:System.ServiceModel.Description.ServiceEndpoint> Den här URI kan vara absolut eller relativ."
   overload: System.ServiceModel.ServiceHostBase.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> or is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is not in a <xref:System.ServiceModel.CommunicationState> or an <xref:System.ServiceModel.CommunicationState> state or there is no <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service and so an endpoint cannot be added."
+    description: "Värden är inte i en <xref:System.ServiceModel.CommunicationState>eller en <xref:System.ServiceModel.CommunicationState>tillstånd eller att det är ingen <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten, så en slutpunkt kan inte läggas till.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.ApplyConfiguration
@@ -343,7 +343,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Loads the service description information from the configuration file and applies it to the runtime being constructed."
+  summary: "Läser in beskrivning tjänstinformation från konfigurationsfilen och gäller för körning som skapats."
   syntax:
     content: protected virtual void ApplyConfiguration ();
     parameters: []
@@ -351,7 +351,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The description of the service hosted is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Beskrivningen av tjänsten värd är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.Authentication
@@ -366,12 +366,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the service authentication behavior."
+  summary: "Hämtar tjänstbeteende för autentisering."
   syntax:
     content: public System.ServiceModel.Description.ServiceAuthenticationBehavior Authentication { get; }
     return:
       type: System.ServiceModel.Description.ServiceAuthenticationBehavior
-      description: "The service authentication behavior."
+      description: "Autentiseringsinställningar för tjänsten."
   overload: System.ServiceModel.ServiceHostBase.Authentication*
   exceptions: []
   platform:
@@ -388,7 +388,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the authorization behavior for the service hosted."
+  summary: "Hämtar tillståndet beteendet för tjänsten finns."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#36](~/add/codesnippet/csharp/p-system.servicemodel.se_20_1.cs)]'
@@ -396,7 +396,7 @@ items:
     content: public System.ServiceModel.Description.ServiceAuthorizationBehavior Authorization { get; }
     return:
       type: System.ServiceModel.Description.ServiceAuthorizationBehavior
-      description: "The <xref href=&quot;System.ServiceModel.Description.ServiceAuthorizationBehavior&quot;></xref> for the service hosted."
+      description: "Den <xref href=&quot;System.ServiceModel.Description.ServiceAuthorizationBehavior&quot;> </xref> för tjänsten finns."
   overload: System.ServiceModel.ServiceHostBase.Authorization*
   exceptions: []
   platform:
@@ -413,12 +413,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the base addresses used by the hosted service."
+  summary: "Hämtar basadresser som används av den värdbaserade tjänsten."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<Uri> BaseAddresses { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Uri}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref:System.Uri> that contains the base addresses for the hosted service."
+      description: "En &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; av typen <xref:System.Uri>som innehåller basadresser för den värdbaserade tjänsten.</xref:System.Uri>"
   overload: System.ServiceModel.ServiceHostBase.BaseAddresses*
   exceptions: []
   platform:
@@ -435,12 +435,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the collection of channel dispatchers used by the service host."
+  summary: "Hämtar mängden kanal avsändare som används av värden för tjänsten."
   syntax:
     content: public System.ServiceModel.Dispatcher.ChannelDispatcherCollection ChannelDispatchers { get; }
     return:
       type: System.ServiceModel.Dispatcher.ChannelDispatcherCollection
-      description: "The <xref href=&quot;System.ServiceModel.Dispatcher.ChannelDispatcherCollection&quot;></xref> that contains the channel dispatchers used by the service host."
+      description: "Den <xref href=&quot;System.ServiceModel.Dispatcher.ChannelDispatcherCollection&quot;> </xref> som innehåller de kanal avsändare som används av värden för tjänsten."
   overload: System.ServiceModel.ServiceHostBase.ChannelDispatchers*
   exceptions: []
   platform:
@@ -457,7 +457,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the interval of time allowed for the service host to close."
+  summary: "Hämtar eller anger intervallet för tillåtna tiden att stänga tjänstvärden."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#33](~/add/codesnippet/csharp/p-system.servicemodel.se_0_1.cs)]'
@@ -465,21 +465,21 @@ items:
     content: public TimeSpan CloseTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time allowed for the service host to close."
+      description: "Den <xref:System.TimeSpan>som anger intervallet för tillåtna tiden att stänga tjänstvärden.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.CloseTimeout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value, in milliseconds, is less than zero or is larger than <xref:System.Int32.MaxValue> (2,147,483,647 or, in hexadecimal notation, 0X7FFFFFFF)."
+    description: "Värde, i millisekunder, är mindre än noll eller större än <xref:System.Int32.MaxValue>(2 147 483 647 eller hexadecimalt 0X7FFFFFFF).</xref:System.Int32.MaxValue>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is in an <xref:System.ServiceModel.CommunicationState> or <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden är i ett <xref:System.ServiceModel.CommunicationState>eller <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The host is already in a <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden redan är i ett <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState>"
   - type: System.ServiceModel.CommunicationObjectFaultedException
     commentId: T:System.ServiceModel.CommunicationObjectFaultedException
-    description: "The host is in a <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden är i ett <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.CreateDescription(System.Collections.Generic.IDictionary{System.String,System.ServiceModel.Description.ContractDescription}@)
@@ -494,7 +494,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "When implemented in a derived class, creates the description of the hosted service."
+  summary: "Skapar beskrivning av den värdbaserade tjänsten implementeras i en härledd klass."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#41](~/add/codesnippet/csharp/08a56b4f-56f2-446f-b0f7-_1.cs)]'
@@ -503,10 +503,10 @@ items:
     parameters:
     - id: implementedContracts
       type: System.Collections.Generic.IDictionary{System.String,System.ServiceModel.Description.ContractDescription}
-      description: "The &lt;xref:System.Collections.Generic.IDictionary%602&gt; that contains the <xref:System.ServiceModel.Description.ContractDescription> objects for the service."
+      description: "Den &lt;xref:System.Collections.Generic.IDictionary%602&gt; som innehåller den <xref:System.ServiceModel.Description.ContractDescription>objekt för tjänsten.</xref:System.ServiceModel.Description.ContractDescription>"
     return:
       type: System.ServiceModel.Description.ServiceDescription
-      description: "The <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service."
+      description: "Den <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten."
   overload: System.ServiceModel.ServiceHostBase.CreateDescription*
   exceptions: []
   platform:
@@ -523,7 +523,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the credential for the service hosted."
+  summary: "Hämtar autentiseringsuppgifterna för tjänsten finns."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#37](~/add/codesnippet/csharp/p-system.servicemodel.se_11_1.cs)]'
@@ -531,7 +531,7 @@ items:
     content: public System.ServiceModel.Description.ServiceCredentials Credentials { get; }
     return:
       type: System.ServiceModel.Description.ServiceCredentials
-      description: "The <xref href=&quot;System.ServiceModel.Description.ServiceCredentials&quot;></xref> for the service hosted."
+      description: "Den <xref href=&quot;System.ServiceModel.Description.ServiceCredentials&quot;> </xref> för tjänsten finns."
   overload: System.ServiceModel.ServiceHostBase.Credentials*
   exceptions: []
   platform:
@@ -548,12 +548,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the default interval of time allowed for the service host to close."
+  summary: "Hämtar av tiden som tillåts att stänga tjänstvärden."
   syntax:
     content: protected override TimeSpan DefaultCloseTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the default interval of time allowed for the service host to close."
+      description: "Den <xref:System.TimeSpan>som anger tiden som tillåts att stänga tjänstvärden standardintervallet.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.DefaultCloseTimeout*
   exceptions: []
   platform:
@@ -570,7 +570,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the default interval of time allowed for the service host to open."
+  summary: "Hämtar av tiden som tillåts att öppna tjänstvärden."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#35](~/add/codesnippet/csharp/p-system.servicemodel.se_16_1.cs)]'
@@ -578,7 +578,7 @@ items:
     content: protected override TimeSpan DefaultOpenTimeout { get; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the default interval of time allowed for the service host to open."
+      description: "Den <xref:System.TimeSpan>som anger tiden som tillåts att öppna tjänstvärden standardintervallet.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.DefaultOpenTimeout*
   exceptions: []
   platform:
@@ -595,7 +595,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the description of the service hosted."
+  summary: "Hämtar en beskrivning av tjänst som finns."
   remarks: ''
   example:
   - '[!code-cs[S_SelfHost#38](~/add/codesnippet/csharp/p-system.servicemodel.se_3_1.cs)]'
@@ -603,7 +603,7 @@ items:
     content: public System.ServiceModel.Description.ServiceDescription Description { get; }
     return:
       type: System.ServiceModel.Description.ServiceDescription
-      description: "The <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> for the hosted service."
+      description: "Den <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> för den värdbaserade tjänsten."
   overload: System.ServiceModel.ServiceHostBase.Description*
   exceptions: []
   platform:
@@ -620,12 +620,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the extensions for the current specified service host."
+  summary: "Hämtar tilläggen för den aktuella angivna tjänstvärden."
   syntax:
     content: public System.ServiceModel.IExtensionCollection<System.ServiceModel.ServiceHostBase> Extensions { get; }
     return:
       type: System.ServiceModel.IExtensionCollection{System.ServiceModel.ServiceHostBase}
-      description: "An &lt;xref:System.ServiceModel.IExtensionCollection%601&gt; of type <xref href=&quot;System.ServiceModel.ServiceHostBase&quot;></xref>."
+      description: "En &lt;xref:System.ServiceModel.IExtensionCollection%601&gt; av typen <xref href=&quot;System.ServiceModel.ServiceHostBase&quot;> </xref>."
   overload: System.ServiceModel.ServiceHostBase.Extensions*
   exceptions: []
   platform:
@@ -642,12 +642,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Retrieves the contracts implemented by the service hosted."
+  summary: "Hämtar de kontrakt som implementerats av tjänst som finns."
   syntax:
     content: protected System.Collections.Generic.IDictionary<string,System.ServiceModel.Description.ContractDescription> ImplementedContracts { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.ServiceModel.Description.ContractDescription}
-      description: "The &lt;xref:System.Collections.Generic.IDictionary%602&gt; that contains the <xref:System.ServiceModel.Description.ContractDescription> objects for the service."
+      description: "Den &lt;xref:System.Collections.Generic.IDictionary%602&gt; som innehåller den <xref:System.ServiceModel.Description.ContractDescription>objekt för tjänsten.</xref:System.ServiceModel.Description.ContractDescription>"
   overload: System.ServiceModel.ServiceHostBase.ImplementedContracts*
   exceptions: []
   platform:
@@ -664,8 +664,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Increases the limit on the flow rate of messages to the hosted service by a specified increment."
-  remarks: "This limit can be accessed using the <xref:System.ServiceModel.ServiceHostBase.ManualFlowControlLimit%2A> property."
+  summary: "Ökar gränsen för flödet av meddelanden till den värdbaserade tjänsten med ett angivet värde."
+  remarks: "Den här gränsen nås från den <xref:System.ServiceModel.ServiceHostBase.ManualFlowControlLimit%2A>egenskapen.</xref:System.ServiceModel.ServiceHostBase.ManualFlowControlLimit%2A>"
   example:
   - '[!code-cs[S_SelfHost#42](~/add/codesnippet/csharp/84777560-890d-4922-a9a5-_1.cs)]'
   syntax:
@@ -673,15 +673,15 @@ items:
     parameters:
     - id: incrementBy
       type: System.Int32
-      description: "The number of messages by which to increase the flow control limit."
+      description: "Antal meddelanden som du vill öka antalet flödet för kontrollen."
     return:
       type: System.Int32
-      description: "The new limit after the increment is added."
+      description: "Den nya gränsen när ökningen har lagts till."
   overload: System.ServiceModel.ServiceHostBase.IncrementManualFlowControlLimit*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero."
+    description: "Värdet är mindre än noll."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.InitializeDescription(System.ServiceModel.UriSchemeKeyedCollection)
@@ -696,13 +696,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Creates and initializes the service host with the contract and service descriptions."
+  summary: "Skapar och initierar tjänstvärden med kontrakt- och beskrivningar."
   syntax:
     content: protected void InitializeDescription (System.ServiceModel.UriSchemeKeyedCollection baseAddresses);
     parameters:
     - id: baseAddresses
       type: System.ServiceModel.UriSchemeKeyedCollection
-      description: "A <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;></xref> that contains the base addresses for the service hosted."
+      description: "En <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;> </xref> som innehåller basadresser för tjänsten finns."
   overload: System.ServiceModel.ServiceHostBase.InitializeDescription*
   exceptions: []
   platform:
@@ -719,7 +719,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes the runtime for the service host."
+  summary: "Initierar körningsmiljön för tjänstvärden."
   syntax:
     content: protected virtual void InitializeRuntime ();
     parameters: []
@@ -727,7 +727,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The description of the service hosted is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Beskrivningen av tjänsten värd är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.LoadConfigurationSection(System.ServiceModel.Configuration.ServiceElement)
@@ -742,21 +742,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Loads the service element from the configuration file of the hosted service."
+  summary: "Läser in tjänstelementet i konfigurationsfilen för den värdbaserade tjänsten."
   syntax:
     content: protected void LoadConfigurationSection (System.ServiceModel.Configuration.ServiceElement serviceSection);
     parameters:
     - id: serviceSection
       type: System.ServiceModel.Configuration.ServiceElement
-      description: "The <xref href=&quot;System.ServiceModel.Configuration.ServiceElement&quot;></xref> to be loaded from configuration."
+      description: "Den <xref href=&quot;System.ServiceModel.Configuration.ServiceElement&quot;> </xref> som ska läsas in från konfigurationen."
   overload: System.ServiceModel.ServiceHostBase.LoadConfigurationSection*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceSection</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceSection</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The description of the service hosted is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Beskrivningen av tjänsten värd är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.ManualFlowControlLimit
@@ -771,20 +771,20 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the flow control limit for messages received by the service hosted."
-  remarks: "This limit can be incremented using the <xref:System.ServiceModel.ServiceHostBase.IncrementManualFlowControlLimit%28System.Int32%29> method."
+  summary: "Hämtar eller anger flödet kontrollen gränsen för meddelanden som tagits emot av tjänsten finns."
+  remarks: "Den här gränsen kan ökas med hjälp av den <xref:System.ServiceModel.ServiceHostBase.IncrementManualFlowControlLimit%28System.Int32%29>metoden.</xref:System.ServiceModel.ServiceHostBase.IncrementManualFlowControlLimit%28System.Int32%29>"
   example:
   - '[!code-cs[S_SelfHost#39](~/add/codesnippet/csharp/p-system.servicemodel.se_10_1.cs)]'
   syntax:
     content: public int ManualFlowControlLimit { get; set; }
     return:
       type: System.Int32
-      description: "The flow control limit for messages received by the service hosted."
+      description: "Flödet kontrollen gränsen för meddelanden som tagits emot av tjänsten finns."
   overload: System.ServiceModel.ServiceHostBase.ManualFlowControlLimit*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero."
+    description: "Värdet är mindre än noll."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.OnAbort
@@ -799,7 +799,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Aborts the service."
+  summary: "Avbryter tjänsten."
   syntax:
     content: protected override void OnAbort ();
     parameters: []
@@ -819,22 +819,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Begins an asynchronous operation invoked on the close of the service host."
+  summary: "Börjar en asynkron åtgärd som anropas i slutet av värden för tjänsten."
   syntax:
     content: protected override IAsyncResult OnBeginClose (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the on-close operation has to complete before timing out."
+      description: "Den <xref:System.TimeSpan>som anger hur länge-sista åtgärden måste köras innan tidsgränsen nåtts.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous operation on-close completion."
+      description: "Den <xref:System.AsyncCallback>delegat som tar emot ett meddelande om asynkron åtgärd på Stäng genomförandet.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous on-close operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona åtgärden på Stäng."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous on-close operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden på Stäng.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.ServiceHostBase.OnBeginClose*
   exceptions: []
   platform:
@@ -851,22 +851,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Begins an asynchronous operation invoked on the opening of the service host."
+  summary: "Börjar en asynkron åtgärd som anropas på öppnandet av värden för tjänsten."
   syntax:
     content: protected override IAsyncResult OnBeginOpen (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the on-open operation has to complete before timing out."
+      description: "Den <xref:System.TimeSpan>som anger hur länge på open-åtgärden måste köras innan tidsgränsen nåtts.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous operation on-open completion."
+      description: "Den <xref:System.AsyncCallback>delegat som tar emot ett meddelande om asynkron åtgärd på Öppna genomförandet.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous on-open operation."
+      description: "Ett objekt som har angetts av det program som innehåller information om tillstånd som associeras med den asynkrona åtgärden vid öppning."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous on-open operation."
+      description: "Den <xref:System.IAsyncResult>som refererar till den asynkrona åtgärden vid öppning.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.ServiceHostBase.OnBeginOpen*
   exceptions: []
   platform:
@@ -883,14 +883,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Closes down the hosted service, including their channel dispatchers and associated instance contexts and listeners."
-  remarks: "Calling OnClose does the following:      -   Closes all input to <xref:System.ServiceModel.Dispatcher.ChannelDispatcher>, which also closes their associated <xref:System.ServiceModel.Channels.IChannelListener> instances. This stops any new channels from being accepting.      -   Calls <xref:System.ServiceModel.Dispatcher.ChannelDispatcher.CloseInput%2A> on all <xref:System.ServiceModel.InstanceContext> objects, which mean they stop accepting new messages.      -   Waits for all <xref:System.ServiceModel.InstanceContext> objects to close down, which happens when their associated channels finish sending all pending messages.      -   Closes the <xref:System.ServiceModel.Dispatcher.ChannelDispatcher> objects associated with the host."
+  summary: "Stänger ned den värdbaserade tjänsten, inklusive kanal avsändare och associerade Instanskontexterna och lyssnare."
+  remarks: "Anropar VidStängning händer följande:-stänger alla indata till <xref:System.ServiceModel.Dispatcher.ChannelDispatcher>, vilket också stänger deras associerade <xref:System.ServiceModel.Channels.IChannelListener>instanser.</xref:System.ServiceModel.Channels.IChannelListener> </xref:System.ServiceModel.Dispatcher.ChannelDispatcher> Detta stoppar alla nya kanaler som accepterar.      -Anropar <xref:System.ServiceModel.Dispatcher.ChannelDispatcher.CloseInput%2A>på alla <xref:System.ServiceModel.InstanceContext>objekt, vilket innebär att de slutar ta emot nya meddelanden.</xref:System.ServiceModel.InstanceContext> </xref:System.ServiceModel.Dispatcher.ChannelDispatcher.CloseInput%2A>      -Väntar på att alla <xref:System.ServiceModel.InstanceContext>objekt att stänga, vilket sker när deras associerade kanaler är klar skickar alla väntande meddelanden.</xref:System.ServiceModel.InstanceContext>      -Stänger den <xref:System.ServiceModel.Dispatcher.ChannelDispatcher>objekt som hör till värden.</xref:System.ServiceModel.Dispatcher.ChannelDispatcher>"
   syntax:
     content: protected override void OnClose (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the on-close operation has to complete before timing out."
+      description: "Den <xref:System.TimeSpan>som anger hur länge-sista åtgärden måste köras innan tidsgränsen nåtts.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.OnClose*
   exceptions: []
   platform:
@@ -907,7 +907,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Releases resources used by the service host."
+  summary: "Frigör resurser som används av värden för tjänsten."
   syntax:
     content: protected override void OnClosed ();
     parameters: []
@@ -927,13 +927,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Completes an asynchronous operation invoked on the closing of the service host."
+  summary: "Slutför en asynkron åtgärd som anropas på stängning av värden för tjänsten."
   syntax:
     content: protected override void OnEndClose (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the &lt;xref:System.ServiceModel.ServiceHostBase.OnBeginClose%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; method."
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till den &lt;xref:System.ServiceModel.ServiceHostBase.OnBeginClose%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; metod.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.ServiceHostBase.OnEndClose*
   exceptions: []
   platform:
@@ -950,13 +950,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Completes an asynchronous operation invoked on the opening of the service host."
+  summary: "Slutför en asynkron åtgärd som anropas på öppnandet av värden för tjänsten."
   syntax:
     content: protected override void OnEndOpen (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the &lt;xref:System.ServiceModel.ServiceHostBase.OnBeginOpen%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; method."
+      description: "Den <xref:System.IAsyncResult>returneras av ett anrop till den &lt;xref:System.ServiceModel.ServiceHostBase.OnBeginOpen%28System.TimeSpan%2CSystem.AsyncCallback%2CSystem.Object%29&gt; metod.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.ServiceHostBase.OnEndOpen*
   exceptions: []
   platform:
@@ -973,13 +973,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Opens the channel dispatchers."
+  summary: "Öppnar kanal-avsändare."
   syntax:
     content: protected override void OnOpen (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the on-open operation has to complete before timing out."
+      description: "Den <xref:System.TimeSpan>som anger hur länge på open-åtgärden måste köras innan tidsgränsen nåtts.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.OnOpen*
   exceptions: []
   platform:
@@ -996,8 +996,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the service credentials,service authentication and authorization behavior for the hosted service."
-  remarks: "Once these behaviors are initialized when opening the service, they cannot be changed."
+  summary: "Hämtar Tjänstereferenser, tjänstbeteende för autentisering och auktorisering för den värdbaserade tjänsten."
+  remarks: "När dessa beteenden initieras när du öppnar tjänsten, kan de inte ändras."
   syntax:
     content: protected override void OnOpened ();
     parameters: []
@@ -1017,26 +1017,26 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets or sets the interval of time allowed for the service host to open."
+  summary: "Hämtar eller anger intervallet för tillåtna tiden att öppna tjänstvärden."
   syntax:
     content: public TimeSpan OpenTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies the interval of time allowed for the service host to open."
+      description: "Den <xref:System.TimeSpan>som anger intervallet för tillåtna tiden att öppna tjänstvärden.</xref:System.TimeSpan>"
   overload: System.ServiceModel.ServiceHostBase.OpenTimeout*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value is less than zero or is larger than <xref:System.Int32.MaxValue> (2,147,483,647 or, in hexadecimal notation, 0X7FFFFFFF)."
+    description: "Värdet är mindre än noll eller större än <xref:System.Int32.MaxValue>(2 147 483 647 eller hexadecimalt 0X7FFFFFFF).</xref:System.Int32.MaxValue>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The host is in an <xref:System.ServiceModel.CommunicationState> or <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden är i ett <xref:System.ServiceModel.CommunicationState>eller <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState> </xref:System.ServiceModel.CommunicationState>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The host is already in a <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden redan är i ett <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState>"
   - type: System.ServiceModel.CommunicationObjectFaultedException
     commentId: T:System.ServiceModel.CommunicationObjectFaultedException
-    description: "The host is in a <xref:System.ServiceModel.CommunicationState> state and cannot be modified."
+    description: "Värden är i ett <xref:System.ServiceModel.CommunicationState>tillstånd och kan inte ändras.</xref:System.ServiceModel.CommunicationState>"
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHostBase.ReleasePerformanceCounters
@@ -1051,8 +1051,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Releases the service and channel dispatcher performance counters for the hosted service."
-  remarks: "This method is invoked when calling <xref:System.ServiceModel.ServiceHostBase.OnClose%28System.TimeSpan%29> and       <xref:System.ServiceModel.ServiceHostBase.OnEndClose%28System.IAsyncResult%29>."
+  summary: "Frigör tjänst och channel dispatcher prestandaräknarna för den värdbaserade tjänsten."
+  remarks: "Den här metoden anropas när du anropar <xref:System.ServiceModel.ServiceHostBase.OnClose%28System.TimeSpan%29>och <xref:System.ServiceModel.ServiceHostBase.OnEndClose%28System.IAsyncResult%29>.</xref:System.ServiceModel.ServiceHostBase.OnEndClose%28System.IAsyncResult%29> </xref:System.ServiceModel.ServiceHostBase.OnClose%28System.TimeSpan%29>"
   syntax:
     content: protected void ReleasePerformanceCounters ();
     parameters: []
@@ -1072,16 +1072,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Sets the endpoint address of the specified endpoint to the specified address."
+  summary: "Anger slutpunktsadress för den angivna slutpunktsresursen till den angivna adressen."
   syntax:
     content: public void SetEndpointAddress (System.ServiceModel.Description.ServiceEndpoint endpoint, string relativeAddress);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint."
+      description: "Tjänstslutpunkten."
     - id: relativeAddress
       type: System.String
-      description: "The endpoint address."
+      description: "Slutpunktsadress."
   overload: System.ServiceModel.ServiceHostBase.SetEndpointAddress*
   exceptions: []
   platform:
@@ -1099,7 +1099,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Closes the service host."
+  summary: "Stänger tjänstvärden."
   syntax:
     content: void IDisposable.Dispose ();
     parameters: []
@@ -1119,7 +1119,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Occurs when an unknown message is received."
+  summary: "Inträffar när ett okänt meddelande tas emot."
   remarks: >-
     > [!WARNING]
 
@@ -1128,7 +1128,7 @@ items:
     content: public event EventHandler<System.ServiceModel.UnknownMessageReceivedEventArgs> UnknownMessageReceived;
     return:
       type: System.EventHandler{System.ServiceModel.UnknownMessageReceivedEventArgs}
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
