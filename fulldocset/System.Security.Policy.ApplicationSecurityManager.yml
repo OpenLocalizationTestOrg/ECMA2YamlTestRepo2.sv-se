@@ -12,8 +12,8 @@ items:
   nameWithType: ApplicationSecurityManager
   fullName: System.Security.Policy.ApplicationSecurityManager
   type: Class
-  summary: "Manages trust decisions for manifest-activated applications."
-  remarks: "The ApplicationSecurityManager class provides essential information for the execution of a manifest-based application. The <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> property identifies the trust manager responsible for determining whether an application is trusted. The <xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A> method calls the application trust manager to determine whether an application is trusted. The <xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A> property contains the cached trust decisions for the user."
+  summary: "Hanterar förtroendebeslut för manifest-aktiverade program."
+  remarks: "ApplicationSecurityManager-klassen innehåller viktig information för körningen av ett manifest-baserade program. Den <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A>egenskapen identifierar hanteraren förtroende avgör om ett program är betrodd.</xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> Den <xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A>metodanrop programförtroendet manager för att avgöra om ett program är betrodd.</xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A> Den <xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A>egenskapen innehåller cachelagrade förtroendebeslut för användaren.</xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,18 +37,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the current application trust manager."
-  remarks: "In the current release there is only one trust manager, which can be a custom implementation of the <xref:System.Security.Policy.IApplicationTrustManager> interface. The default trust manager implementation prompts the user for permission to install the application and elevate the permissions granted to the application. Other trust manager implementations might have different user experiences. For example, an implementation might check an enterprise list for trusted applications, rather than prompting the user for that information."
+  summary: "Hämtar det aktuella programmet förtroende manager."
+  remarks: "I den aktuella versionen är endast ett förtroende manager, som kan vara en anpassad implementering av den <xref:System.Security.Policy.IApplicationTrustManager>gränssnitt.</xref:System.Security.Policy.IApplicationTrustManager> Trust manager standardimplementering frågar användaren om behörighet att installera programmet och höja behörigheterna för programmet. Andra trust manager-implementeringar kan ha olika användarupplevelser. En implementering kan till exempel kontrollera en enterprise-lista för betrodda program i stället för att fråga användaren för den informationen."
   syntax:
     content: public static System.Security.Policy.IApplicationTrustManager ApplicationTrustManager { get; }
     return:
       type: System.Security.Policy.IApplicationTrustManager
-      description: "An <xref href=&quot;System.Security.Policy.IApplicationTrustManager&quot;></xref> that represents the current trust manager."
+      description: "En <xref href=&quot;System.Security.Policy.IApplicationTrustManager&quot;> </xref> som representerar den aktuella förtroende-hanteraren."
   overload: System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager*
   exceptions:
   - type: System.Security.Policy.PolicyException
     commentId: T:System.Security.Policy.PolicyException
-    description: "The policy on this application does not have a trust manager."
+    description: "Principen i det här programmet har inte en."
   platform:
   - net462
 - uid: System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust(System.ActivationContext,System.Security.Policy.TrustManagerContext)
@@ -63,20 +63,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the user approves the specified application to execute with the requested permission set."
-  remarks: "DetermineApplicationTrust uses the configured <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> property to determine whether to allow execution of the specified application with the permission set requested in the application manifest. The trust manager&quot;s behavior is dependent on the trust manager implementation and the information passed in the `context` parameter. The default behavior of the trust manager is to establish a user interface (UI) dialog box to determine the user&quot;s approval. However, a trust manager can also determine an application&quot;s trust status based on other criteria, such as decisions provided by a corporate database. The trust decision can be persisted, depending upon the `context` parameters properties and the trust manager implementation. If the trust for the application is persisted for a decision based on a user dialog box, future calls to the <xref:System.Security.Policy.ApplicationSecurityManager> will not present the UI dialog box for every request for that application. DetermineApplicationTrust is called after the manifest, but before the application has been downloaded to the local system."
+  summary: "Anger om användaren godkänner det angivna programmet ska köras med de begärda behörigheten."
+  remarks: "DetermineApplicationTrust använder den konfigurerade <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A>egenskapen för att avgöra om du vill tillåta körning av det angivna programmet med behörighetsgrupp begärda i programmanifestet.</xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> Trust manager-beteende beror på trust manager-implementering och informationen skickas i den `context` parameter. Standardbeteendet för hanteraren för förtroende är att fastställa en användardialogrutan för användargränssnittet (UI) för att fastställa användarens godkännande. En kan också bestämma programmets förtroendestatus baserat på andra villkor, till exempel beslut som tillhandahålls av företagets databas. Förtroende beslutet kan sparas, beroende på den `context` parametrar egenskaper och trust manager-implementering. Om förtroendet för programmet sparas till beslut baserat på en användardialogrutan framtiden anrop till den <xref:System.Security.Policy.ApplicationSecurityManager>presenterar inte dialogrutan Användargränssnittet för alla begäranden för programmet.</xref:System.Security.Policy.ApplicationSecurityManager> DetermineApplicationTrust kallas när manifestet, men innan programmet har laddats ned till det lokala systemet."
   syntax:
     content: public static bool DetermineApplicationTrust (ActivationContext activationContext, System.Security.Policy.TrustManagerContext context);
     parameters:
     - id: activationContext
       type: System.ActivationContext
-      description: "An <xref href=&quot;System.ActivationContext&quot;></xref> identifying the activation context for the application."
+      description: "En <xref href=&quot;System.ActivationContext&quot;> </xref> identifierar aktiveringskontexten för programmet."
     - id: context
       type: System.Security.Policy.TrustManagerContext
-      description: "A <xref href=&quot;System.Security.Policy.TrustManagerContext&quot;></xref> identifying the trust manager context for the application."
+      description: "En <xref href=&quot;System.Security.Policy.TrustManagerContext&quot;> </xref> identifierar trust manager-kontexten för programmet."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to execute the specified application; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>att köra det angivna programmet; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust*
   exceptions:
   - type: System.ArgumentNullException
@@ -96,13 +96,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets an application trust collection that contains the cached trust decisions for the user."
-  remarks: "The trust decisions in the collection are maintained using the methods of the collection, such as the <xref:System.Security.Policy.ApplicationTrustCollection.Add%2A> method or the <xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A> method."
+  summary: "Hämtar ett program förtroende samling som innehåller de cachelagrade förtroendebeslut för användaren."
+  remarks: "Förtroendebeslut i samlingen hanteras med hjälp av metoderna för insamling, till exempel den <xref:System.Security.Policy.ApplicationTrustCollection.Add%2A>metoden eller <xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A>metod.</xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A> </xref:System.Security.Policy.ApplicationTrustCollection.Add%2A>"
   syntax:
     content: public static System.Security.Policy.ApplicationTrustCollection UserApplicationTrusts { get; }
     return:
       type: System.Security.Policy.ApplicationTrustCollection
-      description: "An <xref href=&quot;System.Security.Policy.ApplicationTrustCollection&quot;></xref> that contains the cached trust decisions for the user."
+      description: "En <xref href=&quot;System.Security.Policy.ApplicationTrustCollection&quot;> </xref> som innehåller de cachelagrade förtroendebeslut för användaren."
   overload: System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts*
   exceptions: []
   platform:

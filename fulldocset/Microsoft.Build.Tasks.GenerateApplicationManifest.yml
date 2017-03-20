@@ -34,7 +34,7 @@ items:
   nameWithType: GenerateApplicationManifest
   fullName: Microsoft.Build.Tasks.GenerateApplicationManifest
   type: Class
-  summary: "Implements the `GenerateApplicationManifest` task. Use the `GenerateApplicationManifest` element in the project file to create and execute this task. For usage and parameter information, see [GenerateApplicationManifest Task](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Implementerar den `GenerateApplicationManifest` aktivitet. Använd den `GenerateApplicationManifest` element i projektfilen att skapa och köra den här uppgiften. Information om syntax och parametrar, se [GenerateApplicationManifest aktiviteten](~/add/includes/ajax-current-ext-md.md)."
   remarks: "`EntryPoint` is an optional <xref:Microsoft.Build.Framework.ITaskItem>`[]` parameter that indicates the entry point for the generated manifest assembly. For a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] deployment manifest, this input specifies the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application manifest.  \n  \n In [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)], the [GenerateApplicationManifest Task](../Topic/GenerateApplicationManifest%20Task.md) requires an `EntryPoint` when an application manifest is generated. (Assembly or native manifests do not require an `EntryPoint`.) This requirement is enforced by the build error \"MSB3185: EntryPoint not specified for manifest.\"  \n  \n In [!INCLUDE[vs_orcas_long](~/add/includes/vs-orcas-long-md.md)], [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] does not issue this error when the `EntryPoint` task parameter is not specified. Instead, the \\<customHostSpecified> tag is inserted as a child of the \\<entryPoint> tag, for example, as follows.  \n  \n```  \n<entryPoint xmlns=\"urn:schemas-   \n  microsoft-com:asm.v2\">  \n    <co.v1:customHostSpecified />  \n</entryPoint>  \n```  \n  \n You can add DLL dependencies to the application manifest by using the following steps:  \n  \n1.  Resolve the references in the assembly by using a call to <xref:Microsoft.Build.Tasks.ResolveAssemblyReference>.  \n  \n2.  Pass the output of the previous task and the assembly itself to <xref:Microsoft.Build.Tasks.ResolveManifestFiles>.  \n  \n3.  Pass the dependencies by using the `Dependencies` parameter to GenerateApplicationManifest."
   syntax:
     content: 'public sealed class GenerateApplicationManifest : Microsoft.Build.Tasks.GenerateManifestBase'
@@ -84,7 +84,7 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Tasks.GenerateApplicationManifest&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;Microsoft.Build.Tasks.GenerateApplicationManifest&quot;> </xref> klass."
   syntax:
     content: public GenerateApplicationManifest ();
     parameters: []
@@ -104,13 +104,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the minimum version of the Common Language Runtime (CLR) required by the application."
-  remarks: "By default, the value is the CLR version in use by the build system. If the task is generating a native manifest, this property is ignored."
+  summary: "Hämtar eller anger den lägsta versionen av den Runtime CLR (Common Language) krävs för programmet."
+  remarks: "Som standard är värdet för CLR-version som används av build-system. Den här egenskapen ignoreras om uppgiften genererar ett enhetligt manifest."
   syntax:
     content: public string ClrVersion { get; set; }
     return:
       type: System.String
-      description: "The minimum version of the CLR required by the application."
+      description: "Den lägsta versionen av CLR som krävs för programmet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.ClrVersion*
   exceptions: []
   platform:
@@ -127,13 +127,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the task item that contains the application configuration file."
-  remarks: "If the task is generating a native manifest, this property is ignored."
+  summary: "Hämtar eller anger uppgiftsobjektet som innehåller programmets konfigurationsfil."
+  remarks: "Den här egenskapen ignoreras om uppgiften genererar ett enhetligt manifest."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem ConfigFile { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The task item that contains the application configuration file."
+      description: "Uppgiftsobjektet som innehåller programmets konfigurationsfil."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.ConfigFile*
   exceptions: []
   platform:
@@ -150,13 +150,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets an item list that defines the set of dependent assemblies for the generated manifest."
-  remarks: "Each item may be further described by item metadata to indicate additional deployment state and the kind of dependence."
+  summary: "Hämtar eller anger en lista över objekt som definierar de beroende sammansättningar för genererat manifest."
+  remarks: "Varje objekt kan beskrivas vidare av objektmetadata att ange ytterligare distributionstillstånd och vilken typ av beroende."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] Dependencies { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "An item list of dependent assembly names."
+      description: "En lista över objekt av beroende sammansättningsnamn."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.Dependencies*
   exceptions: []
   platform:
@@ -173,13 +173,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the URL of the Web page that is displayed in dialog boxes during ClickOnce installations."
-  remarks: "Specifies a Web page to be displayed in dialog boxes that are displayed during ClickOnce installations."
+  summary: "Hämtar eller anger URL till webbsidan som visas i dialogrutor under ClickOnce-installationer."
+  remarks: "Anger en webbsida som ska visas i dialogrutor som visas under ClickOnce-installationer."
   syntax:
     content: public string ErrorReportUrl { get; set; }
     return:
       type: System.String
-      description: "A string value that represents the URL of a Web page."
+      description: "Ett strängvärde som representerar URL-Adressen till en webbsida."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.ErrorReportUrl*
   exceptions: []
   platform:
@@ -196,13 +196,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets a list of one or more file type that are associated with the ClickOnce deployment manifest. File associations only valid only when [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] 3.5 or later is targeted."
+  summary: "Hämtar eller anger en lista med en eller flera filtyp som är associerade med manifest för ClickOnce-distribution. Filassociationer endast endast giltigt när [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] 3.5 eller senare är angiven som mål."
   remarks: "File types can be custom. The following is an example of a [\\<fileAssociation> Element (ClickOnce Application)](../Topic/%3CfileAssociation%3E%20Element%20\\(ClickOnce%20Application\\).md):  \n  \n```  \n<FileAssociation Include=\".nyt\">  \n    <ProgId>NewYorkTimes.Document</ProgId>  \n    <DefaultIcon>nyt.ico</DefaultIcon>  \n    <Description>New York Times Reader document</Description>  \n</FileAssociation>  \n```"
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] FileAssociations { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "A list of file types that are associated with the generated manifest."
+      description: "En lista över filtyper som är associerade med det genererade manifestet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.FileAssociations*
   exceptions: []
   platform:
@@ -219,12 +219,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the full paths of files to include in the manifest."
+  summary: "Hämtar eller anger de fullständiga sökvägarna för filer som ska inkluderas i manifestet."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] Files { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "Paths to files that are included in the manifest."
+      description: "Sökvägar för filer som ingår i manifestet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.Files*
   exceptions: []
   platform:
@@ -246,7 +246,7 @@ items:
     parameters: []
     return:
       type: System.Type
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.GetObjectType*
   exceptions: []
   platform:
@@ -263,13 +263,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets whether the application is hosted in a browser (as are WPF Web Browser Applications)."
-  remarks: "For project types other than WPF Web Browser Applications, set HostInBrowser to `false` (the default value).       When you deploy a WPF Web Browser Application, you must set the HostInBrowser property to `true`. This causes the `<hostInBrowser>` tag to be added to the generated application manifest, enabling ClickOnce to deploy projects for browser-hosted applications, which contain .xbap files.       You also have to make the application available online only by setting <xref:Microsoft.Build.Tasks.GenerateDeploymentManifest.Install%2A> to `false`. If this condition is not met, you will receive [MSBuild Error MSB3116](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Hämtar eller anger om programmet finns i en webbläsare (som är WPF webbläsarprogram)."
+  remarks: "Ange HostInBrowser för projekttyper än WPF webbläsarprogram, till `false` (standardvärdet).       När du distribuerar en WPF-Webbläsarprogrammet, måste du ange egenskapen HostInBrowser till `true`. Detta gör det `<hostInBrowser>` tagg som ska läggas till genererade programmanifestet, aktivera ClickOnce distribuera projekt för webbaserade program som innehåller .xbap filer.       Du måste också gör programmet tillgängligt online genom att ange <xref:Microsoft.Build.Tasks.GenerateDeploymentManifest.Install%2A>till `false`.</xref:Microsoft.Build.Tasks.GenerateDeploymentManifest.Install%2A> Om detta inte är uppfyllt, kommer du få [MSBuild fel MSB3116](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public bool HostInBrowser { get; set; }
     return:
       type: System.Boolean
-      description: "A Boolean value that indicates whether the application being deployed will be hosted in a browser (<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>), or not (<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>). <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> only applies to WPF Web Browser Applications."
+      description: "Ett booleskt värde som anger om programmet distribueras, kommer att finnas i en webbläsare (<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>), eller inte (<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>). <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>gäller endast för WPF-webbläsarprogram."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.HostInBrowser*
   exceptions: []
   platform:
@@ -286,13 +286,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the application&quot;s icon file."
-  remarks: "The application icon is expressed in the generated application manifest and is used on the **Start** menu and in the **Uninstall or change a program** dialog box. If this input is not specified, a default icon is used. If the task is generating a native manifest, this property is ignored."
+  summary: "Hämtar eller anger programmets ikonfil."
+  remarks: "Programikonen uttrycks i programmanifestet skapas och används på den **starta** menyn och i den **avinstallera eller ändra ett program** dialogrutan. Om den här indata inte anges, används en standardikon. Den här egenskapen ignoreras om uppgiften genererar ett enhetligt manifest."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem IconFile { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The icon file to use for the application."
+      description: "För ikonfilen som ska användas för programmet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.IconFile*
   exceptions: []
   platform:
@@ -309,13 +309,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets COM components to isolate in the generated manifest."
-  remarks: "This property lets you isolate COM components for &quot;Registration Free COM&quot; deployment. It works by auto-generating a manifest that has standard COM registration definitions. The COM components must be registered on the build computer."
+  summary: "Hämtar eller anger COM-komponenter för att isolera i genererade manifestet."
+  remarks: "Den här egenskapen kan du isolera COM-komponenter för distribution &quot;Registrering ledigt COM&quot;. Det fungerar genom att automatiskt generera ett manifest som har standarddefinitioner för COM-registrering. COM-komponenter måste vara registrerad på build-dator."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] IsolatedComReferences { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "The COM components to isolate in the generated manifest."
+      description: "COM-komponenter att isolera i genererade manifestet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.IsolatedComReferences*
   exceptions: []
   platform:
@@ -332,13 +332,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the type of manifest to generate."
-  remarks: "This property can have the following values:      -   `Native`      -   `ClickOnce`       If this property is not specified, the task defaults to `ClickOnce`."
+  summary: "Hämtar eller anger typ av manifestet att generera."
+  remarks: "Den här egenskapen kan ha följande värden:- `Native`       -    `ClickOnce` om den här egenskapen inte anges aktiviteten som standard `ClickOnce`."
   syntax:
     content: public string ManifestType { get; set; }
     return:
       type: System.String
-      description: "The kind of manifest to generate."
+      description: "Typ av manifestet ska genereras."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.ManifestType*
   exceptions: []
   platform:
@@ -360,10 +360,10 @@ items:
     parameters:
     - id: manifest
       type: Microsoft.Build.Tasks.Deployment.ManifestUtilities.Manifest
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.OnManifestLoaded*
   exceptions: []
   platform:
@@ -385,10 +385,10 @@ items:
     parameters:
     - id: manifest
       type: Microsoft.Build.Tasks.Deployment.ManifestUtilities.Manifest
-      description: "To be added."
+      description: "Som ska läggas till."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.OnManifestResolved*
   exceptions: []
   platform:
@@ -405,13 +405,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the operating system (OS) version that is the minimum required by the application."
-  remarks: "For example, the value &quot;5.1.2600.0&quot; indicates that the operating system is Windows XP. If this property is not specified, the value &quot;4.10.0.0&quot; is used. This indicates Windows 98 Second Edition, which is the minimum supported operating system for the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].       If the task is generating a native manifest, this input is ignored."
+  summary: "Hämtar eller anger den version av operativsystem (OS) som krävs av programmet."
+  remarks: "Till exempel anger värdet &quot;5.1.2600.0&quot; att operativsystemet är Windows XP. Om den här egenskapen inte anges används värdet &quot;4.10.0.0&quot;. Detta anger Windows 98 andra utgåvan, vilket är minimikraven operativsystemet för den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)].       Om uppgiften genererar ett enhetligt manifest, ignoreras den här indata."
   syntax:
     content: public string OSVersion { get; set; }
     return:
       type: System.String
-      description: "The OS version that is the minimum required by the application."
+      description: "OS-version som krävs av programmet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.OSVersion*
   exceptions: []
   platform:
@@ -428,13 +428,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Specifies the `ProductName` property in the project file."
-  remarks: "This property corresponds to the `ProductName` property in the project file. The default value is `null`. If `ProductName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the RegisteredOrganization value in the registry is written to the application manifest. If RegisteredOrganization is also null, the assembly name is used."
+  summary: "Anger den `ProductName` egenskapen i projektfilen."
+  remarks: "Den här egenskapen som motsvarar den `ProductName` egenskapen i projektfilen. Standardvärdet är `null`. Om `ProductName` är null och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A>är `true`, RegisteredOrganization-värdet i registret sparas i programmanifestet.</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> Om RegisteredOrganization också är null används sammansättningsnamnet."
   syntax:
     content: public string Product { get; set; }
     return:
       type: System.String
-      description: "A string value that corresponds to the `ProductName` property in the project file."
+      description: "Ett strängvärde som motsvarar den `ProductName` egenskapen i projektfilen."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.Product*
   exceptions: []
   platform:
@@ -451,13 +451,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Specifies the `PublisherName` property in the project file."
-  remarks: "This property corresponds to the `PublisherName` property in the project file. The default value is `null`. If `PublisherName` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, the assembly name is written to the application manifest."
+  summary: "Anger den `PublisherName` egenskapen i projektfilen."
+  remarks: "Den här egenskapen som motsvarar den `PublisherName` egenskapen i projektfilen. Standardvärdet är `null`. Om `PublisherName` är null och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A>är `true`, sammansättningsnamnet sparas i programmanifestet.</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A>"
   syntax:
     content: public string Publisher { get; set; }
     return:
       type: System.String
-      description: "A string value that corresponds to the `PublisherName` property in the project file."
+      description: "Ett strängvärde som motsvarar den `PublisherName` egenskapen i projektfilen."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher*
   exceptions: []
   platform:
@@ -474,12 +474,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets whether the application requires the .NET Framework 3.5 SP1."
+  summary: "Hämtar eller anger om programmet kräver .NET Framework 3.5 SP1."
   syntax:
     content: public bool RequiresMinimumFramework35SP1 { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the application requires .NET Framework 3.5 SP1; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> otherwise."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om programmet kräver .NET Framework 3.5 SP1; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> annars."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.RequiresMinimumFramework35SP1*
   exceptions: []
   platform:
@@ -496,12 +496,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the name of the folder on the **Start** menu where the application is located after ClickOnce deployment."
+  summary: "Hämtar eller anger namnet på mappen på den **starta** menyn där programmet finns efter ClickOnce-distribution."
   syntax:
     content: public string SuiteName { get; set; }
     return:
       type: System.String
-      description: "A string that represents the name of a **Start** menu folder."
+      description: "En sträng som representerar namnet på en **starta** -menyn."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.SuiteName*
   exceptions: []
   platform:
@@ -518,13 +518,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Specifies the `SupportUrl` property in the project file."
-  remarks: "This property corresponds to the `SupportUrl` property in the project file. The default value is **null**. If `SupportUrl` is null and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A> is `true`, an empty string is written to the application manifest."
+  summary: "Anger den `SupportUrl` egenskapen i projektfilen."
+  remarks: "Den här egenskapen som motsvarar den `SupportUrl` egenskapen i projektfilen. Standardvärdet är **null**. Om `SupportUrl` är null och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A>är `true`, en tom sträng sparas i programmanifestet.</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust%2A>"
   syntax:
     content: public string SupportUrl { get; set; }
     return:
       type: System.String
-      description: "A string value that corresponds to the `SupportUrl` property in the project file."
+      description: "Ett strängvärde som motsvarar den `SupportUrl` egenskapen i projektfilen."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*
   exceptions: []
   platform:
@@ -541,12 +541,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the target framework profile."
+  summary: "Hämtar eller anger den aktuella framework-profilen."
   syntax:
     content: public string TargetFrameworkProfile { get; set; }
     return:
       type: System.String
-      description: "Returns the target framework profile."
+      description: "Returnerar den aktuella framework-profilen."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.TargetFrameworkProfile*
   exceptions: []
   platform:
@@ -563,12 +563,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the name of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] subset to target."
+  summary: "Hämtar eller anger namnet på den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] delmängd till målet."
   syntax:
     content: public string TargetFrameworkSubset { get; set; }
     return:
       type: System.String
-      description: "The name of the [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] subset."
+      description: "Namnet på den [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] delmängd."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.TargetFrameworkSubset*
   exceptions: []
   platform:
@@ -585,13 +585,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets an XML document that specifies the application security."
-  remarks: "The root element in the XML document must be a trustInfo node in the asm.v2 namespace. If the task is generating a native manifest, this property is ignored."
+  summary: "Hämtar eller anger ett XML-dokument som anger programsäkerhet."
+  remarks: "Rotelementet i XML-dokument måste vara en trustInfo nod i namnområdet asm.v2. Den här egenskapen ignoreras om uppgiften genererar ett enhetligt manifest."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem TrustInfoFile { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The XML document that specifies the application security."
+      description: "XML-dokumentet som anger programsäkerhet."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.TrustInfoFile*
   exceptions: []
   platform:
@@ -608,13 +608,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Specifies whether the <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product*>, <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher*>, and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*> properties are written to the application manifest."
-  remarks: "The <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product%2A>, <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher%2A>, and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl%2A> properties default to `null`. These properties are only used if UseApplicationTrust is `true`; if so, the values of these properties are written to the corresponding tags in the application manifest.       If UseApplicationTrust is `false` (the default value), these properties are ignored."
+  summary: "Anger om den <> </> *>, <> </> *>, och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*>Egenskaper skrivs till applikationsmanifestet.</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*>"
+  remarks: "Den <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product%2A>, <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher%2A>, och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl%2A>Egenskaper som standard `null`.</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl%2A> </xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher%2A> </xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product%2A> De här egenskaperna används bara om UseApplicationTrust är `true`, om så, värdena för dessa egenskaper skrivs till motsvarande taggar i programmanifestet.       Om UseApplicationTrust är `false` (standardvärdet) ignoreras dessa egenskaper."
   syntax:
     content: public bool UseApplicationTrust { get; set; }
     return:
       type: System.Boolean
-      description: "A Boolean value that indicates whether the <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Product*>, <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.Publisher*>, and <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*> properties are written to the application manifest (<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>). If the value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, these properties are ignored."
+      description: "Ett booleskt värde som anger om den <> </> *>, <> </> *>, och <xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*>Egenskaper skrivs till applikationsmanifestet (<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>).</xref:Microsoft.Build.Tasks.GenerateApplicationManifest.SupportUrl*> Om värdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, ignoreras dessa egenskaper."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.UseApplicationTrust*
   exceptions: []
   platform:
@@ -636,7 +636,7 @@ items:
     parameters: []
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: Microsoft.Build.Tasks.GenerateApplicationManifest.ValidateInputs*
   exceptions: []
   platform:

@@ -18,8 +18,8 @@ items:
   nameWithType: SoapHeader
   fullName: System.Web.Services.Protocols.SoapHeader
   type: Class
-  summary: "When overridden in a derived class, represents the content of a SOAP header."
-  remarks: "SOAP headers offer a method for passing data to and from an XML Web service method if the data is not directly related to the XML Web service method&quot;s primary functionality. For instance, an XML Web service might contain several XML Web service methods that each require a custom authentication scheme. Instead of adding parameters to each XML Web service method for the custom authentication scheme, a <xref:System.Web.Services.Protocols.SoapHeaderAttribute>, referring to a class deriving from SoapHeader, can be applied to each XML Web service method. The implementation for the class deriving from SoapHeader handles the custom authentication scheme. In this manner, the XML Web service method implements only the functionality specific to it and adds additional functionality using a SOAP header.       The following list outlines the basic steps to receiving and processing a SOAP header:      1.  Create a class that derives from SoapHeader representing the data passed into the SOAP header.      2.  Add a member to the class implementing an XML Web service or an XML Web service client proxy class, of the type created in the first step.      3.  Apply a <xref:System.Web.Services.Protocols.SoapHeaderAttribute> to the XML Web service method or the corresponding method in the proxy class, specifying the member created in the second step in the <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A> property.      4.  Within the XML Web service method or XML Web service client code, access the <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A> property to process the data sent in the SOAP header."
+  summary: "När åsidosätts i en härledd klass representerar innehållet i ett SOAP-huvud."
+  remarks: "SOAP-huvuden erbjuder en metod för att skicka data till och från en XML-webbtjänstmetoden om data inte är direkt relaterade till XML-webbtjänstmetoden primära funktioner. XML-webbtjänsten kan till exempel innehålla flera XML-Webbtjänstmetoder var kräver en anpassad autentiseringsschema. I stället för att lägga till parametrar i varje XML-webbtjänstmetoden för anpassade autentiseringsschema en <xref:System.Web.Services.Protocols.SoapHeaderAttribute>hänvisar till en klass som härleds från SoapHeader, kan tillämpas på varje XML-webbtjänstmetoden.</xref:System.Web.Services.Protocols.SoapHeaderAttribute> Implementeringen för den klass som härleds från SoapHeader hanterar anpassade autentiseringsschema. På så sätt kan den XML-webbtjänstmetoden implementerar endast funktionerna som är specifika för den och lägger till ytterligare funktioner med hjälp av ett SOAP-huvud.       I följande lista beskrivs grundläggande steg som ska ta emot och bearbetar ett SOAP-huvud: 1.  Skapa en klass som härleds från SoapHeader som representerar data skickades till SOAP-huvudet.      2.  Lägga till en medlem i den klass som implementerar en XML-webbtjänst eller ett XML-webbtjänsten service klienten proxyklass, av typen skapats i det första steget.      3.  Tillämpa en <xref:System.Web.Services.Protocols.SoapHeaderAttribute>XML webbtjänstmetod, eller motsvarande metod i proxyklassen anger medlemmen skapas i det andra steget i den <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A>egenskapen.</xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A> </xref:System.Web.Services.Protocols.SoapHeaderAttribute>      4.  I XML-webbtjänstmetoden eller XML-webbtjänsten service klientkod, få åtkomst till den <xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A>egenskapen för att bearbeta de data som skickas i SOAP-huvudet.</xref:System.Web.Services.Protocols.SoapHeaderAttribute.MemberName%2A>"
   example:
   - "The following `MyWebService` XML Web service defines the `MyHeader` SOAP header and requires it to be sent with any calls to the `MyWebMethod` XML Web service method. Additionally, `MyWebMethod` receives any SOAP headers other than the `MyHeader` SOAP header.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -47,7 +47,7 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;> </xref> klass."
   syntax:
     content: protected SoapHeader ();
     parameters: []
@@ -67,15 +67,15 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the recipient of the SOAP header."
-  remarks: "To set the recipient of a SOAP header, set the Actor property. Regardless of the version of the SOAP protocol used to communicate with an XML Web service, the .NET Framework automatically generates the SOAP message specific to the version of the SOAP protocol. Specifically, the XML element and XML namespace representing the recipient differ for the two versions.       XML Web services receiving the SOAP header can get the intended recipient by getting either the <xref:System.Web.Services.Protocols.SoapHeader.Role%2A> or Actor properties.       The recipient(s) for the `Body` element and each of the SOAP headers within the `Header` element of a SOAP message need not be the same. If a `Header` element exists in the SOAP message, it represents additional data that can be sent to and from the XML Web service method or an intermediary. The recipient of that data, known as the SOAP `Actor` in version 1.1, can be a different URI than the URI for the XML Web service method.       For more information on the SOAP `actor` attribute, see the SOAP specification at http://www.w3.org/TR/SOAP/."
+  summary: "Hämtar eller anger mottagaren av SOAP-huvudet."
+  remarks: "Ange egenskapen aktören för att ange mottagaren av ett SOAP-huvud. Oavsett vilken version av SOAP-protokoll som används för att kommunicera med en XML-webbtjänst genererar automatiskt ett SOAP-meddelande som är specifika för versionen av SOAP-protokoll i .NET Framework. I synnerhet de XML-element och XML-namnområdet som representerar mottagaren skiljer sig för de två versionerna.       XML-webbtjänster som tar emot SOAP-huvudet får den avsedda mottagaren genom att antingen den <xref:System.Web.Services.Protocols.SoapHeader.Role%2A>eller aktören egenskaper.</xref:System.Web.Services.Protocols.SoapHeader.Role%2A>       Mottagarna för den `Body` element och var och en av SOAP-huvuden inom den `Header` element i ett SOAP-meddelande måste inte vara samma. Om en `Header` elementet finns i SOAP-meddelandet, representerar det ytterligare data som kan skickas till och från XML-webbtjänstmetoden eller en mellanhand. Mottagaren av dessa data kallas SOAP `Actor` i version 1.1, kan vara en annan URI än URI: N för XML-webbtjänstmetoden.       Mer information om SOAP `actor` attribut, finns i SOAP-specifikationen på http://www.w3.org/TR/SOAP/."
   example:
   - "The following XML Web service client calls the `MyWebMethod` XML Web service method after creating a custom SOAP header of type `MyHeader` and setting the Actor property to `http://www.contoso.com/MySoapHeaderHandler`.  \n  \n [!code-cs[Classic SoapHeader.Actor Example#1](~/add/codesnippet/csharp/p-system.web.services.pr_16_1.cs)]\n [!code-cpp[Classic SoapHeader.Actor Example#1](~/add/codesnippet/cpp/p-system.web.services.pr_16_1.cpp)]\n [!code-vb[Classic SoapHeader.Actor Example#1](~/add/codesnippet/visualbasic/p-system.web.services.pr_16_1.vb)]"
   syntax:
     content: public string Actor { get; set; }
     return:
       type: System.String
-      description: "The recipient of the SOAP header. The default is an empty string (&quot;&quot;)."
+      description: "Mottagaren av SOAP-huvudet. Standardvärdet är en tom sträng (&quot;&quot;)."
   overload: System.Web.Services.Protocols.SoapHeader.Actor*
   exceptions: []
   platform:
@@ -92,15 +92,15 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets a value indicating whether an XML Web service method properly processed a SOAP header."
-  remarks: "For SOAP headers defined by an XML Web service, ASP.NET assumes the XML Web service method properly processed the SOAP header by setting the initial value of DidUnderstand to `true`. For SOAP headers not defined by the XML Web service, the initial value is `false`. If ASP.NET detects SOAP headers passed to an XML Web service method with DidUnderstand set to `false` after the method returns, a <xref:System.Web.Services.Protocols.SoapHeaderException> is thrown back to the XML Web service client instead of the results from the XML Web service method."
+  summary: "Hämtar eller anger ett värde som anger om en XML-webbtjänstmetoden korrekt bearbeta ett SOAP-huvud."
+  remarks: "För SOAP-huvuden som definieras av en XML-webbtjänst ASP.NET förutsätter XML-webbtjänsten Servicemetoden bearbetas korrekt SOAP-huvudet genom att ange det första värdet i DidUnderstand till `true`. SOAP-huvuden som definierats av XML-webbtjänsten, är det initiala värdet `false`. Om ASP.NET identifierar SOAP huvuden skickas till en XML-webbtjänstmetoden med DidUnderstand inställd på `false` när metoden returnerar en <xref:System.Web.Services.Protocols.SoapHeaderException>genereras tillbaka till XML-webbtjänsten service-klienten i stället för resultatet från XML-webbtjänstmetoden.</xref:System.Web.Services.Protocols.SoapHeaderException>"
   example:
   - "The following `MyWebService` XML Web service defines the `MyHeader` SOAP header and requires it to be sent with any calls to the `MyWebMethod` XML Web service method. Additionally, the `MyWebMethod` receives any SOAP headers other than the `MyHeader` SOAP header. For SOAP headers that `MyWebMethod` can process, DidUnderstand is set to `true`.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
     content: public bool DidUnderstand { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the SOAP header was properly processed; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om SOAP-huvudet bearbetades korrekt; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Services.Protocols.SoapHeader.DidUnderstand*
   exceptions: []
   platform:
@@ -117,8 +117,8 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the value of the <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;></xref> XML attribute for the SOAP header when communicating with SOAP protocol version 1.1."
-  remarks: "Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property."
+  summary: "Hämtar eller anger värdet för den <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;> </xref> XML-attribut för SOAP-huvudet vid kommunikation med SOAP-protokoll, version 1.1."
+  remarks: "Använd inte den här egenskapen. I stället använda den <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A>egenskapen.</xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A>"
   example:
   - >-
     [!code-cpp[SoapHeader_EncodedMustUnderstand#1](~/add/codesnippet/cpp/p-system.web.services.pr_37_1.cpp)]
@@ -128,12 +128,12 @@ items:
     content: public string EncodedMustUnderstand { get; set; }
     return:
       type: System.String
-      description: "The value of the <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;></xref> attribute. The default is &quot;0&quot;."
+      description: "Värdet för den <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;> </xref> attribut. Standardvärdet är &quot;0&quot;."
   overload: System.Web.Services.Protocols.SoapHeader.EncodedMustUnderstand*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: 'The property is set to a value other than: &quot;0&quot;, &quot;1&quot;, &quot;true&quot;, or &quot;false&quot;.'
+    description: 'Egenskapen anges till ett värde annat än: &quot;0&quot;, &quot;1&quot;, &quot;true&quot; eller &quot;false&quot;.'
   platform:
   - net462
 - uid: System.Web.Services.Protocols.SoapHeader.EncodedMustUnderstand12
@@ -148,18 +148,18 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the value of the <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;></xref> XML attribute for the SOAP header when communicating with SOAP protocol version 1.2."
-  remarks: "Do not use this property. Instead use the <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A> property."
+  summary: "Hämtar eller anger värdet för den <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;> </xref> XML-attribut för SOAP-huvudet vid kommunikation med SOAP-protokoll, version 1.2."
+  remarks: "Använd inte den här egenskapen. I stället använda den <xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A>egenskapen.</xref:System.Web.Services.Protocols.SoapHeader.MustUnderstand%2A>"
   syntax:
     content: public string EncodedMustUnderstand12 { get; set; }
     return:
       type: System.String
-      description: "The value of the <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;></xref> XML attribute of a SOAP header. The default is &quot;0&quot;."
+      description: "Värdet för den <xref uid=&quot;langword_csharp_mustUnderstand&quot; name=&quot;mustUnderstand&quot; href=&quot;&quot;> </xref> XML-attribut för ett SOAP-huvud. Standardvärdet är &quot;0&quot;."
   overload: System.Web.Services.Protocols.SoapHeader.EncodedMustUnderstand12*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: 'The property is set to a value other than: &quot;0&quot;, &quot;1&quot;, &quot;true&quot;, or &quot;false&quot;.'
+    description: 'Egenskapen anges till ett värde annat än: &quot;0&quot;, &quot;1&quot;, &quot;true&quot; eller &quot;false&quot;.'
   platform:
   - net462
 - uid: System.Web.Services.Protocols.SoapHeader.EncodedRelay
@@ -174,13 +174,13 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the relay attribute of the SOAP 1.2 header."
-  remarks: "The EncodedRelay property applies only to SOAP 1.2 and indicates whether the recipient of the message forwards this header when it forwards the message to the next node downstream. Because the .NET Framework does not support SOAP intermediaries, this property is serialized and deserialized but ignored."
+  summary: "Hämtar eller anger attributet relay för SOAP 1.2-huvudet."
+  remarks: "Egenskapen EncodedRelay gäller enbart för SOAP 1.2 och anger om mottagaren av meddelandet vidarebefordrar det här sidhuvudet när den vidarebefordrar meddelandet till nästa nod nedåt. Eftersom .NET Framework inte stöder SOAP mellanhand är den här egenskapen serialisera och deserialisera men ignoreras."
   syntax:
     content: public string EncodedRelay { get; set; }
     return:
       type: System.String
-      description: "Either &quot;0&quot;, &quot;false&quot;, &quot;1&quot;, or &quot;true&quot;."
+      description: "Antingen &quot;0&quot;, &quot;false&quot;, &quot;1&quot; eller &quot;true&quot;."
   overload: System.Web.Services.Protocols.SoapHeader.EncodedRelay*
   exceptions: []
   platform:
@@ -197,7 +197,7 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets a value indicating whether the <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;></xref> must be understood."
+  summary: "Hämtar eller anger ett värde som anger om den <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;> </xref> måste tolkas."
   remarks: "When an XML Web service client adds a SOAP header to an XML Web service method call with the MustUnderstand property set to `true`, the XML Web service method must set the <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> property to `true`; otherwise, a <xref:System.Web.Services.Protocols.SoapHeaderException> is thrown back to the XML Web service client by ASP.NET.  \n  \n Although both the <xref:System.Web.Services.Protocols.SoapHeader.EncodedMustUnderstand%2A> and MustUnderstand properties can be used to set the value of the `mustUnderstand` attribute within the SOAP header, the MustUnderstand property allows you to set the attribute using a Boolean value.  \n  \n For details on adding SOAP headers to clients, see [&#91;\\<topic://cpconusingsoapheaders>&#93;](http://msdn.microsoft.com/en-us/7bd961f2-b492-48d0-bafe-09d5d5fec3ba)."
   example:
   - "The following XML Web service client defines a custom SOAP header of type `MyHeader`, sets the MustUnderstand property to `true`, and invokes the `MyWebMethod` XML Web service method. If the XML Web service method does not set the <xref:System.Web.Services.Protocols.SoapHeader.DidUnderstand%2A> property of the `MyHeader` SOAP header to `true`, a <xref:System.Web.Services.Protocols.SoapHeaderException> is thrown.  \n  \n [!code-cs[Classic SoapHeader.MustUnderstand Example#1](~/add/codesnippet/csharp/p-system.web.services.pr_18_1.cs)]\n [!code-vb[Classic SoapHeader.MustUnderstand Example#1](~/add/codesnippet/visualbasic/p-system.web.services.pr_18_1.vb)]\n [!code-cpp[Classic SoapHeader.MustUnderstand Example#1](~/add/codesnippet/cpp/p-system.web.services.pr_18_1.cpp)]"
@@ -205,7 +205,7 @@ items:
     content: public bool MustUnderstand { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the XML Web service must properly interpret and process the <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om XML-webbtjänsten måste korrekt tolka och bearbeta de <xref href=&quot;System.Web.Services.Protocols.SoapHeader&quot;> </xref>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Services.Protocols.SoapHeader.MustUnderstand*
   exceptions: []
   platform:
@@ -222,13 +222,13 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets a value that indicates whether the SOAP header is to be relayed to the next SOAP node if the current node does not understand the header."
-  remarks: "The default SOAP 1.2 processing rules require SOAP nodes to remove headers that are not understood by the SOAP processing node before passing the message on to the next node."
+  summary: "Hämtar eller anger ett värde som anger om SOAP-huvudet är vidarebefordras till nästa SOAP-nod om den aktuella noden inte förstår rubriken."
+  remarks: "Standardregler för SOAP 1.2 bearbetning kräver SOAP noder för att ta bort huvuden som inte tolkas av SOAP-processnoden innan du skickar meddelandet till nästa nod."
   syntax:
     content: public bool Relay { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the SOAP header has a &quot;relay&quot; attribute set to &quot;true&quot;; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om SOAP-huvudet har &quot;vidarebefordrande&quot; attributet set &quot;true&quot;; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Services.Protocols.SoapHeader.Relay*
   exceptions: []
   platform:
@@ -245,13 +245,13 @@ items:
   assemblies:
   - System.Web.Services
   namespace: System.Web.Services.Protocols
-  summary: "Gets or sets the recipient of the SOAP header."
-  remarks: "To set the recipient of a SOAP header, set the <xref:System.Web.Services.Protocols.SoapHeader.Actor%2A> property. Regardless of the version of the SOAP protocol used to communicate with an XML Web service, the .NET Framework automatically generates the SOAP message specific to the version of the SOAP protocol. Specifically, the XML element and XML namespace representing the recipient differ for the two versions.       XML Web services receiving the SOAP header can get the intended recipient by getting either the Role or <xref:System.Web.Services.Protocols.SoapHeader.Actor%2A> properties.       The recipient(s) for the `Body` element and each of the SOAP headers within the `Header` element of a SOAP message need not be the same. If a `Header` element exists in the SOAP message, it represents additional data that can be sent to and from the XML Web service method or an intermediary. The recipient of that data, known as the SOAP `Role` in version 1.2 of the SOAP specification and the SOAP `Actor` in version 1.1, can be a different URI than the URI for the XML Web service method.       For more information on the SOAP `actor` attribute, see the SOAP specification at http://www.w3.org/TR/SOAP/."
+  summary: "Hämtar eller anger mottagaren av SOAP-huvudet."
+  remarks: "Att ställa in mottagare av ett SOAP-huvud i <xref:System.Web.Services.Protocols.SoapHeader.Actor%2A>egenskap.</xref:System.Web.Services.Protocols.SoapHeader.Actor%2A> Oavsett vilken version av SOAP-protokoll som används för att kommunicera med en XML-webbtjänst genererar automatiskt ett SOAP-meddelande som är specifika för versionen av SOAP-protokoll i .NET Framework. I synnerhet de XML-element och XML-namnområdet som representerar mottagaren skiljer sig för de två versionerna.       XML-webbtjänster som tar emot SOAP-huvudet får den avsedda mottagaren genom att antingen rollen eller <xref:System.Web.Services.Protocols.SoapHeader.Actor%2A>Egenskaper.</xref:System.Web.Services.Protocols.SoapHeader.Actor%2A>       Mottagarna för den `Body` element och var och en av SOAP-huvuden inom den `Header` element i ett SOAP-meddelande måste inte vara samma. Om en `Header` elementet finns i SOAP-meddelandet, representerar det ytterligare data som kan skickas till och från XML-webbtjänstmetoden eller en mellanhand. Mottagaren av dessa data kallas SOAP `Role` i version 1.2 av SOAP-specifikationen och SOAP `Actor` i version 1.1, kan vara en annan URI än URI: N för XML-webbtjänstmetoden.       Mer information om SOAP `actor` attribut, finns i SOAP-specifikationen på http://www.w3.org/TR/SOAP/."
   syntax:
     content: public string Role { get; set; }
     return:
       type: System.String
-      description: "A URI that represents the recipient of the SOAP header. The default is an empty string (&quot;&quot;)."
+      description: "En URI som representerar mottagaren av SOAP-huvudet. Standardvärdet är en tom sträng (&quot;&quot;)."
   overload: System.Web.Services.Protocols.SoapHeader.Role*
   exceptions: []
   platform:

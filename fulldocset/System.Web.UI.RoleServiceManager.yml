@@ -12,8 +12,8 @@ items:
   nameWithType: RoleServiceManager
   fullName: System.Web.UI.RoleServiceManager
   type: Class
-  summary: "Configures the location of a custom implementation of the role service."
-  remarks: "The RoleServiceManager class corresponds to the <xref:System.Web.UI.ScriptManager.RoleService%2A> property of the <xref:System.Web.UI.ScriptManager> or <xref:System.Web.UI.ScriptManagerProxy> control.       The role Web service is used by AJAX-enabled applications to retrieve role information for the current authenticated user by using an asynchronous Web service call. You can use RoleServiceManager to provide the path of an alternative implementation of the role Web service instead of using the built-in Web service.       To use the role service in your application, you must enable it in the configuration file and declare it in the page. If you use the built-in role Web service, you have to enable it, but you do not have to explicitly declare the role service manager in the page.       To create a custom role service, you must implement a Web service that has two methods: `GetRolesForCurrentUser` and `IsCurrentUserInRole`. These methods must have the same signature as the corresponding methods of the built-in role Web service.       The following example shows the basic class structure that must be implemented in a custom role Web service class.       [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]       To use a custom role Web service, you can add the service declaratively in markup by putting a `RoleService` element inside the <xref:System.Web.UI.ScriptManager> control, as shown in the following example.      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <RoleService Path=&quot;MyRoleService.asmx&quot; LoadRoles=&quot;true&quot; />   </asp:ScriptManager>   ```       You can also programmatically set the <xref:System.Web.UI.RoleServiceManager.Path%2A> property to use a custom role Web service."
+  summary: "Konfigurerar platsen för en anpassad implementering av rolltjänsten."
+  remarks: "Klassen RoleServiceManager motsvarar den <xref:System.Web.UI.ScriptManager.RoleService%2A>egenskapen för den <xref:System.Web.UI.ScriptManager>eller <xref:System.Web.UI.ScriptManagerProxy>kontroll.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> </xref:System.Web.UI.ScriptManager.RoleService%2A>       Rollen webbtjänsten används av AJAX-aktiverade program för att hämta rollinformation om för den aktuella autentiserade användaren med hjälp av en asynkron webbtjänstanrop. Du kan använda RoleServiceManager för att ange sökvägen till en alternativ implementering av rollen webbtjänsten i stället för med hjälp av inbyggda webbtjänsten.       Om du vill använda rolltjänsten i ditt program måste du aktivera den i konfigurationsfilen och deklarera på sidan. Om du använder den inbyggda rollen webbtjänsten, du måste aktivera den, men du behöver inte explicit deklarera rollen service manager på sidan.       Du måste implementera en webbtjänst som har två metoder för att skapa en anpassad rolltjänst: `GetRolesForCurrentUser` och `IsCurrentUserInRole`. Dessa metoder måste ha samma signatur som motsvarande metoder för den inbyggda rollen webbtjänsten.       I följande exempel visas grundläggande klass-struktur som måste implementeras i en anpassad roll Web service-klassen.       [!code-cs[XpsCreate #XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent) ] för att använda en anpassad roll webbtjänsten, du kan lägga till tjänsten deklarativt i markeringen genom att lägga till en `RoleService` -element inuti den <xref:System.Web.UI.ScriptManager>styra, enligt följande exempel.</xref:System.Web.UI.ScriptManager>      ```   <asp:ScriptManager ID=&quot;SM1&quot; runat=&quot;server&quot;>     <RoleService Path=&quot;MyRoleService.asmx&quot; LoadRoles=&quot;true&quot; />   </asp:ScriptManager>   ```Du kan också programmässigt ange den <xref:System.Web.UI.RoleServiceManager.Path%2A>egenskapen för att använda en anpassad roll webbtjänst.</xref:System.Web.UI.RoleServiceManager.Path%2A>"
   syntax:
     content: >-
       [System.ComponentModel.DefaultProperty("Path")]
@@ -39,7 +39,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.RoleServiceManager&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.UI.RoleServiceManager&quot;> </xref> klass."
   syntax:
     content: public RoleServiceManager ();
     parameters: []
@@ -59,13 +59,13 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Gets or sets a value that indicates whether the list of roles for the currently logged-on user must be retrieved."
-  remarks: "If the LoadRoles property is set to `true`, the list of roles is retrieved by the <xref:System.Web.UI.RoleServiceManager> class by using the <xref:System.Web.Security.Roles.GetRolesForUser%2A?displayProperty=fullName> method. The list is then serialized into the page markup.      > [!NOTE] >  When LoadRoles is `true`, all the roles that the current authenticated user belongs to are sent to the browser. Because users can potentially see the role information, this can be a security issue.       The LoadRoles property can be specified in the <xref:System.Web.UI.ScriptManager> control or in an associated <xref:System.Web.UI.ScriptManagerProxy> control. If LoadRoles is set to `true` for a proxy instance, the list of roles is retrieved and added to the page. If LoadRoles is `false`, the roles are not added to the page markup. In that case, you can use the  method to store role information in memory in the browser."
+  summary: "Hämtar eller anger ett värde som anger om listan över roller för den inloggade användaren måste hämtas."
+  remarks: "Om egenskapen LoadRoles anges till `true`, lista över roller hämtas av den <xref:System.Web.UI.RoleServiceManager>klassen med hjälp av den <xref:System.Web.Security.Roles.GetRolesForUser%2A?displayProperty=fullName>metoden.</xref:System.Web.Security.Roles.GetRolesForUser%2A?displayProperty=fullName> </xref:System.Web.UI.RoleServiceManager> Listan sedan serialiseras till sidkoden.      > [!NOTE] > När LoadRoles är `true`, alla roller som den autentiserade användaren tillhör skickas till webbläsaren. Eftersom användare kan eventuellt se informationen om rollen, kan det vara ett säkerhetsproblem.       Egenskapen LoadRoles kan anges i den <xref:System.Web.UI.ScriptManager>kontroll eller i en associerad <xref:System.Web.UI.ScriptManagerProxy>kontroll.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> Om LoadRoles anges till `true` för en proxy-instans i listan över roller hämtas och lagts till på sidan. Om LoadRoles är `false`, rollerna har inte lagts till i sidkoden. I så fall kan du använda metoden för att lagra rollinformation i minnet i webbläsaren."
   syntax:
     content: public bool LoadRoles { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the list of roles must be retrieved; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om listan över roller måste hämtas. Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.RoleServiceManager.LoadRoles*
   exceptions: []
   platform:
@@ -82,18 +82,18 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.UI
-  summary: "Gets or sets the path of the role service."
-  remarks: "If the Path property is not set, the return value is <xref:System.String?displayProperty=fullName>. In that case, ASP.NET uses the built-in authentication Web service that corresponds to the following internal default path: ~/RolesService.svc. The same behavior occurs if you set Path to an empty string or to `null`.       Path can be specified in the <xref:System.Web.UI.ScriptManager> control or in an associated <xref:System.Web.UI.ScriptManagerProxy> control. When Path is set at the <xref:System.Web.UI.ScriptManagerProxy> level, the following conditions are true:      -   If there are multiple proxy objects in the control hierarchy, Path does not have to be set for each proxy instance.      -   If Path is explicitly set for a proxy object, the value must be the same for all other proxy objects that this property is set for. If you set different paths for different proxy objects in the control hierarchy, an <xref:System.ArgumentException> exception is thrown."
+  summary: "Hämtar eller anger sökvägen till rolltjänsten."
+  remarks: "Om egenskapen sökvägen inte anges är returvärdet <xref:System.String?displayProperty=fullName>.</xref:System.String?displayProperty=fullName> I så fall ASP.NET använder den inbyggda autentiseringen webbtjänst som motsvarar följande interna standardsökvägen: ~ / RolesService.svc. På samma sätt uppstår om du anger sökvägen till en tom sträng eller till `null`.       Sökvägen kan anges i den <xref:System.Web.UI.ScriptManager>kontroll eller i en associerad <xref:System.Web.UI.ScriptManagerProxy>kontroll.</xref:System.Web.UI.ScriptManagerProxy> </xref:System.Web.UI.ScriptManager> När sökvägen har angetts på den <xref:System.Web.UI.ScriptManagerProxy>genom följande villkor är uppfyllda:-om det finns flera proxyobjekt i hierarkin kontroll, sökväg behöver inte anges för varje instans av proxyn.</xref:System.Web.UI.ScriptManagerProxy>      – Om sökvägen är explicit inställd för en proxy-objektet, måste värdet vara samma för alla andra proxyobjekt som den här egenskapen har angetts för. Om du ställer in olika sökvägar för olika proxyobjekt i hierarkin kontroll en <xref:System.ArgumentException>undantag.</xref:System.ArgumentException>"
   syntax:
     content: public string Path { get; set; }
     return:
       type: System.String
-      description: "The path of the custom role Web service."
+      description: "Sökvägen till den anpassade rollen som webbtjänsten."
   overload: System.Web.UI.RoleServiceManager.Path*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "More than one unique path was set in the control hierarchy."
+    description: "Mer än en unik sökväg har angetts i hierarkin för kontrollen."
   platform:
   - net462
 references:

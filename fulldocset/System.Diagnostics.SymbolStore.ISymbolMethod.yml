@@ -19,8 +19,8 @@ items:
   nameWithType: ISymbolMethod
   fullName: System.Diagnostics.SymbolStore.ISymbolMethod
   type: Interface
-  summary: "Represents a method within a symbol store."
-  remarks: "The ISymbolMethod interface provides access only to the symbol-related attributes of a method, such as sequence points, lexical scopes, and parameter information. Use it with the <xref:System.Reflection> classes to read the type-related attributes of a method.      > [!NOTE] >  This interface is the managed counterpart of the `ISymUnmanagedMethod` interface, one of the unmanaged symbol store interfaces that provide an alternative way to read and write debug symbol information."
+  summary: "Representerar en metod i ett Arkiv för symbolen."
+  remarks: "Gränssnittet ISymbolMethod ger åtkomst till en metod, till exempel sekvens punkter, lexikala omfattningar och parameterinformation symbol-relaterade attribut. Använder det med den <xref:System.Reflection>klasser för att läsa typ-relaterade attributen för en metod.</xref:System.Reflection>      > [!NOTE] > Det här gränssnittet är hanterade motsvarigheten till den `ISymUnmanagedMethod` gränssnitt, en ohanterad symbolen store gränssnitt som ger ett sätt att läsa och skriva felsökningsinformation för symbolen."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -41,13 +41,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the namespace that the current method is defined within."
+  summary: "Hämtar det namnområde som den aktuella metoden definieras inom."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolNamespace GetNamespace ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolNamespace
-      description: "The namespace that the current method is defined within."
+      description: "Det namnområde som definierats i den aktuella metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetNamespace*
   exceptions: []
   platform:
@@ -64,23 +64,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the Microsoft intermediate language (MSIL) offset within the method that corresponds to the specified position."
-  remarks: "The parameters are returned in the order that they are defined within the signature of the method."
+  summary: "Hämtar Microsoft mellanliggande språk (MSIL) förskjutning i metoden som motsvarar den angivna positionen."
+  remarks: "Parametrarna returneras i den ordning som de har definierats i metodens signatur."
   syntax:
     content: public int GetOffset (System.Diagnostics.SymbolStore.ISymbolDocument document, int line, int column);
     parameters:
     - id: document
       type: System.Diagnostics.SymbolStore.ISymbolDocument
-      description: "The document for which the offset is requested."
+      description: "Dokumentet som förskjutningen begärs."
     - id: line
       type: System.Int32
-      description: "The document line corresponding to the offset."
+      description: "Raden i motsvarar förskjutningen."
     - id: column
       type: System.Int32
-      description: "The document column corresponding to the offset."
+      description: "Kolumnen dokument motsvarar förskjutningen."
     return:
       type: System.Int32
-      description: "The offset within the specified document."
+      description: "Förskjutningen inom det angivna dokumentet."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetOffset*
   exceptions: []
   platform:
@@ -97,14 +97,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the parameters for the current method."
-  remarks: "The parameters are returned in the order that they are defined within the signature of the method."
+  summary: "Hämtar parametrarna för den aktuella metoden."
+  remarks: "Parametrarna returneras i den ordning som de har definierats i metodens signatur."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolVariable[] GetParameters ();
     parameters: []
     return:
       type: System.Diagnostics.SymbolStore.ISymbolVariable[]
-      description: "The array of parameters for the current method."
+      description: "Matris med parametrar för den aktuella metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetParameters*
   exceptions: []
   platform:
@@ -121,23 +121,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets an array of start and end offset pairs that correspond to the ranges of Microsoft intermediate language (MSIL) that a given position covers within this method."
-  remarks: "The array is an array of integers in the format {{start1, end1}, {start2, end2}...}. The number of range pairs is the length of the array divided by 2."
+  summary: "Hämtar en matris med start- och offset-par som motsvarar intervall för Microsoft mellanliggande språk (MSIL) som en angiven position täcker inom den här metoden."
+  remarks: "Matrisen är en heltalsmatris i formatet {{Start&1;, end1}, {start2 end2}...}. Antalet intervall par är längden på matrisen dividerat med 2."
   syntax:
     content: public int[] GetRanges (System.Diagnostics.SymbolStore.ISymbolDocument document, int line, int column);
     parameters:
     - id: document
       type: System.Diagnostics.SymbolStore.ISymbolDocument
-      description: "The document for which the offset is requested."
+      description: "Dokumentet som förskjutningen begärs."
     - id: line
       type: System.Int32
-      description: "The document line corresponding to the ranges."
+      description: "Raden i motsvarar intervall."
     - id: column
       type: System.Int32
-      description: "The document column corresponding to the ranges."
+      description: "Kolumnen dokument motsvarar intervall."
     return:
       type: System.Int32[]
-      description: "An array of start and end offset pairs."
+      description: "En matris med start- och slutdatum förskjutning par."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetRanges*
   exceptions: []
   platform:
@@ -154,17 +154,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Returns the most enclosing lexical scope when given an offset within a method."
-  remarks: "You can use the GetScope method to start local variable searches."
+  summary: "Returnerar det mest omslutande lexikala omfånget när en förskjutning i en metod."
+  remarks: "Du kan använda metoden GetScope lokala variabeln sökningen startar."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolScope GetScope (int offset);
     parameters:
     - id: offset
       type: System.Int32
-      description: "The byte offset within the method of the lexical scope."
+      description: "Byte-förskjutning i metoden lexikala omfånget."
     return:
       type: System.Diagnostics.SymbolStore.ISymbolScope
-      description: "The most enclosing lexical scope for the given byte offset within the method."
+      description: "Det mest omslutande lexikala omfånget för den angivna byte-förskjutningen i metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetScope*
   exceptions: []
   platform:
@@ -181,29 +181,29 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the sequence points for the current method."
-  remarks: "The sequence points are sorted by offset and are for all documents in the method. Use <xref:System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount%2A> to retrieve the count of all sequence points and create arrays of the proper size.       GetSequencePoints verifies the size of each array and places the sequence point information into each. If any array is `null`, the data for that array is not returned."
+  summary: "Hämtar aktivitetssekvensen punkter för den aktuella metoden."
+  remarks: "Sekvens punkter sorteras efter förskjutningen och gäller för alla dokument i metoden. Använd <xref:System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount%2A>att hämta antalet alla sekvens punkter och skapa matriser med rätt storlek.</xref:System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount%2A>       GetSequencePoints verifierar storleken på varje matris och placerar meddelandesekvensinformationen för punkt till var och en. Om en matris `null`, data för att matris returneras inte."
   syntax:
     content: public void GetSequencePoints (int[] offsets, System.Diagnostics.SymbolStore.ISymbolDocument[] documents, int[] lines, int[] columns, int[] endLines, int[] endColumns);
     parameters:
     - id: offsets
       type: System.Int32[]
-      description: "The array of byte offsets from the beginning of the method for the sequence points."
+      description: "Matris med byte förskjuts från början av metod för sekvensen punkter."
     - id: documents
       type: System.Diagnostics.SymbolStore.ISymbolDocument[]
-      description: "The array of documents in which the sequence points are located."
+      description: "Matris av dokument som aktivitetssekvensen punkterna finns."
     - id: lines
       type: System.Int32[]
-      description: "The array of lines in the documents at which the sequence points are located."
+      description: "Matris med rader i dokumenten som aktivitetssekvensen punkterna finns."
     - id: columns
       type: System.Int32[]
-      description: "The array of columns in the documents at which the sequence points are located."
+      description: "Matris med kolumner i dokumenten som aktivitetssekvensen punkterna finns."
     - id: endLines
       type: System.Int32[]
-      description: "The array of lines in the documents at which the sequence points end."
+      description: "Matris med rader i dokument som pekar sekvensen slutet."
     - id: endColumns
       type: System.Int32[]
-      description: "The array of columns in the documents at which the sequence points end."
+      description: "Matris med kolumner i dokument som pekar sekvensen slutet."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetSequencePoints*
   exceptions: []
   platform:
@@ -220,23 +220,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the start and end positions for the source of the current method."
-  remarks: "The first array position is the start, and the second is the end."
+  summary: "Hämtar start- och slutdatum positioner för källan till den aktuella metoden."
+  remarks: "Den första positionen i matrisen är start och andra är slut."
   syntax:
     content: public bool GetSourceStartEnd (System.Diagnostics.SymbolStore.ISymbolDocument[] docs, int[] lines, int[] columns);
     parameters:
     - id: docs
       type: System.Diagnostics.SymbolStore.ISymbolDocument[]
-      description: "The starting and ending source documents."
+      description: "De inledande och avslutande källdokument."
     - id: lines
       type: System.Int32[]
-      description: "The starting and ending lines in the corresponding source documents."
+      description: "Första och sista raderna i motsvarande källdokument."
     - id: columns
       type: System.Int32[]
-      description: "The starting and ending columns in the corresponding source documents."
+      description: "Första och sista kolumner i motsvarande källdokument."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the positions were defined; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om positioner definierades; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.GetSourceStartEnd*
   exceptions: []
   platform:
@@ -253,12 +253,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the root lexical scope for the current method. This scope encloses the entire method."
+  summary: "Hämtar rot lexikala omfånget för den aktuella metoden. Det här området placerar hela metoden."
   syntax:
     content: public System.Diagnostics.SymbolStore.ISymbolScope RootScope { get; }
     return:
       type: System.Diagnostics.SymbolStore.ISymbolScope
-      description: "The root lexical scope that encloses the entire method."
+      description: "Lexikaliskt rotscopet som omsluter hela metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.RootScope*
   exceptions: []
   platform:
@@ -275,12 +275,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets a count of the sequence points in the method."
+  summary: "Hämtar antalet sekvens-punkter i metoden."
   syntax:
     content: public int SequencePointCount { get; }
     return:
       type: System.Int32
-      description: "The count of the sequence points in the method."
+      description: "Antal sekvens-punkter i metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.SequencePointCount*
   exceptions: []
   platform:
@@ -297,12 +297,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Diagnostics.SymbolStore
-  summary: "Gets the <xref href=&quot;System.Diagnostics.SymbolStore.SymbolToken&quot;></xref> containing the metadata for the current method."
+  summary: "Hämtar den <xref href=&quot;System.Diagnostics.SymbolStore.SymbolToken&quot;> </xref> som innehåller metadata för den aktuella metoden."
   syntax:
     content: public System.Diagnostics.SymbolStore.SymbolToken Token { get; }
     return:
       type: System.Diagnostics.SymbolStore.SymbolToken
-      description: "The metadata token for the current method."
+      description: "Metadatatoken för den aktuella metoden."
   overload: System.Diagnostics.SymbolStore.ISymbolMethod.Token*
   exceptions: []
   platform:

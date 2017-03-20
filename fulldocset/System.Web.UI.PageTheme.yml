@@ -24,8 +24,8 @@ items:
   nameWithType: PageTheme
   fullName: System.Web.UI.PageTheme
   type: Class
-  summary: "Represents the base class for a page theme, which is a collection of resources that are used to define a consistent look across pages and controls in a Web site. The page theme can be set through configuration or the page directive."
-  remarks: "Page and control developers do not use the <xref:System.Web.UI.ControlSkinDelegate>, <xref:System.Web.UI.ControlSkin>, or PageTheme classes directly. These classes are used by the ASP.NET parser and runtime to apply style sheet elements that are defined in ASP.NET themes and control skins files to pages and specific types of controls.       Page developers enable (or disable) page themes using the <xref:System.Web.UI.Page.Theme%2A> and <xref:System.Web.UI.Control.EnableTheming%2A> properties. For more information about page themes, see [ASP.NET Themes and Skins](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Representerar basklass för sidans tema som är en samling resurser som används för att definiera ett enhetligt utseende över sidor och kontroller på en webbplats. Sidans tema kan ställas in via konfiguration eller page-direktivet."
+  remarks: "Sidan och kontroll utvecklare inte använder den <xref:System.Web.UI.ControlSkinDelegate>, <xref:System.Web.UI.ControlSkin>, eller PageTheme klasser direkt.</xref:System.Web.UI.ControlSkin> </xref:System.Web.UI.ControlSkinDelegate> Dessa klasser som används av ASP.NET-tolken och runtime tillämpa Formatelement för blad som har definierats i ASP.NET-teman och styra skal filer till sidor och vissa typer av kontroller.       Sidan utvecklare aktivera (eller inaktivera) sidan teman med hjälp av den <xref:System.Web.UI.Page.Theme%2A>och <xref:System.Web.UI.Control.EnableTheming%2A>Egenskaper.</xref:System.Web.UI.Control.EnableTheming%2A> </xref:System.Web.UI.Page.Theme%2A> Läs mer om sidan teman [ASP.NET teman och skal](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -49,7 +49,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass."
   syntax:
     content: protected PageTheme ();
     parameters: []
@@ -69,13 +69,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When overridden a derived class, gets the relative URL of the directory for the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> object."
-  remarks: "The AppRelativeTemplateSourceDirectory property is abstract. When compiled, a theme will generate code that overrides the AppRelativeTemplateSourceDirectory property. The <xref:System.Web.UI.Control.ResolveUrl%2A> method uses the AppRelativeTemplateSourceDirectory property to resolves a relative URL to an absolute URL."
+  summary: "När en härledd klass har åsidosatts gäller hämtar relativ URL för katalogen för den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> objekt."
+  remarks: "Egenskapen AppRelativeTemplateSourceDirectory är abstrakt. Om kompileras, kommer ett tema generera kod som åsidosätter egenskapen AppRelativeTemplateSourceDirectory. Den <xref:System.Web.UI.Control.ResolveUrl%2A>metoden använder egenskapen AppRelativeTemplateSourceDirectory matchar en relativ URL till en absolut URL.</xref:System.Web.UI.Control.ResolveUrl%2A>"
   syntax:
     content: protected abstract string AppRelativeTemplateSourceDirectory { get; }
     return:
       type: System.String
-      description: "A string value containing the relative URL of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> directory."
+      description: "Ett strängvärde som innehåller den relativa Adressen till den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> directory."
   overload: System.Web.UI.PageTheme.AppRelativeTemplateSourceDirectory*
   exceptions: []
   platform:
@@ -92,13 +92,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When overridden in a derived class, gets an <xref:System.Collections.IDictionary> interface of the names of all default skins that are available for the current page theme, indexed by control type."
-  remarks: "The ControlSkins property is abstract. When compiled, a theme will generate code that overrides this property."
+  summary: "När åsidosätts i en härledd klass, hämtar ett <xref:System.Collections.IDictionary>gränssnittet för namnen på alla standard skal som är tillgängliga för den aktuella sidans tema som indexeras av kontrolltypen.</xref:System.Collections.IDictionary>"
+  remarks: "Egenskapen ControlSkins är abstrakt. Om kompileras, kommer ett tema generera kod som åsidosätter den här egenskapen."
   syntax:
     content: protected abstract System.Collections.IDictionary ControlSkins { get; }
     return:
       type: System.Collections.IDictionary
-      description: "An <xref:System.Collections.IDictionary> that represents the control skins associated with the current page theme."
+      description: "En <xref:System.Collections.IDictionary>som representerar kontrollskal som är associerade med den aktuella sidans teman.</xref:System.Collections.IDictionary>"
   overload: System.Web.UI.PageTheme.ControlSkins*
   exceptions: []
   platform:
@@ -115,24 +115,24 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Creates a lookup key object for a particular control type and skin ID."
+  summary: "Skapar en sökning nyckelobjekt för en viss kontroll typ och skal-ID."
   syntax:
     content: public static object CreateSkinKey (Type controlType, string skinID);
     parameters:
     - id: controlType
       type: System.Type
-      description: "The <xref:System.Type> of control to which a control skin applies, which is passed typically from the <xref:System.Web.UI.ControlBuilder.ControlType*>."
+      description: "<xref:System.Type>Som skickas av kontrollen som ett kontrollskal gäller vanligtvis från <xref:System.Web.UI.ControlBuilder.ControlType*>.</xref:System.Web.UI.ControlBuilder.ControlType*> </xref:System.Type>"
     - id: skinID
       type: System.String
-      description: "The name of the control skin for which to create a key."
+      description: "Namnet på det skal som du vill skapa en nyckel."
     return:
       type: System.Object
-      description: "An object that can be used as a lookup key in a dictionary-style collection, which contains the control type and skin ID information."
+      description: "Ett objekt som kan användas som en nyckel för sökning i ett lexikon-samling som innehåller information för kontrollen typ och skal-ID."
   overload: System.Web.UI.PageTheme.CreateSkinKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>controlType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>controlType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.UI.PageTheme.Eval(System.String)
@@ -147,17 +147,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Uses the &lt;xref:System.Web.UI.DataBinder.Eval%28System.Object%2CSystem.String%29?displayProperty=fullName&gt; method of the <xref:System.Web.UI.PageTheme.Page*> property that the instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class is associated with to evaluate a data-binding expression."
-  remarks: "The <xref:System.Web.UI.PageTheme.Eval%2A> method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the data item container."
+  summary: "Använder den &lt;xref:System.Web.UI.DataBinder.Eval%28System.Object%2CSystem.String%29?displayProperty=fullName&gt; metod för den <xref:System.Web.UI.PageTheme.Page*>egenskapen som instansen av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass är associerad med att utvärdera ett uttryck för databindning.</xref:System.Web.UI.PageTheme.Page*>"
+  remarks: "Den <xref:System.Web.UI.PageTheme.Eval%2A>metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha data objektbehållaren.</xref:System.Web.UI.Page.GetDataItem%2A> </xref:System.Web.UI.PageTheme.Eval%2A>"
   syntax:
     content: protected object Eval (string expression);
     parameters:
     - id: expression
       type: System.String
-      description: "The navigation path from the container to the public property value. For details, see <xref href=&quot;System.Web.UI.DataBinder&quot;></xref>."
+      description: "Navigeringssökvägen från behållaren till offentliga egenskapens värde. Mer information finns i <xref href=&quot;System.Web.UI.DataBinder&quot;> </xref>."
     return:
       type: System.Object
-      description: "An object that results from the evaluation of the data-binding expression."
+      description: "Ett objekt som resultat av utvärderingen av uttrycket för databindning."
   overload: System.Web.UI.PageTheme.Eval*
   exceptions: []
   platform:
@@ -174,20 +174,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Uses the &lt;xref:System.Web.UI.DataBinder.Eval%28System.Object%2CSystem.String%2CSystem.String%29?displayProperty=fullName&gt; method of the <xref:System.Web.UI.PageTheme.Page*> property that the instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class is associated with to evaluate a data-binding expression."
-  remarks: "The <xref:System.Web.UI.PageTheme.Eval%2A> method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the data item container."
+  summary: "Använder den &lt;xref:System.Web.UI.DataBinder.Eval%28System.Object%2CSystem.String%2CSystem.String%29?displayProperty=fullName&gt; metod för den <xref:System.Web.UI.PageTheme.Page*>egenskapen som instansen av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass är associerad med att utvärdera ett uttryck för databindning.</xref:System.Web.UI.PageTheme.Page*>"
+  remarks: "Den <xref:System.Web.UI.PageTheme.Eval%2A>metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha data objektbehållaren.</xref:System.Web.UI.Page.GetDataItem%2A> </xref:System.Web.UI.PageTheme.Eval%2A>"
   syntax:
     content: protected string Eval (string expression, string format);
     parameters:
     - id: expression
       type: System.String
-      description: "The navigation path from the container to the public property value. For details, see <xref href=&quot;System.Web.UI.DataBinder&quot;></xref>."
+      description: "Navigeringssökvägen från behållaren till offentliga egenskapens värde. Mer information finns i <xref href=&quot;System.Web.UI.DataBinder&quot;> </xref>."
     - id: format
       type: System.String
-      description: "A .NET Framework format string. For details, see <xref href=&quot;System.Web.UI.DataBinder&quot;></xref>."
+      description: "En formatsträng för .NET Framework. Mer information finns i <xref href=&quot;System.Web.UI.DataBinder&quot;> </xref>."
     return:
       type: System.String
-      description: "A string that results from the evaluation of the data-binding expression and conversion to a string type."
+      description: "En sträng som resultat av utvärderingen av uttrycket för databindning och konvertering till strängtyp."
   overload: System.Web.UI.PageTheme.Eval*
   exceptions: []
   platform:
@@ -204,13 +204,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When overridden in a derived class, gets an array of style sheets that are linked to this page."
-  remarks: "The LinkedStyleSheets property is abstract and must be implemented in a derived class. When compiled, a theme will generate code that overrides this property."
+  summary: "Hämtar en matris med formatmallar som är länkade till den här sidan när åsidosätts i en härledd klass."
+  remarks: "Egenskapen LinkedStyleSheets är abstrakt och måste implementeras i en härledd klass. Om kompileras, kommer ett tema generera kod som åsidosätter den här egenskapen."
   syntax:
     content: protected abstract string[] LinkedStyleSheets { get; }
     return:
       type: System.String[]
-      description: "A string array of style sheets linked to this page."
+      description: "En strängmatris style sheets länkad till den här sidan."
   overload: System.Web.UI.PageTheme.LinkedStyleSheets*
   exceptions: []
   platform:
@@ -227,13 +227,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the <xref href=&quot;System.Web.UI.Page&quot;></xref> object that is associated with the instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class."
-  remarks: "The Page property is read-only and is assigned internally when an instance of the <xref:System.Web.UI.PageTheme> class is created."
+  summary: "Hämtar den <xref href=&quot;System.Web.UI.Page&quot;> </xref> objekt som är kopplad till instansen av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass."
+  remarks: "Page-egenskapen är skrivskyddad och tilldelas internt när en instans av den <xref:System.Web.UI.PageTheme>klassen skapas.</xref:System.Web.UI.PageTheme>"
   syntax:
     content: protected System.Web.UI.Page Page { get; }
     return:
       type: System.Web.UI.Page
-      description: "The <xref href=&quot;System.Web.UI.Page&quot;></xref> associated with the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref>."
+      description: "Den <xref href=&quot;System.Web.UI.Page&quot;> </xref> som är associerade med den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref>."
   overload: System.Web.UI.PageTheme.Page*
   exceptions: []
   platform:
@@ -250,16 +250,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Tests whether a device filter applies to the <xref href=&quot;System.Web.UI.Page&quot;></xref> control that the instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class is associated with."
+  summary: "Testar om en enhet filtret gäller den <xref href=&quot;System.Web.UI.Page&quot;> </xref> styra att instansen av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass är associerad med."
   syntax:
     content: public bool TestDeviceFilter (string deviceFilterName);
     parameters:
     - id: deviceFilterName
       type: System.String
-      description: "The string name of the device filter to check."
+      description: "Namnet på filtret enhet för att kontrollera sträng."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>deviceFilterName</code> applies to the page; otherwise; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> deviceFilterName </code> gäller för sidan; annars; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.Web.UI.PageTheme.TestDeviceFilter*
   exceptions: []
   platform:
@@ -276,17 +276,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Evaluates an XPath data-binding expression."
-  remarks: "The XPath method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Utvärderar ett XPath-uttryck för databindning."
+  remarks: "XPath-metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected object XPath (string xPathExpression);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     return:
       type: System.Object
-      description: "An object that results from the evaluation of the data-binding <code>xPathExpression</code>."
+      description: "Ett objekt som resultat av utvärderingen av databindningen <code> xPathExpression </code>."
   overload: System.Web.UI.PageTheme.XPath*
   exceptions: []
   platform:
@@ -303,20 +303,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Evaluates an XPath data-binding expression using the specified format string to display the result."
-  remarks: "The XPath method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Utvärderar ett uttryck för databindning av XPath med hjälp av den angivna Formatsträngen för att visa resultatet."
+  remarks: "XPath-metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected string XPath (string xPathExpression, string format);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     - id: format
       type: System.String
-      description: "A .NET Framework format string to apply to the result."
+      description: ".NET Framework formatsträng ska gälla för resultatet."
     return:
       type: System.String
-      description: "A string that results from the evaluation of the data-binding expression and conversion to a string type."
+      description: "En sträng som resultat av utvärderingen av uttrycket för databindning och konvertering till strängtyp."
   overload: System.Web.UI.PageTheme.XPath*
   exceptions: []
   platform:
@@ -333,20 +333,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Evaluates an XPath data-binding expression using the specified prefix and namespace mappings for namespace resolution."
-  remarks: "The XPath method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Utvärderar ett uttryck för databindning av XPath med angivet prefix och Namnområdesmappningar för matchning av namnområdet."
+  remarks: "XPath-metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected object XPath (string xPathExpression, System.Xml.IXmlNamespaceResolver resolver);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     - id: resolver
       type: System.Xml.IXmlNamespaceResolver
-      description: "A set of prefix and namespace mappings used for namespace resolution."
+      description: "En uppsättning mappningar för prefix och namnområde som används för matchning av namnområdet."
     return:
       type: System.Object
-      description: "An object that results from the evaluation of the data-binding <code>xPathExpression</code>."
+      description: "Ett objekt som resultat av utvärderingen av databindningen <code> xPathExpression </code>."
   overload: System.Web.UI.PageTheme.XPath*
   exceptions: []
   platform:
@@ -363,23 +363,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Uses the &lt;xref:System.Web.UI.TemplateControl.XPath%2A?displayProperty=fullName&gt; method of the <xref:System.Web.UI.PageTheme.Page*> control that the instance of the <xref href=&quot;System.Web.UI.PageTheme&quot;></xref> class is associated with to evaluate an XPath data-binding expression."
-  remarks: "The XPath method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Använder den &lt;xref:System.Web.UI.TemplateControl.XPath%2A?displayProperty=fullName&gt; metod för den <xref:System.Web.UI.PageTheme.Page*>styra som instansen av den <xref href=&quot;System.Web.UI.PageTheme&quot;> </xref> klass är associerad med att utvärdera ett XPath-uttryck för databindning.</xref:System.Web.UI.PageTheme.Page*>"
+  remarks: "XPath-metoden använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected string XPath (string xPathExpression, string format, System.Xml.IXmlNamespaceResolver resolver);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     - id: format
       type: System.String
-      description: "A .NET Framework format string to apply to the result."
+      description: ".NET Framework formatsträng ska gälla för resultatet."
     - id: resolver
       type: System.Xml.IXmlNamespaceResolver
-      description: "A set of prefix and namespace mappings used for namespace resolution."
+      description: "En uppsättning mappningar för prefix och namnområde som används för matchning av namnområdet."
     return:
       type: System.String
-      description: "A string that results from the evaluation of the data-binding expression and conversion to a string type."
+      description: "En sträng som resultat av utvärderingen av uttrycket för databindning och konvertering till strängtyp."
   overload: System.Web.UI.PageTheme.XPath*
   exceptions: []
   platform:
@@ -396,17 +396,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Evaluates an XPath data-binding expression and returns a node collection that implements the <xref:System.Collections.IEnumerable> interface."
-  remarks: "The XPathSelect method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Utvärderar ett databindning XPath-uttryck och returnerar ett nod-samling som implementerar det <xref:System.Collections.IEnumerable>gränssnittet.</xref:System.Collections.IEnumerable>"
+  remarks: "Metoden XPathSelect som använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected System.Collections.IEnumerable XPathSelect (string xPathExpression);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     return:
       type: System.Collections.IEnumerable
-      description: "An <xref:System.Collections.IEnumerable> list of nodes."
+      description: "En <xref:System.Collections.IEnumerable>listan över noder.</xref:System.Collections.IEnumerable>"
   overload: System.Web.UI.PageTheme.XPathSelect*
   exceptions: []
   platform:
@@ -423,20 +423,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Evaluates an XPath data-binding expression using the specified prefix and namespace mappings for namespace resolution and returns a node collection that implements the <xref:System.Collections.IEnumerable> interface."
-  remarks: "The XPathSelect method uses the <xref:System.Web.UI.Page.GetDataItem%2A> method to resolve the <xref:System.Xml.XPath.IXPathNavigable> object reference that the expression is evaluated against."
+  summary: "Utvärderar ett uttryck för databindning av XPath med hjälp av angivna mappningar för prefix och namnområde för matchning av namnområde och returnerar ett nod-samling som implementerar det <xref:System.Collections.IEnumerable>gränssnittet.</xref:System.Collections.IEnumerable>"
+  remarks: "Metoden XPathSelect som använder den <xref:System.Web.UI.Page.GetDataItem%2A>metod för att matcha den <xref:System.Xml.XPath.IXPathNavigable>objektreferens som uttrycket ska utvärderas mot.</xref:System.Xml.XPath.IXPathNavigable> </xref:System.Web.UI.Page.GetDataItem%2A>"
   syntax:
     content: protected System.Collections.IEnumerable XPathSelect (string xPathExpression, System.Xml.IXmlNamespaceResolver resolver);
     parameters:
     - id: xPathExpression
       type: System.String
-      description: "The XPath expression to evaluate. For details, see <xref href=&quot;System.Web.UI.XPathBinder&quot;></xref>."
+      description: "XPath-uttrycket ska utvärderas. Mer information finns i <xref href=&quot;System.Web.UI.XPathBinder&quot;> </xref>."
     - id: resolver
       type: System.Xml.IXmlNamespaceResolver
-      description: "A set of prefix and namespace mappings used to for namespace resolution."
+      description: "En uppsättning mappningar för prefix och namnområde som används för att för matchning av namnområdet."
     return:
       type: System.Collections.IEnumerable
-      description: "An <xref:System.Collections.IEnumerable> list of nodes."
+      description: "En <xref:System.Collections.IEnumerable>listan över noder.</xref:System.Collections.IEnumerable>"
   overload: System.Web.UI.PageTheme.XPathSelect*
   exceptions: []
   platform:

@@ -12,8 +12,8 @@ items:
   nameWithType: ObjectIDGenerator
   fullName: System.Runtime.Serialization.ObjectIDGenerator
   type: Class
-  summary: "Generates IDs for objects."
-  remarks: "The ObjectIDGenerator keeps track of previously identified objects. When you ask for the ID of an object, the ObjectIDGenerator knows whether to return the existing ID, or generate and remember a new ID.       The IDs are unique for the life of the ObjectIDGenerator instance. Generally, a ObjectIDGenerator life lasts as long as the <xref:System.Runtime.Serialization.Formatter> that created it. Object IDs have meaning only within a given serialized stream, and are used for tracking which objects have references to others within the serialized object graph.       Using a hash table, the ObjectIDGenerator retains which ID is assigned to which object. The object references, which uniquely identify each object, are addresses in the runtime garbage-collected heap. Object reference values can change during serialization, but the table is updated automatically so the information is correct.       Object IDs are 64-bit numbers. Allocation starts from one, so zero is never a valid object ID. A formatter can choose a zero value to represent an object reference whose value is `null`."
+  summary: "Genererar ID: N för objekt."
+  remarks: "ObjectIDGenerator håller reda på tidigare identifierade objekt. När du söker efter ID för ett objekt vet i ObjectIDGenerator om du vill returnera befintliga ID, eller skapa och spara ett nytt-ID.       ID: N är unika för ObjectIDGenerator-instans. I allmänhet varar en ObjectIDGenerator livslängd så länge <xref:System.Runtime.Serialization.Formatter>som skapade det.</xref:System.Runtime.Serialization.Formatter> Objekt-ID har betydelse endast inom en viss serialiserad dataström och används för att spåra vilka objekt som har referenser till andra i det serialiserade objektdiagrammet.       Med hjälp av en hash-tabell, behåller ObjectIDGenerator vilket ID tilldelas till vilket objekt. Objektreferenser som unikt identifierar varje objekt, är körningen skräpinsamlats heap-adresser. Objektet referensvärden kan ändras under serialisering, men tabellen uppdateras automatiskt så att informationen är korrekt.       Objekt-ID är 64-bitars tal. Fördelningen börjar från en, så noll inte är ett giltigt objekt-ID. En formaterare kan välja ett nollvärde som representerar en objektreferens vars värde är `null`."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,7 +37,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref> klass."
   syntax:
     content: public ObjectIDGenerator ();
     parameters: []
@@ -57,19 +57,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Returns the ID for the specified object, generating a new ID if the specified object has not already been identified by the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref>."
+  summary: "Returnerar det ID för det angivna objektet generera ett nytt-ID om det angivna objektet inte har redan identifierats av den <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref>."
   syntax:
     content: public virtual long GetId (object obj, out bool firstTime);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object you want an ID for."
+      description: "Det objekt som du vill ha ett ID för."
     - id: firstTime
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if `obj` was not previously known to the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om `obj` inte tidigare känt att de <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Int64
-      description: "The object&quot;s ID is used for serialization. <code>firstTime</code> is set to <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this is the first time the object has been identified; otherwise, it is set to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Objektets ID används för serialisering. <code>firstTime</code>anges till <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> om det här är första gången objektet har identifierats; Annars anges till <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Runtime.Serialization.ObjectIDGenerator.GetId*
   exceptions:
   - type: System.ArgumentNullException
@@ -77,7 +77,7 @@ items:
     description: "The <code>obj</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Runtime.Serialization.SerializationException
     commentId: T:System.Runtime.Serialization.SerializationException
-    description: "The <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref> has been asked to keep track of too many objects."
+    description: "Den <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref> har ombetts att hålla reda på för många objekt."
   platform:
   - net462
 - uid: System.Runtime.Serialization.ObjectIDGenerator.HasId(System.Object,System.Boolean@)
@@ -92,20 +92,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Determines whether an object has already been assigned an ID."
-  remarks: "If the object has already been assigned an ID, the ID is returned and `firstTime` is set to `false`; otherwise, zero is returned and `firstTime` is set to `true`. HasId differs from <xref:System.Runtime.Serialization.ObjectIDGenerator.GetId%2A> in that it never creates an ID for an object that has not already been seen by the <xref:System.Runtime.Serialization.ObjectIDGenerator>."
+  summary: "Anger om ett objekt har redan tilldelats ett ID."
+  remarks: "Om objektet har redan tilldelats ett ID, ID: T returneras och `firstTime` är inställd på `false`, annars returneras noll och `firstTime` är inställd på `true`. HasId skiljer sig från <xref:System.Runtime.Serialization.ObjectIDGenerator.GetId%2A>att aldrig skapas ett ID för ett objekt som inte redan har visats i <xref:System.Runtime.Serialization.ObjectIDGenerator>.</xref:System.Runtime.Serialization.ObjectIDGenerator> </xref:System.Runtime.Serialization.ObjectIDGenerator.GetId%2A>"
   syntax:
     content: public virtual long HasId (object obj, out bool firstTime);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object you are asking for."
+      description: "Det objekt som du efterfrågar."
     - id: firstTime
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if `obj` was not previously known to the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om `obj` inte tidigare känt att de <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref>, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Int64
-      description: "The object ID of <code>obj</code> if previously known to the <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;></xref>; otherwise, zero."
+      description: "Objekt-ID för <code> obj </code> om tidigare känt att de <xref href=&quot;System.Runtime.Serialization.ObjectIDGenerator&quot;> </xref>, annars noll."
   overload: System.Runtime.Serialization.ObjectIDGenerator.HasId*
   exceptions:
   - type: System.ArgumentNullException

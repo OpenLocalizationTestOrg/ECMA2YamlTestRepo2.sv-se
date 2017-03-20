@@ -20,8 +20,8 @@ items:
   nameWithType: FileCodeGroup
   fullName: System.Security.Policy.FileCodeGroup
   type: Class
-  summary: "Grants permission to manipulate files located in the code assemblies to code assemblies that match the membership condition. This class cannot be inherited."
-  remarks: "Code groups are the building blocks of code access security policy. Each policy level consists of a root code group that can have child code groups. Each child code group can have their own child code groups; this behavior extends to any number of levels, forming a tree. Each code group has a membership condition that determines if a given assembly belongs to it based on the evidence for that assembly. Only code groups whose membership conditions match a given assembly and their child code groups apply policy.       FileCodeGroup has the same child matching semantics as <xref:System.Security.Policy.UnionCodeGroup>. However, FileCodeGroup returns a permission set containing a dynamically-calculated <xref:System.Security.Permissions.FileIOPermission> that grants file access to the directory from which the code is run; <xref:System.Security.Policy.UnionCodeGroup> only returns a static permission set. The type of file access granted is passed as a parameter to the constructor.       This code group only matches assemblies run over a file protocol, that is, assemblies that have URLs that point to a file or UNC path."
+  summary: "Ger behörighet att ändra filer i koden sammansättningarna till kodsammansättningar som matchar villkoren för medlemskap. Den här klassen kan inte ärvas."
+  remarks: "Grupper är byggblocken i säkerhetspolicy för kodåtkomst. Varje princip består av en rotkodgruppen som kan ha underordnade grupper. Varje underordnad Kodgruppen kan ha sina egna underordnade grupper; Det här beteendet utökar till flera nivåer, som utgör ett träd. Varje grupp har ett villkor för medlemskap som avgör om en angiven sammansättning tillhör det baserat på fakta för sammansättningen. Tillämpa principen endast grupper med villkor för medlemskap som matchar en angiven sammansättning och deras underordnade grupper.       Filecodegroup ger har underordnade samma matchande semantik som <xref:System.Security.Policy.UnionCodeGroup>.</xref:System.Security.Policy.UnionCodeGroup> Men returnerar filecodegroup ger en behörighetsgrupp som innehåller en dynamiskt beräknas <xref:System.Security.Permissions.FileIOPermission>att fil ger åtkomst till katalogen där koden körs; <xref:System.Security.Policy.UnionCodeGroup>returnerar endast en statisk grupp.</xref:System.Security.Policy.UnionCodeGroup> </xref:System.Security.Permissions.FileIOPermission> Typ av åtkomst till filen beviljas skickas som en parameter till konstruktorn.       Den här Kodgruppen matchar endast sammansättningar som körs över ett protokoll, det vill säga sammansättningar som har URL: er som pekar på en fil eller en UNC-sökväg."
   example:
   - "The following example shows the use of members of the FileCodeGroup class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#1](~/add/codesnippet/cpp/t-system.security.policy_4_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#1](~/add/codesnippet/csharp/t-system.security.policy_4_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#1](~/add/codesnippet/visualbasic/t-system.security.policy_4_1.vb)]"
   syntax:
@@ -60,8 +60,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Policy.FileCodeGroup&quot;></xref> class."
-  remarks: "This constructor creates a basic code group. Child code groups can be added with the <xref:System.Security.Policy.CodeGroup.AddChild%2A> method.       <xref:System.Security.Policy.FileCodeGroup> returns a permission set containing a dynamically-calculated <xref:System.Security.Permissions.FileIOPermission> that grants file access to the directory from which the code is run. The type of access granted is determined by the `access` parameter."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Security.Policy.FileCodeGroup&quot;> </xref> klass."
+  remarks: "Den här konstruktorn skapar en grundläggande kodgrupp. Underordnade grupper kan läggas till med den <xref:System.Security.Policy.CodeGroup.AddChild%2A>metoden.</xref:System.Security.Policy.CodeGroup.AddChild%2A>       <xref:System.Security.Policy.FileCodeGroup>Returnerar en behörighetsgrupp med ett dynamiskt beräknas <xref:System.Security.Permissions.FileIOPermission>som ger åtkomst till filen till katalogen där koden körs.</xref:System.Security.Permissions.FileIOPermission></xref:System.Security.Policy.FileCodeGroup> Typ av åtkomst som beviljas bestäms av den `access` parameter."
   example:
   - "The following code shows the use of the FileCodeGroup constructor. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#2](~/add/codesnippet/cpp/eda2e720-d916-4448-957f-_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#2](~/add/codesnippet/csharp/eda2e720-d916-4448-957f-_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#2](~/add/codesnippet/visualbasic/eda2e720-d916-4448-957f-_1.vb)]"
   syntax:
@@ -69,10 +69,10 @@ items:
     parameters:
     - id: membershipCondition
       type: System.Security.Policy.IMembershipCondition
-      description: "A membership condition that tests evidence to determine whether this code group applies policy."
+      description: "Ett villkor för medlemskap som testar bevis för att avgöra om den här Kodgruppen gäller principen."
     - id: access
       type: System.Security.Permissions.FileIOPermissionAccess
-      description: "One of the <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;></xref> values. This value is used to construct the <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;></xref> that is granted."
+      description: "En av de <xref href=&quot;System.Security.Permissions.FileIOPermissionAccess&quot;> </xref> värden. Det här värdet används för att konstruera den <xref href=&quot;System.Security.Permissions.FileIOPermission&quot;> </xref> som beviljas."
   overload: System.Security.Policy.FileCodeGroup.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -80,7 +80,7 @@ items:
     description: "The <code>membershipCondition</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The type of the <code>membershipCondition</code> parameter is not valid.       -or-       The type of the <code>access</code> parameter is not valid."
+    description: "Typ av den <code> membershipCondition </code> är inte giltig.       - eller - typ av den <code> access </code> är inte giltig."
   platform:
   - net462
 - uid: System.Security.Policy.FileCodeGroup.AttributeString
@@ -95,8 +95,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets a string representation of the attributes of the policy statement for the code group."
-  remarks: "<xref:System.Security.Policy.FileCodeGroup> does not use AttributeString, so this property is always `null`."
+  summary: "Hämtar en strängrepresentation av attribut för princip-satsen för gruppen."
+  remarks: "<xref:System.Security.Policy.FileCodeGroup>använder inte Attributsträng, så den här egenskapen är alltid `null`.</xref:System.Security.Policy.FileCodeGroup>"
   example:
   - "The following code shows the use of the AttributeString property to get the attributes for the code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#5](~/add/codesnippet/cpp/p-system.security.policy_14_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#5](~/add/codesnippet/csharp/p-system.security.policy_14_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#5](~/add/codesnippet/visualbasic/p-system.security.policy_14_1.vb)]"
   syntax:
@@ -120,8 +120,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Makes a deep copy of the current code group."
-  remarks: "This method makes a deep copy of the code group, so that copies of all objects the code group contains are also made."
+  summary: "Gör en djup kopia av den aktuella gruppen i koden."
+  remarks: "Den här metoden gör en djup kopia av Kodgruppen så att kopior av alla objekt som innehåller Kodgruppen görs också."
   example:
   - "The following code shows the use of the Copy method to make a deep copy of the code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#18](~/add/codesnippet/cpp/m-system.security.policy_29_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#18](~/add/codesnippet/csharp/m-system.security.policy_29_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#18](~/add/codesnippet/visualbasic/m-system.security.policy_29_1.vb)]"
   syntax:
@@ -129,7 +129,7 @@ items:
     parameters: []
     return:
       type: System.Security.Policy.CodeGroup
-      description: "An equivalent copy of the current code group, including its membership conditions and child code groups."
+      description: "En motsvarande kopia av den aktuella Kodgruppen, inklusive villkor för medlemskap och underordnade grupper."
   overload: System.Security.Policy.FileCodeGroup.Copy*
   exceptions: []
   platform:
@@ -151,10 +151,10 @@ items:
     parameters:
     - id: element
       type: System.Security.SecurityElement
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Security.Policy.FileCodeGroup.CreateXml*
   exceptions: []
   platform:
@@ -171,7 +171,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified code group is equivalent to the current code group."
+  summary: "Anger om gruppen angivna koden är motsvarar den aktuella gruppen i koden."
   remarks: ''
   example:
   - "The following code shows the use of the Equals method to determine if two code groups are equal. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#20](~/add/codesnippet/cpp/m-system.security.policy_23_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#20](~/add/codesnippet/csharp/m-system.security.policy_23_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#20](~/add/codesnippet/visualbasic/m-system.security.policy_23_1.vb)]"
@@ -180,10 +180,10 @@ items:
     parameters:
     - id: o
       type: System.Object
-      description: "The code group to compare with the current code group."
+      description: "Kodgruppen ska jämföras med den aktuella gruppen i koden."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified code group is equivalent to the current code group; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om den angivna Kodgruppen motsvarar den aktuella Kodgruppen; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.FileCodeGroup.Equals*
   exceptions: []
   platform:
@@ -200,7 +200,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the hash code of the current code group."
+  summary: "Hämtar hash-koden för den aktuella gruppen i koden."
   remarks: ''
   example:
   - "The following code shows the use of the GetHashCode method to get the hash code of the current code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#14](~/add/codesnippet/cpp/m-system.security.policy_28_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#14](~/add/codesnippet/csharp/m-system.security.policy_28_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#14](~/add/codesnippet/visualbasic/m-system.security.policy_28_1.vb)]"
@@ -209,7 +209,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "The hash code of the current code group."
+      description: "Hash-koden för den aktuella gruppen i koden."
   overload: System.Security.Policy.FileCodeGroup.GetHashCode*
   exceptions: []
   platform:
@@ -226,7 +226,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the merge logic."
+  summary: "Hämtar merge-logiken."
   remarks: ''
   example:
   - "The following code shows the use of the MergeLogic property to get the merge logic for this code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#15](~/add/codesnippet/cpp/p-system.security.policy_4_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#15](~/add/codesnippet/csharp/p-system.security.policy_4_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#15](~/add/codesnippet/visualbasic/p-system.security.policy_4_1.vb)]"
@@ -234,7 +234,7 @@ items:
     content: public override string MergeLogic { get; }
     return:
       type: System.String
-      description: "The string &quot;Union&quot;."
+      description: "Strängen &quot;Union&quot;."
   overload: System.Security.Policy.FileCodeGroup.MergeLogic*
   exceptions: []
   platform:
@@ -256,10 +256,10 @@ items:
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "To be added."
+      description: "Som ska läggas till."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Security.Policy.FileCodeGroup.ParseXml*
   exceptions: []
   platform:
@@ -276,7 +276,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the name of the named permission set for the code group."
+  summary: "Hämtar namnet på namngiven behörighetsgrupp för gruppen."
   remarks: ''
   example:
   - "The following code shows the use of the PermissionSetName property to get the name of the named permission set for the code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#13](~/add/codesnippet/cpp/p-system.security.policy_6_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#13](~/add/codesnippet/csharp/p-system.security.policy_6_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#13](~/add/codesnippet/visualbasic/p-system.security.policy_6_1.vb)]"
@@ -284,7 +284,7 @@ items:
     content: public override string PermissionSetName { get; }
     return:
       type: System.String
-      description: "The concatenatation of the string &quot;Same directory FileIO - &quot; and the access type."
+      description: "Concatenatation av strängen &quot;Samma katalog FileIO -&quot; och åtkomsttypen."
   overload: System.Security.Policy.FileCodeGroup.PermissionSetName*
   exceptions: []
   platform:
@@ -301,8 +301,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves policy for the code group and its descendants for a set of evidence."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a policy statement for the code group, including evaluation of child code groups.       The .NET Framework security system uses Resolve on the policy levels to determine which permissions to grant to loaded code from the resulting policy statements and the code request on the assembly.       <xref:System.Security.Policy.FileCodeGroup> uses union semantics and forms a permission set based on the <xref:System.Security.Policy.Url> specified by `evidence`."
+  summary: "Löser princip för gruppen och dess underordnade för en uppsättning bevis."
+  remarks: "Den här metoden utvärderar Kodgruppen genom att först kontrollera villkor för medlemskap mot den angivna bevisen angivna bevis för en sammansättning som ska läsas in. Om det finns en matchning i den här metoden returnerar en kommentar för Kodgruppen, inklusive utvärdering av underordnade grupper.       Säkerhetssystem .NET Framework använder Lös på nivåerna princip för att avgöra vilka behörigheter som ska tilldelas till kod som har lästs in från de resulterande principrapporter och begäran koden i sammansättningen.       <xref:System.Security.Policy.FileCodeGroup>använder union semantik och utgör en behörighetsgrupp baserat på den <xref:System.Security.Policy.Url>anges av `evidence`.</xref:System.Security.Policy.Url></xref:System.Security.Policy.FileCodeGroup>"
   example:
   - "The following code shows the use of the Resolve method to resolve policy for the code group. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#19](~/add/codesnippet/cpp/m-system.security.policy_18_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#19](~/add/codesnippet/csharp/m-system.security.policy_18_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#19](~/add/codesnippet/visualbasic/m-system.security.policy_18_1.vb)]"
   syntax:
@@ -310,10 +310,10 @@ items:
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "Sammansättningsbevis för sammansättningen."
     return:
       type: System.Security.Policy.PolicyStatement
-      description: "A policy statement consisting of the permissions granted by the code group with optional attributes, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the code group does not apply (the membership condition does not match the specified evidence)."
+      description: "En kommentar som består av de behörigheter som utfärdats av Kodgruppen med valfria attribut eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om gruppen inte fungerar (villkor för medlemskap matchar inte den angivna bevisen)."
   overload: System.Security.Policy.FileCodeGroup.Resolve*
   exceptions:
   - type: System.ArgumentNullException
@@ -321,7 +321,7 @@ items:
     description: "The <code>evidence</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Security.Policy.PolicyException
     commentId: T:System.Security.Policy.PolicyException
-    description: "The current policy is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       More than one code group (including the parent code group and all child code groups) is marked <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;></xref>."
+    description: "Den aktuella principen är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - eller - fler än en grupp (inklusive den överordnade Kodgruppen och alla underordnade grupper) har markerats <xref href=&quot;System.Security.Policy.PolicyStatementAttribute&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.FileCodeGroup.ResolveMatchingCodeGroups(System.Security.Policy.Evidence)
@@ -336,8 +336,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Resolves matching code groups."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by first checking the membership condition against the specified evidence. If there is a match, this method returns a root code group. The code group that is returned contains child code groups, which in turn can have child code groups as necessary to reflect the complete set of code groups that were matched by the evidence provided.       <xref:System.Security.Policy.FileCodeGroup> uses union semantics and forms a permission set based on the <xref:System.Security.Policy.Url> specified by `evidence`."
+  summary: "Matchar matchar grupper."
+  remarks: "Den här metoden utvärderar Kodgruppen genom att först kontrollera villkor för medlemskap mot den angivna bevisen angivna bevis för en sammansättning som ska läsas in. Om det finns en matchning i den här metoden returnerar en rotkodgruppen. Kodgruppen som returneras innehåller underordnade grupper, vilket i sin tur kan ha underordnade grupper som behövs för att återspegla en fullständig uppsättning grupper som har matchat bevis tillhandahålls.       <xref:System.Security.Policy.FileCodeGroup>använder union semantik och utgör en behörighetsgrupp baserat på den <xref:System.Security.Policy.Url>anges av `evidence`.</xref:System.Security.Policy.Url></xref:System.Security.Policy.FileCodeGroup>"
   example:
   - "The following code shows the use of the ResolveMatchingCodeGroups method to resolve matching code groups. This code example is part of a larger example provided for the <xref:System.Security.Policy.FileCodeGroup> class.  \n  \n [!code-cpp[System.Security.Policy.FileCodeGroup_Evt#9](~/add/codesnippet/cpp/32f9a6fa-fac5-452b-b486-_1.cpp)]\n [!code-cs[System.Security.Policy.FileCodeGroup_Evt#9](~/add/codesnippet/csharp/32f9a6fa-fac5-452b-b486-_1.cs)]\n [!code-vb[System.Security.Policy.FileCodeGroup_Evt#9](~/add/codesnippet/visualbasic/32f9a6fa-fac5-452b-b486-_1.vb)]"
   syntax:
@@ -345,10 +345,10 @@ items:
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "Sammansättningsbevis för sammansättningen."
     return:
       type: System.Security.Policy.CodeGroup
-      description: "A <xref href=&quot;System.Security.Policy.CodeGroup&quot;></xref> that is the root of the tree of matching code groups."
+      description: "En <xref href=&quot;System.Security.Policy.CodeGroup&quot;> </xref> som är roten i trädet med matchande grupper."
   overload: System.Security.Policy.FileCodeGroup.ResolveMatchingCodeGroups*
   exceptions:
   - type: System.ArgumentNullException

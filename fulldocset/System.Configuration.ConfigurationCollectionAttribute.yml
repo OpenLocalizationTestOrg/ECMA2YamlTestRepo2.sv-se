@@ -15,8 +15,8 @@ items:
   nameWithType: ConfigurationCollectionAttribute
   fullName: System.Configuration.ConfigurationCollectionAttribute
   type: Class
-  summary: "Declaratively instructs the .NET Framework to create an instance of a configuration element collection. This class cannot be inherited."
-  remarks: "You use the ConfigurationCollectionAttribute attribute to decorate a <xref:System.Configuration.ConfigurationElementCollection> element. This instructs the .NET Framework to create an instance of the collection and to initialize it using your custom <xref:System.Configuration.ConfigurationElement> values.      > [!NOTE] >  The simplest way to create a custom configuration element is to use the attributed (declarative) model. You declare the elements and decorate them with the ConfigurationCollectionAttribute attribute. For each element marked with this attribute, the .NET Framework uses reflection to read the decorating parameters and create a related <xref:System.Configuration.ConfigurationElementCollection> instance. You can also use the programmatic model. In this case it is your responsibility to declare the custom public collection but also to override the <xref:System.Configuration.ConfigurationElementCollection> member and return the properties collection.       The .NET Framework configuration system provides attribute types that you can use during the creation of custom configuration elements. There are two kinds of attributes:      -   The attributes that instruct the .NET Framework how to create instances of the custom configuration element properties. These types include:          -   ConfigurationCollectionAttribute          -   <xref:System.Configuration.ConfigurationPropertyAttribute>      -   The attributes that instruct the .NET Framework how to validate the custom configuration element properties. These types include:          -   <xref:System.Configuration.IntegerValidatorAttribute>          -   <xref:System.Configuration.LongValidatorAttribute>          -   <xref:System.Configuration.RegexStringValidatorAttribute>          -   <xref:System.Configuration.StringValidatorAttribute>          -   <xref:System.Configuration.TimeSpanValidatorAttribute>"
+  summary: "Deklarativt instruerar .NET Framework för att skapa en instans av en konfigurationselementsamlingen. Den här klassen kan inte ärvas."
+  remarks: "Du kan använda attributet ConfigurationCollectionAttribute att skapa snygga en <xref:System.Configuration.ConfigurationElementCollection>element.</xref:System.Configuration.ConfigurationElementCollection> Detta gör att .NET Framework att skapa en instans av samlingen och initiera den med hjälp av dina anpassade <xref:System.Configuration.ConfigurationElement>värden.</xref:System.Configuration.ConfigurationElement>      > [!NOTE] > Det enklaste sättet att skapa en anpassad konfigurationselement är att använda attributed (deklarativ) modellen. Du deklarera elementen och skapa snygga dem med attributet ConfigurationCollectionAttribute. För varje element som markerats med attributet använder .NET Framework reflektion läsa decorating parametrar och skapa en relaterad <xref:System.Configuration.ConfigurationElementCollection>instans.</xref:System.Configuration.ConfigurationElementCollection> Du kan också använda programmässiga modellen. I det här fallet är det ditt ansvar att deklarera anpassade offentliga samlingen, men också att åsidosätta den <xref:System.Configuration.ConfigurationElementCollection>medlemmen och returnera egenskapssamlingen.</xref:System.Configuration.ConfigurationElementCollection>       Konfigurationssystemet för .NET Framework ger attributtyper som du kan använda när du skapar anpassade konfigurationselement. Det finns två typer av attribut:-attribut som instruerar hur du skapar instanser av en anpassad konfiguration egenskaper för .NET Framework. Dessa typer är: - ConfigurationCollectionAttribute - <xref:System.Configuration.ConfigurationPropertyAttribute>-attribut som instruerar hur du verifierar egenskaper för anpassad konfiguration-element för .NET Framework.</xref:System.Configuration.ConfigurationPropertyAttribute> These types include:          -   <xref:System.Configuration.IntegerValidatorAttribute>          -   <xref:System.Configuration.LongValidatorAttribute>          -   <xref:System.Configuration.RegexStringValidatorAttribute>          -   <xref:System.Configuration.StringValidatorAttribute>          -   <xref:System.Configuration.TimeSpanValidatorAttribute></xref:System.Configuration.TimeSpanValidatorAttribute></xref:System.Configuration.StringValidatorAttribute></xref:System.Configuration.RegexStringValidatorAttribute></xref:System.Configuration.LongValidatorAttribute></xref:System.Configuration.IntegerValidatorAttribute>"
   example:
   - "The following example shows how to use the ConfigurationCollectionAttribute.  \n  \n This example consists of three classes: `UrlsSection`, `UrlsCollection` and `UrlConfigElement`.The `UrlsSection` class uses the ConfigurationCollectionAttribute to define a custom configuration section. This section contains a URL collection (defined by the `UrlsCollection` class) of URL elements (defined by the `UrlConfigElement` class). When you run the example, an instance of the `UrlsSection` class is created and the following configuration elements are generated in the application configuration file:  \n  \n```  \n<configuration>  \n    <configSections>  \n        <section name=\"MyUrls\" type=\"UrlsSection,   \n          ConfigurationCollectionAttribute, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\" />  \n    </configSections>  \n    <MyUrls>  \n        <urls>  \n            <remove name=\"Contoso\" />  \n            <add name=\"Contoso\" url=\"http://www.contoso.com\" port=\"0\" />  \n        </urls>  \n    </MyUrls>  \n</configuration  \n```  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#1](~/add/codesnippet/csharp/t-system.configuration.c_7_1.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#1](~/add/codesnippet/visualbasic/t-system.configuration.c_7_1.vb)]  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#31](~/add/codesnippet/csharp/t-system.configuration.c_7_2.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#31](~/add/codesnippet/visualbasic/t-system.configuration.c_7_2.vb)]"
   syntax:
@@ -42,8 +42,8 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Initializes a new instance of the <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;></xref> class."
-  remarks: "You use this constructor to tell the .NET Framework the custom type of the property collection to be created."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;> </xref> klass."
+  remarks: "Du kan använda den här konstruktorn för att tala om för .NET Framework anpassad typ av egenskapssamlingen ska skapas."
   example:
   - "The following example shows how to use the ConfigurationCollectionAttribute.  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/csharp/m-system.configuration.c_25_1.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/visualbasic/m-system.configuration.c_25_1.vb)]"
   syntax:
@@ -51,12 +51,12 @@ items:
     parameters:
     - id: itemType
       type: System.Type
-      description: "The type of the property collection to create."
+      description: "Typ av att skapa uppsättningen."
   overload: System.Configuration.ConfigurationCollectionAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>itemType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>itemType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Configuration.ConfigurationCollectionAttribute.AddItemName
@@ -71,15 +71,15 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets or sets the name of the <xref uid=&quot;langword_csharp_&lt;add&gt;&quot; name=&quot;&lt;add&gt;&quot; href=&quot;&quot;></xref> configuration element."
-  remarks: "The AddItemName property allows you to assign a different name to the configuration element. For example, you could use `addUrl` instead of &quot;add&quot;."
+  summary: "Hämtar eller anger namnet på den <xref uid=&quot;langword_csharp_&lt;add&gt;&quot; name=&quot;&lt;add&gt;&quot; href=&quot;&quot;> </xref> konfigurationselementet."
+  remarks: "Egenskapen AddItemName kan du tilldela konfigurationselementet ett annat namn. Du kan till exempel använda `addUrl` i stället för &quot;Lägg till&quot;."
   example:
   - "The following example shows how to use the AddItemName property.  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/csharp/p-system.configuration.c_47_1.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/visualbasic/p-system.configuration.c_47_1.vb)]"
   syntax:
     content: public string AddItemName { get; set; }
     return:
       type: System.String
-      description: "The name that substitutes the standard name &quot;add&quot; for the configuration item."
+      description: "Det namn som ersätter standardnamn &quot;Lägg till&quot; för konfigurationsobjektet."
   overload: System.Configuration.ConfigurationCollectionAttribute.AddItemName*
   exceptions: []
   platform:
@@ -96,15 +96,15 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets or sets the name for the <xref uid=&quot;langword_csharp_&lt;clear&gt;&quot; name=&quot;&lt;clear&gt;&quot; href=&quot;&quot;></xref> configuration element."
-  remarks: "The ClearItemsName property allows you to assign a different name to the `<clear>` configuration element. For example, you could use `clearUrls` instead of &quot;clear&quot;."
+  summary: "Hämtar eller anger namnet på den <xref uid=&quot;langword_csharp_&lt;clear&gt;&quot; name=&quot;&lt;clear&gt;&quot; href=&quot;&quot;> </xref> konfigurationselementet."
+  remarks: "Egenskapen ClearItemsName kan du tilldela ett annat namn för den `<clear>` konfigurationselementet. Du kan till exempel använda `clearUrls` i stället för &quot;Rensa&quot;."
   example:
   - "The following example shows how to use the ClearItemsName.  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/csharp/p-system.configuration.c_18_1.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/visualbasic/p-system.configuration.c_18_1.vb)]"
   syntax:
     content: public string ClearItemsName { get; set; }
     return:
       type: System.String
-      description: "The name that replaces the standard name &quot;clear&quot; for the configuration item."
+      description: "Det namn som ersätter standard namn &quot;Rensa&quot; för konfigurationsobjektet."
   overload: System.Configuration.ConfigurationCollectionAttribute.ClearItemsName*
   exceptions: []
   platform:
@@ -121,12 +121,12 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets or sets the type of the <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;></xref> attribute."
+  summary: "Hämtar eller anger typ av den <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;> </xref> attribut."
   syntax:
     content: public System.Configuration.ConfigurationElementCollectionType CollectionType { get; set; }
     return:
       type: System.Configuration.ConfigurationElementCollectionType
-      description: "The type of the <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;></xref>."
+      description: "Typ av den <xref href=&quot;System.Configuration.ConfigurationCollectionAttribute&quot;> </xref>."
   overload: System.Configuration.ConfigurationCollectionAttribute.CollectionType*
   exceptions: []
   platform:
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets the type of the collection element."
-  remarks: "The ItemType property is used by reflection to get the configuration element type."
+  summary: "Hämtar typ av samlingselement."
+  remarks: "Egenskapen ItemType används av reflektion få elementtypen konfiguration."
   syntax:
     content: public Type ItemType { get; }
     return:
       type: System.Type
-      description: "The type of the collection element."
+      description: "Typ av samlingselementet."
   overload: System.Configuration.ConfigurationCollectionAttribute.ItemType*
   exceptions: []
   platform:
@@ -166,15 +166,15 @@ items:
   assemblies:
   - System.Configuration
   namespace: System.Configuration
-  summary: "Gets or sets the name for the <xref uid=&quot;langword_csharp_&lt;remove&gt;&quot; name=&quot;&lt;remove&gt;&quot; href=&quot;&quot;></xref> configuration element."
-  remarks: "The RemoveItemName property allows you to assign a different name to the `<remove>` configuration element. For example, you could use `removeUrl` instead of &quot;remove&quot;."
+  summary: "Hämtar eller anger namnet på den <xref uid=&quot;langword_csharp_&lt;remove&gt;&quot; name=&quot;&lt;remove&gt;&quot; href=&quot;&quot;> </xref> konfigurationselementet."
+  remarks: "Egenskapen RemoveItemName kan du tilldela ett annat namn för den `<remove>` konfigurationselementet. Du kan till exempel använda `removeUrl` i stället för &quot;Ta bort&quot;."
   example:
   - "The following example shows how to use the RemoveItemName property.  \n  \n [!code-cs[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/csharp/p-system.configuration.c_41_1.cs)]\n [!code-vb[System.Configuration.ConfigurationCollectionAttribute#20](~/add/codesnippet/visualbasic/p-system.configuration.c_41_1.vb)]"
   syntax:
     content: public string RemoveItemName { get; set; }
     return:
       type: System.String
-      description: "The name that replaces the standard name &quot;remove&quot; for the configuration element."
+      description: "Det namn som ersätter standard namn &quot;Ta bort&quot; för konfigurationselementet."
   overload: System.Configuration.ConfigurationCollectionAttribute.RemoveItemName*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: EventHandlerService
   fullName: System.Windows.Forms.Design.EventHandlerService
   type: Class
-  summary: "Provides a systematic way to manage event handlers for the current document."
-  remarks: "Developers may want to be able to write code in one place that handles events of a certain type.       Also, developers may need to globally change the behavior of the handlers for specific events or types of events, which may be distributed among designer components.       The designers for a typical project are many different objects so it can be useful to list and store reference to these events from a common place.       This service implements an &quot;event stack&quot; that contains the current set of event handlers. The stack may have a variety of different types of handlers on the stack.       For example, a designer might push, or add, a keyboard handler and a mouse handler onto the stack. When a designer requests an event handler, the service will find the topmost handler on the stack that matches the class you requested.       This way the service can be extended to any eventing scheme, and it also allows specific types of event handlers to be replaced. For example, you can replace mouse event handlers without affecting menu event handlers or keyboard event handlers."
+  summary: "Ger ett systematiskt sätt att hantera händelsehanterare för det aktuella dokumentet."
+  remarks: "Utvecklare kan vill kunna skriva kod på en plats som hanterar händelser av en viss typ.       Utvecklare kan också behöva globalt ändra beteendet för hanterare för specifika händelser eller typer av händelser som kan fördelas mellan designer komponenter.       Designer för ett vanligt projekt finns många olika objekt så att det kan vara praktiskt att lista och lagrar referensen till dessa händelser från en gemensam plats.       Den här tjänsten implementerar ett &quot;händelse-stacken&quot; som innehåller den aktuella mängden händelsehanterare. Stacken kan ha en mängd olika typer av hanterare i stacken.       Exempelvis kan en designer push eller Lägg till en tangentbordshanterare och en mus hanterare till stacken. När en designer begär en händelsehanterare, kommer tjänsten att hitta översta hanteraren stacken som matchar den klass som du har begärt.       Det här sättet tjänsten kan utökas till alla eventing schemat och det gör också att vissa typer av händelsehanterare som ska ersättas. Du kan till exempel ersätta musen händelsehanterare utan att påverka menyn händelsehanterare eller tangentbord händelsehanterare."
   syntax:
     content: public sealed class EventHandlerService
   inheritance:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Windows.Forms.Design.EventHandlerService&quot;> </xref> klass."
   syntax:
     content: public EventHandlerService (System.Windows.Forms.Control focusWnd);
     parameters:
     - id: focusWnd
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which is being designed."
+      description: "Den <xref href=&quot;System.Windows.Forms.Control&quot;> </xref> som utformas."
   overload: System.Windows.Forms.Design.EventHandlerService.#ctor*
   exceptions: []
   platform:
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Fires an OnEventHandlerChanged event."
+  summary: "Utlöses en OnEventHandlerChanged-händelse."
   syntax:
     content: public event EventHandler EventHandlerChanged;
     return:
       type: System.EventHandler
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the control to which event handlers are attached."
+  summary: "Hämtar kontrollen till vilken händelse hanterare är anslutna."
   syntax:
     content: public System.Windows.Forms.Control FocusWindow { get; }
     return:
       type: System.Windows.Forms.Control
-      description: "The <xref href=&quot;System.Windows.Forms.Control&quot;></xref> which was attached through the constructor."
+      description: "Den <xref href=&quot;System.Windows.Forms.Control&quot;> </xref> som har kopplats till konstruktorn."
   overload: System.Windows.Forms.Design.EventHandlerService.FocusWindow*
   exceptions: []
   platform:
@@ -103,17 +103,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Gets the currently active event handler of the specified type."
-  remarks: "You should never cache this value because other components are free to change it. This call is fairly quick, however, especially for cases when you are always asking for the same type of handler."
+  summary: "Hämtar den aktiva händelsehanteraren för den angivna typen."
+  remarks: "Du bör aldrig cachelagra det här värdet eftersom andra komponenter har möjlighet att ändra den. Det här anropet är ganska snabbt, men speciellt i fall när du alltid samma typ av hanterare."
   syntax:
     content: public object GetHandler (Type handlerType);
     parameters:
     - id: handlerType
       type: System.Type
-      description: "The type of the handler to get."
+      description: "Typ av hanteraren för att hämta."
     return:
       type: System.Object
-      description: "An instance of the handler, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no handler of the requested type."
+      description: "En instans av hanteraren, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om ingen hanterare för den begärda typen."
   overload: System.Windows.Forms.Design.EventHandlerService.GetHandler*
   exceptions: []
   platform:
@@ -130,14 +130,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pops the given handler off of the stack."
-  remarks: "If the handler is not the topmost component on the stack, this will pop all handlers up to and including handler."
+  summary: "POP angivna hanteraren från stacken."
+  remarks: "Om hanteraren inte är den översta komponenten i stacken, visas detta alla hanterare fram till och inklusive hanteraren."
   syntax:
     content: public void PopHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to remove from the stack."
+      description: "Hanteraren om att ta bort från stacken."
   overload: System.Windows.Forms.Design.EventHandlerService.PopHandler*
   exceptions: []
   platform:
@@ -154,14 +154,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.Windows.Forms.Design
-  summary: "Pushes a new event handler on the stack."
-  remarks: "This handler will be used by all components that request a compatible handler type. If this handler does not support the requested type, the next handler on the stack will be used."
+  summary: "Skickar en ny händelsehanterare i stacken."
+  remarks: "Den här hanteraren kommer att användas av alla komponenter som en kompatibel hanterare typ av begär. Om den här hanteraren inte har stöd för den begärda typen, används nästa hanteraren i stacken."
   syntax:
     content: public void PushHandler (object handler);
     parameters:
     - id: handler
       type: System.Object
-      description: "The handler to add to the stack."
+      description: "Hanteraren att lägga till i stacken."
   overload: System.Windows.Forms.Design.EventHandlerService.PushHandler*
   exceptions: []
   platform:

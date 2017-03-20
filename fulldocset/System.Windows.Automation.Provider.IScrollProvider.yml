@@ -17,8 +17,8 @@ items:
   nameWithType: IScrollProvider
   fullName: System.Windows.Automation.Provider.IScrollProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to a control that acts as a scrollable container for a collection of child objects. The children of this control must implement <xref href=&quot;System.Windows.Automation.Provider.IScrollItemProvider&quot;></xref>."
-  remarks: "Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.ScrollPattern> control pattern."
+  summary: "Exponerar metoder och egenskaper för att stödja en UI Automation klientåtkomst till en kontroll som fungerar som en nedrullningsbar behållare för en samling av underordnade objekt. Underordnade till den här kontrollen måste implementera <xref href=&quot;System.Windows.Automation.Provider.IScrollItemProvider&quot;> </xref>."
+  remarks: "Implementeras på en UI Automation-provider måste ha stöd för den <xref:System.Windows.Automation.ScrollPattern>kontroll mönstret.</xref:System.Windows.Automation.ScrollPattern>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -43,13 +43,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that indicates whether the control can scroll horizontally."
-  remarks: "This property can be dynamic. For example, the content area of the control might not be larger than the current viewable area, meaning HorizontallyScrollable is `false`. However, either resizing the control or adding child items can increase the bounds of the content area beyond the viewable area, meaning that HorizontallyScrollable is `true`."
+  summary: "Hämtar ett värde som anger om kontrollen kan rullas vågrätt."
+  remarks: "Den här egenskapen kan vara dynamisk. Innehållsområde i kontrollen kan exempelvis inte vara större än den aktuella visningsområde, vilket innebär att HorizontallyScrollable är `false`. Dock ändra storlek på kontrollen eller lägga till underordnade objekt kan öka gränserna för innehållsområde utanför visningsområdet, vilket innebär att HorizontallyScrollable är `true`."
   syntax:
     content: public bool HorizontallyScrollable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control can scroll horizontally; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om kontrollen kan rullas vågrätt; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontallyScrollable*
   exceptions: []
   platform:
@@ -66,12 +66,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current horizontal scroll position."
+  summary: "Hämtar den aktuella positionen vågräta rullningslisten."
   syntax:
     content: public double HorizontalScrollPercent { get; }
     return:
       type: System.Double
-      description: "The horizontal scroll position as a percentage of the total content area within the control."
+      description: "Den vågräta rullningslist positionen som en procentandel av det totala innehållsområdet i kontrollen."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontalScrollPercent*
   exceptions: []
   platform:
@@ -88,12 +88,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current horizontal view size."
+  summary: "Hämtar den aktuella storleken för horisontell vy."
   syntax:
     content: public double HorizontalViewSize { get; }
     return:
       type: System.Double
-      description: "The horizontal size of the viewable region as a percentage of the total content area within the control."
+      description: "Vågrät storleken för området visas som en procentandel av det totala innehållsområdet i kontrollen."
   overload: System.Windows.Automation.Provider.IScrollProvider.HorizontalViewSize*
   exceptions: []
   platform:
@@ -110,24 +110,24 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Scrolls the visible region of the content area horizontally and vertically."
+  summary: "Rullar det synliga området områdets innehållet vågrätt och lodrätt."
   syntax:
     content: public void Scroll (System.Windows.Automation.ScrollAmount horizontalAmount, System.Windows.Automation.ScrollAmount verticalAmount);
     parameters:
     - id: horizontalAmount
       type: System.Windows.Automation.ScrollAmount
-      description: "The horizontal increment specific to the control. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "Den vågräta ökningen är specifika för kontrollen. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>ska överföras om kontrollen inte går att rulla i den här riktningen."
     - id: verticalAmount
       type: System.Windows.Automation.ScrollAmount
-      description: "The vertical increment specific to the control. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "Den lodräta ökningen är specifika för kontrollen. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>ska överföras om kontrollen inte går att rulla i den här riktningen."
   overload: System.Windows.Automation.Provider.IScrollProvider.Scroll*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If a control supports <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;></xref> values exclusively for horizontal or vertical scrolling but a <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;></xref> value is passed in."
+    description: "Om en kontroll stöder <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;> </xref> värdena för vågrätt eller lodrätt rullning men <xref href=&quot;System.Windows.Automation.ScrollAmount&quot;> </xref> värde skickas."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt is made to scroll in an unsupported direction."
+    description: "Ett försök görs att bläddra i en riktning som inte stöds."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IScrollProvider.SetScrollPercent(System.Double,System.Double)
@@ -142,28 +142,28 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Sets the horizontal and vertical scroll position as a percentage of the total content area within the control."
-  remarks: "This method is only useful when the content area of the control is larger than the visible region.       Passing in the value <xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll> indicates that there is no scrolling in the specified direction."
+  summary: "Anger det vågräta och lodräta rullningsposition som en procentandel av det totala innehållsområdet i kontrollen."
+  remarks: "Den här metoden är endast användbar när innehållsområde i kontrollen är större än det synliga området.       Skicka i värdet <xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll>anger att det finns ingen bläddring i den angivna riktningen.</xref:System.Windows.Automation.ScrollPatternIdentifiers.NoScroll>"
   syntax:
     content: public void SetScrollPercent (double horizontalPercent, double verticalPercent);
     parameters:
     - id: horizontalPercent
       type: System.Double
-      description: "The horizontal position as a percentage of the content area&quot;s total range. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "Vågrät placering i procent av totalt intervall för området innehåll. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>ska överföras om kontrollen inte går att rulla i den här riktningen."
     - id: verticalPercent
       type: System.Double
-      description: "The vertical position as a percentage of the content area&quot;s total range. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref> should be passed in if the control cannot be scrolled in this direction."
+      description: "Lodrät placering i procent av totalt intervall för området innehåll. <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>ska överföras om kontrollen inte går att rulla i den här riktningen."
   overload: System.Windows.Automation.Provider.IScrollProvider.SetScrollPercent*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A value that cannot be converted to a double is passed in."
+    description: "Ett värde som inte kan konverteras till ett dubbel-värde skickades."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "A value greater than 100 or less than 0 is passed in (except -1, which is equivalent to <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;></xref>). The <xref:System.Windows.Automation.Provider.IScrollProvider.HorizontalScrollPercent*> and <xref:System.Windows.Automation.Provider.IScrollProvider.VerticalScrollPercent*> values are normalized to either 100 percent or 0 percent."
+    description: "Ett värde större än 100 eller mindre än 0 skickas (utom -1, vilket motsvarar <xref href=&quot;System.Windows.Automation.ScrollPatternIdentifiers.NoScroll&quot;> </xref>). Den <> </> *> och <> </> *> värden är normaliserade till 100 procent eller 0 procent."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An attempt is made to scroll in an unsupported direction."
+    description: "Ett försök görs att bläddra i en riktning som inte stöds."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.IScrollProvider.VerticallyScrollable
@@ -178,13 +178,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that indicates whether the control can scroll vertically."
-  remarks: "This property can be dynamic. For example, the content area of the control might not be larger than the viewable area meaning VerticallyScrollable is `false`. However, resizing the control or adding child items can increase the bounds of the content area beyond the viewable area, indicating that VerticallyScrollable is `true`."
+  summary: "Hämtar ett värde som anger om kontrollen kan rulla lodrätt."
+  remarks: "Den här egenskapen kan vara dynamisk. Innehållsområde i kontrollen kan exempelvis inte vara större än ett visningsområde enligt VerticallyScrollable är `false`. Dock ändra storlek på kontrollen eller lägga till underordnade objekt kan öka gränserna för innehållsområde utanför visningsområdet, som anger att VerticallyScrollable är `true`."
   syntax:
     content: public bool VerticallyScrollable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control can scroll vertically; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om kontrollen kan rulla lodrätt; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticallyScrollable*
   exceptions: []
   platform:
@@ -201,12 +201,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the current vertical scroll position."
+  summary: "Hämtar den aktuella positionen lodräta rullningslisten."
   syntax:
     content: public double VerticalScrollPercent { get; }
     return:
       type: System.Double
-      description: "The vertical scroll position as a percentage of the total content area within the control."
+      description: "Den lodräta rullningslist positionen som en procentandel av det totala innehållsområdet i kontrollen."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticalScrollPercent*
   exceptions: []
   platform:
@@ -223,12 +223,12 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets the vertical view size."
+  summary: "Hämtar den lodräta Visa storleken."
   syntax:
     content: public double VerticalViewSize { get; }
     return:
       type: System.Double
-      description: "The vertical size of the viewable region as a percentage of the total content area within the control."
+      description: "Den vertikala storleken på regionen som kan visas som en procentandel av det totala innehållsområdet i kontrollen."
   overload: System.Windows.Automation.Provider.IScrollProvider.VerticalViewSize*
   exceptions: []
   platform:

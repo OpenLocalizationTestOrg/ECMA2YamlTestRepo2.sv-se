@@ -15,8 +15,8 @@ items:
   nameWithType: ITextProvider
   fullName: System.Windows.Automation.Provider.ITextProvider
   type: Interface
-  summary: "Exposes methods and properties to support UI Automation client access to controls that contain text."
-  remarks: "Implemented on a UI Automation provider that must support the <xref:System.Windows.Automation.TextPattern> control pattern."
+  summary: "Exponerar metoder och egenskaper för att stödja en UI Automation klientåtkomst till kontroller som innehåller text."
+  remarks: "Implementeras på en UI Automation-provider måste ha stöd för den <xref:System.Windows.Automation.TextPattern>kontroll mönstret.</xref:System.Windows.Automation.TextPattern>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -41,13 +41,13 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a text range that encloses the main text of a document."
-  remarks: "Some auxiliary text such as headers, footnotes, or annotations may not be included."
+  summary: "Hämtar ett textområde som omsluter huvudtext ett dokument."
+  remarks: "Vissa extra text, till exempel sidhuvud eller fotnoterna anteckningar kan inte ingå."
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider DocumentRange { get; }
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "To be added."
+      description: "Som ska läggas till."
   overload: System.Windows.Automation.Provider.ITextProvider.DocumentRange*
   exceptions: []
   platform:
@@ -64,19 +64,19 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves a collection of disjoint text ranges associated with the current text selection or selections."
-  remarks: "For UI Automation providers that support text selection, the provider should implement this method and also return a <xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A> value.       If no text is selected, GetSelection returns the degenerate text range (empty range) at the position of the system cursor (text insertion point).       If the system cursor (text insertion point) is not present, GetSelection may return a null reference (`Nothing` in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
+  summary: "Hämtar en samling åtskilt text intervall som är associerade med den aktuella textmarkering eller val."
+  remarks: "För en UI Automation-providers som stöder textmarkering providern ska implementera metoden och returnerar ett <xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A>värde.</xref:System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection%2A>       Om ingen text är markerad returnerar GetSelection degenererad textområde (tomt område) på plats där systemet markören (insättningspunkten).       Om systemet markören (insättningspunkten) inte finns GetSelection kan returnera en null-referens (`Nothing` i [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider[] GetSelection ();
     parameters: []
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider[]
-      description: "A collection of disjoint text ranges."
+      description: "En samling åtskilda text intervall."
   overload: System.Windows.Automation.Provider.ITextProvider.GetSelection*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "If the UI Automation provider does not support text selection."
+    description: "Om en UI Automation-providern har inte stöd för textmarkering."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.GetVisibleRanges
@@ -91,14 +91,14 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves an array of disjoint text ranges from a text container where each text range begins with the first partially visible line through to the end of the last partially visible line."
-  remarks: "UI Automation providers should ensure that they return, at most, the text ranges that are visible within the container.       Disjoint text ranges may occur when any content of a text container is obscured by an overlapping window or other object, or when a text container with a multi-column layout has one or more columns partially scrolled out of view.       If no text is visible, a degenerate (empty) text range is returned. This empty range can be returned if the text container is empty or when all text is scrolled out of view."
+  summary: "Hämtar en matris med åtskilda text intervall från en textbehållare där varje textområde börjar med den första delvis synliga raden till i slutet av den sista delvis synliga raden."
+  remarks: "En UI Automation providers bör se till att de returnera, mest text-intervall som är synliga i behållaren.       Åtskilt text adressintervall kan uppstå när allt innehåll för en textbehållare döljs av ett annat överlappande fönster eller ett annat objekt eller en textbehållare med flera kolumner layout har en eller fler kolumner rullas delvis syns.       Om ingen text visas returnerade en degenererad (tom) textområde. Den här tomt intervall kan returneras om texten-behållaren är tom eller när alla text rullas syns."
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider[] GetVisibleRanges ();
     parameters: []
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider[]
-      description: "The collection of visible text ranges within the container or an empty array. A null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) is never returned."
+      description: "Mängden med synliga text intervall inom behållaren eller en tom matris. En null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) returneras aldrig."
   overload: System.Windows.Automation.Provider.ITextProvider.GetVisibleRanges*
   exceptions: []
   platform:
@@ -115,22 +115,22 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Retrieves a text range enclosing a child element such as an image, hyperlink, or other embedded object."
-  remarks: "A UI Automation provider should check that the passed element is a child of the text container.       If there is no text in the range where the child element exists, a degenerate (empty) range is returned.       The `childElement` parameter is either a child of the <xref:System.Windows.Automation.AutomationElement> associated with a <xref:System.Windows.Automation.TextPattern> or from the array of children of a <xref:System.Windows.Automation.Text.TextPatternRange>."
+  summary: "Hämtar ett textområde omslutande ett underordnat element, till exempel en bild, hyperlänk eller andra inbäddade objekt."
+  remarks: "En UI Automation-provider ska kontrollera att det skickades elementet är underordnad textbehållaren.       Om det finns ingen text i området där det underordnade elementet finns, returneras en degenererad (tom) intervall.       Den `childElement` parameter är antingen en underordnad <xref:System.Windows.Automation.AutomationElement>kopplad till en <xref:System.Windows.Automation.TextPattern>eller från en matris med underordnade i <xref:System.Windows.Automation.Text.TextPatternRange>.</xref:System.Windows.Automation.Text.TextPatternRange> </xref:System.Windows.Automation.TextPattern> </xref:System.Windows.Automation.AutomationElement>"
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider RangeFromChild (System.Windows.Automation.Provider.IRawElementProviderSimple childElement);
     parameters:
     - id: childElement
       type: System.Windows.Automation.Provider.IRawElementProviderSimple
-      description: "The enclosed object."
+      description: "Omslutna objektet."
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "A range that spans the child element."
+      description: "Ett område som sträcker sig över det underordnade elementet."
   overload: System.Windows.Automation.Provider.ITextProvider.RangeFromChild*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If the child element is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
+    description: "Om det underordnade elementet är en null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)])."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.RangeFromPoint(System.Windows.Point)
@@ -145,22 +145,22 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Returns the degenerate (empty) text range nearest to the specified screen coordinates."
-  remarks: "A text range that encloses a child object is returned if the screen coordinates are within the coordinates of an image, hyperlink, or other embedded object.       Because hidden text is not ignored by RangeFromPoint a degenerate range from the visible text closest to the given point is returned."
+  summary: "Returnerar degenererad (tom) textområde närmast angivna skärmkoordinater."
+  remarks: "Ett textområde som omsluter ett underordnat objekt returneras om Skärmkoordinaterna är i koordinaterna för en bild, hyperlänk eller andra inbäddade objekt.       Eftersom dolda text inte ignoreras av RangeFromPoint returneras en degenererad mellan den synliga texten som är närmast angiven punkt."
   syntax:
     content: public System.Windows.Automation.Provider.ITextRangeProvider RangeFromPoint (System.Windows.Point screenLocation);
     parameters:
     - id: screenLocation
       type: System.Windows.Point
-      description: "The location in screen coordinates."
+      description: "Platsen i skärmkoordinater."
     return:
       type: System.Windows.Automation.Provider.ITextRangeProvider
-      description: "A degenerate range nearest the specified location. A null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) is never returned."
+      description: "En degenererad intervall närmast den angivna platsen. En null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i [!INCLUDE[TLA#tla_visualbnet](~/add/includes/tlasharptla-visualbnet-md.md)]) returneras aldrig."
   overload: System.Windows.Automation.Provider.ITextProvider.RangeFromPoint*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "If a given point is outside the [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element associated with the text pattern."
+    description: "Om en viss punkt ligger utanför den [!INCLUDE[TLA2#tla_uiautomation](~/add/includes/tla2sharptla-uiautomation-md.md)] element som är associerade med textmönstret."
   platform:
   - net462
 - uid: System.Windows.Automation.Provider.ITextProvider.SupportedTextSelection
@@ -175,7 +175,7 @@ items:
   assemblies:
   - UIAutomationProvider
   namespace: System.Windows.Automation.Provider
-  summary: "Gets a value that specifies whether a text provider supports selection and, if so, the type of selection supported."
+  summary: "Hämtar ett värde som anger om en SMS-provider stöder val och i så fall, typen av markering stöds."
   syntax:
     content: public System.Windows.Automation.SupportedTextSelection SupportedTextSelection { get; }
     return:

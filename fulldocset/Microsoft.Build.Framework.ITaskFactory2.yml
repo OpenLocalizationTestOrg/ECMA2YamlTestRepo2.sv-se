@@ -11,7 +11,7 @@ items:
   nameWithType: ITaskFactory2
   fullName: Microsoft.Build.Framework.ITaskFactory2
   type: Interface
-  summary: "Describes and extended <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;></xref> interface that a task factory instance should implement."
+  summary: "Beskriver och utökad <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;> </xref> gränssnitt som ska implementera en instans av en aktivitet."
   syntax:
     content: 'public interface ITaskFactory2 : Microsoft.Build.Framework.ITaskFactory'
   implements:
@@ -30,20 +30,20 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Create an instance of the task to be used, with an optional set of &quot;special&quot; parameters set on the individual task invocation using the MSBuildRuntime and MSBuildArchitecture default task parameters. MSBuild provides an implementation of this interface, TaskHostFactory, that uses &quot;MSBuildRuntime&quot;, with values &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot;, and &quot;*&quot; (Any); and &quot;MSBuildArchitecture&quot;, with values &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot;, and &quot;\\*&quot; (Any). An implementer of ITaskFactory2 can choose to use these pre-defined MSBuildRuntime and MSBuildArchitecture values, or can specify new values for these parameters."
-  remarks: "If a task factory implements ITaskFactory2, MSBuild will call this method instead of ITaskFactory.CreateTask."
+  summary: "Skapa en instans av aktiviteten som ska användas med en valfri uppsättning &quot;särskilda&quot; parametrar på enskilda aktiviteten anropa standardparametrarna MSBuildRuntime och MSBuildArchitecture aktivitet. MSBuild tillhandahåller en implementering av det här gränssnittet TaskHostFactory som använder &quot;MSBuildRuntime&quot; med värden &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; och &quot;*&quot; (alla); och &quot;MSBuildArchitecture&quot; med värden &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; och &quot;\\*&quot; (alla). En implementerare av ITaskFactory2 kan du använda dessa fördefinierade MSBuildRuntime och MSBuildArchitecture värden eller ange nya värden för dessa parametrar."
+  remarks: "Om en aktivitet fabrik implementerar ITaskFactory2, att MSBuild anropa den här metoden i stället för ITaskFactory.CreateTask."
   syntax:
     content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost, System.Collections.Generic.IDictionary<string,string> taskIdentityParameters);
     parameters:
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host will log messages in the context of the task."
+      description: "Uppgiften factory loggning värden loggar meddelanden i samband med uppgiften."
     - id: taskIdentityParameters
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Special parameters that the task factory can use to modify how it executes tasks, such as Runtime and Architecture."
+      description: "Särskilda parametrar som aktiviteten fabriken kan använda för att ändra hur aktiviteter, till exempel Runtime och arkitektur körs."
     return:
       type: Microsoft.Build.Framework.ITask
-      description: "The generated task, or `null` if the task failed to be created."
+      description: "Aktiviteten genererade eller `null` om aktiviteten inte kunde skapas."
   overload: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
   exceptions: []
   platform:
@@ -60,29 +60,29 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Initializes this factory for instantiating tasks with a particular inline task block and a set of UsingTask parameters. MSBuild provides an implementation of this interface, TaskHostFactory, that uses &quot;Runtime&quot;, with values &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot;, and &quot;*&quot; (Any); and &quot;Architecture&quot;, with values &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot;, and &quot;\\*&quot; (Any). An implementer of ITaskFactory2 can choose to use these pre-defined Runtime and Architecture values, or can specify new values for these parameters."
-  remarks: "MSBuild engine will call this to initialize the factory. This should initialize the factory enough so that the factory can be asked whether or not task names can be created by the factory. If a task factory implements ITaskFactory2, this Initialize method will be called in place of ITaskFactory.Initialize.       The taskFactoryLoggingHost will log messages in the context of the target where the task is first used."
+  summary: "Initierar den här fabriken för initierar uppgifter med en viss infogad uppgiften block och en uppsättning UsingTask-parametrar. MSBuild tillhandahåller en implementering av det här gränssnittet TaskHostFactory som använder &quot;Körning&quot;, med värden &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; och &quot;*&quot; (alla); och &quot;Arkitektur&quot; med värden &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; och &quot;\\*&quot; (alla). En implementerare av ITaskFactory2 kan du använda dessa fördefinierade Runtime och arkitektur för värden eller ange nya värden för dessa parametrar."
+  remarks: "MSBuild-motorn att anropa detta för att initiera fabriken. Detta ska initiera fabriken tillräckligt så att fabriken kan ange huruvida aktivitetsnamn kan skapas av tillverkningen. Om en aktivitet fabrik implementerar ITaskFactory2, kommer den här initieringsmetoden anropas i stället för ITaskFactory.Initialize.       TaskFactoryLoggingHost loggar meddelanden i samband med mål där aktiviteten används först."
   syntax:
     content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,string> factoryIdentityParameters, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskName
       type: System.String
-      description: "Name of the task."
+      description: "Namnet på aktiviteten."
     - id: factoryIdentityParameters
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Special parameters that the task factory can use to modify how it executes tasks, such as Runtime and Architecture. The key is the name of the parameter and the value is the parameter&quot;s value. This is the set of parameters that was set on the UsingTask using e.g. the UsingTask Runtime and Architecture parameters."
+      description: "Särskilda parametrar som aktiviteten fabriken kan använda för att ändra hur aktiviteter, till exempel Runtime och arkitektur körs. Nyckeln är parameterns namn och parameterns värde. Det här är den uppsättning parametrar som har ställts in på UsingTask med t.ex. UsingTask Runtime och arkitektur parametrar."
     - id: parameterGroup
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
-      description: "The parameter group."
+      description: "Parametern-grupp."
     - id: taskBody
       type: System.String
-      description: "The task body."
+      description: "Uppgiftstexten."
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host."
+      description: "Uppgiften factory loggning värden."
     return:
       type: System.Boolean
-      description: "A value indicating whether initialization was successful."
+      description: "Ett värde som anger om initieringen har slutförts."
   overload: Microsoft.Build.Framework.ITaskFactory2.Initialize*
   exceptions: []
   platform:
