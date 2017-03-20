@@ -12,8 +12,8 @@ items:
   nameWithType: StackOverflowException
   fullName: System.StackOverflowException
   type: Class
-  summary: "The exception that is thrown when the execution stack overflows because it contains too many nested method calls. This class cannot be inherited."
-  remarks: "StackOverflowException is thrown for execution stack overflow errors, typically in case of a very deep or unbounded recursion.       StackOverflowException uses the HRESULT COR_E_STACKOVERFLOW, which has the value 0x800703E9. The <xref:System.Reflection.Emit.OpCodes.Localloc> intermediate language (IL) instruction throws StackOverflowException. For a list of initial property values for a StackOverflowException object, see the <xref:System.StackOverflowException.%23ctor%2A> constructors.      ## Version Considerations    In the .NET Framework 1.0 and 1.1, you could catch a StackOverflowException object (for example, to recover from unbounded recursion). Starting with the .NET Framework 2.0, you can’t catch a StackOverflowException object with a `try`/`catch` block, and the corresponding process is terminated by default. Consequently, you should write your code to detect and prevent a stack overflow. For example, if your app depends on recursion, use a counter or a state condition to terminate the recursive loop. The following example uses a counter to ensure that the number of recursive calls to the `Execute` method do not exceed a maximum defined by the MAX_RECURSIVE_CALLS constant.       [!code-vb[System.StackOverflowException.Class#1](~/add/codesnippet/visualbasic/t-system.stackoverflowex_1.vb)]  [!code-cs[System.StackOverflowException.Class#1](~/add/codesnippet/csharp/t-system.stackoverflowex_1.cs)]      > [!NOTE] >  Applying the <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute> attribute to a method that throws a StackOverflowException has no effect. You still cannot handle the exception from user code.       If your app hosts the common language runtime (CLR), it can specify that the CLR should unload the application domain where the stack overflow exception occurs and let the corresponding process continue. For more information, see [ICLRPolicyManager Interface](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Undantag som utlöses när stacken flödar över eftersom den innehåller för många kapslade metodanrop. Den här klassen kan inte ärvas."
+  remarks: "StackOverflowException genereras för körning dataspillsfel, vanligtvis vid mycket djup eller unbounded rekursion.       StackOverflowException använder HRESULT COR_E_STACKOVERFLOW, som har värdet 0x800703E9. Den <xref:System.Reflection.Emit.OpCodes.Localloc>instruktion i mellanliggande språk (IL) utlöser StackOverflowException.</xref:System.Reflection.Emit.OpCodes.Localloc> En lista över inledande egenskapsvärden för en StackOverflowException objekt, finns det <xref:System.StackOverflowException.%23ctor%2A>konstruktorer.</xref:System.StackOverflowException.%23ctor%2A>      ## Version överväganden i .NET Framework 1.0- och 1.1, kan du fånga ett StackOverflowException-objekt (till exempel att återställa från unbounded rekursion). Från och med .NET Framework 2.0, kan du fånga ett StackOverflowException-objekt med en `try` / `catch` block och motsvarande processen avslutas som standard. Därför bör du skriva koden för att upptäcka och förhindra stackspill. Till exempel om din app är beroende av rekursion, använda en räknare eller ett tillstånd villkor för att avsluta slingan rekursiv. I följande exempel används en räknare för att säkerställa att Antal rekursiva anrop till den `Execute` metoden inte överskrider maximalt definieras av MAX_RECURSIVE_CALLS konstant.       [!code-vb[System.StackOverflowException.Class#1](~/add/codesnippet/visualbasic/t-system.stackoverflowex_1.vb)][!code-cs[System.StackOverflowException.Class#1](~/add/codesnippet/csharp/t-system.stackoverflowex_1.cs) ]       >  [!NOTE] > använder den <xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute>attributet i en metod som genererar en StackOverflowException har ingen effekt.</xref:System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute>   Du kan fortfarande hantera undantag från användarkod.       Om din app är värd för common language runtime (CLR), kan det ange att CLR bör ta bort programdomänen där dataspillsundantag inträffar och att motsvarande processen fortsätter. Mer information finns i [ICLRPolicyManager gränssnittet](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -38,8 +38,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class, setting the <xref:System.Exception.Message*> property of the new instance to a system-supplied message that describes the error, such as &quot;The requested operation caused a stack overflow.&quot; This message takes into account the current system culture."
-  remarks: "The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|`null`.|   |<xref:System.Exception.Message%2A>|The localized error message string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.StackOverflowException&quot;> </xref> klass, ställa in <xref:System.Exception.Message*>egenskapen för den nya instansen till en tillhandahålls av systemet meddelande som anger vilket fel som &quot;den begärda åtgärden orsakade stackspill.&quot;</xref:System.Exception.Message*> Det här meddelandet tar hänsyn till den aktuella systemkulturen."
+  remarks: "I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.StackOverflowException>.</xref:System.StackOverflowException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| `null`.|   | <xref:System.Exception.Message%2A>| Den lokaliserade felsträngen meddelande. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public StackOverflowException ();
     parameters: []
@@ -59,14 +59,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class with a specified error message."
-  remarks: "The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|A null reference (`Nothing` in Visual Basic).|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.StackOverflowException&quot;> </xref> klass med ett angivet meddelande."
+  remarks: "I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.StackOverflowException>.</xref:System.StackOverflowException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| En null-referens (`Nothing` i Visual Basic). |   | <xref:System.Exception.Message%2A>| Meddelandet felsträng. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public StackOverflowException (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A <xref:System.String> that describes the error. The content of message is intended to be understood by humans. The caller of this constructor is required to ensure that this string has been localized for the current system culture."
+      description: "En <xref:System.String>som beskriver felet.</xref:System.String> Innehållet i meddelandet ska tolkas av människor. Anroparen av den här konstruktorn är behövs för att säkerställa att den här strängen lokaliserade för den aktuella systemkulturen."
   overload: System.StackOverflowException.#ctor*
   exceptions: []
   platform:
@@ -83,17 +83,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.StackOverflowException&quot;></xref> class with a specified error message and a reference to the inner exception that is the cause of this exception."
-  remarks: "An exception that is thrown as a direct result of a previous exception can include a reference to the previous exception in the <xref:System.Exception.InnerException%2A> property. The <xref:System.Exception.InnerException%2A> property returns the same value that is passed into the constructor, or a null reference (`Nothing` in Visual Basic) if the <xref:System.Exception.InnerException%2A> property does not supply the inner exception value to the constructor.       The following table shows the initial property values for an instance of <xref:System.StackOverflowException>.      |Property|Value|   |--------------|-----------|   |<xref:System.Exception.InnerException%2A>|The inner exception reference.|   |<xref:System.Exception.Message%2A>|The error message string.|"
+  summary: "Initierar en ny instans av den <xref href=&quot;System.StackOverflowException&quot;> </xref> klass med ett angivet meddelande och en referens till det interna undantaget som är orsaken till det här undantaget."
+  remarks: "Ett undantag som utlöses när ett direkt resultat av ett tidigare undantag kan innehålla en referens till det tidigare undantaget i den <xref:System.Exception.InnerException%2A>egenskapen.</xref:System.Exception.InnerException%2A> Den <xref:System.Exception.InnerException%2A>-egenskap returnerar samma värde som överförs till konstruktorn eller en null-referens (`Nothing` i Visual Basic) om den <xref:System.Exception.InnerException%2A>egenskapen tillhandahåller inte värdet i det interna undantaget för konstruktorn.</xref:System.Exception.InnerException%2A> </xref:System.Exception.InnerException%2A>       I följande tabell visas de inledande egenskapsvärdena för en instans av <xref:System.StackOverflowException>.</xref:System.StackOverflowException>      | Egenskapen | Värdet |   |--------------|-----------|   | <xref:System.Exception.InnerException%2A>| Referens för inre undantag. |   | <xref:System.Exception.Message%2A>| Meddelandet felsträng. |</xref:System.Exception.Message%2A> </xref:System.Exception.InnerException%2A>"
   syntax:
     content: public StackOverflowException (string message, Exception innerException);
     parameters:
     - id: message
       type: System.String
-      description: "The error message that explains the reason for the exception."
+      description: "Felmeddelandet som förklarar orsaken till undantaget."
     - id: innerException
       type: System.Exception
-      description: "The exception that is the cause of the current exception. If the `innerException` parameter is not a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic), the current exception is raised in a <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;></xref> block that handles the inner exception."
+      description: "Undantag som är orsaken till det aktuella undantaget. Om den `innerException` parametern är inte en null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i Visual Basic), det aktuella undantaget utlöses i en <xref uid=&quot;langword_csharp_catch&quot; name=&quot;catch&quot; href=&quot;&quot;> </xref> block som hanterar det interna undantaget."
   overload: System.StackOverflowException.#ctor*
   exceptions: []
   platform:
