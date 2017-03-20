@@ -11,8 +11,8 @@ items:
   nameWithType: ICallContextInitializer
   fullName: System.ServiceModel.Dispatcher.ICallContextInitializer
   type: Interface
-  summary: "Defines the methods that enable the initialization and recycling of thread-local storage with the thread that invokes user code."
-  remarks: "Implement the ICallContextInitializer interface and add it to the <xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName> property to initialize and clean up thread-local storage for the thread that invokes user code. Typical usage is to set some value, such as impersonation or changing the <xref:System.Globalization.CultureInfo?displayProperty=fullName>. If you wanted to establish some custom context, this is the extension point to initialize the static context property, which is then available for developers in the course of the operation."
+  summary: "Definierar metoder som gör att initieringen och återvinning av tråd lokal lagring med tråden som anropar användarkod."
+  remarks: "Implementera gränssnittet ICallContextInitializer och lägger till den i den <xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName>egenskapen för att initiera och rensa tråd lokal lagring för tråden som anropar användarkod.</xref:System.ServiceModel.Dispatcher.DispatchOperation.CallContextInitializers%2A?displayProperty=fullName> Typisk användning är att ange ett värde, till exempel personifiering eller ändra <xref:System.Globalization.CultureInfo?displayProperty=fullName>.</xref:System.Globalization.CultureInfo?displayProperty=fullName> Om du vill upprätta en del anpassade kontext, är det tillägget punkten att initiera Kontextegenskapen statiska, som sedan är tillgänglig för utvecklare fungera."
   syntax:
     content: public interface ICallContextInitializer
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Implement to participate in cleaning up the thread that invoked the operation."
-  remarks: "Use this method to perform any necessary cleaning up of the operation thread."
+  summary: "Implementera för att delta i rensar den tråd som anropas igen."
+  remarks: "Använd den här metoden för att utföra alla nödvändiga rensningen av åtgärden tråd."
   syntax:
     content: public void AfterInvoke (object correlationState);
     parameters:
     - id: correlationState
       type: System.Object
-      description: "The correlation object returned from the <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*> method."
+      description: "Korrelations-objektet som returnerades från den <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*>metoden.</xref:System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*>"
   overload: System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*
   exceptions: []
   platform:
@@ -54,23 +54,23 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "Implement to participate in the initialization of the operation thread."
-  remarks: "Implement the BeforeInvoke method to initialize and clean up thread-local storage for the thread that invokes user code. Typical usage is to set some value, such as impersonation or changing the <xref:System.Globalization.CultureInfo?displayProperty=fullName>. If you wanted to establish some custom context, this is the extension point to initialize the static context property, which is then available for developers in the course of the operation."
+  summary: "Implementera för att delta i initieringen av åtgärden tråd."
+  remarks: "Implementera metoden BeforeInvoke för att initiera och rensa tråd lokal lagring för tråden som anropar användarkod. Typisk användning är att ange ett värde, till exempel personifiering eller ändra <xref:System.Globalization.CultureInfo?displayProperty=fullName>.</xref:System.Globalization.CultureInfo?displayProperty=fullName> Om du vill upprätta en del anpassade kontext, är det tillägget punkten att initiera Kontextegenskapen statiska, som sedan är tillgänglig för utvecklare fungera."
   syntax:
     content: public object BeforeInvoke (System.ServiceModel.InstanceContext instanceContext, System.ServiceModel.IClientChannel channel, System.ServiceModel.Channels.Message message);
     parameters:
     - id: instanceContext
       type: System.ServiceModel.InstanceContext
-      description: "The service instance for the operation."
+      description: "Tjänstinstans för åtgärden."
     - id: channel
       type: System.ServiceModel.IClientChannel
-      description: "The client channel."
+      description: "Klientkanal."
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The incoming message."
+      description: "Det inkommande meddelandet."
     return:
       type: System.Object
-      description: "A correlation object passed back as the parameter of the <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*> method."
+      description: "En korrelation objekt skickades tillbaka som parameter för den <xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*>metoden.</xref:System.ServiceModel.Dispatcher.ICallContextInitializer.AfterInvoke*>"
   overload: System.ServiceModel.Dispatcher.ICallContextInitializer.BeforeInvoke*
   exceptions: []
   platform:

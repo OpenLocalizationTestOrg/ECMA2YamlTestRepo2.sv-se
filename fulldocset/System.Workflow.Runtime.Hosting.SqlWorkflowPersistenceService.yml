@@ -29,8 +29,8 @@ items:
   nameWithType: SqlWorkflowPersistenceService
   fullName: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService
   type: Class
-  summary: "Represents a persistence service that uses a SQL database to store workflow state information."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The SqlWorkflowPersistenceService class represents a fully-functional persistence service. You can use this service out-of-box to persist and retrieve workflow state information about a workflow instance when requested to by the workflow runtime engine.       The SqlWorkflowPersistenceService participates in the workflow transaction batching functionality provided by the <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>. That is, it adds objects that represent pending writes to the SQL database to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> and implements the <xref:System.Workflow.Runtime.IPendingWork> interface.       The SqlWorkflowPersistenceService supports locking of workflow instances. This feature is used when several workflow runtimes share the same database. A column in the SQL database table is used to mark a workflow instance as locked whenever it is being used by a workflow runtime. The SqlWorkflowPersistenceService does not load a workflow instance that is marked as &quot;in use&quot; by another runtime. Typically these locks are released when the workflow instance is persisted, for example, on idle, completion, or termination. The locks can also be released automatically after a period of inactivity. This period of inactivity can be set using the constructor of the SqlWorkflowPersistenceService class.  It can also be set through the configuration file.       [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] persistence services in general, see the <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService> class.       Workflow instances can contain timers, for example, if they have a <xref:System.Workflow.Activities.DelayActivity>. For workflows that contain timers, the SqlWorkflowPersistenceService records the time when the workflow&quot;s next timer expires. The SqlWorkflowPersistenceService periodically polls the database, looking for workflows whose timers have expired. The frequency of the polling interval can be set using the SqlWorkflowPersistenceService constructor or using a configuration file.      > [!NOTE] >  When using both the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> and the SqlWorkflowPersistenceService in a workflow application, it is recommended to use a single database for both persistence and tracking."
+  summary: "Representerar en beständig tjänst som använder en SQL-databas för att lagra information om arbetsflödets tillstånd."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]Klassen SqlWorkflowPersistenceService representerar en fullt fungerande beständig tjänst. Du kan använda den här tjänsten out-of-box för att spara och hämta arbetsflödet statusinformation om en arbetsflödesinstans när begär workflow runtime engine.       SqlWorkflowPersistenceService deltar i arbetsflödet transaktion batching funktionerna i <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>.</xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> Det vill säga den lägger till objekt som representerar väntande skriver till SQL-databasen till den <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>och implementerar den <xref:System.Workflow.Runtime.IPendingWork>gränssnitt.</xref:System.Workflow.Runtime.IPendingWork> </xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>       SqlWorkflowPersistenceService stöder låsning av arbetsflödesinstanser. Den här funktionen används när flera arbetsflödet körningar delar samma databas. En kolumn i SQL-databastabell används för att markera en arbetsflödesinstans som låst när den används av ett arbetsflöde för körning. SqlWorkflowPersistenceService läses inte in en arbetsflödesinstans som har markerats som &quot;Använd&quot; av en annan runtime. Vanligtvis dessa låsen släpps om arbetsflödesinstansen sparas, till exempel inaktiv slutförts eller avslutning. Lås kan också frigöras automatiskt efter en tids inaktivitet. Denna period av inaktivitet kan anges med konstruktorn för SqlWorkflowPersistenceService-klassen.  Det kan också ställas in via konfigurationsfilen.       [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]beständiga tjänster finns i allmänhet <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService>klass.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService>       Arbetsflödesinstanser kan innehålla timers, till exempel om de har en <xref:System.Workflow.Activities.DelayActivity>.</xref:System.Workflow.Activities.DelayActivity> För arbetsflöden som innehåller timers registrerar SqlWorkflowPersistenceService när arbetsflödets nästa timer upphör att gälla. SqlWorkflowPersistenceService avsöker med jämna mellanrum databasen, söker efter arbetsflöden vars timer har upphört att gälla. Frekvensen för avsökningsintervallet kan anges med hjälp av konstruktorn SqlWorkflowPersistenceService eller en konfigurationsfil.      > [!NOTE] > När du använder både den <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>och SqlWorkflowPersistenceService i ett arbetsflöde-program, rekommenderas att använda en enskild databas för både beständiga och spårning.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -66,22 +66,22 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;></xref> class by using the specified parameters."
-  remarks: "This constructor is invoked when the workflow runtime engine loads services from an application configuration file. It can also be programmatically invoked with the `NameValueCollection` parameter. The valid parameters are `ConnectionString`, `OwnershipTimeoutSeconds`, `UnloadOnIdle`, and `EnableRetries`. An <xref:System.ArgumentException> is thrown if parameters contain any other keys."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;> </xref> klassen med hjälp av de angivna parametrarna."
+  remarks: "Den här konstruktorn anropas när workflow runtime engine läser in tjänster från en programkonfigurationsfil. Det kan också programmässigt anropas med de `NameValueCollection` parameter. Parametrar som är giltiga `ConnectionString`, `OwnershipTimeoutSeconds`, `UnloadOnIdle`, och `EnableRetries`. En <xref:System.ArgumentException>genereras om parametrar innehålla andra nycklar.</xref:System.ArgumentException>"
   syntax:
     content: public SqlWorkflowPersistenceService (System.Collections.Specialized.NameValueCollection parameters);
     parameters:
     - id: parameters
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that contains startup parameters."
+      description: "En <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> som innehåller Startparametrar."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>parameters</code> contains an invalid database connection string."
+    description: "<code>parameters</code>innehåller en ogiltig databasanslutningssträng."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>parameters </code>is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>parameters </code>är en null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i Visual Basic)."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.#ctor(System.String)
@@ -96,18 +96,18 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;></xref> class by using the database connection string."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;> </xref> klassen med hjälp av anslutningssträngen för databasen."
   syntax:
     content: public SqlWorkflowPersistenceService (string connectionString);
     parameters:
     - id: connectionString
       type: System.String
-      description: "A valid database connection string."
+      description: "En ogiltig databasanslutningssträng."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>connectionString</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>connectionString</code>är en null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i Visual Basic)."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.#ctor(System.String,System.Boolean,System.TimeSpan,System.TimeSpan)
@@ -122,28 +122,28 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;></xref> class using a database connection string and other parameters."
-  remarks: "Note that using this constructor (which provides a value for `instanceOwnershipDuration`) enables locking. To create a persistence service that does not enable locking, use a different constructor that does not specify `instanceOwnershipDuration`."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;> </xref> klassen med hjälp av en databasanslutningssträng och andra parametrar."
+  remarks: "Observera att med hjälp av den här konstruktorn (som innehåller ett värde för `instanceOwnershipDuration`) gör det möjligt att låsa. Använd en annan konstruktor som inte anger för att skapa en beständig tjänst som inte aktiverar låsa `instanceOwnershipDuration`."
   syntax:
     content: public SqlWorkflowPersistenceService (string connectionString, bool unloadOnIdle, TimeSpan instanceOwnershipDuration, TimeSpan loadingInterval);
     parameters:
     - id: connectionString
       type: System.String
-      description: "A valid database connection string."
+      description: "En ogiltig databasanslutningssträng."
     - id: unloadOnIdle
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to unload the workflow when it is in an idle state."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>ta bort arbetsflödet när den är i viloläge."
     - id: instanceOwnershipDuration
       type: System.TimeSpan
-      description: "The length of time that locks are maintained on idle workflows."
+      description: "Hur lång tid som underhålls lås på inaktiv arbetsflöden."
     - id: loadingInterval
       type: System.TimeSpan
-      description: "The frequency at which the persistence service polls the database for workflows with expired timers."
+      description: "Frekvensen som avsöker beständiga tjänsten databasen för arbetsflöden med timer har upphört att gälla."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>connectionString</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>connectionString</code>är en null-referens (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> i Visual Basic)."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.EnableRetries
@@ -158,13 +158,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Gets and sets a value that specifies whether the <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;></xref> retries committing a work batch."
-  remarks: "The following work items cannot be batched and any transaction retries must be handled through the `EnableRetries` property:      -   Polling for expired database timers.      -   Loading workflow instance states.      -   Reloading workflow instances when the workflow run-time engine starts.      -   Calling <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.GetAllWorkflows%2A>.       Besides being set programmatically, this functionality can be enabled through a configuration file. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] how to set this property through a configuration file, see [Workflow Configuration Files](http://msdn.microsoft.com/en-us/ada4bb90-6c9d-4f3d-a9d0-b559bb0f9909).       For general information about retrying work batch transactions, see [Batching State Information in Workflows](http://msdn.microsoft.com/en-us/ecda18ba-9140-4bd7-b13d-6787fdf5959d)."
+  summary: "Hämtar eller anger ett värde som anger om den <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;> </xref> återförsök genomför en arbetsbatch."
+  remarks: "Följande arbetsobjekt kan inte grupperas och eventuella omförsök för transaktion måste hanteras via den `EnableRetries` egenskapen:-avsökning för utgångna databasen timers.      -Instans statusar lästes in.      -Ladda arbetsflödesinstanser när körning arbetsflödesmotorn startar.      -Anropar <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.GetAllWorkflows%2A>.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.GetAllWorkflows%2A>       Förutom anges programmässigt, kan den här funktionen aktiveras via en konfigurationsfil. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]hur du ställer in den här egenskapen via en konfigurationsfil finns [arbetsflöde konfigurationsfiler](http://msdn.microsoft.com/en-us/ada4bb90-6c9d-4f3d-a9d0-b559bb0f9909).       Allmän information om du försöker arbete Batchtransaktioner finns [batchbearbetning statusinformation i arbetsflöden](http://msdn.microsoft.com/en-us/ecda18ba-9140-4bd7-b13d-6787fdf5959d)."
   syntax:
     content: public bool EnableRetries { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the service should retry committing the work batch; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om tjänsten bör försöka genomför arbetsbatch; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Standardvärdet är <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.EnableRetries*
   exceptions: []
   platform:
@@ -181,13 +181,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves instance descriptions of all persisted workflows."
+  summary: "Hämtar instans beskrivningar av alla beständiga arbetsflöden."
   syntax:
     content: public System.Collections.Generic.IEnumerable<System.Workflow.Runtime.Hosting.SqlPersistenceWorkflowInstanceDescription> GetAllWorkflows ();
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{System.Workflow.Runtime.Hosting.SqlPersistenceWorkflowInstanceDescription}
-      description: "A list of all persisted workflows."
+      description: "En lista över alla beständiga arbetsflöden."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.GetAllWorkflows*
   exceptions: []
   platform:
@@ -204,25 +204,25 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves the specified completed scope from the database."
-  remarks: "The workflow run-time engine uses LoadCompletedContextActivity during compensation. LoadCompletedContextActivity should only be called by the workflow run-time engine."
+  summary: "Hämtar slutförda definitionsområdet från databasen."
+  remarks: "Körning arbetsflödesmotorn använder LoadCompletedContextActivity under ersättning. LoadCompletedContextActivity bör endast anropas av körningen arbetsflödesmotorn."
   syntax:
     content: protected override System.Workflow.ComponentModel.Activity LoadCompletedContextActivity (Guid id, System.Workflow.ComponentModel.Activity outerActivity);
     parameters:
     - id: id
       type: System.Guid
-      description: "The <xref:System.Guid> of the scope activity."
+      description: "Den <xref:System.Guid>för aktiviteten omfång.</xref:System.Guid>"
     - id: outerActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that encloses the scope activity."
+      description: "Den <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som omsluter aktiviteten omfång."
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the completed scope."
+      description: "En <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som representerar färdigt område."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadCompletedContextActivity*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A scope that matches <code>id</code> could not be found in the database."
+    description: "En omfattning som matchar <code> id </code> kunde inte hittas i databasen."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadExpiredTimerWorkflowIds
@@ -237,13 +237,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves a list of ids for workflows with expired timers."
+  summary: "Hämtar en lista över ID: n för arbetsflöden med timer har upphört att gälla."
   syntax:
     content: public System.Collections.Generic.IList<Guid> LoadExpiredTimerWorkflowIds ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.Guid}
-      description: "A list of ids for workflows with expired timers."
+      description: "En lista över ID: n för arbetsflöden med timer har upphört att gälla."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadExpiredTimerWorkflowIds*
   exceptions: []
   platform:
@@ -260,13 +260,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Gets the length of the loading interval."
-  remarks: "The default value is 2 minutes."
+  summary: "Hämtar Inläsningsintervallet längd."
+  remarks: "Standardvärdet är 2 minuter."
   syntax:
     content: public TimeSpan LoadingInterval { get; }
     return:
       type: System.TimeSpan
-      description: "The frequency at which the persistence service polls the database for workflows with expired timers."
+      description: "Frekvensen som avsöker beständiga tjänsten databasen för arbetsflöden med timer har upphört att gälla."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadingInterval*
   exceptions: []
   platform:
@@ -283,22 +283,22 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Retrieves the specified workflow instance state from the database."
-  remarks: "LoadWorkflowInstanceState should only be called by the workflow run-time engine."
+  summary: "Hämtar angivet arbetsflöde instansens tillstånd från databasen."
+  remarks: "LoadWorkflowInstanceState bör endast anropas av körningen arbetsflödesmotorn."
   syntax:
     content: protected override System.Workflow.ComponentModel.Activity LoadWorkflowInstanceState (Guid id);
     parameters:
     - id: id
       type: System.Guid
-      description: "The <xref:System.Guid> of the workflow instance state."
+      description: "Den <xref:System.Guid>av instanstillstånd arbetsflöde.</xref:System.Guid>"
     return:
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the root activity of the workflow instance."
+      description: "En <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som representerar rotaktiviteten av arbetsflödesinstansen."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.LoadWorkflowInstanceState*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "A workflow instance state that matches <code>id</code> could not be found in the database."
+    description: "Ett arbetsflöde instanstillstånd som matchar <code> id </code> kunde inte hittas i databasen."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.OnStarted
@@ -313,7 +313,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Starts a new timer and recovers running workflow instances."
+  summary: "Startar en ny timer och återställer körs arbetsflödesinstanser."
   syntax:
     content: protected override void OnStarted ();
     parameters: []
@@ -333,14 +333,14 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Saves the state of the specified completed scope."
-  remarks: '`completedScopeActivity` is serialized and added to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.'
+  summary: "Sparar tillståndet för det angivna färdigt området."
+  remarks: '`completedScopeActivity`är serialiseras och lagts till i <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>'
   syntax:
     content: protected override void SaveCompletedContextActivity (System.Workflow.ComponentModel.Activity completedScopeActivity);
     parameters:
     - id: completedScopeActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the completed scope."
+      description: "En <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som representerar färdigt område."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.SaveCompletedContextActivity*
   exceptions: []
   platform:
@@ -357,17 +357,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Saves the specified workflow instance state."
-  remarks: '`rootActivity` is serialized and written to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>. The out-of-box <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> implements locking of the workflow instance state. The user must configure the `instanceOwnershipDuration` parameter in the constructor. This value decides the time interval during which the instance can be locked by a host. If multiple hosts share the same persistence service and database, and another host tries to load the instance during this interval, a <xref:System.Workflow.Runtime.WorkflowOwnershipException> occurs. [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)] the <xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService> class.'
+  summary: "Sparar instanstillstånd angivet arbetsflöde."
+  remarks: '`rootActivity`är serialiseras och skrivs till <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> Out-of-box <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>implementerar låsning av arbetsflödet instansen tillstånd.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> Användaren måste konfigurera den `instanceOwnershipDuration` parametern i konstruktorn. Det här värdet avgör det tidsintervall under vilken instansen kan vara låst av en värd. Om flera värdar delar samma beständig tjänst och databasen och en annan värd försöker läsa in instansen under intervall, en <xref:System.Workflow.Runtime.WorkflowOwnershipException>inträffar.</xref:System.Workflow.Runtime.WorkflowOwnershipException> [!INCLUDE[crdefault](~/add/includes/ajax-current-ext-md.md)]<xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService>klass.</xref:System.Workflow.Runtime.Hosting.WorkflowPersistenceService>'
   syntax:
     content: protected override void SaveWorkflowInstanceState (System.Workflow.ComponentModel.Activity rootActivity, bool unlock);
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "The root activity of the workflow instance."
+      description: "Rotaktiviteten av arbetsflödesinstansen."
     - id: unlock
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the workflow instance should not be locked; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the workflow instance should be locked."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>om arbetsflödesinstansen inte bör låsas. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> om arbetsflödesinstansen som ska låsas."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.SaveWorkflowInstanceState*
   exceptions: []
   platform:
@@ -384,13 +384,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Gets the service instance identifier."
-  remarks: "The default value is `Guid.Empty`."
+  summary: "Hämtar identifierare för service-instans."
+  remarks: "Standardvärdet är `Guid.Empty`."
   syntax:
     content: public Guid ServiceInstanceId { get; }
     return:
       type: System.Guid
-      description: "The service instance identifier."
+      description: "Identifierare för service-instans."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.ServiceInstanceId*
   exceptions: []
   platform:
@@ -407,8 +407,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Starts the <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;></xref>."
-  remarks: "Start must only be called by the workflow run-time engine."
+  summary: "Startar den <xref href=&quot;System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService&quot;> </xref>."
+  remarks: "Starta måste bara anropas av körningen arbetsflödesmotorn."
   syntax:
     content: protected override void Start ();
     parameters: []
@@ -428,7 +428,7 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Stops the service and the timer."
+  summary: "Stoppar tjänsten och -timern."
   syntax:
     content: protected override void Stop ();
     parameters: []
@@ -449,8 +449,8 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Writes an <xref:System.Collections.ICollection> of serialized state objects to the database."
-  remarks: "The serialized state objects that are contained in `items` are written to the database."
+  summary: "Skriver en <xref:System.Collections.ICollection>serialiserade tillstånd objekt i databasen.</xref:System.Collections.ICollection>"
+  remarks: "De serialiserade tillstånd-objekt som finns i `items` skrivs till databasen."
   syntax:
     content: void IPendingWork.Commit (System.Transactions.Transaction transaction, System.Collections.ICollection items);
     parameters:
@@ -459,12 +459,12 @@ items:
       description: "A <xref href=&quot;System.Transactions.Transaction&quot;></xref>."
     - id: items
       type: System.Collections.ICollection
-      description: "The <xref:System.Collections.ICollection> of work items to be written to the database."
+      description: "Den <xref:System.Collections.ICollection>arbetsobjekt som ska skrivas till databasen.</xref:System.Collections.ICollection>"
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System#Workflow#Runtime#IPendingWork#Commit*
   exceptions:
   - type: System.Workflow.Runtime.Hosting.PersistenceException
     commentId: T:System.Workflow.Runtime.Hosting.PersistenceException
-    description: "An error occurred while trying to write to the database."
+    description: "Ett fel uppstod vid försök att skriva till databasen."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System#Workflow#Runtime#IPendingWork#Complete(System.Boolean,System.Collections.ICollection)
@@ -480,17 +480,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Completes the work batch and releases any resources."
-  remarks: "In the out-of-box implementation of the <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>,       <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A> is a no-op. If you inherit from and extend the <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> class, you may use <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A> to perform any actions required on `items` dictated by your implementation."
+  summary: "Slutför arbetsbatch och släpper alla resurser."
+  remarks: "I out-of-box-implementeringen av <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A>är en Nej op.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A> </xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> Om du vill ärva från och utöka de <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>klassen, som du kan använda <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A>att utföra alla åtgärder som krävs på `items` enligt din implementering.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Complete%2A> </xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>"
   syntax:
     content: void IPendingWork.Complete (bool succeeded, System.Collections.ICollection items);
     parameters:
     - id: succeeded
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the commit succeeded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om bekräftelsen lyckades Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: items
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of serialized state objects."
+      description: "En <xref:System.Collections.ICollection>serialiserade tillstånd objekt.</xref:System.Collections.ICollection>"
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System#Workflow#Runtime#IPendingWork#Complete*
   exceptions: []
   platform:
@@ -508,17 +508,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Returns a value that indicates whether the collection of serialized state objects should be written to the database."
-  remarks: "<xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit%2A> always returns `true`, which instructs the workflow run-time engine to invoke <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Commit%2A> on the batch."
+  summary: "Returnerar ett värde som anger om objektsamlingen serialiserade tillstånd ska skrivas till databasen."
+  remarks: "<xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit%2A>returnerar alltid `true`, vilket instruerar körning arbetsflödesmotorn att anropa <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Commit%2A>på batchen.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.Commit%2A></xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit%2A>"
   syntax:
     content: bool IPendingWork.MustCommit (System.Collections.ICollection items);
     parameters:
     - id: items
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of serialized state objects to be written to the database."
+      description: "En <xref:System.Collections.ICollection>serialiserade tillstånd objekt som ska skrivas till databasen.</xref:System.Collections.ICollection>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> indicates that the batch should be committed; <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit*> always returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Anger att gruppen ska vara allokerat; <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit*>returnerar alltid <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System.Workflow.Runtime.IPendingWork.MustCommit*>"
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.System#Workflow#Runtime#IPendingWork#MustCommit*
   exceptions: []
   platform:
@@ -535,16 +535,16 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Returns a value that indicates whether the workflow is unloaded when it is in an idle state."
+  summary: "Returnerar ett värde som anger om arbetsflödet tas bort när den är i viloläge."
   syntax:
     content: protected override bool UnloadOnIdle (System.Workflow.ComponentModel.Activity activity);
     parameters:
     - id: activity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the root activity of the workflow instance."
+      description: "En <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som representerar rotaktiviteten av arbetsflödesinstansen."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the workflow is unloaded when it is in an idle state; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om arbetsflödet tas bort när den är i viloläge; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.UnloadOnIdle*
   exceptions: []
   platform:
@@ -561,14 +561,14 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Hosting
-  summary: "Unlocks access to the specified workflow instance state."
-  remarks: "This method is used by the workflow runtime to unlock a workflow instance state in the data store without persistence and is called by the workflow runtime if the runtime must unlock the state without persisting, for example, in the case of an <xref:System.Workflow.Runtime.WorkflowInstance.Abort%2A>."
+  summary: "Låser upp åtkomst till angivet arbetsflöde instansens tillstånd."
+  remarks: "Den här metoden används av arbetsflödets körtid för att låsa upp ett arbetsflöde instanstillstånd i datalagret utan beständiga och anropas av arbetsflödets körtid om körningen måste låsa upp tillståndet utan beständighet, till exempel när det gäller <xref:System.Workflow.Runtime.WorkflowInstance.Abort%2A>.</xref:System.Workflow.Runtime.WorkflowInstance.Abort%2A>"
   syntax:
     content: protected override void UnlockWorkflowInstanceState (System.Workflow.ComponentModel.Activity rootActivity);
     parameters:
     - id: rootActivity
       type: System.Workflow.ComponentModel.Activity
-      description: "An <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;></xref> that represents the root activity of the workflow instance."
+      description: "En <xref href=&quot;System.Workflow.ComponentModel.Activity&quot;> </xref> som representerar rotaktiviteten av arbetsflödesinstansen."
   overload: System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService.UnlockWorkflowInstanceState*
   exceptions: []
   platform:
