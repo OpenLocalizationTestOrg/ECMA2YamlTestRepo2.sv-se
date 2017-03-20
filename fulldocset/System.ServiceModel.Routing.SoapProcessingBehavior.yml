@@ -15,8 +15,8 @@ items:
   nameWithType: SoapProcessingBehavior
   fullName: System.ServiceModel.Routing.SoapProcessingBehavior
   type: Class
-  summary: "Defines the client endpoint behavior used to marshal messages between different binding types and message versions."
-  remarks: "SOAP processing is the process where messages are converted between message versions.       Processing messages from one <xref:System.ServiceModel.Channels.MessageVersion> to another is accomplished by constructing a new WCF message that contains the body part and relevant headers from the incoming WCF message. Headers that are specific to addressing, or that are understood at the router level, are not used during construction of the new WCF message because these headers are either of a different version (in the case of addressing headers) or have been processed as part of the communication between the client and the router.       Whether a header is placed in the outbound message is determined by whether or not it was marked as understood as it passed through the incoming channel layer. Headers that are not understood (such as custom headers) are not removed and so pass through the routing service."
+  summary: "Definierar klient-slutpunkt som används för att konvertera meddelanden mellan olika bindningstyper och meddelandeversioner."
+  remarks: "SOAP-bearbetningen är en process där meddelanden omvandlas mellan meddelandeversioner.       Bearbetning av meddelanden från en <xref:System.ServiceModel.Channels.MessageVersion>till en annan sker genom att skapa ett nytt WCF-meddelande som innehåller huvuddelen och relevanta rubriker från det inkommande meddelandet i WCF.</xref:System.ServiceModel.Channels.MessageVersion> Huvuden som är specifika för adressering eller som förstås på routernivå, används inte vid konstruktion av det nya WCF-meddelandet eftersom dessa huvuden är antingen en annan version (för adressering rubriker) eller har behandlats som en del av kommunikationen mellan klienten och routern.       Om en rubrik placeras i det utgående meddelandet bestäms av om den har markerats som tolkas som det har passerat inkommande kanallagret. Huvuden som inte tolkas (t.ex anpassade huvuden) tas inte bort och därför passera routningstjänsten."
   syntax:
     content: 'public class SoapProcessingBehavior : System.ServiceModel.Description.IEndpointBehavior'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Creates a new instance of the <xref href=&quot;System.ServiceModel.Routing.SoapProcessingBehavior&quot;></xref> class."
+  summary: "Skapar en ny instans av den <xref href=&quot;System.ServiceModel.Routing.SoapProcessingBehavior&quot;> </xref> klass."
   syntax:
     content: public SoapProcessingBehavior ();
     parameters: []
@@ -58,16 +58,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Adds new binding elements to an endpoint."
+  summary: "Lägger till nya element i bindning till en slutpunkt."
   syntax:
     content: public void AddBindingParameters (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply the binding elements to."
+      description: "Tjänstslutpunkten tillämpa bindningselementen till."
     - id: bindingParameters
       type: System.ServiceModel.Channels.BindingParameterCollection
-      description: "The binding parameter collection to apply to the endpoint."
+      description: "Parametersamlingen bindningen ska gälla för slutpunkten."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.AddBindingParameters*
   exceptions: []
   platform:
@@ -84,16 +84,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Applies the specified endpoint behavior to the client."
+  summary: "Gäller angivna slutpunkt med till klienten."
   syntax:
     content: public void ApplyClientBehavior (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply to the client."
+      description: "Tjänstslutpunkten ska gälla för klienten."
     - id: clientRuntime
       type: System.ServiceModel.Dispatcher.ClientRuntime
-      description: "The runtime on the client."
+      description: "Körningsmiljön på klienten."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ApplyClientBehavior*
   exceptions: []
   platform:
@@ -110,16 +110,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Applies the specified endpoint behavior to the endpoint dispatcher."
+  summary: "Gäller angivna slutpunkt med Slutpunktsdispatchern."
   syntax:
     content: public void ApplyDispatchBehavior (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply to the client."
+      description: "Tjänstslutpunkten ska gälla för klienten."
     - id: endpointDispatcher
       type: System.ServiceModel.Dispatcher.EndpointDispatcher
-      description: "The endpoint dispatcher."
+      description: "Slutpunktsdispatchern."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ApplyDispatchBehavior*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Gets or sets a value that indicates whether messages should be processed."
-  remarks: "By default, the <xref:System.ServiceModel.Routing.RoutingBehavior> creates and attaches a new <xref:System.ServiceModel.Routing.SoapProcessingBehavior> with ProcessMessages set to `true` for each client endpoint. If you do not want to use the <xref:System.ServiceModel.Routing.SoapProcessingBehavior> on a specific endpoint, create a new <xref:System.ServiceModel.Routing.SoapProcessingBehavior> with this value set to `false`, and then attach it to the endpoint on which you do not want processing to occur. If the <xref:System.ServiceModel.Routing.RoutingBehavior> observes that a client already has a <xref:System.ServiceModel.Routing.SoapProcessingBehavior>, it does not attempt to attach another.       To disable the application of <xref:System.ServiceModel.Routing.SoapProcessingBehavior> on any endpoint, disable SOAP processing on the <xref:System.ServiceModel.Routing.RoutingBehavior> and the <xref:System.ServiceModel.Routing.RoutingConfiguration>."
+  summary: "Hämtar eller anger ett värde som anger om meddelanden ska bearbetas."
+  remarks: "Som standard den <xref:System.ServiceModel.Routing.RoutingBehavior>skapar och bifogar ett nytt <xref:System.ServiceModel.Routing.SoapProcessingBehavior>med ProcessMessages inställd på `true` för varje klient-slutpunkt.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.RoutingBehavior> Om du inte vill använda den <xref:System.ServiceModel.Routing.SoapProcessingBehavior>på en specifik slutpunkt, skapa en ny <xref:System.ServiceModel.Routing.SoapProcessingBehavior>med det här värdet anges till `false`, och koppla den till den slutpunkt som du inte vill att bearbetningen ska kunna ske.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.SoapProcessingBehavior> Om den <xref:System.ServiceModel.Routing.RoutingBehavior>registrerar att en klient redan har en <xref:System.ServiceModel.Routing.SoapProcessingBehavior>, försöker inte koppla ett annat.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.RoutingBehavior>       Att inaktivera programmet för att <xref:System.ServiceModel.Routing.SoapProcessingBehavior>Inaktivera SOAP-bearbetningen på <xref:System.ServiceModel.Routing.RoutingBehavior>och <xref:System.ServiceModel.Routing.RoutingConfiguration>.</xref:System.ServiceModel.Routing.RoutingConfiguration> </xref:System.ServiceModel.Routing.RoutingBehavior> på valfri slutpunkt</xref:System.ServiceModel.Routing.SoapProcessingBehavior>"
   syntax:
     content: public bool ProcessMessages { get; set; }
     return:
       type: System.Boolean
-      description: '**true** if messages should be marshaled; otherwise, **false**. The default value is **true**.'
+      description: '**SANT** om meddelanden ska vara konverterat, annars **FALSKT**. Standardvärdet är **SANT**.'
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ProcessMessages*
   exceptions: []
   platform:
@@ -159,13 +159,13 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Validates the service endpoint."
+  summary: "Verifierar tjänstslutpunkten."
   syntax:
     content: public void Validate (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to validate."
+      description: "Tjänstslutpunkten att validera."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.Validate*
   exceptions: []
   platform:

@@ -13,8 +13,8 @@ items:
   nameWithType: ReceiveErrorHandling
   fullName: System.ServiceModel.ReceiveErrorHandling
   type: Enum
-  summary: "An enumeration that specifies handling for a poison message."
-  remarks: "A poison message is a message that fails repeated attempts to deliver to the application. This is applicable only when using a Message Queuing (MSMQ)-based binding. The default value is `Fault`, which faults the listener and therefore the ServiceHost. In the case where the service was to fault because of a poison message, a <xref:System.ServiceModel.MsmqPoisonMessageException> is thrown. The exception contains the `LookupId` of the MSMQ message that can be used to move the message out of the way using System.Messaging API. Certain values of the ReceiveErrorHandling enumeration such as `Reject` and `Move` are only available on [!INCLUDE[wv](~/add/includes/wv-md.md)]. You control poison message handling by setting the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property to one of the values of this enumeration."
+  summary: "En uppräkning som anger hantering för ett skadligt meddelande."
+  remarks: "Skadligt meddelande är ett meddelande som misslyckas vid upprepade försök att leverera till programmet. Detta gäller endast när du använder en Message Queuing MSMQ-baserade bindning. Standardvärdet är `Fault`, vilket hos lyssnaren och därför ServiceHost. I de fall där tjänsten var att fel på grund av ett skadligt meddelande en <xref:System.ServiceModel.MsmqPoisonMessageException>genereras.</xref:System.ServiceModel.MsmqPoisonMessageException> Undantagsfelet innehåller den `LookupId` av MSMQ-meddelande som kan användas för att flytta meddelandet undan med System.Messaging API. Vissa värden i uppräkningen ReceiveErrorHandling som `Reject` och `Move` är bara tillgängliga på [!INCLUDE[wv](~/add/includes/wv-md.md)]. Du kan styra skadligt meddelande hantering genom att ange den <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>egenskapen till ett av värdena i den här uppräkningen.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>"
   example:
   - "The following configuration code illustrates how to set this property in the service configuration file:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option drops the poison message. The message never gets delivered to the application. If the message&quot;s TTL had already expired at this point, then the message may appear in the sender&quot;s Dead Letter Queue. If not, the message does not appear anywhere. This option indicates that the user does not really care if the message is lost."
-  remarks: 'Applicable platforms: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], and [!INCLUDE[wv](~/add/includes/wv-md.md)].'
+  summary: "Det här alternativet utelämnar skadligt meddelande. Aldrig hämtar leverera meddelandet till programmet. Om meddelandets TTL hade redan upphört då kan meddelandet visas i avsändarens kö med olevererade brev. Om inte meddelandet visas inte som helst. Det här alternativet anger att användaren verkligen inte bryr sig om meddelandet går förlorad."
+  remarks: 'Tillämpliga plattformar: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], och [!INCLUDE[wv](~/add/includes/wv-md.md)].'
   syntax:
     content: Drop
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option sends a fault to the listener that caused the ServiceHost to fault. The message must be removed from the application queue by some external mechanism before the application can continue to process messages from the queue."
-  remarks: 'Applicable platforms: Windows XP, Windows Server 2003, and Windows Vista.'
+  summary: "Det här alternativet skickar ett fel i lyssnaren som orsakade ServiceHost till fel. Meddelandet måste tas bort från programkön av någon extern mekanism innan programmet kan fortsätta att bearbeta meddelanden från kön."
+  remarks: 'Tillämpliga plattformar: Windows XP, Windows Server 2003 och Windows Vista.'
   syntax:
     content: Fault
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -79,13 +79,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This moves the poison message to a Poison Message Queue for later processing by a poison message handling application."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Skadligt meddelande flyttas till en skadligt meddelandekö för senare bearbetning av ett skadligt meddelande som hanterar program."
+  remarks: 'Tillämpliga plattformar: [!INCLUDE[wv](~/add/includes/wv-md.md)] endast.'
   syntax:
     content: Move
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This instructs MSMQ to send a negative acknowledgement back to the sending queue manager that the message cannot be received by the application. The message is placed in the sending queue manager&quot;s Dead Letter Queue."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Detta instruerar MSMQ för att skicka en negativ bekräftelse till skicka köhanteraren att meddelandet inte kan tas emot av programmet. Meddelandet placeras i kö med olevererade brev för skicka köhanteraren."
+  remarks: 'Tillämpliga plattformar: [!INCLUDE[wv](~/add/includes/wv-md.md)] endast.'
   syntax:
     content: Reject
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

@@ -17,8 +17,8 @@ items:
   nameWithType: ITaskItem
   fullName: Microsoft.Build.Framework.ITaskItem
   type: Interface
-  summary: "Defines an [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] item that can be consumed and emitted by tasks."
-  remarks: "The number of ITaskItem objects created during a build may not correspond exactly to items declared in a project file for the following reasons:      -   Tasks sometimes create items that were not declared in the project file.      -   An item collection can be declared in the project file with wildcards, which could create many items when built."
+  summary: "Definierar en [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] objekt som kan användas och sänds av uppgifter."
+  remarks: "Antalet ITaskItem-objekt som skapas under en build kanske inte exakt motsvarar objekt som deklarerats i en projektfilen av följande skäl:-uppgifter ibland skapa objekt som inte har deklarerats i projektfilen.      -En objektsamlingen kan deklareras i projektfilen med jokertecken, vilket skulle kunna skapa många objekt när inbyggda."
   example:
   - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
@@ -43,14 +43,14 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the collection of custom metadata."
-  remarks: "-   Does not include built-in metadata.      -   This method should return a clone of the metadata.      -   Writing to this dictionary should not be reflected in the underlying item."
+  summary: "Hämtar samlingen av anpassade metadata."
+  remarks: "-   Innehåller inte inbyggd metadata.      -Den här metoden ska returnera en klon av metadata.      -Skrivning till den här uppslagslistan visas inte i det underliggande objektet."
   syntax:
     content: public System.Collections.IDictionary CloneCustomMetadata ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "The collection of custom metadata."
+      description: "Samling av anpassade metadata."
   overload: Microsoft.Build.Framework.ITaskItem.CloneCustomMetadata*
   exceptions: []
   platform:
@@ -67,14 +67,14 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Copies the custom metadata entries to another item."
-  remarks: "Follow the guidelines below when implementing this method.      -   Do not overwrite the <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A> property.      -   Do not overwrite existing metadata entries.      -   Do not copy metadata entries that do not make sense on the destination item."
+  summary: "Kopiera de anpassade metadata transaktionerna till ett annat objekt."
+  remarks: "Följ riktlinjerna nedan när implementera den här metoden.      – Skriv inte över den <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>egenskapen.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      -Inte skriver över befintliga metadataposter i.      -Kopiera inte metadataposter som gör meningsfullt på målobjektet."
   syntax:
     content: public void CopyMetadataTo (Microsoft.Build.Framework.ITaskItem destinationItem);
     parameters:
     - id: destinationItem
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The item to copy the metadata entries to."
+      description: "Det objekt du vill kopiera metadataposter till."
   overload: Microsoft.Build.Framework.ITaskItem.CopyMetadataTo*
   exceptions: []
   platform:
@@ -91,16 +91,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the value of the specified metadata entry."
+  summary: "Hämtar värdet för den angivna metadata."
   syntax:
     content: public string GetMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry."
+      description: "Namnet på metadataposten."
     return:
       type: System.String
-      description: "The value of the <code>attributeName</code> metadata."
+      description: "Värdet för den <code> attributeName </code> metadata."
   overload: Microsoft.Build.Framework.ITaskItem.GetMetadata*
   exceptions: []
   platform:
@@ -117,15 +117,15 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets the item specification."
-  remarks: "The item specification is an arbitrary string. If the item represents a file on disk, the item specification will be the path of that file.       The ItemSpec for the following item declaration in a project file is `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
+  summary: "Hämtar eller anger artikel-specifikationen."
+  remarks: "Specifikationen objektet är en godtycklig sträng. Om objektet representerar en fil på disken, är specifikationen objektet sökvägen till filen.       ItemSpec för följande objekt deklarationen i en projektfilen är `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
   example:
   - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
     content: public string ItemSpec { get; set; }
     return:
       type: System.String
-      description: "The item specification."
+      description: "Objekt-specifikation."
   overload: Microsoft.Build.Framework.ITaskItem.ItemSpec*
   exceptions: []
   platform:
@@ -142,12 +142,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the number of metadata entries associated with the item."
+  summary: "Hämtar antalet metadataposter som är associerade med objektet."
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: "The number of metadata entries associated with the item."
+      description: "Antal metadataposter som är associerade med objektet."
   overload: Microsoft.Build.Framework.ITaskItem.MetadataCount*
   exceptions: []
   platform:
@@ -164,12 +164,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets the names of the metadata entries associated with the item."
+  summary: "Hämtar namnen på metadataposter som är associerade med objektet."
   syntax:
     content: public System.Collections.ICollection MetadataNames { get; }
     return:
       type: System.Collections.ICollection
-      description: "The names of the metadata entries associated with the item."
+      description: "Namnen på metadataposter som är associerade med objektet."
   overload: Microsoft.Build.Framework.ITaskItem.MetadataNames*
   exceptions: []
   platform:
@@ -186,13 +186,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Removes the specified metadata entry from the item."
+  summary: "Angivna metadata-posten tas bort från objektet."
   syntax:
     content: public void RemoveMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry to remove."
+      description: "Namnet på metadataposten för att ta bort."
   overload: Microsoft.Build.Framework.ITaskItem.RemoveMetadata*
   exceptions: []
   platform:
@@ -209,16 +209,16 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Adds or changes a custom metadata entry to the item."
+  summary: "Lägger till eller ändrar en anpassad metadatapost till objektet."
   syntax:
     content: public void SetMetadata (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry."
+      description: "Namnet på metadataposten."
     - id: metadataValue
       type: System.String
-      description: "The value of the metadata entry."
+      description: "Värdet för registerposten metadata."
   overload: Microsoft.Build.Framework.ITaskItem.SetMetadata*
   exceptions: []
   platform:

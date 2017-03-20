@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityStateEncoder
   fullName: System.ServiceModel.Security.SecurityStateEncoder
   type: Class
-  summary: "An abstract class that can be implemented to encode the security state."
-  remarks: "This class is used to encode and decode the content of the security context token when a binding with message security that uses a stateful security context token is used. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] stateful security context tokens, see [How to: Create a Security Context Token for a Secure Session](~/add/includes/ajax-current-ext-md.md) topic.       Microsoft’s version of SecurityStateEncoder is <xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>. It uses Microsoft’s [Windows Data Protection (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704) technology to encrypt/decrypt the cookie. You can plug in a different mechanism for encrypting and decrypting cookies by implementing this class.       The encoding of the security state must ensure that the state is signed and encrypted for the service.       This class is used by the server when sending the security state as a cookie in the `SecurityContextToken` issued to the client.       An example implementation of this class is an `X509CertificateSecurityStateEncoder` that uses the service&quot;s certificate to sign and encrypt the security state."
+  summary: "En abstrakt klass som kan implementeras för att koda säkerhetstillstånd."
+  remarks: "Den här klassen används för att koda och avkoda Säkerhetskontexttoken innehållet när en bindning med meddelandesäkerhet som använder en tillståndskänslig Säkerhetskontexttoken används. [!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]tillståndskänsliga kontexten säkerhetstoken, se [så här: skapa en kontext säkerhetstoken för en säker Session](~/add/includes/ajax-current-ext-md.md) avsnittet.       Microsofts version av SecurityStateEncoder är <xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder>.</xref:System.ServiceModel.Security.DataProtectionSecurityStateEncoder> Den använder Microsofts [Windows Data Protection (DPAPI)](http://go.microsoft.com/fwlink/?LinkId=96704) teknik för att kryptera/dekryptera cookien. Du kan ansluta en annan metod för att kryptera och dekryptera cookies genom att implementera den här klassen.       Kodning av säkerhetsläget måste säkerställa att tillståndet signeras och krypteras för tjänsten.       Den här klassen används av servern när du skickar säkerhetstillstånd som en cookie i den `SecurityContextToken` utfärdat till klienten.       Exempel på implementering av den här klassen är en `X509CertificateSecurityStateEncoder` som använder tjänstens certifikat för att signera och kryptera säkerhetstillstånd."
   syntax:
     content: public abstract class SecurityStateEncoder
   inheritance:
@@ -34,7 +34,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.ServiceModel.Security.SecurityStateEncoder&quot;> </xref> klass."
   syntax:
     content: protected SecurityStateEncoder ();
     parameters: []
@@ -54,16 +54,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Decodes the security state."
+  summary: "Avkodar säkerhetstillstånd."
   syntax:
     content: protected abstract byte[] DecodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "Security data."
+      description: "Säkerhetsdata."
     return:
       type: System.Byte[]
-      description: "A byte array that represents the security state."
+      description: "En bytematris som representerar säkerhetstillstånd."
   overload: System.ServiceModel.Security.SecurityStateEncoder.DecodeSecurityState*
   exceptions: []
   platform:
@@ -80,16 +80,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Security
-  summary: "Encodes the security state."
+  summary: "Kodar säkerhetstillstånd."
   syntax:
     content: protected abstract byte[] EncodeSecurityState (byte[] data);
     parameters:
     - id: data
       type: System.Byte[]
-      description: "The security state data."
+      description: "Systemtillstånd för säkerhet."
     return:
       type: System.Byte[]
-      description: "A byte array that results from encoding the security state."
+      description: "En bytematris som fås kodning säkerhetstillstånd."
   overload: System.ServiceModel.Security.SecurityStateEncoder.EncodeSecurityState*
   exceptions: []
   platform:

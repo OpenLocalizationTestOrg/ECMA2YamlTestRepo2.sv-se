@@ -95,7 +95,7 @@ items:
   nameWithType: Project
   fullName: Microsoft.Build.Evaluation.Project
   type: Class
-  summary: "Represents a project with design time semantics. This class can load project files, edit items and properties and build projects."
+  summary: "Representerar ett projekt med design tid semantik. Den här klassen kan läsa in projektfiler, redigera objekt och egenskaper och skapa projekt."
   syntax:
     content: >-
       [System.Diagnostics.DebuggerDisplay("{FullPath} EffectiveToolsVersion={ToolsVersion} #GlobalProperties={data.globalProperties.Count} #Properties={data.Properties.Count} #ItemTypes={data.ItemTypes.Count} #ItemDefinitions={data.ItemDefinitions.Count} #Items={data.Items.Count} #Targets={data.Targets.Count}")]
@@ -119,8 +119,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs an empty project using the global project collection global properties and default tools version."
-  remarks: "This project is added to the global project collection when it is given the full path to the source project file, typically by saving the project."
+  summary: "Skapar ett tomt projekt med globala egenskaper för globalt projekt samling och standardversionen verktyg."
+  remarks: "Det här projektet läggs till globalt projekt-samlingen när den fullständiga sökvägen till källfilen projektet vanligtvis genom att spara projektet."
   syntax:
     content: public Project ();
     parameters: []
@@ -140,14 +140,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs an empty project and evaluates it using the given project root and the global project collection global properties and default tools version."
-  remarks: "This project is added to the global project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett tomt projekt och utvärderar den med hjälp av den angivna projektroten och globalt projekt samling globala egenskaper och standard verktyg version."
+  remarks: "Det här projektet läggs till samlingen globalt projekt när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (Microsoft.Build.Construction.ProjectRootElement xml);
     parameters:
     - id: xml
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "ProjectRootElement to use for evaluation."
+      description: "ProjectRootElement för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -164,14 +164,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs an empty project using the given project collection global properties and default tools version."
-  remarks: "This project is added to the given project collection when it is given the full path to the source project file, typically by saving the project."
+  summary: "Skapar ett tomt projekt med hjälp av angivna samling globala egenskaper och verktyg standardversionen."
+  remarks: "Det här projektet läggs till den angivna projektsamling när den fullständiga sökvägen till källfilen projektet vanligtvis genom att spara projektet."
   syntax:
     content: public Project (Microsoft.Build.Evaluation.ProjectCollection projectCollection);
     parameters:
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection that the new project is added to."
+      description: "Projektsamling som det nya projektet har lagts till."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -188,19 +188,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it from the given source project file and with the global project collection global properties and default tools version."
-  remarks: "The project is added to the global project collection.       Throws InvalidOperationException if there is already a project in the project collection that evaluates this source project file. May throw IO-related exceptions."
+  summary: "Skapar ett projekt och utvärderar den från projektfilen viss källa och med globala egenskaper för globalt projekt samling och standardversionen verktyg."
+  remarks: "Projektet har lagts till i samlingen globalt projekt.       Genererar InvalidOperationException om det finns redan ett projekt i samlingen projekt som utvärderar den här datakällan projektfilen. Kan orsaka-i/o-relaterade undantag."
   syntax:
     content: public Project (string projectFile);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The source project file to be evaluated."
+      description: "Projektfilen källa som ska utvärderas."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions:
   - type: Microsoft.Build.Exceptions.InvalidProjectFileException
     commentId: T:Microsoft.Build.Exceptions.InvalidProjectFileException
-    description: "If the evaluation fails."
+    description: "Om det misslyckas utvärderingen."
   platform:
   - net462
 - uid: Microsoft.Build.Evaluation.Project.#ctor(System.Xml.XmlReader)
@@ -215,14 +215,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates the source code from the given XML reader. The source code is evaluated with the global project collection global properties and default tools version."
-  remarks: "This project is added to the global project collection when it is given the full path to the source project file, typically by saving the project.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar källkod från den angivna XML-läsaren. Källkoden utvärderas med globala egenskaper för globalt projekt samling och standardversionen verktyg."
+  remarks: "Det här projektet läggs till globalt projekt-samlingen när den fullständiga sökvägen till källfilen projektet vanligtvis genom att spara projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (System.Xml.XmlReader xmlReader);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "XML-läsaren att läsa projektet källkod från."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -239,20 +239,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs an empty project and evaluates it using the given project root and with the given global properties and given tools version."
-  remarks: "This project is added to the global project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett tomt projekt och utvärderar den med hjälp av den angivna projektroten och med angivna globala egenskaper och har fått verktyg version."
+  remarks: "Det här projektet läggs till samlingen globalt projekt när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (Microsoft.Build.Construction.ProjectRootElement xml, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: xml
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root to use for evaluation."
+      description: "Projektroten för utvärdering."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -269,20 +269,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs an empty project, to be evaluated with the given project collection and with the given global properties and given tools version."
-  remarks: "The project is added to the specified project collection when it is given the full path to the source project file, typically by saving the project."
+  summary: "Skapar ett tomt projekt för att utvärderas med den angivna projektsamling och angivna globala egenskaper och angivna verktyg version."
+  remarks: "Projektet har lagts till den angivna projekt samlingen när den fullständiga sökvägen till källfilen projektet vanligtvis genom att spara projektet."
   syntax:
     content: public Project (System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection);
     parameters:
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "The tools version used to evaluate the project. May be null."
+      description: "Verktyg-version som används för att utvärdera projektet. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the new project will be added to."
+      description: "Projektsamling det nya projektet kommer att läggas till."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -299,20 +299,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it from the given source project file and with the given global properties and given tools version."
-  remarks: "The project is added to the global project collection.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection. May throw IO-related exceptions."
+  summary: "Skapar ett projekt och utvärderar den från projektfilen viss källa och med angivna globala egenskaper och har fått verktyg version."
+  remarks: "Projektet har lagts till i samlingen globalt projekt.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet. Kan orsaka-i/o-relaterade undantag."
   syntax:
     content: public Project (string projectFile, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The path to the source project file to be evaluated."
+      description: "Sökvägen till käll-projekt-filen som ska utvärderas."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -329,20 +329,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates the source code from the given XML reader. The source code is evaluated with the given global properties and given tools version."
-  remarks: "This project is added to the global project collection when it is given the full path to the source project file, typically by saving the project.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar källkod från den angivna XML-läsaren. Källkoden med angivna globala egenskaper och angivna verktyg version."
+  remarks: "Det här projektet läggs till globalt projekt-samlingen när den fullständiga sökvägen till källfilen projektet vanligtvis genom att spara projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "XML-läsaren att läsa projektet källkod från."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -359,23 +359,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it using the given project root and with the given global properties and given tools version."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar den med hjälp av den angivna projektroten och med angivna globala egenskaper och har fått verktyg version."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (Microsoft.Build.Construction.ProjectRootElement xml, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection);
     parameters:
     - id: xml
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root to use for evaluation."
+      description: "Projektroten för utvärdering."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to."
+      description: "Projektsamling projektet läggs till."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -392,23 +392,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it from the given source project file and with the given global properties and given tools version."
-  remarks: "The project is added to the given project collection.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection. May throw IO-related exceptions."
+  summary: "Skapar ett projekt och utvärderar den från projektfilen viss källa och med angivna globala egenskaper och har fått verktyg version."
+  remarks: "Projektet har lagts till den angivna projektsamling.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet. Kan orsaka-i/o-relaterade undantag."
   syntax:
     content: public Project (string projectFile, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The path to the source project file to be evaluated."
+      description: "Sökvägen till käll-projekt-filen som ska utvärderas."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "The global properties. May be null."
+      description: "Globala egenskaper. Kan vara null."
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "Verktyg-version. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -425,23 +425,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates the source code from the given XML reader. The source code is evaluated with the given global properties and given tools version."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar källkod från den angivna XML-läsaren. Källkoden med angivna globala egenskaper och angivna verktyg version."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "XML-läsaren att läsa projektet källkod från."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -458,26 +458,26 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it using the given project root and with the given global properties, given tools version, and given load settings."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar den med hjälp av den angivna projektroten angivna verktyg version med globala egenskaper angivna och får hämta inställningar."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (Microsoft.Build.Construction.ProjectRootElement xml, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: xml
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root to use for evaluation."
+      description: "Projektroten för utvärdering."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -494,26 +494,26 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it from the given source project file and with the given global properties, given tools version, and given load settings."
-  remarks: "The project is added to the given project collection.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection. May throw IO-related exceptions."
+  summary: "Skapar ett projekt och utvärderar den från projektfilen viss källa och med angivna globala egenskaper, på Verktyg-version, och får hämta inställningar."
+  remarks: "Projektet har lagts till den angivna projektsamling.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet. Kan orsaka-i/o-relaterade undantag."
   syntax:
     content: public Project (string projectFile, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The path to the source project file to be evaluated."
+      description: "Sökvägen till käll-projekt-filen som ska utvärderas."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "Verktyg-version. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -530,26 +530,26 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates the source code from the given XML reader. The source code is evaluated with the given global properties and given tools version."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar källkod från den angivna XML-läsaren. Källkoden med angivna globala egenskaper och angivna verktyg version."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader from which to read project source code."
+      description: "XML-läsaren som du vill läsa källkoden för projektet."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -566,29 +566,29 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it using the given project root and with the given global properties, tools and sub-toolset versions, project collection, and load settings."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar den med hjälp av den angivna projektroten projektet samlingen med de angivna globala egenskaper, verktyg och sub verktygsuppsättningen versioner och läsa in inställningarna."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (Microsoft.Build.Construction.ProjectRootElement xml, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, string subToolsetVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: xml
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "The project root to use for evaluation."
+      description: "Projektroten för utvärdering."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: subToolsetVersion
       type: System.String
-      description: "Sub toolset version to evaluate with. May be null."
+      description: "Sub verktygsuppsättningen version att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -605,29 +605,29 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates it from the given source project file and with the given global properties, tools and sub-toolset versions, project collection, and load settings."
-  remarks: "The project is added to the given project collection.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection. May throw IO-related exceptions."
+  summary: "Skapar ett projekt och utvärderar den från projektfilen viss källa och med angivna globala egenskaper, verktyg och sub verktygsuppsättningen versioner, projektsamling och hämta inställningar."
+  remarks: "Projektet har lagts till den angivna projektsamling.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet. Kan orsaka-i/o-relaterade undantag."
   syntax:
     content: public Project (string projectFile, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, string subToolsetVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: projectFile
       type: System.String
-      description: "The path to the source project file to be evaluated."
+      description: "Sökvägen till käll-projekt-filen som ska utvärderas."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "The tools version. May be null."
+      description: "Verktyg-version. Kan vara null."
     - id: subToolsetVersion
       type: System.String
-      description: "The sub toolset version. May be null."
+      description: "Sub verktygsuppsättningen version. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -644,29 +644,29 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Constructs a project and evaluates the source code from the given XML reader. The source code is evaluated with the given global properties, tools and sub-toolset versions, project collection, and load settings."
-  remarks: "This project is added to the given project collection when either this project or the given project root is given the full path to the source project file.       Throws InvalidProjectFileException if the evaluation fails. Throws InvalidOperationException if there is already an equivalent project loaded in the project collection."
+  summary: "Skapar ett projekt och utvärderar källkod från den angivna XML-läsaren. Källkoden utvärderas med angivna globala egenskaper, verktyg och sub verktygsuppsättningen versioner, projektsamling och hämta inställningar."
+  remarks: "Det här projektet läggs till den angivna projektsamling när det här projektet eller den angivna projektroten får den fullständiga sökvägen till källfilen för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas. Returnerar InvalidOperationException om det redan finns ett motsvarande projekt som lästs in i samlingen projektet."
   syntax:
     content: public Project (System.Xml.XmlReader xmlReader, System.Collections.Generic.IDictionary<string,string> globalProperties, string toolsVersion, string subToolsetVersion, Microsoft.Build.Evaluation.ProjectCollection projectCollection, Microsoft.Build.Evaluation.ProjectLoadSettings loadSettings);
     parameters:
     - id: xmlReader
       type: System.Xml.XmlReader
-      description: "Xml reader to read project source code from."
+      description: "XML-läsaren att läsa projektet källkod från."
     - id: globalProperties
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Global properties to evaluate with. May be null in which case the containing project collection&quot;s global properties will be used."
+      description: "Globala egenskaper för att utvärdera med. Kan vara null i vilket fall som innehåller projektsamling globala egenskaper kommer att användas."
     - id: toolsVersion
       type: System.String
-      description: "Tools version to evaluate with. May be null."
+      description: "Version av verktyg för att utvärdera med. Kan vara null."
     - id: subToolsetVersion
       type: System.String
-      description: "Sub Toolset version to evaluate with. May be null."
+      description: "Sub verktygsuppsättningen version att utvärdera med. Kan vara null."
     - id: projectCollection
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "The project collection the project is added to. May not be null."
+      description: "Projektsamling projektet läggs till. Får inte vara null."
     - id: loadSettings
       type: Microsoft.Build.Evaluation.ProjectLoadSettings
-      description: "The load settings to use for evaluation."
+      description: "Läs in inställningarna som används för utvärdering."
   overload: Microsoft.Build.Evaluation.Project.#ctor*
   exceptions: []
   platform:
@@ -683,20 +683,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds an item with no metadata to the project."
-  remarks: "Any metadata can be added later. Does not modify the project source if a wildcard expression already includes the new item.       Evaluation takes place on a best-effort basis. Items that are defined in the project source following the new item may be used for evaluation. Only this item is evaluated. Other items that might depend on it are not affected."
+  summary: "Lägger till ett objekt med inga metadata i projektet."
+  remarks: "Eventuella metadata kan läggas till senare. Ändrar inte projektet källan om jokerteckenuttryck redan innehåller det nya objektet.       Utvärderingen tar för bästa prestanda. Objekt som definieras i projektet källan efter det nya objektet kan användas för utvärdering. Det här objektet ska utvärderas. Andra objekt som kan beroende påverkas inte."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ProjectItem> AddItem (string itemType, string unevaluatedInclude);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type of the added item."
+      description: "Objekttypen för objektet."
     - id: unevaluatedInclude
       type: System.String
-      description: "Include attribute of the item to be added."
+      description: "Ta med attributet för objekt som ska läggas till."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns the added item."
+      description: "Returnerar den tillagda posten."
   overload: Microsoft.Build.Evaluation.Project.AddItem*
   exceptions: []
   platform:
@@ -713,23 +713,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds an item with the given metadata to the project."
-  remarks: "The metadata may be null, which indicates no metadata.       Evaluation takes place on a best-effort basis. Items that are defined in the project source following the new item may be used for evaluation. Only this item is evaluated. Other items that might depend on it are not affected."
+  summary: "Lägger till ett objekt med den angivna metadata i projektet."
+  remarks: "Metadata kan vara null, vilket betyder att inga metadata.       Utvärderingen tar för bästa prestanda. Objekt som definieras i projektet källan efter det nya objektet kan användas för utvärdering. Det här objektet ska utvärderas. Andra objekt som kan beroende påverkas inte."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ProjectItem> AddItem (string itemType, string unevaluatedInclude, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,string>> metadata);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type of the added item."
+      description: "Objekttypen för objektet."
     - id: unevaluatedInclude
       type: System.String
-      description: "Include attribute of the item to be added."
+      description: "Ta med attributet för objekt som ska läggas till."
     - id: metadata
       type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
-      description: "The metadata of the added item."
+      description: "Metadata för objektet."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns the added item."
+      description: "Returnerar den tillagda posten."
   overload: Microsoft.Build.Evaluation.Project.AddItem*
   exceptions: []
   platform:
@@ -746,20 +746,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds an item with no metadata to the project.  Makes no effort to see if an existing wildcard would already match the new item, unless it is the first item in an item group.  Makes no effort to locate the new item near similar items."
-  remarks: "Appends the item to the first item group that does not have a condition and has either no children or whose first child is an item of the same type.       Evaluates on a best-effort basis: -expands with all items. Items that are defined in the XML below the new item may be used, even though in a real evaluation they would not be.       Only this item is evaluated. Other items that might depend on it are not affected.       This is a convenience that it is understood does not necessarily leave the project in a perfectly self consistent state until reevaluation."
+  summary: "Lägger till ett objekt med inga metadata i projektet.  Gör inga för att se om en befintlig jokertecken redan matchar den nya artikeln om det inte är det första objektet i en grupp objekt.  Gör inga för att leta upp det nya objektet nära liknande objekt."
+  remarks: "Första gruppen som inte har ett villkor och har antingen inga underordnade eller vars första underordnade är ett objekt av samma typ till för objektet.       Utvärderar på grundval av bästa:-utökas med alla objekt. Objekt som definieras i XML under det nya objektet kan användas även om en verklig utvärdering de skulle inte.       Det här objektet ska utvärderas. Andra objekt som kan beroende påverkas inte.       Detta är att underlätta är förstås har inte nödvändigtvis lämnas projektet i ett perfekt self konsekvent tillstånd förrän utvärdering."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ProjectItem> AddItemFast (string itemType, string unevaluatedInclude);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type to be added."
+      description: "Objekttyp som ska läggas till."
     - id: unevaluatedInclude
       type: System.String
-      description: "The unevaluated Include attribute to be added to the item."
+      description: "Unevaluated inkludera attributet som ska läggas till i objektet."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns a list of the project items added."
+      description: "Returnerar en lista över projekt-objekten har lagts till."
   overload: Microsoft.Build.Evaluation.Project.AddItemFast*
   exceptions: []
   platform:
@@ -776,23 +776,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Adds an item with metadata to the project. Metadata may be null, indicating no metadata. Makes no effort to see if an existing wildcard would already match the new item, unless it is the first item in an item group. Makes no effort to locate the new item near similar items."
-  remarks: "Appends the item to the first item group that does not have a condition and has either no children or whose first child is an item of the same type.       Evaluates on a best-effort basis: -expands with all items. Items that are defined in the XML below the new item may be used, even though in a real evaluation they would not be.       Only this item is evaluated. Other items that might depend on it is not affected.       This is a convenience that it is understood does not necessarily leave the project in a perfectly self consistent state until reevaluation."
+  summary: "Lägger till ett objekt med metadata i projektet. Metadata kan vara null, som anger inga metadata. Gör inga för att se om en befintlig jokertecken redan matchar den nya artikeln om det inte är det första objektet i en grupp objekt. Gör inga för att leta upp det nya objektet nära liknande objekt."
+  remarks: "Första gruppen som inte har ett villkor och har antingen inga underordnade eller vars första underordnade är ett objekt av samma typ till för objektet.       Utvärderar på grundval av bästa:-utökas med alla objekt. Objekt som definieras i XML under det nya objektet kan användas även om en verklig utvärdering de skulle inte.       Det här objektet ska utvärderas. Andra objekt som kan beroende påverkas inte.       Detta är att underlätta är förstås har inte nödvändigtvis lämnas projektet i ett perfekt self konsekvent tillstånd förrän utvärdering."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ProjectItem> AddItemFast (string itemType, string unevaluatedInclude, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,string>> metadata);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type to be added."
+      description: "Objekttyp som ska läggas till."
     - id: unevaluatedInclude
       type: System.String
-      description: "The unevaluated Include attribute to be added to the item."
+      description: "Unevaluated inkludera attributet som ska läggas till i objektet."
     - id: metadata
       type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
-      description: "The metadata to be added."
+      description: "Metadata som ska läggas till."
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns a list of the project items added."
+      description: "Returnerar en lista över projekt-objekten har lagts till."
   overload: Microsoft.Build.Evaluation.Project.AddItemFast*
   exceptions: []
   platform:
@@ -809,13 +809,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all item definition metadata encountered during evaluation."
-  remarks: "Item metadata is read during the second evaluation pass. Unlike metadata returned by the ItemDefinitions property, this metadata is ordered, and includes any metadata subsequently overridden with the same name and item type."
+  summary: "Hämtar alla definition objektmetadata påträffades under utvärderingen."
+  remarks: "Objektmetadata läses under det andra steget i utvärderingen. Till skillnad från metadata som returneras av egenskapen ItemDefinitions dessa metadata är sorterade och innehåller eventuella metadata därefter åsidosätts med samma namn och objekttyp."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectMetadata> AllEvaluatedItemDefinitionMetadata { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectMetadata}
-      description: "Returns all item definition metadata encountered during evaluation. This does not include any elements whose conditions did not evaluate to true, nor any item definition metadata added since the last evaluation."
+      description: "Returnerar alla definition objektmetadata påträffades under utvärderingen. Detta innefattar inte några element vars villkor inte utvärderas till true, och inte heller eventuella metadata för definition av objektet lagts sedan senaste utvärderingen."
   overload: Microsoft.Build.Evaluation.Project.AllEvaluatedItemDefinitionMetadata*
   exceptions: []
   platform:
@@ -832,13 +832,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all items encountered during evaluation. These are read during the third evaluation pass."
-  remarks: "Unlike those items returned by the Items property, these are ordered with respect to all other items encountered during evaluation, not just ordered with respect to items of the same item type.       In some applications, this complete mutual ordering is significant, and such hosts can use this property.       The enumeration does not include any elements whose conditions did not evaluate to true, nor does it include any items added since the last evaluation."
+  summary: "Hämtar en uppräknare över alla objekt som påträffades under utvärderingen. Dessa är skrivskyddade under det tredje steget i utvärderingen."
+  remarks: "Till skillnad från de objekt som returneras av egenskapen objekt sorteras dessa med avseende på alla andra objekt som påträffades under utvärderingen, inte bara sorterade med avseende på objekt av objekttypen samma.       Den här fullständig ömsesidig ordning är viktig och dessa värdar kan använda den här egenskapen i vissa program.       Uppräkningen innehåller inte några element vars villkor inte utvärderas till true eller tar med alla objekt som lagts sedan senaste utvärderingen."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> AllEvaluatedItems { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns an enumerator over all items encountered during evaluation. These are read during the third evaluation pass."
+      description: "Returnerar en uppräknare över alla objekt som påträffades under utvärderingen. Dessa är skrivskyddade under det tredje steget i utvärderingen."
   overload: Microsoft.Build.Evaluation.Project.AllEvaluatedItems*
   exceptions: []
   platform:
@@ -855,13 +855,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all properties encountered during evaluation."
-  remarks: "These properties are read during the first evaluation pass. Unlike properties returned by the Properties property, these are ordered, and includes any properties subsequently overridden with the same name."
+  summary: "Hämtar alla egenskaper som påträffades under utvärderingen."
+  remarks: "De här egenskaperna är skrivskyddade under det första steget för utvärdering. Till skillnad från egenskaperna som returneras av egenskapen egenskaper, dessa sorteras och innehåller alla egenskaper senare åsidosätts med samma namn."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectProperty> AllEvaluatedProperties { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectProperty}
-      description: "Returns all properties encountered during evaluation. This does not include any properties whose conditions did not evaluate to true, nor any properties added since the last evaluation."
+      description: "Returnerar alla egenskaper som påträffades under utvärderingen. Detta innefattar inte några egenskaper vars villkor inte utvärderas till true, och inte heller några egenskaper lagts sedan senaste utvärderingen."
   overload: Microsoft.Build.Evaluation.Project.AllEvaluatedProperties*
   exceptions: []
   platform:
@@ -878,14 +878,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, using the default targets."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet använder standardmål."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build ();
     parameters: []
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -902,17 +902,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, using the default targets and the given logger."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet använder standardmål och angivna loggaren."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (Microsoft.Build.Framework.ILogger logger);
     parameters:
     - id: logger
       type: Microsoft.Build.Framework.ILogger
-      description: "The logger to be used during the build."
+      description: "Loggaren som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -929,17 +929,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, using the default targets and the given loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet använder standardmål och angivna loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers);
     parameters:
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "An enumerator over all loggers to be used during the build."
+      description: "En uppräknare över alla loggar tangenttryckningar som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -956,17 +956,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given target."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet som genererar det angivna målet."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string target);
     parameters:
     - id: target
       type: System.String
-      description: "The target to be built."
+      description: "Målet är att bygga."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -983,17 +983,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given targets."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar projektet och bygga angivet mål."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string[] targets);
     parameters:
     - id: targets
       type: System.String[]
-      description: "An array of targets to be built."
+      description: "En matris med mål som ska byggas."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1010,20 +1010,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, using the default targets and the given loggers and remote loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet använder standardmål och angivna loggar tangenttryckningar och remote loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers);
     parameters:
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be used during the build."
+      description: "Loggare som ska användas under genereringen."
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "The remote loggers to be used during the build."
+      description: "Remote loggare som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1040,20 +1040,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given target and using the given loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet genererar det angivna målet och använder de angivna loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string target, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers);
     parameters:
     - id: target
       type: System.String
-      description: "The target to be built."
+      description: "Målet är att bygga."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be used during the build."
+      description: "Loggare som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1070,20 +1070,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given targets and using the given loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar projektet och bygga angivna mål och använder de angivna loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string[] targets, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers);
     parameters:
     - id: targets
       type: System.String[]
-      description: "The targets to be built."
+      description: "De mål som ska byggas."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be used during the build."
+      description: "Loggare som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1100,23 +1100,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given target and using the given loggers and remote loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar det här projektet genererar det angivna målet och använder de angivna loggare och fjärranslutna loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string target, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers);
     parameters:
     - id: target
       type: System.String
-      description: "The target to be built."
+      description: "Målet är att bygga."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be used during the build."
+      description: "Loggare som ska användas under genereringen."
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "The remote loggers to be used during the build."
+      description: "Remote loggare som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1133,23 +1133,23 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Builds this project, building the given targets and using the given loggers and remote loggers."
-  remarks: "To set or get virtual items for build purposes, clone a project instance explicitly and build that. This method does not modify the project object."
+  summary: "Skapar projektet och bygga angivna mål och med de angivna loggare och fjärranslutna loggare."
+  remarks: "Om du vill ange eller hämta virtuella objekt för build ändamål, klona en instans för project uttryckligen och skapa som. Den här metoden ändrar inte projekt-objektet."
   syntax:
     content: public bool Build (string[] targets, System.Collections.Generic.IEnumerable<Microsoft.Build.Framework.ILogger> loggers, System.Collections.Generic.IEnumerable<Microsoft.Build.Logging.ForwardingLoggerRecord> remoteLoggers);
     parameters:
     - id: targets
       type: System.String[]
-      description: "The targets to be built."
+      description: "De mål som ska byggas."
     - id: loggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Framework.ILogger}
-      description: "The loggers to be used during the build."
+      description: "Loggare som ska användas under genereringen."
     - id: remoteLoggers
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Logging.ForwardingLoggerRecord}
-      description: "The remote loggers to be used during the build."
+      description: "Remote loggare som ska användas under genereringen."
     return:
       type: System.Boolean
-      description: "Returns true on success; false otherwise."
+      description: "Returnerar SANT när slutförts; FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.Build*
   exceptions: []
   platform:
@@ -1166,13 +1166,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a collection of possible property values for properties used to evaluate conditions found on properties, property groups, imports, and whens."
+  summary: "Hämtar en samling av möjliga värden för egenskaper som används för att utvärdera villkor som finns på egenskaper, egenskapsgrupper, import, och när."
   remarks: 'For example, if the following conditions existed on properties in a project: Condition="''$(Configuration)&#124;$(Platform)'' == ''Debug&#124;x86''" Condition="''$(Configuration)'' == ''Release''" the table would be populated with { "Configuration", { "Debug", "Release" }} { "Platform", { "x86" }} This collection is used by Visual Studio to determine the configurations defined in the project'
   syntax:
     content: public System.Collections.Generic.IDictionary<string,System.Collections.Generic.List<string>> ConditionedProperties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Collections.Generic.List{System.String}}
-      description: "Returns a collection of possible property values for properties used to evaluate conditions found on properties, property groups, imports, and whens. The collection is in canonical form. The name of the entry is the name of the property to be evaluated, and the value is a list of possible property values."
+      description: "Returnerar en mängd med möjliga värden för egenskaper som används för att utvärdera villkor som finns på egenskaper, egenskapsgrupper, import, och när. Samlingen är i kanonisk form. Namnet på posten är namnet på egenskapen som ska utvärderas och värdet är en lista över möjliga egenskapsvärden."
   overload: Microsoft.Build.Evaluation.Project.ConditionedProperties*
   exceptions: []
   platform:
@@ -1189,14 +1189,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project instance based on this project, but completely disconnected from it."
-  remarks: "Can be used to build independently. The original project is evaluated before creating the instance, if necessary, so that the original project is marked as unmodified."
+  summary: "Skapar en instans för project baserat på det här projektet, men helt frånkopplad från den."
+  remarks: "Kan användas för att skapa oberoende av varandra. Det ursprungliga projektet utvärderas innan du skapar instansen om det behövs, så att det ursprungliga projektet har markerats som ska ändras."
   syntax:
     content: public Microsoft.Build.Execution.ProjectInstance CreateProjectInstance ();
     parameters: []
     return:
       type: Microsoft.Build.Execution.ProjectInstance
-      description: "Returns the project instance."
+      description: "Returnerar projekt-instans."
   overload: Microsoft.Build.Evaluation.Project.CreateProjectInstance*
   exceptions: []
   platform:
@@ -1213,17 +1213,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Creates a project instance based on this project, but completely disconnected from it."
-  remarks: "Can be used to build independently. The original project is evaluated before creating the instance, if necessary, so that the original project is marked as unmodified."
+  summary: "Skapar en instans för project baserat på det här projektet, men helt frånkopplad från den."
+  remarks: "Kan användas för att skapa oberoende av varandra. Det ursprungliga projektet utvärderas innan du skapar instansen om det behövs, så att det ursprungliga projektet har markerats som ska ändras."
   syntax:
     content: public Microsoft.Build.Execution.ProjectInstance CreateProjectInstance (Microsoft.Build.Execution.ProjectInstanceSettings settings);
     parameters:
     - id: settings
       type: Microsoft.Build.Execution.ProjectInstanceSettings
-      description: "Determines whether created project instance is immutable and whether it contains a look up table to improve performance."
+      description: "Anger om projektet har skapats instans är oföränderlig och om den innehåller en slå upp tabellen för att förbättra prestanda."
     return:
       type: Microsoft.Build.Execution.ProjectInstance
-      description: "Returns the project instance."
+      description: "Returnerar projekt-instans."
   overload: Microsoft.Build.Evaluation.Project.CreateProjectInstance*
   exceptions: []
   platform:
@@ -1240,12 +1240,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the root directory for this project."
+  summary: "Hämtar rotkatalogen för det här projektet."
   syntax:
     content: public string DirectoryPath { get; }
     return:
       type: System.String
-      description: "Returns the root directory for this project. The root directory is never null; in-memory projects use the current directory at the time of project load."
+      description: "Returnerar rotkatalogen för det här projektet. Rotkatalogen är aldrig null. InMemory-projekt använder den aktuella katalogen under inläsningen av projektet."
   overload: Microsoft.Build.Evaluation.Project.DirectoryPath*
   exceptions: []
   platform:
@@ -1262,12 +1262,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag the determines whether <xref:Microsoft.Build.Evaluation.Project.MarkDirty*> is temporarily disabled. This allows, for example, a global property to be set without the project getting marked dirty for reevaluation as a consequence."
+  summary: "Hämtar eller anger en flagga i avgör om <xref:Microsoft.Build.Evaluation.Project.MarkDirty*>är tillfälligt inaktiverad.</xref:Microsoft.Build.Evaluation.Project.MarkDirty*> Detta kan till exempel en global egenskap anges utan projektet komma har markerats som inaktuella för ny distributionsutvärdering som en följd."
   syntax:
     content: public bool DisableMarkDirty { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag the determines whether <xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;></xref> is temporarily disabled."
+      description: "Returnerar en flagga i avgör om <xref uid=&quot;langword_csharp_MarkDirty&quot; name=&quot;MarkDirty&quot; href=&quot;&quot;> </xref> är tillfälligt inaktiverad."
   overload: Microsoft.Build.Evaluation.Project.DisableMarkDirty*
   exceptions: []
   platform:
@@ -1284,13 +1284,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a number that is incremented every time that project is re-evaluated."
-  remarks: "This value should be compared with previous values to see if the project has been re-evaluated. It should not be used to determine how many times the project has been re-evaluated since it may be incremented by more than one for a given re-evaluation."
+  summary: "Hämtar ett tal som ökar varje gång som är ny utvärdering."
+  remarks: "Det här värdet ska jämföras med föregående värden för att se om projektet har utvärderats igen. Det bör inte användas för att avgöra hur många gånger projektet har ny utvärdering eftersom den kan ökas med mer än ett för en given omvärdering."
   syntax:
     content: public int EvaluationCounter { get; }
     return:
       type: System.Int32
-      description: "Returns the incremented value."
+      description: "Returnerar värdet ökas."
   overload: Microsoft.Build.Evaluation.Project.EvaluationCounter*
   exceptions: []
   platform:
@@ -1307,17 +1307,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Evaluates the given string by expanding items and properties. The string is evaluated as if it were found at the very end of the project file."
-  remarks: "This method can be used when best-effort evaluation is sufficient."
+  summary: "Utvärderar den angivna strängen genom att expandera objekt och egenskaper. Strängen utvärderas som om den hittades vid ut i projektfilen."
+  remarks: "Den här metoden kan användas när bästa utvärdering är tillräckliga."
   syntax:
     content: public string ExpandString (string unexpandedValue);
     parameters:
     - id: unexpandedValue
       type: System.String
-      description: "The string to be evaluated."
+      description: "Strängen som ska utvärderas."
     return:
       type: System.String
-      description: "Returns the evaluated string."
+      description: "Returnerar den utvärderade strängen."
   overload: Microsoft.Build.Evaluation.Project.ExpandString*
   exceptions: []
   platform:
@@ -1334,13 +1334,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets the full path to the project source file."
-  remarks: "Setting this property on a project in a project collection renames the project."
+  summary: "Hämtar eller anger den fullständiga sökvägen till källfilen projektet."
+  remarks: "Den här egenskapen för ett projekt i en projektsamling byter namn på projektet."
   syntax:
     content: public string FullPath { get; set; }
     return:
       type: System.String
-      description: "Returns the full path to the project source file. Returns an empty string if the project was not loaded from disk."
+      description: "Returnerar den fullständiga sökvägen till källfilen projektet. Returnerar en tom sträng om projektet inte lästes in från disken."
   overload: Microsoft.Build.Evaluation.Project.FullPath*
   exceptions: []
   platform:
@@ -1357,16 +1357,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets evaluated, escaped value of the Include attribute of the provided items."
+  summary: "Hämtar utvärderas, undantaget värdet för attributet inkludera de angivna objekt."
   syntax:
     content: public static string GetEvaluatedItemIncludeEscaped (Microsoft.Build.Evaluation.ProjectItem item);
     parameters:
     - id: item
       type: Microsoft.Build.Evaluation.ProjectItem
-      description: "The item to be evaluated and escaped."
+      description: "Objektet som ska utvärderas och undantaget."
     return:
       type: System.String
-      description: "Returns the evaluated, escaped value of the Include attribute of the provided items."
+      description: "Returnerar den utvärderade kodat värde för attributet inkludera för angivna objekt."
   overload: Microsoft.Build.Evaluation.Project.GetEvaluatedItemIncludeEscaped*
   exceptions: []
   platform:
@@ -1383,16 +1383,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the evaluated, escaped value of the Include attribute of the provided item definition."
+  summary: "Hämtar värdet för attributet inkludera för angivna objektdefinition utvärderade, ESC."
   syntax:
     content: public static string GetEvaluatedItemIncludeEscaped (Microsoft.Build.Evaluation.ProjectItemDefinition item);
     parameters:
     - id: item
       type: Microsoft.Build.Evaluation.ProjectItemDefinition
-      description: "The item definition to be evaluated and escaped."
+      description: "Objektdefinition att utvärderas och undantaget."
     return:
       type: System.String
-      description: "Returns the value of the Include attribute."
+      description: "Returnerar värdet för attributet inkludera."
   overload: Microsoft.Build.Evaluation.Project.GetEvaluatedItemIncludeEscaped*
   exceptions: []
   platform:
@@ -1409,17 +1409,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all the items in the project of the given item type. If there are none, returns an empty list. Use AddItem or RemoveItem to modify items in this project."
-  remarks: "Use AddItem or RemoveItem to modify items in this project."
+  summary: "Hämtar alla objekt i projektet för den angivna objekttypen. Om det inte finns några, returnerar du en tom lista. Använda AddItem eller RemoveItem för att ändra objekt i det här projektet."
+  remarks: "Använda AddItem eller RemoveItem för att ändra objekt i det här projektet."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> GetItems (string itemType);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type to be retrieved."
+      description: "Objekttyp som ska hämtas."
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns all the items in the project of the given item type. Returns an empty list if there are no items with the given item name."
+      description: "Returnerar alla objekt i projektet för den angivna objekttypen. Returnerar en tom lista om det finns inga objekt med namnet för objektet."
   overload: Microsoft.Build.Evaluation.Project.GetItems*
   exceptions: []
   platform:
@@ -1436,17 +1436,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets all items that have the given evaluated Include attribute."
-  remarks: "For example, this method might return all items that have the evaluated Include attribute &quot;component.cpp&quot;. Typically zero or one items are returned. However, there may be multiple items with the same path and different item types, or even with the same item types."
+  summary: "Hämtar alla objekt som har det angivna utvärderade inkludera attributet."
+  remarks: "Den här metoden kan till exempel returnera alla objekt som har utvärderats inkludera attributet &quot;component.cpp&quot;. Vanligtvis returneras noll eller ett objekt. Det kan dock finnas flera objekt med samma sökväg och olika objekttyper eller även med samma objekttyper."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> GetItemsByEvaluatedInclude (string evaluatedInclude);
     parameters:
     - id: evaluatedInclude
       type: System.String
-      description: "The evaluated Include attribute."
+      description: "Det utvärderade Include-attributet."
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns all items that have the given evaluated Include attribute."
+      description: "Returnerar alla objekt som har det angivna utvärderade inkludera attributet."
   overload: Microsoft.Build.Evaluation.Project.GetItemsByEvaluatedInclude*
   exceptions: []
   platform:
@@ -1463,17 +1463,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: 'Gets all the items in the project of the given type, whether or not their Condition attribute evaluates to true. This is a read-only list: use AddItem or RemoveItem to modify items in this project.'
-  remarks: "This is a read-only list. Use AddItem or RemoveItem to modify items in this project."
+  summary: 'Hämtar alla objekt i projektet för den angivna typen, oavsett deras villkorsattribut utvärderas till SANT. Detta är en skrivskyddad lista: använda AddItem eller RemoveItem för att ändra objekt i det här projektet.'
+  remarks: "Detta är en skrivskyddad lista. Använda AddItem eller RemoveItem för att ändra objekt i det här projektet."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> GetItemsIgnoringCondition (string itemType);
     parameters:
     - id: itemType
       type: System.String
-      description: "The item type to be retrieved."
+      description: "Objekttyp som ska hämtas."
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns all the items in the project of the given type, whether or not their Condition attribute evaluates to true."
+      description: "Returnerar alla objekt i projektet för den angivna typen, oavsett deras villkorsattribut utvärderas till SANT."
   overload: Microsoft.Build.Evaluation.Project.GetItemsIgnoringCondition*
   exceptions: []
   platform:
@@ -1490,14 +1490,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all the elements in the &quot;logical project&quot;. The logical project is defined as the unevaluated project obtained from the single MSBuild file that is the result of inlining the text of all imports of the original MSBuild project manifest file."
-  remarks: "The logical project is defined as the unevaluated project obtained from the single MSBuild file that is the result of including inline the text of all imports of the original MSBuild project manifest file."
+  summary: "Hämtar en uppräknare över alla element i &quot;logisk projektet&quot;. Logiska projektet har definierats som unevaluated projektet från den enda MSBuild-fil som är resultatet av inlining texten för all import av den ursprungliga MSBuild manifestet projektfilen."
+  remarks: "Logiska projektet har definierats som unevaluated projektet som erhålls från den enda MSBuild-fil som är resultatet av inklusive infogad text av all import av den ursprungliga MSBuild manifestet projektfilen."
   syntax:
     content: public System.Collections.Generic.IEnumerable<Microsoft.Build.Construction.ProjectElement> GetLogicalProject ();
     parameters: []
     return:
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Construction.ProjectElement}
-      description: "Returns an enumerator over all the elements in the &quot;logical project&quot;."
+      description: "Returnerar en uppräknare över alla element i &quot;logisk projektet&quot;."
   overload: Microsoft.Build.Evaluation.Project.GetLogicalProject*
   exceptions: []
   platform:
@@ -1514,16 +1514,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the escaped value of the provided metadatum."
+  summary: "Hämtar ESC värdet för den angivna metadatum."
   syntax:
     content: public static string GetMetadataValueEscaped (Microsoft.Build.Evaluation.ProjectMetadata metadatum);
     parameters:
     - id: metadatum
       type: Microsoft.Build.Evaluation.ProjectMetadata
-      description: "The metadatum to be escaped."
+      description: "Metadatum till hoppas."
     return:
       type: System.String
-      description: "Gets the escaped value of the provided metadatum."
+      description: "Hämtar ESC värdet för den angivna metadatum."
   overload: Microsoft.Build.Evaluation.Project.GetMetadataValueEscaped*
   exceptions: []
   platform:
@@ -1540,19 +1540,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the escaped value of the metadatum with the provided name on the provided item."
+  summary: "Hämtar ESC värdet för metadatum med det angivna namnet på det angivna objektet."
   syntax:
     content: public static string GetMetadataValueEscaped (Microsoft.Build.Evaluation.ProjectItem item, string name);
     parameters:
     - id: item
       type: Microsoft.Build.Evaluation.ProjectItem
-      description: "The item whose metadata is to be escaped."
+      description: "Objektet vars metadata som hoppas."
     - id: name
       type: System.String
-      description: "The name of the metadata to be escaped."
+      description: "Namnet på metadata för hoppas."
     return:
       type: System.String
-      description: "Gets the escaped value of the metadatum with the provided name on the provided item."
+      description: "Hämtar ESC värdet för metadatum med det angivna namnet på det angivna objektet."
   overload: Microsoft.Build.Evaluation.Project.GetMetadataValueEscaped*
   exceptions: []
   platform:
@@ -1569,19 +1569,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the escaped value of the metadatum with the provided name on the provided item definition."
+  summary: "Hämtar ESC värdet för metadatum med det angivna namnet på definitionen för angivna objekt."
   syntax:
     content: public static string GetMetadataValueEscaped (Microsoft.Build.Evaluation.ProjectItemDefinition item, string name);
     parameters:
     - id: item
       type: Microsoft.Build.Evaluation.ProjectItemDefinition
-      description: "The item definition whose metadata is to be escaped."
+      description: "Definitionen för objektet vars metadata som hoppas."
     - id: name
       type: System.String
-      description: "The name of the metadata to be escaped."
+      description: "Namnet på metadata för hoppas."
     return:
       type: System.String
-      description: "Returns the escaped value of the metadatum with the provided name on the provided item definition."
+      description: "Returnerar ESC värdet för metadatum med det angivna namnet på definitionen för angivna objekt."
   overload: Microsoft.Build.Evaluation.Project.GetMetadataValueEscaped*
   exceptions: []
   platform:
@@ -1598,16 +1598,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets any property in the project that has the specified name."
+  summary: "Hämtar alla egenskaper i projektet som har det angivna namnet."
   syntax:
     content: public Microsoft.Build.Evaluation.ProjectProperty GetProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property to retrieve."
+      description: "Namnet på egenskapen som ska hämtas."
     return:
       type: Microsoft.Build.Evaluation.ProjectProperty
-      description: "Returns any property in the project that has the specified name. Returns null if no property of that name exists."
+      description: "Returnerar en egenskap i projektet som har det angivna namnet. Returnerar null om ingen egenskap med det namnet finns."
   overload: Microsoft.Build.Evaluation.Project.GetProperty*
   exceptions: []
   platform:
@@ -1624,17 +1624,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the value of the given property in this project."
-  remarks: "A property with a value of empty string and no property at all are not distinguished between by this method. To determine if a property is set at all in the project, use GetProperty(name)."
+  summary: "Hämtar värdet för den angivna egenskapen i det här projektet."
+  remarks: "En egenskap med ett värde på en tom sträng och ingen egenskap särskiljs alls inte mellan av den här metoden. Använd GetProperty(namn) för att avgöra om en egenskap är inställd på alla i projektet."
   syntax:
     content: public string GetPropertyValue (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property whose value is retrieved."
+      description: "Namnet på egenskapen vars värde ska hämtas."
     return:
       type: System.String
-      description: "Returns the value of the given property in this project. Return an empty string if no property of that name exists. Escape sequences are converted before returning the string."
+      description: "Returnerar värdet för den angivna egenskapen i det här projektet. Returnera en tom sträng om det finns ingen egenskap med det namnet. Escape-sekvenser konverteras innan det returneras strängen."
   overload: Microsoft.Build.Evaluation.Project.GetPropertyValue*
   exceptions: []
   platform:
@@ -1651,16 +1651,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Get the escaped value of the provided property."
+  summary: "Hämta ESC värdet för den angivna egenskapen."
   syntax:
     content: public static string GetPropertyValueEscaped (Microsoft.Build.Evaluation.ProjectProperty property);
     parameters:
     - id: property
       type: Microsoft.Build.Evaluation.ProjectProperty
-      description: "The property to be escaped."
+      description: "Egenskapen hoppas."
     return:
       type: System.String
-      description: "Returns the escaped value of the provided property."
+      description: "Returnerar ESC värdet för den angivna egenskapen."
   overload: Microsoft.Build.Evaluation.Project.GetPropertyValueEscaped*
   exceptions: []
   platform:
@@ -1677,13 +1677,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a dictionary of the global properties used for the evaluation of this project."
+  summary: "Hämtar en ordlista med globala egenskaper som används för utvärdering av det här projektet."
   remarks: "This is the publicly exposed getter, that translates into a read-only dead IDictionary\\<string, string>.  \n  \n In order to easily tell when we're dirtied, setting and removing global properties is done with <xref:Microsoft.Build.Evaluation.Project.SetGlobalProperty%2A> and <xref:Microsoft.Build.Evaluation.Project.RemoveGlobalProperty%2A>."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,string> GlobalProperties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns a dictionary of the global properties used for the evaluation of this project."
+      description: "Returnerar en ordlista med globala egenskaper som används för utvärdering av det här projektet."
   overload: Microsoft.Build.Evaluation.Project.GlobalProperties*
   exceptions: []
   platform:
@@ -1700,13 +1700,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a list of all the files that contributed to the evaluation of this project."
-  remarks: "The project root of this project is not included."
+  summary: "Hämtar en lista över alla filer som har bidragit till utvärderingen av det här projektet."
+  remarks: "Det ingår inte projektroten av projektet."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ResolvedImport> Imports { get; }
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ResolvedImport}
-      description: "Returns a list of all the files that contributed to the evaluation of this project.       The name of each item is the Import element that caused the file to be imported. The value of each item is the project root of the imported project. Import elements whose Condition attribute evaluated to false are not included."
+      description: "Returnerar en lista över alla filer som har bidragit för utvärdering av det här projektet.       Namnet på varje objekt är elementet Import som orsakade fil som ska importeras. Värdet för varje objekt är projektroten importerade projektet. Det ingår inte importera element vars villkorsattribut utvärderas till false."
   overload: Microsoft.Build.Evaluation.Project.Imports*
   exceptions: []
   platform:
@@ -1723,12 +1723,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a list of duplicate imports if an import was imported multiple times. However, only the first import was used in evaluation."
+  summary: "Hämtar en lista med dubbla importerar om en import importerades flera gånger. Dock används endast första import vid utvärderingen."
   syntax:
     content: public System.Collections.Generic.IList<Microsoft.Build.Evaluation.ResolvedImport> ImportsIncludingDuplicates { get; }
     return:
       type: System.Collections.Generic.IList{Microsoft.Build.Evaluation.ResolvedImport}
-      description: "Returns a list of duplicate imports."
+      description: "Returnerar en lista med dubbla import."
   overload: Microsoft.Build.Evaluation.Project.ImportsIncludingDuplicates*
   exceptions: []
   platform:
@@ -1745,13 +1745,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a property that selects whether the targets and tasks of this project can be built."
-  remarks: "Can be used for security purposes. By default, a new project has the same IsBuildEnabled setting as the parent project collection that contains it. When IsBuildEnabled is false, the Build method on this project fails."
+  summary: "Hämtar eller anger en egenskap som anger om mål och åtgärder för det här projektet kan byggas."
+  remarks: "Kan användas av säkerhetsskäl. Som standard har ett nytt projekt med samma IsBuildEnabled inställning som den överordnade projektsamling som innehåller den. När IsBuildEnabled har värdet false, misslyckas Build-metoden i det här projektet."
   syntax:
     content: public bool IsBuildEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "Returns true if the targets and tasks of this project can be built; false otherwise."
+      description: "Returnerar true om mål och åtgärder för det här projektet kan byggas upp. FALSKT annars."
   overload: Microsoft.Build.Evaluation.Project.IsBuildEnabled*
   exceptions: []
   platform:
@@ -1768,13 +1768,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a property that indicates whether this project has been modified so that it must be reevaluated."
-  remarks: "A project is modified and must be reevaluated when the underlying project source code, including changes to imported files. A project is also modified must be reevaluated if the project tool set changes."
+  summary: "Hämtar en egenskap som anger om det här projektet har ändrats så att den måste vara reevaluated."
+  remarks: "Ett projekt har ändrats och måste vara reevaluated när den underliggande källkoden i projektet, inklusive ändringar i importerade filer. Ett projekt ändras också måste reevaluated om verktyget projektet ändringar."
   syntax:
     content: public bool IsDirty { get; }
     return:
       type: System.Boolean
-      description: "Returns a property that indicates whether this project has been modified so that it must be reevaluated."
+      description: "Returnerar en egenskap som anger om det här projektet har ändrats så att den måste vara reevaluated."
   overload: Microsoft.Build.Evaluation.Project.IsDirty*
   exceptions: []
   platform:
@@ -1791,12 +1791,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a dictionary of item definitions in this project, keyed by item type."
+  summary: "Hämtar en ordlista med objektdefinitioner i det här projektet Nyckelbaserade av objekttypen."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,Microsoft.Build.Evaluation.ProjectItemDefinition> ItemDefinitions { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Evaluation.ProjectItemDefinition}
-      description: "Returns a dictionary of item definitions in this project, keyed by item type."
+      description: "Returnerar en ordlista med objektdefinitioner i det här projektet Nyckelbaserade av objekttypen."
   overload: Microsoft.Build.Evaluation.Project.ItemDefinitions*
   exceptions: []
   platform:
@@ -1813,12 +1813,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all items in this project, ordered within groups of item types."
+  summary: "Hämtar en uppräknare över alla objekt i det här projektet, sorterade i grupper av objekttyper."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> Items { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns an enumerator over all items in this project, ordered within groups of item types."
+      description: "Returnerar en uppräknare över alla objekt i det här projektet, sorterade i grupper av objekttyper."
   overload: Microsoft.Build.Evaluation.Project.Items*
   exceptions: []
   platform:
@@ -1835,13 +1835,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all items in this project, ordered within groups of item types."
-  remarks: "Can be used to display all items, even if they are not part of the build in the current configuration."
+  summary: "Hämtar en uppräknare över alla objekt i det här projektet, sorterade i grupper av objekttyper."
+  remarks: "Kan användas för att visa alla objekt, även om de inte är en del av versionen i den aktuella konfigurationen."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectItem> ItemsIgnoringCondition { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectItem}
-      description: "Returns an enumerator over all items in this project., ordered within groups of item types, including items whose conditions evaluate to false, or are contained within item groups whose condition evaluates to false."
+      description: "Returnerar en uppräknare över alla objekt i det här projektet., sorterade i grupper av objekttyper, inklusive objekt vars villkor utvärderas till false eller ingår i objektgrupper vars villkoret utvärderas till false."
   overload: Microsoft.Build.Evaluation.Project.ItemsIgnoringCondition*
   exceptions: []
   platform:
@@ -1858,12 +1858,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all item types in this project."
+  summary: "Hämtar en uppräknare över alla typer av objekt i det här projektet."
   syntax:
     content: public System.Collections.Generic.ICollection<string> ItemTypes { get; }
     return:
       type: System.Collections.Generic.ICollection{System.String}
-      description: "Returns an enumerator over all item types in this project. This is an ordered collection."
+      description: "Returnerar en uppräknare över alla typer av objekt i det här projektet. Det här är en ordnad samling."
   overload: Microsoft.Build.Evaluation.Project.ItemTypes*
   exceptions: []
   platform:
@@ -1880,8 +1880,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Marks this project as modified."
-  remarks: "It is seldom necessary to call this method explicitly, because all edits affecting a project automatically mark it as modified.       Sometimes, however, this method must be called. For example, a project may have an Import element whose condition depends on a file that exists on a disk. If that file does not exist at evaluation time, and it is created after evaluation, then the project must be explicitly marked as modified.       The <xref:Microsoft.Build.Evaluation.Project.ReevaluateIfNecessary%2A> method uses this property to determine if an evaluation is necessary."
+  summary: "Markerar det här projektet som ändras."
+  remarks: "Det är sällan nödvändigt att anropa den här metoden explicit, eftersom alla ändringar som påverkar ett projekt automatiskt markeras som ändrade.       Ibland, men måste den här metoden anropas. Ett projekt kan till exempel ha ett Import-element vars hälsotillstånd är beroende av en fil som finns på en disk. Om filen finns inte vid utvärdering och den skapas efter utvärderingen, måste sedan projektet uttryckligen markeras som ändrade.       Den <xref:Microsoft.Build.Evaluation.Project.ReevaluateIfNecessary%2A>metoden använder den här egenskapen för att avgöra om det krävs en utvärdering.</xref:Microsoft.Build.Evaluation.Project.ReevaluateIfNecessary%2A>"
   syntax:
     content: public void MarkDirty ();
     parameters: []
@@ -1901,12 +1901,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the project collection which contains this project."
+  summary: "Hämtar projektsamling som innehåller det här projektet."
   syntax:
     content: public Microsoft.Build.Evaluation.ProjectCollection ProjectCollection { get; }
     return:
       type: Microsoft.Build.Evaluation.ProjectCollection
-      description: "Returns the project collection which contains this project, which is never null."
+      description: "Returnerar projekt som innehåller det här projektet, vilket inte är null."
   overload: Microsoft.Build.Evaluation.Project.ProjectCollection*
   exceptions: []
   platform:
@@ -1923,12 +1923,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "The location of the originating file itself, not any specific content within it. If the file has not been given a name, this is an empty location. This is a legitimate case of having no location."
+  summary: "Platsen för käll-filen själva inte någon specifik innehållet i den. Om filen inte har fått ett namn, är detta en tom plats. Det finns legitima fall för att ingen plats."
   syntax:
     content: public Microsoft.Build.Construction.ElementLocation ProjectFileLocation { get; }
     return:
       type: Microsoft.Build.Construction.ElementLocation
-      description: "Returns the originating file location or an empty location."
+      description: "Returnerar den ursprungliga platsen eller en tom plats."
   overload: Microsoft.Build.Evaluation.Project.ProjectFileLocation*
   exceptions: []
   platform:
@@ -1945,12 +1945,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets an enumerator over all properties in this project. This is an unordered collection."
+  summary: "Hämtar en uppräknare över alla egenskaper i det här projektet. Det här är en Osorterad samling."
   syntax:
     content: public System.Collections.Generic.ICollection<Microsoft.Build.Evaluation.ProjectProperty> Properties { get; }
     return:
       type: System.Collections.Generic.ICollection{Microsoft.Build.Evaluation.ProjectProperty}
-      description: "Returns an enumerator over all properties in this project. Since properties are evaluated as they appear, this is an unordered collection."
+      description: "Returnerar en uppräknare över alla egenskaper i det här projektet. Eftersom egenskaper som ska utvärderas som de visas är det här en Osorterad samling."
   overload: Microsoft.Build.Evaluation.Project.Properties*
   exceptions: []
   platform:
@@ -1967,8 +1967,8 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Reevaluates the project to incorporate any changes."
-  remarks: "The project is reevaluated only if it is marked as modified. Reevaluation incorporates all changes made to the project source code.       Throws InvalidProjectFileException if the evaluation fails."
+  summary: "Reevaluates projektet om du vill göra ändringar."
+  remarks: "Projektet är reevaluated endast om den har markerats som ändrad. Utvärdering omfattar alla ändringar i källkoden för projektet.       Genererar InvalidProjectFileException om utvärderingen misslyckas."
   syntax:
     content: public void ReevaluateIfNecessary ();
     parameters: []
@@ -1988,16 +1988,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes a global property and marks the project as modified."
+  summary: "Tar bort en global egenskap och markerar projektet som ändras."
   syntax:
     content: public bool RemoveGlobalProperty (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the global property to be removed."
+      description: "Namnet på den globala egenskapen ska tas bort."
     return:
       type: System.Boolean
-      description: "Returns true if the value of the global property was set."
+      description: "Returnerar true om värdet för den globala egenskapen har angetts."
   overload: Microsoft.Build.Evaluation.Project.RemoveGlobalProperty*
   exceptions: []
   platform:
@@ -2014,17 +2014,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes an item from the project. The item to be removed must be present in the project, and must not originate from an imported file."
-  remarks: "If the item group containing the item becomes empty, it is also removed.       If the item originates from a wildcard or semicolon-separated expression, the expression is first expanded into multiple items.       The project is updated, but no further evaluation occurs until reevaluation. For example, if an item of type &quot;i&quot; is removed, &quot;j&quot; which is evaluated from &quot;@(i)&quot; is not modified until reevaluation."
+  summary: "Tar bort ett objekt från projektet. Objektet som ska tas bort måste finnas i projektet och måste inte kommer från en importerad fil."
+  remarks: "Om gruppen som innehåller objektet blir tomt, är det också bort.       Om objektet härstammar från ett jokertecken eller semikolonavgränsad uttryck, utökats uttrycket först till flera objekt.       Projektet har uppdaterats, men ingen ytterligare utvärdering inträffar förrän utvärdering. Till exempel om ett objekt av typen &quot;i&quot; tas bort &quot;j&quot; som ska utvärderas från &quot;@(i)&quot; ändras inte förrän utvärdering."
   syntax:
     content: public bool RemoveItem (Microsoft.Build.Evaluation.ProjectItem item);
     parameters:
     - id: item
       type: Microsoft.Build.Evaluation.ProjectItem
-      description: "The item to be removed."
+      description: "Objektet som ska tas bort."
     return:
       type: System.Boolean
-      description: "Returns true if the item is present in this evaluated project; otherwise false. Normally this method returns true, since if the requested item is not present, the method throws an exception. If the item is present only in the ItemsIgnoringCondition collection, however, the method returns false."
+      description: "Returnerar true om objektet finns i den här utvärderade projektet. Annars false. Den här metoden returnerar normalt true, eftersom om det begärda objektet inte finns, metoden genererar ett undantag. Om objektet finns bara i samlingen ItemsIgnoringCondition, men returnerar metoden värdet false."
   overload: Microsoft.Build.Evaluation.Project.RemoveItem*
   exceptions: []
   platform:
@@ -2041,14 +2041,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes all the given items from the project, unless they originate from an imported project."
-  remarks: "If an item originates from an imported project, it is simply skipped."
+  summary: "Tar bort alla angivna objekt från projektet, om de kommer från ett importerat projekt."
+  remarks: "Om ett objekt härstammar från ett importerat projekt, det är bara hoppas över."
   syntax:
     content: public void RemoveItems (System.Collections.Generic.IEnumerable<Microsoft.Build.Evaluation.ProjectItem> items);
     parameters:
     - id: items
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Evaluation.ProjectItem}
-      description: "The items to be removed."
+      description: "Objekt som ska tas bort."
   overload: Microsoft.Build.Evaluation.Project.RemoveItems*
   exceptions: []
   platform:
@@ -2065,17 +2065,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Removes an property from the project. The property to be removed must be present in the project, and must not originate from an imported file."
-  remarks: "If the property group containing the property becomes empty, it is also removed.       The project is updated, but no further evaluation occurs until reevaluation. For example, if &quot;p&quot; is removed, &quot;q&quot; which is evaluated from &quot;$(p)&quot; is not modified until reevaluation."
+  summary: "Tar bort en egenskap från projektet. Egenskapen som ska tas bort måste finnas i projektet och måste inte kommer från en importerad fil."
+  remarks: "Om Egenskapsgruppen som innehåller egenskapen blir tomt, är det också bort.       Projektet har uppdaterats, men ingen ytterligare utvärdering inträffar förrän utvärdering. Till exempel om tas bort &quot;p&quot; ändras &quot;q&quot; som ska utvärderas från &quot;$(p)&quot; inte förrän utvärdering."
   syntax:
     content: public bool RemoveProperty (Microsoft.Build.Evaluation.ProjectProperty property);
     parameters:
     - id: property
       type: Microsoft.Build.Evaluation.ProjectProperty
-      description: "The property to remove."
+      description: "Egenskapen för att ta bort."
     return:
       type: System.Boolean
-      description: "Returns true if the property is present in this evaluated project; otherwise false."
+      description: "Returnerar true om egenskapen finns i den här utvärderade projektet. Annars false."
   overload: Microsoft.Build.Evaluation.Project.RemoveProperty*
   exceptions: []
   platform:
@@ -2092,7 +2092,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves the project to the file system, if modified, using the default character encoding."
+  summary: "Sparar projektet i filsystemet, om ändras, med hjälp av standard teckenkodningen."
   syntax:
     content: public void Save ();
     parameters: []
@@ -2112,13 +2112,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves the project to the provided text writer, whether or not the project has been modified. Uses the character encoding of the text writer and marks the project as unmodified."
+  summary: "Sparar projektet till den angivna textskrivare oavsett projektet har ändrats. Använder teckenkodningen över skrivar-text och markerar projektet som oförändrade."
   syntax:
     content: public void Save (System.IO.TextWriter writer);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "The text writer to save the project to."
+      description: "Spara projektet till textskrivare."
   overload: Microsoft.Build.Evaluation.Project.Save*
   exceptions: []
   platform:
@@ -2135,13 +2135,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves the project to the file system, if modified or if the path to the project source code changes, using the default character encoding."
+  summary: "Sparar projektet i filsystemet, om ändras eller om sökvägen till projektet källkoden ändras, använder du standard teckenkodningen."
   syntax:
     content: public void Save (string path);
     parameters:
     - id: path
       type: System.String
-      description: "The path to the project source code."
+      description: "Sökvägen till källkoden för projektet."
   overload: Microsoft.Build.Evaluation.Project.Save*
   exceptions: []
   platform:
@@ -2158,13 +2158,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves the project to the file system, if modified, using the given character encoding."
+  summary: "Sparar projektet i filsystemet, om ändras, med hjälp av angivna teckenkodningen."
   syntax:
     content: public void Save (System.Text.Encoding encoding);
     parameters:
     - id: encoding
       type: System.Text.Encoding
-      description: "The character encoding used to save the project."
+      description: "Teckenkodningen används för att spara projektet."
   overload: Microsoft.Build.Evaluation.Project.Save*
   exceptions: []
   platform:
@@ -2181,16 +2181,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves the project to the file system, if modified or if the path to the project source code changes, using the given character encoding."
+  summary: "Sparar projektet i filsystemet, om ändras eller om sökvägen till projektet källkoden ändras med hjälp av angivna teckenkodningen."
   syntax:
     content: public void Save (string path, System.Text.Encoding encoding);
     parameters:
     - id: path
       type: System.String
-      description: "The path to the project source code."
+      description: "Sökvägen till källkoden för projektet."
     - id: encoding
       type: System.Text.Encoding
-      description: "The character encoding used to save the project."
+      description: "Teckenkodningen används för att spara projektet."
   overload: Microsoft.Build.Evaluation.Project.Save*
   exceptions: []
   platform:
@@ -2207,13 +2207,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Saves a &quot;logical&quot; or &quot;preprocessed&quot; project file, that includes all the imported files as if they formed a single file."
+  summary: "Sparar en &quot;logiska&quot; eller &quot;förbearbetade&quot; projekt-fil som innehåller alla importerade filer som om de formaterat en enda fil."
   syntax:
     content: public void SaveLogicalProject (System.IO.TextWriter writer);
     parameters:
     - id: writer
       type: System.IO.TextWriter
-      description: "The writer that saves the project file."
+      description: "Skrivare som sparas i projektfilen."
   overload: Microsoft.Build.Evaluation.Project.SaveLogicalProject*
   exceptions: []
   platform:
@@ -2230,19 +2230,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Sets a global property after the project has been evaluated. If the value changes, the project is marked to require reevaluation."
+  summary: "Egenskapen är globala när projektet har utvärderats. Om värdet ändras har projektet markerats för att kräva utvärdering."
   syntax:
     content: public bool SetGlobalProperty (string name, string escapedValue);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the global property to set."
+      description: "Namnet på den globala egenskapen anges."
     - id: escapedValue
       type: System.String
-      description: "The new value of the global property."
+      description: "Det nya värdet för den globala egenskapen."
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value changes, otherwise returns <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Returnerar <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> om värdet ändras, annars returnerar <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Evaluation.Project.SetGlobalProperty*
   exceptions: []
   platform:
@@ -2259,20 +2259,20 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Sets or adds a property with the given name and value to the project. Overwrites the value of a property with the same name if it did not originate in an imported file."
-  remarks: "If there is no property with the given name, updates the last existing property with the given name that has no condition on itself or its property group, unless it originated in an imported file.       Otherwise, adds a new property in the first property group without a condition, creating a property group if necessary after the last existing property group, else at the start of the project.       Evaluation takes place on a best-effort basis. Properties that are defined in the project source following the new property may be used for evaluation. Only this property is evaluated. Other properties that might depend on it are not affected."
+  summary: "Anger eller lägger till en egenskap med det angivna namnet och värdet i projektet. Om det inte hade sitt ursprung i en importerad fil skriver du över värdet för en egenskap med samma namn."
+  remarks: "Om det finns ingen egenskap med det angivna namnet, uppdaterar du den senaste befintliga egenskapen med det angivna namnet som har inget villkor på sig själv eller dess egenskapsgrupp om den har sitt ursprung i en importerad fil.       Annars lägger du till en ny egenskap i den första Egenskapsgruppen utan ett villkor, skapar en egenskapsgrupp vid behov efter sista befintliga Egenskapsgruppen annan i början av projektet.       Utvärderingen tar för bästa prestanda. Egenskaper som har definierats i källan projektet efter den nya egenskapen kan användas för utvärdering. Den här egenskapen ska utvärderas. Andra egenskaper som kan beroende påverkas inte."
   syntax:
     content: public Microsoft.Build.Evaluation.ProjectProperty SetProperty (string name, string unevaluatedValue);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the property to set."
+      description: "Namnet på egenskapen som ska anges."
     - id: unevaluatedValue
       type: System.String
-      description: "The new unevaluated value of the property."
+      description: "Det nya unevaluated värdet på egenskapen."
     return:
       type: Microsoft.Build.Evaluation.ProjectProperty
-      description: "Returns the property."
+      description: "Returnerar egenskapen."
   overload: Microsoft.Build.Evaluation.Project.SetProperty*
   exceptions: []
   platform:
@@ -2289,12 +2289,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets or sets a flag the determines whether ReevaluateIfNecessary is temporarily disabled. This is useful when the host expects to make a number of reads and writes to the project, and wants to temporarily sacrifice correctness for performance."
+  summary: "Hämtar eller anger en flagga i avgör om ReevaluateIfNecessary är tillfälligt inaktiverad. Detta är användbart när värden förväntar att göra många läser och skriver till projektet och vill tillfälligt avstå från är korrekt för prestanda."
   syntax:
     content: public bool SkipEvaluation { get; set; }
     return:
       type: System.Boolean
-      description: "Returns a flag the determines whether ReevaluateIfNecessary is temporarily disabled."
+      description: "Returnerar en flagga i avgör om ReevaluateIfNecessary är tillfälligt inaktiverad."
   overload: Microsoft.Build.Evaluation.Project.SkipEvaluation*
   exceptions: []
   platform:
@@ -2311,12 +2311,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the value of the SubToolsetVersion attribute, if any. This value was combined with the value of the ToolsVersion attribute to determine the toolset properties for this project."
+  summary: "Hämtar värdet för attributet SubToolsetVersion, om sådana finns. Det här värdet har kombineras med värdet för attributet ToolsVersion för att avgöra vilka verktygsuppsättningen egenskaper för det här projektet."
   syntax:
     content: public string SubToolsetVersion { get; }
     return:
       type: System.String
-      description: "Returns the SubToolsetVersion attribute value. Returns an empty string if the attribute is not present."
+      description: "Returnerar värdet för attributet SubToolsetVersion. Returnerar en tom sträng om attributet inte finns."
   overload: Microsoft.Build.Evaluation.Project.SubToolsetVersion*
   exceptions: []
   platform:
@@ -2333,12 +2333,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets a dictionary of all targets in this project, keyed by target name."
+  summary: "Hämtar en ordlista över alla mål i det här projektet Nyckelbaserade av målnamn."
   syntax:
     content: public System.Collections.Generic.IDictionary<string,Microsoft.Build.Execution.ProjectTargetInstance> Targets { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Execution.ProjectTargetInstance}
-      description: "Returns a dictionary of all targets in this project, keyed by target name. Overridden targets are not included in this collection. This dictionary is read-only."
+      description: "Returnerar en ordlista över alla mål i det här projektet Nyckelbaserade av målnamn. Åsidosatt mål ingår inte i den här samlingen. Den här ordlistan är skrivskyddad."
   overload: Microsoft.Build.Evaluation.Project.Targets*
   exceptions: []
   platform:
@@ -2355,13 +2355,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the tools version that this project was evaluated with, if any."
-  remarks: "Set by the constructor. This is not necessarily the same as the tools version on the Project tag, if any; it may have been externally specified, for example with a /tv switch on the command line. The actual tools version on the Project tag can be obtained from <xref:Microsoft.Build.Evaluation.Project.Xml%2A>. The tools version cannot be changed once the project has been created."
+  summary: "Hämtar den version av verktyg som det här projektet utvärderades med, om sådana finns."
+  remarks: "Ange genom konstruktorn. Detta är inte nödvändigtvis samma som verktyg-version för taggen projektet eventuella; Det kan ha externt angetts, till exempel med en /tv växel på kommandoraden. Den faktiska verktyg versionen på taggen projekt kan hämtas från <xref:Microsoft.Build.Evaluation.Project.Xml%2A>.</xref:Microsoft.Build.Evaluation.Project.Xml%2A> Verktyg-versionen kan inte ändras när projektet har skapats."
   syntax:
     content: public string ToolsVersion { get; }
     return:
       type: System.String
-      description: "Gets the tools version that this project was evaluated with, if any."
+      description: "Hämtar den version av verktyg som det här projektet utvärderades med, om sådana finns."
   overload: Microsoft.Build.Evaluation.Project.ToolsVersion*
   exceptions: []
   platform:
@@ -2378,13 +2378,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Evaluation
-  summary: "Gets the root project associated with this project. Can never be null"
-  remarks: "There is no way to set this property. If you have a new project root, evaluate it into a new project."
+  summary: "Hämtar rotprojektet som är associerade med det här projektet. Kan inte vara null"
+  remarks: "Det går inte att ange egenskapen. Om du har en ny projektroten utvärderas till ett nytt projekt."
   syntax:
     content: public Microsoft.Build.Construction.ProjectRootElement Xml { get; }
     return:
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "Returns the root project associated with this project, which can never be null."
+      description: "Returnerar rotprojektet som är associerade med det här projektet, vilket kan aldrig vara null."
   overload: Microsoft.Build.Evaluation.Project.Xml*
   exceptions: []
   platform:
