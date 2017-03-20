@@ -11,8 +11,8 @@ items:
   nameWithType: EnlistmentOptions
   fullName: System.Transactions.EnlistmentOptions
   type: Enum
-  summary: "Determines whether the object should be enlisted during the prepare phase."
-  remarks: "This enumeration is passed into the <xref:System.Transactions.Transaction.EnlistVolatile%2A> and <xref:System.Transactions.Transaction.EnlistDurable%2A> and methods to notify the transaction manager whether the resource manager needs to create another enlistment during the Prepare phase. For more information on enlistment, see [Enlisting Resources as Participants in a Transaction](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       If EnlistDuringPrepareRequired is specified during enlistment, the resource manager indicates that it wants to receive a Prepare notification while new enlistments are still allowed for the transaction. A resource manager who acts as a cache for another durable resource, such as a backend database, would probably use this option during enlistment. When the caching resource gets its Prepare notification, it transfers its content to the durable resource. By doing so, the durable resource enlists on the transaction to become a participant of the 2 Phase Commit (2PC) protocol. Before this happens, only the caching resource (not the durable resource) was enlisted.       If None is specified, the enlistment indicates that it will not receive a Prepare notification until it is too late to create new enlistments in 2PC. In our preceding scenario, if a caching resource specifies this option during enlistment, and attempts to flush its cache during the Prepare notification, the durable resource gets an exception when it attempts on enlisting since it is too late.       None should be used as a default."
+  summary: "Anger om objektet ska vara registrerad under förberedningsfasen."
+  remarks: "Den här uppräkningen har överförts till den <xref:System.Transactions.Transaction.EnlistVolatile%2A>och <xref:System.Transactions.Transaction.EnlistDurable%2A>och metoder för att meddela transaktionshanteraren om resurshanteraren behöver skapa en annan registrering under fasen Förbered.</xref:System.Transactions.Transaction.EnlistDurable%2A> </xref:System.Transactions.Transaction.EnlistVolatile%2A> Mer information om registrering finns [resurshanteraren resurser som deltagare i en transaktion](http://msdn.microsoft.com/en-us/7bf66ce7-4190-4910-89d7-df4ad43e9f31).       Om EnlistDuringPrepareRequired anges under registrering, anger resurshanteraren att den vill meddelas Förbered medan nya registreringar fortfarande är tillåtna för transaktionen. En resurshanterare som fungerar som en cache för en annan beständig resurs, till exempel en backend-databas skulle förmodligen använda det här alternativet under registrering. När cachelagring resursen hämtar Förbered anmälan, Överför innehållet till varaktiga resursen. Gör det beständiga resursen att registrera sig för transaktion ska bli en deltagare av 2 fasen genomför (2PC)-protokollet. Innan detta sker registrerades endast cachelagring resurs (inte beständig resursen).       Om inget anges anger registreringen att den inte får ett meddelande Förbered tills det är för sent att skapa nya registreringar i 2PC. I vårt föregående scenario, om en cachelagring resurs anger det här alternativet under registrering och försöker att rensa cacheminnet under Prepare-meddelandet hämtar varaktiga resursen ett undantag när den försöker på resurshanteraren eftersom det är för sent.       Ingen ska användas som standard."
   syntax:
     content: >-
       [System.Flags]
@@ -34,12 +34,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object must enlist during the initial phase of the commitment process."
+  summary: "Objektet måste registrera under den första fasen av åtagande processen."
   syntax:
     content: EnlistDuringPrepareRequired
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -55,12 +55,12 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "The object does not require enlistment during the initial phase of the commitment process."
+  summary: "Objektet kräver inte registrering under den inledande fasen av åtagande processen."
   syntax:
     content: None
     return:
       type: System.Transactions.EnlistmentOptions
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

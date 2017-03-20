@@ -12,8 +12,8 @@ items:
   nameWithType: UnhandledExceptionEventArgs
   fullName: System.UnhandledExceptionEventArgs
   type: Class
-  summary: "Provides data for the event that is raised when there is an exception that is not handled in any application domain."
-  remarks: "UnhandledExceptionEventArgs provides access to the exception object and a flag indicating whether the common language runtime is terminating. The UnhandledExceptionEventArgs is one of the parameters passed into <xref:System.UnhandledExceptionEventHandler> for the <xref:System.AppDomain.UnhandledException?displayProperty=fullName> event.       For more information about event handler delegates, see [Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Tillhandahåller data för den händelse som aktiveras när det finns ett undantag som inte hanteras i en domän."
+  remarks: "UnhandledExceptionEventArgs ger åtkomst till Undantagsobjektet och en flagga som indikerar om CLR avslutas. UnhandledExceptionEventArgs är en av de parametrar som skickas till <xref:System.UnhandledExceptionEventHandler>för den <xref:System.AppDomain.UnhandledException?displayProperty=fullName>händelse.</xref:System.AppDomain.UnhandledException?displayProperty=fullName> </xref:System.UnhandledExceptionEventHandler>       Mer information om händelsehanterare delegater finns [händelser](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,16 +37,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Initializes a new instance of the <xref href=&quot;System.UnhandledExceptionEventArgs&quot;></xref> class with the exception object and a common language runtime termination flag."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.UnhandledExceptionEventArgs&quot;> </xref> klass med Undantagsobjektet och en common language runtime avslutning flagga."
   syntax:
     content: public UnhandledExceptionEventArgs (object exception, bool isTerminating);
     parameters:
     - id: exception
       type: System.Object
-      description: "The exception that is not handled."
+      description: "Undantag som inte hanteras."
     - id: isTerminating
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the runtime is terminating; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om körningen avslutas; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.UnhandledExceptionEventArgs.#ctor*
   exceptions: []
   platform:
@@ -63,15 +63,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Gets the unhandled exception object."
-  remarks: "This property returns an object of type <xref:System.Object> rather than one derived from <xref:System.Exception>. Although the Common Language Specification requires that all exception types derive from <xref:System.Exception>, it is possible for methods to throw exceptions with objects not derived from <xref:System.Exception>. You can do the following to work with this exception:      -   Apply the  <xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute> attribute with a <xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute.WrapNonExceptionThrows%2A?displayProperty=fullName> value of `true` to the assembly that contains the event handler. This wraps all exceptions not derived from the <xref:System.Exception> class in a <xref:System.Runtime.CompilerServices.RuntimeWrappedException> object. You can then safely cast (in C#) or convert (in Visual Basic) the object returned by this property to an <xref:System.Exception> object, and retrieve the original exception object from the <xref:System.Runtime.CompilerServices.RuntimeWrappedException.WrappedException%2A?displayProperty=fullName> property. Note that some compilers, such as the C# and Visual Basic compilers, automatically apply this attribute.      -   Cast the object returned by this property to an <xref:System.Exception> object."
+  summary: "Hämtar objektet ohanterat undantag."
+  remarks: "Den här egenskapen returnerar ett objekt av typen <xref:System.Object>snarare än en härledd från <xref:System.Exception>.</xref:System.Exception> </xref:System.Object> Även om Common Language Specification kräver att alla typer av undantag härledas från <xref:System.Exception>, är det möjligt för metoder för att utlösa undantag med objekt som inte härleds från <xref:System.Exception>.</xref:System.Exception> </xref:System.Exception> Du kan göra följande för att arbeta med undantaget:-gäller den <xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute>attribut med en <xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute.WrapNonExceptionThrows%2A?displayProperty=fullName>värdet för `true` att sammansättningen som innehåller händelsehanteraren.</xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute.WrapNonExceptionThrows%2A?displayProperty=fullName> </xref:System.Runtime.CompilerServices.RuntimeCompatibilityAttribute> Detta radbryts alla undantag som inte har härletts från den <xref:System.Exception>klassen i en <xref:System.Runtime.CompilerServices.RuntimeWrappedException>objektet.</xref:System.Runtime.CompilerServices.RuntimeWrappedException> </xref:System.Exception> Du kan på ett säkert sätt (i C#) eller konvertera (i Visual Basic) objektet som returneras av den här egenskapen till ett <xref:System.Exception>objekt och hämta det ursprungliga Undantagsobjektet från den <xref:System.Runtime.CompilerServices.RuntimeWrappedException.WrappedException%2A?displayProperty=fullName>egenskapen.</xref:System.Runtime.CompilerServices.RuntimeWrappedException.WrappedException%2A?displayProperty=fullName> </xref:System.Exception> Observera att vissa kompilerare, till exempel C# och Visual Basic kompilerare, automatiskt gäller det här attributet.      -Omvandla objektet som returneras av den här egenskapen till ett <xref:System.Exception>objekt.</xref:System.Exception>"
   example:
   - "The following example demonstrates the <xref:System.AppDomain.UnhandledException> event. It defines an event handler, `MyHandler`, that is invoked whenever an unhandled exception is thrown in the default application domain. It then throws two exceptions. The first is handled by a **try/catch** block. The second is unhandled and invokes the `MyHandle` routine before the application terminates.  \n  \n [!code-cs[AppDomain_UnhandledException#1](~/add/codesnippet/csharp/p-system.unhandledexcept_1.cs)]\n [!code-vb[AppDomain_UnhandledException#1](~/add/codesnippet/visualbasic/p-system.unhandledexcept_1.vb)]\n [!code-cpp[AppDomain_UnhandledException#1](~/add/codesnippet/cpp/p-system.unhandledexcept_1.cpp)]"
   syntax:
     content: public object ExceptionObject { get; }
     return:
       type: System.Object
-      description: "The unhandled exception object."
+      description: "Objektet som ett ohanterat undantag."
   overload: System.UnhandledExceptionEventArgs.ExceptionObject*
   exceptions: []
   platform:
@@ -88,13 +88,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System
-  summary: "Indicates whether the common language runtime is terminating."
-  remarks: "Beginning with the .NET Framework version 2.0, this property returns `true` for most unhandled exceptions, unless an application compatibility flag is used to revert to the behavior of versions 1.0 and 1.1. The reason is that most unhandled exceptions in threads, including thread pool threads, are allowed to proceed naturally, which normally results in termination of the application. For more information, including a list of cases in which the runtime does not terminate, see [Exceptions in Managed Threads](~/add/includes/ajax-current-ext-md.md).      ## Version Information    The following applies to the .NET Framework versions 1.0 and 1.1: This property returns `true` when an exception is received in, but not handled by, an application&quot;s main thread. This property also returns `true` if an unmanaged thread is executing managed code and receives an unhandled exception. Finally, this property returns `false` for thread pool threads and managed threads created by an application, because versions 1.0 and 1.1 catch unhandled exceptions in such threads and ignore them."
+  summary: "Anger om CLR avslutas."
+  remarks: "Från och med .NET Framework version 2.0 kan den här egenskapen returnerar `true` för de flesta ohanterat undantag, såvida inte en application compatibility används för att återgå till beteendet för version 1.0 och 1.1. Orsaken är som mest ohanterade undantag i trådar, inklusive tråd pool trådar får fortsätta naturligt, som normalt leder avslutning av programmet. Mer information, inklusive en lista över fall där körningsmiljön inte avslutas, se [undantag i hanterade trådar](~/add/includes/ajax-current-ext-md.md).      ## Följande gäller för .NET Framework-version 1.0 och 1.1 versionsinformation: den här egenskapen returnerar `true` när ett undantag togs emot i men inte hanteras av ett program huvudtråden. Den här egenskapen returnerar också `true` om en ohanterad tråd körs förvaltad kod och tar emot ett undantag. Slutligen den här egenskapen returnerar `false` för tråd pool trådar och hanterade trådar som skapas av ett program, eftersom version 1.0 och 1.1 fånga ohanterat undantag i dessa trådar och ignoreras."
   syntax:
     content: public bool IsTerminating { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the runtime is terminating; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om körningen avslutas; Annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.UnhandledExceptionEventArgs.IsTerminating*
   exceptions: []
   platform:

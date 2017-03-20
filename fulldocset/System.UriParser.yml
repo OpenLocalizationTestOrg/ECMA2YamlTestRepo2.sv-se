@@ -19,8 +19,8 @@ items:
   nameWithType: UriParser
   fullName: System.UriParser
   type: Class
-  summary: "Parses a new URI scheme. This is an abstract class."
-  remarks: "The UriParser class enables you to create parsers for new URI schemes. You can write these parsers in their entirety, or the parsers can be derived from well-known schemes (HTTP, FTP, and other schemes based on network protocols). If you want to create a completely new parser, inherit from <xref:System.GenericUriParser>. If you want to create a parser that extends a well-known URI scheme, inherit from <xref:System.FtpStyleUriParser>, <xref:System.HttpStyleUriParser>, <xref:System.FileStyleUriParser>, <xref:System.GopherStyleUriParser>, or <xref:System.LdapStyleUriParser>.       Microsoft strongly recommends that you use a parser shipped with the .NET Framework. Building your own parser increases the complexity of your application, and will not perform as well as the shipped parsers."
+  summary: "Parsar en ny URI-schema. Det här är en abstrakt klass."
+  remarks: "Klassen UriParser kan du skapa tolkar för nya URI-scheman. Du kan skriva dessa Parser i sin helhet eller tolkar kan härledas från välkända scheman (HTTP, FTP- och andra scheman baserat på nätverksprotokoll). Om du vill skapa en helt ny parser Ärv från <xref:System.GenericUriParser>.</xref:System.GenericUriParser> Om du vill skapa en parser som utökar en välkänd URI-schema som ärver från <xref:System.FtpStyleUriParser>, <xref:System.HttpStyleUriParser>, <xref:System.FileStyleUriParser>, <xref:System.GopherStyleUriParser>, eller <xref:System.LdapStyleUriParser>.</xref:System.LdapStyleUriParser> </xref:System.GopherStyleUriParser> </xref:System.FileStyleUriParser> </xref:System.HttpStyleUriParser> </xref:System.FtpStyleUriParser>       Microsoft rekommenderar att du använder en parser som levereras med .NET Framework. Skapa en egen tolk ökar komplexiteten i ditt program och kommer inte att utföra samt levererade parser."
   syntax:
     content: public abstract class UriParser
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Constructs a default URI parser."
+  summary: "Skapar en standard-URI-parsern."
   syntax:
     content: protected UriParser ();
     parameters: []
@@ -61,23 +61,23 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Gets the components from a URI."
-  remarks: "Use the GetComponents method to determine the value of various parts of the URI, such as the <xref:System.UriComponents>, <xref:System.UriComponents>, or <xref:System.UriComponents>.       The components are returned in the order that they appear in the URI. For example, if <xref:System.UriComponents> is specified, it appears first."
+  summary: "Hämtar komponenter från en URI."
+  remarks: "Använda GetComponents-metoden för att fastställa värdet för olika delar av URI som den <xref:System.UriComponents>, <xref:System.UriComponents>, eller <xref:System.UriComponents>.</xref:System.UriComponents> </xref:System.UriComponents> </xref:System.UriComponents>       Komponenterna som returneras i den ordning som de visas i URI: N. Till exempel om <xref:System.UriComponents>anges den visas först.</xref:System.UriComponents>"
   syntax:
     content: protected virtual string GetComponents (Uri uri, UriComponents components, UriFormat format);
     parameters:
     - id: uri
       type: System.Uri
-      description: "The URI to parse."
+      description: "URI: N att parsa."
     - id: components
       type: System.UriComponents
-      description: "The <xref:System.UriComponents> to retrieve from `uri`."
+      description: "Den <xref:System.UriComponents>att hämta från `uri`.</xref:System.UriComponents>"
     - id: format
       type: System.UriFormat
-      description: "One of the <xref:System.UriFormat> values that controls how special characters are escaped."
+      description: "En av de <xref:System.UriFormat>värden som styr hur specialtecken är undantagna.</xref:System.UriFormat>"
     return:
       type: System.String
-      description: "A string that contains the components."
+      description: "En sträng som innehåller komponenterna."
   overload: System.UriParser.GetComponents*
   exceptions:
   - type: System.ArgumentOutOfRangeException
@@ -100,17 +100,17 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Initialize the state of the parser and validate the URI."
-  remarks: "The InitializeAndValidate method is called every time a <xref:System.Uri> is instantiated."
+  summary: "Parsern tillstånd och validera URI: N."
+  remarks: "InitializeAndValidate-metoden anropas varje gång en <xref:System.Uri>instansieras.</xref:System.Uri>"
   syntax:
     content: protected virtual void InitializeAndValidate (Uri uri, out UriFormatException parsingError);
     parameters:
     - id: uri
       type: System.Uri
-      description: "The T:System.Uri to validate."
+      description: "T:System.Uri att validera."
     - id: parsingError
       type: System.UriFormatException
-      description: "Validation errors, if any."
+      description: "Verifieringsfel uppstod, om sådana finns."
   overload: System.UriParser.InitializeAndValidate*
   exceptions: []
   platform:
@@ -127,19 +127,19 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Determines whether <code>baseUri</code> is a base URI for <code>relativeUri</code>."
+  summary: "Anger om <code> baseUri </code> är en bas-URI för <code> relativeUri </code>."
   syntax:
     content: protected virtual bool IsBaseOf (Uri baseUri, Uri relativeUri);
     parameters:
     - id: baseUri
       type: System.Uri
-      description: "The base URI."
+      description: "Bas-URI."
     - id: relativeUri
       type: System.Uri
-      description: "The URI to test."
+      description: "URI som används för att testa."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>baseUri</code> is a base URI for <code>relativeUri</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>if <code>baseUri</code> is a base URI for <code>relativeUri</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
   overload: System.UriParser.IsBaseOf*
   exceptions: []
   platform:
@@ -156,24 +156,24 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Indicates whether the parser for a scheme is registered."
+  summary: "Anger om parsern för ett schema är registrerad."
   syntax:
     content: public static bool IsKnownScheme (string schemeName);
     parameters:
     - id: schemeName
       type: System.String
-      description: "The scheme name to check."
+      description: "Schemanamnet att kontrollera."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>schemeName</code> has been registered; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> schemeName </code> har varit registrerade, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.UriParser.IsKnownScheme*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>schemeName</code> parameter is null."
+    description: "Den <code> schemeName </code> -parametern är null."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>schemeName</code> parameter is not valid."
+    description: "Den <code> schemeName </code> är inte giltig."
   platform:
   - net462
 - uid: System.UriParser.IsWellFormedOriginalString(System.Uri)
@@ -188,17 +188,17 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Indicates whether a URI is well-formed."
-  remarks: "The IsWellFormedOriginalString method will return false if:      -   The string is not correctly escaped per RFC 2396.      -   The string represents an absolute URI that references an implicit file URI.      -   The string represents an absolute URI that is missing a forward slash before the path component.      -   The string contains unescaped backslashes, even if they will be treated as forward slashes."
+  summary: "Anger om en URI är giltigt."
+  remarks: "Metoden IsWellFormedOriginalString returnerar false om:-strängen är inte korrekt undantaget per RFC 2396.      -Strängen representerar en absolut URI som refererar till en implicit fil URI.      -Strängen representerar en absolut URI som saknar ett snedstreck före del av sökvägen.      -Strängen innehåller unescaped omvända snedstreck, även om de kommer att behandlas som snedstreck."
   syntax:
     content: protected virtual bool IsWellFormedOriginalString (Uri uri);
     parameters:
     - id: uri
       type: System.Uri
-      description: "The URI to check."
+      description: "URI som används för att kontrollera."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>uri</code> is well-formed; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Om <code> uri </code> är korrekt, annars <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.UriParser.IsWellFormedOriginalString*
   exceptions: []
   platform:
@@ -215,14 +215,14 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Invoked by a <xref:System.Uri> constructor to get a <xref href=&quot;System.UriParser&quot;></xref> instance"
-  remarks: "The default implementation returns the same <xref:System.UriParser> instance. You may need to override this method and return a different <xref:System.UriParser> for each invocation if you are operating in a multithreaded environment."
+  summary: "Anropade genom en <xref:System.Uri>konstruktorn för att hämta en <xref href=&quot;System.UriParser&quot;> </xref> instans</xref:System.Uri>"
+  remarks: "Standardimplementering returnerar samma <xref:System.UriParser>instans.</xref:System.UriParser> Du kan behöva åsidosätta den här metoden och returnera en annan <xref:System.UriParser>för varje anrop om du arbetar i en flertrådsmiljö.</xref:System.UriParser>"
   syntax:
     content: protected virtual UriParser OnNewUri ();
     parameters: []
     return:
       type: System.UriParser
-      description: "A <xref href=&quot;System.UriParser&quot;></xref> for the constructed <xref:System.Uri>."
+      description: "En <xref href=&quot;System.UriParser&quot;> </xref> för konstruerade <xref:System.Uri>.</xref:System.Uri>"
   overload: System.UriParser.OnNewUri*
   exceptions: []
   platform:
@@ -239,16 +239,16 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Invoked by the Framework when a <xref href=&quot;System.UriParser&quot;></xref> method is registered."
+  summary: "Anropas av Framework när en <xref href=&quot;System.UriParser&quot;> </xref> metod har registrerats."
   syntax:
     content: protected virtual void OnRegister (string schemeName, int defaultPort);
     parameters:
     - id: schemeName
       type: System.String
-      description: "The scheme that is associated with this <xref href=&quot;System.UriParser&quot;></xref>."
+      description: "Det schema som är associerad med den här <xref href=&quot;System.UriParser&quot;> </xref>."
     - id: defaultPort
       type: System.Int32
-      description: "The port number of the scheme."
+      description: "Portnumret för schemat."
   overload: System.UriParser.OnRegister*
   exceptions: []
   platform:
@@ -265,20 +265,20 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Associates a scheme and port number with a <xref href=&quot;System.UriParser&quot;></xref>."
-  remarks: "If the `defaultPort` parameter is set to -1, the Register method registers no default value for the port number."
+  summary: "Associerar ett schema och port number med en <xref href=&quot;System.UriParser&quot;> </xref>."
+  remarks: "Om den `defaultPort` parametern anges till -1, Register-metoden registrerar inget standardvärde för portnumret."
   syntax:
     content: public static void Register (UriParser uriParser, string schemeName, int defaultPort);
     parameters:
     - id: uriParser
       type: System.UriParser
-      description: "The URI parser to register."
+      description: "Den URI-parsern för att registrera."
     - id: schemeName
       type: System.String
-      description: "The name of the scheme that is associated with this parser."
+      description: "Namnet på det schema som är associerad med den här parsern."
     - id: defaultPort
       type: System.Int32
-      description: "The default port number for the specified scheme."
+      description: "Standardportnumret för det angivna schemat."
   overload: System.UriParser.Register*
   exceptions:
   - type: System.ArgumentNullException
@@ -301,23 +301,23 @@ items:
   assemblies:
   - System
   namespace: System
-  summary: "Called by <xref:System.Uri> constructors and &lt;xref:System.Uri.TryCreate%2A?displayProperty=fullName&gt; to resolve a relative URI."
-  remarks: "<xref:System.Uri> constructors and <xref:System.Uri.TryCreate%2A?displayProperty=fullName> use Resolve to construct a URI from `baseUri` and `relativeUri`.       If a parsing error occurs, the returned string for the resolved relative <xref:System.Uri> is null."
+  summary: "Anropas av <xref:System.Uri>konstruktorer och &lt;xref:System.Uri.TryCreate%2A?displayProperty=fullName&gt; att lösa en relativ URI.</xref:System.Uri>"
+  remarks: "<xref:System.Uri>konstruktorer och <xref:System.Uri.TryCreate%2A?displayProperty=fullName>använda Lös för att skapa en URI från `baseUri` och `relativeUri`.</xref:System.Uri.TryCreate%2A?displayProperty=fullName></xref:System.Uri>       Om parsning av ett fel inträffar, den returnerade strängen för löst relativt <xref:System.Uri>är null.</xref:System.Uri>"
   syntax:
     content: protected virtual string Resolve (Uri baseUri, Uri relativeUri, out UriFormatException parsingError);
     parameters:
     - id: baseUri
       type: System.Uri
-      description: "A base URI."
+      description: "En bas-URI."
     - id: relativeUri
       type: System.Uri
-      description: "A relative URI."
+      description: "En relativ URI."
     - id: parsingError
       type: System.UriFormatException
-      description: "Errors during the resolve process, if any."
+      description: "Under Lös eventuella fel."
     return:
       type: System.String
-      description: "The string of the resolved relative <xref:System.Uri>."
+      description: "Strängen med löst relativt <xref:System.Uri>.</xref:System.Uri>"
   overload: System.UriParser.Resolve*
   exceptions:
   - type: System.InvalidOperationException

@@ -14,8 +14,8 @@ items:
   nameWithType: TrackingParticipant
   fullName: System.Activities.Tracking.TrackingParticipant
   type: Class
-  summary: "The base class for workflow extensions that interact with the workflow tracking infrastructure and access tracking records."
-  remarks: "A tracking participant is registered to receive tracking records. Currently, any class that implements the tracking participant can be registered with the workflow instance to receive tracking records. If the tracking participant is third party code, ensure that this is not malicious code. The tracking participants run in the same process as the workflow instance and in the case of malicious tracking participants, this code could affect the overall workflow execution. The tracking records are delivered to the registered tracking participants as the workflow executes, so the developer should ensure that the tracking participant does not affect the running workflow by performing unintended operations within the track method. Examples of this could be the alteration of workflow variables or operations that take a long time."
+  summary: "Basklass för arbetsflödet tillägg som samverkar med arbetsflödet spårning infrastruktur och åtkomst spåra poster."
+  remarks: "En spårning deltagare har registrerats för att ta emot poster för spårning. För närvarande kan alla klasser som implementerar spårning deltagare registreras med arbetsflödesinstansen att ta emot poster för spårning. Om spårning av deltagare är kod från tredje part, se till att detta inte är skadlig kod. Spårning av deltagare som körs i samma process som arbetsflödesinstansen och för spårning av skadliga deltagare, den här koden kan påverka övergripande arbetsflödeskörning. Posterna för spårning av levereras till spårnings-registrerade deltagare som arbetsflödet körs, så att utvecklaren bör se till att spåra deltagaren inte påverkar arbetsflöden som körs genom att utföra oönskade åtgärder i metoden spåra. Exempel på detta kan vara ändring av arbetsflödesvariabler eller åtgärder som tar lång tid."
   syntax:
     content: public abstract class TrackingParticipant
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, creates a new instance of the derived class."
+  summary: "Skapar en ny instans av den härledda klassen implementeras i en härledd klass."
   syntax:
     content: protected TrackingParticipant ();
     parameters: []
@@ -56,26 +56,26 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, begins asynchronous processing of the tracking record."
-  remarks: "Participants are expected to begin a job to process the records and return an <xref:System.IAsyncResult> that the workflow runtime uses to wait for completion. The default implementation is to call <xref:System.Activities.Tracking.TrackingParticipant.Track%2A> and return a Completed status."
+  summary: "Börjar asynkron bearbetning av spårningsposten implementeras i en härledd klass."
+  remarks: "Deltagare förväntas starta jobb för att bearbeta posterna och returnera ett <xref:System.IAsyncResult>som arbetsflödets körtid använder för att vänta på slutförande.</xref:System.IAsyncResult> Standardimplementering är att anropa <xref:System.Activities.Tracking.TrackingParticipant.Track%2A>och returnera statusen avslutat.</xref:System.Activities.Tracking.TrackingParticipant.Track%2A>"
   syntax:
     content: protected virtual IAsyncResult BeginTrack (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "Genererade spårningsposten."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "Den tidsperiod efter vilken providern avbryter försöket."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to be called on completion of the operation."
+      description: "Metoden som ska anropas vid slutet av åtgärden."
     - id: state
       type: System.Object
-      description: "A user-defined object that uniquely identifies this asynchronous operation."
+      description: "Ett användardefinierat objekt som unikt identifierar den här asynkrona åtgärden."
     return:
       type: System.IAsyncResult
-      description: "The result of the operation."
+      description: "Resultatet av åtgärden."
   overload: System.Activities.Tracking.TrackingParticipant.BeginTrack*
   exceptions: []
   platform:
@@ -92,14 +92,14 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, represents the end of an asynchronous tracking operation."
-  remarks: "This method is expected to block until the tracking operation is complete."
+  summary: "Representerar slutet av en asynkron spårning åtgärd implementeras i en härledd klass."
+  remarks: "Den här metoden förväntas blockera tills spårnings-åtgärden har slutförts."
   syntax:
     content: protected virtual void EndTrack (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The status of the operation."
+      description: "Status för åtgärden."
   overload: System.Activities.Tracking.TrackingParticipant.EndTrack*
   exceptions: []
   platform:
@@ -116,17 +116,17 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "When implemented in a derived class, used to synchronously process the tracking record."
-  remarks: "The track method is called when the workflow instance emits a tracking record."
+  summary: "Implementeras i en härledd klass används för att bearbeta spårningsposten synkront."
+  remarks: "Spåra-metoden anropas när arbetsflödesinstansen genererar en post för spårning."
   syntax:
     content: protected abstract void Track (System.Activities.Tracking.TrackingRecord record, TimeSpan timeout);
     parameters:
     - id: record
       type: System.Activities.Tracking.TrackingRecord
-      description: "The generated tracking record."
+      description: "Genererade spårningsposten."
     - id: timeout
       type: System.TimeSpan
-      description: "The time period after which the provider aborts the attempt."
+      description: "Den tidsperiod efter vilken providern avbryter försöket."
   overload: System.Activities.Tracking.TrackingParticipant.Track*
   exceptions: []
   platform:
@@ -143,13 +143,13 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.Tracking
-  summary: "The tracking profile object used by the tracking participant. Before adding the tracking participant to the workflow extensions, the tracking profile is set on the participant."
-  remarks: "The tracking profile defines which tracking events are sent to this tracking participant."
+  summary: "Spåra profile objektet som används av spårning deltagare. Innan du lägger till spårnings-deltagare arbetsflödet tillägg, är spårnings-profil inställd på deltagaren."
+  remarks: "Spårning profil definierar vilka spårning händelser skickas till denna spårning deltagare."
   syntax:
     content: public virtual System.Activities.Tracking.TrackingProfile TrackingProfile { get; set; }
     return:
       type: System.Activities.Tracking.TrackingProfile
-      description: "The tracking profile."
+      description: "Spårning av profilen."
   overload: System.Activities.Tracking.TrackingParticipant.TrackingProfile*
   exceptions: []
   platform:

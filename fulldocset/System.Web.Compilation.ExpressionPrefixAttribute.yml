@@ -11,8 +11,8 @@ items:
   nameWithType: ExpressionPrefixAttribute
   fullName: System.Web.Compilation.ExpressionPrefixAttribute
   type: Class
-  summary: "Specifies the prefix attribute to use for the expression builder. This class cannot be inherited."
-  remarks: "The ExpressionPrefixAttribute class is used at design time with expressions that are not defined in the configuration file. Use the <xref:System.Web.Compilation.ExpressionPrefixAttribute.ExpressionPrefix%2A> property to get the name of the prefix that is associated with the ExpressionPrefixAttribute object. An expression builder looks for any statements with the following form:       `<%$ [expressionPrefix]:[expressionValue] %>`       Then the expression builder, based on the prefix of the expression, generates code for the property assignment. The `expressionPrefix` parameter refers to a configured expression builder, which is defined in the configuration file or through an ExpressionPrefixAttribute object."
+  summary: "Anger det prefix-attributet ska användas för uttrycksbyggare. Den här klassen kan inte ärvas."
+  remarks: "Klassen ExpressionPrefixAttribute används vid designtillfället med uttryck som inte har definierats i konfigurationsfilen. Använd den <xref:System.Web.Compilation.ExpressionPrefixAttribute.ExpressionPrefix%2A>egenskapen för att hämta namnet på det prefix som är associerad med objektet ExpressionPrefixAttribute.</xref:System.Web.Compilation.ExpressionPrefixAttribute.ExpressionPrefix%2A> En uttrycksbyggare söker efter några instruktioner med följande format: `<%$ [expressionPrefix]:[expressionValue] %>` sedan uttrycksbyggare baserad på uttrycket, prefixet genererar kod för egenskapen tilldelningen. Den `expressionPrefix` parametern refererar till en konfigurerad uttrycksbyggare som definierats i konfigurationsfilen eller via ett ExpressionPrefixAttribute-objekt."
   example:
   - "The following code examples demonstrate how to use the ExpressionPrefixAttribute class. The attribute is applied to a custom expression builder that implements the <xref:System.Web.Compilation.ExpressionBuilder> abstract class. This implementation of <xref:System.Web.Compilation.ExpressionBuilder> returns an evaluated statement that is passed to the expression. To run this example, you must first register the custom expression builder in the Web.config file. The first code example demonstrates how to register the custom expression builder in the Web.config file.  \n  \n```  \n<configuration>  \n    <system.web>  \n       <compilation>  \n          <expressionBuilders>  \n              <add expressionPrefix=\"MyCustomExpression\"  \n               type=\"MyCustomExpressionBuilder\"/>  \n          </expressionBuilders>  \n       </compilation>  \n    </system.web>  \n</configuration>  \n```  \n  \n The second code example demonstrates how to reference the expression in an .aspx file.  \n  \n```  \n<asp:Label ID=\"Label1\" runat=\"server\"   \nText=\"<%$ MyCustomExpression:Hello, world! %>\" />  \n```  \n  \n The third code example demonstrates how to develop a customized expression builder by deriving from <xref:System.Web.Compilation.ExpressionBuilder>. To run this code example, you must place the class in the App_Code folder.  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -38,19 +38,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Compilation.ExpressionPrefixAttribute&quot;></xref> class."
-  remarks: "Use the ExpressionPrefixAttribute constructor to initialize an instance of the <xref:System.Web.Compilation.ExpressionPrefixAttribute> class using a prefix identifier. The ExpressionPrefixAttribute is the default constructor for the <xref:System.Web.Compilation.ExpressionPrefixAttribute> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.Compilation.ExpressionPrefixAttribute&quot;> </xref> klass."
+  remarks: "Använd konstruktorn ExpressionPrefixAttribute för att initiera en instans av den <xref:System.Web.Compilation.ExpressionPrefixAttribute>klassen med ett prefix för identifierare.</xref:System.Web.Compilation.ExpressionPrefixAttribute> ExpressionPrefixAttribute är standardkonstruktor för <xref:System.Web.Compilation.ExpressionPrefixAttribute>klass.</xref:System.Web.Compilation.ExpressionPrefixAttribute>"
   syntax:
     content: public ExpressionPrefixAttribute (string expressionPrefix);
     parameters:
     - id: expressionPrefix
       type: System.String
-      description: "The prefix of the current <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref>."
+      description: "Prefixet för aktuellt <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref>."
   overload: System.Web.Compilation.ExpressionPrefixAttribute.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>expressionPrefix</code> is null or an empty string (&quot;&quot;)."
+    description: "<code>expressionPrefix</code>är null eller en tom sträng (&quot;&quot;)."
   platform:
   - net462
 - uid: System.Web.Compilation.ExpressionPrefixAttribute.ExpressionPrefix
@@ -65,13 +65,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the prefix value for the current <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref> object."
-  remarks: "Use the ExpressionPrefix property to retrieve the name of the prefix that is associated with a given attribute."
+  summary: "Hämtar prefixvärdet för för aktuellt <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref> objekt."
+  remarks: "Använd egenskapen ExpressionPrefix för att hämta namnet på det prefix som är associerad med ett angivet attribut."
   syntax:
     content: public string ExpressionPrefix { get; }
     return:
       type: System.String
-      description: "The expression prefix for the configured <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;></xref>."
+      description: "Uttrycksprefixet för den konfigurerade <xref href=&quot;System.Web.Compilation.ExpressionBuilder&quot;> </xref>."
   overload: System.Web.Compilation.ExpressionPrefixAttribute.ExpressionPrefix*
   exceptions: []
   platform:

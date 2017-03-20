@@ -19,8 +19,8 @@ items:
   nameWithType: ModelService
   fullName: System.Activities.Presentation.Services.ModelService
   type: Class
-  summary: "This class is the main entry point that the designer uses to interact with the model."
-  remarks: "The service has a split between public and protected methods that you must implement when you create a derived class. The public methods are callable by anyone. The protected methods are invoked by the model."
+  summary: "Den här klassen är den viktigaste startpunkten som används i designer för att interagera med modellen."
+  remarks: "Tjänsten har en delning mellan offentliga och skyddade metoder som du måste implementera när du skapar en härledd klass. De offentliga metoderna är callable av vem som helst. Skyddade metoder anropas av modellen."
   example:
   - '[!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]'
   syntax:
@@ -43,7 +43,7 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Creates a new <xref href=&quot;System.Activities.Presentation.Services.ModelService&quot;></xref>."
+  summary: "Skapar en ny <xref href=&quot;System.Activities.Presentation.Services.ModelService&quot;> </xref>."
   syntax:
     content: protected ModelService ();
     parameters: []
@@ -63,16 +63,16 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Takes an existing instance and creates a model item that is a deep clone of the instance."
+  summary: "Tar en befintlig instans och skapar ett modellobjekt som är en djup kloning av instansen."
   syntax:
     content: protected abstract System.Activities.Presentation.Model.ModelItem CreateItem (object item);
     parameters:
     - id: item
       type: System.Object
-      description: "The item to clone and wrap."
+      description: "Objektet du vill klona och Omslut."
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "Returns a newly created <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> that is a clone of the existing item."
+      description: "Returnerar en nyligen skapade <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> som är en klon av det befintliga objektet."
   overload: System.Activities.Presentation.Services.ModelService.CreateItem*
   exceptions: []
   platform:
@@ -89,22 +89,22 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Creates a <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> for a given type. This method is called by <xref href=&quot;System.Activities.Presentation.Model.ModelFactory&quot;></xref> when the user wants to create a new item."
+  summary: "Skapar en <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> för en given. Den här metoden anropas av <xref href=&quot;System.Activities.Presentation.Model.ModelFactory&quot;> </xref> när användaren vill skapa ett nytt objekt."
   syntax:
     content: protected abstract System.Activities.Presentation.Model.ModelItem CreateItem (Type itemType, System.Activities.Presentation.Model.CreateOptions options, object[] arguments);
     parameters:
     - id: itemType
       type: System.Type
-      description: "The type of item to create."
+      description: "Typ av objekt du skapar."
     - id: options
       type: System.Activities.Presentation.Model.CreateOptions
-      description: "Creation options. You can specify whether you would like to initialize default values for an item."
+      description: "Alternativ för att skapa. Du kan ange om du vill initiera standardvärden för ett objekt."
     - id: arguments
       type: System.Object[]
-      description: "An array of arguments to the constructor of the item."
+      description: "En matris av argument för konstruktorn för objektet."
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "Returns the newly created <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref>."
+      description: "Returnerar den nyligen skapade <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>."
   overload: System.Activities.Presentation.Services.ModelService.CreateItem*
   exceptions: []
   platform:
@@ -121,17 +121,17 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Creates a new model item that represents the value of a static member of the given class."
-  remarks: "For example, to add a reference to `Brushes.Red` to the model, call this method with `typeof(Brushes)` and the string &quot;Red&quot; as the parameters. This will be serialized into XAML as `{x:Static Brushes.Red}`."
+  summary: "Skapar ett nytt modellobjekt som representerar värdet för en statisk medlem av den angivna klassen."
+  remarks: "Till exempel för att lägga till en referens till `Brushes.Red` till modellen, anropa den här metoden med `typeof(Brushes)` och strängen &quot;Red&quot; som parametrar. Detta ska serialiseras i XAML som `{x:Static Brushes.Red}`."
   syntax:
     content: protected abstract System.Activities.Presentation.Model.ModelItem CreateStaticMemberItem (Type type, string memberName);
     parameters:
     - id: type
       type: System.Type
-      description: "The type that contains the static member being referenced."
+      description: "Typen som innehåller den statiska medlemmen som refereras."
     - id: memberName
       type: System.String
-      description: "The name of the static member being referenced."
+      description: "Namnet på den statiska medlemmen som refereras."
     return:
       type: System.Activities.Presentation.Model.ModelItem
       description: "Returns <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref>."
@@ -151,25 +151,25 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Finds matching model items given a starting point from which to look."
-  remarks: "All walks are recursive."
+  summary: "Söker efter matchande modellobjekt får en startpunkt som ska sökas."
+  remarks: "Alla får är rekursiv."
   syntax:
     content: public abstract System.Collections.Generic.IEnumerable<System.Activities.Presentation.Model.ModelItem> Find (System.Activities.Presentation.Model.ModelItem startingItem, Predicate<Type> match);
     parameters:
     - id: startingItem
       type: System.Activities.Presentation.Model.ModelItem
-      description: "The <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> from which to start the search. Items above this item will be ignored. This item, and any item below it in the hierarchy, will be included in the search. If this value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, <xref:System.Activities.Presentation.Services.ModelService.Root*> is used instead."
+      description: "Den <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> där sökningen ska startas. Objekt som det här objektet kommer att ignoreras. Det här objektet och alla objekt under den i hierarkin, inkluderas i sökningen. Om värdet är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Activities.Presentation.Services.ModelService.Root*>används i stället.</xref:System.Activities.Presentation.Services.ModelService.Root*>"
     - id: match
       type: System.Predicate{System.Type}
-      description: "A predicate that allows more complex type matching to be used. This method will enumerate all items within the given parent scope that match the predicate."
+      description: "Ett predikat som gör att mer komplex typ matchar ska användas. Den här metoden kommer räkna upp alla objekt som matchar predikatet inom den angivna överordnade omfattningen."
     return:
       type: System.Collections.Generic.IEnumerable{System.Activities.Presentation.Model.ModelItem}
-      description: "Returns an &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains all model items that match the query."
+      description: "Returnerar en &lt;xref:System.Collections.Generic.IEnumerable%601&gt; som innehåller alla modellobjekt som matchar frågan."
   overload: System.Activities.Presentation.Services.ModelService.Find*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>match</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>match</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Activities.Presentation.Services.ModelService.Find(System.Activities.Presentation.Model.ModelItem,System.Type)
@@ -184,25 +184,25 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Finds matching model items given a starting point from which to look."
-  remarks: "All walks are recursive."
+  summary: "Söker efter matchande modellobjekt får en startpunkt som ska sökas."
+  remarks: "Alla får är rekursiv."
   syntax:
     content: public abstract System.Collections.Generic.IEnumerable<System.Activities.Presentation.Model.ModelItem> Find (System.Activities.Presentation.Model.ModelItem startingItem, Type type);
     parameters:
     - id: startingItem
       type: System.Activities.Presentation.Model.ModelItem
-      description: "The <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> from which to start the search. Items above this item will be ignored. This item, and any item below it in the hierarchy, will be included in the search. If this value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, <xref:System.Activities.Presentation.Services.ModelService.Root*> is used instead."
+      description: "Den <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> där sökningen ska startas. Objekt som det här objektet kommer att ignoreras. Det här objektet och alla objekt under den i hierarkin, inkluderas i sökningen. Om värdet är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, <xref:System.Activities.Presentation.Services.ModelService.Root*>används i stället.</xref:System.Activities.Presentation.Services.ModelService.Root*>"
     - id: type
       type: System.Type
-      description: "The <xref:System.Type> of the object to find. This method will enumerate all items within the given parent scope that are of the requested type."
+      description: "Den <xref:System.Type>i objektet för att hitta.</xref:System.Type> Den här metoden kommer räkna upp alla objekt i den angivna överordnade omfattningen av den begärda typen."
     return:
       type: System.Collections.Generic.IEnumerable{System.Activities.Presentation.Model.ModelItem}
-      description: "Returns an &lt;xref:System.Collections.Generic.IEnumerable%601&gt; that contains all model items that match the query."
+      description: "Returnerar en &lt;xref:System.Collections.Generic.IEnumerable%601&gt; som innehåller alla modellobjekt som matchar frågan."
   overload: System.Activities.Presentation.Services.ModelService.Find*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>type</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Activities.Presentation.Services.ModelService.FromName(System.Activities.Presentation.Model.ModelItem,System.String)
@@ -217,24 +217,24 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Locates the <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> in the given scope with the given name."
+  summary: "Söker efter den <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> inom angiven räckvidd med det angivna namnet."
   syntax:
     content: public System.Activities.Presentation.Model.ModelItem FromName (System.Activities.Presentation.Model.ModelItem scope, string name);
     parameters:
     - id: scope
       type: System.Activities.Presentation.Model.ModelItem
-      description: "An optional scope to provide. If the scope is not provided, <xref:System.Activities.Presentation.Services.ModelService.Root*> will be used as a scope. If the scope is provided, the nearest <xref:System.Windows.Markup.INameScope> in the hierarchy will be used to locate the item."
+      description: "En valfri omfattning att tillhandahålla. Om området inte tillhandahålls, <xref:System.Activities.Presentation.Services.ModelService.Root*>ska användas som omfattning.</xref:System.Activities.Presentation.Services.ModelService.Root*> Om omfånget tillhandahålls närmaste <xref:System.Windows.Markup.INameScope>i hierarkin används för att hitta objektet.</xref:System.Windows.Markup.INameScope>"
     - id: name
       type: System.String
-      description: "The name to locate."
+      description: "Att hitta namnet."
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "Returns a <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> whose name matches <code>name</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no match was found."
+      description: "Returnerar en <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> vars namn matchar <code> name </code>, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om ingen matchning hittades."
   overload: System.Activities.Presentation.Services.ModelService.FromName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Activities.Presentation.Services.ModelService.FromName(System.Activities.Presentation.Model.ModelItem,System.String,System.StringComparison)
@@ -249,27 +249,27 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "Locates the <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> in the given scope with the given name."
+  summary: "Söker efter den <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> inom angiven räckvidd med det angivna namnet."
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelItem FromName (System.Activities.Presentation.Model.ModelItem scope, string name, StringComparison comparison);
     parameters:
     - id: scope
       type: System.Activities.Presentation.Model.ModelItem
-      description: "An optional scope to provide. If the scope is not provided, <xref:System.Activities.Presentation.Services.ModelService.Root*> will be used as a scope. If the scope is provided, the nearest <xref:System.Windows.Markup.INameScope> in the hierarchy will be used to locate the item."
+      description: "En valfri omfattning att tillhandahålla. Om området inte tillhandahålls, <xref:System.Activities.Presentation.Services.ModelService.Root*>ska användas som omfattning.</xref:System.Activities.Presentation.Services.ModelService.Root*> Om omfånget tillhandahålls närmaste <xref:System.Windows.Markup.INameScope>i hierarkin används för att hitta objektet.</xref:System.Windows.Markup.INameScope>"
     - id: name
       type: System.String
-      description: "The name to locate."
+      description: "Att hitta namnet."
     - id: comparison
       type: System.StringComparison
-      description: "Determines how the name should be compared. The default is to compare against ordinal."
+      description: "Anger hur namnet ska jämföras. Standardvärdet är att jämföra med ordningstal."
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "Returns a <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref> whose name matches <code>name</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no match was found."
+      description: "Returnerar en <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref> vars namn matchar <code> name </code>, eller <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> om ingen matchning hittades."
   overload: System.Activities.Presentation.Services.ModelService.FromName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Activities.Presentation.Services.ModelService.ModelChanged
@@ -284,13 +284,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "This event is raised when something in the model has changed."
-  remarks: "The event arguments in the event can be used to find what has changed."
+  summary: "Den här händelsen utlöses när något i modellen har ändrats."
+  remarks: "Händelseargument kan i användas efter vad som har ändrats."
   syntax:
     content: public abstract event EventHandler<System.Activities.Presentation.Services.ModelChangedEventArgs> ModelChanged;
     return:
       type: System.EventHandler{System.Activities.Presentation.Services.ModelChangedEventArgs}
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462
@@ -306,13 +306,13 @@ items:
   assemblies:
   - System.Activities.Presentation
   namespace: System.Activities.Presentation.Services
-  summary: "The root of the object hierarchy."
-  remarks: "For linear stores, the root is the first object in the store. For stores that represent a tree of objects, this returns the topmost node of the tree."
+  summary: "Objekthierarkin roten."
+  remarks: "För linjär butiker är roten det första objektet i arkivet. Detta returnerar den översta noden i trädet för butiker som representerar ett träd med objekt."
   syntax:
     content: public abstract System.Activities.Presentation.Model.ModelItem Root { get; }
     return:
       type: System.Activities.Presentation.Model.ModelItem
-      description: "Returns the root of the model hierarchy as a <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;></xref>."
+      description: "Returnerar rot modellhierarkin som en <xref href=&quot;System.Activities.Presentation.Model.ModelItem&quot;> </xref>."
   overload: System.Activities.Presentation.Services.ModelService.Root*
   exceptions: []
   platform:

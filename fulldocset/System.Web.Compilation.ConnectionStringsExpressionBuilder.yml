@@ -16,8 +16,8 @@ items:
   nameWithType: ConnectionStringsExpressionBuilder
   fullName: System.Web.Compilation.ConnectionStringsExpressionBuilder
   type: Class
-  summary: "Retrieves, or generates code to retrieve, values from the &lt;<xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;></xref>&gt; section of the Web.config file."
-  remarks: "The ConnectionStringsExpressionBuilder class provides access to values in the <`connectionStrings`> section of the Web.config file. The <`connectionStrings`> section of the Web.config file contains connection string values in name/value pairs.       A connection string value is retrieved by assigning an expression of the form       `<%$ ConnectionStrings: secureConnectionString %>`       to a control property. The part of the expression before the colon (:) designates the type of expression to be retrieved, and the part after the colon signifies the name of the connection string. The preceding expression would retrieve the following value from the Web.config file.       `<connectionStrings>`       `<add name=&quot;secureConnectionString&quot; connectionString=&quot;Data`       `Source=localhost;Integrated Security=SSPI;Initial`       `Catalog=Northwind;&quot; providerName=&quot;System.Data.SqlClient&quot; />`       `</connectionStrings>`       When the page parser encounters an expression with the prefix `ConnectionStrings`, it creates an instance of the ConnectionStringsExpressionBuilder class to handle the expression.       If the expression is encountered in a page that will be compiled, the ConnectionStringsExpressionBuilder object generates code that retrieves the specified connection string from the Web.config file. If the expression is encountered in a page that will not be compiled, the ConnectionStringsExpressionBuilder object returns the value from the Web.config file when the page is parsed."
+  summary: "Hämtar eller genererar kod för att hämta värden från den &lt; <xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;> </xref> &gt; avsnitt i Web.config-filen."
+  remarks: "Klassen ConnectionStringsExpressionBuilder ger åtkomst till värden i den `connectionStrings`> avsnitt i Web.config-filen. Den `connectionStrings`> avsnitt i Web.config-filen innehåller anslutningssträngarnas värden i namn/värde-par.       Ett strängvärde för anslutningen hämtas genom att tilldela ett uttryck i formuläret `<%$ ConnectionStrings: secureConnectionString %>` till egenskap för en kontroll. En del av uttrycket innan kolon (:) anger vilken typ av uttryck som ska hämtas och del efter kolon innebär det att namnet på anslutningssträngen. Föregående uttryck kan hämta följande värde från Web.config-filen.       `<connectionStrings>`       `<add name=&quot;secureConnectionString&quot; connectionString=&quot;Data`       `Source=localhost;Integrated Security=SSPI;Initial`       `Catalog=Northwind;&quot; providerName=&quot;System.Data.SqlClient&quot; />`       `</connectionStrings>`När sidan parsern påträffar ett uttryck med prefixet `ConnectionStrings`, skapas en instans av klassen ConnectionStringsExpressionBuilder för att hantera uttrycket.       Om uttrycket har påträffats på en sida som ska kompileras genererar objektet ConnectionStringsExpressionBuilder kod som hämtar den angivna anslutningssträngen från Web.config-filen. Om uttrycket har påträffats på en sida som inte kommer att kompilera returnerar objektet ConnectionStringsExpressionBuilder värdet från Web.config-filen när sidan parsas."
   example:
   - "The following code example demonstrates how to declaratively use a <xref:System.Web.UI.WebControls.SqlDataSource> control to retrieve data from a computer running Microsoft SQL Server and display it in a <xref:System.Web.UI.WebControls.GridView> control.  \n  \n [!code-cs[System.Web.UI.WebControls.SqlDataSource_3sql#1](~/add/codesnippet/csharp/t-system.web.compilation_7_1.aspx)]\n [!code-vb[System.Web.UI.WebControls.SqlDataSource_3sql#1](~/add/codesnippet/visualbasic/t-system.web.compilation_7_1.aspx)]  \n  \n The code retrieves the following connection string from the Web.config file.  \n  \n `<configuration   xmlns=\"http://schemas.microsoft.com/.NetConfiguration/v2.0\">`  \n  \n `<connectionStrings>`  \n  \n `<add name=\"MyNorthwind\" connectionString=\"Data`  \n  \n `Source=localhost;Integrated Security=SSPI;Initial`  \n  \n `Catalog=Northwind;\" providerName=\"System.Data.SqlClient\" />`  \n  \n `</connectionStrings>`  \n  \n `</configuration>`"
   syntax:
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Compilation.ConnectionStringsExpressionBuilder&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.Compilation.ConnectionStringsExpressionBuilder&quot;> </xref> klass."
   syntax:
     content: public ConnectionStringsExpressionBuilder ();
     parameters: []
@@ -66,31 +66,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a value from the &lt;<xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;></xref>&gt; section of the Web.config file."
-  remarks: 'This method is called when an expression of the form `<%$ ConnectionStrings: secureConnectionString %>` is encountered in a page that is not compiled. It retrieves the appropriate value from the <`connectionStrings`> section of the Web.config file. This method overrides the <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A> method by calling the <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionString%2A> method if a connection string is included in the `parsedData` parameter, or by calling the <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionStringProviderName%2A> method if a connection string is not included in the `parsedData` parameter.'
+  summary: "Returnerar ett värde från den &lt; <xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;> </xref> &gt; avsnitt i Web.config-filen."
+  remarks: 'Den här metoden anropas när ett uttryck i formuläret `<%$ ConnectionStrings: secureConnectionString %>` har påträffats på en sida som inte kompileras. Hämtar lämpligt värde från den `connectionStrings`> avsnitt i Web.config-filen. Den här metoden åsidosätter den <xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>metoden genom att anropa den <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionString%2A>metoden om en anslutningssträng ingår i den `parsedData` parameter, eller genom att anropa den <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionStringProviderName%2A>metoden om en anslutningssträng inte ingår i den `parsedData` parameter.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionStringProviderName%2A> </xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionString%2A> </xref:System.Web.Compilation.ExpressionBuilder.EvaluateExpression%2A>'
   syntax:
     content: public override object EvaluateExpression (object target, System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: target
       type: System.Object
-      description: "The object that contains the expression."
+      description: "Det objekt som innehåller uttrycket."
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "The property to which the expression is bound."
+      description: "Egenskapen som uttrycket är bunden till."
     - id: parsedData
       type: System.Object
-      description: "The object that represents parsed data as returned by <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>."
+      description: "Det objekt som representerar parsa data som returneras av <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Properties for the control or page."
+      description: "Egenskaper för kontrollen eller sidan."
     return:
       type: System.Object
-      description: "The <xref:System.Object> associated with a key in the &lt;<xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;></xref>&gt; section of the Web.config file."
+      description: "Den <xref:System.Object>som är associerade med en nyckel i den &lt; <xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;> </xref> &gt; avsnitt i filen Web.config.</xref:System.Object>"
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection string name could not be found in the Web.config file."
+    description: "Det gick inte att hitta namn för anslutningssträngen i Web.config-filen."
   platform:
   - net462
 - uid: System.Web.Compilation.ConnectionStringsExpressionBuilder.GetCodeExpression(System.Web.UI.BoundPropertyEntry,System.Object,System.Web.Compilation.ExpressionBuilderContext)
@@ -105,23 +105,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a code expression to evaluate during page parsing."
-  remarks: "This method is called during the CodeDOM creation for a page or control. The <xref:System.CodeDom.CodeExpression> object returned is of the type <xref:System.CodeDom.CodeMethodInvokeExpression> and represents the method to call when retrieving a connection string value."
+  summary: "Returnerar en felkod uttryck som ska utvärderas vid parsning av sidan."
+  remarks: "Den här metoden anropas under CodeDOM genereringen för en sida eller kontroll. Den <xref:System.CodeDom.CodeExpression>objektet som returnerades är av typen <xref:System.CodeDom.CodeMethodInvokeExpression>och representerar metoden som ska anropas vid hämtning av ett strängvärde för anslutningen.</xref:System.CodeDom.CodeMethodInvokeExpression> </xref:System.CodeDom.CodeExpression>"
   syntax:
     content: public override System.CodeDom.CodeExpression GetCodeExpression (System.Web.UI.BoundPropertyEntry entry, object parsedData, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: entry
       type: System.Web.UI.BoundPropertyEntry
-      description: "An object that represents information about the property bound to by the expression."
+      description: "Ett objekt som representerar information om egenskapen bunden till av uttrycket."
     - id: parsedData
       type: System.Object
-      description: "The object that represents parsed data as returned by <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>."
+      description: "Det objekt som representerar parsa data som returneras av <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*>"
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Properties for the control or page."
+      description: "Egenskaper för kontrollen eller sidan."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> that invokes a method."
+      description: "En <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> som anropar en metod."
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.GetCodeExpression*
   exceptions: []
   platform:
@@ -138,22 +138,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a connection string from the &lt;<xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;></xref>&gt; section of the Web.config file."
-  remarks: "The <xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A> property returns a collection of connection string values. The GetConnectionString method returns the value from this collection that is associated with the connection string name."
+  summary: "Returnerar en anslutningssträng från den &lt; <xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;> </xref> &gt; avsnitt i Web.config-filen."
+  remarks: "Den <xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A>egenskapen returnerar en mängd med anslutning strängvärden.</xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A> Metoden GetConnectionString returnerar värdet från den här samlingen som är associerad med namnet för anslutningssträngen."
   syntax:
     content: public static string GetConnectionString (string connectionStringName);
     parameters:
     - id: connectionStringName
       type: System.String
-      description: "The name of the connection string."
+      description: "Namnet på anslutningssträngen."
     return:
       type: System.String
-      description: "The connection string as a <xref:System.String> for this connection string name."
+      description: "Anslutningssträngen som en <xref:System.String>för den här namn för anslutningssträngen.</xref:System.String>"
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionString*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection string name could not be found in the Web.config file."
+    description: "Det gick inte att hitta namn för anslutningssträngen i Web.config-filen."
   platform:
   - net462
 - uid: System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionStringProviderName(System.String)
@@ -168,22 +168,22 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns the connection string provider from the &lt;<xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;></xref>&gt; section of the Web.config file."
-  remarks: "The <xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A?displayProperty=fullName> property returns a collection of connection string values. The GetConnectionStringProviderName method returns the provider for the value from this collection that is associated with the connection string name."
+  summary: "Returnerar strängen-provider för anslutning från den &lt; <xref uid=&quot;langword_csharp_connectionStrings&quot; name=&quot;connectionStrings&quot; href=&quot;&quot;> </xref> &gt; avsnitt i Web.config-filen."
+  remarks: "Den <xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A?displayProperty=fullName>egenskapen returnerar en mängd med anslutning strängvärden.</xref:System.Configuration.ConfigurationManager.ConnectionStrings%2A?displayProperty=fullName> Metoden GetConnectionStringProviderName returnerar providern för värdet från den här samlingen som är associerad med namnet för anslutningssträngen."
   syntax:
     content: public static string GetConnectionStringProviderName (string connectionStringName);
     parameters:
     - id: connectionStringName
       type: System.String
-      description: "The name of the connection string."
+      description: "Namnet på anslutningssträngen."
     return:
       type: System.String
-      description: "The provider as a <xref:System.String> for this connection string name."
+      description: "Leverantören som ett <xref:System.String>för den här namn för anslutningssträngen.</xref:System.String>"
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.GetConnectionStringProviderName*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The connection string name could not be found in the Web.config file."
+    description: "Det gick inte att hitta namn för anslutningssträngen i Web.config-filen."
   platform:
   - net462
 - uid: System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression(System.String,System.Type,System.Web.Compilation.ExpressionBuilderContext)
@@ -198,23 +198,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns an object that represents the parsed expression."
-  remarks: "The returned <xref:System.Object> is of the type <xref:System.Web.UI.Pair>. This <xref:System.Web.UI.Pair> object can be passed to both the <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> method and the <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetCodeExpression%2A> method as `parsedData`. The <xref:System.Web.UI.Pair> object contains the name and value of the connection string."
+  summary: "Returnerar ett objekt som representerar det parsade uttrycket."
+  remarks: "Den returnerade <xref:System.Object>är av typen <xref:System.Web.UI.Pair>.</xref:System.Web.UI.Pair> </xref:System.Object> Detta <xref:System.Web.UI.Pair>objekt kan skickas till både den <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A>metoden och <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetCodeExpression%2A>metod som `parsedData`.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.GetCodeExpression%2A> </xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> </xref:System.Web.UI.Pair> Den <xref:System.Web.UI.Pair>-objekt innehåller namnet och värdet för anslutningssträngen.</xref:System.Web.UI.Pair>"
   syntax:
     content: public override object ParseExpression (string expression, Type propertyType, System.Web.Compilation.ExpressionBuilderContext context);
     parameters:
     - id: expression
       type: System.String
-      description: "The value of the declarative expression."
+      description: "Värdet för deklarativ uttrycket."
     - id: propertyType
       type: System.Type
-      description: "The targeted type for the expression."
+      description: "Uttrycket riktade typ."
     - id: context
       type: System.Web.Compilation.ExpressionBuilderContext
-      description: "Properties for the control or page."
+      description: "Egenskaper för kontrollen eller sidan."
     return:
       type: System.Object
-      description: "An <xref:System.Object> containing the parsed representation of the expression."
+      description: "En <xref:System.Object>som innehåller den parsa representationen av uttrycket.</xref:System.Object>"
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.ParseExpression*
   exceptions: []
   platform:
@@ -231,13 +231,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a value indicating whether an expression can be evaluated in a page that is not compiled."
-  remarks: "The SupportsEvaluate property indicates whether the <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> method has been implemented in the class. <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> must be implemented within an expression builder for an expression to be evaluated in a page that is not compiled. <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder> supports no-compile evaluation of connection strings, so `true` is always returned."
+  summary: "Returnerar ett värde som anger om ett uttryck kan utvärderas på en sida som inte kompileras."
+  remarks: "Egenskapen SupportsEvaluate anger om <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A>metoden har implementerats i klassen.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A>måste införas i en uttrycksbyggare för ett uttryck som ska utvärderas på en sida som inte kompileras.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder.EvaluateExpression%2A> <xref:System.Web.Compilation.ConnectionStringsExpressionBuilder>stöder Nej kompilera utvärdering av anslutningssträngar, så `true` returneras alltid.</xref:System.Web.Compilation.ConnectionStringsExpressionBuilder>"
   syntax:
     content: public override bool SupportsEvaluate { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> in all cases."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>i samtliga fall."
   overload: System.Web.Compilation.ConnectionStringsExpressionBuilder.SupportsEvaluate*
   exceptions: []
   platform:

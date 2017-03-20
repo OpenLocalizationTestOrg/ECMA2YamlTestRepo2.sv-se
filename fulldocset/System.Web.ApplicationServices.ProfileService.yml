@@ -15,8 +15,8 @@ items:
   nameWithType: ProfileService
   fullName: System.Web.ApplicationServices.ProfileService
   type: Class
-  summary: "Enables access to ASP.NET user profiles through a Web service."
-  remarks: "The ProfileService class enables you to get and set a user&quot;s profile properties through a Windows Communication Foundation (WCF) service. You can keep custom information for users through profile properties. For information about profile properties, see [ASP.NET Profile Properties Overview](~/add/includes/ajax-current-ext-md.md).       The ProfileService class contains the following methods that should be accessed only through a WCF service:      -   <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>      -   <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A>       To call these methods, you must enable the profile service on the Web server and then connect a WCF-compatible client application to the Web service. For information about how to configure the profile service, see [How to: Enable the WCF Profile Service](~/add/includes/ajax-current-ext-md.md).       The <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> event is raised when a user&quot;s profile properties are set. You can create an event handler for the <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> event to validate property values or to dynamically change their values.       For an example of how to use the WCF profile service from a console application, see [Walkthrough: Using ASP.NET Application Services](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Aktiverar åtkomst till ASP.NET-användarprofiler via en webbtjänst."
+  remarks: "Klassen ProfileService kan du hämta och ange egenskaper för en användares profil genom en Windows Communication Foundation (WCF). Du kan behålla anpassad information för användare via profilegenskaper. Information om profilegenskaper finns [översikt över ASP.NET-profilen egenskaper](~/add/includes/ajax-current-ext-md.md).       Klassen ProfileService innehåller följande metoder som ska användas endast via en WCF-tjänst:- <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>- <xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A>för att anropa metoderna, måste du aktivera profiltjänsten på webbservern och ansluta ett klientprogram i WCF-kompatibel till webbtjänsten.</xref:System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata%2A> </xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> </xref:System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser%2A> </xref:System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser%2A> Information om hur du konfigurerar profiltjänsten finns [så här: aktivera tjänsten WCF-profil](~/add/includes/ajax-current-ext-md.md).       Den <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>händelsen utlöses när en användares profilegenskaper anges.</xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties> Du kan skapa en händelsehanterare för den <xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>händelse att validera egenskapsvärden eller dynamiskt ändra deras värden.</xref:System.Web.ApplicationServices.ProfileService.ValidatingProperties>       Ett exempel på hur du använder tjänsten WCF-profil från ett konsolprogram finns [genomgång: med ASP.NET-programtjänster](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: >-
       [System.ServiceModel.Activation.AspNetCompatibilityRequirements(RequirementsMode=System.ServiceModel.Activation.AspNetCompatibilityRequirementsMode.Required)]
@@ -46,7 +46,7 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.ApplicationServices.ProfileService&quot;></xref> class."
+  summary: "Initierar en ny instans av den <xref href=&quot;System.Web.ApplicationServices.ProfileService&quot;> </xref> klass."
   syntax:
     content: public ProfileService ();
     parameters: []
@@ -66,17 +66,17 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves all the profile properties and values that are available to the profile service for the current user."
-  remarks: "Use the GetAllPropertiesForCurrentUser method to retrieve all the user&quot;s profile properties through one Web service call. For example, you can call this method and then store the profile properties in the client application and retrieve values as needed. The GetAllPropertiesForCurrentUser method returns values only for the profile properties that have been configured to be accessed through a Web service. You set whether a profile property can be accessed through a Web service by setting either the <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A> property or the <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property to `true`."
+  summary: "Hämtar alla profilegenskaper och värden som är tillgängliga för profiltjänsten för den aktuella användaren."
+  remarks: "Använd metoden GetAllPropertiesForCurrentUser för att hämta alla användares profilegenskaper via en webbtjänstanrop. Till exempel anropa den här metoden och sedan lagra profilegenskaperna i klientprogrammet och hämta värden efter behov. GetAllPropertiesForCurrentUser-metoden returnerar endast värden för profilegenskaper som har konfigurerats för att kunna nås via en webbtjänst. Du ange om en profilegenskap kan nås via en webbtjänst genom att ange antingen den <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>egenskapen eller <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>egenskapen `true`.</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> </xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>"
   syntax:
     content: public System.Collections.Generic.Dictionary<string,object> GetAllPropertiesForCurrentUser (bool authenticatedUserOnly);
     parameters:
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are returned only for users who have been authenticated."
+      description: "Ett värde som anger om egenskaperna returneras bara om en användare har autentiserats."
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Object}
-      description: "The profile properties and values."
+      description: "Profilegenskaper och värden."
   overload: System.Web.ApplicationServices.ProfileService.GetAllPropertiesForCurrentUser*
   exceptions: []
   platform:
@@ -93,25 +93,25 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves the specified profile properties and values for the current user."
-  remarks: "To get specific profile property values for the current users, you use the GetPropertiesForCurrentUser method to specify which profile properties are retrieved. The GetPropertiesForCurrentUser method returns values only for profile properties that are configured for access through a Web service. You configure a profile property for access through a Web service by setting the <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A> property or <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property to `true`."
+  summary: "Hämtar den angivna profilegenskaper och värden för den aktuella användaren."
+  remarks: "Om du vill få specifik profil egenskapsvärden för aktuella användare kan använda du metoden GetPropertiesForCurrentUser för att ange vilka profilegenskaper hämtas. GetPropertiesForCurrentUser-metoden returnerar endast värden för profilegenskaper som är konfigurerade för åtkomst via en webbtjänst. Du kan konfigurera en profilegenskap för åtkomst via en webbtjänst genom att ange den <xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>egenskapen eller <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>egenskapen `true`.</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> </xref:System.Web.Configuration.ScriptingProfileServiceSection.ReadAccessProperties%2A>"
   syntax:
     content: public System.Collections.Generic.Dictionary<string,object> GetPropertiesForCurrentUser (System.Collections.Generic.IEnumerable<string> properties, bool authenticatedUserOnly);
     parameters:
     - id: properties
       type: System.Collections.Generic.IEnumerable{System.String}
-      description: "A collection of string values that contains the names of the profile properties to retrieve."
+      description: "En samling av strängvärden som innehåller namnen på profilegenskaperna som ska hämtas."
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are returned only for users who have been authenticated."
+      description: "Ett värde som anger om egenskaperna returneras bara om en användare har autentiserats."
     return:
       type: System.Collections.Generic.Dictionary{System.String,System.Object}
-      description: "The profile property information and values."
+      description: "Egenskapen profilinformation och värden."
   overload: System.Web.ApplicationServices.ProfileService.GetPropertiesForCurrentUser*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>properties</code> parameter or an item in the <code>properties</code> collection is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Den <code> properties </code> parameter eller ett objekt i den <code> properties </code> samlingen är <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata
@@ -126,14 +126,14 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Retrieves information about the profile properties that are available through the profile service."
-  remarks: "Use the GetPropertiesMetadata method to retrieve information about profile properties from a client application that is compatible with the Windows Communication Framework (WCF). You can retrieve information such as the following:      -   The name and type of the properties.      -   Whether they are read-only.      -   Whether they can be accessed by users who have not been authenticated.      -   The default values for the properties.       After retrieving these values, a client application can take appropriate actions such as not trying to set a read-only property. The current user does not have to be authenticated in order to call the GetPropertiesMetadata method, because the properties apply to all users."
+  summary: "Hämtar information om de profilegenskaper som är tillgängliga via profiltjänsten."
+  remarks: "Använd metoden GetPropertiesMetadata för att hämta information om profilegenskaper från ett klientprogram som är kompatibel med Windows Communication Framework (WCF). Du kan hämta information, till exempel följande:-namn och typ av egenskaperna.      – Om de är skrivskyddad.      – Om att de kan användas av användare som inte har autentiserats.      -Standardvärdena för egenskaper.       När du hämtar dessa värden, vidta ett klientprogram lämpliga åtgärder, till exempel inte håller på att ange en skrivskyddad egenskap. Den aktuella användaren behöver inte autentiseras för att anropa metoden GetPropertiesMetadata eftersom egenskaperna som gäller för alla användare."
   syntax:
     content: public System.Web.ApplicationServices.ProfilePropertyMetadata[] GetPropertiesMetadata ();
     parameters: []
     return:
       type: System.Web.ApplicationServices.ProfilePropertyMetadata[]
-      description: "An array of <xref href=&quot;System.Web.ApplicationServices.ProfilePropertyMetadata&quot;></xref> objects that contain information about the profile properties."
+      description: "En matris med <xref href=&quot;System.Web.ApplicationServices.ProfilePropertyMetadata&quot;> </xref> objekt som innehåller information om profilegenskaperna."
   overload: System.Web.ApplicationServices.ProfileService.GetPropertiesMetadata*
   exceptions: []
   platform:
@@ -150,20 +150,20 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Sets the values of the specified properties in the user profile."
-  remarks: "You use the SetPropertiesForCurrentUser method to set a user&quot;s profile properties from an application that is compatible with the Windows Communication Foundation (WCF). The SetPropertiesForCurrentUser method returns any values that are not set, which might be for any one of the following reasons:      -   The specified profile property is read only (the <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A> property for a specified profile property is not set to `true`).      -   The user profile does not have a profile property that has the matching name.      -   Validation of the value failed."
+  summary: "Anger värdena för de angivna egenskaperna i användarprofilen."
+  remarks: "Du kan använda metoden SetPropertiesForCurrentUser för att ange egenskaper för en användares profil från ett program som är kompatibel med Windows Communication Foundation (WCF). Metoden SetPropertiesForCurrentUser returnerar alla värden som inte är inställda, som kan vara för någon av följande orsaker:-angivna profile-egenskapen är skrivskyddad (den <xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>egenskapen för en egenskap för profilen är inte inställd på `true`).</xref:System.Web.Configuration.ScriptingProfileServiceSection.WriteAccessProperties%2A>      -Användarprofilen har inte en profilegenskap som har matchande namn.      -Verifiering av värdet misslyckades."
   syntax:
     content: public System.Collections.ObjectModel.Collection<string> SetPropertiesForCurrentUser (System.Collections.Generic.IDictionary<string,object> values, bool authenticatedUserOnly);
     parameters:
     - id: values
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A collection that contains names and values of the profile properties to set."
+      description: "En samling som innehåller namn och värden för egenskaper för profilen för att ange."
     - id: authenticatedUserOnly
       type: System.Boolean
-      description: "A value that indicates whether properties are set only for users who have been authenticated."
+      description: "Ett värde som anger om egenskaper har angetts för användare som har autentiserats."
     return:
       type: System.Collections.ObjectModel.Collection{System.String}
-      description: "The properties that were not set for the user profile, if any."
+      description: "De egenskaper som inte har ställts in för användarprofil, om sådana finns."
   overload: System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser*
   exceptions: []
   platform:
@@ -180,15 +180,15 @@ items:
   assemblies:
   - System.Web.Extensions
   namespace: System.Web.ApplicationServices
-  summary: "Occurs when a user&quot;s profile properties are set."
-  remarks: "You can create an event handler for the ValidatingProperties event to validate property values or to dynamically change their values. The ValidatingProperties event is raised when the <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> method is called. If the value for a property fails validation, add that property to the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection of the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs> class. Any properties that are in the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection will not be saved to the user profile.       You can add and register the event handler in the Global.asax file."
+  summary: "Inträffar när en användares profilegenskaper anges."
+  remarks: "Du kan skapa en händelsehanterare för händelsen ValidatingProperties Validera egenskapsvärden eller dynamiskt ändra deras värden. ValidatingProperties-händelsen inträffar när den <xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A>metoden anropas.</xref:System.Web.ApplicationServices.ProfileService.SetPropertiesForCurrentUser%2A> Om värdet för en egenskap inte verifiering, lägga till egenskapen i <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>samling <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs>klass.</xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs> </xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> Alla egenskaper som finns i den <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>samlingen kommer att sparas i användarprofilen.</xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A>       Du kan lägga till och registrera händelsehanteraren i filen Global.asax."
   example:
   - "The following example shows an event handler for the ValidatingProperties event. When the value passed for `FirstName` property is empty or `null`, the `FirstName` property is added to the <xref:System.Web.ApplicationServices.ValidatingPropertiesEventArgs.FailedProperties%2A> collection.  \n  \n [!code-vb[System.Web.ApplicationServices.ProfileService#1](~/add/codesnippet/visualbasic/e-system.web.application_2_1.asax)]\n [!code-cs[System.Web.ApplicationServices.ProfileService#1](~/add/codesnippet/csharp/e-system.web.application_2_1.asax)]"
   syntax:
     content: public static event EventHandler<System.Web.ApplicationServices.ValidatingPropertiesEventArgs> ValidatingProperties;
     return:
       type: System.EventHandler{System.Web.ApplicationServices.ValidatingPropertiesEventArgs}
-      description: "To be added."
+      description: "Som ska läggas till."
   exceptions: []
   platform:
   - net462

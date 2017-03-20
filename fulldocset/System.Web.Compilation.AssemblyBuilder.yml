@@ -16,8 +16,8 @@ items:
   nameWithType: AssemblyBuilder
   fullName: System.Web.Compilation.AssemblyBuilder
   type: Class
-  summary: "Provides a container for building an assembly from one or more virtual paths within an ASP.NET project."
-  remarks: "Instances of the AssemblyBuilder class are used with <xref:System.Web.Compilation.BuildProvider> class methods to build one or more files into a compiled assembly.       The <xref:System.Web.Compilation.BuildProvider> class defines build functionality for individual files, and the AssemblyBuilder class combines the source code contributed by each <xref:System.Web.Compilation.BuildProvider> instance into a single assembly. The ASP.NET build environment passes an AssemblyBuilder object to the <xref:System.Web.Compilation.BuildProvider> methods when building an assembly from one or more files, so that each <xref:System.Web.Compilation.BuildProvider> instance can contribute source code for its file to the overall assembly.       The ASP.NET build environment determines the language and compiler required by files within the project, based on the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> property. The build environment groups files based on their compiler settings and builds an assembly from files that require the same compiler.       The <xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A> property indicates the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation that the ASP.NET build environment uses to compile an assembly from the source code contributed by each <xref:System.Web.Compilation.BuildProvider> implementation.       A <xref:System.Web.Compilation.BuildProvider> object contributes source code in the form of a CodeDOM graph using the <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> method. A <xref:System.Web.Compilation.BuildProvider> object contributes source code stored in a physical file using the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method.       After each <xref:System.Web.Compilation.BuildProvider> object contributes source code using the appropriate AssemblyBuilder methods, the ASP.NET build environment uses the AssemblyBuilder class to compile the collected source code into an assembly."
+  summary: "Innehåller en behållare för att skapa en sammansättning från ett eller flera virtuella sökvägar i ASP.NET-projekt."
+  remarks: "Instanser av klassen AssemblyBuilder används med <xref:System.Web.Compilation.BuildProvider>klassen metoder för att skapa en eller flera filer i en kompilerad sammansättning.</xref:System.Web.Compilation.BuildProvider>       Den <xref:System.Web.Compilation.BuildProvider>definierar klassen build-funktioner för enskilda filer och klassen AssemblyBuilder kombinerar källkoden från varje <xref:System.Web.Compilation.BuildProvider>instansen till en enda sammansättning.</xref:System.Web.Compilation.BuildProvider> </xref:System.Web.Compilation.BuildProvider> ASP.NET skapar miljön Överför ett AssemblyBuilder objekt till den <xref:System.Web.Compilation.BuildProvider>metoder när du skapar en sammansättning från en eller flera filer så att varje <xref:System.Web.Compilation.BuildProvider>instans kan bidra källkoden för dess fil övergripande sammansättningens.</xref:System.Web.Compilation.BuildProvider> </xref:System.Web.Compilation.BuildProvider>       ASP.NET-kompileringsmiljö avgör vilka språk och kompileraren som krävs av filer i projektet, baserat på den <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>egenskapen.</xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> Build-miljön grupper filer baserat på deras kompileringsinställningarna och bygger en sammansättning från filer som behöver samma kompileraren.       Den <xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A>egenskapen anger den <xref:System.CodeDom.Compiler.CodeDomProvider>implementering som ASP.NET-kompileringsmiljö använder för att kompilera en sammansättning från källkoden har bidragit med varje <xref:System.Web.Compilation.BuildProvider>implementering.</xref:System.Web.Compilation.BuildProvider> </xref:System.CodeDom.Compiler.CodeDomProvider> </xref:System.Web.Compilation.AssemblyBuilder.CodeDomProvider%2A>       En <xref:System.Web.Compilation.BuildProvider>objektet bidrar källkoden i form av en CodeDOM diagram med hjälp av den <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>metoden.</xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> </xref:System.Web.Compilation.BuildProvider> En <xref:System.Web.Compilation.BuildProvider>objektet bidrar källkoden som lagras i en fysisk fil med hjälp av den <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>metoden.</xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> </xref:System.Web.Compilation.BuildProvider>       Efter varje <xref:System.Web.Compilation.BuildProvider>objektet bidrar källkod med lämpliga AssemblyBuilder metoder, ASP.NET-kompileringsmiljö använder AssemblyBuilder-klassen för att sammanställa insamlade källkoden i en sammansättning.</xref:System.Web.Compilation.BuildProvider>"
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n In the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation, the build provider adds the generated code for the assembly compilation using the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method. The example does not include the implementation of the `SampleClassGenerator` class. For more information, see <xref:System.CodeDom.CodeCompileUnit>.  \n  \n [!code-cs[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/csharp/t-system.web.compilation_10_1.cs)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/visualbasic/t-system.web.compilation_10_1.vb)]"
   syntax:
@@ -40,14 +40,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds an assembly that is referenced by source code generated for a file."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation uses the AddAssemblyReference method when generating source code that references types within the input assembly.       The ASP.NET build environment initializes the default collection of assemblies available for reference through the build provider in the <xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName> property. If the build provider generates source code that references additional assemblies, the build provider adds the additional assemblies using the AddAssemblyReference method. The ASP.NET build environment resolves external types during assembly compilation using both the referenced assemblies added by build providers and the default collection of assemblies available for reference.       Typically, a <xref:System.Web.Compilation.BuildProvider> object adds source code to the <xref:System.Web.Compilation.AssemblyBuilder> object in the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method. If a build provider generates source code that uses an external type, the build provider adds the type&quot;s assembly using the AddAssemblyReference method.       Use the AddAssemblyReference method to add a referenced assembly required in source code generated by a <xref:System.Web.Compilation.BuildProvider> instance for a specific file type. Use the [assemblies Element for compilation (ASP.NET Settings Schema)](http://msdn.microsoft.com/en-us/3811c448-af1c-498d-be2b-6ed2634c51e9) configuration element to configure an assembly for reference across multiple file types in a project."
+  summary: "Lägger till en sammansättning som refereras av källkoden genereras för en fil."
+  remarks: "En <xref:System.Web.Compilation.BuildProvider>implementering används metoden AddAssemblyReference vid generering av källkoden som refererar till typer i inkommande sammansättningen.</xref:System.Web.Compilation.BuildProvider>       ASP.NET skapar miljön initierar standardsamling sammansättningar som är tillgängligt för referens i build-provider i den <xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName>egenskapen.</xref:System.Web.Compilation.BuildProvider.ReferencedAssemblies%2A?displayProperty=fullName> Om build-provider genererar källkoden som refererar till ytterligare sammansättningar, build-providern lägger till ytterligare sammansättningarna med metoden AddAssemblyReference. ASP.NET-kompileringsmiljö löser externa typer under sammansättningen kompilering med hjälp av de refererade sammansättningarna lagt till genom att skapa providers och standardsamling sammansättningar som är tillgängligt för referens.       Normalt en <xref:System.Web.Compilation.BuildProvider>objektet lägger till källkod för att den <xref:System.Web.Compilation.AssemblyBuilder>objekt i den <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>metoden.</xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> </xref:System.Web.Compilation.AssemblyBuilder> </xref:System.Web.Compilation.BuildProvider> Om en build-provider genererar källkod som använder en extern typ, läggs den typen sammansättningen med metoden AddAssemblyReference build-provider.       Använd metoden AddAssemblyReference att lägga till en sammansättning som refereras i källkoden som genererats av en <xref:System.Web.Compilation.BuildProvider>-instans för en viss filtyp.</xref:System.Web.Compilation.BuildProvider> Använd den [sammansättningar Element för compilation (inställningsschema för ASP.NET)](http://msdn.microsoft.com/en-us/3811c448-af1c-498d-be2b-6ed2634c51e9) konfigurationselement för att konfigurera en sammansättning som referens över flera filtyper i ett projekt."
   syntax:
     content: public void AddAssemblyReference (System.Reflection.Assembly a);
     parameters:
     - id: a
       type: System.Reflection.Assembly
-      description: "An assembly referenced by a code compile unit or source file included in the assembly compilation."
+      description: "En sammansättning som refereras av en kompilera enhet eller källa kodfilen ingår i sammansättningen kompilering."
   overload: System.Web.Compilation.AssemblyBuilder.AddAssemblyReference*
   exceptions: []
   platform:
@@ -64,17 +64,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Adds source code for the assembly in the form of a CodeDOM graph."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the AddCodeCompileUnit method when generating a CodeDOM graph for a virtual path. Source code added with AddCodeCompileUnit is included in the assembly compilation.       Typically, a build provider&quot;s <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation reads the <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> property, parses the contents, and then adds the generated source code to the specified <xref:System.Web.Compilation.AssemblyBuilder> object. The build provider uses the AddCodeCompileUnit method to add source code as a CodeDOM graph to the assembly. Alternately, the build provider can use the <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A> method to add source code as a physical file to the assembly."
+  summary: "Lägger till källkoden för sammansättningen i form av ett CodeDOM-diagram."
+  remarks: "En <xref:System.Web.Compilation.BuildProvider>implementering anropar metoden AddCodeCompileUnit vid generering av ett CodeDOM-diagram för en virtuell sökväg.</xref:System.Web.Compilation.BuildProvider> Källkoden som lagts till med AddCodeCompileUnit ingår i sammansättningen kompilering.       Normalt en build leverantörens <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>metoden implementering läser den <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A>egenskapen tolkar innehållet och lägger sedan till den genererade källkoden till den angivna <xref:System.Web.Compilation.AssemblyBuilder>objektet.</xref:System.Web.Compilation.AssemblyBuilder> </xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> </xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> Build-providern använder metoden AddCodeCompileUnit lägga till kod som ett CodeDOM-diagram i sammansättningen. Alternativt kan build-provider kan använda den <xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>metod för att lägga till kod som en fysisk fil i sammansättningen.</xref:System.Web.Compilation.AssemblyBuilder.CreateCodeFile%2A>"
   syntax:
     content: public void AddCodeCompileUnit (System.Web.Compilation.BuildProvider buildProvider, System.CodeDom.CodeCompileUnit compileUnit);
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating `compileUnit`."
+      description: "Build-provider som genererar `compileUnit`."
     - id: compileUnit
       type: System.CodeDom.CodeCompileUnit
-      description: "The code compile unit to include in the assembly compilation."
+      description: "Kodkompileringsenheten ska ingå i sammansättningen kompilering."
   overload: System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit*
   exceptions: []
   platform:
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the compiler used to build source code into an assembly."
-  remarks: "The CodeDomProvider property indicates the <xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName> implementation that the ASP.NET build environment uses to compile an assembly from the source code contributed by each <xref:System.Web.Compilation.BuildProvider> implementation.       The ASP.NET build environment determines the language and compiler required by files within the project, based on the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> property. The build environment groups files based on their compiler settings and builds an assembly from files that require the same compiler."
+  summary: "Hämtar kompileraren används för att skapa källkoden till en sammansättning."
+  remarks: "Egenskapen CodeDomProvider anger den <xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName>implementering som ASP.NET-kompileringsmiljö använder för att kompilera en sammansättning från källkoden har bidragit med varje <xref:System.Web.Compilation.BuildProvider>implementering.</xref:System.Web.Compilation.BuildProvider> </xref:System.CodeDom.Compiler.CodeDomProvider?displayProperty=fullName>       ASP.NET-kompileringsmiljö avgör vilka språk och kompileraren som krävs av filer i projektet, baserat på den <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName>egenskapen.</xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A?displayProperty=fullName> Build-miljön grupper filer baserat på deras kompileringsinställningarna och bygger en sammansättning från filer som behöver samma kompileraren."
   syntax:
     content: public System.CodeDom.Compiler.CodeDomProvider CodeDomProvider { get; }
     return:
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A read-only <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> implementation used for compiling source code contributed by each build provider into an assembly."
+      description: "En skrivskyddad <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> implementering som används för att sammanställa källkoden har bidragit med varje build-provider i en sammansättning."
   overload: System.Web.Compilation.AssemblyBuilder.CodeDomProvider*
   exceptions: []
   platform:
@@ -114,8 +114,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Allows a build provider to create a temporary source file, and include the source file in the assembly compilation."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the CreateCodeFile method when generating a source file for a virtual path. Source code added with CreateCodeFile is included in the assembly compilation.       Typically, a build provider <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation reads the <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> property, parses the contents, and then adds the generated source code to the specified <xref:System.Web.Compilation.AssemblyBuilder> object. The build provider uses the CreateCodeFile method to add source code as a physical file to the assembly. Alternately, the build provider can use the <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A> method to add source code as a CodeDOM graph to the assembly.       After calling CreateCodeFile, the build provider writes the source file contents using the returned <xref:System.IO.TextWriter> object. After writing the source file, the <xref:System.Web.Compilation.BuildProvider> object must use the <xref:System.IO.TextWriter.Close%2A> method to close the <xref:System.IO.TextWriter> object and free associated system resources."
+  summary: "Gör en build-provider att skapa en tillfällig fil och inkludera källfilen i sammansättningen kompilering."
+  remarks: "En <xref:System.Web.Compilation.BuildProvider>implementering anropar metoden CreateCodeFile vid generering av en källfil för en virtuell sökväg.</xref:System.Web.Compilation.BuildProvider> Källkoden som lagts till med CreateCodeFile ingår i sammansättningen kompilering.       Normalt en build-provider <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A>metoden implementering läser den <xref:System.Web.Compilation.BuildProvider.VirtualPath%2A>egenskapen tolkar innehållet och lägger sedan till den genererade källkoden till den angivna <xref:System.Web.Compilation.AssemblyBuilder>objektet.</xref:System.Web.Compilation.AssemblyBuilder> </xref:System.Web.Compilation.BuildProvider.VirtualPath%2A> </xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> Build-providern använder metoden CreateCodeFile lägga till kod som en fysisk fil i sammansättningen. Alternativt kan build-provider kan använda den <xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>metod för att lägga till kod som ett CodeDOM-diagram i sammansättningen.</xref:System.Web.Compilation.AssemblyBuilder.AddCodeCompileUnit%2A>       När du anropar CreateCodeFile build-provider skriver källan filens innehåll med hjälp av den returnerade <xref:System.IO.TextWriter>objektet.</xref:System.IO.TextWriter> När du har skrivit källfilen, den <xref:System.Web.Compilation.BuildProvider>objektet måste använda den <xref:System.IO.TextWriter.Close%2A>metod för att stänga den <xref:System.IO.TextWriter>objektet och frigöra associerade systemresurser.</xref:System.IO.TextWriter> </xref:System.IO.TextWriter.Close%2A> </xref:System.Web.Compilation.BuildProvider>"
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n In the <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> method implementation, the build provider adds the generated code for the assembly compilation using the CreateCodeFile method. The example does not include the implementation of the `SampleClassGenerator` class. For more information, see <xref:System.CodeDom.CodeCompileUnit>.  \n  \n [!code-cs[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/csharp/3ed51741-a65c-4f55-993c-_1.cs)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/visualbasic/3ed51741-a65c-4f55-993c-_1.vb)]"
   syntax:
@@ -123,10 +123,10 @@ items:
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating the code source file."
+      description: "Build-provider generera kod källfilen."
     return:
       type: System.IO.TextWriter
-      description: "An open <xref:System.IO.TextWriter> that can be used to write source code to a temporary file."
+      description: "En öppen <xref:System.IO.TextWriter>som kan användas för att skriva kod till en temporär fil.</xref:System.IO.TextWriter>"
   overload: System.Web.Compilation.AssemblyBuilder.CreateCodeFile*
   exceptions: []
   platform:
@@ -143,25 +143,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Allows a build provider to create a resource file to include in the assembly compilation."
-  remarks: "After calling the CreateEmbeddedResource method, a <xref:System.Web.Compilation.BuildProvider> object writes the resource file contents using the returned <xref:System.IO.Stream> object. For example, the build provider can write the resources using a <xref:System.Resources.ResourceWriter> object. After writing the resource file, the build provider must use the <xref:System.IO.Stream.Close%2A> method to close the <xref:System.IO.Stream> object and free associated system resources."
+  summary: "Gör en build-provider att skapa en resursfil ska ingå i sammansättningen kompilering."
+  remarks: "När du anropar metoden CreateEmbeddedResource en <xref:System.Web.Compilation.BuildProvider>skriver objektet resursen filens innehåll med hjälp av den returnerade <xref:System.IO.Stream>objektet.</xref:System.IO.Stream> </xref:System.Web.Compilation.BuildProvider> Build-provider kan till exempel skriva resurser med hjälp av en <xref:System.Resources.ResourceWriter>objektet.</xref:System.Resources.ResourceWriter> När du har skrivit resursfilen build-provider måste använda den <xref:System.IO.Stream.Close%2A>metod för att stänga den <xref:System.IO.Stream>objektet och frigöra associerade systemresurser.</xref:System.IO.Stream> </xref:System.IO.Stream.Close%2A>"
   syntax:
     content: public System.IO.Stream CreateEmbeddedResource (System.Web.Compilation.BuildProvider buildProvider, string name);
     parameters:
     - id: buildProvider
       type: System.Web.Compilation.BuildProvider
-      description: "The build provider generating the resource."
+      description: "Build-provider som genererar resursen."
     - id: name
       type: System.String
-      description: "The name of the resource file to be created."
+      description: "Namnet på resursfilen som ska skapas."
     return:
       type: System.IO.Stream
-      description: "An open <xref:System.IO.Stream> that can be used to write resources, which are included in the assembly compilation."
+      description: "En öppen <xref:System.IO.Stream>som kan användas för att skriva resurser som ingår i sammansättningen kompileringen.</xref:System.IO.Stream>"
   overload: System.Web.Compilation.AssemblyBuilder.CreateEmbeddedResource*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>name</code> is not a valid file name."
+    description: "<code>name</code>är inte ett giltigt filnamn."
   platform:
   - net462
 - uid: System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory(System.String)
@@ -176,14 +176,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Inserts a fast object factory template for a type into the compiled assembly."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the GenerateTypeFactory method to optimize performance for frequent creations of type instances."
+  summary: "Infogar en snabb objektmallen fabriken för en typ i kompilerade sammansättningen."
+  remarks: "En <xref:System.Web.Compilation.BuildProvider>implementering anropar metoden GenerateTypeFactory för att optimera prestanda för frekventa skapande av typen instanser.</xref:System.Web.Compilation.BuildProvider>"
   syntax:
     content: public void GenerateTypeFactory (string typeName);
     parameters:
     - id: typeName
       type: System.String
-      description: "The name of the type to generate."
+      description: "Namnet på typen för att generera."
   overload: System.Web.Compilation.AssemblyBuilder.GenerateTypeFactory*
   exceptions: []
   platform:
@@ -200,17 +200,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Generates a temporary file path."
-  remarks: "A <xref:System.Web.Compilation.BuildProvider> implementation calls the GetTempFilePhysicalPath method to get a temporary file path that is deleted automatically after the assembly is compiled.       The GetTempFilePhysicalPath method generates a unique temporary file path, but does not create the file."
+  summary: "Genererar en sökväg för temporära filer."
+  remarks: "En <xref:System.Web.Compilation.BuildProvider>implementering anropar metoden GetTempFilePhysicalPath för att få en temporär filsökväg som tas bort automatiskt när sammansättningen har kompilerats.</xref:System.Web.Compilation.BuildProvider>       Metoden GetTempFilePhysicalPath genererar en unik tillfällig sökväg, men skapa inte filen."
   syntax:
     content: public string GetTempFilePhysicalPath (string extension);
     parameters:
     - id: extension
       type: System.String
-      description: "The file extension to use for the temporary file."
+      description: "Filnamnstillägget för den temporära filen."
     return:
       type: System.String
-      description: "A path to a temporary file, with the specified file extension."
+      description: "En sökväg till en temporär fil med det angivna filtillägget."
   overload: System.Web.Compilation.AssemblyBuilder.GetTempFilePhysicalPath*
   exceptions: []
   platform:
